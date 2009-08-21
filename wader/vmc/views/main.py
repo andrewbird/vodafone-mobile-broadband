@@ -313,7 +313,10 @@ class MainView(View):
             else:
                 self.bearer = 'umts'
 
-            self['cell_type_label'].set_text(newmode)
+            obj = self['cell_type_label']
+            if obj:
+                obj.set_text(newmode)
+
 #            if self.model.is_connected():
 #                msg = _('Connected to %s') % newmode
 #                self['net_statusbar'].push(1, msg)
@@ -323,8 +326,9 @@ class MainView(View):
         else:
             image = 'signal-%s-%d.png' % (self.bearer, self.signal)
 
-        self['signal_image'].set_from_file(
-                os.path.join(IMAGES_DIR, image))
+        obj = self['signal_image']
+        if obj:
+            obj.set_from_file(os.path.join(IMAGES_DIR, image))
 
     def rssi_changed(self, new_rssi):
         print "rssi_changed: %s" % new_rssi
@@ -336,10 +340,12 @@ class MainView(View):
 
     def operator_changed(self, new_operator):
         print "operator_changed: %s" % new_operator
-        if new_operator in '0':
-            self['network_name_label'].set_text('')
-        else:
-            self['network_name_label'].set_text(new_operator)
+        obj = self['network_name_label']
+        if obj:
+            if new_operator in '0':
+                obj.set_text('')
+            else:
+                obj.set_text(new_operator)
 
     def set_status(self, status):
         print "set_status: %s" % status
