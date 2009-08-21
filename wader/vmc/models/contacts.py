@@ -20,10 +20,8 @@
 __version__ = "$Rev: 1172 $"
 
 import gtk
+from gtkmvc import ListStoreModel
 from gobject import TYPE_STRING, TYPE_PYOBJECT, TYPE_BOOLEAN
-
-from wader.vmc import ListStoreModel
-
 
 class ContactsStoreModel(ListStoreModel):
     """Store Model for Contacts treeviews"""

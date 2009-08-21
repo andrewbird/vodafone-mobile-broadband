@@ -21,6 +21,7 @@ import dbus.mainloop.glib
 dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
 import gobject
 from gtkmvc import Model
+import datetime
 
 from wader.vmc.logger import logger
 from wader.vmc.dialogs import show_error_dialog
@@ -84,6 +85,15 @@ class MainModel(Model):
         self.dialer_manager = None
         self.preferences_model = PreferencesModel(self, lambda: self.device)
         self._init_wader_object()
+
+       # usage stuff from vmc
+        self.session_stats = (0, 0)
+        self.month_cache = {}
+        self.origin_date = None
+        self.clean_usage_cache()
+
+    def is_connected(self):
+        return False # XXX: just for now
 
     def _init_wader_object(self):
         try:
@@ -401,4 +411,103 @@ class MainModel(Model):
         self.tx_bytes = 0
         self.conf.set('statistics', 'total_bytes', self.total_bytes)
         self.tracking_stats = False
+
+    #----------------------------------------------#
+    # USAGE STATS MODEL                            #
+    #----------------------------------------------#
+
+    # IMPORTANT: All the usage values are measured as bits, only the View
+    # should represent it with other units.
+
+    def clean_usage_cache(self):
+        self.month_cache = {}
+        self.origin_date = datetime.datetime.now()
+
+    def _date_from_month_offset(self, offset):
+        d = self.origin_date
+        new_month = (d.month + offset) % 12 or 12
+        new_year = d.year + (d.month + offset - 1) / 12
+        try:
+            ret = d.replace(month=new_month, year=new_year)
+        except ValueError:
+            #It's a last day greater than the last day of the new month
+            next_month = d.replace(day=1, 
+                                  month=(new_month + 1) % 12 or 12,
+                                  year=new_year)
+            ret = next_month - datetime.timedelta(days=1)
+        return ret
+
+    def _update_session_stats(self, stats):
+        self.session_stats = stats
+
+    def _get_usage_for_month(self, dateobj):
+        key = (dateobj.year, dateobj.month)
+        #if not self.month_cache.has_key(key):
+        #    # Current session information
+        #    if self.is_connected() and self.origin_date.month == dateobj.month:
+        #        tracker = self.connsm.tracker
+        #        tracker.get_current_usage().addCallback(
+        #                                            self._update_session_stats)
+#
+        #        stats = self.session_stats
+        #        umts = tracker.conn_mode in THREEG_SIGNALS
+        #        transferred = stats[0] + stats[1]
+        #        transferred_3g = umts and transferred or 0
+        #        transferred_gprs = not umts and transferred or 0
+        #    else:
+        #        transferred_3g = 0
+        #        transferred_gprs = 0
+
+        #    # Historical usage data
+        #    usage = usage_manager.get_usage_for_month(dateobj)
+        #    for item in usage:
+        #        if item.umts:
+        #            transferred_3g += item.bits_recv + item.bits_sent
+        #        else:
+        #            transferred_gprs += item.bits_recv + item.bits_sent
+        transferred_gprs = 100
+        transferred_3g = 200
+        if True:
+            self.month_cache[key] = {
+                'month': dateobj.strftime(_("%B, %Y")),
+                'transferred_gprs': transferred_gprs,
+                'transferred_3g': transferred_3g,
+                'transferred_total': transferred_gprs + transferred_3g
+            }
+        return self.month_cache[key]
+
+    def get_month(self, offset):
+        date = self._date_from_month_offset(offset)
+        return self._get_usage_for_month(date)['month']
+
+    def get_transferred_3g(self, offset):
+        date = self._date_from_month_offset(offset)
+        return self._get_usage_for_month(date)['transferred_3g']
+
+    def get_transferred_gprs(self, offset):
+        date = self._date_from_month_offset(offset)
+        return self._get_usage_for_month(date)['transferred_gprs']
+
+    def get_transferred_total(self, offset):
+        date = self._date_from_month_offset(offset)
+        return self._get_usage_for_month(date)['transferred_total']
+
+    def get_session_3g(self):
+        if not self.is_connected():
+            return 0
+        tracker = self.connsm.tracker
+        umts = tracker.conn_mode in THREEG_SIGNALS
+        total = self.session_stats[0] + self.session_stats[1]
+        return umts and total or 0
+
+    def get_session_gprs(self):
+        if not self.is_connected():
+            return 0
+        tracker = self.connsm.tracker
+        umts = tracker.conn_mode in THREEG_SIGNALS
+        total = self.session_stats[0] + self.session_stats[1]
+        return not umts and total or 0
+
+    def get_session_total(self):
+        return self.get_session_3g() + self.get_session_gprs()
 

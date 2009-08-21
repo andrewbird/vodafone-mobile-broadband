@@ -19,10 +19,8 @@
 Base classes for Controllers
 """
 
-__version__ = "$Rev: 1172 $"
-
 from gtkmvc import Controller
-from vmc.wader.utils import revert_dict
+from wader.common.utils import revert_dict
 
 TV_DICT = {0 : 'inbox_treeview',
            1 : 'inbox_treeview',

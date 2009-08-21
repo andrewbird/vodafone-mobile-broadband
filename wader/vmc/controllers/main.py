@@ -22,7 +22,8 @@ Main controller for the application
 import os
 
 import gtk
-from gtkmvc import Controller
+#from gtkmvc import Controller
+from wader.vmc.controllers.base import WidgetController
 
 import wader.common.consts as consts
 from wader.common.signals import SIG_SMS
@@ -34,13 +35,13 @@ from wader.vmc.dialogs import (show_profile_window,
                                ask_pin_dialog, ask_puk_dialog,
                                ask_puk2_dialog, ask_password_dialog)
 #from wader.vmc.keyring_dialogs import NewKeyringDialog, KeyringPasswordDialog
-from wader.vmc.utils import bytes_repr, get_error_msg
+from wader.vmc.utils import bytes_repr, get_error_msg, UNIT_MB, units_to_bits
 from wader.vmc.translate import _
 from wader.vmc.notify import new_notification
 from wader.vmc.consts import GTK_LOCK, GLADE_DIR
 
 
-class MainController(Controller):
+class MainController(WidgetController):
     """
     I am the controller for the main window
     """
@@ -285,8 +286,9 @@ class MainController(Controller):
                                        error_handler=logger.error)
 
     def on_device_enabled_cb(self, udi):
-        self.view['sms_menuitem'].set_sensitive(True)
-        self.view['preferences_menu_item'].set_sensitive(True)
+        pass
+#        self.view['sms_menuitem'].set_sensitive(True)
+#        self.view['preferences_menu_item'].set_sensitive(True)
 
     def _on_connect_cb(self, dev_path):
         self.view.set_connected()
@@ -477,3 +479,84 @@ class MainController(Controller):
     def on_exit_menu_item_activate(self, widget):
         self.close_application()
 
+########################### copied in from application.py ##############################
+
+    def _update_usage_panel(self, name, offset):
+        m = self.model
+        w = lambda label : label % name
+
+        values = ['month', 'transferred_gprs', 'transferred_3g',
+                  'transferred_total']
+        for value_name in values:
+            widget = (value_name + '_%s_label') % name
+            value = getattr(m, 'get_%s' % value_name)(offset)
+            self.view.set_usage_value(widget, value)
+
+        self.view.set_usage_bar_value('%s-gprs' % name,
+                                            m.get_transferred_gprs(offset))
+        self.view.set_usage_bar_value('%s-3g' % name,
+                                            m.get_transferred_3g(offset))
+
+    def _update_usage_session(self):
+        set_value = self.view.set_usage_value
+        m = self.model
+        set_value('transferred_3g_session_label', m.get_session_3g())
+        set_value('transferred_gprs_session_label', m.get_session_gprs())
+        set_value('transferred_total_session_label', m.get_session_total())
+
+    def usage_notifier(self):
+        #limit = int(config.get('preferences', 'traffic_threshold'))
+        #notification = config.getboolean('preferences', 'usage_notification')
+        limit = 10
+        notification = 0
+        limit = units_to_bits(limit, UNIT_MB)
+        if (notification and limit > 0
+                and self.model.get_transferred_total(0) > limit
+                and not self.user_limit_notified):
+            self.user_limit_notified = True
+            message = _("User Limit")
+            details = _("You have reached your limit of maximum usage")
+            #dialogs.open_warning_dialog(message, details)
+            show_normal_notification(self.tray, message, details, expires=False)
+        elif self.model.get_transferred_total(0) < limit :
+            self.user_limit_notified = False
+
+    def update_usage_view(self):
+        self.model.clean_usage_cache()
+        self._update_usage_panel('current', 0)
+        self._update_usage_panel('last', -1)
+        self._update_usage_session()
+        self.view.update_bars_user_limit()
+        self.usage_notifier()
+
+    #----------------------------------------------#
+    # MISC FUNCTIONALITY                           #
+    #----------------------------------------------#
+
+    def _name_contact_cell_edited(self, widget, path, newname):
+        """Handler for the cell-edited signal of the name column"""
+        # first check that the edit is necessary
+        model = self.view['contacts_treeview'].get_model()
+        if newname != model[path][1] and newname != '':
+            model[path][1] = newname
+            contact = model[path][3]
+            contact.name = unicode(newname, 'utf8')
+#            if not isinstance(contact, DBContact):
+#                model[path][3] = contact
+#                phonebook = get_phonebook(self.model.get_sconn())
+#                d = phonebook.edit_contact(contact)
+
+    def _number_contact_cell_edited(self, widget, path, newnumber):
+        """Handler for the cell-edited signal of the number column"""
+        model = self.view['contacts_treeview'].get_model()
+        number = newnumber.strip()
+        # check that the edit is necessary
+        if number != model[path][2] and utilities.is_valid_number(number):
+            contact = model[path][3]
+            contact.number = unicode(newnumber, 'utf8')
+#            if not isinstance(contact, DBContact):
+#                model[path][2] = number
+#                model[path][3] = contact
+#
+#                phonebook = get_phonebook(self.model.get_sconn())
+#                d = phonebook.edit_contact(contact)

@@ -25,24 +25,253 @@ import gtk
 from gtkmvc import View
 
 from wader.vmc.translate import _
-from wader.vmc.consts import GLADE_DIR, THEMES_DIR, APP_LONG_NAME
+from wader.vmc.consts import GLADE_DIR, IMAGES_DIR, THEMES_DIR, APP_LONG_NAME
+from wader.vmc.utils import repr_usage, UNIT_KB, UNIT_MB, units_to_bits
+from wader.vmc.views.stats import StatsBar
+from wader.vmc.controllers.base import TV_DICT
+from wader.vmc.models.sms import SMSStoreModel
+from wader.vmc.models.contacts import ContactsStoreModel
 
 THROBBER = gtk.gdk.PixbufAnimation(os.path.join(GLADE_DIR, 'throbber.gif'))
 
+WIDGETS_TO_SHOW = ['connect1',
+                   'change_pin1', 'request_pin1',
+                   'import_contacts1', 'export_contacts1', 'new_menu_item',
+                   'new_sms_menu_item', 'contact1', 'reply_sms_menu_item',
+                   'reply_sms_menu', 'forward_sms_menu_item',
+                   'imagemenuitem3', 'preferences_menu_item']
+WIDGETS_TO_HIDE = WIDGETS_TO_SHOW + ['connect_button']
+
+WIN_WIDTH = 600
+WIN_HEIGHT = 500
+
+SMS_TEXT_TV_WIDTH = 220
+
 class MainView(View):
 
-    GLADE_FILE = os.path.join(GLADE_DIR, "VMC-reduced.glade")
-
     def __init__(self, ctrl):
-        super(MainView, self).__init__(ctrl, self.GLADE_FILE, 'main_window',
-                                       register=True)
+
+#        if gtk.gdk.screen_height() < 600:
+        if True:
+            height = 420
+            GLADE_FILE = os.path.join(GLADE_DIR, "VMC-reduced.glade")
+        else:
+            height = WIN_HEIGHT
+            GLADE_FILE = os.path.join(GLADE_DIR, "VMC.glade")
+
+        super(MainView, self).__init__(ctrl, GLADE_FILE,
+            'main_window', register=False)
+
+        #Usage statistics
+#        self.usage_user_limit = int(config.get('preferences', 'traffic_threshold'))
+#        self.usage_max_value = int(config.get('preferences', 'max_traffic'))
+        self.usage_user_limit = 0
+        self.usage_max_value = 10
+        self.usage_units = UNIT_KB
+        self.usage_bars = None
+
+        self.setup_view(height)
+        ctrl.register_view(self)
         self.throbber = None
+        ctrl.update_usage_view()
+        self.setup_treeview(ctrl)
+
         self.theme_ui()
 
+    def setup_view(self,height):
+        self.set_name()
+        window = self.get_top_widget()
+        window.set_position(gtk.WIN_POS_CENTER)
+        window.set_size_request(width=WIN_WIDTH, height=height)
+        self._setup_usage_view()
+
     def theme_ui(self):
-        self.get_top_widget().set_title(APP_LONG_NAME)
         theme = os.path.join(THEMES_DIR, "default.gtkrc")
         gtk.rc_parse(theme)
+
+    def _setup_usage_view(self):
+        args = {'user_limit': self.usage_user_limit}
+        labels = ('GPRS', '3G') * 2
+        self.usage_bars = dict(zip(
+                    ('current-gprs', 'current-3g', 'last-gprs', 'last-3g'),
+                    StatsBar.init_array(labels, **args)))
+
+        self['stats_bar_last_box'].add(self.usage_bars['last-gprs'])
+        self['stats_bar_last_box'].add(self.usage_bars['last-3g'])
+        self['stats_bar_current_box'].add(self.usage_bars['current-gprs'])
+        self['stats_bar_current_box'].add(self.usage_bars['current-3g'])
+        # XXX: Malign hack we couldn't find out a better way to build up the
+        # usage widgets without messing up the initial view
+        self.get_top_widget().show_all()
+        self.get_top_widget().hide()
+        self['vbox17'].hide()
+        self['contacts_menubar'].hide()
+
+    def set_usage_value(self, widget, value):
+        if isinstance(value, (int, long)):
+            self[widget].set_text(repr_usage(value))
+        else:
+            self[widget].set_text(str(value))
+
+    def set_usage_bar_value(self, bar, value):
+        bar = self.usage_bars[bar]
+        bar.set_value(value)
+
+    def update_bars_user_limit(self):
+        #self.usage_user_limit = int(config.get('preferences', 'traffic_threshold'))
+        #self.usage_max_value = int(config.get('preferences', 'max_traffic'))
+        self.usage_user_limit = 0
+        self.usage_max_value = 10
+        for bar in self.usage_bars.values():
+            bar.set_user_limit(units_to_bits(self.usage_user_limit, UNIT_MB))
+            bar.set_max_value(units_to_bits(self.usage_max_value, UNIT_MB))
+
+    def set_name(self, name=APP_LONG_NAME):
+        self.get_top_widget().set_title(name)
+
+    def set_disconnected(self):
+        image = gtk.Image()
+        image.set_from_file(os.path.join(IMAGES_DIR, 'connect.png'))
+        image.show()
+        self['connect_button'].set_icon_widget(image)
+        self['connect_button'].set_label(_("Connect"))
+        self['connect_button'].set_active(False)
+
+        self['upload_alignment'].hide()
+        self['download_alignment'].hide()
+
+        self['net_statusbar'].push(1, _('Not connected'))
+
+    def set_connected(self):
+        image = gtk.Image()
+        image.set_from_file(os.path.join(IMAGES_DIR, 'disconnect.png'))
+        image.show()
+
+        self['connect_button'].set_icon_widget(image)
+        self['connect_button'].set_label(_("Disconnect"))
+        self['connect_button'].set_active(True)
+
+        self['mobile1'].set_sensitive(False)
+
+        self['upload_alignment'].show()
+        self['download_alignment'].show()
+
+    def setup_treeview(self, ctrl):
+        """Sets up the treeviews"""
+
+        for name in list(set(TV_DICT.values())):
+            treeview = self[name]
+            col_smstype, col_smstext, col_smsnumber, \
+                    col_smsdate, col_smsid = range(5)
+            col_usertype, col_username, col_usernumber,\
+                    col_userid, col_editable = range(5)
+            if name in 'contacts_treeview':
+                model = ContactsStoreModel()
+#            else:
+#                model = SMSStoreModel(ctrl.model.get_sconn)
+
+            treeview.set_model(model)
+            treeview.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
+
+            if name in 'contacts_treeview':
+                cell = gtk.CellRendererPixbuf()
+                column = gtk.TreeViewColumn(_("Type"))
+                column.pack_start(cell)
+                column.set_attributes(cell, pixbuf = col_usertype)
+                treeview.append_column(column)
+
+                cell = gtk.CellRendererText()
+                column = gtk.TreeViewColumn(_("Name"), cell,
+                                            text=col_username,
+                                            editable=col_editable)
+                column.set_resizable(True)
+                column.set_sort_column_id(col_username)
+                cell.connect('edited', ctrl._name_contact_cell_edited)
+                treeview.append_column(column)
+
+                cell = gtk.CellRendererText()
+                column = gtk.TreeViewColumn(_("Number"), cell,
+                                            text=col_usernumber,
+                                            editable=col_editable)
+                column.set_resizable(True)
+                column.set_sort_column_id(col_usernumber)
+                cell.connect('edited', ctrl._number_contact_cell_edited)
+                treeview.append_column(column)
+
+                cell = gtk.CellRendererText()
+                column = gtk.TreeViewColumn("IntId", cell, text=col_userid)
+                column.set_visible(False)
+                column.set_sort_column_id(col_userid)
+                treeview.append_column(column)
+
+                cell = gtk.CellRendererText()
+                column = gtk.TreeViewColumn("Editable", cell, text=col_editable)
+                column.set_visible(False)
+                column.set_sort_column_id(col_editable)
+                treeview.append_column(column)
+
+            else: # inbox_tv sent_tv drafts_tv sent_tv
+                cell = gtk.CellRendererPixbuf()
+                column = gtk.TreeViewColumn(_("Type"))
+                column.pack_start(cell)
+                column.set_attributes(cell, pixbuf = col_smstype)
+                treeview.append_column(column)
+
+                cell = gtk.CellRendererText()
+                cell.set_property('editable', False)
+                column = gtk.TreeViewColumn(_("Text"), cell,
+                                        text=col_smstext)
+                column.set_resizable(True)
+                column.set_sort_column_id(col_smstext)
+                column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+                column.set_fixed_width(SMS_TEXT_TV_WIDTH)
+                treeview.append_column(column)
+
+                cell = gtk.CellRendererText()
+
+                thename = name in ['sent_treeview', 'drafts_treeview'] \
+                             and _("Recipient") or _("Sender")
+                column = gtk.TreeViewColumn(thename, cell, text=col_smsnumber)
+                column.set_resizable(True)
+                column.set_sort_column_id(col_smsnumber)
+                cell.set_property('editable', False)
+                treeview.append_column(column)
+
+                cell = gtk.CellRendererText()
+                column = gtk.TreeViewColumn(_("Date"), cell, text=col_smsdate)
+                column.set_resizable(True)
+                column.set_sort_column_id(col_smsdate)
+                def render_date(cellview, cell, model, _iter):
+                    datetime = model.get_value(_iter, 3)
+                    if datetime:
+                        cell.set_property('text',
+                                    time.strftime("%c", datetime.timetuple()))
+                    return
+                def sort_func(model, iter1, iter2, data):
+                    date1 = model.get_value(iter1, 3)
+                    date2 = model.get_value(iter2, 3)
+                    if date1 and not date2:
+                        return 1
+                    if date2 and not date1:
+                        return -1
+                    if date1 == date2:
+                        return 0
+                    if date1 < date2:
+                        return -1
+                    else:
+                        return 1
+
+                model.set_sort_column_id(col_smsdate, gtk.SORT_DESCENDING)
+                model.set_sort_func(col_smsdate, sort_func, None)
+                column.set_cell_data_func(cell, render_date)
+                cell.set_property('editable', False)
+                treeview.append_column(column)
+
+                cell = gtk.CellRendererText()
+                column = gtk.TreeViewColumn("intId", cell, text=col_smsid)
+                column.set_visible(False)
+                column.set_sort_column_id(col_smsid)
+                treeview.append_column(column)
 
     def _get_signal_icon(self, rssi):
         if rssi < 10 or rssi > 100:
@@ -79,15 +308,15 @@ class MainView(View):
 #        self['sms_menuitem'].set_sensitive(not enable)
 #        self['preferences_menu_item'].set_sensitive(not enable)
 
-    def set_connected(self):
-        self['connect_button'].set_label(_("Disconnect"))
+#    def set_connected(self):
+#        self['connect_button'].set_label(_("Disconnect"))
 
-    def set_disconnected(self, device_present=True):
-        self['connect_button'].set_label(_("Connect"))
-        self['connect_button'].set_active(False)
-        self.stop_throbber()
-        if not device_present:
-            self.set_initialising(True)
+#    def set_disconnected(self, device_present=True):
+#        self['connect_button'].set_label(_("Connect"))
+#        self['connect_button'].set_active(False)
+#        self.stop_throbber()
+#        if not device_present:
+#            self.set_initialising(True)
 
     def start_throbber(self):
         if self.throbber is None:
