@@ -142,12 +142,14 @@ class MainView(View):
         self.get_top_widget().set_title(name)
 
     def set_disconnected(self):
-        image = gtk.Image()
-        image.set_from_file(os.path.join(IMAGES_DIR, 'connect.png'))
-        image.show()
-        self['connect_button'].set_icon_widget(image)
-        self['connect_button'].set_label(_("Connect"))
-        self['connect_button'].set_active(False)
+        obj = self['connect_button']
+        if obj:
+            image = gtk.Image()
+            image.set_from_file(os.path.join(IMAGES_DIR, 'connect.png'))
+            image.show()
+            obj.set_icon_widget(image)
+            obj.set_label(_("Connect"))
+            obj.set_active(False)
 
         self['upload_alignment'].hide()
         self['download_alignment'].hide()
@@ -155,13 +157,14 @@ class MainView(View):
         self['net_statusbar'].push(1, _('Not connected'))
 
     def set_connected(self):
-        image = gtk.Image()
-        image.set_from_file(os.path.join(IMAGES_DIR, 'disconnect.png'))
-        image.show()
-
-        self['connect_button'].set_icon_widget(image)
-        self['connect_button'].set_label(_("Disconnect"))
-        self['connect_button'].set_active(True)
+        obj = self['connect_button']
+        if obj:
+            image = gtk.Image()
+            image.set_from_file(os.path.join(IMAGES_DIR, 'disconnect.png'))
+            image.show()
+            obj.set_icon_widget(image)
+            obj.set_label(_("Disconnect"))
+            obj.set_active(True)
 
         self['mobile1'].set_sensitive(False)
 
