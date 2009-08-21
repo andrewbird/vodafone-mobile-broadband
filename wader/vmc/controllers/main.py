@@ -275,10 +275,6 @@ class MainController(WidgetController):
         self.on_support_button_toggled(get_fake_toggle_button())
 
     def on_sms_button_toggled(self, widget):
-        print "on_sms_button_toggled %d" % widget.get_active()
-        print "self.view %s " % self.view
-        print "self.view['usage_frame'] %s" % self.view['usage_frame']
-        print "self.view['usage_tool_button'] %s" % self.view['usage_tool_button']
         if widget.get_active():
             self.view['usage_frame'].hide()
             self.view['usage_tool_button'].set_active(False)

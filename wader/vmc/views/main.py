@@ -83,6 +83,7 @@ class MainView(View):
 
         self['usage_frame'].hide()       # XXX: AJB - for some reason these items hidden before
         self['support_notebook'].hide()  # in ctrl.register_view() are reshown by parent.show()
+        self['contacts_menubar'].hide()
 
         return ret
 
