@@ -20,8 +20,8 @@ __version__ = "$Rev: 1172 $"
 
 import os.path
 
-from wader.vmc import View
-import wader.common.consts as consts
+from gtkmvc import View
+import wader.vmc.consts as consts
 
 def clear_s(s):
     return s.replace('\n', ' ')

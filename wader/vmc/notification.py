@@ -46,6 +46,8 @@ def show_normal_notification_posix(widget, title, message, error=False,
     Notification with C{title} as title and C{message} as message, if
     error is True, show an error notification
     """
+    print "check this out, there's a new notification mechanism in wader"
+
     check_if_initted()
 
     wrapped_text = fill(message, MAX_WIDTH)

@@ -21,8 +21,8 @@ Base classes for Controllers
 
 __version__ = "$Rev: 1172 $"
 
-from wader.vmc import Controller
-from vmc.utils.utilities import dict_reverter
+from gtkmvc import Controller
+from vmc.wader.utils import revert_dict
 
 TV_DICT = {0 : 'inbox_treeview',
            1 : 'inbox_treeview',
@@ -30,7 +30,7 @@ TV_DICT = {0 : 'inbox_treeview',
            3 : 'sent_treeview',
            4 : 'contacts_treeview'}
 
-TV_DICT_REV = dict_reverter(TV_DICT)
+TV_DICT_REV = revert_dict(TV_DICT)
 
 class WidgetController(Controller):
     """I maintain a list of widgets"""

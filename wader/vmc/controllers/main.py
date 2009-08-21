@@ -33,7 +33,7 @@ from wader.vmc.dialogs import (show_profile_window,
                                show_about_dialog, show_error_dialog,
                                ask_pin_dialog, ask_puk_dialog,
                                ask_puk2_dialog, ask_password_dialog)
-from wader.vmc.keyring_dialogs import NewKeyringDialog, KeyringPasswordDialog
+#from wader.vmc.keyring_dialogs import NewKeyringDialog, KeyringPasswordDialog
 from wader.vmc.utils import bytes_repr, get_error_msg
 from wader.vmc.translate import _
 from wader.vmc.notify import new_notification
@@ -66,7 +66,7 @@ class MainController(Controller):
         self.icon = gtk.status_icon_new_from_file(filename)
 
     def connect_to_signals(self):
-        self.view['window1'].connect('delete_event', self.close_application)
+        self.view['main_window'].connect('delete_event', self.close_application)
         self.cid = self.view['connect_button'].connect('toggled',
                                             self.on_connect_button_toggled)
         self.icon.connect('activate', self.on_icon_activated)
@@ -133,18 +133,18 @@ class MainController(Controller):
         profile = manager.get_profile_by_object_path(opath)
         password = None
 
-        if profile.secrets.manager.is_new:
-            dialog = NewKeyringDialog(self.view.get_top_widget())
-            response = dialog.run()
-        else:
-            # profile.secrets.manager.is_open == True
-            dialog = KeyringPasswordDialog(self.view.get_top_widget())
-            response = dialog.run()
-
-        if response == gtk.RESPONSE_OK:
-            password = dialog.password_entry.get_text()
-
-        dialog.destroy()
+#        if profile.secrets.manager.is_new:
+#            dialog = NewKeyringDialog(self.view.get_top_widget())
+#            response = dialog.run()
+#        else:
+#            # profile.secrets.manager.is_open == True
+#            dialog = KeyringPasswordDialog(self.view.get_top_widget())
+#            response = dialog.run()
+#
+#        if response == gtk.RESPONSE_OK:
+#            password = dialog.password_entry.get_text()
+#
+#        dialog.destroy()
 
         if password is not None:
             try:

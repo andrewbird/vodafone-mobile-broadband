@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Copyright (C) 2008-2009  Warp Networks, S.L.
-# Author:  Pablo Martí
+# Author: Pablo Marti
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,25 +15,31 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-"""
-Startup helpers for GTK
-"""
 
-import os
+import gtk
+import pynotify
 
-import wader.vmc.consts as consts
+from wader.vmc.consts import APP_NAME
 
-def create_skeleton_and_return():
-    try:
-        os.makedirs(consts.WADER_HOME, 0700)
-    except OSError:
-        pass
+def new_notification(status_icon, title, text="", stock=None,
+                     actions=None, category=None):
 
-    try:
-        os.mkdir(consts.DB_DIR, 0700)
-    except OSError:
-        pass
+    if not pynotify.init(APP_NAME):
+        raise RuntimeError("Can not initialize pynotify")
 
-    if os.path.exists(consts.NETWORKS_DB):
-        # remove old way of populating networks database
-        os.unlink(consts.NETWORKS_DB)
+    n = pynotify.Notification(title, text)
+
+    if category:
+        n.set_category(category)
+
+    if actions:
+        for _type, action_text, callback in actions:
+            n.add_action(_type, action_text, callback)
+
+    if stock:
+        icon = gtk.Button().render_icon(stock, gtk.ICON_SIZE_DIALOG)
+        n.set_icon_from_pixbuf(icon)
+
+    n.set_property('status-icon', status_icon)
+    return n
+

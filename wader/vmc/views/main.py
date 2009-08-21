@@ -31,10 +31,10 @@ THROBBER = gtk.gdk.PixbufAnimation(os.path.join(GLADE_DIR, 'throbber.gif'))
 
 class MainView(View):
 
-    GLADE_FILE = os.path.join(GLADE_DIR, "VMC.glade")
+    GLADE_FILE = os.path.join(GLADE_DIR, "VMC-reduced.glade")
 
     def __init__(self, ctrl):
-        super(MainView, self).__init__(ctrl, self.GLADE_FILE, 'window1',
+        super(MainView, self).__init__(ctrl, self.GLADE_FILE, 'main_window',
                                        register=True)
         self.throbber = None
         self.theme_ui()
@@ -76,8 +76,8 @@ class MainView(View):
 
     def set_initialising(self, enable):
         self['connect_button'].set_sensitive(not enable)
-        self['sms_menuitem'].set_sensitive(not enable)
-        self['preferences_menu_item'].set_sensitive(not enable)
+#        self['sms_menuitem'].set_sensitive(not enable)
+#        self['preferences_menu_item'].set_sensitive(not enable)
 
     def set_connected(self):
         self['connect_button'].set_label(_("Disconnect"))

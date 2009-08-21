@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# Copyright (C) 2006-2008  Vodafone España, S.A.
 # Copyright (C) 2008-2009  Warp Networks, S.L.
 # Author:  Pablo Martí
 #
@@ -16,24 +17,15 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 """
-Startup helpers for GTK
+Configuration singleton for GTK
 """
 
-import os
+from wader.common.config import WaderConfig
+from wader.vmc.consts import APP_SLUG_NAME
 
-import wader.vmc.consts as consts
+CONF_PATH = '/apps/%s' % APP_SLUG_NAME
 
-def create_skeleton_and_return():
-    try:
-        os.makedirs(consts.WADER_HOME, 0700)
-    except OSError:
-        pass
+DEFAULT_KEYS = ['statistics', 'profile', 'preferences', 'sms']
 
-    try:
-        os.mkdir(consts.DB_DIR, 0700)
-    except OSError:
-        pass
+config = WaderConfig(keys=DEFAULT_KEYS, base_path=CONF_PATH)
 
-    if os.path.exists(consts.NETWORKS_DB):
-        # remove old way of populating networks database
-        os.unlink(consts.NETWORKS_DB)

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# Copyright (C) 2006-2008  Vodafone España, S.A.
 # Copyright (C) 2008-2009  Warp Networks, S.L.
 # Author:  Pablo Martí
 #
@@ -16,24 +17,13 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 """
-Startup helpers for GTK
+Profile manager
+
+I manage profiles in the system (or connections in NM-lingo)
 """
 
-import os
+from wader.common.profile import ProfileManager
+from wader.vmc.consts import GCONF_BASE_DIR
 
-import wader.vmc.consts as consts
+manager = ProfileManager(GCONF_BASE_DIR)
 
-def create_skeleton_and_return():
-    try:
-        os.makedirs(consts.WADER_HOME, 0700)
-    except OSError:
-        pass
-
-    try:
-        os.mkdir(consts.DB_DIR, 0700)
-    except OSError:
-        pass
-
-    if os.path.exists(consts.NETWORKS_DB):
-        # remove old way of populating networks database
-        os.unlink(consts.NETWORKS_DB)

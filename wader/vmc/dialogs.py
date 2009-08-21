@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2006-2007  Vodafone España, S.A.
-# Author:  Pablo Martí
+# Copyright (C) 2008-2009  Warp Networks, S.L.
+# Authors:  Jaime Soriano, Isaac Clerencia, Pablo Martí
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,232 +15,50 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-"""Some utilities for displaying dialogs"""
-__version__ = "$Rev: 1172 $"
 
-import os.path
-from textwrap import fill
+import os
+import re
 
 import gtk
-from gnome import url_show
+import gobject
+import dbus
 
-from twisted.internet import reactor, task
+from wader.vmc.logger import logger
+from wader.common.consts import WADER_DIALUP_INTFACE
+from wader.vmc.translate import _
+from wader.vmc.consts import (APP_ARTISTS, APP_AUTHORS, APP_DOCUMENTERS,
+                             GLADE_DIR, APP_VERSION, APP_NAME, APP_URL)
 
-import wader.common.consts as consts
-from wader.common.encoding import _
-from wader.vmc import Controller, Model
-from wader.vmc.views.initialconf import DeviceList
-import wader.vmc.views.dialogs as vdialogs
+def show_uri(uri):
+    if not hasattr(gtk, 'show_uri'):
+        from gnome import url_show
+        return url_show(uri)
 
-class PopupDialogCtrl(Controller):
-    """Base controller class for popup dialogs"""
+    return gtk.show_uri(gtk.gdk.Screen(), uri, 0L)
 
-    def __init__(self):
-        super(PopupDialogCtrl, self).__init__(Model())
-
-class CheckBoxPopupDialogCtrl(Controller):
-    def __init__(self):
-        super(CheckBoxPopupDialogCtrl, self).__init__(Model())
-        self.checked = False
-
-    def register_view(self, view):
-        super(CheckBoxPopupDialogCtrl, self).register_view(view)
-        view['checkbutton1'].connect('toggled', self._on_changed)
-
-    def _on_changed(self, widget):
-        self.checked = widget.get_active()
-
-def open_message_dialog(message, details):
-    """Shows a standard message dialog"""
-    ctrl = PopupDialogCtrl()
-    view = vdialogs.DialogMessage(ctrl, message, details)
-    view.run()
-
-def open_warning_dialog(message, details):
-    """Shows a warning message dialog"""
-    ctrl = PopupDialogCtrl()
-    view = vdialogs.WarningMessage(ctrl, message, details)
-    view.run()
-
-def open_warning_request_cancel_ok(message, details):
-    """Returns True if the user confirmed the request, False otherwise"""
-    ctrl = PopupDialogCtrl()
-    view = vdialogs.WarningRequestOkCancel(ctrl, message, details)
-    resp = view.run()
-    return resp == gtk.RESPONSE_OK
-
-def open_confirm_action_dialog(action_text, message, details):
-    """Returns True if the user confirmed the action, False otherwise"""
-    ctrl = PopupDialogCtrl()
-    view = vdialogs.QuestionConfirmAction(ctrl, action_text, message, details)
-    resp = view.run()
-    return resp == gtk.RESPONSE_OK
-
-def open_dialog_question_checkbox_cancel_ok(parent_view, message, details):
-    """
-    Opens a dialog with a checkbox aka 'Never ask me this again'
-
-    @return: tuple with two bools, the first is whether the user confirmed
-    the action or not, the second is whether the checkbox is toggled
-    """
-    ctrl = CheckBoxPopupDialogCtrl()
-    view = vdialogs.QuestionCheckboxOkCancel(ctrl, message, details)
-    view.set_parent_view(parent_view)
-    resp = view.run()
-    return resp == gtk.RESPONSE_OK, ctrl.checked
-
-def open_import_csv_dialog(path=None):
-    """Opens a filechooser dialog to import a csv file"""
-    title = _("Import contacts from...")
-    chooser_dialog = gtk.FileChooserDialog(title,
-                    buttons = (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
-                               gtk.STOCK_OPEN, gtk.RESPONSE_OK))
-
-    chooser_dialog.set_default_response(gtk.RESPONSE_OK)
-
-    filter_ = gtk.FileFilter()
-    filter_.set_name(_("Csv files"))
-    filter_.add_mime_type("text/xml")
-    filter_.add_pattern("*csv")
-    chooser_dialog.add_filter(filter_)
-    filter_ = gtk.FileFilter()
-    filter_.set_name(_("All files"))
-    filter_.add_pattern("*")
-    chooser_dialog.add_filter(filter_)
-
-    if path:
-        chooser_dialog.set_filename(os.path.abspath(path))
-    if chooser_dialog.run() == gtk.RESPONSE_OK:
-        resp = chooser_dialog.get_filename()
-    else:
-        resp = None
-
-    chooser_dialog.destroy()
-    return resp
-
-def save_standard_file(path=None):
-    """Opens a filechooser dialog to choose where to save a file"""
-    title = _("Save as ...")
-    chooser_dialog = gtk.FileChooserDialog(title,
-                    action=gtk.FILE_CHOOSER_ACTION_SAVE,
-                    buttons = (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
-                               gtk.STOCK_SAVE, gtk.RESPONSE_OK))
-
-    chooser_dialog.set_default_response(gtk.RESPONSE_OK)
-
-    filter_ = gtk.FileFilter()
-    filter_.set_name(_("All files"))
-    filter_.add_pattern("*")
-    chooser_dialog.add_filter(filter_)
-
-    if path:
-        chooser_dialog.set_filename(path)
-    if chooser_dialog.run() == gtk.RESPONSE_OK:
-        resp = chooser_dialog.get_filename()
-        if os.path.isfile(resp):
-            # requests to confirm overwrite:
-            overwrite = open_confirm_action_dialog(_("Overwrite"),
-                          _('Overwrite "%s"?') % os.path.basename(resp),
-                          _("""A file with this name already exists.
-If you choose to overwrite this file, the contents will be lost."""))
-            if not overwrite:
-                resp = None
-    else:
-        resp = None
-
-    chooser_dialog.destroy()
-    return resp
-
-def save_csv_file(path=None):
-    """Opens a filechooser dialog to choose where to save a csv file"""
-    title = _("Save as ...")
-    chooser_dialog = gtk.FileChooserDialog(title,
-                    action=gtk.FILE_CHOOSER_ACTION_SAVE,
-                    buttons = (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
-                               gtk.STOCK_SAVE, gtk.RESPONSE_OK))
-
-    chooser_dialog.set_default_response(gtk.RESPONSE_OK)
-    filter_ = gtk.FileFilter()
-    filter_.set_name(_("Csv files"))
-    filter_.add_mime_type("text/xml")
-    filter_.add_pattern("*csv")
-    chooser_dialog.add_filter(filter_)
-
-    filter_ = gtk.FileFilter()
-    filter_.set_name(_("All files"))
-    filter_.add_pattern("*")
-    chooser_dialog.add_filter(filter_)
-
-    if path:
-        chooser_dialog.set_filename(os.path.abspath(path))
-    if chooser_dialog.run() == gtk.RESPONSE_OK:
-        resp = chooser_dialog.get_filename()
-        if os.path.isfile(resp):
-            # requests to confirm overwrite:
-            overwrite = open_confirm_action_dialog(_("Overwrite"),
-                          _('Overwrite "%s"?') % os.path.basename(resp),
-                          _("""A file with this name already exists.
-If you choose to overwrite this file, the contents will be lost."""))
-            if not overwrite:
-                resp = None
-    else:
-        resp = None
-
-    chooser_dialog.destroy()
-    return resp
-
-def get_device_treeview(device_list, callback, parent_view):
-    window = gtk.Window()
-    window.set_transient_for(parent_view.get_top_widget())
-    window.set_position(gtk.WIN_POS_CENTER_ON_PARENT)
-    window.set_title(_('Device List'))
-    window.set_size_request(width=400, height=300)
-    sw = gtk.ScrolledWindow()
-    sw.add(DeviceList(device_list, callback, window))
-    window.add(sw)
-    window.show_all()
-
-def get_about_dialog():
-    """Returns an AboutDialog with all the necessary info"""
-
-    _MAX_WIDTH = 20
-    wrapped_name = fill(consts.APP_LONG_NAME, _MAX_WIDTH)
-
+def show_about_dialog():
     abt = gtk.AboutDialog()
-
-    # attach an icon
     icon = abt.render_icon(gtk.STOCK_ABOUT, gtk.ICON_SIZE_MENU)
     abt.set_icon(icon)
 
-    filepath = os.path.join(consts.IMAGES_DIR, 'VF_logo.png')
-    logo = gtk.gdk.pixbuf_new_from_file(filepath)
+    gtk.about_dialog_set_url_hook(lambda abt, url: show_uri(url))
+    gtk.about_dialog_set_email_hook(lambda d, e: show_uri("mailto:%s" % e))
 
+    icon = gtk.gdk.pixbuf_new_from_file(os.path.join(GLADE_DIR, 'wader.png'))
+    abt.set_icon(icon)
+    abt.set_program_name(APP_NAME)
+    abt.set_version(APP_VERSION)
+    abt.set_copyright("Copyright (C) 2008-2009 Wader contributors")
+    abt.set_authors(APP_AUTHORS)
+    abt.set_documenters(APP_DOCUMENTERS)
+    abt.set_artists(APP_ARTISTS)
+    abt.set_website(APP_URL)
+    abt.set_translator_credits(_('translator-credits'))
 
-    abt.set_logo(logo)
-    gtk.about_dialog_set_url_hook(lambda abt, url: url_show(url))
-    gtk.about_dialog_set_email_hook(lambda d, e: url_show("mailto:%s" % e))
-
-    if gtk.pygtk_version >= (2, 11, 0):
-        abt.set_program_name(wrapped_name)
-    else:
-        abt.set_name(wrapped_name)
-
-    abt.set_version(consts.APP_VERSION)
-    abt.set_copyright(_('Vodafone Spain S.A.'))
-    abt.set_authors(consts.APP_AUTHORS)
-    abt.set_documenters(consts.APP_DOCUMENTERS)
-    abt.set_artists(consts.APP_ARTISTS)
-    abt.set_website(consts.APP_URL)
-    abt.set_website_label('/'.join(consts.APP_URL.split('/')[0:3] + ['...']))
-
-    trans_credits = _('translated to $LANG by $translater')
-    # only enable them when necessary
-    if trans_credits != 'translated to $LANG by $translater':
-        abt.set_translator_credits(trans_credits)
-
+    abt.set_website_label(APP_URL)
     _license = """
-Vodafone Mobile Connect Card driver for Linux
-Copyright (C) 2006-2007 Vodafone España S.A.
+The Wader project
+Copyright (C) 2008-2009  Warp Networks, S.L.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -256,8 +74,216 @@ You should have received a copy of the GNU General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA"""
     abt.set_license(_license)
-
     return abt
+
+
+def show_profile_window(main_model, profile=None, imsi=None):
+    from wader.gtk.models.profile import ProfileModel
+    from wader.gtk.controllers.profile import ProfileController
+    from wader.gtk.views.profile import ProfileView
+
+    if profile is not None:
+        model = profile
+    else:
+        model = ProfileModel(main_model, imsi=imsi,
+                             device_callable=main_model.device_callable)
+
+    controller = ProfileController(model)
+    view = ProfileView(controller)
+    view.show()
+
+def make_basic_dialog(title, buttons, stock_image):
+    flags = gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT | \
+            gtk.DIALOG_NO_SEPARATOR
+    dialog = gtk.Dialog(title, flags=flags, buttons=buttons)
+    box = gtk.HBox()
+    box.add(gtk.image_new_from_stock(stock_image, gtk.ICON_SIZE_DIALOG))
+    vbox = gtk.VBox()
+    box.add(vbox)
+
+    box.set_spacing(12)
+    vbox.set_spacing(6)
+
+    alignment = gtk.Alignment()
+    alignment.set_padding(6, 6, 6, 6)
+    alignment.add(box)
+    dialog.vbox.add(alignment)
+    return dialog, vbox
+
+def show_warning_dialog(title, message):
+    logger.debug("Warning dialog: %s" % message)
+
+    buttons = (gtk.STOCK_OK, gtk.RESPONSE_OK)
+    dialog, box = make_basic_dialog(title, buttons, gtk.STOCK_DIALOG_WARNING)
+    box.add(gtk.Label(message))
+    dialog.set_default_response(gtk.RESPONSE_OK)
+
+    dialog.show_all()
+    ret = dialog.run()
+    dialog.destroy()
+    return ret
+
+def show_error_dialog(title, message):
+    logger.debug("Error dialog: %s" % message)
+
+    buttons = (gtk.STOCK_OK, gtk.RESPONSE_OK)
+    dialog, box = make_basic_dialog(title, buttons, gtk.STOCK_DIALOG_ERROR)
+    label = gtk.Label(message)
+    label.set_width_chars(80)
+    label.set_line_wrap(True)
+    label.set_justify(gtk.JUSTIFY_FILL)
+    box.add(label)
+    dialog.set_default_response(gtk.RESPONSE_OK)
+
+    dialog.show_all()
+    ret = dialog.run()
+    dialog.destroy()
+    return ret
+
+def show_warning_request_cancel_ok(title, message):
+    logger.debug("Warning request cancel/ok dialog: %s" % message)
+
+    buttons = (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,
+               gtk.STOCK_OK, gtk.RESPONSE_OK)
+    dialog, box = make_basic_dialog(title, buttons, gtk.STOCK_DIALOG_WARNING)
+    box.add(gtk.Label(message))
+    dialog.set_default_response(gtk.RESPONSE_OK)
+
+    dialog.show_all()
+    ret = dialog.run()
+    dialog.destroy()
+    return ret == gtk.RESPONSE_OK
+
+def generic_puk_dialog(title, message, parent, puk_regexp=None,
+                       pin_regexp=None):
+    buttons = (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
+               gtk.STOCK_OK, gtk.RESPONSE_OK)
+
+    dialog, box = make_basic_dialog(title, buttons,
+                                    gtk.STOCK_DIALOG_AUTHENTICATION)
+    box.add(gtk.Label(message))
+    puk_entry = gtk.Entry()
+    pin_entry = gtk.Entry()
+
+    pin_entry.set_activates_default(True)
+
+    hbox = gtk.HBox(spacing=6)
+    hbox.pack_start(puk_entry)
+    hbox.pack_start(pin_entry)
+
+    def enable_ok_button(enable):
+        for child in dialog.action_area.get_children():
+            if child.get_label() == 'gtk-ok':
+                child.set_sensitive(enable)
+
+    def on_puk_changed_cb(_entry, regexp):
+        text = _entry.get_text()
+        match = regexp.match(text)
+        if match is not None:
+            pin_entry.grab_focus()
+
+    def on_pin_changed_cb(_entry, regexp):
+        text = _entry.get_text()
+        match = regexp.match(text)
+        enable = True if match is not None else False
+
+        enable_ok_button(enable)
+
+    puk_entry.connect('changed', on_puk_changed_cb, puk_regexp)
+    pin_entry.connect('changed', on_pin_changed_cb, pin_regexp)
+
+    box.add(hbox)
+    dialog.set_default_response(gtk.RESPONSE_OK)
+    dialog.set_transient_for(parent.get_top_widget())
+    dialog.set_position(gtk.WIN_POS_CENTER_ON_PARENT)
+    dialog.show_all()
+
+    response = dialog.run()
+    if response == gtk.RESPONSE_OK:
+        puk = puk_entry.get_text()
+        pin = pin_entry.get_text()
+        ret = (puk, pin)
+    else:
+        ret = None
+
+    dialog.destroy()
+    dialog = None
+    return ret
+
+def generic_auth_dialog(title, message, parent, regexp=None):
+    buttons = (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
+               gtk.STOCK_OK, gtk.RESPONSE_OK)
+
+    dialog, box = make_basic_dialog(title, buttons,
+                                    gtk.STOCK_DIALOG_AUTHENTICATION)
+    box.add(gtk.Label(message))
+    entry = gtk.Entry()
+    entry.set_activates_default(True)
+
+    def enable_ok_button(enable):
+        for child in dialog.action_area.get_children():
+            if child.get_label() == 'gtk-ok':
+                child.set_sensitive(enable)
+
+    enable_ok_button(False)
+
+    def on_changed_cb(_entry):
+        text = _entry.get_text()
+        enable = True
+        if regexp:
+            match = regexp.match(text)
+            enable = True if match is not None else False
+
+        enable_ok_button(enable)
+
+    entry.connect('changed', on_changed_cb)
+    box.add(entry)
+    dialog.set_default_response(gtk.RESPONSE_OK)
+    dialog.set_transient_for(parent.get_top_widget())
+    dialog.set_position(gtk.WIN_POS_CENTER_ON_PARENT)
+    dialog.show_all()
+    dialog.realize()
+
+    response = dialog.run()
+    if response == gtk.RESPONSE_OK:
+        ret = entry.get_text()
+    else:
+        ret = None
+
+    dialog.destroy()
+    dialog = None
+    return ret
+
+def ask_pin_dialog(parent):
+    logger.debug("Asking for PIN")
+    return generic_auth_dialog(
+            _("PIN required"),
+            _("Please, insert the PIN of your SIM card"),
+            parent, regexp=re.compile('^\d{4,8}$'))
+
+def ask_password_dialog(parent):
+    logger.debug("Asking for password")
+    return generic_auth_dialog(
+            _("Password required"),
+            _("Please, insert the password of your connection"),
+            parent, regexp=None)
+
+def ask_puk_dialog(parent):
+    logger.debug("Asking for PUK")
+    return generic_puk_dialog(
+            _("PUK required"),
+            _("Please, insert the PUK and PIN of your SIM card"),
+           parent, puk_regexp=re.compile('^\d{8}$'),
+           pin_regexp=re.compile('^\d{4,8}$'))
+
+def ask_puk2_dialog(parent):
+    logger.debug("Asking for PUK2")
+    return generic_puk_dialog(
+            _("PUK2 required"),
+            _("Please, insert the PUK2 and PIN of your SIM card"),
+            parent, puk_regexp=re.compile('^\d{8}$'),
+            pin_regexp=re.compile('^\d{4,8}$'))
+
 
 PULSE_STEP = .2
 MAX_WIDTH = 260
@@ -268,93 +294,97 @@ class ActivityProgressBar(object):
     """
     I am an activity progress bar
 
-    useful for situation where we don't beforehand how long will take an IO
-    operation to complete
+    useful for situation where we don't know how long will
+    take an IO operation to complete
     """
     def __init__(self, title, parent, initnow=False, disable_cancel=False):
+        self.tree = None
         self.window = None
-        self.vbox = None
-        self.bbox = None
+        self.parent = parent
         self.progress_bar = None
         self.cancel_button = None
         self.loop = None
-        self.default_func = None
-        self.default_args = None
-        self.default_call = None
         self.cancel_func = None
         self.cancel_args = None
+        self.cancel_kwds = None
+
+        self.disconnect_sm = None
+        self.exit = None
 
         self._build_gui(title, parent, disable_cancel)
         if initnow:
             self.init()
 
     def _build_gui(self, title, parent, disable_cancel):
-        self.window = gtk.Window()
+        glade_file = os.path.join(GLADE_DIR, 'misc.glade')
+        self.tree = gtk.glade.XML(glade_file)
+        self.window = self.tree.get_widget('progress_window')
+        self.cancel_button = self.tree.get_widget('cancel_button')
+        self.progress_bar = self.tree.get_widget('progressbar')
+
         self.window.set_transient_for(parent.view.get_top_widget())
         self.window.set_position(gtk.WIN_POS_CENTER_ON_PARENT)
         self.window.set_resizable(False)
+        self.window.set_deletable(False)
         self.window.set_modal(True)
 
         width = max(MIN_WIDTH, min(len(title) * SIZE_PER_CHAR, MAX_WIDTH))
         self.window.set_size_request(width, -1)
         self.window.set_title(title)
-        self.window.set_border_width(0)
-
-        self.vbox = gtk.VBox()
-
-        self.progress_bar = gtk.ProgressBar()
-        self.progress_bar.set_pulse_step(PULSE_STEP)
-
-        self.vbox.pack_start(self.progress_bar)
-
-        self.bbox = gtk.HButtonBox()
-        self.bbox.set_layout(gtk.BUTTONBOX_END)
-        self.cancel_button = gtk.Button(stock=gtk.STOCK_CANCEL)
-        if disable_cancel:
-            self.cancel_button.set_sensitive(False)
-
-        self.bbox.add(self.cancel_button)
-
-        self.vbox.pack_end(self.bbox, False, False)
-        self.window.add(self.vbox)
-
-        self.loop = None
-
+        self.window.connect('delete_event', self.on_delete_event)
         self.cancel_button.connect('clicked', self.on_cancel_button_clicked)
 
+        self.exit = None
+
     def init(self):
-        self.progress_bar.show_all()
-        self.bbox.show_all()
-        self.loop = task.LoopingCall(self.progress_bar.pulse)
-        self.loop.start(0.2, True)
         self.window.show_all()
+        gobject.timeout_add(200, self.pulse_update)
+        self.connect_to_signals()
 
-    def close(self):
-        try:
-            self.loop.stop()
-        except:
-            pass
-        self.window.destroy()
+    def connect_to_signals(self):
+        bus = dbus.SystemBus()
+        self.disconnect_sm = bus.add_signal_receiver(
+                                self.disconnected_cb,
+                                "Disconnected",
+                                WADER_DIALUP_INTFACE)
 
-    def on_cancel_button_clicked(self, widget):
-        if self.default_call:
-            if self.default_call.active:
-                self.default_call.cancel()
-
-        if self.cancel_func:
-            self.cancel_func(*self.cancel_args)
+    def disconnected_cb(self):
+        """
+        org.freedesktop.ModemManager.Dial.Disconnect signal callback
+        """
+        logger.info("Disconnected received")
+        button = self.parent.view['connect_button']
+        # block and unblock handler while toggling connect button
+        button.handler_block(self.parent.cid)
+        button.set_active(False)
+        button.handler_unblock(self.parent.cid)
 
         self.close()
 
-    def set_default_cb(self, delay, func, *args):
-        self.default_func = func
-        self.default_args = args
-        def execute_and_close():
-            self.default_func(*self.default_args)
-            self.close()
+    def pulse_update(self):
+        if self.exit:
+            return False
+        else:
+            self.progress_bar.pulse()
+            return True
 
-        self.default_call = reactor.callLater(delay, execute_and_close)
+    def close(self):
+        self.window.destroy()
+        self.exit = True
+        if self.disconnect_sm:
+            # do not listen for o.fd.ModemManager.Dialer.Disconnect signals
+            self.disconnect_sm.remove()
 
-    def set_cancel_cb(self, func, *args):
+    def on_delete_event(self, *args):
+        return True
+
+    def on_cancel_button_clicked(self, widget):
+        if self.cancel_func:
+            self.cancel_func(*self.cancel_args, **self.cancel_kwds)
+
+        self.close()
+
+    def set_cancel_cb(self, func, *args, **kwds):
         self.cancel_func = func
         self.cancel_args = args
+        self.cancel_kwds = kwds

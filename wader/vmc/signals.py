@@ -15,25 +15,24 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-"""
-Startup helpers for GTK
-"""
 
-import os
+from wader.common.signals import (NO_SIGNAL, GPRS_SIGNAL, EDGE_SIGNAL,
+                                  UMTS_SIGNAL, TWOG_PREF_SIGNAL,
+                                  THREEG_PREF_SIGNAL, TWOG_ONLY_SIGNAL,
+                                  THREEG_ONLY_SIGNAL, HSDPA_SIGNAL,
+                                  HSUPA_SIGNAL, HSPA_SIGNAL)
+from wader.vmc.translate import _
 
-import wader.vmc.consts as consts
-
-def create_skeleton_and_return():
-    try:
-        os.makedirs(consts.WADER_HOME, 0700)
-    except OSError:
-        pass
-
-    try:
-        os.mkdir(consts.DB_DIR, 0700)
-    except OSError:
-        pass
-
-    if os.path.exists(consts.NETWORKS_DB):
-        # remove old way of populating networks database
-        os.unlink(consts.NETWORKS_DB)
+NET_MODE_SIGNALS = {
+    NO_SIGNAL : _('No signal'),
+    GPRS_SIGNAL : _('GPRS'),
+    EDGE_SIGNAL : _('EDGE'),
+    UMTS_SIGNAL : _('UMTS'),
+    TWOG_PREF_SIGNAL : _('2G preferred'),
+    THREEG_PREF_SIGNAL : _('3G preferred'),
+    TWOG_ONLY_SIGNAL : _('2G only'),
+    THREEG_ONLY_SIGNAL : _('3G only'),
+    HSDPA_SIGNAL : _('HSDPA'),
+    HSUPA_SIGNAL : _('HSUPA'),
+    HSPA_SIGNAL : _('HSPA'),
+}
