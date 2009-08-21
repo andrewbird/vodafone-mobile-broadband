@@ -46,6 +46,10 @@ def raise_window():
         call(["%s" % wmctrl_path, "-a", "%s" % APP_LONG_NAME])
 
 def main():
+    from wader.vmc.splash import SplashScreen
+    splash = SplashScreen()
+    splash.show_it(2)
+
     from wader.vmc.startup import create_skeleton_and_return
     create_skeleton_and_return()
 
