@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
+<!--*- mode: xml -*-->
+<glade-interface>
+  <widget class="GtkWindow" id="splash_window">
+    <property name="tooltip" translatable="yes">3G Devices Manager</property>
+    <property name="border_width">6</property>
+    <property name="resizable">False</property>
+    <property name="type_hint">GDK_WINDOW_TYPE_HINT_SPLASHSCREEN</property>
+    <property name="urgency_hint">True</property>
+    <property name="decorated">False</property>
+    <child>
+      <widget class="GtkVBox" id="splash_vbox">
+        <property name="visible">True</property>
+        <property name="spacing">6</property>
+        <child>
+          <widget class="GtkImage" id="splash_image">
+            <property name="visible">True</property>
+            <property name="stock">gtk-missing-image</property>
+          </widget>
+        </child>
+        <child>
+          <widget class="GtkProgressBar" id="splash_progress_bar">
+            <property name="visible">True</property>
+            <property name="pulse_step">0.10000000149</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkHButtonBox" id="hbuttonbox1">
+            <property name="visible">True</property>
+            <property name="layout_style">GTK_BUTTONBOX_END</property>
+            <child>
+              <widget class="GtkButton" id="cancel_button">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="can_default">True</property>
+                <property name="label">gtk-cancel</property>
+                <property name="use_stock">True</property>
+                <property name="response_id">0</property>
+                <signal name="clicked" handler="on_cancel_button_clicked"/>
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</glade-interface>

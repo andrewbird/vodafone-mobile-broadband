@@ -1,0 +1,2013 @@
+# Vodafone Mobile Connect Driver for Linux
+# Greek Translation file
+# Copyright (C) 2007
+# This file is distributed under the same license as the VMC package.
+# Dimitrios Psychogios <dpsychogios@gmail.com>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-08-20 15:42+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Dimitrios Psychogios <dpsychogios@gmail.com>\n"
+"Language-Team: Greek <EL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../glade/VMC-reduced.glade:46 ../glade/VMC.glade:20
+#: ../glade/helpbrowser.glade:21
+msgid "_File"
+msgstr "_Αρχείο"
+
+#: ../glade/VMC-reduced.glade:55 ../glade/VMC.glade:27
+#: ../../wader/vmc/views/application.py:328
+#: ../../wader/vmc/controllers/application.py:1074
+msgid "Connect"
+msgstr "Σύνδεση"
+
+#: ../glade/VMC-reduced.glade:64 ../glade/VMC.glade:34
+#: ../glade/contacts.glade:301
+msgid "Mobile"
+msgstr "Κινητό"
+
+#: ../glade/VMC-reduced.glade:83 ../glade/VMC.glade:51
+msgid "Import contacts..."
+msgstr "Εισαγωγή επαφών..."
+
+#: ../glade/VMC-reduced.glade:92 ../glade/VMC.glade:59
+msgid "Export contacts..."
+msgstr "Εξαγωγή επαφών..."
+
+#: ../glade/VMC-reduced.glade:120 ../glade/VMC.glade:85
+msgid "_View"
+msgstr "Εμ_φάνιση"
+
+#: ../glade/VMC-reduced.glade:130 ../glade/VMC.glade:93
+msgid "SMS"
+msgstr "SMS"
+
+#: ../glade/VMC-reduced.glade:146 ../glade/VMC.glade:107
+#: ../glade/preferences.glade:590
+msgid "Usage"
+msgstr "Χρήση"
+
+#: ../glade/VMC-reduced.glade:162 ../glade/VMC.glade:121
+msgid "Support"
+msgstr "Υποστήριξη"
+
+#: ../glade/VMC-reduced.glade:187 ../glade/VMC.glade:140
+msgid "_Tools"
+msgstr "Εργα_λεία"
+
+#: ../glade/VMC-reduced.glade:197 ../glade/VMC.glade:148
+msgid "Change PIN"
+msgstr "Αλλαγή PIN"
+
+#: ../glade/VMC-reduced.glade:206 ../glade/VMC.glade:156
+msgid "Request PIN"
+msgstr "Απαίτηση PIN"
+
+#: ../glade/VMC-reduced.glade:222 ../glade/VMC.glade:170
+#: ../glade/sms-preferences.glade:7
+msgid "SMS preferences"
+msgstr "Ρυθμίσεις SMS"
+
+#: ../glade/VMC-reduced.glade:243 ../glade/VMC.glade:189
+#: ../glade/diagnostics.glade:7
+msgid "Diagnostics"
+msgstr "Διαγνωστικά"
+
+#: ../glade/VMC-reduced.glade:269 ../glade/VMC.glade:210
+msgid "Profiles"
+msgstr "Προφίλ"
+
+#: ../glade/VMC-reduced.glade:309 ../glade/VMC.glade:243
+msgid "Inspect"
+msgstr "Inspect"
+
+#: ../glade/VMC-reduced.glade:334 ../glade/VMC.glade:263
+msgid "_Help"
+msgstr "_Βοήθεια"
+
+#: ../glade/VMC-reduced.glade:353 ../glade/VMC.glade:281
+msgid "_About"
+msgstr "Σ_χετικά"
+
+#: ../glade/VMC-reduced.glade:401 ../glade/VMC.glade:313
+#, fuzzy
+msgid "Connect Button"
+msgstr "Σύνδεση"
+
+#: ../glade/VMC-reduced.glade:435 ../glade/VMC.glade:337
+msgid "SMS Toggle Button"
+msgstr ""
+
+#: ../glade/VMC-reduced.glade:456 ../glade/VMC.glade:353
+msgid "Usage Toggle Button"
+msgstr ""
+
+#: ../glade/VMC-reduced.glade:477 ../glade/VMC.glade:368
+msgid "Support Toggle Button"
+msgstr ""
+
+#: ../glade/VMC-reduced.glade:567 ../glade/VMC-reduced.glade:734
+#: ../glade/VMC.glade:429 ../glade/VMC.glade:557
+msgid "Contacts menu"
+msgstr "Μενού επαφών"
+
+#: ../glade/VMC-reduced.glade:568 ../glade/VMC-reduced.glade:756
+#: ../glade/VMC.glade:430 ../glade/VMC.glade:566
+msgid "_New"
+msgstr "_Νέο"
+
+#: ../glade/VMC-reduced.glade:589 ../glade/VMC.glade:437
+msgid "Create new sms"
+msgstr "Δημιουργία νέου sms"
+
+#: ../glade/VMC-reduced.glade:590 ../glade/VMC.glade:438
+msgid "_SMS"
+msgstr "_SMS"
+
+#: ../glade/VMC-reduced.glade:607 ../glade/VMC.glade:453
+msgid "_Contact"
+msgstr "_Επαφή"
+
+#: ../glade/VMC-reduced.glade:637 ../glade/VMC.glade:483
+msgid "Reply message"
+msgstr "Απάντηση σε μύνημα"
+
+#: ../glade/VMC-reduced.glade:638 ../glade/VMC.glade:484
+msgid "_Reply"
+msgstr "_Απάντηση"
+
+#: ../glade/VMC-reduced.glade:658 ../glade/VMC.glade:491
+msgid "Reply without quoting original text"
+msgstr "Απάντηση χωρίς προσθήκη του αρχικού"
+
+#: ../glade/VMC-reduced.glade:659 ../glade/VMC.glade:492
+msgid "Send new"
+msgstr "Αποστολή νέου"
+
+#: ../glade/VMC-reduced.glade:668 ../glade/VMC.glade:500
+msgid "Reply quoting original message"
+msgstr "Απάντηση με προσθήκη του αρχικού"
+
+#: ../glade/VMC-reduced.glade:669 ../glade/VMC.glade:501
+msgid "Reply quoting"
+msgstr "Απάντηση με προσθήκη"
+
+#: ../glade/VMC-reduced.glade:682 ../glade/VMC.glade:519
+msgid "Forward sms to another contact"
+msgstr "Προώθηση sms σε άλλη επαφή"
+
+#: ../glade/VMC-reduced.glade:683 ../glade/VMC.glade:520
+msgid "_Forward"
+msgstr "_Προώθηση"
+
+#: ../glade/VMC-reduced.glade:703 ../glade/VMC-reduced.glade:808
+#: ../glade/VMC.glade:534 ../glade/VMC.glade:611
+#: ../../wader/vmc/controllers/application.py:1132
+msgid "_Delete"
+msgstr "_Διαγραφή"
+
+#: ../glade/VMC-reduced.glade:735 ../glade/VMC.glade:558
+msgid "_Contacts"
+msgstr "_Επαφές"
+
+#: ../glade/VMC-reduced.glade:755 ../glade/VMC.glade:565
+#: ../glade/contacts.glade:159
+msgid "Add a contact"
+msgstr "Προσθήκη επαφής"
+
+#: ../glade/VMC-reduced.glade:776 ../glade/VMC.glade:580
+msgid "Search contacts"
+msgstr "Αναζήτηση επαφών"
+
+#: ../glade/VMC-reduced.glade:777 ../glade/VMC.glade:581
+msgid "_Search"
+msgstr "_Αναζήτηση"
+
+#: ../glade/VMC-reduced.glade:880 ../glade/VMC.glade:658
+msgid "Inbox"
+msgstr "Εισερχόμενα"
+
+#: ../glade/VMC-reduced.glade:934 ../glade/VMC.glade:688
+msgid "Draft"
+msgstr "Πρόχειρα"
+
+#: ../glade/VMC-reduced.glade:988 ../glade/VMC.glade:718
+msgid "Sent"
+msgstr "Απεσταλμένα"
+
+#: ../glade/VMC-reduced.glade:1041 ../glade/VMC.glade:747
+#: ../glade/sms.glade:34
+msgid "Contacts"
+msgstr "Επαφές"
+
+#: ../glade/VMC-reduced.glade:1198 ../glade/VMC-reduced.glade:1898
+#: ../glade/VMC.glade:854 ../glade/VMC.glade:1268
+#, fuzzy
+msgid "<b>Month</b>"
+msgstr "<b>Υπολογιστής</b>"
+
+#: ../glade/VMC-reduced.glade:1223 ../glade/VMC-reduced.glade:1923
+#: ../glade/VMC.glade:844 ../glade/VMC.glade:1258
+#, fuzzy
+msgid "month_label"
+msgstr "label"
+
+#: ../glade/VMC-reduced.glade:1283 ../glade/VMC-reduced.glade:1311
+#: ../glade/VMC-reduced.glade:1395 ../glade/VMC-reduced.glade:1511
+#: ../glade/VMC-reduced.glade:1539 ../glade/VMC-reduced.glade:1649
+#: ../glade/VMC-reduced.glade:1983 ../glade/VMC-reduced.glade:2011
+#: ../glade/VMC-reduced.glade:2121 ../glade/VMC.glade:897
+#: ../glade/VMC.glade:914 ../glade/VMC.glade:970 ../glade/VMC.glade:1025
+#: ../glade/VMC.glade:1042 ../glade/VMC.glade:1098 ../glade/VMC.glade:1311
+#: ../glade/VMC.glade:1328 ../glade/VMC.glade:1384 ../glade/pin.glade:595
+msgid "label"
+msgstr "label"
+
+#: ../glade/VMC-reduced.glade:1339 ../glade/VMC-reduced.glade:1567
+#: ../glade/VMC-reduced.glade:2039 ../glade/VMC.glade:929
+#: ../glade/VMC.glade:1057 ../glade/VMC.glade:1343
+#, fuzzy
+msgid "3G:"
+msgstr "3G"
+
+#: ../glade/VMC-reduced.glade:1367 ../glade/VMC-reduced.glade:1595
+#: ../glade/VMC-reduced.glade:2067 ../glade/VMC.glade:944
+#: ../glade/VMC.glade:1072 ../glade/VMC.glade:1358
+#, fuzzy
+msgid "GPRS:"
+msgstr "GPRS"
+
+#: ../glade/VMC-reduced.glade:1422 ../glade/VMC-reduced.glade:1623
+#: ../glade/VMC.glade:1085
+msgid "Total:"
+msgstr ""
+
+#: ../glade/VMC-reduced.glade:1453 ../glade/VMC-reduced.glade:2151
+#: ../glade/VMC.glade:988 ../glade/VMC.glade:1402
+#, fuzzy
+msgid "<b>Transferred Data</b>"
+msgstr "<b>Μεταδόθηκε</b>"
+
+#: ../glade/VMC-reduced.glade:1679 ../glade/VMC.glade:1116
+#, fuzzy
+msgid "<b>Current session</b>"
+msgstr "<b>Ρυθμίσεις σύνδεσης</b>"
+
+#: ../glade/VMC-reduced.glade:1739 ../glade/VMC-reduced.glade:2211
+#: ../glade/VMC.glade:1156 ../glade/VMC.glade:1441
+#: ../../wader/vmc/consts.py:101
+#: ../../wader/vmc/controllers/application.py:1295
+#: ../../wader/vmc/controllers/application.py:1329
+msgid "GPRS"
+msgstr "GPRS"
+
+#: ../glade/VMC-reduced.glade:1764 ../glade/VMC-reduced.glade:2236
+#: ../glade/VMC.glade:1163 ../glade/VMC.glade:1448
+#: ../../wader/vmc/controllers/application.py:1331
+msgid "3G"
+msgstr "3G"
+
+#: ../glade/VMC-reduced.glade:1837 ../glade/VMC.glade:1215
+#, fuzzy
+msgid "Current month"
+msgstr "Τρέχων μήνας"
+
+#: ../glade/VMC-reduced.glade:2095 ../glade/VMC.glade:957
+#: ../glade/VMC.glade:1371
+#, fuzzy
+msgid "<b>Total:</b>"
+msgstr "<b>τίτλος</b>"
+
+#: ../glade/VMC-reduced.glade:2309 ../glade/VMC.glade:1503
+#, fuzzy
+msgid "Last month"
+msgstr "Προηγούμενος μήνας"
+
+#: ../glade/VMC-reduced.glade:2334
+msgid "<b>Usage</b> - Remember that this information is only orientative."
+msgstr ""
+
+#: ../glade/VMC-reduced.glade:2397 ../glade/VMC.glade:1546
+msgid ""
+"In most cases you can find the answer to your questions about the program in "
+"the help menu.\n"
+"This menu can be accesed if you click on the \"Help\" label on the menu bar "
+"located in the top side of the window, and selecting the \"Help topics\" "
+"option.\n"
+"\n"
+"You can also find help, updates and tips in Vodafone Mobile Connect's web:\n"
+"https://forge.betavine.net/projects/vodafonemobilec.\n"
+"\n"
+"If you use the mail and browser buttons to access other programs in your "
+"system, you might need to ask your Systems Administrator any doubt that you "
+"might have."
+msgstr ""
+"Στις περισσότερες περιπτώσεις θα βρείτε απαντήσεις στα θέματα βοήθειας της "
+"εφαρμογής.\n"
+"Τα θέματα βοήθειας βρίσκονται στο μενού \"Βοήθεια\" στη μπάρα επιλογών που "
+"βρίσκεται στην κορυφή του παραθύρου, επιλέγοντας \"Θέματα βοήθειας\" απο τις "
+"επιλογές.\n"
+"\n"
+"Μπορείτε επίσης να βρείτε βοήθεια,αναβαθμίσεις και συμβουλές στην "
+"ιστοσελίδα:\n"
+"https://forge.betavine.net/projects/vodafonemobilec.\n"
+"\n"
+"Αν κάνετε χρήση των κουμπιών mail και browser για να ενεργοποιήσετε "
+"εφαρμογές του συστήματός σας, ίσως χρειαστείτε τη βοήθεια του Διαχειριστή "
+"σας για τυχών απορίες που μπορεί να έχετε."
+
+#: ../glade/VMC-reduced.glade:2416 ../glade/VMC.glade:1560
+msgid "Help menu"
+msgstr "Μενού βοήθειας"
+
+#: ../glade/VMC-reduced.glade:2480 ../glade/VMC.glade:1585
+msgid ""
+"If you are using this program in a corporate environment, your company\n"
+"probably has a support center to solve the questions that you might have\n"
+"about the program.\n"
+"\n"
+"If your company does not have a support center, you will have to contact\n"
+"your company's System Administrator."
+msgstr ""
+"Αν κάνετε χρήση της εφαρμογής αυτής σε εταιρικό περιβάλλον, η εταιρία σας\n"
+"πιθανών διαθέτει τμήμα υποστήριξης που μπορεί να σας βοηθήσει σχετικά\n"
+"με τη χρήση της.\n"
+"\n"
+"Αν η εταιρία σας δεν διαθέτει τμήμα υποστήριξης, θα χρειαστεί να "
+"επικοινωνήσετε\n"
+"με το Διαχειριστή Συστημάτων σας."
+
+#: ../glade/VMC-reduced.glade:2502 ../glade/VMC.glade:1605
+msgid "Support center"
+msgstr "Κέντρο υποστήριξης"
+
+#: ../glade/VMC-reduced.glade:2547 ../glade/VMC.glade:1622
+msgid ""
+"You can easily find answers to the most common questions in the\n"
+"help menu, in your company's support center and in the support\n"
+"area at https://forge.betavine.net/projects/vodafonemobilec .\n"
+"\n"
+"If you still have difficulties you can call to Vodafone's Customer Support "
+"Center,\n"
+"the numbers are:\n"
+"\n"
+"123, if you are using Vodafone's network, or\n"
+"\n"
+"+34 607 123 00 if you are calling from other network."
+msgstr ""
+
+#: ../glade/VMC-reduced.glade:2569 ../glade/VMC.glade:1642
+msgid "Customer support"
+msgstr "Υποστήριξη Πελατών"
+
+#: ../glade/VMC.glade:1200 ../glade/VMC.glade:1485
+msgid "Remember that this information is only orientative."
+msgstr ""
+
+#: ../glade/VMC.glade:1517
+msgid "<b>Usage</b>"
+msgstr "<b>Χρήση</b>"
+
+#: ../glade/apnsel.glade:8
+#, fuzzy
+msgid "APN selection"
+msgstr "Ρυθμίσεις Συσκευής"
+
+#: ../glade/apnsel.glade:22
+msgid "APN Selection Window"
+msgstr ""
+
+#: ../glade/apnsel.glade:69
+msgid ""
+"<b>Preconfigured APNs for your Operator.</b>\n"
+"\n"
+"You can choose a preconfigured APN or cancel to enter the information needed "
+"to set up a custom one.\n"
+msgstr ""
+
+#: ../glade/apnsel.glade:193 ../glade/config2.glade:1333
+#: ../glade/pin.glade:223
+#, fuzzy
+msgid "Cancel"
+msgstr "gtk-cancel"
+
+#: ../glade/apnsel.glade:208 ../glade/config2.glade:1348
+#: ../glade/pin.glade:240
+msgid "OK"
+msgstr "OK"
+
+#: ../glade/apnsel.glade:228
+#, fuzzy
+msgid "<b>APN Settings</b>"
+msgstr "<b>Ρυθμίσεις σύνδεσης</b>"
+
+#: ../glade/config.glade:8
+msgid "Device setup"
+msgstr "Ρυθμίσεις Συσκευής"
+
+#: ../glade/config.glade:34
+msgid ""
+"Please select from the following options how do you want to connect to the "
+"Internet"
+msgstr ""
+"Παρακαλώ επιλέξτε με ποιόν από τους παρακάτω τρόπους επιθυμείτε να "
+"συνδεθείτε με τοΊντερνετ"
+
+#: ../glade/config.glade:56
+msgid "Device model: "
+msgstr "Τύπος Συσκευής: "
+
+#: ../glade/config.glade:63
+msgid "Connection:"
+msgstr "Σύνδεση:"
+
+#: ../glade/config.glade:153
+msgid "Bluetooth configuration"
+msgstr "Ρυθμίσεις Bluetooth"
+
+#: ../glade/config.glade:174
+msgid "Configure your <b>Bluetooth</b> device"
+msgstr "Ρυθμίστε τη συσκευή <b>Bluetooth</b> σας"
+
+#: ../glade/config.glade:198
+msgid ""
+"Make sure that your mobile has bluetooth enabled and is visible.\n"
+"You'll need a pass-key agent installed like bluez-gnome. Your\n"
+"connection can be automatically configured if your distribution\n"
+"sports a recent version of libbluetooth2. Otherwise you will\n"
+"have to configure it yourself and fill the relevant entries"
+msgstr ""
+"Παρακαλώ βεβαιωθείτε ότι το κινητό σας έχει ενεργοποιημένο το bluetooth.\n"
+"Θα χρειαστείτε έναν pass-key agent όπως ο bluez-gnome. Η\n"
+"σύνδεσή σας μπορεί να ρυθμιστεί αυτόματα αν η διανομή σας\n"
+"έχει πρόσφατη έκδοση της libbluetooth2. Διαφορετικά θα πρέπει\n"
+"να κάνετε τις ρυθμίσεις μόνοι σας και να συμπληρώσετε τα\n"
+"σχετικά πεδία"
+
+#: ../glade/config.glade:250
+msgid "_Start discovery"
+msgstr "_Εναρξη ανίχνευσης"
+
+#: ../glade/config.glade:301
+msgid "<b>Serial Port</b>"
+msgstr "<b>Σειριακή Θύρα</b>"
+
+#: ../glade/config.glade:325
+msgid "Data port"
+msgstr "Θύρα δεδομένων"
+
+#: ../glade/config.glade:334
+msgid "Control port"
+msgstr "Θύρα ελέγχου"
+
+#: ../glade/config.glade:346
+msgid "Speed"
+msgstr "Ταχύτητα"
+
+#: ../glade/config.glade:440
+msgid "<b>Connection settings</b>"
+msgstr "<b>Ρυθμίσεις σύνδεσης</b>"
+
+#: ../glade/config.glade:461
+msgid "Enable hardware flow control"
+msgstr "Enable hardware flow control"
+
+#: ../glade/config.glade:474
+msgid "Enable software flow control"
+msgstr "Enable software flow control"
+
+#: ../glade/config2.glade:9
+#, fuzzy
+msgid "New Profile"
+msgstr "Νέο προφίλ"
+
+#: ../glade/config2.glade:23
+#, fuzzy
+msgid "New Profile Window"
+msgstr "Νέο προφίλ"
+
+#: ../glade/config2.glade:64
+msgid ""
+"<b>Create a new profile for your device.</b>\n"
+"\n"
+"If you are not sure about what should you fill in, contact your customer "
+"support center and they should provide\n"
+"you with the relevant information."
+msgstr ""
+
+#: ../glade/config2.glade:115
+msgid "<b>Connection preferences</b>"
+msgstr "<b>Προτιμήσεις σύνδεσης</b>"
+
+#: ../glade/config2.glade:152
+msgid "Username:"
+msgstr "Χρήστης:"
+
+#: ../glade/config2.glade:177
+msgid "Password:"
+msgstr "Κωδικός:"
+
+#: ../glade/config2.glade:202
+msgid "Preferred connection:"
+msgstr "Προτιμώμενη σύνδεση:"
+
+#: ../glade/config2.glade:227
+#, fuzzy
+msgid "Authentication mode:"
+msgstr "Σφάλμα πιστοποίησης από %s !"
+
+#: ../glade/config2.glade:252
+msgid "APN host:"
+msgstr "Αναγνωριστικό APN:"
+
+#: ../glade/config2.glade:410
+#, fuzzy
+msgid "<b>DNS settings</b>"
+msgstr "<b>Ρυθμίσεις σύνδεσης</b>"
+
+#: ../glade/config2.glade:448
+#, fuzzy
+msgid "Use static DNS"
+msgstr "Χρήση στατικών DNS"
+
+#: ../glade/config2.glade:481
+msgid "Primary DNS:"
+msgstr "Βασικός DNS:"
+
+#: ../glade/config2.glade:506
+msgid "Secondary DNS:"
+msgstr "Εφεδρικός DNS:"
+
+#: ../glade/config2.glade:645
+#, fuzzy
+msgid "<b>Profile settings</b>"
+msgstr "<b>Ρυθμίσεις σύνδεσης</b>"
+
+#: ../glade/config2.glade:682
+#, fuzzy
+msgid "Profile name:"
+msgstr "Προφίλ:"
+
+#: ../glade/config2.glade:707
+#, fuzzy
+msgid "Device model:"
+msgstr "Τύπος Συσκευής: "
+
+#: ../glade/config2.glade:782 ../../wader/vmc/controllers/preferences.py:280
+#: ../../wader/vmc/controllers/preferences.py:295
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+#: ../glade/config2.glade:859
+#, fuzzy
+msgid "Device selection"
+msgstr "Ρυθμίσεις Συσκευής"
+
+#: ../glade/config2.glade:873
+#, fuzzy
+msgid "Device Selection Window"
+msgstr "Ρυθμίσεις Συσκευής"
+
+#: ../glade/config2.glade:921
+msgid ""
+"<b>Select a device for your connection.</b>\n"
+"\n"
+"You can choose a known device or insert the needed information to set up a "
+"custom one.\n"
+msgstr ""
+
+#: ../glade/config2.glade:1020
+#, fuzzy
+msgid "Known devices"
+msgstr "Δεν βρέθηκαν συσκευές"
+
+#: ../glade/config2.glade:1028
+#, fuzzy
+msgid "Known Devices Radio"
+msgstr "Δεν βρέθηκαν συσκευές"
+
+#: ../glade/config2.glade:1079
+#, fuzzy
+msgid "Device type:"
+msgstr "Ρυθμίσεις Συσκευής"
+
+#: ../glade/config2.glade:1104
+msgid "Serial"
+msgstr ""
+
+#: ../glade/config2.glade:1181
+msgid "115200"
+msgstr ""
+
+#: ../glade/config2.glade:1197
+#, fuzzy
+msgid "Data port device:"
+msgstr "Θύρα δεδομένων"
+
+#: ../glade/config2.glade:1225
+#, fuzzy
+msgid "Control port device:"
+msgstr "Θύρα ελέγχου"
+
+#: ../glade/config2.glade:1253
+#, fuzzy
+msgid "Speed connection:"
+msgstr "Προτιμώμενη σύνδεση:"
+
+#: ../glade/config2.glade:1293
+#, fuzzy
+msgid "Custom device settings"
+msgstr "Δεν βρέθηκε συσκευή"
+
+#: ../glade/config2.glade:1302
+#, fuzzy
+msgid "Custom Device Settings Radio"
+msgstr "Δεν βρέθηκε συσκευή"
+
+#: ../glade/config2.glade:1368
+#, fuzzy
+msgid "<b>Device Settings</b>"
+msgstr "<b>Ρυθμίσεις σύνδεσης</b>"
+
+#: ../glade/contacts.glade:7
+msgid "Contact search"
+msgstr "Αναζήτηση επαφών"
+
+#: ../glade/contacts.glade:29
+msgid " Name:"
+msgstr " Όνομα:"
+
+#: ../glade/contacts.glade:94
+msgid "Contacts List"
+msgstr "Λίστα επαφών"
+
+#: ../glade/contacts.glade:179
+msgid "Name:"
+msgstr "Όνομα:"
+
+#: ../glade/contacts.glade:222
+msgid "Number:"
+msgstr "Αριθμός:"
+
+#: ../glade/contacts.glade:258
+msgid "<b>Save in:</b>"
+msgstr "<b>Αποθήκευση σε:</b>"
+
+#: ../glade/contacts.glade:341
+msgid "Computer"
+msgstr "Υπολογιστής"
+
+#: ../glade/diagnostics.glade:33
+msgid "<b>GSM device</b>"
+msgstr "<b>Συσκευή GSM</b>"
+
+#: ../glade/diagnostics.glade:51
+msgid "Model:"
+msgstr "Τύπος:"
+
+#: ../glade/diagnostics.glade:59
+msgid "Firmware: "
+msgstr "Firmware: "
+
+#: ../glade/diagnostics.glade:70
+msgid "IMEI: "
+msgstr "IMEI: "
+
+#: ../glade/diagnostics.glade:81
+msgid "IMSI: "
+msgstr "IMSI: "
+
+#: ../glade/diagnostics.glade:92
+msgid "VMC number:"
+msgstr "Αριθμός VMC:"
+
+#: ../glade/diagnostics.glade:115
+msgid "Card model"
+msgstr "Τύπος κάρτας"
+
+#: ../glade/diagnostics.glade:123
+msgid "Firmware"
+msgstr "Firmware"
+
+#: ../glade/diagnostics.glade:135
+msgid "IMEI"
+msgstr "IMEI"
+
+#: ../glade/diagnostics.glade:146
+msgid "IMSI"
+msgstr "IMSI"
+
+#: ../glade/diagnostics.glade:157
+msgid "Not supported"
+msgstr "Δεν υποστηρίζεται"
+
+#: ../glade/diagnostics.glade:188
+msgid "<b>Computer</b>"
+msgstr "<b>Υπολογιστής</b>"
+
+#: ../glade/diagnostics.glade:208
+msgid "Operating System:"
+msgstr "Λειτουργικό σύστημα:"
+
+#: ../glade/diagnostics.glade:216
+msgid "Version:"
+msgstr "Έκδοση:"
+
+#: ../glade/diagnostics.glade:227
+msgid "Uptime:"
+msgstr "Uptime:"
+
+#: ../glade/diagnostics.glade:248
+msgid "label26"
+msgstr "label26"
+
+#: ../glade/diagnostics.glade:256
+msgid "label27"
+msgstr "label27"
+
+#: ../glade/diagnostics.glade:267
+msgid "label28"
+msgstr "label28"
+
+#: ../glade/dialogs.glade:38 ../glade/dialogs.glade:239
+#: ../glade/dialogs.glade:450
+msgid "<big><b>Big title!</b></big>"
+msgstr "<big><b>Big title!</b></big>"
+
+#: ../glade/dialogs.glade:51 ../glade/dialogs.glade:252
+#: ../glade/dialogs.glade:347 ../glade/dialogs.glade:463
+msgid "A detailed message"
+msgstr "Λεπτομερές μήνυμα"
+
+#: ../glade/dialogs.glade:138
+msgid "<big><b>Question?</b></big>"
+msgstr "<big><b>Ερώτηση;</b></big>"
+
+#: ../glade/dialogs.glade:152
+msgid "Detailed message"
+msgstr "Λεπτομερές μήνυμα"
+
+#: ../glade/dialogs.glade:189
+msgid "Action"
+msgstr "Δράση"
+
+#: ../glade/dialogs.glade:325
+msgid "<b>title</b>"
+msgstr "<b>τίτλος</b>"
+
+#: ../glade/dialogs.glade:362
+msgid "Remember my choice"
+msgstr "Αποθήκευση επιλογής"
+
+#: ../glade/pin.glade:8
+msgid "Insert your PIN code"
+msgstr "Εισάγετε το ΡΙΝ σας"
+
+#: ../glade/pin.glade:23
+#, fuzzy
+msgid "Insert PIN Window"
+msgstr "Εισάγετε το ΡΙΝ σας"
+
+#: ../glade/pin.glade:64
+msgid "Please insert your PIN code"
+msgstr "Παρακαλώ εισάγετε το ΡΙΝ σας"
+
+#: ../glade/pin.glade:105
+#, fuzzy
+msgid "Insert PIN Entry"
+msgstr "Εισάγετε το ΡΙΝ σας"
+
+#: ../glade/pin.glade:150
+msgid "Manage my PIN through gnome-keyring"
+msgstr "Να διαχειρίζεται το ΡΙΝ μου το gnomekeyring"
+
+#: ../glade/pin.glade:179
+msgid "<b>Advanced Options</b>"
+msgstr "<b>Προχωρημένες επιλογές</b>"
+
+#: ../glade/pin.glade:258
+msgid "Modify PIN code"
+msgstr "Τροποποίηση ΡΙΝ"
+
+#: ../glade/pin.glade:373 ../glade/pin.glade:763
+msgid "Confirm PIN code: "
+msgstr "Επαλήθευση ΡΙΝ: "
+
+#: ../glade/pin.glade:401 ../glade/pin.glade:738
+msgid "New PIN code: "
+msgstr "Νέος ΡΙΝ: "
+
+#: ../glade/pin.glade:429
+msgid "Current PIN code: "
+msgstr "Υπάρχον ΡΙΝ: "
+
+#: ../glade/pin.glade:517
+msgid "Please enter PUK"
+msgstr "Παρακαλούμε εισαγάγετε τον κωδικό PUK"
+
+#: ../glade/pin.glade:654
+msgid "PUK:"
+msgstr "PUK:"
+
+#: ../glade/preferences.glade:7
+msgid "Preferences"
+msgstr "Προτιμήσεις"
+
+#: ../glade/preferences.glade:50
+msgid ""
+"<b>Change the dialer profile if your provider requires you to authenticate "
+"with PAP/CHAP</b>"
+msgstr ""
+
+#: ../glade/preferences.glade:67
+#, fuzzy
+msgid "Use an alternative dialer profile"
+msgstr "Αδυναμία διαγραφής προφίλ"
+
+#: ../glade/preferences.glade:94 ../glade/sms-preferences.glade:46
+msgid "Profile:"
+msgstr "Προφίλ:"
+
+#: ../glade/preferences.glade:127
+#, fuzzy
+msgid "Dialer profile"
+msgstr "Διαγραφή προφίλ"
+
+#: ../glade/preferences.glade:145
+msgid "<b>User options</b>"
+msgstr "<b>Επιλογές χρήστη</b>"
+
+#: ../glade/preferences.glade:167
+msgid "Exit without confirmation"
+msgstr "Έξοδος χωρίς επιβεβαίωση"
+
+#: ../glade/preferences.glade:181
+msgid "Show icon on tray"
+msgstr "Εμφάνιση εικονιδίου στο πλαίσιο συστήματος"
+
+#: ../glade/preferences.glade:196
+msgid "Close window minimizes app to tray"
+msgstr "Ελαχιστοποίηση εφαρμογής στο πλαίσιο συστήματος"
+
+#: ../glade/preferences.glade:211
+msgid "Manage my PIN through gnomekeyring"
+msgstr "Διαχείριση ΡΙΝ μέσω του gnomekeyring"
+
+#: ../glade/preferences.glade:242
+#, fuzzy
+msgid "User Preferences"
+msgstr "Προτιμήσεις"
+
+#: ../glade/preferences.glade:261
+#, fuzzy
+msgid "<b>Web Browser</b>"
+msgstr "<b>Περίοδος</b>"
+
+#: ../glade/preferences.glade:300
+msgid "\n"
+msgstr ""
+
+#: ../glade/preferences.glade:317 ../glade/preferences.glade:400
+msgid "Command:"
+msgstr ""
+
+#: ../glade/preferences.glade:350
+#, fuzzy
+msgid "<b>Email client</b>"
+msgstr "<b>Αποθήκευση σε:</b>"
+
+#: ../glade/preferences.glade:446
+#, fuzzy
+msgid "Applications"
+msgstr "Δράση"
+
+#: ../glade/preferences.glade:465
+#, fuzzy
+msgid "<b>Usage Options</b>"
+msgstr "<b>Επιλογές χρήστη</b>"
+
+#: ../glade/preferences.glade:491
+#, fuzzy
+msgid "Maximum traffic (MB):"
+msgstr "Μέγιστος χρόνος"
+
+#: ../glade/preferences.glade:521
+msgid "Notify when a given threshold is exceeded."
+msgstr ""
+
+#: ../glade/preferences.glade:545
+msgid "Notification threshold (MB):"
+msgstr ""
+
+#: ../glade/sms-preferences.glade:28
+msgid "<b>SMSC preferences</b>"
+msgstr "<b>Προτιμήσεις SMSC</b>"
+
+#: ../glade/sms-preferences.glade:54
+msgid "SMSC number:"
+msgstr "Αριθμός SMSC:"
+
+#: ../glade/sms-preferences.glade:115
+msgid "<b>Message options</b>"
+msgstr "<b>Επιλογές Μηνυμάτων</b>"
+
+#: ../glade/sms-preferences.glade:132
+msgid "Validity:"
+msgstr "Εγκυρότητα:"
+
+#: ../glade/sms-preferences.glade:139
+msgid "Class:"
+msgstr "Κλάση:"
+
+#: ../glade/sms-preferences.glade:159
+msgid ""
+"Maximum time\n"
+"1 week\n"
+"3 days\n"
+"1 day"
+msgstr ""
+"Μέγιστος χρόνος\n"
+"1 εβδομάδα\n"
+"3 ημέρες\n"
+"1 ημέρα"
+
+#: ../glade/sms.glade:50
+msgid "TO : "
+msgstr "Προς : "
+
+#: ../glade/splash.glade:6
+msgid "3G Devices Manager"
+msgstr "Διαχειριστής συσκευών 3G"
+
+#: ../../wader/vmc/startup.py:151
+msgid "Initial setup..."
+msgstr "Αρχικές ρυθμίσεις..."
+
+#: ../../wader/vmc/startup.py:191 ../../wader/vmc/startup.py:210
+#: ../../wader/vmc/controllers/initialconf.py:402
+msgid "Device setup not completed"
+msgstr "Η ρύθμιση της συσκευής δεν έχει ολοκληρωθεί"
+
+#: ../../wader/vmc/startup.py:192
+#, python-format
+msgid ""
+"\n"
+"Your device has been detected but it has been impossible to connect to it.\n"
+"\n"
+"%s"
+msgstr ""
+
+#: ../../wader/vmc/startup.py:211
+#, python-format
+msgid ""
+"\n"
+"Your device \"%(name)s\" is not properly registered with the kernel. %(vmc)"
+"s\n"
+"needs at least two serial ports to communicate with your %(name)s.\n"
+"The program includes a set of udev rules plus some binaries that make sure\n"
+"that your device is always recognised properly. If you've installed from\n"
+"source, then make sure to copy the relevant files in the contrib dir\n"
+msgstr ""
+
+#: ../../wader/vmc/startup.py:227
+#, fuzzy
+msgid "Device not responding"
+msgstr "Συσκευή σε χρήση αφαιρέθηκε"
+
+#: ../../wader/vmc/startup.py:228
+msgid ""
+"\n"
+"Your device took more than 15 seconds to reply to my last command. Unplug "
+"it,\n"
+"plug it again, and try in a moment."
+msgstr ""
+
+#: ../../wader/vmc/startup.py:303
+#, fuzzy
+msgid "Authenticated!"
+msgstr "Σύνδεση..."
+
+#: ../../wader/vmc/startup.py:306
+#, fuzzy
+msgid "Authenticating..."
+msgstr "Σύνδεση..."
+
+#: ../../wader/vmc/consts.py:82
+msgid "Any band"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:83
+msgid "EGSM 900"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:84
+#, fuzzy
+msgid "GSM DCS"
+msgstr "SMS"
+
+#: ../../wader/vmc/consts.py:85
+#, fuzzy
+msgid "GSM PCS"
+msgstr "SMS"
+
+#: ../../wader/vmc/consts.py:86
+msgid "GSM 850"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:87
+msgid "WCDMA 2100"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:88
+msgid "WCDMA 1700"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:89
+msgid "WCDMA 17IV"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:90
+msgid "WCDMA 800"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:91
+msgid "WCDMA 850"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:92
+msgid "WCDMA 900"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:93
+msgid "WCDMA 17IX"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:94
+msgid "WCDMA 1900"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:100
+msgid "Any"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:102
+#: ../../wader/vmc/controllers/application.py:1295
+msgid "EDGE"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:103
+msgid "UMTS"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:104
+msgid "HSDPA"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:105
+msgid "HSUPA"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:106
+msgid "HSPA"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:107
+#, fuzzy
+msgid "2G preferred"
+msgstr "Προτίμηση 3G"
+
+#: ../../wader/vmc/consts.py:108
+#: ../../wader/common.orig/hardware/__init__.py:32
+#: ../../wader/common.orig/hardware/__init__.py:39
+msgid "3G preferred"
+msgstr "Προτίμηση 3G"
+
+#: ../../wader/vmc/consts.py:109
+#, fuzzy
+msgid "2G only"
+msgstr "Μόνο 3G"
+
+#: ../../wader/vmc/consts.py:110
+#: ../../wader/common.orig/hardware/__init__.py:30
+#: ../../wader/common.orig/hardware/__init__.py:37
+msgid "3G only"
+msgstr "Μόνο 3G"
+
+#: ../../wader/vmc/views/pin.py:65
+msgid ""
+"\n"
+"In order to unlock your SIM, we need your\n"
+"PIN and PUK codes"
+msgstr ""
+"\n"
+"Για να ξεκλειδώσετε τη κάρτα SIM σας, θα χρειαστείτε\n"
+"τους κωδικούς PIN και PUK"
+
+#: ../../wader/vmc/views/pin.py:73
+msgid ""
+"\n"
+"In order to unlock your SIM, we need your\n"
+"PIN and PUK2 codes"
+msgstr ""
+"\n"
+"Για να ξεκλειδώσετε τη κάρτα SIM σας, θα χρειαστείτε\n"
+"τους κωδικούς PIN και PUK2"
+
+#: ../../wader/vmc/views/preferences.py:107
+#: ../../wader/vmc/views/preferences.py:120
+#: ../../wader/vmc/controllers/preferences.py:287
+msgid "Custom"
+msgstr ""
+
+#: ../../wader/vmc/views/application.py:55
+msgid "B"
+msgstr ""
+
+#: ../../wader/vmc/views/application.py:56
+msgid "KB"
+msgstr ""
+
+#: ../../wader/vmc/views/application.py:57
+msgid "MB"
+msgstr ""
+
+#: ../../wader/vmc/views/application.py:58
+msgid "GB"
+msgstr ""
+
+#: ../../wader/vmc/views/application.py:334
+#: ../../wader/vmc/controllers/application.py:951
+msgid "Not connected"
+msgstr "Αποσυνδεμένο"
+
+#: ../../wader/vmc/views/application.py:342
+#: ../../wader/vmc/controllers/application.py:1068
+msgid "Disconnect"
+msgstr "Αποσύνδεση"
+
+#: ../../wader/vmc/views/application.py:354
+msgid "No device present"
+msgstr "Δεν βρέθηκε συσκευή"
+
+#: ../../wader/vmc/views/application.py:356
+#: ../../wader/vmc/views/application.py:357
+#: ../../wader/vmc/controllers/application.py:1293
+#: ../../wader/vmc/controllers/application.py:1327
+msgid "N/A"
+msgstr "N/A"
+
+#: ../../wader/vmc/views/application.py:384
+#: ../../wader/vmc/views/application.py:421
+#: ../../wader/vmc/views/initialconf.py:104
+#: ../../wader/vmc/controllers/contacts.py:143
+msgid "Type"
+msgstr "Τύπος"
+
+#: ../../wader/vmc/views/application.py:390
+#: ../../wader/vmc/views/initialconf.py:98
+#: ../../wader/vmc/views/initialconf.py:312
+#: ../../wader/vmc/controllers/contacts.py:149
+msgid "Name"
+msgstr "Όνομα"
+
+#: ../../wader/vmc/views/application.py:399
+#: ../../wader/vmc/controllers/contacts.py:156
+msgid "Number"
+msgstr "Αριθμός"
+
+#: ../../wader/vmc/views/application.py:428
+msgid "Text"
+msgstr "Κείμενο"
+
+#: ../../wader/vmc/views/application.py:439
+msgid "Recipient"
+msgstr "Παραλήπτης"
+
+#: ../../wader/vmc/views/application.py:439
+msgid "Sender"
+msgstr "Αποστολέας"
+
+#: ../../wader/vmc/views/application.py:447
+msgid "Date"
+msgstr "Ημερομηνία"
+
+#: ../../wader/vmc/views/initialconf.py:101
+#, fuzzy
+msgid "Country"
+msgstr "Υπολογιστής"
+
+#: ../../wader/vmc/views/initialconf.py:226
+#, fuzzy
+msgid "No known devices found"
+msgstr "Δεν βρέθηκαν συσκευές"
+
+#: ../../wader/vmc/views/initialconf.py:319
+msgid "Address"
+msgstr "Διεύθυνση"
+
+#: ../../wader/vmc/models/preferences.py:34
+msgid "Maximum time"
+msgstr "Μέγιστος χρόνος"
+
+#: ../../wader/vmc/models/preferences.py:35
+msgid "1 week"
+msgstr "1 εβδομάδα"
+
+#: ../../wader/vmc/models/preferences.py:36
+msgid "3 days"
+msgstr "3 ημέρες"
+
+#: ../../wader/vmc/models/preferences.py:37
+msgid "1 day"
+msgstr "1 ημέρα"
+
+#: ../../wader/vmc/models/application.py:232
+msgid "%B, %Y"
+msgstr ""
+
+#: ../../wader/vmc/controllers/sms.py:45
+msgid "You can send the SMS to several recipients separating them by commas"
+msgstr ""
+
+#: ../../wader/vmc/controllers/sms.py:65
+#, fuzzy, python-format
+msgid "Text message: 0/%d chars"
+msgstr "Μήνυμα κειμένου: 0/%d"
+
+#: ../../wader/vmc/controllers/sms.py:88
+msgid "Send empty message"
+msgstr "Αποστολή κενού μηνύματος"
+
+#: ../../wader/vmc/controllers/sms.py:89
+msgid "Are you sure you want to send an empty message?"
+msgstr "Ειστε βέβαιοι οτι θέλετε να στείλετε ένα κενό μήνυμα;"
+
+#: ../../wader/vmc/controllers/sms.py:107
+#, fuzzy
+msgid "Unknown Error"
+msgstr "Άγνωστο"
+
+#: ../../wader/vmc/controllers/sms.py:108
+msgid ""
+"Your message cannot be sent to some of its recipients. Unsent messages have "
+"been saved in drafts. Please, check that you have typed the number correctly."
+msgstr ""
+
+#: ../../wader/vmc/controllers/sms.py:174
+#, fuzzy, python-format
+msgid "Text message: %(chrcnt)d/%(maxchr)d chars"
+msgstr "%(chrcnt)d/%(maxchr)d χαρακτήρες"
+
+#: ../../wader/vmc/controllers/sms.py:216
+msgid "No SMSC number"
+msgstr "Χωρίς αριθμό SMSC"
+
+#: ../../wader/vmc/controllers/sms.py:218
+#, python-format
+msgid ""
+"\n"
+"In order to send a SMS, %s needs to know the number of your provider's "
+"SMSC.\n"
+"If you do not know the SMSC number, contact your customer service.\n"
+msgstr ""
+"\n"
+"Προκειμένου να στείλετε ένα SMS, το %s πρέπει να γνωρίζει τον αριθμό SMSC "
+"του παρόχου σας.\n"
+"Αν δεν γνωρίζετε τον αριθμό αυτό, καλέστε την Εξυπηρέτηση Πελατών.\n"
+
+#: ../../wader/vmc/controllers/pin.py:109
+#: ../../wader/vmc/controllers/pin.py:300
+msgid "Incorrect PIN"
+msgstr "Εσφαλμένο ΡΙΝ"
+
+#: ../../wader/vmc/controllers/pin.py:110
+msgid ""
+"\n"
+"<small>The PIN you've just entered is\n"
+"incorrect. Bear in mind that after\n"
+"three failed PINs you'll be asked\n"
+"for the PUK code</small>\n"
+msgstr ""
+"\n"
+"<small>Ο κωδικός PIN που εισάγατε είναι\n"
+"εσφαλμένος. Να θυμάστε οτι έπειτα από\n"
+"τρείς εσσφαλμένες απόπειρες θα σας\n"
+"ζητηθεί ο κωδικός PUK</small>\n"
+
+#: ../../wader/vmc/controllers/pin.py:216
+msgid "Incorrect PUK"
+msgstr "Εσφαλμένο PUK"
+
+#: ../../wader/vmc/controllers/pin.py:217
+msgid ""
+"\n"
+"<small>The PUK you've just entered is\n"
+"incorrect. Bear in mind that after\n"
+"three failed PUKs you'll be asked\n"
+"for the PUK2 code. Your PIN code\n"
+"should be your last PIN.</small>\n"
+msgstr ""
+"\n"
+"<small>Ο κωδικός PUK που εισάγατε είναι\n"
+"εσφαλμένος.Να θυμάστε οτι έπειτα από\n"
+"τρείς εσσφαλμένες απόπειρες θα σας ζητηθεί\n"
+"ο κωδικός PUK2 . Ο κωδικός PIN \n"
+"δεν θα πρέπει να έχει αλλάξει.</small>\n"
+
+#: ../../wader/vmc/controllers/pin.py:301
+msgid ""
+"\n"
+"The PIN you've just entered is\n"
+"incorrect. Bear in mind that after\n"
+"three failed PINs you'll be asked\n"
+"for the PUK code\n"
+msgstr ""
+"\n"
+"Ο κωδικός PIN που εισάγατε είναι\n"
+"εσφαλμένος. Να θυμάστε οτι έπειτα από\n"
+"τρείς εσσφαλμένες απόπειρες θα σας\n"
+"ζητηθεί ο κωδικός PUK\n"
+
+#: ../../wader/vmc/controllers/pin.py:403
+#: ../../wader/vmc/controllers/preferences.py:68
+#: ../../wader/vmc/controllers/preferences.py:87
+#: ../../wader/vmc/controllers/application.py:582
+msgid "Missing dependency"
+msgstr "Missing dependency"
+
+#: ../../wader/vmc/controllers/pin.py:405
+#: ../../wader/vmc/controllers/preferences.py:70
+msgid "To use this feature you need the gnomekeyring module"
+msgstr ""
+"Για να κάνετε χρήση αυτής της δυνατότητας χρειάζεστε την υπομονάδα "
+"gnomekeyring"
+
+#: ../../wader/vmc/controllers/preferences.py:88
+msgid ""
+"\n"
+"To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
+"module\n"
+msgstr ""
+"\n"
+"To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
+"module\n"
+
+#: ../../wader/vmc/controllers/application.py:115
+#: ../../wader/vmc/controllers/initialconf.py:576
+msgid "Shutting down"
+msgstr "Απενεργοποίηση"
+
+#: ../../wader/vmc/controllers/application.py:133
+msgid "Connected to Internet"
+msgstr "Σύνδεση με το το Ίντερνετ"
+
+#: ../../wader/vmc/controllers/application.py:134
+#, python-format
+msgid ""
+"\n"
+"You need to disconnect from Internet before shutting\n"
+"down %s,\n"
+"if you want to do so, press the OK button.\n"
+msgstr ""
+"\n"
+"Πρέπει να αποσυνδεθείτε από το Ίντερνετ για να κλείσετε την\n"
+"εφαρμογή %s,\n"
+"αν επιθυμείτε να το κάνετε αυτό, πιέστε την επιλογή OK.\n"
+
+#: ../../wader/vmc/controllers/application.py:253
+msgid "Reading contacts..."
+msgstr "Ανάγνωση επαφών..."
+
+#: ../../wader/vmc/controllers/application.py:280
+msgid "Reading messages..."
+msgstr "Ανάγνωση μηνυμάτων..."
+
+#: ../../wader/vmc/controllers/application.py:334
+msgid "User Limit"
+msgstr ""
+
+#: ../../wader/vmc/controllers/application.py:335
+msgid "You have reached your limit of maximum usage"
+msgstr ""
+
+#: ../../wader/vmc/controllers/application.py:357
+msgid "New mobile profile available"
+msgstr ""
+
+#: ../../wader/vmc/controllers/application.py:358
+msgid ""
+"\n"
+"New profile available, do you want to load it?"
+msgstr ""
+
+#: ../../wader/vmc/controllers/application.py:360
+msgid "Load"
+msgstr ""
+
+#: ../../wader/vmc/controllers/application.py:395
+#: ../../wader/vmc/controllers/application.py:1293
+msgid "Radio Disabled"
+msgstr ""
+
+#: ../../wader/vmc/controllers/application.py:423
+#, python-format
+msgid "Quit %s"
+msgstr "Έξοδος από %s"
+
+#: ../../wader/vmc/controllers/application.py:424
+msgid "Are you sure you want to exit?"
+msgstr "Είστε σίγουροι οτι θέλετε να βγείτε;"
+
+#: ../../wader/vmc/controllers/application.py:481
+#, fuzzy
+msgid "_New Profile"
+msgstr "Νέο προφίλ"
+
+#: ../../wader/vmc/controllers/application.py:490
+#, fuzzy
+msgid "Load Profile"
+msgstr "Προφίλ"
+
+#: ../../wader/vmc/controllers/application.py:495
+#, fuzzy
+msgid "Edit Profile"
+msgstr "Επεξεργασία προφίλ"
+
+#: ../../wader/vmc/controllers/application.py:500
+#, fuzzy
+msgid "Delete Profile"
+msgstr "Διαγραφή προφίλ"
+
+#: ../../wader/vmc/controllers/application.py:583
+#, fuzzy
+msgid "To use this widget you need python-vte installed"
+msgstr ""
+"Για να κάνετε χρήση αυτής της δυνατότητας χρειάζεστε την υπομονάδα "
+"gnomekeyring"
+
+#: ../../wader/vmc/controllers/application.py:630
+msgid "Invalid CSV format"
+msgstr "Άκυρη διαμόρφωση CSV"
+
+#: ../../wader/vmc/controllers/application.py:631
+msgid ""
+"\n"
+"The csv file that you have tried to import has an invalid format."
+msgstr ""
+"\n"
+"Το αρχείο csv που προσπαθήσατε να εισάγετε έχει άκυρη διαμόρφωση."
+
+#: ../../wader/vmc/controllers/application.py:662
+#: ../../wader/vmc/controllers/application.py:684
+msgid "Connecting..."
+msgstr "Σύνδεση..."
+
+#: ../../wader/vmc/controllers/application.py:679
+#: ../../wader/vmc/controllers/application.py:1302
+#, python-format
+msgid "Connected to %s"
+msgstr "Συνδέθηκε με %s"
+
+#: ../../wader/vmc/controllers/application.py:681
+msgid "Connected"
+msgstr "Συνδεδεμένο"
+
+#: ../../wader/vmc/controllers/application.py:952
+msgid "No mobile connection. Do you want to continue?"
+msgstr "Δεν υπάρχει σύνδεση.  Θέλετε να συνεχίσετε;"
+
+#: ../../wader/vmc/controllers/application.py:1090
+msgid "Send SMS"
+msgstr "Αποστολή SMS"
+
+#: ../../wader/vmc/controllers/application.py:1104
+msgid "Quit"
+msgstr "Έξοδος"
+
+#: ../../wader/vmc/controllers/application.py:1122
+msgid "_Send SMS"
+msgstr "_Αποστολή SMS"
+
+#: ../../wader/vmc/controllers/application.py:1142
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+#: ../../wader/vmc/controllers/application.py:1157
+msgid "_Add to contacts"
+msgstr "_Προσθήκη στις επαφές"
+
+#: ../../wader/vmc/controllers/application.py:1166
+msgid "Save to draft"
+msgstr "Αποθήκευση στα πρόχειρα"
+
+#: ../../wader/vmc/controllers/application.py:1177
+msgid "Delete"
+msgstr "Διαγραφή"
+
+#: ../../wader/vmc/controllers/application.py:1318
+msgid "Illegal Operation!"
+msgstr "Εσφαλμένη λειτουργία!"
+
+#: ../../wader/vmc/controllers/application.py:1319
+msgid ""
+"\n"
+"Your device only has one port and you are currently connected\n"
+"to Internet, you cannot perform any operation while connected"
+msgstr ""
+"\n"
+"Η συσκευή σας διαθέτει μόνο μία θύρα και είστε συνδεδεμένοι\n"
+"με το Ίντερνετ.  Δεν μπορείτε να κάνετε οτιδήποτε όσο είστε συνδεδεμένοι"
+
+#: ../../wader/vmc/controllers/application.py:1348
+#, python-format
+msgid "<small>SMS received from %s</small>"
+msgstr "<small>Ελήφθη SMS από %s</small>"
+
+#: ../../wader/vmc/controllers/application.py:1351
+#, python-format
+msgid ""
+"<small>Received at %(date)s</small>\n"
+"<b>%(text)s</b>"
+msgstr ""
+"<small>Λήψη %(date)s</small>\n"
+"<b>%(text)s</b>"
+
+#: ../../wader/vmc/controllers/application.py:1363
+#, fuzzy
+msgid "Invalid DNS received from Network"
+msgstr "Άκυρες ρυθμίσεις DNS από τον πάροχο"
+
+#: ../../wader/vmc/controllers/application.py:1365
+#, fuzzy
+msgid ""
+"\n"
+"<small>The DNS settings received from the mobile network are invalid. You "
+"will\n"
+"probably want to restart the connection, or if the problem persists, you\n"
+"can specify a static DNS entry in the connection preferences</small>\n"
+msgstr ""
+"\n"
+"<small>Οι ρυθμίσεις DNS που ελήφθησαν από τον πάροχο είναι άκυρες. Πιθανόν "
+"να χρειαστεί\n"
+"να κάνετε επανασύνδεση ή αν το πρόβλημα εξακολουθήσει, μπορείτε να ορίσετε\n"
+"χειροκίνητες ρυθμίσεις DNS στις προτιμήσεις συνδέσεων</small>\n"
+
+#: ../../wader/vmc/controllers/application.py:1380
+msgid "Disconnected from Internet"
+msgstr "Έγινε αποσύνδεση από το Ίντερνετ"
+
+#: ../../wader/vmc/controllers/application.py:1381
+#, python-format
+msgid ""
+"\n"
+"<small>%s has given\n"
+"up after trying to connect three times to Internet. This might\n"
+"be provoked by a problem in the configuration or just the fact\n"
+"that there's no carrier.</small>"
+msgstr ""
+"\n"
+"<small>%s απέτυχε\n"
+"να συνδεθεί έπειτα απο τρείς συνεχείς απόπειρες. Αυτό μπορεί να οφείλεται\n"
+"σε λάθος ρυθμίσεις ή στο γεγονός οτι δεν υπάρχει προσωρινά διαθέσιμο\n"
+"δίκτυο.</small>"
+
+#: ../../wader/vmc/controllers/application.py:1393
+msgid "Device in use removed"
+msgstr "Συσκευή σε χρήση αφαιρέθηκε"
+
+#: ../../wader/vmc/controllers/application.py:1395
+#, python-format
+msgid ""
+"\n"
+"The 3G device in use has been removed. Now\n"
+"%s\n"
+"is going to shutdown. In order to continue,\n"
+"plug in the 3G device and start again."
+msgstr ""
+"\n"
+"Η συσκευή 3G που βρισκόταν σε χρήση, αφαιρέθηκε. Τώρα\n"
+"η %s\n"
+"θα τερματιστεί. Για να συνεχίσετε,\n"
+"ενώστε τη συσκευή ξανά και αρχίστε απο την αρχή."
+
+#: ../../wader/vmc/controllers/application.py:1431
+msgid "3G Device added"
+msgstr "Προσθήκη συσκευής 3G"
+
+#: ../../wader/vmc/controllers/application.py:1432
+#, python-format
+msgid ""
+"\n"
+"A new 3G device (%(device_name)s)\n"
+"has been added, in around 15 seconds\n"
+"(%(app_name)s) will resume its functioning"
+msgstr ""
+"\n"
+"Μία νέα συσκευή 3G (%(device_name)s)\n"
+"ανιχνεύθηκε, σε περίπου 15 δευτερόλεπτα η\n"
+"(%(app_name)s) θα επανέλθει σε λειτουργία"
+
+#: ../../wader/vmc/controllers/application.py:1440
+msgid "Setting up device..."
+msgstr "Ενεργοποίηση συσκευής..."
+
+#: ../../wader/vmc/controllers/contacts.py:92
+msgid "No contact found"
+msgstr "Δεν βρέθηκε επαφή"
+
+#: ../../wader/vmc/controllers/contacts.py:93
+#, python-format
+msgid "No contact with the name %s found"
+msgstr "Δεν βρέθηκε επαφή με το όνομα %s"
+
+#: ../../wader/vmc/controllers/initialconf.py:239
+#, fuzzy, python-format
+msgid "The following characters are not allowed in a profile name: %s"
+msgstr ""
+"The following dependencies are not satisfied:\n"
+"%s"
+
+#: ../../wader/vmc/controllers/initialconf.py:242
+#, fuzzy
+msgid "Invalid value in profile"
+msgstr "Διαγραφή προφίλ"
+
+#: ../../wader/vmc/controllers/initialconf.py:403
+#, python-format
+msgid ""
+"\n"
+"An unknown error occur when setting up the device:\n"
+"%s"
+msgstr ""
+
+#: ../../wader/vmc/controllers/initialconf.py:468
+#, python-format
+msgid "Authentication Error from %s !"
+msgstr "Σφάλμα πιστοποίησης από %s !"
+
+#: ../../wader/vmc/controllers/initialconf.py:472
+#, python-format
+msgid "Connecting to %s ..."
+msgstr "Σύνδεση με %s ..."
+
+#: ../../wader/vmc/controllers/initialconf.py:520
+msgid "Discovery started..."
+msgstr "Εκκίνηση ανίχνευσης"
+
+#: ../../wader/vmc/controllers/initialconf.py:524
+msgid "Discovery finished!"
+msgstr "Τερματισμός ανίχνευσης!"
+
+#: ../../wader/vmc/controllers/initialconf.py:548
+msgid "No control port"
+msgstr "Δεν βρέθηκε θύρα ελέγχου"
+
+#: ../../wader/vmc/controllers/initialconf.py:554
+msgid "Connecting to device..."
+msgstr "Σύνδεση με τη συσκευή..."
+
+#: ../../wader/vmc/controllers/initialconf.py:562
+#, python-format
+msgid "Exception received connecting to %s"
+msgstr "Σφάλμα κατα τη σύνδεση με %s"
+
+#: ../../wader/vmc/controllers/initialconf.py:563
+#, python-format
+msgid ""
+"\n"
+"The following error was received while trying to establish a connection:\n"
+"%s"
+msgstr ""
+"\n"
+"Το ακόλουθο σφάλμα παρουσιάστηκε κατα τη σύνδεση:\n"
+"%s"
+
+#: ../../wader/vmc/dialogs.py:94
+msgid "Import contacts from..."
+msgstr "Εισαγωγή επαφών από..."
+
+#: ../../wader/vmc/dialogs.py:102 ../../wader/vmc/dialogs.py:164
+msgid "Csv files"
+msgstr "Αρχείο Csv"
+
+#: ../../wader/vmc/dialogs.py:107 ../../wader/vmc/dialogs.py:132
+#: ../../wader/vmc/dialogs.py:170
+msgid "All files"
+msgstr "Όλα τα έγγραφα"
+
+#: ../../wader/vmc/dialogs.py:123 ../../wader/vmc/dialogs.py:156
+msgid "Save as ..."
+msgstr "Αποθήκευση ώς..."
+
+#: ../../wader/vmc/dialogs.py:142 ../../wader/vmc/dialogs.py:180
+msgid "Overwrite"
+msgstr "Αντικατάσταση"
+
+#: ../../wader/vmc/dialogs.py:143 ../../wader/vmc/dialogs.py:181
+#, python-format
+msgid "Overwrite \"%s\"?"
+msgstr "Αντικατάσταση του \"%s\";"
+
+#: ../../wader/vmc/dialogs.py:144 ../../wader/vmc/dialogs.py:182
+msgid ""
+"A file with this name already exists.\n"
+"If you choose to overwrite this file, the contents will be lost."
+msgstr ""
+"Βρέθηκε αρχείο με το ίδιο όνομα.\n"
+"Αν επιλέξετε να το αντικαστήσετε, τα αρχικά περιεχόμενα του θα χαθούν."
+
+#: ../../wader/vmc/dialogs.py:196
+msgid "Device List"
+msgstr "Κατάλογος συσκευών"
+
+#: ../../wader/vmc/dialogs.py:229
+msgid "Vodafone Spain S.A."
+msgstr "Vodafone Spain S.A."
+
+#: ../../wader/vmc/dialogs.py:236
+msgid "translated to $LANG by $translater"
+msgstr "μεταφράστηκε στα $LANG από τον $translater"
+
+#: ../../wader/common.orig/dialers/__init__.py:31
+#: ../../wader/common.orig/dialers/__init__.py:37
+#, fuzzy
+msgid "Default"
+msgstr "default"
+
+#: ../../wader/common.orig/dialers/__init__.py:32
+#: ../../wader/common.orig/dialers/__init__.py:38
+msgid "PAP"
+msgstr ""
+
+#: ../../wader/common.orig/dialers/__init__.py:33
+#: ../../wader/common.orig/dialers/__init__.py:39
+msgid "CHAP"
+msgstr ""
+
+#: ../../wader/common.orig/dialers/wvdial.py:224
+msgid "WVDial directive error"
+msgstr ""
+
+#: ../../wader/common.orig/dialers/wvdial.py:225
+#, python-format
+msgid ""
+"\n"
+"Since version 0.9.7 %s manages pppd's /etc/ppp/{p,ch}ap-secrets, the\n"
+"'plugin passwordfd.so' directive should not appear on the\n"
+"current wvdial profile, please remove it manually. Go to\n"
+"Tools -> Preferences, select the wvdial profiles tab, and\n"
+"remove from the current wvdial profile the\n"
+"'plugin passwordfd.so' line."
+msgstr ""
+
+#: ../../wader/common.orig/hardware/__init__.py:29
+#: ../../wader/common.orig/hardware/__init__.py:36
+msgid "GPRS only"
+msgstr "Μόνο GPRS"
+
+#: ../../wader/common.orig/hardware/__init__.py:31
+#: ../../wader/common.orig/hardware/__init__.py:38
+msgid "GPRS preferred"
+msgstr "Προτίμηση GPRS"
+
+#: ../../wader/common.orig/uptime.py:83
+#, python-format
+msgid "%(day)d days, %(msg)s"
+msgstr "%(day)d ημέρες, %(msg)s"
+
+#: ../../wader/common.orig/uptime.py:85
+#, python-format
+msgid "%(day)d day, %(msg)s"
+msgstr "%(day)d ημέρα, %(msg)s"
+
+#: ../../wader/common.orig/shutdown.py:52
+msgid "Shutting down..."
+msgstr "Απενεργοποίηση..."
+
+#: ../../wader/common.orig/middleware.py:489
+#, fuzzy
+msgid "Unknown Network"
+msgstr "Άγνωστο"
+
+#: ../../gtk-tap.py:57
+msgid "Missing dependencies"
+msgstr "Missing dependencies"
+
+#: ../../gtk-tap.py:59
+#, python-format
+msgid ""
+"The following dependencies are not satisfied:\n"
+"%s"
+msgstr ""
+"The following dependencies are not satisfied:\n"
+"%s"
+
+#: ../../gtk-tap.py:68
+msgid "OS/Distro not registered"
+msgstr "OS/Distro not registered"
+
+#: ../../gtk-tap.py:80
+msgid "Permissions problems"
+msgstr "Permissions problems"
+
+#~ msgid "PIN1..."
+#~ msgstr "PIN1..."
+
+#~ msgid "Invalid PIN"
+#~ msgstr "Εσφαλμένο ΡΙΝ"
+
+#~ msgid ""
+#~ "\n"
+#~ "<small>The PIN you've just entered is\n"
+#~ "invalid. The PIN must be a 4 digit code</small>\n"
+#~ msgstr ""
+#~ "\n"
+#~ "<small>Ο κωδικός PIN που εισάγατε είναι\n"
+#~ "εσφαλμένος. Ο PIN αποτελείται από 4 ψηφία</small>\n"
+
+#~ msgid "Error"
+#~ msgstr "Σφάλμα"
+
+#~ msgid "Passwords don't match"
+#~ msgstr "Οι κωδικοί δεν ταιριάζουν"
+
+#~ msgid "PIN:"
+#~ msgstr "ΡΙΝ:"
+
+#~ msgid "gtk-cancel"
+#~ msgstr "gtk-cancel"
+
+#~ msgid "gtk-ok"
+#~ msgstr "gtk-ok"
+
+#~ msgid "gtk-help"
+#~ msgstr "gtk-help"
+
+#~ msgid "gtk-go-back"
+#~ msgstr "gtk-go-back"
+
+#~ msgid "gtk-go-forward"
+#~ msgstr "gtk-go-forward"
+
+#, fuzzy
+#~ msgid "gtk-home"
+#~ msgstr "gtk-help"
+
+#, fuzzy
+#~ msgid "Device Selection Cancel Button"
+#~ msgstr "Ρυθμίσεις Συσκευής"
+
+#, fuzzy
+#~ msgid "Device Selection OK Button"
+#~ msgstr "Ρυθμίσεις Συσκευής"
+
+#, fuzzy
+#~ msgid "Insert PIN OK Button"
+#~ msgstr "Εισάγετε το ΡΙΝ σας"
+
+#~ msgid "<b>Connectivy test</b>"
+#~ msgstr "<b>Δοκιμή συνδεσιμότητας</b>"
+
+#~ msgid ""
+#~ "Check your current network status with this test. If you experience any "
+#~ "network problem, please contact your support service"
+#~ msgstr ""
+#~ "Εδώ μπορείτε να ελένξετε την τρέχουσα κατάσταση δικτύου σας. Αν "
+#~ "αντιμετωπίσετε οποιοδήποτε πρόβλημα, επικοινωνήστε με την Τεχνική "
+#~ "Υποστήριξη"
+
+#~ msgid "_Start"
+#~ msgstr "_Εναρξη"
+
+#~ msgid "Network testing"
+#~ msgstr "Δοκιμή δικτύου"
+
+#~ msgid ""
+#~ "Some information is going to be collected from your system and some basic "
+#~ "connectivity tests are going to be performed to find out what is causing "
+#~ "the network problems"
+#~ msgstr ""
+#~ "Θα συλλεχθούν ορισμένες πληροφορίες του συστήματός σας και θα γίνουν "
+#~ "κάποιες βασικές δοκιμές συνδεσιμότητας για να εξακριβωθεί η αιτία των "
+#~ "δικτυακών προβλημάτων που αντιμετωπίζετε"
+
+#~ msgid "ERROR"
+#~ msgstr "ΣΦΑΛΜΑ"
+
+#~ msgid "Checking if ppp interface is up..."
+#~ msgstr "Checking if ppp interface is up..."
+
+#~ msgid "Checking if we can reach gateway..."
+#~ msgstr "Checking if we can reach gateway..."
+
+#~ msgid "Checking if we can reach nameserver..."
+#~ msgstr "Checking if we can reach nameserver..."
+
+#~ msgid "Checking if we can resolve google.com..."
+#~ msgstr "Checking if we can resolve google.com..."
+
+#~ msgid "Checking if we can fetch google's homepage..."
+#~ msgstr "Checking if we can fetch google's homepage..."
+
+#~ msgid "Connectivity test done!"
+#~ msgstr "Connectivity test done!"
+
+#~ msgid "%s-report.txt"
+#~ msgstr "%s-report.txt"
+
+#~ msgid "Performing connectivity test..."
+#~ msgstr "Εκτέλεση δοκιμής συνδεσιμότητας..."
+
+#~ msgid "Minimize"
+#~ msgstr "Ελαχιστοποίηση"
+
+#~ msgid "Help topics"
+#~ msgstr "Θέματα βοήθειας"
+
+#~ msgid "labelPeriodo1"
+#~ msgstr "labelPeriodo1"
+
+#~ msgid "<b>frame14</b>"
+#~ msgstr "<b>frame14</b>"
+
+#~ msgid "<b>Domain Name Servers</b>"
+#~ msgstr "<b>Domain Name Servers</b>"
+
+#~ msgid "<b>CHAP/PAP secrets</b>"
+#~ msgstr "<b>CHAP/PAP secrets</b>"
+
+#~ msgid "Manage my /etc/ppp/{ch,p}ap-secrets"
+#~ msgstr "Manage my /etc/ppp/{ch,p}ap-secrets"
+
+#~ msgid ""
+#~ "<b>Do not change this unless you are completely sure you know what you "
+#~ "are doing</b>"
+#~ msgstr ""
+#~ "<b>Μην αλλάξετε τις ρυθμίσεις αυτές αν δεν είστε σίγουροι για το "
+#~ "αποτέλεσμα που θα έχουν</b>"
+
+#~ msgid "Use a custom profile"
+#~ msgstr "Χρήση προσαρμοσμένου προφίλ"
+
+#~ msgid "<b>Wvdial profile management</b>"
+#~ msgstr "<b>Διαχείριση προφίλ Wvdial</b>"
+
+#~ msgid "Wvdial profiles"
+#~ msgstr "Προφίλ Wvdial"
+
+#~ msgid "Network:"
+#~ msgstr "Δίκτυο:"
+
+#~ msgid "Select the device that you want to use"
+#~ msgstr "Επιλέξτε τη συσκευή που θέλετε να χρησιμοποιήσετε"
+
+#~ msgid "0/%d chars"
+#~ msgstr "0/%d χαρακτήρες"
+
+#~ msgid "System information"
+#~ msgstr "Πληροφορίες Συστήματος"
+
+#~ msgid ""
+#~ "You can't delete profile %s as this would leave the application in\n"
+#~ "an unusable state"
+#~ msgstr ""
+#~ "Δεν μπορείτε να διαγράψετε το προφίλ %s διότι αυτό θα άφηνε την εφαρμογή "
+#~ "σε\n"
+#~ "μη λειτουργική κατάσταση"
+
+#~ msgid "Are you sure that you want to delete profile %s"
+#~ msgstr "Είστε σίγουροι οτι θέλετε να διαγράψετε το προφίλ %s"
+
+#~ msgid "Error while deleting profile"
+#~ msgstr "Σφάλμα κατά τη διαγραφή του προφίλ"
+
+#~ msgid "Profile %s does not exists"
+#~ msgstr "Το προφίλ %s δεν υπάρχει"
+
+#~ msgid "Profile %s can not be deleted"
+#~ msgstr "Το προφίλ %s δεν μπορεί να διαγραφεί"
+
+#~ msgid ""
+#~ "%s could not find any suitable device through DBus. If you own a "
+#~ "Bluetooth\n"
+#~ "device, press OK to setup and use it. Otherwise press Cancel and the "
+#~ "program\n"
+#~ "will stop"
+#~ msgstr ""
+#~ "Η %s δεν μπόρεσε να βρεί κατάλληλη συσκευή μέσω του DBus. Αν διαθέτετε "
+#~ "συσκευή\n"
+#~ "Bluetooth, πιέστε OK για να τη ρυθμίσετε. Διαφορετικά πιέστε Ακύρωση και "
+#~ "η εφαρμογή\n"
+#~ "θα τερματιστεί"
+
+#~ msgid "Running hardware wizard..."
+#~ msgstr "Εκτέλεση βοηθού υλικού..."
+
+#~ msgid "Initting device..."
+#~ msgstr "Ενεργοποίηση συσκευής..."

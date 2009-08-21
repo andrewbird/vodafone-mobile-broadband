@@ -1,0 +1,2043 @@
+# VMC Spanish translation file.
+# Copyright (C) 2007
+# This file is distributed under the same license as the VMC package.
+# Paulo Arinto <arinto@portugalmail.pt>
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-08-20 15:42+0100\n"
+"PO-Revision-Date: 2007-08-04 12:30+0100\n"
+"Last-Translator: Paulo Arinto <artinto@portugalmail.pt>\n"
+"Language-Team: Portuguese <PT@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../glade/VMC-reduced.glade:46 ../glade/VMC.glade:20
+#: ../glade/helpbrowser.glade:21
+msgid "_File"
+msgstr "_Ficheiro"
+
+#: ../glade/VMC-reduced.glade:55 ../glade/VMC.glade:27
+#: ../../wader/vmc/views/application.py:328
+#: ../../wader/vmc/controllers/application.py:1074
+msgid "Connect"
+msgstr "Ligar"
+
+#: ../glade/VMC-reduced.glade:64 ../glade/VMC.glade:34
+#: ../glade/contacts.glade:301
+msgid "Mobile"
+msgstr "Movél"
+
+#: ../glade/VMC-reduced.glade:83 ../glade/VMC.glade:51
+msgid "Import contacts..."
+msgstr "Importar contactos..."
+
+#: ../glade/VMC-reduced.glade:92 ../glade/VMC.glade:59
+msgid "Export contacts..."
+msgstr "Exportar contactos..."
+
+#: ../glade/VMC-reduced.glade:120 ../glade/VMC.glade:85
+msgid "_View"
+msgstr "_Ver"
+
+#: ../glade/VMC-reduced.glade:130 ../glade/VMC.glade:93
+msgid "SMS"
+msgstr "SMS"
+
+#: ../glade/VMC-reduced.glade:146 ../glade/VMC.glade:107
+#: ../glade/preferences.glade:590
+msgid "Usage"
+msgstr "Uso"
+
+#: ../glade/VMC-reduced.glade:162 ../glade/VMC.glade:121
+msgid "Support"
+msgstr "Suporte"
+
+#: ../glade/VMC-reduced.glade:187 ../glade/VMC.glade:140
+msgid "_Tools"
+msgstr "_Ferramentas"
+
+#: ../glade/VMC-reduced.glade:197 ../glade/VMC.glade:148
+msgid "Change PIN"
+msgstr "Mudar PIN"
+
+#: ../glade/VMC-reduced.glade:206 ../glade/VMC.glade:156
+msgid "Request PIN"
+msgstr "Pedir PIN"
+
+#: ../glade/VMC-reduced.glade:222 ../glade/VMC.glade:170
+#: ../glade/sms-preferences.glade:7
+msgid "SMS preferences"
+msgstr "Preferências de SMS"
+
+#: ../glade/VMC-reduced.glade:243 ../glade/VMC.glade:189
+#: ../glade/diagnostics.glade:7
+msgid "Diagnostics"
+msgstr "Diagnósticos"
+
+#: ../glade/VMC-reduced.glade:269 ../glade/VMC.glade:210
+msgid "Profiles"
+msgstr "Perfis"
+
+#: ../glade/VMC-reduced.glade:309 ../glade/VMC.glade:243
+msgid "Inspect"
+msgstr ""
+
+#: ../glade/VMC-reduced.glade:334 ../glade/VMC.glade:263
+msgid "_Help"
+msgstr "_Ajuda"
+
+#: ../glade/VMC-reduced.glade:353 ../glade/VMC.glade:281
+msgid "_About"
+msgstr "_Sobre"
+
+#: ../glade/VMC-reduced.glade:401 ../glade/VMC.glade:313
+#, fuzzy
+msgid "Connect Button"
+msgstr "Ligação"
+
+#: ../glade/VMC-reduced.glade:435 ../glade/VMC.glade:337
+msgid "SMS Toggle Button"
+msgstr ""
+
+#: ../glade/VMC-reduced.glade:456 ../glade/VMC.glade:353
+msgid "Usage Toggle Button"
+msgstr ""
+
+#: ../glade/VMC-reduced.glade:477 ../glade/VMC.glade:368
+msgid "Support Toggle Button"
+msgstr ""
+
+#: ../glade/VMC-reduced.glade:567 ../glade/VMC-reduced.glade:734
+#: ../glade/VMC.glade:429 ../glade/VMC.glade:557
+msgid "Contacts menu"
+msgstr "Menu de contactos"
+
+#: ../glade/VMC-reduced.glade:568 ../glade/VMC-reduced.glade:756
+#: ../glade/VMC.glade:430 ../glade/VMC.glade:566
+msgid "_New"
+msgstr "_Novo"
+
+#: ../glade/VMC-reduced.glade:589 ../glade/VMC.glade:437
+msgid "Create new sms"
+msgstr "Criar um novo sms"
+
+#: ../glade/VMC-reduced.glade:590 ../glade/VMC.glade:438
+msgid "_SMS"
+msgstr "_SMS"
+
+#: ../glade/VMC-reduced.glade:607 ../glade/VMC.glade:453
+msgid "_Contact"
+msgstr "_Contactos"
+
+#: ../glade/VMC-reduced.glade:637 ../glade/VMC.glade:483
+msgid "Reply message"
+msgstr "Responder à mensagem"
+
+#: ../glade/VMC-reduced.glade:638 ../glade/VMC.glade:484
+msgid "_Reply"
+msgstr "_Responder"
+
+#: ../glade/VMC-reduced.glade:658 ../glade/VMC.glade:491
+msgid "Reply without quoting original text"
+msgstr "Responder sem o texto original"
+
+#: ../glade/VMC-reduced.glade:659 ../glade/VMC.glade:492
+msgid "Send new"
+msgstr "Enviar novo"
+
+#: ../glade/VMC-reduced.glade:668 ../glade/VMC.glade:500
+msgid "Reply quoting original message"
+msgstr "Responder incluindo o texto original"
+
+#: ../glade/VMC-reduced.glade:669 ../glade/VMC.glade:501
+msgid "Reply quoting"
+msgstr "Responder incluindo texto"
+
+#: ../glade/VMC-reduced.glade:682 ../glade/VMC.glade:519
+msgid "Forward sms to another contact"
+msgstr "Reenviar sms para outro contacto"
+
+#: ../glade/VMC-reduced.glade:683 ../glade/VMC.glade:520
+msgid "_Forward"
+msgstr "_Reenviar"
+
+#: ../glade/VMC-reduced.glade:703 ../glade/VMC-reduced.glade:808
+#: ../glade/VMC.glade:534 ../glade/VMC.glade:611
+#: ../../wader/vmc/controllers/application.py:1132
+msgid "_Delete"
+msgstr "_Apagar"
+
+#: ../glade/VMC-reduced.glade:735 ../glade/VMC.glade:558
+msgid "_Contacts"
+msgstr "_Contactos"
+
+#: ../glade/VMC-reduced.glade:755 ../glade/VMC.glade:565
+#: ../glade/contacts.glade:159
+msgid "Add a contact"
+msgstr "Adicionar um contacto"
+
+#: ../glade/VMC-reduced.glade:776 ../glade/VMC.glade:580
+msgid "Search contacts"
+msgstr "Procurar contactos"
+
+#: ../glade/VMC-reduced.glade:777 ../glade/VMC.glade:581
+msgid "_Search"
+msgstr "_Procurar"
+
+#: ../glade/VMC-reduced.glade:880 ../glade/VMC.glade:658
+msgid "Inbox"
+msgstr "Caixa de entrada"
+
+#: ../glade/VMC-reduced.glade:934 ../glade/VMC.glade:688
+msgid "Draft"
+msgstr "Rascunhos"
+
+#: ../glade/VMC-reduced.glade:988 ../glade/VMC.glade:718
+msgid "Sent"
+msgstr "Enviados"
+
+#: ../glade/VMC-reduced.glade:1041 ../glade/VMC.glade:747
+#: ../glade/sms.glade:34
+msgid "Contacts"
+msgstr "Contactos"
+
+#: ../glade/VMC-reduced.glade:1198 ../glade/VMC-reduced.glade:1898
+#: ../glade/VMC.glade:854 ../glade/VMC.glade:1268
+#, fuzzy
+msgid "<b>Month</b>"
+msgstr "<b>Computador</b>"
+
+#: ../glade/VMC-reduced.glade:1223 ../glade/VMC-reduced.glade:1923
+#: ../glade/VMC.glade:844 ../glade/VMC.glade:1258
+msgid "month_label"
+msgstr ""
+
+#: ../glade/VMC-reduced.glade:1283 ../glade/VMC-reduced.glade:1311
+#: ../glade/VMC-reduced.glade:1395 ../glade/VMC-reduced.glade:1511
+#: ../glade/VMC-reduced.glade:1539 ../glade/VMC-reduced.glade:1649
+#: ../glade/VMC-reduced.glade:1983 ../glade/VMC-reduced.glade:2011
+#: ../glade/VMC-reduced.glade:2121 ../glade/VMC.glade:897
+#: ../glade/VMC.glade:914 ../glade/VMC.glade:970 ../glade/VMC.glade:1025
+#: ../glade/VMC.glade:1042 ../glade/VMC.glade:1098 ../glade/VMC.glade:1311
+#: ../glade/VMC.glade:1328 ../glade/VMC.glade:1384 ../glade/pin.glade:595
+msgid "label"
+msgstr ""
+
+#: ../glade/VMC-reduced.glade:1339 ../glade/VMC-reduced.glade:1567
+#: ../glade/VMC-reduced.glade:2039 ../glade/VMC.glade:929
+#: ../glade/VMC.glade:1057 ../glade/VMC.glade:1343
+msgid "3G:"
+msgstr ""
+
+#: ../glade/VMC-reduced.glade:1367 ../glade/VMC-reduced.glade:1595
+#: ../glade/VMC-reduced.glade:2067 ../glade/VMC.glade:944
+#: ../glade/VMC.glade:1072 ../glade/VMC.glade:1358
+msgid "GPRS:"
+msgstr ""
+
+#: ../glade/VMC-reduced.glade:1422 ../glade/VMC-reduced.glade:1623
+#: ../glade/VMC.glade:1085
+msgid "Total:"
+msgstr ""
+
+#: ../glade/VMC-reduced.glade:1453 ../glade/VMC-reduced.glade:2151
+#: ../glade/VMC.glade:988 ../glade/VMC.glade:1402
+#, fuzzy
+msgid "<b>Transferred Data</b>"
+msgstr "<b>Transferido</b>"
+
+#: ../glade/VMC-reduced.glade:1679 ../glade/VMC.glade:1116
+#, fuzzy
+msgid "<b>Current session</b>"
+msgstr "<b>Preferências SMSC</b>"
+
+#: ../glade/VMC-reduced.glade:1739 ../glade/VMC-reduced.glade:2211
+#: ../glade/VMC.glade:1156 ../glade/VMC.glade:1441
+#: ../../wader/vmc/consts.py:101
+#: ../../wader/vmc/controllers/application.py:1295
+#: ../../wader/vmc/controllers/application.py:1329
+#, fuzzy
+msgid "GPRS"
+msgstr "Só GPRS"
+
+#: ../glade/VMC-reduced.glade:1764 ../glade/VMC-reduced.glade:2236
+#: ../glade/VMC.glade:1163 ../glade/VMC.glade:1448
+#: ../../wader/vmc/controllers/application.py:1331
+msgid "3G"
+msgstr ""
+
+#: ../glade/VMC-reduced.glade:1837 ../glade/VMC.glade:1215
+#, fuzzy
+msgid "Current month"
+msgstr "Mês actual"
+
+#: ../glade/VMC-reduced.glade:2095 ../glade/VMC.glade:957
+#: ../glade/VMC.glade:1371
+#, fuzzy
+msgid "<b>Total:</b>"
+msgstr "<b>título</b>"
+
+#: ../glade/VMC-reduced.glade:2309 ../glade/VMC.glade:1503
+#, fuzzy
+msgid "Last month"
+msgstr "Último mês"
+
+#: ../glade/VMC-reduced.glade:2334
+msgid "<b>Usage</b> - Remember that this information is only orientative."
+msgstr ""
+
+#: ../glade/VMC-reduced.glade:2397 ../glade/VMC.glade:1546
+msgid ""
+"In most cases you can find the answer to your questions about the program in "
+"the help menu.\n"
+"This menu can be accesed if you click on the \"Help\" label on the menu bar "
+"located in the top side of the window, and selecting the \"Help topics\" "
+"option.\n"
+"\n"
+"You can also find help, updates and tips in Vodafone Mobile Connect's web:\n"
+"https://forge.betavine.net/projects/vodafonemobilec.\n"
+"\n"
+"If you use the mail and browser buttons to access other programs in your "
+"system, you might need to ask your Systems Administrator any doubt that you "
+"might have."
+msgstr ""
+"Na maior parte dos casos pode encontrar a resposta às perguntas sobrea "
+"aplicação no menu de Ajuda.\n"
+"Este menu pode ser aberto fazendo um clique no botão da barra de menús com o "
+"nome de \"Ajuda\" .\n"
+"\n"
+"Poderá encontrar ajuda, actualizações e conselhos na página web:\n"
+"https://forge.betavine.net/projects/vodafonemobilec.\n"
+"\n"
+"Se usa os botões de e-mail e internet para aceder a outros programas do seu "
+"computador, é possivél que seja necessário perguntar ao seu Administrador de "
+"Sistema qualquer dúvida relacionada com os mesmos."
+
+#: ../glade/VMC-reduced.glade:2416 ../glade/VMC.glade:1560
+msgid "Help menu"
+msgstr "Menu Ajuda"
+
+#: ../glade/VMC-reduced.glade:2480 ../glade/VMC.glade:1585
+msgid ""
+"If you are using this program in a corporate environment, your company\n"
+"probably has a support center to solve the questions that you might have\n"
+"about the program.\n"
+"\n"
+"If your company does not have a support center, you will have to contact\n"
+"your company's System Administrator."
+msgstr ""
+"Se está a usar esta aplicação numa rede corporativa, seguramente que a sua "
+"empresa\n"
+"Possui um centro de suporte para resolver ás questões sobre a aplicação.\n"
+"\n"
+"Se a sua empresa não dispõe de um centro de suporte, contacte com o\n"
+"Administrador de sistemas da sua empresa através do procedimento habitual."
+
+#: ../glade/VMC-reduced.glade:2502 ../glade/VMC.glade:1605
+msgid "Support center"
+msgstr "Centro de suporte"
+
+#: ../glade/VMC-reduced.glade:2547 ../glade/VMC.glade:1622
+msgid ""
+"You can easily find answers to the most common questions in the\n"
+"help menu, in your company's support center and in the support\n"
+"area at https://forge.betavine.net/projects/vodafonemobilec .\n"
+"\n"
+"If you still have difficulties you can call to Vodafone's Customer Support "
+"Center,\n"
+"the numbers are:\n"
+"\n"
+"123, if you are using Vodafone's network, or\n"
+"\n"
+"+34 607 123 00 if you are calling from other network."
+msgstr ""
+"Pode encontrar rápidamente a solução para muitos problemas no\n"
+"Menu de Ajuda, no centro de suporte da sua empresa e na área\n"
+"de Apoio em: https://forge.betavine.net/projects/vodafonemobilec\n"
+"\n"
+"Se mesmo assim tem dificuldades, pode sempre inscrever-se no forum do "
+"projectoem:\n"
+"\n"
+"https://forge.vodafonebetavine.net/projects/vodafonemobilec/"
+
+#: ../glade/VMC-reduced.glade:2569 ../glade/VMC.glade:1642
+msgid "Customer support"
+msgstr "Apoio ao Cliente"
+
+#: ../glade/VMC.glade:1200 ../glade/VMC.glade:1485
+msgid "Remember that this information is only orientative."
+msgstr ""
+
+#: ../glade/VMC.glade:1517
+msgid "<b>Usage</b>"
+msgstr "<b>Uso</b>"
+
+#: ../glade/apnsel.glade:8
+msgid "APN selection"
+msgstr ""
+
+#: ../glade/apnsel.glade:22
+msgid "APN Selection Window"
+msgstr ""
+
+#: ../glade/apnsel.glade:69
+msgid ""
+"<b>Preconfigured APNs for your Operator.</b>\n"
+"\n"
+"You can choose a preconfigured APN or cancel to enter the information needed "
+"to set up a custom one.\n"
+msgstr ""
+
+#: ../glade/apnsel.glade:193 ../glade/config2.glade:1333
+#: ../glade/pin.glade:223
+msgid "Cancel"
+msgstr ""
+
+#: ../glade/apnsel.glade:208 ../glade/config2.glade:1348
+#: ../glade/pin.glade:240
+msgid "OK"
+msgstr ""
+
+#: ../glade/apnsel.glade:228
+#, fuzzy
+msgid "<b>APN Settings</b>"
+msgstr "<b>Opciones de mensagens</b>"
+
+#: ../glade/config.glade:8
+#, fuzzy
+msgid "Device setup"
+msgstr "Nenhum equipamento presente"
+
+#: ../glade/config.glade:34
+#, fuzzy
+msgid ""
+"Please select from the following options how do you want to connect to the "
+"Internet"
+msgstr ""
+"Seleccione uma das seguintes\n"
+"opções para se ligar à internet"
+
+#: ../glade/config.glade:56
+#, fuzzy
+msgid "Device model: "
+msgstr "Dispositivo 3G ligado"
+
+#: ../glade/config.glade:63
+#, fuzzy
+msgid "Connection:"
+msgstr "Ligação"
+
+#: ../glade/config.glade:153
+msgid "Bluetooth configuration"
+msgstr ""
+
+#: ../glade/config.glade:174
+msgid "Configure your <b>Bluetooth</b> device"
+msgstr ""
+
+#: ../glade/config.glade:198
+msgid ""
+"Make sure that your mobile has bluetooth enabled and is visible.\n"
+"You'll need a pass-key agent installed like bluez-gnome. Your\n"
+"connection can be automatically configured if your distribution\n"
+"sports a recent version of libbluetooth2. Otherwise you will\n"
+"have to configure it yourself and fill the relevant entries"
+msgstr ""
+
+#: ../glade/config.glade:250
+msgid "_Start discovery"
+msgstr ""
+
+#: ../glade/config.glade:301
+#, fuzzy
+msgid "<b>Serial Port</b>"
+msgstr "<b>Periodo</b>"
+
+#: ../glade/config.glade:325
+msgid "Data port"
+msgstr ""
+
+#: ../glade/config.glade:334
+msgid "Control port"
+msgstr ""
+
+#: ../glade/config.glade:346
+msgid "Speed"
+msgstr ""
+
+#: ../glade/config.glade:440
+#, fuzzy
+msgid "<b>Connection settings</b>"
+msgstr "<b>Preferências de ligação</b>"
+
+#: ../glade/config.glade:461
+msgid "Enable hardware flow control"
+msgstr ""
+
+#: ../glade/config.glade:474
+msgid "Enable software flow control"
+msgstr ""
+
+#: ../glade/config2.glade:9
+#, fuzzy
+msgid "New Profile"
+msgstr "Novo perfil"
+
+#: ../glade/config2.glade:23
+#, fuzzy
+msgid "New Profile Window"
+msgstr "Novo perfil"
+
+#: ../glade/config2.glade:64
+msgid ""
+"<b>Create a new profile for your device.</b>\n"
+"\n"
+"If you are not sure about what should you fill in, contact your customer "
+"support center and they should provide\n"
+"you with the relevant information."
+msgstr ""
+
+#: ../glade/config2.glade:115
+msgid "<b>Connection preferences</b>"
+msgstr "<b>Preferências de ligação</b>"
+
+#: ../glade/config2.glade:152
+#, fuzzy
+msgid "Username:"
+msgstr "Nome de Utilizador"
+
+#: ../glade/config2.glade:177
+#, fuzzy
+msgid "Password:"
+msgstr "Palavra-passe"
+
+#: ../glade/config2.glade:202
+#, fuzzy
+msgid "Preferred connection:"
+msgstr "Ligação preferida  "
+
+#: ../glade/config2.glade:227
+#, fuzzy
+msgid "Authentication mode:"
+msgstr "!Não é preciso autenticação!"
+
+#: ../glade/config2.glade:252
+#, fuzzy
+msgid "APN host:"
+msgstr "Host APN"
+
+#: ../glade/config2.glade:410
+#, fuzzy
+msgid "<b>DNS settings</b>"
+msgstr "<b>Opciones de mensagens</b>"
+
+#: ../glade/config2.glade:448
+#, fuzzy
+msgid "Use static DNS"
+msgstr "Usar DNS estáticos"
+
+#: ../glade/config2.glade:481
+#, fuzzy
+msgid "Primary DNS:"
+msgstr "DNS primario"
+
+#: ../glade/config2.glade:506
+#, fuzzy
+msgid "Secondary DNS:"
+msgstr "DNS secundario           "
+
+#: ../glade/config2.glade:645
+#, fuzzy
+msgid "<b>Profile settings</b>"
+msgstr "<b>Opciones de mensagens</b>"
+
+#: ../glade/config2.glade:682
+#, fuzzy
+msgid "Profile name:"
+msgstr "Perfis"
+
+#: ../glade/config2.glade:707
+#, fuzzy
+msgid "Device model:"
+msgstr "Dispositivo 3G ligado"
+
+#: ../glade/config2.glade:782 ../../wader/vmc/controllers/preferences.py:280
+#: ../../wader/vmc/controllers/preferences.py:295
+msgid "Unknown"
+msgstr ""
+
+#: ../glade/config2.glade:859
+msgid "Device selection"
+msgstr ""
+
+#: ../glade/config2.glade:873
+msgid "Device Selection Window"
+msgstr ""
+
+#: ../glade/config2.glade:921
+msgid ""
+"<b>Select a device for your connection.</b>\n"
+"\n"
+"You can choose a known device or insert the needed information to set up a "
+"custom one.\n"
+msgstr ""
+
+#: ../glade/config2.glade:1020
+#, fuzzy
+msgid "Known devices"
+msgstr "Nenhum equipamento presente"
+
+#: ../glade/config2.glade:1028
+#, fuzzy
+msgid "Known Devices Radio"
+msgstr "Nenhum equipamento presente"
+
+#: ../glade/config2.glade:1079
+msgid "Device type:"
+msgstr ""
+
+#: ../glade/config2.glade:1104
+msgid "Serial"
+msgstr ""
+
+#: ../glade/config2.glade:1181
+msgid "115200"
+msgstr ""
+
+#: ../glade/config2.glade:1197
+msgid "Data port device:"
+msgstr ""
+
+#: ../glade/config2.glade:1225
+msgid "Control port device:"
+msgstr ""
+
+#: ../glade/config2.glade:1253
+#, fuzzy
+msgid "Speed connection:"
+msgstr "Ligação preferida  "
+
+#: ../glade/config2.glade:1293
+#, fuzzy
+msgid "Custom device settings"
+msgstr "Nenhum equipamento presente"
+
+#: ../glade/config2.glade:1302
+#, fuzzy
+msgid "Custom Device Settings Radio"
+msgstr "Nenhum equipamento presente"
+
+#: ../glade/config2.glade:1368
+#, fuzzy
+msgid "<b>Device Settings</b>"
+msgstr "<b>Opciones de mensagens</b>"
+
+#: ../glade/contacts.glade:7
+msgid "Contact search"
+msgstr "Procurar contacto"
+
+#: ../glade/contacts.glade:29
+#, fuzzy
+msgid " Name:"
+msgstr " Nome : "
+
+#: ../glade/contacts.glade:94
+msgid "Contacts List"
+msgstr "Lista de contactos"
+
+#: ../glade/contacts.glade:179
+#, fuzzy
+msgid "Name:"
+msgstr "Nome"
+
+#: ../glade/contacts.glade:222
+#, fuzzy
+msgid "Number:"
+msgstr "Número"
+
+#: ../glade/contacts.glade:258
+#, fuzzy
+msgid "<b>Save in:</b>"
+msgstr "<b>Nome: </b>"
+
+#: ../glade/contacts.glade:341
+msgid "Computer"
+msgstr "Computador"
+
+#: ../glade/diagnostics.glade:33
+msgid "<b>GSM device</b>"
+msgstr "<b>Dispositivo GSM</b>"
+
+#: ../glade/diagnostics.glade:51
+#, fuzzy
+msgid "Model:"
+msgstr "Modelo : "
+
+#: ../glade/diagnostics.glade:59
+#, fuzzy
+msgid "Firmware: "
+msgstr "Firmware : "
+
+#: ../glade/diagnostics.glade:70
+#, fuzzy
+msgid "IMEI: "
+msgstr "IMEI : "
+
+#: ../glade/diagnostics.glade:81
+#, fuzzy
+msgid "IMSI: "
+msgstr "IMSI : "
+
+#: ../glade/diagnostics.glade:92
+#, fuzzy
+msgid "VMC number:"
+msgstr "Número VMC : "
+
+#: ../glade/diagnostics.glade:115
+msgid "Card model"
+msgstr "Modelo da placa"
+
+#: ../glade/diagnostics.glade:123
+msgid "Firmware"
+msgstr "Firmware"
+
+#: ../glade/diagnostics.glade:135
+msgid "IMEI"
+msgstr "IMEI"
+
+#: ../glade/diagnostics.glade:146
+msgid "IMSI"
+msgstr "IMSI"
+
+#: ../glade/diagnostics.glade:157
+msgid "Not supported"
+msgstr "Não Suportado"
+
+#: ../glade/diagnostics.glade:188
+msgid "<b>Computer</b>"
+msgstr "<b>Computador</b>"
+
+#: ../glade/diagnostics.glade:208
+#, fuzzy
+msgid "Operating System:"
+msgstr "Sistema Operativo : "
+
+#: ../glade/diagnostics.glade:216
+#, fuzzy
+msgid "Version:"
+msgstr "Versão : "
+
+#: ../glade/diagnostics.glade:227
+#, fuzzy
+msgid "Uptime:"
+msgstr "Tempo Ligado : "
+
+#: ../glade/diagnostics.glade:248
+msgid "label26"
+msgstr ""
+
+#: ../glade/diagnostics.glade:256
+msgid "label27"
+msgstr ""
+
+#: ../glade/diagnostics.glade:267
+msgid "label28"
+msgstr ""
+
+#: ../glade/dialogs.glade:38 ../glade/dialogs.glade:239
+#: ../glade/dialogs.glade:450
+msgid "<big><b>Big title!</b></big>"
+msgstr ""
+
+#: ../glade/dialogs.glade:51 ../glade/dialogs.glade:252
+#: ../glade/dialogs.glade:347 ../glade/dialogs.glade:463
+msgid "A detailed message"
+msgstr ""
+
+#: ../glade/dialogs.glade:138
+msgid "<big><b>Question?</b></big>"
+msgstr ""
+
+#: ../glade/dialogs.glade:152
+msgid "Detailed message"
+msgstr ""
+
+#: ../glade/dialogs.glade:189
+msgid "Action"
+msgstr ""
+
+#: ../glade/dialogs.glade:325
+msgid "<b>title</b>"
+msgstr "<b>título</b>"
+
+#: ../glade/dialogs.glade:362
+msgid "Remember my choice"
+msgstr "Recordar a minha escolha"
+
+#: ../glade/pin.glade:8
+msgid "Insert your PIN code"
+msgstr "Introduza o seu código PIN"
+
+#: ../glade/pin.glade:23
+#, fuzzy
+msgid "Insert PIN Window"
+msgstr "Introduza o seu código PIN"
+
+#: ../glade/pin.glade:64
+#, fuzzy
+msgid "Please insert your PIN code"
+msgstr "Por favor, introduza o seu código PIN"
+
+#: ../glade/pin.glade:105
+#, fuzzy
+msgid "Insert PIN Entry"
+msgstr "Introduza o seu código PIN"
+
+#: ../glade/pin.glade:150
+msgid "Manage my PIN through gnome-keyring"
+msgstr ""
+
+#: ../glade/pin.glade:179
+#, fuzzy
+msgid "<b>Advanced Options</b>"
+msgstr "<b>Opciones de mensagens</b>"
+
+#: ../glade/pin.glade:258
+msgid "Modify PIN code"
+msgstr "Modificar código PIN"
+
+#: ../glade/pin.glade:373 ../glade/pin.glade:763
+msgid "Confirm PIN code: "
+msgstr "Confirmar código PIN: "
+
+#: ../glade/pin.glade:401 ../glade/pin.glade:738
+msgid "New PIN code: "
+msgstr "Novo código PIN: "
+
+#: ../glade/pin.glade:429
+msgid "Current PIN code: "
+msgstr "Código PIN actual: "
+
+#: ../glade/pin.glade:517
+msgid "Please enter PUK"
+msgstr "Introduza o código PUK"
+
+#: ../glade/pin.glade:654
+#, fuzzy
+msgid "PUK:"
+msgstr "PUK:"
+
+#: ../glade/preferences.glade:7
+msgid "Preferences"
+msgstr "Preferências"
+
+#: ../glade/preferences.glade:50
+msgid ""
+"<b>Change the dialer profile if your provider requires you to authenticate "
+"with PAP/CHAP</b>"
+msgstr ""
+
+#: ../glade/preferences.glade:67
+#, fuzzy
+msgid "Use an alternative dialer profile"
+msgstr "Não é possivél apagar o perfil"
+
+#: ../glade/preferences.glade:94 ../glade/sms-preferences.glade:46
+#, fuzzy
+msgid "Profile:"
+msgstr "Perfis"
+
+#: ../glade/preferences.glade:127
+#, fuzzy
+msgid "Dialer profile"
+msgstr "Apagar perfil"
+
+#: ../glade/preferences.glade:145
+#, fuzzy
+msgid "<b>User options</b>"
+msgstr "<b>Opciones de mensagens</b>"
+
+#: ../glade/preferences.glade:167
+msgid "Exit without confirmation"
+msgstr ""
+
+#: ../glade/preferences.glade:181
+msgid "Show icon on tray"
+msgstr ""
+
+#: ../glade/preferences.glade:196
+msgid "Close window minimizes app to tray"
+msgstr ""
+
+#: ../glade/preferences.glade:211
+msgid "Manage my PIN through gnomekeyring"
+msgstr ""
+
+#: ../glade/preferences.glade:242
+#, fuzzy
+msgid "User Preferences"
+msgstr "Preferências"
+
+#: ../glade/preferences.glade:261
+#, fuzzy
+msgid "<b>Web Browser</b>"
+msgstr "<b>Periodo</b>"
+
+#: ../glade/preferences.glade:300
+msgid "\n"
+msgstr ""
+
+#: ../glade/preferences.glade:317 ../glade/preferences.glade:400
+msgid "Command:"
+msgstr ""
+
+#: ../glade/preferences.glade:350
+#, fuzzy
+msgid "<b>Email client</b>"
+msgstr "<b>título</b>"
+
+#: ../glade/preferences.glade:446
+msgid "Applications"
+msgstr ""
+
+#: ../glade/preferences.glade:465
+#, fuzzy
+msgid "<b>Usage Options</b>"
+msgstr "<b>Opciones de mensagens</b>"
+
+#: ../glade/preferences.glade:491
+#, fuzzy
+msgid "Maximum traffic (MB):"
+msgstr "Tempo máximo"
+
+#: ../glade/preferences.glade:521
+msgid "Notify when a given threshold is exceeded."
+msgstr ""
+
+#: ../glade/preferences.glade:545
+msgid "Notification threshold (MB):"
+msgstr ""
+
+#: ../glade/sms-preferences.glade:28
+msgid "<b>SMSC preferences</b>"
+msgstr "<b>Preferências SMSC</b>"
+
+#: ../glade/sms-preferences.glade:54
+#, fuzzy
+msgid "SMSC number:"
+msgstr "Número SMSC"
+
+#: ../glade/sms-preferences.glade:115
+msgid "<b>Message options</b>"
+msgstr "<b>Opciones de mensagens</b>"
+
+#: ../glade/sms-preferences.glade:132
+#, fuzzy
+msgid "Validity:"
+msgstr "Validade"
+
+#: ../glade/sms-preferences.glade:139
+#, fuzzy
+msgid "Class:"
+msgstr "Classe"
+
+#: ../glade/sms-preferences.glade:159
+msgid ""
+"Maximum time\n"
+"1 week\n"
+"3 days\n"
+"1 day"
+msgstr ""
+"Tempo máximo\n"
+"1 semana\n"
+"3 dias\n"
+"1 dia"
+
+#: ../glade/sms.glade:50
+msgid "TO : "
+msgstr "Para : "
+
+#: ../glade/splash.glade:6
+msgid "3G Devices Manager"
+msgstr "Gestor de dispositivos 3G"
+
+#: ../../wader/vmc/startup.py:151
+msgid "Initial setup..."
+msgstr "Configuração inicial..."
+
+#: ../../wader/vmc/startup.py:191 ../../wader/vmc/startup.py:210
+#: ../../wader/vmc/controllers/initialconf.py:402
+#, fuzzy
+msgid "Device setup not completed"
+msgstr "Nenhum equipamento presente"
+
+#: ../../wader/vmc/startup.py:192
+#, python-format
+msgid ""
+"\n"
+"Your device has been detected but it has been impossible to connect to it.\n"
+"\n"
+"%s"
+msgstr ""
+
+#: ../../wader/vmc/startup.py:211
+#, python-format
+msgid ""
+"\n"
+"Your device \"%(name)s\" is not properly registered with the kernel. %(vmc)"
+"s\n"
+"needs at least two serial ports to communicate with your %(name)s.\n"
+"The program includes a set of udev rules plus some binaries that make sure\n"
+"that your device is always recognised properly. If you've installed from\n"
+"source, then make sure to copy the relevant files in the contrib dir\n"
+msgstr ""
+
+#: ../../wader/vmc/startup.py:227
+#, fuzzy
+msgid "Device not responding"
+msgstr "Dispositivo em uso removido"
+
+#: ../../wader/vmc/startup.py:228
+msgid ""
+"\n"
+"Your device took more than 15 seconds to reply to my last command. Unplug "
+"it,\n"
+"plug it again, and try in a moment."
+msgstr ""
+
+#: ../../wader/vmc/startup.py:303
+#, fuzzy
+msgid "Authenticated!"
+msgstr "!Não é preciso autenticação!"
+
+#: ../../wader/vmc/startup.py:306
+msgid "Authenticating..."
+msgstr "A autenticar..."
+
+#: ../../wader/vmc/consts.py:82
+msgid "Any band"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:83
+msgid "EGSM 900"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:84
+#, fuzzy
+msgid "GSM DCS"
+msgstr "SMS"
+
+#: ../../wader/vmc/consts.py:85
+#, fuzzy
+msgid "GSM PCS"
+msgstr "SMS"
+
+#: ../../wader/vmc/consts.py:86
+msgid "GSM 850"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:87
+msgid "WCDMA 2100"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:88
+msgid "WCDMA 1700"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:89
+msgid "WCDMA 17IV"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:90
+msgid "WCDMA 800"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:91
+msgid "WCDMA 850"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:92
+msgid "WCDMA 900"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:93
+msgid "WCDMA 17IX"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:94
+msgid "WCDMA 1900"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:100
+msgid "Any"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:102
+#: ../../wader/vmc/controllers/application.py:1295
+msgid "EDGE"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:103
+msgid "UMTS"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:104
+msgid "HSDPA"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:105
+msgid "HSUPA"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:106
+msgid "HSPA"
+msgstr ""
+
+#: ../../wader/vmc/consts.py:107
+#, fuzzy
+msgid "2G preferred"
+msgstr "3G preferido"
+
+#: ../../wader/vmc/consts.py:108
+#: ../../wader/common.orig/hardware/__init__.py:32
+#: ../../wader/common.orig/hardware/__init__.py:39
+msgid "3G preferred"
+msgstr "3G preferido"
+
+#: ../../wader/vmc/consts.py:109
+#, fuzzy
+msgid "2G only"
+msgstr "Só 3G"
+
+#: ../../wader/vmc/consts.py:110
+#: ../../wader/common.orig/hardware/__init__.py:30
+#: ../../wader/common.orig/hardware/__init__.py:37
+msgid "3G only"
+msgstr "Só 3G"
+
+#: ../../wader/vmc/views/pin.py:65
+msgid ""
+"\n"
+"In order to unlock your SIM, we need your\n"
+"PIN and PUK codes"
+msgstr ""
+"\n"
+"Para desbloquear o seu cartão SIM\n"
+"deve introduzir os seus códigos PIN e PUK"
+
+#: ../../wader/vmc/views/pin.py:73
+msgid ""
+"\n"
+"In order to unlock your SIM, we need your\n"
+"PIN and PUK2 codes"
+msgstr ""
+"\n"
+"Para desbloquear o seu cartão SIM\n"
+"deve introduzir os seus códigos PIN e PUK"
+
+#: ../../wader/vmc/views/preferences.py:107
+#: ../../wader/vmc/views/preferences.py:120
+#: ../../wader/vmc/controllers/preferences.py:287
+msgid "Custom"
+msgstr "Personalizado"
+
+#: ../../wader/vmc/views/application.py:55
+msgid "B"
+msgstr ""
+
+#: ../../wader/vmc/views/application.py:56
+msgid "KB"
+msgstr ""
+
+#: ../../wader/vmc/views/application.py:57
+msgid "MB"
+msgstr ""
+
+#: ../../wader/vmc/views/application.py:58
+msgid "GB"
+msgstr ""
+
+#: ../../wader/vmc/views/application.py:334
+#: ../../wader/vmc/controllers/application.py:951
+msgid "Not connected"
+msgstr "A desligar"
+
+#: ../../wader/vmc/views/application.py:342
+#: ../../wader/vmc/controllers/application.py:1068
+msgid "Disconnect"
+msgstr "Desligar"
+
+#: ../../wader/vmc/views/application.py:354
+msgid "No device present"
+msgstr "Nenhum equipamento presente"
+
+#: ../../wader/vmc/views/application.py:356
+#: ../../wader/vmc/views/application.py:357
+#: ../../wader/vmc/controllers/application.py:1293
+#: ../../wader/vmc/controllers/application.py:1327
+msgid "N/A"
+msgstr "N/D"
+
+#: ../../wader/vmc/views/application.py:384
+#: ../../wader/vmc/views/application.py:421
+#: ../../wader/vmc/views/initialconf.py:104
+#: ../../wader/vmc/controllers/contacts.py:143
+msgid "Type"
+msgstr "Tipo"
+
+#: ../../wader/vmc/views/application.py:390
+#: ../../wader/vmc/views/initialconf.py:98
+#: ../../wader/vmc/views/initialconf.py:312
+#: ../../wader/vmc/controllers/contacts.py:149
+msgid "Name"
+msgstr "Nome"
+
+#: ../../wader/vmc/views/application.py:399
+#: ../../wader/vmc/controllers/contacts.py:156
+msgid "Number"
+msgstr "Número"
+
+#: ../../wader/vmc/views/application.py:428
+msgid "Text"
+msgstr "Assunto"
+
+#: ../../wader/vmc/views/application.py:439
+msgid "Recipient"
+msgstr "Destinatario"
+
+#: ../../wader/vmc/views/application.py:439
+msgid "Sender"
+msgstr "Remetente"
+
+#: ../../wader/vmc/views/application.py:447
+msgid "Date"
+msgstr "Data"
+
+#: ../../wader/vmc/views/initialconf.py:101
+#, fuzzy
+msgid "Country"
+msgstr "Computador"
+
+#: ../../wader/vmc/views/initialconf.py:226
+#, fuzzy
+msgid "No known devices found"
+msgstr "Nenhum contacto encontrado"
+
+#: ../../wader/vmc/views/initialconf.py:319
+msgid "Address"
+msgstr ""
+
+#: ../../wader/vmc/models/preferences.py:34
+msgid "Maximum time"
+msgstr "Tempo máximo"
+
+#: ../../wader/vmc/models/preferences.py:35
+msgid "1 week"
+msgstr "1 semana"
+
+#: ../../wader/vmc/models/preferences.py:36
+msgid "3 days"
+msgstr "3 dias"
+
+#: ../../wader/vmc/models/preferences.py:37
+msgid "1 day"
+msgstr "1 dia"
+
+#: ../../wader/vmc/models/application.py:232
+msgid "%B, %Y"
+msgstr ""
+
+#: ../../wader/vmc/controllers/sms.py:45
+msgid "You can send the SMS to several recipients separating them by commas"
+msgstr ""
+
+#: ../../wader/vmc/controllers/sms.py:65
+#, fuzzy, python-format
+msgid "Text message: 0/%d chars"
+msgstr "Mensagem de texto: 0/%d"
+
+#: ../../wader/vmc/controllers/sms.py:88
+msgid "Send empty message"
+msgstr "Enviar mensagem vazia"
+
+#: ../../wader/vmc/controllers/sms.py:89
+msgid "Are you sure you want to send an empty message?"
+msgstr "¿Tem a certeza que quer enviar uma mensagem vazia?"
+
+#: ../../wader/vmc/controllers/sms.py:107
+#, fuzzy
+msgid "Unknown Error"
+msgstr "Rede"
+
+#: ../../wader/vmc/controllers/sms.py:108
+msgid ""
+"Your message cannot be sent to some of its recipients. Unsent messages have "
+"been saved in drafts. Please, check that you have typed the number correctly."
+msgstr ""
+
+#: ../../wader/vmc/controllers/sms.py:174
+#, fuzzy, python-format
+msgid "Text message: %(chrcnt)d/%(maxchr)d chars"
+msgstr "%(chrcnt)d/%(maxchr)d caracteres"
+
+#: ../../wader/vmc/controllers/sms.py:216
+#, fuzzy
+msgid "No SMSC number"
+msgstr "Número SMSC"
+
+#: ../../wader/vmc/controllers/sms.py:218
+#, python-format
+msgid ""
+"\n"
+"In order to send a SMS, %s needs to know the number of your provider's "
+"SMSC.\n"
+"If you do not know the SMSC number, contact your customer service.\n"
+msgstr ""
+
+#: ../../wader/vmc/controllers/pin.py:109
+#: ../../wader/vmc/controllers/pin.py:300
+msgid "Incorrect PIN"
+msgstr "PIN incorrecto"
+
+#: ../../wader/vmc/controllers/pin.py:110
+msgid ""
+"\n"
+"<small>The PIN you've just entered is\n"
+"incorrect. Bear in mind that after\n"
+"three failed PINs you'll be asked\n"
+"for the PUK code</small>\n"
+msgstr ""
+"\n"
+"<small>O PIN que acaba de introduzir está\n"
+"incorrecto. Depois de três tentativas\n"
+"falhadas será pedido \n"
+"o código PUK</small>\n"
+
+#: ../../wader/vmc/controllers/pin.py:216
+msgid "Incorrect PUK"
+msgstr "PUK Incorrecto"
+
+#: ../../wader/vmc/controllers/pin.py:217
+msgid ""
+"\n"
+"<small>The PUK you've just entered is\n"
+"incorrect. Bear in mind that after\n"
+"three failed PUKs you'll be asked\n"
+"for the PUK2 code. Your PIN code\n"
+"should be your last PIN.</small>\n"
+msgstr ""
+"\n"
+"<small>O PUK que introduziu está\n"
+"incorrecto. Depois de três tentativas\n"
+"falhadas seré pedido o código PUK2.\n"
+"O código PIN deveria ser o seu ultimo\n"
+"o seu último PIN válido.</small>\n"
+
+#: ../../wader/vmc/controllers/pin.py:301
+msgid ""
+"\n"
+"The PIN you've just entered is\n"
+"incorrect. Bear in mind that after\n"
+"three failed PINs you'll be asked\n"
+"for the PUK code\n"
+msgstr ""
+"\n"
+"O PIN que introduziu está\n"
+"incorrecto. Depois de 3\n"
+"tentativas falhadas será\n"
+"pedido o código PUK\n"
+
+#: ../../wader/vmc/controllers/pin.py:403
+#: ../../wader/vmc/controllers/preferences.py:68
+#: ../../wader/vmc/controllers/preferences.py:87
+#: ../../wader/vmc/controllers/application.py:582
+#, fuzzy
+msgid "Missing dependency"
+msgstr "Falha nas dependências"
+
+#: ../../wader/vmc/controllers/pin.py:405
+#: ../../wader/vmc/controllers/preferences.py:70
+msgid "To use this feature you need the gnomekeyring module"
+msgstr ""
+
+#: ../../wader/vmc/controllers/preferences.py:88
+msgid ""
+"\n"
+"To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
+"module\n"
+msgstr ""
+
+#: ../../wader/vmc/controllers/application.py:115
+#: ../../wader/vmc/controllers/initialconf.py:576
+msgid "Shutting down"
+msgstr "A fechar"
+
+#: ../../wader/vmc/controllers/application.py:133
+#, fuzzy
+msgid "Connected to Internet"
+msgstr "A desligar a Internet"
+
+#: ../../wader/vmc/controllers/application.py:134
+#, python-format
+msgid ""
+"\n"
+"You need to disconnect from Internet before shutting\n"
+"down %s,\n"
+"if you want to do so, press the OK button.\n"
+msgstr ""
+
+#: ../../wader/vmc/controllers/application.py:253
+msgid "Reading contacts..."
+msgstr "A ler contactos..."
+
+#: ../../wader/vmc/controllers/application.py:280
+msgid "Reading messages..."
+msgstr "A ler mensagens..."
+
+#: ../../wader/vmc/controllers/application.py:334
+msgid "User Limit"
+msgstr ""
+
+#: ../../wader/vmc/controllers/application.py:335
+msgid "You have reached your limit of maximum usage"
+msgstr ""
+
+#: ../../wader/vmc/controllers/application.py:357
+msgid "New mobile profile available"
+msgstr ""
+
+#: ../../wader/vmc/controllers/application.py:358
+msgid ""
+"\n"
+"New profile available, do you want to load it?"
+msgstr ""
+
+#: ../../wader/vmc/controllers/application.py:360
+msgid "Load"
+msgstr ""
+
+#: ../../wader/vmc/controllers/application.py:395
+#: ../../wader/vmc/controllers/application.py:1293
+msgid "Radio Disabled"
+msgstr ""
+
+#: ../../wader/vmc/controllers/application.py:423
+#, python-format
+msgid "Quit %s"
+msgstr "Sair de %s"
+
+#: ../../wader/vmc/controllers/application.py:424
+msgid "Are you sure you want to exit?"
+msgstr "¿Tem a certeza que deseja sair?"
+
+#: ../../wader/vmc/controllers/application.py:481
+#, fuzzy
+msgid "_New Profile"
+msgstr "Novo perfil"
+
+#: ../../wader/vmc/controllers/application.py:490
+#, fuzzy
+msgid "Load Profile"
+msgstr "Perfis"
+
+#: ../../wader/vmc/controllers/application.py:495
+#, fuzzy
+msgid "Edit Profile"
+msgstr "Editar perfil"
+
+#: ../../wader/vmc/controllers/application.py:500
+#, fuzzy
+msgid "Delete Profile"
+msgstr "Apagar perfil"
+
+#: ../../wader/vmc/controllers/application.py:583
+msgid "To use this widget you need python-vte installed"
+msgstr ""
+
+#: ../../wader/vmc/controllers/application.py:630
+msgid "Invalid CSV format"
+msgstr "Formato CSV inválido"
+
+#: ../../wader/vmc/controllers/application.py:631
+#, fuzzy
+msgid ""
+"\n"
+"The csv file that you have tried to import has an invalid format."
+msgstr ""
+"\n"
+"    O ficheiro cvs que tentou importar não é compativél ou esta danificado."
+
+#: ../../wader/vmc/controllers/application.py:662
+#: ../../wader/vmc/controllers/application.py:684
+msgid "Connecting..."
+msgstr "A ligar..."
+
+#: ../../wader/vmc/controllers/application.py:679
+#: ../../wader/vmc/controllers/application.py:1302
+#, python-format
+msgid "Connected to %s"
+msgstr "A ligar a %s"
+
+#: ../../wader/vmc/controllers/application.py:681
+#, fuzzy
+msgid "Connected"
+msgstr "Ligar"
+
+#: ../../wader/vmc/controllers/application.py:952
+msgid "No mobile connection. Do you want to continue?"
+msgstr "Sem rede. ¿Deseja continuar?"
+
+#: ../../wader/vmc/controllers/application.py:1090
+msgid "Send SMS"
+msgstr "Enviar SMS"
+
+#: ../../wader/vmc/controllers/application.py:1104
+msgid "Quit"
+msgstr "Sair"
+
+#: ../../wader/vmc/controllers/application.py:1122
+msgid "_Send SMS"
+msgstr "_Enviar SMS"
+
+#: ../../wader/vmc/controllers/application.py:1142
+msgid "Edit"
+msgstr "Editar"
+
+#: ../../wader/vmc/controllers/application.py:1157
+msgid "_Add to contacts"
+msgstr "_Adicionar aos contactos"
+
+#: ../../wader/vmc/controllers/application.py:1166
+msgid "Save to draft"
+msgstr "Guardar nos rascunhos"
+
+#: ../../wader/vmc/controllers/application.py:1177
+msgid "Delete"
+msgstr "Apagar"
+
+#: ../../wader/vmc/controllers/application.py:1318
+msgid "Illegal Operation!"
+msgstr ""
+
+#: ../../wader/vmc/controllers/application.py:1319
+msgid ""
+"\n"
+"Your device only has one port and you are currently connected\n"
+"to Internet, you cannot perform any operation while connected"
+msgstr ""
+
+#: ../../wader/vmc/controllers/application.py:1348
+#, python-format
+msgid "<small>SMS received from %s</small>"
+msgstr "<small>SMS recebido de %s</small>"
+
+# python-format
+#: ../../wader/vmc/controllers/application.py:1351
+#, python-format
+msgid ""
+"<small>Received at %(date)s</small>\n"
+"<b>%(text)s</b>"
+msgstr ""
+"<small>Recibido o %(date)s</small>\n"
+"<b>%(text)s</b>"
+
+#: ../../wader/vmc/controllers/application.py:1363
+#, fuzzy
+msgid "Invalid DNS received from Network"
+msgstr "Os DNS recebidos pela APN são inválidos"
+
+#: ../../wader/vmc/controllers/application.py:1365
+#, fuzzy
+msgid ""
+"\n"
+"<small>The DNS settings received from the mobile network are invalid. You "
+"will\n"
+"probably want to restart the connection, or if the problem persists, you\n"
+"can specify a static DNS entry in the connection preferences</small>\n"
+msgstr ""
+"\n"
+"<small>Os DNS recebidos pela APN são inválidos. Possivelmente terá de\n"
+"reiniciar a ligação ou, se o problema persistir, especificar uma entrada\n"
+"de DNS estática nas preferências da ligação</small>\n"
+
+#: ../../wader/vmc/controllers/application.py:1380
+msgid "Disconnected from Internet"
+msgstr "A desligar a Internet"
+
+#: ../../wader/vmc/controllers/application.py:1381
+#, python-format
+msgid ""
+"\n"
+"<small>%s has given\n"
+"up after trying to connect three times to Internet. This might\n"
+"be provoked by a problem in the configuration or just the fact\n"
+"that there's no carrier.</small>"
+msgstr ""
+"\n"
+"<small>%s Desistiu\n"
+"depois de tentar ligar 3 vezes à Internet. Isto pode ser\n"
+"provocado por um problema na comunicação ou simplesmente\n"
+"uma falha de sinal.</small>"
+
+#: ../../wader/vmc/controllers/application.py:1393
+msgid "Device in use removed"
+msgstr "Dispositivo em uso removido"
+
+#: ../../wader/vmc/controllers/application.py:1395
+#, python-format
+msgid ""
+"\n"
+"The 3G device in use has been removed. Now\n"
+"%s\n"
+"is going to shutdown. In order to continue,\n"
+"plug in the 3G device and start again."
+msgstr ""
+"\n"
+"A placa 3G em uso foi retirada. Agora\n"
+"%s\n"
+"vai desligar. Para continuar, Insira de\n"
+"novo a placa 3G e inicie a aplicação."
+
+#: ../../wader/vmc/controllers/application.py:1431
+msgid "3G Device added"
+msgstr "Dispositivo 3G ligado"
+
+#: ../../wader/vmc/controllers/application.py:1432
+#, python-format
+msgid ""
+"\n"
+"A new 3G device (%(device_name)s)\n"
+"has been added, in around 15 seconds\n"
+"(%(app_name)s) will resume its functioning"
+msgstr ""
+"\n"
+"Foi ligado um novo dispositivo 3G\n"
+"(%(device_name)s), dentro de 15 segundos\n"
+"(%(app_name)s) estará funcional"
+
+#: ../../wader/vmc/controllers/application.py:1440
+msgid "Setting up device..."
+msgstr "A Configurar o dispositivo..."
+
+#: ../../wader/vmc/controllers/contacts.py:92
+msgid "No contact found"
+msgstr "Nenhum contacto encontrado"
+
+#: ../../wader/vmc/controllers/contacts.py:93
+#, python-format
+msgid "No contact with the name %s found"
+msgstr "Nenhum contacto encontrado com o nome %s"
+
+#: ../../wader/vmc/controllers/initialconf.py:239
+#, fuzzy, python-format
+msgid "The following characters are not allowed in a profile name: %s"
+msgstr ""
+"As seguintes dependências não estão satisfeitas:\n"
+"%s"
+
+#: ../../wader/vmc/controllers/initialconf.py:242
+#, fuzzy
+msgid "Invalid value in profile"
+msgstr "Apagar perfil"
+
+#: ../../wader/vmc/controllers/initialconf.py:403
+#, python-format
+msgid ""
+"\n"
+"An unknown error occur when setting up the device:\n"
+"%s"
+msgstr ""
+
+#: ../../wader/vmc/controllers/initialconf.py:468
+#, fuzzy, python-format
+msgid "Authentication Error from %s !"
+msgstr "!Não é preciso autenticação %s !"
+
+#: ../../wader/vmc/controllers/initialconf.py:472
+#, fuzzy, python-format
+msgid "Connecting to %s ..."
+msgstr "A ligar %s ..."
+
+#: ../../wader/vmc/controllers/initialconf.py:520
+msgid "Discovery started..."
+msgstr ""
+
+#: ../../wader/vmc/controllers/initialconf.py:524
+msgid "Discovery finished!"
+msgstr ""
+
+#: ../../wader/vmc/controllers/initialconf.py:548
+msgid "No control port"
+msgstr ""
+
+#: ../../wader/vmc/controllers/initialconf.py:554
+#, fuzzy
+msgid "Connecting to device..."
+msgstr "A Configurar o dispositivo..."
+
+#: ../../wader/vmc/controllers/initialconf.py:562
+#, python-format
+msgid "Exception received connecting to %s"
+msgstr ""
+
+#: ../../wader/vmc/controllers/initialconf.py:563
+#, python-format
+msgid ""
+"\n"
+"The following error was received while trying to establish a connection:\n"
+"%s"
+msgstr ""
+
+#: ../../wader/vmc/dialogs.py:94
+msgid "Import contacts from..."
+msgstr "Importar contactos de..."
+
+#: ../../wader/vmc/dialogs.py:102 ../../wader/vmc/dialogs.py:164
+msgid "Csv files"
+msgstr "Ficheiros Csv"
+
+#: ../../wader/vmc/dialogs.py:107 ../../wader/vmc/dialogs.py:132
+#: ../../wader/vmc/dialogs.py:170
+msgid "All files"
+msgstr "Todos os ficheiros"
+
+#: ../../wader/vmc/dialogs.py:123 ../../wader/vmc/dialogs.py:156
+msgid "Save as ..."
+msgstr "Guardar como..."
+
+#: ../../wader/vmc/dialogs.py:142 ../../wader/vmc/dialogs.py:180
+msgid "Overwrite"
+msgstr "Escrever por cima"
+
+#: ../../wader/vmc/dialogs.py:143 ../../wader/vmc/dialogs.py:181
+#, python-format
+msgid "Overwrite \"%s\"?"
+msgstr "Escrever por cima \"%s\"?"
+
+#: ../../wader/vmc/dialogs.py:144 ../../wader/vmc/dialogs.py:182
+msgid ""
+"A file with this name already exists.\n"
+"If you choose to overwrite this file, the contents will be lost."
+msgstr ""
+"Já existe um ficheiro com este nome.\n"
+"Se quiser escrever por cima, todo o conteudo será perdido."
+
+#: ../../wader/vmc/dialogs.py:196
+#, fuzzy
+msgid "Device List"
+msgstr "Nenhum equipamento presente"
+
+#: ../../wader/vmc/dialogs.py:229
+msgid "Vodafone Spain S.A."
+msgstr "Vodafone Spain S.A."
+
+#: ../../wader/vmc/dialogs.py:236
+msgid "translated to $LANG by $translater"
+msgstr "traducido em Português por Paulo Alexandre Mendes Simões Arinto"
+
+#: ../../wader/common.orig/dialers/__init__.py:31
+#: ../../wader/common.orig/dialers/__init__.py:37
+#, fuzzy
+msgid "Default"
+msgstr "predefinido"
+
+#: ../../wader/common.orig/dialers/__init__.py:32
+#: ../../wader/common.orig/dialers/__init__.py:38
+msgid "PAP"
+msgstr ""
+
+#: ../../wader/common.orig/dialers/__init__.py:33
+#: ../../wader/common.orig/dialers/__init__.py:39
+msgid "CHAP"
+msgstr ""
+
+#: ../../wader/common.orig/dialers/wvdial.py:224
+msgid "WVDial directive error"
+msgstr "Erro nas opções WVDial"
+
+#: ../../wader/common.orig/dialers/wvdial.py:225
+#, python-format
+msgid ""
+"\n"
+"Since version 0.9.7 %s manages pppd's /etc/ppp/{p,ch}ap-secrets, the\n"
+"'plugin passwordfd.so' directive should not appear on the\n"
+"current wvdial profile, please remove it manually. Go to\n"
+"Tools -> Preferences, select the wvdial profiles tab, and\n"
+"remove from the current wvdial profile the\n"
+"'plugin passwordfd.so' line."
+msgstr ""
+"\n"
+"DDesde a versão 0.9.7 %s gere /etc/ppp/{p,ch]ap-secrets, a\n"
+"directiva 'plugin passwordfd.so' Não deve aparecer no perfil\n"
+"actual de wvdial, Apague-o manualmente por favor. Vá a \n"
+"Ferramentas -> Preferencias, seleccione o separador de perfis\n"
+"wvdial e apague a linha 'plugin passwordfd.so'\n"
+"do perfil actual de wvdial."
+
+#: ../../wader/common.orig/hardware/__init__.py:29
+#: ../../wader/common.orig/hardware/__init__.py:36
+msgid "GPRS only"
+msgstr "Só GPRS"
+
+#: ../../wader/common.orig/hardware/__init__.py:31
+#: ../../wader/common.orig/hardware/__init__.py:38
+msgid "GPRS preferred"
+msgstr "GPRS preferido"
+
+#: ../../wader/common.orig/uptime.py:83
+#, python-format
+msgid "%(day)d days, %(msg)s"
+msgstr "%(day)d dias, %(msg)s"
+
+#: ../../wader/common.orig/uptime.py:85
+#, python-format
+msgid "%(day)d day, %(msg)s"
+msgstr "%(day)d dia, %(msg)s"
+
+#: ../../wader/common.orig/shutdown.py:52
+msgid "Shutting down..."
+msgstr "A Encerrar..."
+
+#: ../../wader/common.orig/middleware.py:489
+#, fuzzy
+msgid "Unknown Network"
+msgstr "Rede"
+
+#: ../../gtk-tap.py:57
+msgid "Missing dependencies"
+msgstr "Falha nas dependências"
+
+#: ../../gtk-tap.py:59
+#, python-format
+msgid ""
+"The following dependencies are not satisfied:\n"
+"%s"
+msgstr ""
+"As seguintes dependências não estão satisfeitas:\n"
+"%s"
+
+#: ../../gtk-tap.py:68
+msgid "OS/Distro not registered"
+msgstr "OS/Distribuição não registada"
+
+#: ../../gtk-tap.py:80
+msgid "Permissions problems"
+msgstr "Problemas de permissões"
+
+#~ msgid "PIN1..."
+#~ msgstr "PIN1..."
+
+#~ msgid "Invalid PIN"
+#~ msgstr "IP inválido"
+
+#~ msgid ""
+#~ "\n"
+#~ "<small>The PIN you've just entered is\n"
+#~ "invalid. The PIN must be a 4 digit code</small>\n"
+#~ msgstr ""
+#~ "\n"
+#~ "<small>O PIN que acaba de introduzir está\n"
+#~ "incorrecto. O código PIN deve ser um\n"
+#~ "código de 4 dígitos</small>\n"
+
+#~ msgid "Error"
+#~ msgstr "Erro!"
+
+#~ msgid "Passwords don't match"
+#~ msgstr "As palavras-passe não são iguais"
+
+#, fuzzy
+#~ msgid "PIN:"
+#~ msgstr "PIN"
+
+#, fuzzy
+#~ msgid "Insert PIN OK Button"
+#~ msgstr "Introduza o seu código PIN"
+
+#~ msgid "<b>Connectivy test</b>"
+#~ msgstr "<b>Teste de Ligação</b>"
+
+#~ msgid "_Start"
+#~ msgstr "_Iniciar"
+
+#, fuzzy
+#~ msgid "Network testing"
+#~ msgstr "Rede"
+
+#, fuzzy
+#~ msgid ""
+#~ "Some information is going to be collected from your system and some basic "
+#~ "connectivity tests are going to be performed to find out what is causing "
+#~ "the network problems"
+#~ msgstr ""
+#~ "Vamos a reunir algo de información sobre\n"
+#~ "su sistema y a realizar una serie de tests\n"
+#~ "básicos de conectividad para averiguar\n"
+#~ "qué está causando el problema de red"
+
+#~ msgid "Checking if ppp interface is up..."
+#~ msgstr "A verificar se a interface ppp está activa..."
+
+#~ msgid "Checking if we can reach gateway..."
+#~ msgstr "A verificar se consegue comunicar com o gateway..."
+
+#~ msgid "Checking if we can reach nameserver..."
+#~ msgstr "A verificar o DNS..."
+
+#~ msgid "Checking if we can resolve google.com..."
+#~ msgstr "A verificar se consegue abrir o google.com..."
+
+#~ msgid "Checking if we can fetch google's homepage..."
+#~ msgstr "A verificar se consegue mostrar a  página google.com..."
+
+#~ msgid "Connectivity test done!"
+#~ msgstr "Fim do teste de ligação!"
+
+#~ msgid "%s-report.txt"
+#~ msgstr "%s-relatorio.txt"
+
+#~ msgid "Performing connectivity test..."
+#~ msgstr "A realizar o teste de ligação..."
+
+#~ msgid "Card setup"
+#~ msgstr "Configuração da placa"
+
+#~ msgid "<b>Initial device configuration</b>"
+#~ msgstr "<b>Configuração inicial do dispositivo</b>"
+
+#~ msgid "Card Model : "
+#~ msgstr "Modelo da Placa: "
+
+#~ msgid "Connection : "
+#~ msgstr "Ligação : "
+
+#~ msgid "<b>Number: </b>"
+#~ msgstr "<b>Número: </b>"
+
+#~ msgid "Save in:"
+#~ msgstr "Guardar em:"
+
+#~ msgid ""
+#~ "Find out where your\n"
+#~ "network problem is!"
+#~ msgstr ""
+#~ "!Veja onde está o seu\n"
+#~ "problema de rede!"
+
+#~ msgid "Minimize"
+#~ msgstr "Minimizar"
+
+#~ msgid "Updates"
+#~ msgstr "Actualizações"
+
+#~ msgid "Help topics"
+#~ msgstr "Temas de ajuda"
+
+#~ msgid "Manage my /etc/ppp/{ch,p}ap-secrets"
+#~ msgstr "Gerir os meus /etc/ppp/{ch,p}ap-secrets"
+
+#~ msgid ""
+#~ "<b>Do not change this unless you\n"
+#~ "are completely sure you know\n"
+#~ "what you are doing</b>"
+#~ msgstr ""
+#~ "<b>Não mude isto a não ser que\n"
+#~ "tenha realmente a certeza do\n"
+#~ "que está haciendoque está a fazer."
+
+#~ msgid "Use a custom profile"
+#~ msgstr "Usar um perfil própio"
+
+#~ msgid "<b>Manage your wvdial profile</b>"
+#~ msgstr "<b>Administre os seus perfiles wvdial</b>"
+
+#~ msgid "Wvdial Profiles"
+#~ msgstr "Perfiles de wvdial"
+
+#~ msgid "Insert your PIN and PUK codes"
+#~ msgstr "Introduza os seus códigos PIN e PUK"
+
+#~ msgid ""
+#~ "In order to unlock your SIM card you\n"
+#~ "must insert your PIN and PUK codes"
+#~ msgstr ""
+#~ "Para desbloquear o seu cartão SIM\n"
+#~ "deve introduzir os seus códigos PIN e PUK"
+
+#~ msgid "P U K :"
+#~ msgstr "P U K :"
+
+#~ msgid "P I N :"
+#~ msgstr "P I N :"
+
+#~ msgid "0/%d chars"
+#~ msgstr "0/%d caracteres"
+
+#~ msgid "System information"
+#~ msgstr "Informação do Sistema"
+
+#~ msgid ""
+#~ "\n"
+#~ "%(name)s relies on\n"
+#~ "wvdial and pppd in order to connect to Internet. The\n"
+#~ "behaviour of this packages varies between distros as\n"
+#~ "they patch the source. Toggle this checkbutton if you\n"
+#~ "want %(name2)s to\n"
+#~ "manage pppd's password files. In some distros like\n"
+#~ "SLED 10, this is not configurable.\n"
+#~ msgstr ""
+#~ "\n"
+#~ "%(name)s depende do\n"
+#~ "wvdial e do pppd para se ligar à Internet. O\n"
+#~ "comportamento destes pacotes varia entre\n"
+#~ "distribuições conforme a fonte. Marque o botão\n"
+#~ "se quer que %(name2)s\n"
+#~ "gira os ficheiros de passwords de pppd. Em\n"
+#~ "algunas distribuições como SLED 10 isto não é configurável.\n"
+
+#~ msgid ""
+#~ "You can't delete profile %s as this would leave the application in\n"
+#~ "an unusable state"
+#~ msgstr ""
+#~ "Não é possivél apagar o perfil %s uma vez que este deixaria\n"
+#~ "a aplicação desconfigurada e inutilizada"
+
+#~ msgid "Are you sure that you want to delete profile %s"
+#~ msgstr "¿Tem a certeza que quer apagar o perfil %s?"
+
+#~ msgid "Error while deleting profile"
+#~ msgstr "Erro ao apagar o perfil"
+
+#~ msgid "Profile %s does not exists"
+#~ msgstr "O perfil %s não existe"
+
+#~ msgid "Profile %s can not be deleted"
+#~ msgstr "O perfil %s não pode ser apagado"
+
+#~ msgid "Associating..."
+#~ msgstr "A Associar..."
+
+#~ msgid "_Use detail"
+#~ msgstr "_Usar detalhes"
+
+#~ msgid "Problems with SIM card connection"
+#~ msgstr "Problemas com a ligação ao cartão SIM"
+
+#~ msgid ""
+#~ "\n"
+#~ "An unexpected internal problem has occured, this probably\n"
+#~ "has happened because the SIM card took too much to reply\n"
+#~ "my last command. Please eject and insert the card and start\n"
+#~ "%s again."
+#~ msgstr ""
+#~ "\n"
+#~ "Erro interno inesperado. Possivelmente\n"
+#~ "o cartão SIM demorou demasiado tempo\n"
+#~ "a responder ao ultimo pedido. Por favor retire\n"
+#~ "e volte a colocar a placa e execute %s de novo."
+
+#~ msgid "Running hardware wizard..."
+#~ msgstr "A executar o assistente de configuração..."
