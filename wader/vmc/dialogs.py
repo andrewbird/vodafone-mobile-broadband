@@ -78,9 +78,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 
 def show_profile_window(main_model, profile=None, imsi=None):
-    from wader.gtk.models.profile import ProfileModel
-    from wader.gtk.controllers.profile import ProfileController
-    from wader.gtk.views.profile import ProfileView
+    from wader.vmc.models.profile import ProfileModel
+    from wader.vmc.controllers.profile import ProfileController
+    from wader.vmc.views.profile import ProfileView
 
     if profile is not None:
         model = profile

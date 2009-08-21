@@ -23,7 +23,7 @@ import os.path
 import gobject
 import gtk
 
-from wader.vmc import View
+from gtkmvc import View
 import wader.common.consts as consts
 from wader.common.config import config
 from wader.common.dialers import AUTH_OPTS_DICT_REV
