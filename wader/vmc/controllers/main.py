@@ -40,6 +40,11 @@ from wader.vmc.translate import _
 from wader.vmc.notify import new_notification
 from wader.vmc.consts import GTK_LOCK, GLADE_DIR
 
+def get_fake_toggle_button():
+    """Returns a toggled L{gtk.ToggleToolButton}"""
+    button = gtk.ToggleToolButton()
+    button.set_active(True)
+    return button
 
 class MainController(WidgetController):
     """
@@ -54,24 +59,37 @@ class MainController(WidgetController):
 
         # activity progress bar
         self.apb = None
-        self.icon = None
+#        self.icon = None
 
     def register_view(self, view):
         super(MainController, self).register_view(view)
-        self._setup_icon()
+#        self._setup_icon()
         self.view.set_initialising(True)
         self.connect_to_signals()
+        self.start()
 
-    def _setup_icon(self):
-        filename = os.path.join(GLADE_DIR, 'wader.png')
-        self.icon = gtk.status_icon_new_from_file(filename)
+#    def _setup_icon(self):
+#        filename = os.path.join(GLADE_DIR, 'wader.png')
+#        self.icon = gtk.status_icon_new_from_file(filename)
+
+    def start(self):
+        print "start being called"
+
+        self.view.set_disconnected()
+
+        # we're on SMS mode
+        self.on_sms_button_toggled(get_fake_toggle_button())
+
+        #self.usage_updater = TimerService(5, self.update_usage_view)
+        #self.usage_updater.startService()
 
     def connect_to_signals(self):
         self.view['main_window'].connect('delete_event', self.close_application)
         self.cid = self.view['connect_button'].connect('toggled',
                                             self.on_connect_button_toggled)
-        self.icon.connect('activate', self.on_icon_activated)
-        self.icon.connect('popup-menu', self.on_icon_popup_menu)
+
+#        self.icon.connect('activate', self.on_icon_activated)
+#        self.icon.connect('popup-menu', self.on_icon_popup_menu)
 
     def close_application(self, *args):
         if self.model.dial_path:
@@ -246,6 +264,59 @@ class MainController(WidgetController):
                                 _("You have exceeded your transfer limit"))
 
     # callbacks
+
+    def on_sms_menu_item_activate(self, widget):
+        self.on_sms_button_toggled(get_fake_toggle_button())
+
+    def on_usage_menu_item_activate(self, widget):
+        self.on_usage_button_clicked(get_fake_toggle_button())
+
+    def on_support_menu_item_activate(self, widget):
+        self.on_support_button_toggled(get_fake_toggle_button())
+
+    def on_sms_button_toggled(self, widget):
+        print "on_sms_button_toggled %d" % widget.get_active()
+        print "self.view %s " % self.view
+        print "self.view['usage_frame'] %s" % self.view['usage_frame']
+        print "self.view['usage_tool_button'] %s" % self.view['usage_tool_button']
+        if widget.get_active():
+            self.view['usage_frame'].hide()
+            self.view['usage_tool_button'].set_active(False)
+            self.view['support_tool_button'].set_active(False)
+            self.view['support_notebook'].hide()
+            self.view['sms_frame_alignment'].show()
+            self.view['sms_tool_button'].set_active(True)
+
+    def on_usage_button_clicked(self, widget):
+        if widget.get_active():
+            self.view['sms_frame_alignment'].hide()
+            self.view['sms_tool_button'].set_active(False)
+            self.view['support_notebook'].hide()
+            self.view['support_tool_button'].set_active(False)
+            self.view['usage_frame'].show()
+            self.view['usage_tool_button'].set_active(True)
+
+    def on_support_button_toggled(self, widget):
+        if widget.get_active():
+            self.view['usage_frame'].hide()
+            self.view['usage_tool_button'].set_active(False)
+            self.view['sms_frame_alignment'].hide()
+            self.view['sms_tool_button'].set_active(False)
+            self.view['support_notebook'].show()
+            self.view['support_tool_button'].set_active(True)
+
+    def on_internet_button_clicked(self, widget):
+        pass
+#        if self._check_if_connected():
+#            binary = config.get('preferences', 'browser')
+#            getProcessOutput(binary, [consts.APP_URL], os.environ)
+
+    def on_mail_button_clicked(self, widget):
+        pass
+#        if self._check_if_connected():
+#            binary = config.get('preferences', 'mail')
+#            getProcessOutput(binary, ['REPLACE@ME.COM'], os.environ)
+
     def on_sms_received_cb(self, index):
         """
         Executed whenever a new SMS is received
@@ -528,6 +599,22 @@ class MainController(WidgetController):
         self._update_usage_session()
         self.view.update_bars_user_limit()
         self.usage_notifier()
+
+    def on_main_notebook_switch_page(self, notebook, ptr, pagenum):
+        """
+        Callback for whenever VMC's main notebook is switched
+
+        Basically takes care of showing and hiding the appropiate menubars
+        depending on the page the user is viewing
+        """
+        if int(pagenum) == 3:
+            self.view['contacts_menubar'].show()
+            self.view['sms_menubar'].hide()
+        else:
+            self.view['contacts_menubar'].hide()
+            self.view['sms_menubar'].show()
+
+        self.view['vbox17'].hide()
 
     #----------------------------------------------#
     # MISC FUNCTIONALITY                           #

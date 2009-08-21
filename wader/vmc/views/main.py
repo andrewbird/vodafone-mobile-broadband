@@ -78,6 +78,14 @@ class MainView(View):
 
         self.theme_ui()
 
+    def show(self):
+        ret = super(MainView, self).show()
+
+        self['usage_frame'].hide()       # XXX: AJB - for some reason these items hidden before
+        self['support_notebook'].hide()  # in ctrl.register_view() are reshown by parent.show()
+
+        return ret
+
     def setup_view(self,height):
         self.set_name()
         window = self.get_top_widget()
@@ -290,48 +298,44 @@ class MainView(View):
             return 4
 
     def rssi_changed(self, new_rssi):
-        icon = self._get_signal_icon(new_rssi)
-        path = os.path.join(GLADE_DIR, '%d.png' % icon)
-        self['signal_image'].set_from_file(path)
+        print "rssi_changed: %s" % new_rssi
+#        icon = self._get_signal_icon(new_rssi)
+#        path = os.path.join(GLADE_DIR, '%d.png' % icon)
+#        self['signal_image'].set_from_file(path)
 
     def operator_changed(self, new_operator):
-        self['operator_label'].set_text(new_operator)
+        print "operator_changed: %s" % new_operator
+#        self['operator_label'].set_text(new_operator)
 
     def tech_changed(self, new_tech):
-        self['tech_label'].set_text(new_tech)
+        print "tech_changed: %s" % new_tech
+#        self['tech_label'].set_text(new_tech)
 
     def set_status(self, status):
-        self['status_label'].set_text(status)
+        print "set_status: %s" % status
+#        self['status_label'].set_text(status)
 
     def set_initialising(self, enable):
         self['connect_button'].set_sensitive(not enable)
 #        self['sms_menuitem'].set_sensitive(not enable)
 #        self['preferences_menu_item'].set_sensitive(not enable)
 
-#    def set_connected(self):
-#        self['connect_button'].set_label(_("Disconnect"))
-
-#    def set_disconnected(self, device_present=True):
-#        self['connect_button'].set_label(_("Connect"))
-#        self['connect_button'].set_active(False)
-#        self.stop_throbber()
-#        if not device_present:
-#            self.set_initialising(True)
-
     def start_throbber(self):
-        if self.throbber is None:
-            self.throbber = gtk.Image()
-            self['hbox2'].pack_start(self.throbber, expand=False)
-            self.throbber.set_from_animation(THROBBER)
-            self.throbber.show()
+        pass
+#        if self.throbber is None:
+#            self.throbber = gtk.Image()
+#            self['hbox2'].pack_start(self.throbber, expand=False)
+#            self.throbber.set_from_animation(THROBBER)
+#            self.throbber.show()
 
     def stop_throbber(self):
-        if self.throbber is not None:
-            self.throbber.hide()
-            try:
-                self['hbox2'].remove(self.throbber)
-            except AttributeError:
-                pass
-
-            self.throbber = None
+        pass
+#        if self.throbber is not None:
+#            self.throbber.hide()
+#            try:
+#                self['hbox2'].remove(self.throbber)
+#            except AttributeError:
+#                pass
+#
+#            self.throbber = None
 
