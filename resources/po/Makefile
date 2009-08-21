@@ -6,25 +6,27 @@ all: mo
 
 #create pot file
 create:
-	xgettext -d$(DOMAIN) -LGlade ../glade/*.glade -o $(DOMAIN).pot
-	xgettext --from-code=utf-8 -k_ -d$(DOMAIN) -LPython `find ../../wader -name "*.py"` ../../gtk-tap.py -o $(DOMAIN).pot -j
+	:
+	#xgettext -d$(DOMAIN) -LGlade ../glade/*.glade -o $(DOMAIN).pot
+	#xgettext --from-code=utf-8 -k_ -d$(DOMAIN) -LPython `find ../../wader -name "*.py"` ../../bin/wader-vmc -o $(DOMAIN).pot -j
 
 #update all po fles
 update-po: $(DOMAIN).pot create
-	for po in *.po; do \
-		lingua=`basename $$po .po`; \
-	        mv $$lingua.po $$lingua.old.po; \
-		if msgmerge -o $$lingua.po $$lingua.old.po $(DOMAIN).pot; then \
-		    rm $$lingua.old.po; \
-		    if [ -z "$(VERSION)" ] ; then \
-			VERSION="Unknown"; \
-		    fi; \
-		    sed -i -e "s/Project-Id-Version:.*/Project-Id-Version: $(VERSION)\\\n\"/" $$lingua.po; \
-		else \
-		    rm -f $$lingua.po; \
-		    mv $$lingua.old.po $$lingua.po; \
-		fi \
-	done
+	:
+	#for po in *.po; do \
+	#	lingua=`basename $$po .po`; \
+	#        mv $$lingua.po $$lingua.old.po; \
+	#	if msgmerge -o $$lingua.po $$lingua.old.po $(DOMAIN).pot; then \
+	#	    rm $$lingua.old.po; \
+	#	    if [ -z "$(VERSION)" ] ; then \
+	#		VERSION="Unknown"; \
+	#	    fi; \
+	#	    sed -i -e "s/Project-Id-Version:.*/Project-Id-Version: $(VERSION)\\\n\"/" $$lingua.po; \
+	#	else \
+	#	    rm -f $$lingua.po; \
+	#	    mv $$lingua.old.po $$lingua.po; \
+	#	fi \
+	#done
 
 #create all mo files
 mo: update-po
