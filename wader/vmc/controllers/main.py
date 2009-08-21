@@ -27,17 +27,17 @@ from gtkmvc import Controller
 import wader.common.consts as consts
 from wader.common.signals import SIG_SMS
 from wader.common.keyring import KeyringInvalidPassword
-from wader.gtk.logger import logger
-from wader.gtk.dialogs import (show_profile_window,
+from wader.vmc.logger import logger
+from wader.vmc.dialogs import (show_profile_window,
                                show_warning_dialog, ActivityProgressBar,
                                show_about_dialog, show_error_dialog,
                                ask_pin_dialog, ask_puk_dialog,
                                ask_puk2_dialog, ask_password_dialog)
-from wader.gtk.keyring_dialogs import NewKeyringDialog, KeyringPasswordDialog
-from wader.gtk.utils import bytes_repr, get_error_msg
-from wader.gtk.translate import _
-from wader.gtk.notify import new_notification
-from wader.gtk.consts import GTK_LOCK, GLADE_DIR
+from wader.vmc.keyring_dialogs import NewKeyringDialog, KeyringPasswordDialog
+from wader.vmc.utils import bytes_repr, get_error_msg
+from wader.vmc.translate import _
+from wader.vmc.notify import new_notification
+from wader.vmc.consts import GTK_LOCK, GLADE_DIR
 
 
 class MainController(Controller):
@@ -122,14 +122,14 @@ class MainController(Controller):
         password = ask_password_dialog(self.view)
 
         if password:
-            from wader.gtk.profiles import manager
+            from wader.vmc.profiles import manager
             profile = manager.get_profile_by_object_path(opath)
             # XXX: do not hardcode NM_PASSWD
             ret = {tag : {consts.NM_PASSWD :password}}
             profile.set_secrets(tag, ret)
 
     def on_keyring_password_required(self, opath):
-        from wader.gtk.profiles import manager
+        from wader.vmc.profiles import manager
         profile = manager.get_profile_by_object_path(opath)
         password = None
 
@@ -431,8 +431,8 @@ class MainController(Controller):
             self.model.dial_path = None
 
     def on_preferences_menu_item_activate(self, widget):
-        from wader.gtk.views.preferences import PreferencesView
-        from wader.gtk.controllers.preferences import PreferencesController
+        from wader.vmc.views.preferences import PreferencesView
+        from wader.vmc.controllers.preferences import PreferencesController
 
         controller = PreferencesController(self.model.preferences_model,
                                            lambda: self.model.device)
@@ -448,9 +448,9 @@ class MainController(Controller):
         view.show()
 
     def on_sms_menuitem_activate(self, widget):
-        from wader.gtk.models.sms import SMSContactsModel
-        from wader.gtk.controllers.sms import SMSContactsController
-        from wader.gtk.views.sms import SMSContactsView
+        from wader.vmc.models.sms import SMSContactsModel
+        from wader.vmc.controllers.sms import SMSContactsController
+        from wader.vmc.views.sms import SMSContactsView
 
         model = SMSContactsModel(self.model.device)
         ctrl = SMSContactsController(model, self)
@@ -459,9 +459,9 @@ class MainController(Controller):
         view.show()
 
     def on_log_menuitem_activate(self, widget):
-        from wader.gtk.controllers.log import LogController
-        from wader.gtk.views.log import LogView
-        from wader.gtk.models.log import LogModel
+        from wader.vmc.controllers.log import LogController
+        from wader.vmc.views.log import LogView
+        from wader.vmc.models.log import LogModel
 
         model = LogModel()
         ctrl = LogController(model)
