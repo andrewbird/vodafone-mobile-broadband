@@ -70,6 +70,9 @@ class MainView(View):
         self.usage_units = UNIT_KB
         self.usage_bars = None
 
+        self.bearer = 'gprs'    # 'gprs' or 'umts'
+        self.signal = 0         # -1, 0, 25, 50, 75, 100
+
         self.setup_view(height)
         ctrl.register_view(self)
         self.throbber = None
@@ -287,30 +290,56 @@ class MainView(View):
             return 0
 
         elif rssi < 25:
-            return 1
+            return 25
 
         elif rssi < 50:
-            return 2
+            return 50
 
         elif rssi < 75:
-            return 3
+            return 75
 
         elif rssi <= 100:
-            return 4
+            return 100
+
+    def update_signal_bearer(self, newsignal = None, newmode = None):
+        if newsignal:
+            self.signal = self._get_signal_icon(newsignal)
+
+        if newmode:
+            if newmode in [_('N/A'), _('Radio Disabled')]:
+                pass
+            elif newmode in [_('GPRS'), _('EDGE')]:
+                self.bearer = 'gprs'
+            else:
+                self.bearer = 'umts'
+
+            self['cell_type_label'].set_text(newmode)
+#            if self.model.is_connected():
+#                msg = _('Connected to %s') % newmode
+#                self['net_statusbar'].push(1, msg)
+
+        if self.signal == -1:
+            image = 'radio-off.png'
+        else:
+            image = 'signal-%s-%d.png' % (self.bearer, self.signal)
+
+        self['signal_image'].set_from_file(
+                os.path.join(IMAGES_DIR, image))
 
     def rssi_changed(self, new_rssi):
         print "rssi_changed: %s" % new_rssi
-#        icon = self._get_signal_icon(new_rssi)
-#        path = os.path.join(GLADE_DIR, '%d.png' % icon)
-#        self['signal_image'].set_from_file(path)
-
-    def operator_changed(self, new_operator):
-        print "operator_changed: %s" % new_operator
-#        self['operator_label'].set_text(new_operator)
+        self.update_signal_bearer(newsignal = new_rssi)
 
     def tech_changed(self, new_tech):
         print "tech_changed: %s" % new_tech
-#        self['tech_label'].set_text(new_tech)
+        self.update_signal_bearer(newmode = new_tech)
+
+    def operator_changed(self, new_operator):
+        print "operator_changed: %s" % new_operator
+        if new_operator in '0':
+            self['network_name_label'].set_text('')
+        else:
+            self['network_name_label'].set_text(new_operator)
 
     def set_status(self, status):
         print "set_status: %s" % status
