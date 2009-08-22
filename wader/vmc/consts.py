@@ -35,11 +35,10 @@ from wader.common.consts import (MM_NETWORK_MODE_ANY, MM_NETWORK_MODE_GPRS,
 from wader.common.utils import revert_dict
 from wader.vmc.translate import _
 
-APP_NAME = 'Wader VMC'
+APP_NAME = 'Vodafone Mobile Connect'
 APP_SLUG_NAME = 'wader-vmc'
 APP_LONG_NAME = 'Vodafone Mobile Connect'
 APP_SHORT_NAME = APP_SLUG_NAME
-#APP_VERSION = '0.3.6'
 APP_VERSION = '2.15.01'
 
 # credits

@@ -38,7 +38,7 @@ from wader.vmc.dialogs import (show_profile_window,
 from wader.vmc.utils import bytes_repr, get_error_msg, UNIT_MB, units_to_bits
 from wader.vmc.translate import _
 from wader.vmc.notify import new_notification
-from wader.vmc.consts import GTK_LOCK, GLADE_DIR
+from wader.vmc.consts import GTK_LOCK, GLADE_DIR, IMAGES_DIR
 
 def get_fake_toggle_button():
     """Returns a toggled L{gtk.ToggleToolButton}"""
@@ -59,22 +59,20 @@ class MainController(WidgetController):
 
         # activity progress bar
         self.apb = None
-#        self.icon = None
+        self.icon = None
 
     def register_view(self, view):
         super(MainController, self).register_view(view)
-#        self._setup_icon()
+        self._setup_icon()
         self.view.set_initialising(True)
         self.connect_to_signals()
         self.start()
 
-#    def _setup_icon(self):
-#        filename = os.path.join(GLADE_DIR, 'wader.png')
-#        self.icon = gtk.status_icon_new_from_file(filename)
+    def _setup_icon(self):
+        filename = os.path.join(GLADE_DIR, 'VF_logo_medium.png')
+        self.icon = gtk.status_icon_new_from_file(filename)
 
     def start(self):
-        print "start being called"
-
         self.view.set_disconnected()
 
         # we're on SMS mode
@@ -89,7 +87,10 @@ class MainController(WidgetController):
                                             self.on_connect_button_toggled)
 
 #        self.icon.connect('activate', self.on_icon_activated)
-#        self.icon.connect('popup-menu', self.on_icon_popup_menu)
+
+#        if config.getboolean('preferences', 'show_icon'):
+        if True:
+            self.icon.connect('popup-menu', self.on_icon_popup_menu)
 
     def close_application(self, *args):
         if self.model.dial_path:
@@ -407,31 +408,88 @@ class MainController(WidgetController):
         else:
             window.present()
 
+#    def get_trayicon_menu(self): # Wader GTK one
+#        menu = gtk.Menu()
+#
+#        item = gtk.ImageMenuItem(_("About"))
+#        img = gtk.image_new_from_stock(gtk.STOCK_ABOUT, gtk.ICON_SIZE_MENU)
+#        item.set_image(img)
+#        item.connect("activate", self.on_about_menuitem_activate)
+#        item.show()
+#        menu.append(item)
+#
+#        item = gtk.ImageMenuItem(_("Preferences"))
+#        item.set_image(gtk.image_new_from_stock(gtk.STOCK_PREFERENCES,
+#                                                gtk.ICON_SIZE_MENU))
+#        item.connect("activate", self.on_preferences_menu_item_activate)
+#        if self.model.device is None:
+#            item.set_sensitive(False)
+#        else:
+#            item.set_sensitive(True)
+#        item.show()
+#        menu.append(item)
+#
+#        item = gtk.ImageMenuItem(_("Quit"))
+#        img = gtk.image_new_from_stock(gtk.STOCK_QUIT, gtk.ICON_SIZE_MENU)
+#        item.set_image(img)
+#        item.connect("activate", self.close_application)
+#        item.show()
+#        menu.append(item)
+#
+#        return menu
+
     def get_trayicon_menu(self):
+
+        connect_button = self.view['connect_button']
+
+        def _disconnect_from_inet(widget):
+            connect_button.set_active(False)
+
+        def _connect_to_inet(widget):
+            connect_button.set_active(True)
+
         menu = gtk.Menu()
 
-        item = gtk.ImageMenuItem(_("About"))
-        img = gtk.image_new_from_stock(gtk.STOCK_ABOUT, gtk.ICON_SIZE_MENU)
+#        if self.model.is_connected():
+        if self.model.dial_path:
+            item = gtk.ImageMenuItem(_("Disconnect"))
+            img = gtk.Image()
+            img.set_from_file(os.path.join(IMAGES_DIR, 'stop16x16.png'))
+            item.connect("activate", _disconnect_from_inet)
+        else:
+            item = gtk.ImageMenuItem(_("Connect"))
+            img = gtk.Image()
+            img.set_from_file(os.path.join(IMAGES_DIR, 'connect-16x16.png'))
+            item.connect("activate", _connect_to_inet)
+
         item.set_image(img)
-        item.connect("activate", self.on_about_menuitem_activate)
+        if self.model.device is None:
+            item.set_sensitive(False)
         item.show()
         menu.append(item)
 
-        item = gtk.ImageMenuItem(_("Preferences"))
-        item.set_image(gtk.image_new_from_stock(gtk.STOCK_PREFERENCES,
-                                                gtk.ICON_SIZE_MENU))
-        item.connect("activate", self.on_preferences_menu_item_activate)
+        separator = gtk.SeparatorMenuItem()
+        separator.show()
+        menu.append(separator)
+
+        item = gtk.ImageMenuItem(_("Send SMS"))
+        img = gtk.Image()
+        img.set_from_file(os.path.join(IMAGES_DIR, 'sms16x16.png'))
+        item.set_image(img)
+        item.connect("activate", self.on_new_sms_activate)
         if self.model.device is None:
             item.set_sensitive(False)
-        else:
-            item.set_sensitive(True)
         item.show()
         menu.append(item)
+
+        separator = gtk.SeparatorMenuItem()
+        separator.show()
+        menu.append(separator)
 
         item = gtk.ImageMenuItem(_("Quit"))
         img = gtk.image_new_from_stock(gtk.STOCK_QUIT, gtk.ICON_SIZE_MENU)
         item.set_image(img)
-        item.connect("activate", self.close_application)
+        item.connect("activate", self.on_quit_menu_item_activate)
         item.show()
         menu.append(item)
 
@@ -538,15 +596,53 @@ class MainController(WidgetController):
 
         view.show()
 
-    def on_about_menuitem_activate(self, widget):
-        dlg = show_about_dialog()
-        dlg.run()
-        dlg.destroy()
+#    def on_about_menuitem_activate(self, widget):
+#        dlg = show_about_dialog()
+#        dlg.run()
+#        dlg.destroy()
 
     def on_exit_menu_item_activate(self, widget):
         self.close_application()
 
+
 ########################### copied in from application.py ##############################
+
+    def on_new_sms_activate(self, widget):
+        pass
+        #ctrl = NewSmsController(Model(), self)
+        #view = NewSmsView(ctrl)
+        #view.set_parent_view(self.view)
+        #view.show()
+
+    def on_quit_menu_item_activate(self, widget):
+        pass
+        #exit_without_conf = config.getboolean('preferences',
+        #                                    'exit_without_confirmation')
+        #if exit_without_conf:
+        #    self.quit_application()
+        #    return
+
+        #resp, checked = dialogs.open_dialog_question_checkbox_cancel_ok(
+        #            self.view,
+        #            _("Quit %s") % consts.APP_LONG_NAME,
+        #            _("Are you sure you want to exit?"))
+
+        #config.setboolean('preferences', 'exit_without_confirmation', checked)
+        #config.write()
+#
+#        if resp:
+#            self.quit_application()
+
+    def on_help_topics_menuitem_activate(self, widget):
+        pass
+        #binary = config.get('preferences', 'browser')
+        #index_path = os.path.join(consts.GUIDE_DIR, 'index.html')
+        #getProcessOutput(binary, [index_path], os.environ)
+
+    def on_about_menu_item_activate(self, widget):
+        about = show_about_dialog()
+        about.run()
+        about.destroy()
 
     def _update_usage_panel(self, name, offset):
         m = self.model
@@ -583,8 +679,11 @@ class MainController(WidgetController):
             self.user_limit_notified = True
             message = _("User Limit")
             details = _("You have reached your limit of maximum usage")
-            #dialogs.open_warning_dialog(message, details)
-            show_normal_notification(self.tray, message, details, expires=False)
+            show_warning_dialog(message, details)
+
+            #show_normal_notification(self.tray, message, details, expires=False)
+            n = new_notification(self.icon, message, details, stock=gtk.STOCK_INFO)
+            n.show()
         elif self.model.get_transferred_total(0) < limit :
             self.user_limit_notified = False
 

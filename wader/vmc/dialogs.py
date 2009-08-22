@@ -44,11 +44,15 @@ def show_about_dialog():
     gtk.about_dialog_set_url_hook(lambda abt, url: show_uri(url))
     gtk.about_dialog_set_email_hook(lambda d, e: show_uri("mailto:%s" % e))
 
-    icon = gtk.gdk.pixbuf_new_from_file(os.path.join(GLADE_DIR, 'wader.png'))
+    icon = gtk.gdk.pixbuf_new_from_file(os.path.join(GLADE_DIR, 'VF_logo.png'))
     abt.set_icon(icon)
-    abt.set_program_name(APP_NAME)
+    if gtk.pygtk_version >= (2, 11, 0):
+        abt.set_program_name(APP_NAME)
+    else:
+        abt.set_name(APP_NAME)
     abt.set_version(APP_VERSION)
-    abt.set_copyright("Copyright (C) 2008-2009 Wader contributors")
+    abt.set_copyright("Copyright (C) 2006-2009 Vodafone España S.A.\n" +
+                      "Copyright (C) 2008-2009 Wader contributors")
     abt.set_authors(APP_AUTHORS)
     abt.set_documenters(APP_DOCUMENTERS)
     abt.set_artists(APP_ARTISTS)
@@ -57,8 +61,9 @@ def show_about_dialog():
 
     abt.set_website_label(APP_URL)
     _license = """
-The Wader project
-Copyright (C) 2008-2009  Warp Networks, S.L.
+Vodafone Mobile Connect Card driver for Linux
+Copyright (C) 2006-2009 Vodafone España S.A.
+Copyright (C) 2008-2009 Warp Networks, S.L.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -75,7 +80,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA"""
     abt.set_license(_license)
     return abt
-
 
 def show_profile_window(main_model, profile=None, imsi=None):
     from wader.vmc.models.profile import ProfileModel
