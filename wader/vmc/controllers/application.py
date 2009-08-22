@@ -511,7 +511,7 @@ New profile available, do you want to load it?""")
         view.set_parent_view(self.view)
         view.show()
 
-    def on_help_topics_menuitem_activate(self, widget):
+    def on_help_topics_menu_item_activate(self, widget):
         binary = config.get('preferences', 'browser')
         index_path = os.path.join(consts.GUIDE_DIR, 'index.html')
         getProcessOutput(binary, [index_path], os.environ)

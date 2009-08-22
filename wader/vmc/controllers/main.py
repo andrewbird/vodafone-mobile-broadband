@@ -596,14 +596,8 @@ class MainController(WidgetController):
 
         view.show()
 
-#    def on_about_menuitem_activate(self, widget):
-#        dlg = show_about_dialog()
-#        dlg.run()
-#        dlg.destroy()
-
     def on_exit_menu_item_activate(self, widget):
         self.close_application()
-
 
 ########################### copied in from application.py ##############################
 
@@ -633,8 +627,8 @@ class MainController(WidgetController):
 #        if resp:
 #            self.quit_application()
 
-    def on_help_topics_menuitem_activate(self, widget):
-        pass
+    def on_help_topics_menu_item_activate(self, widget):
+        print "on_help_topics_menu_item_activate"
         #binary = config.get('preferences', 'browser')
         #index_path = os.path.join(consts.GUIDE_DIR, 'index.html')
         #getProcessOutput(binary, [index_path], os.environ)
