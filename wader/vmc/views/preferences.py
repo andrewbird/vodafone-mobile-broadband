@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2006-2007  Vodafone España, S.A.
-# Author:  Pablo Martí
+# Copyright (C) 2008-2009  Warp Networks, S.L.
+# Author:  Jaime Soriano
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,161 +15,129 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-"""View for the preferences window"""
-__version__ = "$Rev: 1172 $"
+"""
+View for the preferences window
+"""
 
-import os.path
+from os.path import join
 
-import gobject
 import gtk
-
+import gobject
 from gtkmvc import View
-import wader.common.consts as consts
-from wader.common.config import config
-from wader.common.dialers import AUTH_OPTS_DICT_REV
-from wader.common.dialers import get_profiles_list
-from wader.common.encoding import _
-from wader.vmc.models.preferences import SMSCListStoreModel
+
+from wader.vmc.translate import _
+from wader.vmc.consts import GLADE_DIR
+
+PROFILES_FRAME, STATISTICS_FRAME = range(2)
+PREFERENCES_FRAMES = (PROFILES_FRAME, STATISTICS_FRAME)
+PREFERENCES_LABEL = {
+    PROFILES_FRAME : _("Profiles"),
+    STATISTICS_FRAME : _("Statistics"),
+}
+
+class PreferencesList(gtk.TreeView):
+    def __init__(self, activate_callback):
+        store = gtk.ListStore(gobject.TYPE_STRING)
+        super(PreferencesList, self).__init__(store)
+        self.set_headers_visible(False)
+
+        self.activate_callback = activate_callback
+        self._init_model()
+        self._init_view_columns()
+
+    def _init_model(self):
+        store = self.get_model()
+        for frame in PREFERENCES_FRAMES:
+            store.append((PREFERENCES_LABEL[frame],))
+
+    def _init_view_columns(self):
+        col = gtk.TreeViewColumn()
+
+        render_text = gtk.CellRendererText()
+        col.pack_start(render_text, expand=True)
+        col.add_attribute(render_text, 'text', 0)
+
+        self.append_column(col)
+
+        self.connect('cursor-changed', self._cursor_changed)
+        self.get_selection().set_mode(gtk.SELECTION_SINGLE)
+
+    def _cursor_changed(self, treeview):
+        model, selected = self.get_selection().get_selected_rows()
+        if len(selected) == 1:
+            self.activate_callback(selected[0][0])
+
+
+class ProfilesList(gtk.TreeView):
+    def __init__(self, model):
+        super(ProfilesList, self).__init__(model)
+        self.set_headers_visible(False)
+
+        self._init_view_columns()
+        self.default_profile_iter = None
+
+    def _init_view_columns(self):
+        col = gtk.TreeViewColumn()
+        render_toggle = gtk.CellRendererToggle()
+        render_toggle.set_radio(True)
+        render_toggle.set_data('column', 0)
+        col.pack_start(render_toggle, expand=False)
+        col.add_attribute(render_toggle, 'active', 0)
+        render_toggle.connect("toggled", self.on_item_toggled)
+        self.append_column(col)
+
+        def render_profile(cellview, cell, model, _iter):
+            profile = model.get_value(_iter, 1)
+            cell.set_property('text', str(profile.name))
+
+        col = gtk.TreeViewColumn()
+        cell = gtk.CellRendererText()
+        col.pack_start(cell, expand=True)
+        col.set_cell_data_func(cell, render_profile)
+        self.append_column(col)
+
+        self.get_selection().set_mode(gtk.SELECTION_SINGLE)
+
+    def on_item_toggled(self, cell, path):
+        model = self.get_model()
+        _iter = model.get_iter(path)
+        profile = model.get_value(_iter, 1)
+        model.set_default_profile(profile.uuid)
+
 
 class PreferencesView(View):
-    """View for the preferences window"""
 
-    GLADE_FILE = os.path.join(consts.GLADE_DIR, "preferences.glade")
+    GLADE_FILE = join(GLADE_DIR, "preferences.glade")
 
-    def __init__(self, ctrl, device):
+    def __init__(self, ctrl):
         super(PreferencesView, self).__init__(ctrl, self.GLADE_FILE,
-            'preferences_window', register=False, domain="VMC")
-        self.device = device
-        self.ctrl = ctrl
-        ctrl.register_view(self)
-        self.setup_view()
+                                              'preferences_window')
+        self.profiles_treeview = None
+        self.preferences_treeview = None
 
-    def setup_view(self):
-        # first page of the notebook
-        profile = config.current_profile.get('connection', 'dialer_profile')
+        self['preferences_notebook'].set_show_tabs(False)
+        self._init_preferences_treeview()
+        self._init_profiles_treeview(ctrl)
 
-        if profile == 'default':
-            self['vbox2'].set_sensitive(False)
-        else:
-            self['custom_profile_checkbutton'].set_active(True)
+        ctrl.model.load()
 
-        # third page of the notebook
-        exit_without_confirmation = config.getboolean('preferences',
-                                                'exit_without_confirmation')
-        chkbt = self['exit_without_confirmation_checkbutton']
-        chkbt.set_active(exit_without_confirmation)
+        # I think this should be done in anotyher way, for now this works.
+        self['transfer_limit_entry'].set_value(ctrl.model.transfer_limit)
+        self['warn_limit_check'].set_active(ctrl.model.warn_limit)
 
-        show_icon = config.getboolean('preferences', 'close_minimizes')
-        self['show_icon_checkbutton'].set_active(show_icon)
+        self.change_panel(PROFILES_FRAME)
+        icon = gtk.gdk.pixbuf_new_from_file(join(GLADE_DIR, 'wader.png'))
+        self.get_top_widget().set_icon(icon)
 
-        minimize_to_tray = config.getboolean('preferences', 'close_minimizes')
-        if show_icon:
-            self['close_window_checkbutton'].set_active(minimize_to_tray)
-        else:
-            self['close_window_checkbutton'].set_sensitive(False)
+    def _init_preferences_treeview(self):
+        self.preferences_treeview = PreferencesList(self.change_panel)
+        self['preferences_view'].add(self.preferences_treeview)
 
-        manage_keyring = config.getboolean('preferences', 'manage_keyring')
-        self['gnomekeyring_checkbutton'].set_active(manage_keyring)
+    def _init_profiles_treeview(self, ctrl):
+        model = ctrl.model.get_profiles_model(ctrl.device_callable)
+        self.profiles_treeview = ProfilesList(model)
+        self['profiles_view'].add(self.profiles_treeview)
 
-        #setup dialer_combobox
-        self.setup_dialer_combobox()
-
-        self.setup_browser_combobox()
-        self.setup_mail_combobox()
-
-        self.setup_usage_options()
-
-    # second notebook page
-    def setup_dialer_combobox(self):
-        model = self.get_dialer_combobox_model()
-        self['dialer_profiles_combobox'].set_model(model)
-
-        profile = config.current_profile.get('connection', 'dialer_profile')
-        self.select_dialer_combobox_option(model, profile)
-
-    def get_dialer_combobox_model(self):
-        model = gtk.ListStore(gobject.TYPE_STRING)
-        for profile in get_profiles_list():
-            model.append([profile])
-
-        return model
-
-    def select_dialer_combobox_option(self, model, profile):
-        for i, row in enumerate(model):
-            if row[0].lower() == AUTH_OPTS_DICT_REV[profile].lower():
-                self['dialer_profiles_combobox'].set_active(i)
-                break
-
-    # third page
-    def setup_browser_combobox(self):
-        model = gtk.ListStore(gobject.TYPE_STRING)
-        xdg_iter = model.append(['xdg-open'])
-        custom_iter = model.append([_('Custom')])
-        self['browser_combobox'].set_model(model)
-
-        binary = config.get('preferences', 'browser')
-        _iter = (binary == 'xdg-open') and xdg_iter or custom_iter
-        self['browser_combobox'].set_active_iter(_iter)
-
-        if binary != 'xdg-open':
-            self['browser_entry'].set_text(binary)
-
-    def setup_mail_combobox(self):
-        model = gtk.ListStore(gobject.TYPE_STRING)
-        xdg_iter = model.append(['xdg-email'])
-        custom_iter = model.append([_('Custom')])
-        self['mail_combobox'].set_model(model)
-
-        binary = config.get('preferences', 'mail')
-        _iter = (binary == 'xdg-email') and xdg_iter or custom_iter
-        self['mail_combobox'].set_active_iter(_iter)
-
-        if binary != 'xdg-email':
-            self['mail_entry'].set_text(binary)
-
-    # fourth page
-    def setup_usage_options(self):
-        #XXX: From Current Profile if any?
-        max_traffic = config.getint('preferences', 'max_traffic')
-        threshold = config.getint('preferences', 'traffic_threshold')
-        usage_notification = \
-                    config.getboolean('preferences', 'usage_notification')
-        self['maximum_traffic_entry'].set_value(max_traffic)
-        self['threshold_entry'].set_value(threshold)
-        self['usage_notification_check'].set_active(usage_notification)
-        self['threshold_entry'].set_sensitive(usage_notification)
-
-
-class SMSPreferencesView(View):
-    """View for the SMS preferences window"""
-    GLADE_FILE = os.path.join(consts.GLADE_DIR,
-                              "sms-preferences.glade")
-
-    def __init__(self, ctrl, parent_ctrl):
-        super(SMSPreferencesView, self).__init__(ctrl, self.GLADE_FILE,
-            'sms_preferences', register=False, domain="VMC")
-        self.parent_ctrl = parent_ctrl
-        self.setup_view(ctrl)
-        ctrl.register_view(self)
-
-    def setup_view(self, ctrl):
-        self.get_top_widget().set_position(gtk.WIN_POS_CENTER_ON_PARENT)
-        self['alignment5'].add(ctrl.smsc_entry)
-
-    def populate_smsc_combobox(self, smsc_list):
-        model = SMSCListStoreModel()
-        model.add_smscs(smsc_list)
-        combobox = self['combobox1']
-
-        cell = gtk.CellRendererText()
-        combobox.pack_end(cell, False)
-        def render_pyobj(cellview, cell, model, iter):
-            pyobj = model.get_value(iter, 0)
-            if pyobj:
-                cell.set_property('text', pyobj.message)
-
-        combobox.set_cell_data_func(cell, render_pyobj)
-        combobox.set_model(model)
-        if model.active:
-            combobox.set_active_iter(model.active)
+    def change_panel(self, panel):
+        self['preferences_notebook'].set_current_page(panel)
 

@@ -558,21 +558,22 @@ class MainController(WidgetController):
             self.model.dial_path = None
 
     def on_preferences_menu_item_activate(self, widget):
-        from wader.vmc.views.preferences import PreferencesView
-        from wader.vmc.controllers.preferences import PreferencesController
-
-        controller = PreferencesController(self.model.preferences_model,
-                                           lambda: self.model.device)
-        view = PreferencesView(controller)
-
-        profiles_model = self.model.preferences_model.profiles_model
-        if not profiles_model.has_active_profile():
-            show_warning_dialog(
-                _("Profile needed"),
-                _("You need to create a profile to save preferences"))
-            self.ask_for_new_profile()
-            return
-        view.show()
+        print "on_preferences_menu_item_activate"
+#        from wader.vmc.views.preferences import PreferencesView
+#        from wader.vmc.controllers.preferences import PreferencesController
+#
+#        controller = PreferencesController(self.model.preferences_model,
+#                                           lambda: self.model.device)
+#        view = PreferencesView(controller)
+#
+#        profiles_model = self.model.preferences_model.profiles_model
+#        if not profiles_model.has_active_profile():
+#            show_warning_dialog(
+#                _("Profile needed"),
+#                _("You need to create a profile to save preferences"))
+#            self.ask_for_new_profile()
+#            return
+#        view.show()
 
     def on_sms_menuitem_activate(self, widget):
         from wader.vmc.models.sms import SMSContactsModel
@@ -609,12 +610,12 @@ class MainController(WidgetController):
         #view.show()
 
     def on_quit_menu_item_activate(self, widget):
-        pass
         #exit_without_conf = config.getboolean('preferences',
         #                                    'exit_without_confirmation')
-        #if exit_without_conf:
-        #    self.quit_application()
-        #    return
+        exit_without_conf = True
+        if exit_without_conf:
+            self.close_application()
+            return
 
         #resp, checked = dialogs.open_dialog_question_checkbox_cancel_ok(
         #            self.view,
@@ -626,6 +627,98 @@ class MainController(WidgetController):
 #
 #        if resp:
 #            self.quit_application()
+
+    def on_new_profile_menuitem_activate(self, widget):
+        self.ask_for_new_profile()
+
+    def _build_profiles_menu(self):
+        def load_profile(widget, profile):
+            profiles_model = self.model.preferences_model.profiles_model
+            profiles_model.set_default_profile(profile.uuid)
+
+            # refresh menu
+            self.on_tools_menu_item_activate(get_fake_toggle_button())
+
+        def edit_profile(widget, profile):
+            show_profile_window(self.model.preferences_model,
+                                profile=profile)
+            # XXX: check out whether editing a profile should make it active
+            #      currently it doesn't
+            # self.on_tools_menu_item_activate(get_fake_toggle_button())
+
+        def delete_profile(widget, profile):
+            profiles_model = self.model.preferences_model.profiles_model
+            profiles_model.remove_profile(profile)
+
+            # refresh menu
+            self.on_tools_menu_item_activate(get_fake_toggle_button())
+
+        def is_active_profile(profile):
+            profiles_model = self.model.preferences_model.profiles_model
+
+            if not profiles_model.has_active_profile():
+                return False
+            return profile.uuid == profiles_model.get_active_profile().uuid
+
+        profiles = self.model.preferences_model.get_profiles(None)
+
+        menu1 = gtk.Menu()
+        for profile in profiles.values():
+            item = gtk.ImageMenuItem(profile.name)
+            item.connect("activate", load_profile, profile)
+            item.show()
+            if is_active_profile(profile):
+                item.set_sensitive(False)
+            menu1.append(item)
+
+        menu2 = gtk.Menu()
+        for profile in profiles.values():
+            item = gtk.ImageMenuItem(profile.name)
+            item.connect("activate", edit_profile, profile)
+            item.show()
+            menu2.append(item)
+
+        menu3 = gtk.Menu()
+        for profile in profiles.values():
+            item = gtk.ImageMenuItem(profile.name)
+            item.connect("activate", delete_profile, profile)
+            item.show()
+            if is_active_profile(profile):
+                item.set_sensitive(False)
+            menu3.append(item)
+
+        return menu1, menu2, menu3
+
+    def on_tools_menu_item_activate(self, widget):
+        # build dynamically the menu with the profiles
+        parent = self.view['profiles_menu_item']
+        menu = gtk.Menu()
+
+        item = gtk.ImageMenuItem(_("_New Profile"))
+        img = gtk.image_new_from_stock(gtk.STOCK_NEW, gtk.ICON_SIZE_MENU)
+        item.set_image(img)
+        item.connect("activate", self.on_new_profile_menuitem_activate)
+        menu.append(item)
+        item.show()
+
+        load, edit, delete = self._build_profiles_menu()
+
+        item = gtk.MenuItem(_("Load Profile"))
+        item.set_submenu(load)
+        menu.append(item)
+        item.show()
+
+        item = gtk.MenuItem(_("Edit Profile"))
+        item.set_submenu(edit)
+        menu.append(item)
+        item.show()
+
+        item = gtk.MenuItem(_("Delete Profile"))
+        item.set_submenu(delete)
+        menu.append(item)
+        item.show()
+
+        parent.set_submenu(menu)
 
     def on_help_topics_menu_item_activate(self, widget):
         print "on_help_topics_menu_item_activate"

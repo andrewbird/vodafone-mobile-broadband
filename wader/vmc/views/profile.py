@@ -42,8 +42,8 @@ class ProfileView(View):
 
         ctrl.setup_view(self)
         self['static_dns_check'].connect('toggled', self.on_static_dns_toggled)
-#        icon = gtk.gdk.pixbuf_new_from_file(join(GLADE_DIR, 'wader.png'))
-#        self.get_top_widget().set_icon(icon)
+        icon = gtk.gdk.pixbuf_new_from_file(join(GLADE_DIR, 'VF_logo.png'))
+        self.get_top_widget().set_icon(icon)
 
     def _init_combobox(self, _dict, name, default, method):
         model = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_INT)
