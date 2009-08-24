@@ -1,7 +1,7 @@
 # -*- test-case-name: axiom.test.test_sequence -*-
 
-from axiom.item import Item
-from axiom.attributes import reference, integer, AND
+from wader.vmc.axiom.item import Item
+from wader.vmc.axiom.attributes import reference, integer, AND
 
 class _ListItem(Item):
     typeName = 'list_item'

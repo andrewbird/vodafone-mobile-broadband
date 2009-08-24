@@ -16,8 +16,8 @@ from twisted.internet.protocol import ServerFactory, ClientFactory
 from twisted.python.failure import Failure
 from twisted.python import log, filepath
 
-from vmc.contrib.epsilon.liner import LineReceiver
-from vmc.contrib.epsilon import extime
+from wader.vmc.contrib.epsilon.liner import LineReceiver
+from wader.vmc.contrib.epsilon import extime
 
 ASK = '_ask'
 ANSWER = '_answer'

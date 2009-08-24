@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2006-2007  Vodafone España, S.A.
+# Copyright (C) 2006-2009  Vodafone España, S.A.
 # Author:  Pablo Martí
 #
 # This program is free software; you can redistribute it and/or modify
@@ -16,138 +16,113 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-import wader.common.exceptions as ex
-from wader.common.persistent import DBContact, ContactsManager
+from zope.interface import implements
+from os.path import join, expanduser
 
-def is_contact(contact):
-    """Returns True if C{contact} is a DB contact"""
-    return isinstance(contact, DBContact)
+from wader.vmc.consts import IMAGES_DIR
+from wader.vmc.contacts.interface import IContact
+from wader.vmc.contrib.axiom import item, attributes, store
+from wader.vmc.contrib.axiom.attributes import AND
 
-class PhoneBook(object):
+CONTACTS_DB = join(expanduser('~'),'.vmc2','contacts.db')
+
+
+class ADBContact(item.Item):
     """
-    I manage all your contacts
-
-    PhoneBook presents a single interface to access contacts from
-    both the SIM and DB
+    I represent a contact on the Axiom DB
     """
+    implements(IContact)
+    # (id integer, category integer, name text, number text)
+    typeName = 'DBContact'
+    schemaVersion = 1
 
-    def __init__(self, sconn=None):
-        self.sconn = sconn
-        self.cmanager = ContactsManager()
-        self.evlcmanager = EVContactsManager()
-        self.kdecmanager = KDEContactsManager()
+    name = attributes.text(allowNone=False)
+    number = attributes.text(allowNone=False)
+    writable = True
 
-    def close(self):
-        self.cmanager.close()
-        self.cmanager = None
-        self.sconn = None
+    def __repr__(self):
+        return '<ADBContact name="%s" number="%s">' % (self.name, self.number)
 
-    def add_contact(self, contact, sim=False):
-        def add_sim_contact_cb(index):
-            contact.index = int(index)
-            return contact
+    def __eq__(self, c):
+        return self.name == c.name and self.number == c.number
 
-        def invalid_chars_eb(failure):
-            failure.trap(ex.CMEErrorInvalidCharactersInDialString,
-                         ex.CMEErrorStringTooLong)
-            log.err(failure)
+    def __ne__(self, c):
+        return not (self.name == c.name and self.number == c.number)
 
-        if sim:
-            d = self.sconn.add_contact(contact)
-            d.addCallback(add_sim_contact_cb)
-            d.addErrback(invalid_chars_eb)
-        else:
-            d = defer.maybeDeferred(self.cmanager.add_contact, contact)
+    def get_index(self):
+        return self.storeID
 
-        return d
+    def get_name(self):
+        return self.name
 
-    def add_contacts(self, contacts, sim=False):
-        responses = [self.add_contact(contact, sim) for contact in contacts]
-        return defer.gatherResults(responses)
+    def get_number(self):
+        return self.number
 
-    def _find_contact_in_sim(self, pattern):
-        return self.sconn.find_contacts(pattern)
+    def is_writable(self):
+        return self.writable
 
-    def _find_contact_in_db(self, pattern):
-        return list(self.cmanager.find_contacts(pattern))
+    def external_editor(self):
+        return None
 
-    def _find_contact_in_ev(self, pattern):
-        return list(self.evlcmanager.find_contacts(pattern))
+    def image_16x16(self):
+        return join(IMAGES_DIR, 'computer.png')
 
-    def _find_contact_in_kde(self, pattern):
-        return list(self.kdecmanager.find_contacts(pattern))
+    def to_csv(self):
+        """Returns a list with the name and number formatted for csv"""
+        name = '"' + self.name + '"'
+        number = '"' + self.number + '"'
+        return [name, number]
 
-    def find_contact(self, name=None, number=None):
-        if (not name and not number) or (name and number):
-            return defer.fail()
+    def set_name(self, name):
+        self.name = name     # XXX: how do we detect a failure to write to the DB?
+        return True
 
-        if name:
-            d = self._find_contact_in_sim(name)
-            def find_contacts_db(contacts):
-                return self._find_contact_in_db(name) + contacts
-            def find_contacts_ev(contacts):
-                return self._find_contact_in_ev(name) + contacts
-            def find_contacts_kde(contacts):
-                return self._find_contact_in_kde(name) + contacts
+    def set_number(self, number):
+        self.number = number # XXX: how do we detect a failure to write to the DB?
+        return True
 
-            def find_contacts_eb(failure):
-                failure.trap(ex.ATError, ex.CMEErrorNotFound)
-                return ( self._find_contact_in_db(name) +
-                         self._find_contact_in_ev(name) +
-                         self._find_contact_in_kde(name) )
 
-            d.addCallback(find_contacts_db)
-            d.addCallback(find_contacts_ev)
-            d.addCallback(find_contacts_kde)
-            d.addErrback(find_contacts_eb)
-            return d
+class ADBContactsManager(object):
+    """
+    Axiom Contacts manager
+    """
+    def __init__(self, path=CONTACTS_DB):
+        super(ADBContactsManager, self).__init__(path)
+        self.store = store.Store(path)
 
-        elif number:
-            # searching by name is pretty easy as the SIM allows to lookup
-            # contacts by name. However searching by number is more difficult
-            # as the SIM doesn't provides any facility for it. Thus we need
-            # to get *all* contacts and iterate through them looking for
-            # a number that matches the pattern
-            d = self.get_contacts()
-            d.addCallback(lambda contacts: [c for c in contacts
-                                                if c.get_number() == number])
-            return d
+    def device_reqd(self):
+        return False
 
-    def get_contacts(self):
-        d = self.sconn.get_contacts()
-        d.addCallback(lambda simc: list(self.cmanager.get_contacts()) + simc)
-        d.addCallback(lambda prec: list(self.evlcmanager.get_contacts()) + prec)
-        d.addCallback(lambda prec: list(self.kdecmanager.get_contacts()) + prec)
-        d.addErrback(log.err)
-        return d
+    def set_device(self, device):
+        pass
 
-    def delete_contacts(self, clist):
-        deflist = [self.delete_contact(contact) for contact in clist]
-        return defer.gatherResults(deflist)
-
-    def delete_objs(self, objs):
-        return self.delete_contacts(objs)
+    def add_contact(self, contact):
+        return ADBContact(store=self.store, name=contact.get_name(),
+                        number=contact.get_number())
 
     def delete_contact(self, contact):
-        if is_sim_contact(contact):
-            return self.sconn.delete_contact(contact.get_index())
-        else:
-            return defer.maybeDeferred(self.cmanager.delete_contact, contact)
+        if not isinstance(contact, ADBContact):
+            return False
+        return self.store.query(ADBContact,
+                                ADBContact == contact).deleteFromStore()
 
-    def edit_contact(self, contact):
-        if is_sim_contact(contact):
-            def add_contact_cb(index):
-                contact.index = index
-                return contact
+    def delete_contact_by_id(self, index):
+        return self.store.getItemByID(index).deleteFromStore()
 
-            d = self.sconn.add_contact(contact)
-            d.addCallback(add_contact_cb)
-            return d
-        else:
-            raise NotImplementedError()
+    def find_contacts(self, pattern):
+        for contact in self.get_contacts():
+            # XXX: O(N) here!
+            # I can't find a way to do a LIKE comparison
+            if pattern.lower() in contact.get_name().lower():
+                yield contact
 
-_phonebook = PhoneBook()
+    def get_contacts(self):
+        return list(self.store.query(ADBContact))
 
-def get_phonebook(sconn):
-    _phonebook.sconn = sconn
-    return _phonebook
+    def get_contact_by_id(self, index):
+        return self.store.getItemByID(index)
+
+    def close(self):
+        self.store.close()
+        self.store = None
+

@@ -4,7 +4,7 @@
 This module holds the Axiom Store class and related classes, such as queries.
 """
 
-from vmc.contrib.epsilon import hotfix
+from wader.vmc.contrib.epsilon import hotfix
 hotfix.require('twisted', 'filepath_copyTo')
 
 import time, os, itertools, warnings, sys, operator
@@ -19,23 +19,23 @@ from twisted.python.reflect import namedAny, qual
 from twisted.python.util import unsignedID
 from twisted.application.service import IService, IServiceCollection
 
-from vmc.contrib.epsilon.pending import PendingEvent
-from vmc.contrib.epsilon.cooperator import SchedulingService
+from wader.vmc.contrib.epsilon.pending import PendingEvent
+from wader.vmc.contrib.epsilon.cooperator import SchedulingService
 
-from vmc.contrib.axiom import _schema, attributes, upgrade, _fincache, iaxiom, errors, batch
-from vmc.contrib.axiom import item
+from wader.vmc.contrib.axiom import _schema, attributes, upgrade, _fincache, iaxiom, errors, batch
+from wader.vmc.contrib.axiom import item
 
 # Doing this in a slightly awkward way so Pyflakes won't complain; it really
 # doesn't like conditional imports.
 if attributes.USING_APSW:
-    backendName = 'vmc.contrib.axiom._apsw.Connection'
+    backendName = 'wader.vmc.contrib.axiom._apsw.Connection'
 else:
-    backendName = 'vmc.contrib.axiom._pysqlite2.Connection'
+    backendName = 'wader.vmc.contrib.axiom._pysqlite2.Connection'
 
 Connection = namedAny(backendName)
 
 
-from vmc.contrib.axiom.item import \
+from wader.vmc.contrib.axiom.item import \
     _typeNameToMostRecentClass, declareLegacyItem,\
     _legacyTypes, Empowered, serviceSpecialCase, _StoreIDComparer
 

@@ -22,12 +22,12 @@ except ImportError:
     manhole_ssh = None
 from twisted.conch import interfaces as iconch
 
-from vmc.contrib.epsilon import extime, process, cooperator, modal, juice
+from wader.vmc.contrib.epsilon import extime, process, cooperator, modal, juice
 
-from vmc.contrib.axiom import iaxiom, errors as eaxiom, item, attributes
-from vmc.contrib.axiom.scheduler import Scheduler, SubScheduler
-from vmc.contrib.axiom.upgrade import registerUpgrader
-from vmc.contrib.axiom.dependency import installOn
+from wader.vmc.contrib.axiom import iaxiom, errors as eaxiom, item, attributes
+from wader.vmc.contrib.axiom.scheduler import Scheduler, SubScheduler
+from wader.vmc.contrib.axiom.upgrade import registerUpgrader
+from wader.vmc.contrib.axiom.dependency import installOn
 
 VERBOSE = False
 

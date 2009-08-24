@@ -7,14 +7,14 @@ from twisted.cred.credentials import IUsernamePassword, IUsernameHashedPassword
 from twisted.cred.checkers import ICredentialsChecker, ANONYMOUS
 from twisted.python import log
 
-from vmc.contrib.axiom.store import Store
-from vmc.contrib.axiom.item import Item
-from vmc.contrib.axiom.substore import SubStore
-from vmc.contrib.axiom.attributes import text, integer, reference, boolean, AND, OR
-from vmc.contrib.axiom.errors import (
+from wader.vmc.contrib.axiom.store import Store
+from wader.vmc.contrib.axiom.item import Item
+from wader.vmc.contrib.axiom.substore import SubStore
+from wader.vmc.contrib.axiom.attributes import text, integer, reference, boolean, AND, OR
+from wader.vmc.contrib.axiom.errors import (
     BadCredentials, NoSuchUser, DuplicateUser, MissingDomainPart)
-from vmc.contrib.axiom.scheduler import IScheduler
-from vmc.contrib.axiom import upgrade, iaxiom
+from wader.vmc.contrib.axiom.scheduler import IScheduler
+from wader.vmc.contrib.axiom import upgrade, iaxiom
 
 from zope.interface import implements, Interface, Attribute
 

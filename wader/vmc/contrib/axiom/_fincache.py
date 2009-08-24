@@ -4,7 +4,7 @@ from traceback import print_exc
 
 from twisted.python import log
 
-from vmc.contrib.axiom import iaxiom
+from wader.vmc.contrib.axiom import iaxiom
 
 class CacheFault(RuntimeError):
     """

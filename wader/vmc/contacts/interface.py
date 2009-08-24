@@ -44,3 +44,9 @@ class IContact(Interface):
     def to_csv():
         """Returns a csv string with the contact info"""
 
+    def set_name(self, name):
+        """Sets the contact's name - return True if successful"""
+
+    def set_number(self, number):
+        """Sets the contact's number - return True if successful"""
+

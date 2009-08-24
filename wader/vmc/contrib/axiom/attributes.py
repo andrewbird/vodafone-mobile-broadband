@@ -4,7 +4,7 @@ import os
 
 from decimal import Decimal
 
-from vmc.contrib.epsilon import hotfix
+from wader.vmc.contrib.epsilon import hotfix
 hotfix.require('twisted', 'filepath_copyTo')
 
 from zope.interface import implements
@@ -12,13 +12,13 @@ from zope.interface import implements
 from twisted.python import filepath
 from twisted.python.components import registerAdapter
 
-from vmc.contrib.epsilon.extime import Time
+from wader.vmc.contrib.epsilon.extime import Time
 
-from vmc.contrib.axiom.slotmachine import Attribute as inmemory
+from wader.vmc.contrib.axiom.slotmachine import Attribute as inmemory
 
-from vmc.contrib.axiom.errors import NoCrossStoreReferences, BrokenReference
+from wader.vmc.contrib.axiom.errors import NoCrossStoreReferences, BrokenReference
 
-from vmc.contrib.axiom.iaxiom import IComparison, IOrdering, IColumn, IQuery
+from wader.vmc.contrib.axiom.iaxiom import IComparison, IOrdering, IColumn, IQuery
 
 USING_APSW = False
 

@@ -15,7 +15,7 @@ except ImportError:
 
 from twisted.python import log
 
-from vmc.contrib.axiom import errors, iaxiom
+from wader.vmc.contrib.axiom import errors, iaxiom
 
 class Connection(object):
     def __init__(self, connection, timeout=None):

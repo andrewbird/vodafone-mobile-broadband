@@ -2,7 +2,7 @@
 
 import operator
 
-from vmc.contrib.axiom.attributes import AND, OR
+from wader.vmc.contrib.axiom.attributes import AND, OR
 
 def contains(startAttribute,
              endAttribute,

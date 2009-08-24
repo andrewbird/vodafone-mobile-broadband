@@ -68,11 +68,28 @@ class EVContact(object):
         number = '"' + self.number + '"'
         return [name, number]
 
+    def set_name(self, name):
+        return False
+
+    def set_number(self, number):
+        return False
 
 class EVContactsManager(object):
     """
     Contacts manager
     """
+    def device_reqd(self):
+        return False
+
+    def set_device(self, device):
+        pass
+
+    def delete_contact(self, contact):
+        return False
+
+    def delete_contact_by_id(self, index):
+        return False
+
     def find_contacts(self, pattern):
         for contact in self.get_contacts():
             # XXX: O(N) here!

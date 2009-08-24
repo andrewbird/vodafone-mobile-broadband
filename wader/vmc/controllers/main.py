@@ -766,8 +766,7 @@ class MainController(WidgetController):
 
     def _fill_contacts(self, ignored=None):
         """Fills the contacts treeview with contacts"""
-#        phonebook = get_phonebook(self.model.get_sconn())
-        phonebook = get_phonebook(None)
+        phonebook = get_phonebook(device=self.model.device)
 
         def process_contacts(contacts):
             treeview = self.view['contacts_treeview']
@@ -811,7 +810,7 @@ class MainController(WidgetController):
 
     def _fill_treeviews(self):
         """
-        Fills the treeviews with SMS and contacts from the SIM and DB
+        Fills the treeviews with SMS and contacts
         """
 #        d = self._fill_contacts()
 #        d.addCallback(self._fill_messages)
@@ -917,28 +916,25 @@ class MainController(WidgetController):
         # first check that the edit is necessary
         model = self.view['contacts_treeview'].get_model()
         if newname != model[path][1] and newname != '':
-            model[path][1] = newname
             contact = model[path][3]
-            contact.name = unicode(newname, 'utf8')
-#            if not isinstance(contact, DBContact):
-#                model[path][3] = contact
-#                phonebook = get_phonebook(self.model.get_sconn())
-#                d = phonebook.edit_contact(contact)
+            if contact.set_name(unicode(newname, 'utf8')):
+                model[path][1] = newname
 
     def _number_contact_cell_edited(self, widget, path, newnumber):
         """Handler for the cell-edited signal of the number column"""
         model = self.view['contacts_treeview'].get_model()
         number = newnumber.strip()
         # check that the edit is necessary
-        if number != model[path][2] and utilities.is_valid_number(number):
+
+        def is_valid_number(number):
+            import re
+            pattern = re.compile('^\+?\d+$')
+            return pattern.match(number) and True or False
+
+        if number != model[path][2] and is_valid_number(number):
             contact = model[path][3]
-            contact.number = unicode(newnumber, 'utf8')
-#            if not isinstance(contact, DBContact):
-#                model[path][2] = number
-#                model[path][3] = contact
-#
-#                phonebook = get_phonebook(self.model.get_sconn())
-#                d = phonebook.edit_contact(contact)
+            if contact.set_number(unicode(number, 'utf8')):
+                model[path][2] = number
 
     def _row_activated_tv(self, treeview, path, col):
         # get selected row
@@ -1006,10 +1002,9 @@ class MainController(WidgetController):
             return
 
         if treeview.name == 'contacts_treeview':
-            manager = get_phonebook(self.model.get_sconn())
-            # XXX: we need to think about this
+            manager = get_phonebook(self.model.device)
         else:
-            manager = get_messages_obj(self.model.get_sconn())
+            manager = get_messages_obj(self.model.device)
 
         manager.delete_objs(objs)
 

@@ -1,7 +1,7 @@
-from vmc.contrib.epsilon.extime import Time
+from wader.vmc.contrib.epsilon.extime import Time
 
-from vmc.contrib.axiom.item import Item
-from vmc.contrib.axiom.attributes import text, reference, integer, AND, timestamp
+from wader.vmc.contrib.axiom.item import Item
+from wader.vmc.contrib.axiom.attributes import text, reference, integer, AND, timestamp
 
 class Tag(Item):
     typeName = 'tag'

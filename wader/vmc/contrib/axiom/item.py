@@ -13,11 +13,11 @@ from twisted.python.util import mergeFunctionMetadata
 from twisted.application.service import IService, IServiceCollection, MultiService
 
 
-from vmc.contrib.axiom import slotmachine, _schema, iaxiom
-from vmc.contrib.axiom.errors import ChangeRejected, DeletionDisallowed
-from vmc.contrib.axiom.iaxiom import IColumn, IPowerupIndirector
+from wader.vmc.contrib.axiom import slotmachine, _schema, iaxiom
+from wader.vmc.contrib.axiom.errors import ChangeRejected, DeletionDisallowed
+from wader.vmc.contrib.axiom.iaxiom import IColumn, IPowerupIndirector
 
-from vmc.contrib.axiom.attributes import (
+from wader.vmc.contrib.axiom.attributes import (
     SQLAttribute, _ComparisonOperatorMuxer, _MatchingOperationMuxer,
     _OrderingMixin, _ContainableMixin, Comparable, compare, inmemory,
     reference, text, integer, AND, _cascadingDeletes, _disallows)

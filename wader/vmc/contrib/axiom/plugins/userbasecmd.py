@@ -1,4 +1,4 @@
-from vmc.contrib.epsilon.hotfix import require
+from wader.vmc.contrib.epsilon.hotfix import require
 require('twisted', 'filepath_copyTo')
 
 import getpass
@@ -6,8 +6,8 @@ import getpass
 from twisted.python import usage
 from twisted.python import filepath
 
-from vmc.contrib.axiom import attributes, userbase, dependency
-from vmc.contrib.axiom.scripts import axiomatic
+from wader.vmc.contrib.axiom import attributes, userbase, dependency
+from wader.vmc.contrib.axiom.scripts import axiomatic
 
 class UserbaseMixin:
     def installOn(self, other):

@@ -7,9 +7,9 @@ import sys, itertools
 from zope.interface.advice import addClassAdvisor
 from zope.interface import Interface
 
-from vmc.contrib.axiom.item import Item
-from vmc.contrib.axiom.attributes import reference, boolean, AND
-from vmc.contrib.axiom.errors import ItemNotFound, DependencyError
+from wader.vmc.contrib.axiom.item import Item
+from wader.vmc.contrib.axiom.attributes import reference, boolean, AND
+from wader.vmc.contrib.axiom.errors import ItemNotFound, DependencyError
 #There is probably a cleaner way to do this.
 _globalDependencyMap = {}
 

@@ -7,14 +7,14 @@ from twisted.internet import reactor
 from twisted.application.service import Service, IService
 from twisted.python import log, failure
 
-from vmc.contrib.epsilon.extime import Time
-from vmc.contrib.epsilon import descriptor
+from wader.vmc.contrib.epsilon.extime import Time
+from wader.vmc.contrib.epsilon import descriptor
 
-from vmc.contrib.axiom.item import Item
-from vmc.contrib.axiom.attributes import AND, timestamp, reference, integer, inmemory, bytes
-from vmc.contrib.axiom.dependency import dependsOn, installOn
-from vmc.contrib.axiom.iaxiom import IScheduler
-from vmc.contrib.axiom.upgrade import registerUpgrader
+from wader.vmc.contrib.axiom.item import Item
+from wader.vmc.contrib.axiom.attributes import AND, timestamp, reference, integer, inmemory, bytes
+from wader.vmc.contrib.axiom.dependency import dependsOn, installOn
+from wader.vmc.contrib.axiom.iaxiom import IScheduler
+from wader.vmc.contrib.axiom.upgrade import registerUpgrader
 
 VERBOSE = False
 

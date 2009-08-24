@@ -5,8 +5,8 @@ try:
 except ImportError:
     readline = None
 
-from vmc.contrib.axiom import store, version
-from vmc.contrib.axiom.scripts import axiomatic
+from wader.vmc.contrib.axiom import store, version
+from wader.vmc.contrib.axiom.scripts import axiomatic
 
 class AxiomConsole(code.InteractiveConsole):
     def runcode(self, code):

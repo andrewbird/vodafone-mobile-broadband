@@ -4,13 +4,13 @@ from zope.interface import implements
 
 from twisted.application import service
 
-from vmc.contrib.axiom.iaxiom import IPowerupIndirector
+from wader.vmc.contrib.axiom.iaxiom import IPowerupIndirector
 
-from vmc.contrib.axiom.store import Store
-from vmc.contrib.axiom.item import Item
-from vmc.contrib.axiom.attributes import path, inmemory, reference
+from wader.vmc.contrib.axiom.store import Store
+from wader.vmc.contrib.axiom.item import Item
+from wader.vmc.contrib.axiom.attributes import path, inmemory, reference
 
-from vmc.contrib.axiom.upgrade import registerUpgrader
+from wader.vmc.contrib.axiom.upgrade import registerUpgrader
 
 class SubStore(Item):
 

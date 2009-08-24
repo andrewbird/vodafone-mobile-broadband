@@ -47,11 +47,11 @@ class PhoneBook(object):
     all sources
     """
 
-    def __init__(self, sconn=None):
-        self.sconn = sconn
+    def __init__(self, device=None):
+        self.device = device
 
     def close(self):
-        self.sconn = None
+        self.device = None
 
 #    def add_contact(self, contact, sim=False):
 #        def add_sim_contact_cb(index):
@@ -133,22 +133,31 @@ class PhoneBook(object):
         ret = []
         for cclass, mclass in supported_types:
             manager = mclass()
+            if manager.device_reqd():
+                manager.set_device(self.device)
             ret.extend( manager.get_contacts() )
         return ret
 
-#    def delete_contacts(self, clist):
+    def delete_objs(self, objs):
+        return self.delete_contacts(objs)
+
+    def delete_contacts(self, clist):
 #        deflist = [self.delete_contact(contact) for contact in clist]
 #        return defer.gatherResults(deflist)
+#            self.delete_contact(contact)
+        for contact in clist:
+            self.delete_contact(contact)
 
-#    def delete_objs(self, objs):
-#        return self.delete_contacts(objs)
-
-#    def delete_contact(self, contact):
+    def delete_contact(self, contact):
 #        if is_sim_contact(contact):
 #            return self.sconn.delete_contact(contact.get_index())
 #        else:
 #            return defer.maybeDeferred(self.cmanager.delete_contact, contact)
-#
+        for cclass, mclass in supported_types:
+            if isinstance(contact, cclass):
+                manager = mclass()
+                manager.delete_contact(contact)
+
 #    def edit_contact(self, contact):
 #        if is_sim_contact(contact):
 #            def add_contact_cb(index):
@@ -163,6 +172,6 @@ class PhoneBook(object):
 
 _phonebook = PhoneBook()
 
-def get_phonebook(sconn):
-    _phonebook.sconn = sconn
+def get_phonebook(device):
+    _phonebook.device = device
     return _phonebook

@@ -12,7 +12,7 @@ from twisted.python import usage, log
 from twisted.python.runtime import platform
 from twisted.application import app, service
 
-from vmc.contrib.axiom import iaxiom
+from wader.vmc.contrib.axiom import iaxiom
 
 class AxiomaticSubCommandMixin(object):
     store = property(lambda self: self.parent.getStore())
