@@ -25,6 +25,9 @@ from twisted.internet.utils import getProcessOutput
 
 #from gtkmvc import Controller
 from wader.vmc.controllers.base import WidgetController, TV_DICT, TV_DICT_REV
+from wader.vmc.controllers.contacts import (AddContactController,
+                                          SearchContactController)
+from wader.vmc.views.contacts import AddContactView, SearchContactView
 
 import wader.common.consts as consts
 from wader.common.signals import SIG_SMS
@@ -626,6 +629,20 @@ class MainController(WidgetController):
 
 ########################### copied in from application.py ##############################
 
+    def on_new_contact_menu_item_activate(self, widget):
+        self.view['main_notebook'].set_current_page(3) # contacts_tv
+        ctrl = AddContactController(self.model, self)
+        view = AddContactView(ctrl)
+        view.set_parent_view(self.view)
+        view.show()
+
+    def on_search_contact_menu_item_activate(self, widget):
+        self.view['main_notebook'].set_current_page(3) # contacts_tv
+        ctrl = SearchContactController(self.model, self)
+        view = SearchContactView(ctrl)
+        view.set_parent_view(self.view)
+        view.run()
+
     def on_new_sms_activate(self, widget):
         pass
         #ctrl = NewSmsController(Model(), self)
@@ -1008,6 +1025,8 @@ class MainController(WidgetController):
 
         manager.delete_objs(objs)
 
+# XXX: when multiple but mixed writable / readonly are in the selection for delete
+#      invalidate the selection after delete or the selection is wrong
         _inxt = None
         for _iter in iters:
             _inxt=model.iter_next(_iter)

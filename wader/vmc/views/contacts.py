@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2006-2007  Vodafone España, S.A.
+# Copyright (C) 2006-2009  Vodafone España, S.A.
 # Author:  Pablo Martí
 #
 # This program is free software; you can redistribute it and/or modify
@@ -16,18 +16,17 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 """Views for contacts"""
-__version__ = "$Rev: 1172 $"
 
 import os.path
 
-import gtk
+from gtk import WIN_POS_CENTER_ON_PARENT
+from gtkmvc import View
 
-from wader.vmc import View
-import wader.common.consts as consts
+from wader.vmc.consts import GLADE_DIR
 
 class ContactView(View):
     """Base view for contacts"""
-    GLADE_FILE = os.path.join(consts.GLADE_DIR, "contacts.glade")
+    GLADE_FILE = os.path.join(GLADE_DIR, "contacts.glade")
 
     def __init__(self, *args, **kwds):
         View.__init__(self, *args, **kwds)
@@ -41,16 +40,16 @@ class ContactView(View):
 
 class AddContactView(View):
     """View for add contact dialog"""
-    GLADE_FILE = os.path.join(consts.GLADE_DIR, "contacts.glade")
+    GLADE_FILE = os.path.join(GLADE_DIR, "contacts.glade")
 
     def __init__(self, ctrl):
         View.__init__(self, ctrl, self.GLADE_FILE,
-                      'add_contact_window', register=False, domain="VMC")
+                      'add_contact_window', register=False)
         self.setup_view(ctrl)
         ctrl.register_view(self)
 
     def setup_view(self, ctrl):
-        self.get_top_widget().set_position(gtk.WIN_POS_CENTER_ON_PARENT)
+        self.get_top_widget().set_position(WIN_POS_CENTER_ON_PARENT)
         self['computer_radio_button'].set_active(False)
         self['mobile_radio_button'].set_active(True)
         self['alignment5'].add(ctrl.name_entry)
@@ -62,7 +61,7 @@ class SearchContactView(ContactView):
 
     def __init__(self, ctrl):
         ContactView.__init__(self, ctrl, self.GLADE_FILE,
-                      'search_dialog', register=True, domain="VMC")
+                      'search_dialog', register=True)
 
 
 class ContactsListView(ContactView):
@@ -70,4 +69,4 @@ class ContactsListView(ContactView):
 
     def __init__(self, ctrl):
         ContactView.__init__(self, ctrl, self.GLADE_FILE,
-                      'contacts_list_dialog', domain="VMC")
+                      'contacts_list_dialog')

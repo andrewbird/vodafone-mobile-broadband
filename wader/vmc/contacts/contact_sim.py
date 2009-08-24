@@ -19,8 +19,9 @@
 from zope.interface import implements
 from os.path import join
 
+from wader.vmc.translate import _
 from wader.vmc.consts import IMAGES_DIR
-from wader.vmc.contacts.interfaces import IContact
+from wader.vmc.contacts.interface import IContact
 
 
 class SIMContact(object):
@@ -115,10 +116,16 @@ class SIMContactsManager(object):
 
     def get_contacts(self):
         pass
+        return []
 #        return list(self.store.query(DBContact))
 
     def get_contact_by_id(self, index):
         pass
 #        return self.store.getItemByID(index)
 
+    def is_writable(self):
+        return True
+
+    def name(self):
+        return _('Mobile')
 

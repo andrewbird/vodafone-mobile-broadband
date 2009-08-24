@@ -22,6 +22,10 @@ phonebook presents a uniform layer to deal with contacts from all sources
 #import wader.common.exceptions as ex
 from wader.vmc.contacts import supported_types
 
+# just for now, we'll interrogate later
+from wader.vmc.contacts.contact_sim import SIMContactsManager
+from wader.vmc.contacts.contact_axiom import ADBContactsManager
+
 def all_same_type(l):
     """Returns True if all items in C{l} are the same type"""
     type_0 = type(l[0])
@@ -39,6 +43,21 @@ def all_contacts_writable(l):
     return True
 
 
+class Contact(object):
+    """Generic object capable only of being initialised and returning
+       name and number
+    """
+    def __init__(self, name, number):
+        self.name = unicode(name)
+        self.number = unicode(number)
+
+    def get_name(self):
+        return self.name
+
+    def get_number(self):
+        return self.number
+
+
 class PhoneBook(object):
     """
     I manage all your contacts
@@ -53,7 +72,7 @@ class PhoneBook(object):
     def close(self):
         self.device = None
 
-#    def add_contact(self, contact, sim=False):
+    def add_contact(self, contact, sim=False):
 #        def add_sim_contact_cb(index):
 #            contact.index = int(index)
 #            return contact
@@ -71,63 +90,49 @@ class PhoneBook(object):
 #            d = defer.maybeDeferred(self.cmanager.add_contact, contact)
 #
 #        return d
+        if sim:
+            manager = SIMContactsManager()
+        else:
+            manager = ADBContactsManager()
+
+        return manager.add_contact(contact)
 
 #    def add_contacts(self, contacts, sim=False):
 #        responses = [self.add_contact(contact, sim) for contact in contacts]
 #        return defer.gatherResults(responses)
 
-#    def _find_contact_in_sim(self, pattern):
-#        return self.sconn.find_contacts(pattern)
-##
-#    def _find_contact_in_db(self, pattern):
-#        return list(self.cmanager.find_contacts(pattern))
-##
-#    def _find_contact_in_ev(self, pattern):
-#        return list(self.evlcmanager.find_contacts(pattern))
-#
-#    def _find_contact_in_kde(self, pattern):
-#        return list(self.kdecmanager.find_contacts(pattern))
-#
-#    def find_contact(self, name=None, number=None):
-#        if (not name and not number) or (name and number):
-#            return defer.fail()
-#
-#        if name:
-#            ret = []
-#            for cclass, cmanager in supported_types:
-#                ret.append( cmanager.get_contacts() )
-#            return ret
-#
-##            d = self._find_contact_in_sim(name)
-#            def find_contacts_db(contacts):
-#                return self._find_contact_in_db(name) + contacts
-#            def find_contacts_ev(contacts):
-#                return self._find_contact_in_ev(name) + contacts
-#            def find_contacts_kde(contacts):
-#                return self._find_contact_in_kde(name) + contacts
-#
-#            def find_contacts_eb(failure):
-#                failure.trap(ex.ATError, ex.CMEErrorNotFound)
-#                return ( self._find_contact_in_db(name) +
-#                         self._find_contact_in_ev(name) +
-#                         self._find_contact_in_kde(name) )
-#
-#            d.addCallback(find_contacts_db)
-#            d.addCallback(find_contacts_ev)
-#            d.addCallback(find_contacts_kde)
-#            d.addErrback(find_contacts_eb)
-#            return d
-#
-#        elif number:
-#            # searching by name is pretty easy as the SIM allows to lookup
-#            # contacts by name. However searching by number is more difficult
-#            # as the SIM doesn't provides any facility for it. Thus we need
-#            # to get *all* contacts and iterate through them looking for
-#            # a number that matches the pattern
-##            d = self.get_contacts()
-#            d.addCallback(lambda contacts: [c for c in contacts
-#                                                if c.get_number() == number])
-#            return d
+    def find_contact(self, name=None, number=None):
+        ret = []
+
+        if (not name and not number) or (name and number):
+            #return defer.fail()
+            return ret
+
+        if name:
+            for cclass, mclass in supported_types:
+                manager = mclass()
+                if manager.device_reqd():
+                    manager.set_device(self.device)
+                ret.extend(manager.find_contacts(name))
+
+        elif number:
+            # searching by name is pretty easy as the SIM allows to lookup
+            # contacts by name. However searching by number is more difficult
+            # as the SIM doesn't provides any facility for it. Thus we need
+            # to get *all* contacts and iterate through them looking for
+            # a number that matches the pattern
+            ret = [c for c in self.get_contacts()
+                         if c.get_number() == number]
+
+        return ret
+
+    def get_writable_types(self):
+        ret = []
+        for cclass, mclass in supported_types:
+            manager = mclass()
+            if manager.is_writable():
+                ret.append(mclass)
+        return ret
 
     def get_contacts(self):
         ret = []
@@ -135,7 +140,7 @@ class PhoneBook(object):
             manager = mclass()
             if manager.device_reqd():
                 manager.set_device(self.device)
-            ret.extend( manager.get_contacts() )
+            ret.extend(manager.get_contacts())
         return ret
 
     def delete_objs(self, objs):

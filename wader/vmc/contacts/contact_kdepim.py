@@ -19,6 +19,7 @@
 from zope.interface import implements
 from os.path import join
 
+from wader.vmc.translate import _
 from wader.vmc.consts import IMAGES_DIR
 from wader.vmc.contacts.interface import IContact
 
@@ -129,3 +130,10 @@ class KDEContactsManager(object):
     def get_contact_by_id(self, index):
         print "KDEContactsManager::get_contact_by_id called"
         return None
+
+    def is_writable(self):
+        return False
+
+    def name(self):
+        return _('KDE PIM')
+

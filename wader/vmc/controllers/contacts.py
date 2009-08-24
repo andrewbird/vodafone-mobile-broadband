@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2006-2007  Vodafone España, S.A.
+# Copyright (C) 2006-2009  Vodafone España, S.A.
 # Author:  Pablo Martí
 #
 # This program is free software; you can redistribute it and/or modify
@@ -17,18 +17,17 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 """Controllers for both add_contact and search_contact dialogs"""
 
-__version__ = "$Rev: 1172 $"
-
 import gtk
 
-from wader.common.persistent import Contact
-from wader.common.phonebook import get_phonebook
-from wader.common.encoding import _
-
-from wader.vmc import Controller
-from wader.vmc import dialogs
-from vmc.contrib.ValidatedEntry import ValidatedEntry, v_phone, v_ucs2_name
 from wader.vmc.models.contacts import ContactsStoreModel
+
+from wader.vmc.phonebook import get_phonebook, Contact
+from wader.vmc.translate import _
+
+from gtkmvc import Controller
+from wader.vmc import dialogs
+
+from wader.vmc.contrib.ValidatedEntry import ValidatedEntry, v_phone, v_ucs2_name
 
 class AddContactController(Controller):
     """Controller for the add contact dialog"""
@@ -41,7 +40,7 @@ class AddContactController(Controller):
 
     def register_view(self, view):
         super(AddContactController, self).register_view(view)
-        if not self.model.get_device():
+        if not self.model.device:
             self.view['mobile_radio_button'].set_sensitive(False)
             self.view['computer_radio_button'].set_active(True)
 
@@ -53,7 +52,7 @@ class AddContactController(Controller):
         number = self.number_entry.get_text()
         save_in_sim = self.view['mobile_radio_button'].get_active()
 
-        phonebook = get_phonebook(self.parent_ctrl.model.get_sconn())
+        phonebook = get_phonebook(self.parent_ctrl.model.device)
         contact = Contact(name, number)
 
         def add_callback(contact):
@@ -62,8 +61,10 @@ class AddContactController(Controller):
             model.add_contact(contact)
             self._hide_me()
 
-        d = phonebook.add_contact(contact, sim=save_in_sim)
-        d.addCallback(add_callback)
+        #d = phonebook.add_contact(contact, sim=save_in_sim)
+        #d.addCallback(add_callback)
+        new_contact = phonebook.add_contact(contact, sim=save_in_sim)
+        add_callback(new_contact)
 
     def on_add_contact_cancel_button_clicked(self, widget):
         self._hide_me()
@@ -85,7 +86,7 @@ class SearchContactController(Controller):
 
     def on_search_find_button_clicked(self, widget):
         pattern = self.view['search_entry'].get_text()
-        phonebook = get_phonebook(self.parent_ctrl.model.get_sconn())
+        phonebook = get_phonebook(self.parent_ctrl.model.device)
 
         def find_contact_cb(contacts):
             if not contacts:
@@ -105,7 +106,9 @@ class SearchContactController(Controller):
                 # and set the new selection
                 sel.select_path(elem)
 
-        phonebook.find_contact(pattern).addCallback(find_contact_cb)
+        #phonebook.find_contact(pattern).addCallback(find_contact_cb)
+        clist = phonebook.find_contact(pattern)
+        find_contact_cb(clist)
 
 
 class ContactsListController(Controller):
@@ -176,8 +179,7 @@ class ContactsListController(Controller):
 
     def _fill_treeview(self):
         _model = self.view['treeview1'].get_model()
-        sconn = self.parent_ctrl.parent_ctrl.model.get_sconn()
-        phonebook = get_phonebook(sconn)
+        phonebook = get_phonebook(self.parent_ctrl.parent_ctrl.model.device)
         d = phonebook.get_contacts()
         d.addCallback(lambda contacts: _model.add_contacts(contacts))
 

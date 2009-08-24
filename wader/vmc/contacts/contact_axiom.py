@@ -19,6 +19,7 @@
 from zope.interface import implements
 from os.path import join, expanduser
 
+from wader.vmc.translate import _
 from wader.vmc.consts import IMAGES_DIR
 from wader.vmc.contacts.interface import IContact
 from wader.vmc.contrib.axiom import item, attributes, store
@@ -121,6 +122,12 @@ class ADBContactsManager(object):
 
     def get_contact_by_id(self, index):
         return self.store.getItemByID(index)
+
+    def is_writable(self):
+        return True
+
+    def name(self):
+        return _('Computer (VMC2 format)')
 
     def close(self):
         self.store.close()
