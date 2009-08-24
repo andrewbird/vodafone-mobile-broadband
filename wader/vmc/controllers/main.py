@@ -20,10 +20,11 @@ Main controller for the application
 """
 
 import os
-
 import gtk
+from twisted.internet.utils import getProcessOutput
+
 #from gtkmvc import Controller
-from wader.vmc.controllers.base import WidgetController
+from wader.vmc.controllers.base import WidgetController, TV_DICT, TV_DICT_REV
 
 import wader.common.consts as consts
 from wader.common.signals import SIG_SMS
@@ -39,6 +40,9 @@ from wader.vmc.utils import bytes_repr, get_error_msg, UNIT_MB, units_to_bits
 from wader.vmc.translate import _
 from wader.vmc.notify import new_notification
 from wader.vmc.consts import GTK_LOCK, GLADE_DIR, IMAGES_DIR
+
+from wader.vmc.phonebook import (get_phonebook,
+                                all_same_type, all_contacts_writable)
 
 def get_fake_toggle_button():
     """Returns a toggled L{gtk.ToggleToolButton}"""
@@ -82,7 +86,11 @@ class MainController(WidgetController):
         #self.usage_updater.startService()
 
     def connect_to_signals(self):
+# VMC        self._setup_menubar_hacks()
+
         self.view['main_window'].connect('delete_event', self.close_application)
+# VMC        self.view.get_top_widget().connect("delete_event", self._quit_or_minimize)
+
         self.cid = self.view['connect_button'].connect('toggled',
                                             self.on_connect_button_toggled)
 
@@ -91,6 +99,12 @@ class MainController(WidgetController):
 #        if config.getboolean('preferences', 'show_icon'):
         if True:
             self.icon.connect('popup-menu', self.on_icon_popup_menu)
+
+        for treeview_name in list(set(TV_DICT.values())):
+            treeview = self.view[treeview_name]
+            treeview.connect('key_press_event', self.__on_treeview_key_press)
+            if treeview.name != 'contacts_treeview':
+                treeview.connect('row-activated', self._row_activated_tv)
 
     def close_application(self, *args):
         if self.model.dial_path:
@@ -408,36 +422,6 @@ class MainController(WidgetController):
         else:
             window.present()
 
-#    def get_trayicon_menu(self): # Wader GTK one
-#        menu = gtk.Menu()
-#
-#        item = gtk.ImageMenuItem(_("About"))
-#        img = gtk.image_new_from_stock(gtk.STOCK_ABOUT, gtk.ICON_SIZE_MENU)
-#        item.set_image(img)
-#        item.connect("activate", self.on_about_menuitem_activate)
-#        item.show()
-#        menu.append(item)
-#
-#        item = gtk.ImageMenuItem(_("Preferences"))
-#        item.set_image(gtk.image_new_from_stock(gtk.STOCK_PREFERENCES,
-#                                                gtk.ICON_SIZE_MENU))
-#        item.connect("activate", self.on_preferences_menu_item_activate)
-#        if self.model.device is None:
-#            item.set_sensitive(False)
-#        else:
-#            item.set_sensitive(True)
-#        item.show()
-#        menu.append(item)
-#
-#        item = gtk.ImageMenuItem(_("Quit"))
-#        img = gtk.image_new_from_stock(gtk.STOCK_QUIT, gtk.ICON_SIZE_MENU)
-#        item.set_image(img)
-#        item.connect("activate", self.close_application)
-#        item.show()
-#        menu.append(item)
-#
-#        return menu
-
     def get_trayicon_menu(self):
 
         connect_button = self.view['connect_button']
@@ -492,6 +476,46 @@ class MainController(WidgetController):
         item.connect("activate", self.on_quit_menu_item_activate)
         item.show()
         menu.append(item)
+
+        return menu
+
+    def get_contacts_popup_menu(self, pathinfo, treeview):
+        """Returns a popup menu for the contacts treeview"""
+        selection = treeview.get_selection()
+        model, selected = selection.get_selected_rows()
+        iters = [model.get_iter(path) for path in selected]
+        contacts = [model.get_value(_iter, 3) for _iter in iters]
+
+        menu = gtk.Menu()
+
+        item = gtk.ImageMenuItem(_("_Send SMS"))
+        item.connect("activate", self._send_sms_to_contact, treeview)
+        img = gtk.Image()
+        img.set_from_file(os.path.join(IMAGES_DIR, 'sms16x16.png'))
+        item.set_image(img)
+        item.show()
+        menu.append(item)
+
+        # Figure out whether we should show delete, edit, or no extra menu items
+        if all_contacts_writable(contacts):
+            item = gtk.ImageMenuItem(_("_Delete"))
+            img = gtk.image_new_from_stock(gtk.STOCK_DELETE, gtk.ICON_SIZE_MENU)
+            item.set_image(img)
+            item.connect("activate", self.delete_entries, pathinfo, treeview)
+            item.show()
+            menu.append(item)
+
+        elif all_same_type(contacts):
+            editor = contacts[0].external_editor()
+            if editor:
+                item = gtk.ImageMenuItem(_("Edit"))
+                img = gtk.image_new_from_stock(gtk.STOCK_EDIT, gtk.ICON_SIZE_MENU)
+                item.set_image(img)
+
+                item.connect("activate", self._edit_external_contacts, editor)
+
+                item.show()
+                menu.append(item)
 
         return menu
 
@@ -619,7 +643,7 @@ class MainController(WidgetController):
 
         #resp, checked = dialogs.open_dialog_question_checkbox_cancel_ok(
         #            self.view,
-        #            _("Quit %s") % consts.APP_LONG_NAME,
+        #            _("Quit %s") % APP_LONG_NAME,
         #            _("Are you sure you want to exit?"))
 
         #config.setboolean('preferences', 'exit_without_confirmation', checked)
@@ -630,6 +654,7 @@ class MainController(WidgetController):
 
     def on_new_profile_menuitem_activate(self, widget):
         self.ask_for_new_profile()
+        # XXX: shouldn't we make it the active one
 
     def _build_profiles_menu(self):
         def load_profile(widget, profile):
@@ -731,6 +756,70 @@ class MainController(WidgetController):
         about.run()
         about.destroy()
 
+######
+
+    def _empty_treeviews(self, treeviews):
+        for treeview_name in treeviews:
+            model = self.view[treeview_name].get_model()
+            if model:
+                model.clear()
+
+    def _fill_contacts(self, ignored=None):
+        """Fills the contacts treeview with contacts"""
+#        phonebook = get_phonebook(self.model.get_sconn())
+        phonebook = get_phonebook(None)
+
+        def process_contacts(contacts):
+            treeview = self.view['contacts_treeview']
+            model = treeview.get_model()
+            model.add_contacts(contacts)
+
+            return contacts
+
+#        d = phonebook.get_contacts()
+#        d.addCallback(process_contacts)
+#        d.addErrback(log.err)
+#        return d
+
+        process_contacts(phonebook.get_contacts())
+
+#    def _fill_messages(self, contacts=None):
+#        """
+#        Fills the messages treeview with SIM & DB SMS
+#
+#        We're receiving the contacts list produced by _fill_contacts because
+#        otherwise, adding dozens of SMS to the treeview would be very
+#        inefficient, as we would have to lookup the sender number of every
+#        SMS to find out whether is a known contact or not. The solution is
+#        to cache the previous result and pass the contacts list to the
+#        L{wader.vmc.models.sms.SMSStoreModel}
+#        """
+#        messages_obj = get_messages_obj(self.model.get_sconn())
+#        self.splash.set_text(_('Reading messages...'))
+#        def process_sms(sms_list):
+#            for sms in sms_list:
+#                active_tv = TV_DICT[sms.where]         # get treeview name
+#                treeview = self.view[active_tv]        # get treeview object
+#                treeview.get_model().add_message(sms, contacts) # append to tv
+#
+#            self.splash.pulse()
+#            return True
+#
+#        d = messages_obj.get_messages()
+#        d.addCallback(process_sms)
+#        return d
+
+    def _fill_treeviews(self):
+        """
+        Fills the treeviews with SMS and contacts from the SIM and DB
+        """
+#        d = self._fill_contacts()
+#        d.addCallback(self._fill_messages)
+#        d.addErrback(log.err)
+#        return d
+        self._fill_contacts()
+#########
+
     def _update_usage_panel(self, name, offset):
         m = self.model
         w = lambda label : label % name
@@ -782,6 +871,27 @@ class MainController(WidgetController):
         self.view.update_bars_user_limit()
         self.usage_notifier()
 
+    def on_generic_treeview_row_button_press_event(self, treeview, event):
+        if event.button == 3 and event.type == gtk.gdk.BUTTON_PRESS:
+            selection = treeview.get_selection()
+            model, pathlist = selection.get_selected_rows()
+            if pathlist:
+                if treeview.name in ['contacts_treeview']:
+                    get_contacts = self.get_contacts_popup_menu
+                else:
+                    get_contacts = self.get_generic_popup_menu
+                menu = get_contacts(pathlist, treeview)
+                menu.popup(None, None, None, event.button, event.time)
+                return True # selection is not lost
+
+    def on_cursor_changed_treeview_event(self, treeview):
+        col = treeview.get_cursor()[0]
+        model = treeview.get_model()
+        text = model[col][1]
+        _buffer = self.view['smsbody_textview'].get_buffer()
+        _buffer.set_text(text)
+        self.view['vbox17'].show()
+
     def on_main_notebook_switch_page(self, notebook, ptr, pagenum):
         """
         Callback for whenever VMC's main notebook is switched
@@ -829,3 +939,119 @@ class MainController(WidgetController):
 #
 #                phonebook = get_phonebook(self.model.get_sconn())
 #                d = phonebook.edit_contact(contact)
+
+    def _row_activated_tv(self, treeview, path, col):
+        # get selected row
+        message = self.get_obj_from_selected_row()
+        if message:
+            ctrl = ForwardSmsController(Model(), self)
+            view = ForwardSmsView(ctrl)
+            view.set_parent_view(self.view)
+            ctrl.set_textbuffer_text(message.get_text())
+            ctrl.set_recipient_numbers(message.get_number())
+            if treeview.name in 'drafts_treeview':
+                # if the SMS is a draft, delete it after sending it
+                ctrl.set_processed_sms(message)
+            view.show()
+
+    def __on_treeview_key_press(self, widget, event):
+        """Handler for key_press_button in treeviews"""
+        from gtk.gdk import keyval_name
+#        print keyval_name(event.keyval)
+
+        if keyval_name(event.keyval) in 'F5':
+            # get current treeview
+            num = self.view['main_notebook'].get_current_page() + 1
+            treeview_name = TV_DICT[num]
+            # now do the refresh
+            if treeview_name in 'contacts_treeview':
+                self._empty_treeviews(['contacts_treeview'])
+                self._fill_contacts()
+
+        if keyval_name(event.keyval) in 'Delete':
+            # get current treeview
+            num = self.view['main_notebook'].get_current_page() + 1
+            treeview_name = TV_DICT[num]
+            treeview = self.view[treeview_name]
+            # now delete the entries
+            self.delete_entries(None, None, treeview)
+
+    def delete_entries(self, menuitem, pathlist, treeview):
+        """
+        Deletes the entries selected in the treeview
+
+        This entries are deleted in SIM/DB and the treeview
+        """
+        model, selected = treeview.get_selection().get_selected_rows()
+        iters = [model.get_iter(path) for path in selected]
+
+        # if we are in contacts_treeview the gobject.TYPE_PYOBJECT that
+        # contains the contact is at position 3, if we are on a sms treeview,
+        # then it's at position 4
+        if (treeview.name == 'contacts_treeview'): # filter out the read only items
+            pos = 3
+            objs = []
+            _iters = []
+            for _iter in iters:
+                obj = model.get_value(_iter, pos)
+                if obj.is_writable():
+                    objs.append(obj)
+                    _iters.append(_iter)
+            iters = _iters
+        else:
+            pos = 4
+            objs = [model.get_value(_iter, pos) for _iter in iters]
+
+        if not (len(objs) and iters): # maybe we filtered out everything
+            return
+
+        if treeview.name == 'contacts_treeview':
+            manager = get_phonebook(self.model.get_sconn())
+            # XXX: we need to think about this
+        else:
+            manager = get_messages_obj(self.model.get_sconn())
+
+        manager.delete_objs(objs)
+
+        _inxt = None
+        for _iter in iters:
+            _inxt=model.iter_next(_iter)
+            model.remove(_iter) # delete from treeview
+        if _inxt:
+            treeview.get_selection().select_iter(_inxt) # select next item
+        else:
+            n_rows = len(model)                         # select last item
+            if n_rows > 0:
+                _inxt = model[n_rows-1].iter
+                treeview.get_selection().select_iter(_inxt)
+
+        # If we are in a sms treeview update displayed text
+        if treeview.get_name() != 'contacts_treeview':
+            _obj = self.get_obj_from_selected_row()
+            if _obj:
+                self.view['smsbody_textview'].get_buffer().set_text(_obj.get_text())
+                self.view['vbox17'].show()
+            else:
+                self.view['smsbody_textview'].get_buffer().set_text('')
+                self.view['vbox17'].hide()
+
+    def _send_sms_to_contact(self, menuitem, treeview):
+        pass
+#        selection = treeview.get_selection()
+#        model, selected = selection.get_selected_rows()
+#        iters = [model.get_iter(path) for path in selected]
+#        numbers = [model.get_value(_iter, 2) for _iter in iters]
+#
+#        ctrl = NewSmsController(Model(), self)
+#        view = NewSmsView(ctrl)
+#        view.set_parent_view(self.view)
+#        view.show()
+#
+#        ctrl.set_entry_text(", ".join(numbers))
+
+    def _edit_external_contacts(self, menuitem, editor=None):
+        if editor:
+            cmd = editor[0]
+            args = len(editor) > 1 and editor[1:] or []
+            getProcessOutput(cmd, args, os.environ)
+

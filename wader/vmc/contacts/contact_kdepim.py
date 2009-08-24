@@ -19,15 +19,14 @@
 from zope.interface import implements
 from os.path import join
 
-from wader.common.consts import IMAGES_DIR
-from wader.common.interfaces import IContact
+from wader.vmc.consts import IMAGES_DIR
+from wader.vmc.contacts.interface import IContact
 
 class KDEContact(object):
     """
-    I represent a contact in Evolution
+    I represent a contact in KDE
     """
     implements(IContact)
-    typeName = 'KDEContact'
 
     def __init__(self, name, number, index=None):
         self.name = name
@@ -85,7 +84,7 @@ class KDEContactsManager(object):
 
         # XXX: maybe we should try to read a system version of the
         #      vcard library provided with pycocuma
-        from vmc.contrib.pycocuma.vcard import vCardList
+        from wader.vmc.contrib.pycocuma.vcard import vCardList
 
         vl = vCardList()
 

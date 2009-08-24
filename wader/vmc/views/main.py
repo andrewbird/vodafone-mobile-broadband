@@ -182,7 +182,8 @@ class MainView(View):
                     col_userid, col_editable = range(5)
             if name in 'contacts_treeview':
                 model = ContactsStoreModel()
-#            else:
+            else:
+                continue
 #                model = SMSStoreModel(ctrl.model.get_sconn)
 
             treeview.set_model(model)
@@ -259,8 +260,8 @@ class MainView(View):
                 def render_date(cellview, cell, model, _iter):
                     datetime = model.get_value(_iter, 3)
                     if datetime:
-                        cell.set_property('text',
-                                    time.strftime("%c", datetime.timetuple()))
+                        from time import strftime
+                        cell.set_property('text', strftime("%c", datetime.timetuple()))
                     return
                 def sort_func(model, iter1, iter2, data):
                     date1 = model.get_value(iter1, 3)
