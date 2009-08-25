@@ -19,6 +19,8 @@
 from zope.interface import implements
 from os.path import join
 
+from wader.common.consts import CTS_INTFACE
+
 from wader.vmc.translate import _
 from wader.vmc.consts import IMAGES_DIR
 from wader.vmc.contacts.interface import IContact
@@ -27,11 +29,11 @@ from wader.vmc.contacts.interface import IContact
 class SIMContact(object):
     implements(IContact)
 
-    def __init__(self, name, number, index=None):
-        super(SIMContact, self).__init__()
-        self.name = to_u(name)
-        self.number = to_u(number)
+    def __init__(self, name, number, index=None, device=None):
+        self.name = name
+        self.number = number
         self.index = index
+        self.device = device
         self.writable = True
 
     def __repr__(self):
@@ -74,10 +76,26 @@ class SIMContact(object):
         return [name, number]
 
     def set_name(self, name):
-        return False
+        ret = self._edit(name, self.number)
+        if ret:
+            self.name = name
+        return ret
 
     def set_number(self, number):
-        return False
+        ret = self._edit(self.name, number)
+        if ret:
+            self.number = number
+        return ret
+
+    def _edit(self, name, number):
+        if not self.device:
+            return False
+
+        index = self.device.Edit(self.index, name, number)
+        if index <= 0:
+            return False
+
+        return True
 
 
 class SIMContactsManager(object):
@@ -92,20 +110,23 @@ class SIMContactsManager(object):
         self.device = device
 
     def add_contact(self, contact):
-        pass
-#        return DBContact(store=self.store, name=contact.get_name(),
-#                        number=contact.get_number())
+        name = contact.get_name()
+        number = contact.get_number()
+        index = self.device.Add(name, number,
+                                dbus_interface=CTS_INTFACE)
+        if index > 0:
+            return SIMContact(name, number, index, self.device)
+        else:
+            return None
 
     def delete_contact(self, contact):
         if not isinstance(contact, SIMContact):
             return False
-        pass
-#        return self.store.query(DBContact,
-#                                DBContact == contact).deleteFromStore()
+        return self.delete_contact_by_id(contact.get_index())
 
     def delete_contact_by_id(self, index):
-        pass
-#        return self.store.getItemByID(index).deleteFromStore()
+        self.device.Delete(index, dbus_interface=CTS_INTFACE)
+        return True
 
     def find_contacts(self, pattern):
         for contact in self.get_contacts():
@@ -115,13 +136,21 @@ class SIMContactsManager(object):
                 yield contact
 
     def get_contacts(self):
-        pass
-        return []
-#        return list(self.store.query(DBContact))
+        ret = []
+        clist = self.device.List(dbus_interface=CTS_INTFACE)
+        for c in clist:
+            (index, name, number) = c
+            ret.append(SIMContact(name, number, index, self.device))
+
+        return ret
 
     def get_contact_by_id(self, index):
-        pass
-#        return self.store.getItemByID(index)
+        c = self.device.Get(index, dbus_interface=CTS_INTFACE)
+        if c:
+            (index, name, number) = c
+            return SIMContact(name, number, index, self.device)
+        else:
+            return None
 
     def is_writable(self):
         return True

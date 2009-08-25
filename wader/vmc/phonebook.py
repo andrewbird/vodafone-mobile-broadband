@@ -92,6 +92,7 @@ class PhoneBook(object):
 #        return d
         if sim:
             manager = SIMContactsManager()
+            manager.set_device(self.device)
         else:
             manager = ADBContactsManager()
 
@@ -105,7 +106,6 @@ class PhoneBook(object):
         ret = []
 
         if (not name and not number) or (name and number):
-            #return defer.fail()
             return ret
 
         if name:
@@ -147,21 +147,17 @@ class PhoneBook(object):
         return self.delete_contacts(objs)
 
     def delete_contacts(self, clist):
-#        deflist = [self.delete_contact(contact) for contact in clist]
-#        return defer.gatherResults(deflist)
-#            self.delete_contact(contact)
         for contact in clist:
             self.delete_contact(contact)
 
     def delete_contact(self, contact):
-#        if is_sim_contact(contact):
-#            return self.sconn.delete_contact(contact.get_index())
-#        else:
-#            return defer.maybeDeferred(self.cmanager.delete_contact, contact)
         for cclass, mclass in supported_types:
             if isinstance(contact, cclass):
                 manager = mclass()
+                if manager.device_reqd():
+                    manager.set_device(self.device)
                 manager.delete_contact(contact)
+                break
 
 #    def edit_contact(self, contact):
 #        if is_sim_contact(contact):
