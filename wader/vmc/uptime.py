@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2006-2007  Vodafone España, S.A.
+# Copyright (C) 2006-2009  Vodafone España, S.A.
 # Author:  Pablo Martí
 #
 # This program is free software; you can redistribute it and/or modify
@@ -15,15 +15,13 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-"""Uptime module"""
-
-__version__ = "$Rev: 1172 $"
 
 from math import ceil
 
-from twisted.internet import utils
-
-from wader.common.encoding import _
+try:
+    from wader.vmc.translate import _
+except:
+    def _(s): return s
 
 TIME_DESCRIPTION = {
       60 : 'minute',
@@ -36,17 +34,21 @@ TIME_KEYS.sort()
 TIME_KEYS.reverse()
 
 def get_uptime():
-    """Returns a deferred that will be called with the uptime as string"""
-    d = utils.getProcessOutput('cat', args=['/proc/uptime'])
 
-    def uptime_cb(uptime):
-        uptime = float(uptime.split()[0])
-        uptime = int(ceil(uptime))
-        msg = get_uptime_string(uptime)
-        return msg
+    pf=open('/proc/uptime', 'r')
+    if not pf:
+        return ""
+    uptime = pf.readline().rstrip()
+    pf.close()
 
-    d.addCallback(uptime_cb)
-    return d
+    if not len(uptime):
+        return ""
+
+    uptime = float(uptime.split()[0])
+    uptime = int(ceil(uptime))
+    msg = get_uptime_string(uptime)
+
+    return msg
 
 def get_time_dict(uptime):
     """Returns a dictionary with a resolution of minutes"""
@@ -88,3 +90,7 @@ def get_uptime_string(uptime):
         resp = msg
 
     return resp
+
+if __name__ == '__main__':
+    print get_uptime()
+

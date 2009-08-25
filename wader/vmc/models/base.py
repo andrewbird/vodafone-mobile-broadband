@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2006-2009  Vodafone España, S.A.
+# Copyright (C) 2006-2007  Vodafone España, S.A.
 # Author:  Pablo Martí
 #
 # This program is free software; you can redistribute it and/or modify
@@ -15,23 +15,22 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+"""
+Base classes for Models
+"""
+from gtkmvc import Model
 
-import os.path
+class BaseWrapperModel(Model):
+    """
+    I provide all DevicePlugin's methods to my controller
+    """
+    def __init__(self, device=None):
+        super(BaseWrapperModel, self).__init__()
+        self.device = device
 
-import gtk
+    def get_device(self):
+        if self.device:
+            return self.device
 
-from gtkmvc import View
-from wader.vmc.consts import GLADE_DIR
+        return None
 
-class DiagnosticsView(View):
-    """View for the main diagnostics window"""
-    GLADE_FILE = os.path.join(GLADE_DIR, "diagnostics.glade")
-
-    def __init__(self, ctrl):
-        View.__init__(self, ctrl, self.GLADE_FILE,
-                      'diagnostics_window', register=False)
-        self.setup_view()
-        ctrl.register_view(self)
-
-    def setup_view(self):
-        self.get_top_widget().set_position(gtk.WIN_POS_CENTER_ON_PARENT)

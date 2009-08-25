@@ -45,12 +45,26 @@
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                             <property name="spacing">6</property>
                             <child>
+                              <widget class="GtkLabel" id="label19">
+                                <property name="visible">True</property>
+                                <property name="xalign">0</property>
+                                <property name="label" translatable="yes">Manufacturer:</property>
+                                <property name="justify">GTK_JUSTIFY_RIGHT</property>
+                              </widget>
+                              <packing>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
                               <widget class="GtkLabel" id="label20">
                                 <property name="visible">True</property>
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes">Model:</property>
                                 <property name="justify">GTK_JUSTIFY_RIGHT</property>
                               </widget>
+                              <packing>
+                                <property name="position">1</property>
+                              </packing>
                             </child>
                             <child>
                               <widget class="GtkLabel" id="label21">
@@ -60,7 +74,7 @@
                                 <property name="justify">GTK_JUSTIFY_RIGHT</property>
                               </widget>
                               <packing>
-                                <property name="position">1</property>
+                                <property name="position">2</property>
                               </packing>
                             </child>
                             <child>
@@ -71,7 +85,7 @@
                                 <property name="justify">GTK_JUSTIFY_RIGHT</property>
                               </widget>
                               <packing>
-                                <property name="position">2</property>
+                                <property name="position">3</property>
                               </packing>
                             </child>
                             <child>
@@ -82,7 +96,7 @@
                                 <property name="justify">GTK_JUSTIFY_RIGHT</property>
                               </widget>
                               <packing>
-                                <property name="position">3</property>
+                                <property name="position">4</property>
                               </packing>
                             </child>
                             <child>
@@ -93,7 +107,7 @@
                                 <property name="justify">GTK_JUSTIFY_RIGHT</property>
                               </widget>
                               <packing>
-                                <property name="position">4</property>
+                                <property name="position">5</property>
                               </packing>
                             </child>
                           </widget>
@@ -108,12 +122,26 @@
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                             <property name="spacing">6</property>
                             <child>
+                              <widget class="GtkLabel" id="card_manufacturer_label">
+                                <property name="visible">True</property>
+                                <property name="xalign">0</property>
+                                <property name="xpad">10</property>
+                                <property name="label" translatable="yes">Card manufacturer</property>
+                              </widget>
+                              <packing>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
                               <widget class="GtkLabel" id="card_model_label">
                                 <property name="visible">True</property>
                                 <property name="xalign">0</property>
                                 <property name="xpad">10</property>
                                 <property name="label" translatable="yes">Card model</property>
                               </widget>
+                              <packing>
+                                <property name="position">1</property>
+                              </packing>
                             </child>
                             <child>
                               <widget class="GtkLabel" id="firmware_label">
@@ -124,7 +152,7 @@
                                 <property name="max_width_chars">20</property>
                               </widget>
                               <packing>
-                                <property name="position">1</property>
+                                <property name="position">2</property>
                               </packing>
                             </child>
                             <child>
@@ -135,7 +163,7 @@
                                 <property name="label" translatable="yes">IMEI</property>
                               </widget>
                               <packing>
-                                <property name="position">2</property>
+                                <property name="position">3</property>
                               </packing>
                             </child>
                             <child>
@@ -146,7 +174,7 @@
                                 <property name="label" translatable="yes">IMSI</property>
                               </widget>
                               <packing>
-                                <property name="position">3</property>
+                                <property name="position">4</property>
                               </packing>
                             </child>
                             <child>
@@ -157,7 +185,7 @@
                                 <property name="label" translatable="yes">Not supported</property>
                               </widget>
                               <packing>
-                                <property name="position">4</property>
+                                <property name="position">5</property>
                               </packing>
                             </child>
                           </widget>

@@ -47,6 +47,10 @@ from wader.vmc.consts import GTK_LOCK, GLADE_DIR, IMAGES_DIR
 from wader.vmc.phonebook import (get_phonebook,
                                 all_same_type, all_contacts_writable)
 
+from wader.vmc.models.diagnostics import DiagnosticsModel
+from wader.vmc.controllers.diagnostics import DiagnosticsController
+from wader.vmc.views.diagnostics import DiagnosticsView
+
 def get_fake_toggle_button():
     """Returns a toggled L{gtk.ToggleToolButton}"""
     button = gtk.ToggleToolButton()
@@ -761,6 +765,13 @@ class MainController(WidgetController):
         item.show()
 
         parent.set_submenu(menu)
+
+    def on_diagnostics_item_activate(self, widget):
+        model = DiagnosticsModel(self.model.device)
+        ctrl = DiagnosticsController(model, self)
+        view = DiagnosticsView(ctrl)
+        view.set_parent_view(self.view)
+        view.show()
 
     def on_help_topics_menu_item_activate(self, widget):
         print "on_help_topics_menu_item_activate"

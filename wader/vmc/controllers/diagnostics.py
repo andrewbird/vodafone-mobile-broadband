@@ -18,9 +18,9 @@
 """
 Controllers for diagnostics
 """
-__version__ = "$Rev: 1172 $"
+from gtkmvc import Controller
 
-from wader.vmc import Controller
+from wader.common.consts import CRD_INTFACE, MDM_INTFACE
 
 class DiagnosticsController(Controller):
     """Controller for the diagnostics window"""
@@ -37,24 +37,33 @@ class DiagnosticsController(Controller):
         """
         super(DiagnosticsController, self).register_view(view)
 
-        if self.model.get_device():
-            self.set_sim_info()
+        self.set_device_info()
 
-        self.model.get_uptime().addCallback(lambda uptime:
-                self.view['uptime_number_label'].set_text(uptime))
-
+        self.view['uptime_number_label'].set_text(self.model.get_uptime())
         self.view['os_name_label'].set_text(self.model.get_os_name())
         self.view['os_version_label'].set_text(self.model.get_os_version())
 
-    def set_sim_info(self):
-        self.model.get_imei().addCallback(
-                lambda imei: self.view['imei_number_label'].set_text(imei))
-        self.model.get_imsi().addCallback(
-                lambda imsi: self.view['imsi_number_label'].set_text(imsi))
-        self.model.get_card_version().addCallback(
-                lambda card_v: self.view['firmware_label'].set_text(card_v))
-        self.model.get_card_model().addCallback(
-                lambda card_m: self.view['card_model_label'].set_text(card_m))
+    def set_device_info(self):
+
+        device = self.model.get_device()
+        if not device:
+            return
+
+        def error(e):
+            print e
+
+        device.GetImsi(dbus_interface=CRD_INTFACE, error_handler=error,
+                       reply_handler=lambda imsi: self.view['imsi_number_label'].set_text(imsi))
+
+# XXX: why isn't GetImei under MDM_INTFACE, it's a modem attribute not SIM?
+        device.GetImei(dbus_interface=CRD_INTFACE, error_handler=error,
+                       reply_handler=lambda imei: self.view['imei_number_label'].set_text(imei))
+
+        def mdm_info(t):
+            self.view['card_manufacturer_label'].set_text(t[0])
+            self.view['card_model_label'].set_text(t[1])
+            self.view['firmware_label'].set_text(t[2])
+        device.GetInfo(dbus_interface=MDM_INTFACE, error_handler=error, reply_handler=mdm_info)
 
     # ------------------------------------------------------------ #
     #                       Signals Handling                       #

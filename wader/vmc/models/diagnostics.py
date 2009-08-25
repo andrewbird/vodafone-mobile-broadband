@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2006-2007  Vodafone España, S.A.
+# Copyright (C) 2006-2008  Vodafone España, S.A.
 # Author:  Pablo Martí
 #
 # This program is free software; you can redistribute it and/or modify
@@ -16,13 +16,10 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 """Model for the diagnostics window"""
-__version__ = "$Rev: 1172 $"
 
 import os
 
-from twisted.internet.utils import getProcessOutput
-
-from wader.common.uptime import get_uptime_string
+from wader.vmc.uptime import get_uptime
 from wader.vmc.models.base import BaseWrapperModel
 
 class DiagnosticsModel(BaseWrapperModel):
@@ -35,13 +32,7 @@ class DiagnosticsModel(BaseWrapperModel):
 
     def get_uptime(self):
         """Returns the uptime with uptime(1)'s format"""
-        d = getProcessOutput('cat', args=['/proc/uptime'])
-        def callback(uptime):
-            uptime = float(uptime.split()[0])
-            return get_uptime_string(uptime)
-
-        d.addCallback(callback)
-        return d
+        return get_uptime()
 
     def get_os_name(self):
         return os.uname()[0]
