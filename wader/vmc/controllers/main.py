@@ -37,7 +37,8 @@ from wader.vmc.dialogs import (show_profile_window,
                                show_warning_dialog, ActivityProgressBar,
                                show_about_dialog, show_error_dialog,
                                ask_pin_dialog, ask_puk_dialog,
-                               ask_puk2_dialog, ask_password_dialog)
+                               ask_puk2_dialog, ask_password_dialog,
+                               save_csv_file, open_import_csv_dialog)
 #from wader.vmc.keyring_dialogs import NewKeyringDialog, KeyringPasswordDialog
 from wader.vmc.utils import bytes_repr, get_error_msg, UNIT_MB, units_to_bits
 from wader.vmc.translate import _
@@ -46,6 +47,7 @@ from wader.vmc.consts import GTK_LOCK, GLADE_DIR, IMAGES_DIR
 
 from wader.vmc.phonebook import (get_phonebook,
                                 all_same_type, all_contacts_writable)
+from wader.vmc.csvutils import CSVUnicodeWriter, CSVContactsReader
 
 from wader.vmc.models.diagnostics import DiagnosticsModel
 from wader.vmc.controllers.diagnostics import DiagnosticsController
@@ -530,6 +532,39 @@ class MainController(WidgetController):
         menu = self.get_trayicon_menu()
         menu.popup(None, None, None, button, activate_time)
 
+    def on_import_contacts1_activate(self, widget):
+        filepath = open_import_csv_dialog()
+        if filepath:
+#            model = self.view['contacts_treeview'].get_model()
+
+            phonebook = get_phonebook(self.model.device)
+
+            try:
+                reader = CSVContactsReader(open(filepath))
+            except ValueError:
+                message = _('Invalid CSV format')
+                details = _("""
+The csv file that you have tried to import has an invalid format.""")
+                show_warning_dialog(message, details)
+            else:
+                contacts = list(reader)
+                phonebook.add_contacts(contacts, True)
+                # Flip the notebook to contacts
+                self.view['main_notebook'].set_current_page(3)
+                # Refresh contacts display
+                self._empty_treeviews(['contacts_treeview'])
+                self._fill_contacts()
+
+    def on_export_contacts1_activate(self, widget):
+        filepath = save_csv_file()
+        if filepath:
+            writer = CSVUnicodeWriter(open(filepath, 'w'))
+            phonebook = get_phonebook(self.model.device)
+            # Now we support different backends we need to be more
+            # selective about what we write out?
+            contacts = phonebook.get_contacts()
+            writer.write_rows([c.to_csv() for c in contacts if c.is_writable()])
+
     def on_connect_button_toggled(self, widget):
         dialmanager = self.model.get_dialer_manager()
 
@@ -541,7 +576,6 @@ class MainController(WidgetController):
                     _("No device found"),
                     _("No device has been found. Insert one and try again."))
                 return
-
 
             profiles_model = self.model.preferences_model.profiles_model
             if not profiles_model.has_active_profile():

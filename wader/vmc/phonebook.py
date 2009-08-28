@@ -73,23 +73,6 @@ class PhoneBook(object):
         self.device = None
 
     def add_contact(self, contact, sim=False):
-#        def add_sim_contact_cb(index):
-#            contact.index = int(index)
-#            return contact
-#
-#        def invalid_chars_eb(failure):
-#            failure.trap(ex.CMEErrorInvalidCharactersInDialString,
-#                         ex.CMEErrorStringTooLong)
-#            log.err(failure)
-#
-#        if sim:
-#            d = self.sconn.add_contact(contact)
-#            d.addCallback(add_sim_contact_cb)
-#            d.addErrback(invalid_chars_eb)
-#        else:
-#            d = defer.maybeDeferred(self.cmanager.add_contact, contact)
-#
-#        return d
         if sim:
             manager = SIMContactsManager()
             manager.set_device(self.device)
@@ -98,9 +81,9 @@ class PhoneBook(object):
 
         return manager.add_contact(contact)
 
-#    def add_contacts(self, contacts, sim=False):
-#        responses = [self.add_contact(contact, sim) for contact in contacts]
-#        return defer.gatherResults(responses)
+    def add_contacts(self, contacts, sim=False):
+        for contact in contacts:
+            self.add_contact(contact, sim)
 
     def find_contact(self, name=None, number=None):
         ret = []

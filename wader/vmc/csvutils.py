@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2006-2007  Vodafone España, S.A.
+# Copyright (C) 2006-2009  Vodafone España, S.A.
 # Author:  Pablo Martí
 #
 # This program is free software; you can redistribute it and/or modify
@@ -18,13 +18,12 @@
 """
 Collection of CSV-related utilities and classes
 """
-__version__ = "$Rev: 1172 $"
 
 import csv
 import codecs
 import cStringIO
 
-from wader.common.persistent import Contact
+from wader.vmc.phonebook import Contact
 
 class CSVUnicodeWriter(object):
     """
@@ -85,20 +84,19 @@ class CSVUnicodeReader(object):
         """Returns all the rows"""
         return [row for row in self]
 
+
 class CSVContactsReader(CSVUnicodeReader):
 
-    def __init__(self, fobj, free_ids, dialect=csv.excel,
+    def __init__(self, fobj, dialect=csv.excel,
                  encoding="utf-8", **kwds):
         CSVUnicodeReader.__init__(self, fobj, dialect, encoding, **kwds)
-        self.free_ids = free_ids
 
     def next(self):
         row = self.reader.next()
         name, number = row
         name = unicode(name, self.encoding)
         try:
-            index = self.free_ids.popleft()
-            return Contact(name, number, index=index)
+            return Contact(name, number)
         except IndexError:
             raise StopIteration
 

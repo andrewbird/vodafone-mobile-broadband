@@ -288,6 +288,76 @@ def ask_puk2_dialog(parent):
             parent, puk_regexp=re.compile('^\d{8}$'),
             pin_regexp=re.compile('^\d{4,8}$'))
 
+########################## import from VMC ##############################
+
+def save_csv_file(path=None):
+    """Opens a filechooser dialog to choose where to save a csv file"""
+    title = _("Save as ...")
+    chooser_dialog = gtk.FileChooserDialog(title,
+                    action=gtk.FILE_CHOOSER_ACTION_SAVE,
+                    buttons = (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
+                               gtk.STOCK_SAVE, gtk.RESPONSE_OK))
+
+    chooser_dialog.set_default_response(gtk.RESPONSE_OK)
+    filter_ = gtk.FileFilter()
+    filter_.set_name(_("Csv files"))
+    filter_.add_mime_type("text/xml")
+    filter_.add_pattern("*csv")
+    chooser_dialog.add_filter(filter_)
+
+    filter_ = gtk.FileFilter()
+    filter_.set_name(_("All files"))
+    filter_.add_pattern("*")
+    chooser_dialog.add_filter(filter_)
+
+    if path:
+        chooser_dialog.set_filename(os.path.abspath(path))
+    if chooser_dialog.run() == gtk.RESPONSE_OK:
+        resp = chooser_dialog.get_filename()
+        if os.path.isfile(resp):
+            # requests to confirm overwrite:
+            overwrite = open_confirm_action_dialog(_("Overwrite"),
+                          _('Overwrite "%s"?') % os.path.basename(resp),
+                          _("""A file with this name already exists.
+If you choose to overwrite this file, the contents will be lost."""))
+            if not overwrite:
+                resp = None
+    else:
+        resp = None
+
+    chooser_dialog.destroy()
+    return resp
+
+def open_import_csv_dialog(path=None):
+    """Opens a filechooser dialog to import a csv file"""
+    title = _("Import contacts from...")
+    chooser_dialog = gtk.FileChooserDialog(title,
+                    buttons = (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
+                               gtk.STOCK_OPEN, gtk.RESPONSE_OK))
+
+    chooser_dialog.set_default_response(gtk.RESPONSE_OK)
+
+    filter_ = gtk.FileFilter()
+    filter_.set_name(_("Csv files"))
+    filter_.add_mime_type("text/xml")
+    filter_.add_pattern("*csv")
+    chooser_dialog.add_filter(filter_)
+    filter_ = gtk.FileFilter()
+    filter_.set_name(_("All files"))
+    filter_.add_pattern("*")
+    chooser_dialog.add_filter(filter_)
+
+    if path:
+        chooser_dialog.set_filename(os.path.abspath(path))
+    if chooser_dialog.run() == gtk.RESPONSE_OK:
+        resp = chooser_dialog.get_filename()
+    else:
+        resp = None
+
+    chooser_dialog.destroy()
+    return resp
+
+#########################################################################
 
 PULSE_STEP = .2
 MAX_WIDTH = 260
