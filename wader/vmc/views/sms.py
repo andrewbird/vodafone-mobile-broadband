@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2006-2007  Vodafone España, S.A.
+# Copyright (C) 2006-2009  Vodafone España, S.A.
 # Author:  Pablo Martí
 #
 # This program is free software; you can redistribute it and/or modify
@@ -16,27 +16,26 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 """View for the new sms window"""
-__version__ = "$Rev: 1172 $"
 
 import os.path
 
 import gtk
+from gtkmvc import View
 
-from wader.vmc import View
-import wader.common.consts as consts
-from wader.common.encoding import _
+from wader.vmc.consts import GLADE_DIR
+from wader.vmc.translate import _
 
 HEIGHT = 200
-WIDTH = 325
+WIDTH = 425
 
 class NewSmsView(View):
     """View for the new sms window"""
 
-    GLADE_FILE = os.path.join(consts.GLADE_DIR, "sms.glade")
+    GLADE_FILE = os.path.join(GLADE_DIR, "sms.glade")
 
     def __init__(self, ctrl):
         super(NewSmsView, self).__init__(ctrl, self.GLADE_FILE,
-            'sms_edit_window', register=False, domain="VMC")
+            'sms_edit_window', register=False)
         self.setup_view(ctrl)
         ctrl.register_view(self)
 

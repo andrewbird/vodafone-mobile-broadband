@@ -19,7 +19,7 @@
 
 import gtk
 from gobject import TYPE_PYOBJECT, TYPE_STRING
-from gtkmvc import ListStoreModel
+from gtkmvc import Model, ListStoreModel
 
 from wader.common.oal import osobj
 #from wader.common.notifications import SIG_DEVICE_REMOVED
@@ -140,4 +140,14 @@ class SMSStoreModel(ListStoreModel):
 #            self._add_db_message(message, contacts)
 #        else:
 #            self._add_sim_message(message, contacts)
+
+class NewSmsModel(Model):
+    """
+    Model for the send SMS controller
+    """
+
+    def __init__(self, device):
+        super(NewSmsModel, self).__init__()
+
+        self.device = device
 

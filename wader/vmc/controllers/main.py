@@ -23,7 +23,6 @@ import os
 import gtk
 from twisted.internet.utils import getProcessOutput
 
-#from gtkmvc import Controller
 from wader.vmc.controllers.base import WidgetController, TV_DICT, TV_DICT_REV
 from wader.vmc.controllers.contacts import (AddContactController,
                                           SearchContactController)
@@ -51,8 +50,12 @@ from wader.vmc.csvutils import CSVUnicodeWriter, CSVContactsReader
 from wader.vmc.messages import get_messages_obj
 
 from wader.vmc.models.diagnostics import DiagnosticsModel
-from wader.vmc.controllers.diagnostics import DiagnosticsController
 from wader.vmc.views.diagnostics import DiagnosticsView
+from wader.vmc.controllers.diagnostics import DiagnosticsController
+
+from wader.vmc.models.sms import NewSmsModel
+from wader.vmc.views.sms import NewSmsView
+from wader.vmc.controllers.sms import NewSmsController
 
 def get_fake_toggle_button():
     """Returns a toggled L{gtk.ToggleToolButton}"""
@@ -671,11 +674,11 @@ The csv file that you have tried to import has an invalid format.""")
         view.run()
 
     def on_new_sms_activate(self, widget):
-        pass
-        #ctrl = NewSmsController(Model(), self)
-        #view = NewSmsView(ctrl)
-        #view.set_parent_view(self.view)
-        #view.show()
+        model = NewSmsModel(self.model.device)
+        ctrl = NewSmsController(model, self)
+        view = NewSmsView(ctrl)
+        view.set_parent_view(self.view)
+        view.show()
 
     def on_quit_menu_item_activate(self, widget):
         #exit_without_conf = config.getboolean('preferences',
@@ -1085,18 +1088,18 @@ The csv file that you have tried to import has an invalid format.""")
                 self.view['vbox17'].hide()
 
     def _send_sms_to_contact(self, menuitem, treeview):
-        pass
-#        selection = treeview.get_selection()
-#        model, selected = selection.get_selected_rows()
-#        iters = [model.get_iter(path) for path in selected]
-#        numbers = [model.get_value(_iter, 2) for _iter in iters]
-#
-#        ctrl = NewSmsController(Model(), self)
-#        view = NewSmsView(ctrl)
-#        view.set_parent_view(self.view)
-#        view.show()
-#
-#        ctrl.set_entry_text(", ".join(numbers))
+        selection = treeview.get_selection()
+        model, selected = selection.get_selected_rows()
+        iters = [model.get_iter(path) for path in selected]
+        numbers = [model.get_value(_iter, 2) for _iter in iters]
+
+        model = NewSmsModel(self.model.device)
+        ctrl = NewSmsController(model, self)
+        view = NewSmsView(ctrl)
+        view.set_parent_view(self.view)
+        view.show()
+
+        ctrl.set_entry_text(", ".join(numbers))
 
     def _edit_external_contacts(self, menuitem, editor=None):
         if editor:
