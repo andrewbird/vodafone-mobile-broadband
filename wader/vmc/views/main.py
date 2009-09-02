@@ -183,8 +183,7 @@ class MainView(View):
             if name in 'contacts_treeview':
                 model = ContactsStoreModel()
             else:
-                continue
-#                model = SMSStoreModel(ctrl.model.get_sconn)
+                model = SMSStoreModel(ctrl.model.device)
 
             treeview.set_model(model)
             treeview.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
@@ -260,8 +259,7 @@ class MainView(View):
                 def render_date(cellview, cell, model, _iter):
                     datetime = model.get_value(_iter, 3)
                     if datetime:
-                        from time import strftime
-                        cell.set_property('text', strftime("%c", datetime.timetuple()))
+                        cell.set_property('text', datetime.strftime("%c"))
                     return
                 def sort_func(model, iter1, iter2, data):
                     date1 = model.get_value(iter1, 3)

@@ -36,3 +36,14 @@ class ContactsStoreModel(ListStoreModel):
         """Adds C{contact} to the store"""
         img = gtk.gdk.pixbuf_new_from_file(contact.image_16x16())
         self.append([img, contact.name, contact.number, contact, contact.writable])
+
+    def find_contacts_by_number(self, number):
+        ret = []
+        _iter = self.get_iter_first()
+        while _iter:
+            _number = self.get_value(_iter, 2)
+            if _number == number:
+                ret.append(self.get_value(_iter, 3))
+
+            _iter = self.iter_next(_iter)
+        return ret

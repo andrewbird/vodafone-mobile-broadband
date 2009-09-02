@@ -48,6 +48,7 @@ from wader.vmc.consts import GTK_LOCK, GLADE_DIR, IMAGES_DIR
 from wader.vmc.phonebook import (get_phonebook,
                                 all_same_type, all_contacts_writable)
 from wader.vmc.csvutils import CSVUnicodeWriter, CSVContactsReader
+from wader.vmc.messages import get_messages_obj
 
 from wader.vmc.models.diagnostics import DiagnosticsModel
 from wader.vmc.controllers.diagnostics import DiagnosticsController
@@ -236,6 +237,7 @@ class MainController(WidgetController):
         self.view.set_status(new)
         if new == _('Initialising'):
             self.view.set_initialising(True)
+            self._fill_treeviews()
         elif new == _('No device'):
             self.view.set_disconnected(device_present=False)
         elif new in [_('Registered'), _('Roaming')]:
@@ -341,40 +343,29 @@ class MainController(WidgetController):
         """
         Executed whenever a new SMS is received
 
-        Will read and show the SMS to the user
+        Will read, populate the treeview and notify the user
         """
-        def process_sms_eb(error):
-            title = _("Error reading SMS %d") % index
-            show_error_dialog(title, get_error_msg(error))
+        messages_obj = get_messages_obj(self.model.device)
+        sms = messages_obj.get_message(index)
 
-         # read the SMS and show it to the user
-        self.model.device.Get(index,
-                              dbus_interface=consts.SMS_INTFACE,
-                              reply_handler=self.show_sms_notification,
-                              error_handler=process_sms_eb)
+        # It will take care of looking up the number in the phonebook
+        # to show the name if it's a known contact instead of its number
+        contact = self._find_contact_by_number(sms.number)
+        if contact:
+            id = contact.get_name()
+        else:
+            id = sms.number
 
-    def show_sms_notification(self, sms):
-        """
-        Shows a notification when a SMS is received
+        # Populate treeview
+        treeview = self.view['inbox_treeview']
+        treeview.get_model().add_message(sms,[contact])
 
-        It will take care of looking up the number in the phonebook
-        to show the name if its a known contact instead of its number
-        """
-        def find_by_number_cb(contacts):
-            if not contacts:
-                title = _("SMS received from %s") % sms['number']
-            else:
-                assert len(contacts) == 1, "More than one match for a number!"
-                title = _("SMS received from %s") % contacts[0][1]
+        # Send notification
+        title = _("SMS received from %s") % id
 
-            n = new_notification(self.icon, title, sms['text'],
-                                 stock=gtk.STOCK_INFO)
-            n.show()
-
-        self.model.device.FindByNumber(sms['number'],
-                                       dbus_interface=consts.CTS_INTFACE,
-                                       reply_handler=find_by_number_cb,
-                                       error_handler=logger.error)
+        n = new_notification(self.icon, title, sms.text,
+                             stock=gtk.STOCK_INFO)
+        n.show()
 
     def on_device_enabled_cb(self, udi):
         pass
@@ -535,8 +526,6 @@ class MainController(WidgetController):
     def on_import_contacts1_activate(self, widget):
         filepath = open_import_csv_dialog()
         if filepath:
-#            model = self.view['contacts_treeview'].get_model()
-
             phonebook = get_phonebook(self.model.device)
 
             try:
@@ -830,55 +819,56 @@ The csv file that you have tried to import has an invalid format.""")
         """Fills the contacts treeview with contacts"""
         phonebook = get_phonebook(device=self.model.device)
 
-        def process_contacts(contacts):
-            treeview = self.view['contacts_treeview']
-            model = treeview.get_model()
-            model.add_contacts(contacts)
+        treeview = self.view['contacts_treeview']
+        contacts = phonebook.get_contacts()
+        model = treeview.get_model()
+        model.add_contacts(contacts)
+        return contacts
 
-            return contacts
+    def _find_contact_by_number(self, number):
+        treeview = self.view['contacts_treeview']
+        model = treeview.get_model()
 
-#        d = phonebook.get_contacts()
-#        d.addCallback(process_contacts)
-#        d.addErrback(log.err)
-#        return d
+        contacts = model.find_contacts_by_number(number)
+        if not len(contacts):
+            return None
+        if len(contacts) > 1:
+            print "more than one contact matched number %s" % number
+            for contact in contacts:
+                print contact.get_name()
+        return contacts[0]
 
-        process_contacts(phonebook.get_contacts())
+    def _fill_messages(self, contacts=None):
+        """
+        Fills the messages treeview with SIM & DB SMS
 
-#    def _fill_messages(self, contacts=None):
-#        """
-#        Fills the messages treeview with SIM & DB SMS
-#
-#        We're receiving the contacts list produced by _fill_contacts because
-#        otherwise, adding dozens of SMS to the treeview would be very
-#        inefficient, as we would have to lookup the sender number of every
-#        SMS to find out whether is a known contact or not. The solution is
-#        to cache the previous result and pass the contacts list to the
-#        L{wader.vmc.models.sms.SMSStoreModel}
-#        """
-#        messages_obj = get_messages_obj(self.model.get_sconn())
-#        self.splash.set_text(_('Reading messages...'))
-#        def process_sms(sms_list):
+        We're receiving the contacts list produced by _fill_contacts because
+        otherwise, adding dozens of SMS to the treeview would be very
+        inefficient, as we would have to lookup the sender number of every
+        SMS to find out whether is a known contact or not. The solution is
+        to cache the previous result and pass the contacts list to the
+        L{wader.vmc.models.sms.SMSStoreModel}
+        """
+        messages_obj = get_messages_obj(self.model.device)
+        sms_list = messages_obj.get_messages()
+
+        for sms in sms_list:
+            if sms.where == 1:
+                treeview = self.view['inbox_treeview']
+                treeview.get_model().add_message(sms, contacts)
+
 #            for sms in sms_list:
 #                active_tv = TV_DICT[sms.where]         # get treeview name
 #                treeview = self.view[active_tv]        # get treeview object
 #                treeview.get_model().add_message(sms, contacts) # append to tv
-#
-#            self.splash.pulse()
-#            return True
-#
-#        d = messages_obj.get_messages()
-#        d.addCallback(process_sms)
-#        return d
 
     def _fill_treeviews(self):
         """
         Fills the treeviews with SMS and contacts
         """
-#        d = self._fill_contacts()
-#        d.addCallback(self._fill_messages)
-#        d.addErrback(log.err)
-#        return d
-        self._fill_contacts()
+        contacts = self._fill_contacts()
+        self._fill_messages(contacts)
+
 #########
 
     def _update_usage_panel(self, name, offset):
@@ -1005,8 +995,8 @@ The csv file that you have tried to import has an invalid format.""")
             ctrl = ForwardSmsController(Model(), self)
             view = ForwardSmsView(ctrl)
             view.set_parent_view(self.view)
-            ctrl.set_textbuffer_text(message.get_text())
-            ctrl.set_recipient_numbers(message.get_number())
+            ctrl.set_textbuffer_text(message.text)
+            ctrl.set_recipient_numbers(message.number)
             if treeview.name in 'drafts_treeview':
                 # if the SMS is a draft, delete it after sending it
                 ctrl.set_processed_sms(message)
@@ -1088,7 +1078,7 @@ The csv file that you have tried to import has an invalid format.""")
         if treeview.get_name() != 'contacts_treeview':
             _obj = self.get_obj_from_selected_row()
             if _obj:
-                self.view['smsbody_textview'].get_buffer().set_text(_obj.get_text())
+                self.view['smsbody_textview'].get_buffer().set_text(_obj.text)
                 self.view['vbox17'].show()
             else:
                 self.view['smsbody_textview'].get_buffer().set_text('')
@@ -1113,4 +1103,81 @@ The csv file that you have tried to import has an invalid format.""")
             cmd = editor[0]
             args = len(editor) > 1 and editor[1:] or []
             getProcessOutput(cmd, args, os.environ)
+
+    def get_generic_popup_menu(self, pathinfo, treeview):
+        """Returns a popup menu for the rest of treeviews"""
+        menu = gtk.Menu() # main menu
+
+        item = gtk.ImageMenuItem(_("_Add to contacts"))
+        img = gtk.image_new_from_stock(gtk.STOCK_ADD, gtk.ICON_SIZE_MENU)
+        item.set_image(img)
+        item.connect("activate", self._use_detail_add_contact)
+        item.show()
+
+        menu.append(item)
+
+        if treeview.get_name() != 'drafts_treeview':
+            item = gtk.ImageMenuItem(_("Save to draft"))
+            img = gtk.image_new_from_stock(gtk.STOCK_SAVE, gtk.ICON_SIZE_MENU)
+            item.set_image(img)
+            item.connect("activate", self._save_sms_to_draft)
+            item.show()
+            menu.append(item)
+
+        separator = gtk.SeparatorMenuItem()
+        separator.show()
+        menu.append(separator)
+
+        item = gtk.ImageMenuItem(_("Delete"))
+        img = gtk.image_new_from_stock(gtk.STOCK_DELETE, gtk.ICON_SIZE_MENU)
+        item.set_image(img)
+        item.connect("activate", self.delete_entries, pathinfo, treeview)
+        item.show()
+        menu.append(item)
+
+        return menu
+
+    def _save_sms_to_draft(self, widget):
+        """This will save the selected SMS to the drafts tv and the DB"""
+        message = self.get_obj_from_selected_row()
+        if message:
+            messages = get_messages_obj(self.model.device)
+            """
+            def get_message_cb(sms):
+                # Now save SMS to DB
+                where = TV_DICT_REV['drafts_treeview']
+                tv = self.view['drafts_treeview']
+                d = messages.add_message(sms, where=where)
+                d.addCallback(lambda smsback:
+                                    tv.get_model().add_message(smsback))
+
+            messages.get_message(message).addCallback(get_message_cb)
+            """
+
+    def _use_detail_add_contact(self, widget):
+        """Handler for the use detail menu"""
+        message = self.get_obj_from_selected_row()
+        if message:
+            ctrl = AddContactController(self.model, self)
+            view = AddContactView(ctrl)
+            view.set_parent_view(self.view)
+            ctrl.number_entry.set_text(message.number)
+            view.show()
+
+    def get_obj_from_selected_row(self):
+        """Returns the data from the selected row"""
+        page = self.view['main_notebook'].get_current_page() + 1
+
+        treeview = self.view[TV_DICT[page]]
+        selection = treeview.get_selection()
+        model, selected = selection.get_selected_rows()
+        if not selected or len(selected) > 1:
+            return None
+
+        # in the contacts treeview, the contact object is at row[3]
+        # while in the rest the SMS object is at row[4]
+        row = (page == TV_DICT_REV['contacts_treeview']) and 3 or 4
+        _iter = model.get_iter(selected[0])
+        return model.get_value(_iter, row)
+
 

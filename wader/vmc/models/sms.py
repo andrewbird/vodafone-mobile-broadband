@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2006-2007  Vodafone España, S.A.
+# Copyright (C) 2006-2009  Vodafone España, S.A.
 # Author:  Pablo Martí
 #
 # This program is free software; you can redistribute it and/or modify
@@ -16,8 +16,6 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 """Model for SMS-related controllers"""
-
-__version__ = "$Rev: 1189 $"
 
 import gtk
 from gobject import TYPE_PYOBJECT, TYPE_STRING
@@ -42,14 +40,14 @@ class SMSStoreModel(ListStoreModel):
         super(SMSStoreModel, self).__init__(gtk.gdk.Pixbuf,
             TYPE_STRING, TYPE_STRING, TYPE_PYOBJECT, TYPE_PYOBJECT)
         self._callable = _callable
-        self.sconn = None
+        self.device = None
 #        louie.connect(self.device_removed_handler, SIG_DEVICE_REMOVED)
 
     def device_removed_handler(self):
         """
-        I take care of {self.sconn} and will update it as necessary
+        I take care of {self.device} and will update it as necessary
         """
-        self.sconn = None
+        self.device = None
 
     def add_messages(self, messages, contacts=None):
         """
@@ -61,45 +59,25 @@ class SMSStoreModel(ListStoreModel):
             self.add_message(sms, contacts)
 
     def _add_sim_message(self, message, contacts=None):
-        entry = [MOBILE_IMG, message.get_text()]
+        entry = [MOBILE_IMG, message.text]
         if contacts or contacts == []:
             # this is only used at startup received as the return value
             # of sconn.get_all_contacts(), an unmodified fresh copy of all
             # the contacts, we use it instead of doing a lookup for each
             # contact
             match = [contact.name for contact in contacts
-                            if message.get_number() == contact.get_number()]
+                            if message.number == contact.get_number()]
             if match:
                 entry.append(match[0])
             else:
-                entry.append(message.get_number())
-
-            entry.append(message.datetime)
-            entry.append(message)
-            self.append(entry)
+                entry.append(message.number)
 
         else: # no contacts received
-            pass
-            #phonebook = get_phonebook(self.sconn)
-            #def lookup_number_cb(clist):
-            #    """
-            #    Add the contact to the model
-#
-#                If the SMS's number exists in the phonebook, display the
-#                contact's name instead of the number
-#                """
-#                if clist:
-#                    entry.append(clist[0].name)
-#                else:
-#                    entry.append(message.get_number())
-#
-#                entry.append(message.datetime)
-#                entry.append(message)
-#                self.append(entry)
-#
-#            d = phonebook.find_contact(number=message.get_number())
-#            d.addCallback(lookup_number_cb)
+            entry.append(message.number)
 
+        entry.append(message.datetime)
+        entry.append(message)
+        self.append(entry)
 
     def _add_db_message(self, message, contacts=None):
         tzinfo = osobj.get_tzinfo()
@@ -153,7 +131,8 @@ class SMSStoreModel(ListStoreModel):
         @type message: L{wader.common.sms.ShortMessage}
         @type contacts: list
         """
-        pass
+        self._add_sim_message(message, contacts)
+
 #        if not self.sconn:
 #            self.sconn = self._callable()
 #
