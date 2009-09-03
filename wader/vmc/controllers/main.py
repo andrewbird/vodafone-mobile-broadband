@@ -279,18 +279,21 @@ class MainController(WidgetController):
 
     def property_rx_bytes_value_change(self, model, old, new):
         if old != new:
-            self.view['rx_bytes_label'].set_text(bytes_repr(new))
+            # self.view['rx_bytes_label'].set_text(bytes_repr(new))
+            self.view['download_statusbar'].push(1, bytes_repr(new))
             logger.info("Bytes rx: %d", new)
 
     def property_tx_bytes_value_change(self, model, old, new):
         if old != new:
-            self.view['tx_bytes_label'].set_text(bytes_repr(new))
+            # self.view['tx_bytes_label'].set_text(bytes_repr(new))
+            self.view['upload_statusbar'].push(1, bytes_repr(new))
             logger.info("Bytes tx: %d", new)
 
     def property_total_bytes_value_change(self, model, old, new):
-        if old != new and new != '':
-            self.view['total_bytes_label'].set_text(bytes_repr(new))
-            logger.info("Total bytes: %d", new)
+        pass
+#        if old != new and new != '':
+#            self.view['total_bytes_label'].set_text(bytes_repr(new))
+#            logger.info("Total bytes: %d", new)
 
     def property_transfer_limit_exceeded_value_change(self, model, old, new):
         if not old and new:
