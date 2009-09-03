@@ -57,6 +57,11 @@ from wader.vmc.models.sms import NewSmsModel
 from wader.vmc.views.sms import NewSmsView, ForwardSmsView
 from wader.vmc.controllers.sms import NewSmsController, ForwardSmsController
 
+from wader.vmc.models.pin import PinModel
+from wader.vmc.views.pin import PinModifyView, PinEnableView
+from wader.vmc.controllers.pin import PinModifyController, PinEnableController
+
+
 def get_fake_toggle_button():
     """Returns a toggled L{gtk.ToggleToolButton}"""
     button = gtk.ToggleToolButton()
@@ -698,6 +703,30 @@ The csv file that you have tried to import has an invalid format.""")
 #
 #        if resp:
 #            self.quit_application()
+
+    def on_change_pin1_activate(self, widget):
+        model = PinModel(self.model.device)
+        ctrl = PinModifyController(model)
+        view = PinModifyView(ctrl)
+        view.show()
+
+    def on_request_pin1_activate(self, checkmenuitem):
+        pass
+
+#        def callback(enabled):
+#            if enabled:
+#                self.view['change_pin1'].set_sensitive(True)
+#                self.view['request_pin1'].set_active(True)
+#            else:
+#                self.view['change_pin1'].set_sensitive(False)
+#                self.view['request_pin1'].set_active(False)
+#
+#        model = PinModel(self.model.device)
+#        ctrl = PinEnableController(model,
+#                                   checkmenuitem.get_active(),
+#                                   callback)
+#        view = PinEnableView(ctrl)
+#        view.show()
 
     def on_new_profile_menuitem_activate(self, widget):
         self.ask_for_new_profile()

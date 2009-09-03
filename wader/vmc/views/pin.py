@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2006-2007  Vodafone España, S.A.
+# Copyright (C) 2006-2009  Vodafone España, S.A.
 # Author:  Pablo Martí
 #
 # This program is free software; you can redistribute it and/or modify
@@ -16,50 +16,66 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-"""View for the PIN modify window"""
-__version__ = "$Rev: 1172 $"
+"""View for the PIN window"""
 
 import os.path
 
-from wader.vmc import View
-import wader.common.consts as consts
-from wader.common.encoding import _
+from gtkmvc import View
+
+from wader.vmc.consts import GLADE_DIR, IMAGES_DIR
+from wader.vmc.translate import _
 
 class PinModifyView(View):
     """View for the PIN modify window"""
 
-    GLADE_FILE = os.path.join(consts.GLADE_DIR, "pin.glade")
+    GLADE_FILE = os.path.join(GLADE_DIR, "pin.glade")
 
     def __init__(self, ctrl):
         super(PinModifyView, self).__init__(ctrl, self.GLADE_FILE,
-                'pin_modify_window', register=True, domain="VMC")
+                'pin_modify_window', register=True)
+
+class PinEnableView(View):
+    """View for the ask PIN dialog"""
+
+    GLADE_FILE = os.path.join(GLADE_DIR, "pin.glade")
+
+    def __init__(self, ctrl):
+        super(PinEnableView, self).__init__(ctrl, self.GLADE_FILE,
+            'ask_pin_window', register=False)
+        self.setup_view()
+        ctrl.register_view(self)
+
+    def setup_view(self):
+        self['gnomekeyring_checkbutton'].set_active(False)
 
 
 class AskPINView(View):
     """View for the ask PIN dialog"""
 
-    GLADE_FILE = os.path.join(consts.GLADE_DIR, "pin.glade")
+    GLADE_FILE = os.path.join(GLADE_DIR, "pin.glade")
 
     def __init__(self, ctrl):
         super(AskPINView, self).__init__(ctrl, self.GLADE_FILE,
-            'ask_pin_window', register=False, domain="VMC")
+            'ask_pin_window', register=False)
         self.setup_view()
         ctrl.register_view(self)
 
     def setup_view(self):
-        from wader.common.config import config
-        active = config.getboolean('preferences', 'manage_keyring')
+        # XXX: fix when we know what we're doing with preferences
+#        from wader.common.config import config
+#        active = config.getboolean('preferences', 'manage_keyring')
+        active = False
         self['gnomekeyring_checkbutton'].set_active(active)
 
 class AskPUKView(View):
     """View for the ask PUK/PUK2 dialog"""
 
-    GLADE_FILE = os.path.join(consts.GLADE_DIR, "pin.glade")
-    IMAGE_FILE = os.path.join(consts.GLADE_DIR, "sim-puk-lock.png")
+    GLADE_FILE = os.path.join(GLADE_DIR, "pin.glade")
+    IMAGE_FILE = os.path.join(IMAGES_DIR, "sim-puk-lock.png")
 
     def __init__(self, ctrl):
         super(AskPUKView, self).__init__(ctrl, self.GLADE_FILE,
-            'ask_puk_window', register=True, domain="VMC")
+            'ask_puk_window', register=True)
 
     def set_puk_view(self):
         msg = _("""
