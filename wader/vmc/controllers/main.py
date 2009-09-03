@@ -166,6 +166,11 @@ class MainController(WidgetController):
                                 self._on_disconnect_cb,
                                 "Disconnected",
                                 dbus_interface=consts.WADER_DIALUP_INTFACE)
+
+        self.speedchanged_signal_match = self.model.bus.add_signal_receiver(
+                                self._on_speedchanged_cb,
+                                "SpeedChanged",
+                                dbus_interface=consts.NET_INTFACE)
     # properties
     def property_rssi_value_change(self, model, old, new):
         self.view.rssi_changed(new)
@@ -278,16 +283,16 @@ class MainController(WidgetController):
                 model.send_puk(puk2, pin, model.enable_device)
 
     def property_rx_bytes_value_change(self, model, old, new):
-        if old != new:
-            # self.view['rx_bytes_label'].set_text(bytes_repr(new))
-            self.view['download_statusbar'].push(1, bytes_repr(new))
-            logger.info("Bytes rx: %d", new)
+        pass
+#        if old != new:
+#            self.view['rx_bytes_label'].set_text(bytes_repr(new))
+#            logger.info("Bytes rx: %d", new)
 
     def property_tx_bytes_value_change(self, model, old, new):
-        if old != new:
-            # self.view['tx_bytes_label'].set_text(bytes_repr(new))
-            self.view['upload_statusbar'].push(1, bytes_repr(new))
-            logger.info("Bytes tx: %d", new)
+        pass
+#        if old != new:
+#            self.view['tx_bytes_label'].set_text(bytes_repr(new))
+#            logger.info("Bytes tx: %d", new)
 
     def property_total_bytes_value_change(self, model, old, new):
         pass
@@ -407,6 +412,10 @@ class MainController(WidgetController):
         self.model.stop_stats_tracking()
         self.view.set_disconnected()
 
+        if self.speedchanged_signal_match:
+            self.speedchanged_signal_match.remove()
+            self.speedchanged_signal_match = None
+
         if self.apb:
             self.apb.close()
             self.apb = None
@@ -425,6 +434,10 @@ class MainController(WidgetController):
         if self.apb:
             self.apb.close()
             self.apb = None
+
+    def _on_speedchanged_cb(self, args):
+        self.view['upload_statusbar'].push(1, args[0])
+        self.view['download_statusbar'].push(1, args[1])
 
     def on_icon_activated(self, icon):
         window = self.view.get_top_widget()
