@@ -605,7 +605,7 @@
                           </widget>
                         </child>
                         <child>
-                          <widget class="GtkImageMenuItem" id="imagemenuitem8">
+                          <widget class="GtkImageMenuItem" id="contact_delete_menu_item">
                             <property name="visible">True</property>
                             <property name="label" translatable="yes">_Delete</property>
                             <property name="use_underline">True</property>

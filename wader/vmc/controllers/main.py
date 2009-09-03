@@ -54,8 +54,8 @@ from wader.vmc.views.diagnostics import DiagnosticsView
 from wader.vmc.controllers.diagnostics import DiagnosticsController
 
 from wader.vmc.models.sms import NewSmsModel
-from wader.vmc.views.sms import NewSmsView
-from wader.vmc.controllers.sms import NewSmsController
+from wader.vmc.views.sms import NewSmsView, ForwardSmsView
+from wader.vmc.controllers.sms import NewSmsController, ForwardSmsController
 
 def get_fake_toggle_button():
     """Returns a toggled L{gtk.ToggleToolButton}"""
@@ -99,7 +99,7 @@ class MainController(WidgetController):
         #self.usage_updater.startService()
 
     def connect_to_signals(self):
-# VMC        self._setup_menubar_hacks()
+        self._setup_menubar_hacks()
 
         self.view['main_window'].connect('delete_event', self.close_application)
 # VMC        self.view.get_top_widget().connect("delete_event", self._quit_or_minimize)
@@ -812,6 +812,34 @@ The csv file that you have tried to import has an invalid format.""")
 
 ######
 
+    def _setup_menubar_hacks(self):
+        def fake_delete_event(widget, event):
+            if event.button == 1:
+                self.on_delete_menu_item_activate(widget)
+                return True
+
+            return False
+
+        def fake_forward_event(widget, event):
+            if event.button == 1:
+                self.on_forward_sms_menu_item_activate(widget)
+                return True
+
+            return False
+
+        items = ['contact_delete_menu_item', 'sms_delete_menu_item',
+                 'forward_sms_menu_item']
+
+        for item in items:
+            self.view[item].set_events(gtk.gdk.BUTTON_PRESS_MASK)
+
+        # contacts_menubar delete item and messages_menubar delete item
+        for item in ['contact_delete_menu_item', 'sms_delete_menu_item']:
+            self.view[item].connect("button_press_event", fake_delete_event)
+
+        # messages_menubar forward item
+        self.view['forward_sms_menu_item'].connect("button_press_event",
+                                                   fake_forward_event)
     def _empty_treeviews(self, treeviews):
         for treeview_name in treeviews:
             model = self.view[treeview_name].get_model()
@@ -924,6 +952,50 @@ The csv file that you have tried to import has an invalid format.""")
         self._update_usage_session()
         self.view.update_bars_user_limit()
         self.usage_notifier()
+
+    def on_reply_sms_no_quoting_menu_item_activate(self, widget):
+        message = self.get_obj_from_selected_row()
+        if message:
+            model = NewSmsModel(self.model.device)
+            ctrl = ForwardSmsController(model, self)
+            view = ForwardSmsView(ctrl)
+            view.set_parent_view(self.view)
+            ctrl.set_recipient_numbers(message.number)
+            ctrl.set_textbuffer_focus()
+            view.show()
+
+    def on_reply_sms_quoting_menu_item_activate(self, widget):
+        message = self.get_obj_from_selected_row()
+        if message:
+            model = NewSmsModel(self.model.device)
+            ctrl = ForwardSmsController(model, self)
+            view = ForwardSmsView(ctrl)
+            view.set_parent_view(self.view)
+            ctrl.set_recipient_numbers(message.number)
+            ctrl.set_textbuffer_text(message.text)
+            ctrl.set_textbuffer_focus()
+            view.show()
+
+    def on_forward_sms_menu_item_activate(self, widget):
+        message = self.get_obj_from_selected_row()
+        if message:
+            model = NewSmsModel(self.model.device)
+            ctrl = ForwardSmsController(model, self)
+            view = ForwardSmsView(ctrl)
+            ctrl.numbers_entry.grab_focus()
+            ctrl.set_textbuffer_text(message.text)
+            view.set_parent_view(self.view)
+            view.show()
+
+#    XXX: check out if this is needed
+#    def on_add_contact_menu_item_activate(self, widget):
+#        self.on_new_contact_menu_item_activate(None)
+
+    def on_delete_menu_item_activate(self, widget):
+        page = self.view['main_notebook'].get_current_page() + 1
+        treeview = self.view[TV_DICT[page]]
+        self.delete_entries(widget, None, treeview)
+        treeview.grab_focus()
 
     def on_generic_treeview_row_button_press_event(self, treeview, event):
         if event.button == 3 and event.type == gtk.gdk.BUTTON_PRESS:
