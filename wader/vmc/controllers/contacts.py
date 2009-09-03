@@ -180,8 +180,8 @@ class ContactsListController(Controller):
     def _fill_treeview(self):
         _model = self.view['treeview1'].get_model()
         phonebook = get_phonebook(self.parent_ctrl.parent_ctrl.model.device)
-        d = phonebook.get_contacts()
-        d.addCallback(lambda contacts: _model.add_contacts(contacts))
+        contacts = phonebook.get_contacts()
+        _model.add_contacts(contacts)
 
     def _row_activated_handler(self, treeview, path, col):
         model, selected = treeview.get_selection().get_selected_rows()

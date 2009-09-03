@@ -36,12 +36,13 @@ from wader.vmc.translate import _
 from wader.vmc.messages import get_messages_obj
 
 from wader.vmc.controllers.base import TV_DICT, TV_DICT_REV
+
+from wader.vmc.views.contacts import ContactsListView
 from wader.vmc.controllers.contacts import ContactsListController
 
 #from wader.vmc.controllers.preferences import SMSPreferencesController
 #from wader.vmc.models.preferences import PreferencesModel, transform_validity
 
-#from wader.vmc.views.contacts import ContactsListView
 #from wader.vmc.views.preferences import SMSPreferencesView
 
 from wader.vmc.contrib.ValidatedEntry import ValidatedEntry, v_phone
@@ -108,7 +109,8 @@ class NewSmsController(Controller):
 
         # hide ourselves if we are not sending more SMS...
         if self.state == IDLE:
-            self.view.set_idle_view()
+            if self.view:
+                self.view.set_idle_view()
             self.on_delete_event_cb(None)
 
     def on_sms_sent_eb(self, error):
@@ -171,10 +173,9 @@ class NewSmsController(Controller):
         self.view.hide()
 
     def on_contacts_button_clicked(self, widget):
-        pass
-        #ctrl = ContactsListController(Model(), self)
-        #view = ContactsListView(ctrl)
-        #resp = view.run()
+        ctrl = ContactsListController(Model(), self)
+        view = ContactsListView(ctrl)
+        view.run()
 
     def _textbuffer_changed(self, textbuffer):
         """Handler for the textbuffer changed signal"""
