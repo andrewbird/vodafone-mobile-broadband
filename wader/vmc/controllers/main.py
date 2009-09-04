@@ -638,6 +638,12 @@ The csv file that you have tried to import has an invalid format.""")
 
     def on_preferences_menu_item_activate(self, widget):
         print "on_preferences_menu_item_activate"
+        about = show_about_dialog()
+        about.run()
+        about.destroy()
+
+
+
 #        from wader.vmc.views.preferences import PreferencesView
 #        from wader.vmc.controllers.preferences import PreferencesController
 #
@@ -852,6 +858,7 @@ The csv file that you have tried to import has an invalid format.""")
         #getProcessOutput(binary, [index_path], os.environ)
 
     def on_about_menu_item_activate(self, widget):
+        print "on_help_topics_about_menu_active"
         about = show_about_dialog()
         about.run()
         about.destroy()
