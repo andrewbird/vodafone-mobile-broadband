@@ -158,62 +158,6 @@ def show_warning_request_cancel_ok(title, message):
     dialog.destroy()
     return ret == gtk.RESPONSE_OK
 
-def generic_puk_dialog(title, message, parent, puk_regexp=None,
-                       pin_regexp=None):
-    buttons = (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
-               gtk.STOCK_OK, gtk.RESPONSE_OK)
-
-    dialog, box = make_basic_dialog(title, buttons,
-                                    gtk.STOCK_DIALOG_AUTHENTICATION)
-    box.add(gtk.Label(message))
-    puk_entry = gtk.Entry()
-    pin_entry = gtk.Entry()
-
-    pin_entry.set_activates_default(True)
-
-    hbox = gtk.HBox(spacing=6)
-    hbox.pack_start(puk_entry)
-    hbox.pack_start(pin_entry)
-
-    def enable_ok_button(enable):
-        for child in dialog.action_area.get_children():
-            if child.get_label() == 'gtk-ok':
-                child.set_sensitive(enable)
-
-    def on_puk_changed_cb(_entry, regexp):
-        text = _entry.get_text()
-        match = regexp.match(text)
-        if match is not None:
-            pin_entry.grab_focus()
-
-    def on_pin_changed_cb(_entry, regexp):
-        text = _entry.get_text()
-        match = regexp.match(text)
-        enable = True if match is not None else False
-
-        enable_ok_button(enable)
-
-    puk_entry.connect('changed', on_puk_changed_cb, puk_regexp)
-    pin_entry.connect('changed', on_pin_changed_cb, pin_regexp)
-
-    box.add(hbox)
-    dialog.set_default_response(gtk.RESPONSE_OK)
-    dialog.set_transient_for(parent.get_top_widget())
-    dialog.set_position(gtk.WIN_POS_CENTER_ON_PARENT)
-    dialog.show_all()
-
-    response = dialog.run()
-    if response == gtk.RESPONSE_OK:
-        puk = puk_entry.get_text()
-        pin = pin_entry.get_text()
-        ret = (puk, pin)
-    else:
-        ret = None
-
-    dialog.destroy()
-    dialog = None
-    return ret
-
 def generic_auth_dialog(title, message, parent, regexp=None):
     buttons = (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
                gtk.STOCK_OK, gtk.RESPONSE_OK)
@@ -258,35 +202,12 @@ def generic_auth_dialog(title, message, parent, regexp=None):
     dialog = None
     return ret
 
-def ask_pin_dialog(parent):
-    logger.debug("Asking for PIN")
-    return generic_auth_dialog(
-            _("PIN required"),
-            _("Please, insert the PIN of your SIM card"),
-            parent, regexp=re.compile('^\d{4,8}$'))
-
 def ask_password_dialog(parent):
     logger.debug("Asking for password")
     return generic_auth_dialog(
             _("Password required"),
             _("Please, insert the password of your connection"),
             parent, regexp=None)
-
-def ask_puk_dialog(parent):
-    logger.debug("Asking for PUK")
-    return generic_puk_dialog(
-            _("PUK required"),
-            _("Please, insert the PUK and PIN of your SIM card"),
-           parent, puk_regexp=re.compile('^\d{8}$'),
-           pin_regexp=re.compile('^\d{4,8}$'))
-
-def ask_puk2_dialog(parent):
-    logger.debug("Asking for PUK2")
-    return generic_puk_dialog(
-            _("PUK2 required"),
-            _("Please, insert the PUK2 and PIN of your SIM card"),
-            parent, puk_regexp=re.compile('^\d{8}$'),
-            pin_regexp=re.compile('^\d{4,8}$'))
 
 ########################## import from VMC ##############################
 

@@ -35,8 +35,7 @@ from wader.vmc.logger import logger
 from wader.vmc.dialogs import (show_profile_window,
                                show_warning_dialog, ActivityProgressBar,
                                show_about_dialog, show_error_dialog,
-                               ask_pin_dialog, ask_puk_dialog,
-                               ask_puk2_dialog, ask_password_dialog,
+                               ask_password_dialog,
                                save_csv_file, open_import_csv_dialog)
 #from wader.vmc.keyring_dialogs import NewKeyringDialog, KeyringPasswordDialog
 from wader.vmc.utils import bytes_repr, get_error_msg, UNIT_MB, units_to_bits
@@ -58,8 +57,10 @@ from wader.vmc.views.sms import NewSmsView, ForwardSmsView
 from wader.vmc.controllers.sms import NewSmsController, ForwardSmsController
 
 from wader.vmc.models.pin import PinModel
-from wader.vmc.views.pin import PinModifyView, PinEnableView
-from wader.vmc.controllers.pin import PinModifyController, PinEnableController
+from wader.vmc.views.pin import (PinModifyView, PinEnableView,
+                                 AskPUKView, AskPINView)
+from wader.vmc.controllers.pin import (PinModifyController, PinEnableController,
+                                       AskPUKController, AskPINController)
 
 
 def get_fake_toggle_button():
@@ -139,6 +140,23 @@ class MainController(WidgetController):
             self.view.start_throbber()
             self.model.quit(self._close_application_cb)
 
+    def ask_for_pin(self):
+        ctrl = AskPINController(self.model)
+        view = AskPINView(ctrl)
+        view.show()
+
+    def ask_for_puk(self):
+        ctrl = AskPUKController(self.model)
+        view = AskPUKView(ctrl)
+        view.set_puk_view()
+        view.show()
+
+    def ask_for_puk2(self):
+        ctrl = AskPUKController(self.model)
+        view = AskPUKView(ctrl)
+        view.set_puk2_view()
+        view.show()
+
     def ask_for_new_profile(self):
         model = self.model.preferences_model
         if self.model.device:
@@ -146,11 +164,6 @@ class MainController(WidgetController):
                 show_profile_window(model, imsi=imsi))
         else:
             show_profile_window(model)
-
-    def ask_for_pin(self):
-        pin = ask_pin_dialog(self.view)
-        if pin:
-            self.model.send_pin(pin, self.model.enable_device)
 
     def _close_application_cb(self, *args):
         try:
@@ -250,7 +263,6 @@ class MainController(WidgetController):
         self.view.set_status(new)
         if new == _('Initialising'):
             self.view.set_initialising(True)
-            self._fill_treeviews()
         elif new == _('No device'):
             self.view.set_disconnected(device_present=False)
         elif new in [_('Registered'), _('Roaming')]:
@@ -270,17 +282,11 @@ class MainController(WidgetController):
 
     def property_puk_required_value_change(self, model, old, new):
         if new:
-            pukinfo = ask_puk_dialog(parent=self.view)
-            if pukinfo:
-                puk, pin = pukinfo
-                model.send_puk(puk, pin, model.enable_device)
+            self.ask_for_puk()
 
     def property_puk2_required_value_change(self, model, old, new):
         if new:
-            pukinfo = ask_puk2_dialog(parent=self.view)
-            if pukinfo:
-                puk2, pin = pukinfo
-                model.send_puk(puk2, pin, model.enable_device)
+            self.ask_for_puk2()
 
     def property_rx_bytes_value_change(self, model, old, new):
         pass
@@ -385,7 +391,7 @@ class MainController(WidgetController):
         n.show()
 
     def on_device_enabled_cb(self, udi):
-        pass
+        self._fill_treeviews()
 #        self.view['sms_menuitem'].set_sensitive(True)
 #        self.view['preferences_menu_item'].set_sensitive(True)
 

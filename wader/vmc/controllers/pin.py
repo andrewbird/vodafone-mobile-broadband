@@ -209,9 +209,8 @@ for the PUK code</small>
 
 class AskPINController(Controller):
     """Asks PIN to user and returns it callbacking a deferred"""
-    def __init__(self, model, deferred):
+    def __init__(self, model):
         super(AskPINController, self).__init__(model)
-        self.deferred = deferred
         # handler id of self.view['gnomekeyring_checkbutton']::toggled
         self._hid = None
         self.pin_activate_id = -1
@@ -242,7 +241,7 @@ class AskPINController(Controller):
 
     def register_view(self, view):
         super(AskPINController, self).register_view(view)
-        self.view['ask_pin_window'].connect('delete-event',shutdown_core)
+#        self.view['ask_pin_window'].connect('delete-event',self.close_application)
 
         def toggled_cb(checkbutton):
             """
@@ -263,8 +262,7 @@ class AskPINController(Controller):
                     # restore handler
                     checkbutton.handler_unblock(self._hid)
                     message = _("Missing dependency")
-                    details = _(
-    """To use this feature you need the gnomekeyring module""")
+                    details = _("""To use this feature you need the gnomekeyring module""")
                     show_warning_dialog(message, details)
                     return True
 
@@ -276,28 +274,25 @@ class AskPINController(Controller):
     def on_ok_button_clicked(self, widget):
         pin = self.view['pin_entry'].get_text()
         if pin:
-            # save keyring preferences
-            from wader.common.config import config
-            active = self.view['gnomekeyring_checkbutton'].get_active()
-            config.setboolean('preferences', 'manage_keyring', active)
-            config.write()
+            ## save keyring preferences
+            #from wader.common.config import config
+            #active = self.view['gnomekeyring_checkbutton'].get_active()
+            #config.setboolean('preferences', 'manage_keyring', active)
+            #config.write()
 
-            # callback the PIN to the state machine
-            self.deferred.callback(pin)
-
+            self.model.send_pin(pin, self.model.enable_device)
             self.view.hide()
             self.model.unregister_observer(self)
 
     def on_cancel_button_clicked(self, widget):
         self.view.hide()
         self.model.unregister_observer(self)
-        shutdown_core()
+#        self.close_application()
 
 
 class AskPUKController(Controller):
-    def __init__(self, model, deferred):
+    def __init__(self, model):
         super(AskPUKController, self).__init__(model)
-        self.deferred = deferred
 
     def validate(self, widget=None):
         valid = True
@@ -332,7 +327,7 @@ class AskPUKController(Controller):
 
     def register_view(self, view):
         super(AskPUKController, self).register_view(view)
-        self.view['ask_puk_window'].connect('delete-event',shutdown_core)
+#        self.view['ask_puk_window'].connect('delete-event',self.close_application)
 
         self.view['puk_entry'].connect('changed', self.validate)
         self.view['pin_entry'].connect('changed', self.validate)
@@ -344,12 +339,12 @@ class AskPUKController(Controller):
         puk = self.view['puk_entry'].get_text()
 
         if pin and puk:
-            self.deferred.callback((puk, pin))
+            self.model.send_puk(puk, pin, self.model.enable_device)
             self.view.hide()
             self.model.unregister_observer(self)
 
     def on_cancel_button_clicked(self, widget):
         self.view.hide()
         self.model.unregister_observer(self)
-        shutdown_core()
+#        self.close_application()
 

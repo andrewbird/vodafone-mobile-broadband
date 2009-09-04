@@ -349,6 +349,9 @@ class MainModel(Model):
         logger.error("SendPin failed %s" % get_error_msg(e))
         pin_errors = [E.GEN_ERROR, E.PIN_ERROR]
         if e.get_dbus_name() in pin_errors:
+            # XXX: AJB - I don't like this, after 3 wrong PINs we still call
+            #            ask_for_pin(), surely there must be some way of the
+            #            core signalling that we need PIN, PUK or PUK2(eek!)
             # setting pin_required = True doesn't works and we have
             # to break MVC and ask the controller directly
             self.ctrl.ask_for_pin()

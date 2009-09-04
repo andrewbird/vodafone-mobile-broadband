@@ -34,6 +34,7 @@ class PinModifyView(View):
         super(PinModifyView, self).__init__(ctrl, self.GLADE_FILE,
                 'pin_modify_window', register=True)
 
+
 class PinEnableView(View):
     """View for the ask PIN dialog"""
 
@@ -66,6 +67,7 @@ class AskPINView(View):
 #        active = config.getboolean('preferences', 'manage_keyring')
         active = False
         self['gnomekeyring_checkbutton'].set_active(active)
+
 
 class AskPUKView(View):
     """View for the ask PUK/PUK2 dialog"""
