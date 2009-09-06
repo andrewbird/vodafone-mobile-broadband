@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-# Copyright (C) 2008-2009  Warp Networks, S.L.
-# Author:  Jaime Soriano
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 2 of the License, or
 # (at your option) any later version.
 #
@@ -108,12 +102,12 @@ class PreferencesModel(Model):
         'transfer_limit' : -1
     }
 
-    def __init__(self, parent, device_callable):
+    def __init__(self, device_callable):
         super(PreferencesModel, self).__init__()
         self.bus = dbus.SystemBus()
         self.manager = manager
         self.conf = config
-        self.parent = parent
+        # self.parent = parent
         self.device_callable = device_callable
         self.profiles_model = ProfilesModel()
 
@@ -148,7 +142,7 @@ class PreferencesModel(Model):
 
     def reset_statistics(self):
         logger.info('Resetting total bytes')
-        self.parent.total_bytes = 0
+        # self.parent.total_bytes = 0
         self.conf.set('statistics', 'total_bytes', 0)
 
     def profile_added(self, profile):

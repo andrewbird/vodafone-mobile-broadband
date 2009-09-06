@@ -21,9 +21,9 @@ Controllers for preferences
 __version__ = "$Rev: 1172 $"
 
 from wader.common.config import config
-from wader.common.encoding import _
+from wader.vmc.translate import _
 from wader.common.dialers import wvdial
-from wader.common.persistent import net_manager
+from wader.vmc.persistent import net_manager
 from wader.vmc import Controller
 import wader.vmc.dialogs as dialogs
 from wader.vmc.models.preferences import VALIDITY_DICT, SMSCItem

@@ -83,7 +83,7 @@ class MainModel(Model):
         # we have to break MVC here :P
         self.ctrl = None
         self.dialer_manager = None
-        self.preferences_model = PreferencesModel(self, lambda: self.device)
+        self.preferences_model = PreferencesModel(lambda: self.device)
         self._init_wader_object()
 
        # usage stuff from vmc

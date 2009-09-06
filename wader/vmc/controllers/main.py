@@ -29,7 +29,7 @@ from wader.vmc.controllers.contacts import (AddContactController,
 from wader.vmc.views.contacts import AddContactView, SearchContactView
 
 import wader.common.consts as consts
-from wader.common.signals import SIG_SMS_COMP
+from wader.common.signals import SIG_SMS
 from wader.common.keyring import KeyringInvalidPassword
 from wader.vmc.logger import logger
 from wader.vmc.dialogs import (show_profile_window,
@@ -62,6 +62,8 @@ from wader.vmc.views.pin import (PinModifyView, PinEnableView,
 from wader.vmc.controllers.pin import (PinModifyController, PinEnableController,
                                        AskPUKController, AskPINController)
 
+from wader.vmc.models.preferences import PreferencesModel
+from wader.vmc.controllers.preferences import PreferencesController
 
 def get_fake_toggle_button():
     """Returns a toggled L{gtk.ToggleToolButton}"""
@@ -247,8 +249,8 @@ class MainController(WidgetController):
             sm = self.model.device.connect_to_signal("DeviceEnabled",
                                             self.on_device_enabled_cb)
             self.signal_matches.append(sm)
-            # connect to SIG_SMS_COMP and display SMS
-            sm = self.model.device.connect_to_signal(SIG_SMS_COMP,
+            # connect to SIG_SMS and display SMS
+            sm = self.model.device.connect_to_signal(SIG_SMS,
                                                 self.on_sms_received_cb)
             self.signal_matches.append(sm)
         else:
@@ -361,10 +363,9 @@ class MainController(WidgetController):
 #            binary = config.get('preferences', 'mail')
 #            getProcessOutput(binary, ['REPLACE@ME.COM'], os.environ)
 
-    def on_sms_received_cb(self, index, complete):
+    def on_sms_received_cb(self, index):
         """
-        Executed whenever a complete SMS is received, may be single or
-        fully reassembled multipart message
+        Executed whenever a new SMS is received
 
         Will read, populate the treeview and notify the user
         """
@@ -644,9 +645,11 @@ The csv file that you have tried to import has an invalid format.""")
 
     def on_preferences_menu_item_activate(self, widget):
         print "on_preferences_menu_item_activate"
-        about = show_about_dialog()
-        about.run()
-        about.destroy()
+        
+        model = PreferencesModel(self.model.device)
+        ctrl = PreferencesController(model, self)
+        view = PreferencesView(ctrl, self.model.get_device())
+        
 
 
 
