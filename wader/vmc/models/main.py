@@ -377,6 +377,18 @@ class MainModel(Model):
                             reply_handler=lambda *args: cb(),
                             error_handler=self._send_puk_eb)
 
+    def pin_is_enabled(self, cb=None):
+        logger.info("Checking if PIN request is enabled")
+        if cb:
+            self.device.Get(CRD_INTFACE, 'PinEnabled',
+                            dbus_interface=dbus.PROPERTIES_IFACE,
+                            reply_handler=cb,
+                            error_handler=logger.warn)
+            return
+        else:
+            return self.device.Get(CRD_INTFACE, 'PinEnabled',
+                                  dbus_interface=dbus.PROPERTIES_IFACE)
+
     def check_transfer_limit(self):
         warn_limit = self.conf.get('statistics', 'warn_limit', True)
         if warn_limit:

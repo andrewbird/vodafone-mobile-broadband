@@ -391,8 +391,16 @@ class MainController(WidgetController):
                              stock=gtk.STOCK_INFO)
         n.show()
 
+    def on_is_pin_enabled_cb(self, enabled):
+        self.view['change_pin1'].set_sensitive(enabled)
+
+        checkmenuitem = self.view['request_pin1']
+        if checkmenuitem.get_active() != enabled:
+            checkmenuitem.set_active(enabled)
+
     def on_device_enabled_cb(self, udi):
         self._fill_treeviews()
+        self.model.pin_is_enabled(self.on_is_pin_enabled_cb)
 #        self.view['sms_menuitem'].set_sensitive(True)
 #        self.view['preferences_menu_item'].set_sensitive(True)
 

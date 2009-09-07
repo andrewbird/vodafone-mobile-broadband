@@ -45,5 +45,3 @@ class PinModel(BaseWrapperModel):
         else:
             return True
 
-    def pin_is_enabled(self):
-        return True
