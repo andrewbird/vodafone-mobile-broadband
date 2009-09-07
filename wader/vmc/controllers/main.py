@@ -29,7 +29,7 @@ from wader.vmc.controllers.contacts import (AddContactController,
 from wader.vmc.views.contacts import AddContactView, SearchContactView
 
 import wader.common.consts as consts
-from wader.common.signals import SIG_SMS
+from wader.common.signals import SIG_SMS_COMP
 from wader.common.keyring import KeyringInvalidPassword
 from wader.vmc.logger import logger
 from wader.vmc.dialogs import (show_profile_window,
@@ -249,8 +249,8 @@ class MainController(WidgetController):
             sm = self.model.device.connect_to_signal("DeviceEnabled",
                                             self.on_device_enabled_cb)
             self.signal_matches.append(sm)
-            # connect to SIG_SMS and display SMS
-            sm = self.model.device.connect_to_signal(SIG_SMS,
+            # connect to SIG_SMS_COMP and display SMS
+            sm = self.model.device.connect_to_signal(SIG_SMS_COMP,
                                                 self.on_sms_received_cb)
             self.signal_matches.append(sm)
         else:
@@ -363,9 +363,10 @@ class MainController(WidgetController):
 #            binary = config.get('preferences', 'mail')
 #            getProcessOutput(binary, ['REPLACE@ME.COM'], os.environ)
 
-    def on_sms_received_cb(self, index):
+    def on_sms_received_cb(self, index, complete):
         """
-        Executed whenever a new SMS is received
+        Executed whenever a complete SMS is received, may be single or
+        fully reassembled multipart message
 
         Will read, populate the treeview and notify the user
         """
