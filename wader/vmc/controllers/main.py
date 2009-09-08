@@ -56,7 +56,6 @@ from wader.vmc.models.sms import NewSmsModel
 from wader.vmc.views.sms import NewSmsView, ForwardSmsView
 from wader.vmc.controllers.sms import NewSmsController, ForwardSmsController
 
-from wader.vmc.models.pin import PinModel
 from wader.vmc.views.pin import (PinModifyView, PinEnableView,
                                  AskPUKView, AskPINView)
 from wader.vmc.controllers.pin import (PinModifyController, PinEnableController,
@@ -402,8 +401,8 @@ class MainController(WidgetController):
 
     def on_device_enabled_cb(self, udi):
         self._fill_treeviews()
-        self.model.pin_is_enabled(self.on_is_pin_enabled_cb)
-#        self.view['sms_menuitem'].set_sensitive(True)
+        self.model.pin_is_enabled(self.on_is_pin_enabled_cb,
+                                  lambda *args: True)
 #        self.view['preferences_menu_item'].set_sensitive(True)
 
     def _on_connect_cb(self, dev_path):
@@ -745,28 +744,39 @@ The csv file that you have tried to import has an invalid format.""")
 #            self.quit_application()
 
     def on_change_pin1_activate(self, widget):
-        model = PinModel(self.model.device)
-        ctrl = PinModifyController(model)
+        ctrl = PinModifyController(self.model)
         view = PinModifyView(ctrl)
         view.show()
 
     def on_request_pin1_activate(self, checkmenuitem):
-        pass
+        def is_pin_enabled_cb(curval):
+            reqval = checkmenuitem.get_active()
+            print "request = %d, current = %d" % (reqval, curval)
+            if reqval == curval:
+                return
+            else:
+                def pin_enable_cb(enable):
+                    self.view['change_pin1'].set_sensitive(enable)
 
-#        def callback(enabled):
-#            if enabled:
-#                self.view['change_pin1'].set_sensitive(True)
-#                self.view['request_pin1'].set_active(True)
-#            else:
-#                self.view['change_pin1'].set_sensitive(False)
-#                self.view['request_pin1'].set_active(False)
-#
-#        model = PinModel(self.model.device)
-#        ctrl = PinEnableController(model,
-#                                   checkmenuitem.get_active(),
-#                                   callback)
-#        view = PinEnableView(ctrl)
-#        view.show()
+                def pin_enable_eb(enable):
+                    self.view['change_pin1'].set_sensitive(not enable)
+                    # Toggle checkmenuitem back, note this will cause it to
+                    # activate again, but our is_pin_enabled check will
+                    # prevent a loop
+                    self.view['request_pin1'].set_active(not enable)
+
+                ctrl = PinEnableController(self.model,
+                           reqval,
+                           pin_enable_cb,
+                           pin_enable_eb)
+                view = PinEnableView(ctrl)
+                view.show()
+
+        def is_pin_enabled_eb(e):
+            pass
+
+        self.model.pin_is_enabled(is_pin_enabled_cb,
+                                  is_pin_enabled_eb)
 
     def on_new_profile_menuitem_activate(self, widget):
         self.ask_for_new_profile()

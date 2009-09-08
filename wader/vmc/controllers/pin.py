@@ -98,10 +98,12 @@ class PinModifyController(WidgetController):
         We no longer have to check for any error other than bad passwd,
         since we are now validating the form before allowing submission
         """
-        oldpin = self.view['pin_modify_current_pin_entry'].get_text()
-        newpin = self.view['pin_modify_new_pin_entry'].get_text()
+        def pin_modify_cb():
+            self.hide_widgets()
+            self.model.unregister_observer(self)
+            self.view.hide()
 
-        if not self.model.change_pin(oldpin, newpin):
+        def pin_modify_eb():
             title = _("Incorrect PIN")
             details = _("""
 <small>The PIN you've just entered is
@@ -111,9 +113,14 @@ for the PUK code</small>
 """)
             show_warning_dialog(title, details)
 
-        self.hide_widgets()
-        self.model.unregister_observer(self)
-        self.view.hide()
+            self.hide_widgets()
+            self.model.unregister_observer(self)
+            self.view.hide()
+
+        oldpin = self.view['pin_modify_current_pin_entry'].get_text()
+        newpin = self.view['pin_modify_new_pin_entry'].get_text()
+
+        self.model.change_pin(oldpin, newpin, pin_modify_cb, pin_modify_eb)
 
     def on_pin_modify_quit_button_clicked(self, widget):
         self.model.unregister_observer(self)
@@ -123,11 +130,12 @@ for the PUK code</small>
 class PinEnableController(WidgetController):
     """Controller for the pin Enable dialog"""
 
-    def __init__(self, model, enable, callback):
+    def __init__(self, model, enable, callback, errback):
         super(PinEnableController, self).__init__(model)
-        self.pin_activate_id = -1
         self.enable = enable
         self.callback = callback
+        self.errback = errback
+        self.pin_activate_id = -1
 
     def register_view(self, view):
         super(PinEnableController, self).register_view(view)
@@ -167,23 +175,13 @@ class PinEnableController(WidgetController):
 
     def on_pin_enable_ok_button_clicked(self, widget):
 
-# XXX: This needs reworking once we have a dbus interface
-#      to find out the current PIN enabled status. For now
-#      don't call it as it's absolute rubbish
-        return
-
-        if self.model.pin_is_enabled() == self.enable:
-            # nothing to do
-            print "current state is as requested"
+        def enable_pin_cb(args):
             self.callback(self.enable)
             self.hide_widgets()
             self.model.unregister_observer(self)
             self.view.hide()
-            return
 
-        pin = self.view['pin_entry'].get_text()
-
-        if not self.model.enable_pin(self.enable, pin):
+        def enable_pin_eb(e):
             title = _("Incorrect PIN")
             details = _("""
 <small>The PIN you've just entered is
@@ -192,16 +190,16 @@ three failed PINs you'll be asked
 for the PUK code</small>
 """)
             show_warning_dialog(title, details)
-            self.callback(not self.enable)
-        else:
-            self.callback(self.enable)
+            self.errback(self.enable)
+            self.hide_widgets()
+            self.model.unregister_observer(self)
+            self.view.hide()
 
-        self.hide_widgets()
-        self.model.unregister_observer(self)
-        self.view.hide()
+        pin = self.view['pin_entry'].get_text()
+        self.model.enable_pin(self.enable, pin, enable_pin_cb, enable_pin_eb)
 
     def on_pin_enable_cancel_button_clicked(self, widget):
-        self.callback(not self.enable)
+        self.errback(self.enable)
         self.hide_widgets()
         self.model.unregister_observer(self)
         self.view.hide()

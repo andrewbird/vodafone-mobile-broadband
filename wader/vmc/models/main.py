@@ -48,6 +48,13 @@ REGISTER_TIMEOUT = 3 * 60 # 3m
 
 ONE_MB = 2**20
 
+if dbus.version >= (0, 83, 0):
+    def get_dbus_error(e):
+        return e.get_dbus_name()
+else:
+    def get_dbus_error(e):
+        return e.message
+
 class MainModel(Model):
 
     __properties__ = {
@@ -377,17 +384,67 @@ class MainModel(Model):
                             reply_handler=lambda *args: cb(),
                             error_handler=self._send_puk_eb)
 
-    def pin_is_enabled(self, cb=None):
+    def pin_is_enabled(self, cb=None, eb=None):
         logger.info("Checking if PIN request is enabled")
-        if cb:
-            self.device.Get(CRD_INTFACE, 'PinEnabled',
-                            dbus_interface=dbus.PROPERTIES_IFACE,
-                            reply_handler=cb,
-                            error_handler=logger.warn)
-            return
-        else:
-            return self.device.Get(CRD_INTFACE, 'PinEnabled',
-                                  dbus_interface=dbus.PROPERTIES_IFACE)
+
+        def is_enabled_cb(result):
+            if cb:
+                cb(result)
+
+        def is_enabled_eb(e):
+            logger.warn(e)
+            if eb:
+                eb(e)
+
+        self.device.Get(CRD_INTFACE, 'PinEnabled',
+                        dbus_interface=dbus.PROPERTIES_IFACE,
+                        reply_handler=is_enabled_cb,
+                        error_handler=is_enabled_eb)
+
+    def enable_pin(self, enable, pin, cb=None, eb=None):
+        s = "Enabling" if enable else "Disabling"
+        logger.info("%s PIN request" % s)
+
+        def enable_pin_cb():
+            if cb:
+                cb(enable)
+
+        def enable_pin_eb(e):
+            logger.error("EnablePin failed %s" % get_error_msg(e))
+            if eb:
+                eb(enable)
+
+            if 'SimPukRequired' in get_dbus_error(e):
+                self.puk_required = True
+
+            if 'SimPuk2Required' in get_dbus_error(e):
+                self.puk2_required = True
+
+        self.device.EnablePin(pin, enable, dbus_interface=CRD_INTFACE,
+                                           reply_handler=enable_pin_cb,
+                                           error_handler=enable_pin_eb)
+
+    def change_pin(self, oldpin, newpin, cb=None, eb=None):
+        logger.info("Change PIN request")
+
+        def change_pin_cb():
+            if cb:
+                cb()
+
+        def change_pin_eb(e):
+            logger.error("ChangePin failed %s" % get_error_msg(e))
+            if eb:
+                eb()
+
+            if 'SimPukRequired' in get_dbus_error(e):
+                self.puk_required = True
+
+            if 'SimPuk2Required' in get_dbus_error(e):
+                self.puk2_required = True
+
+        self.device.ChangePin(oldpin, newpin, dbus_interface=CRD_INTFACE,
+                                              reply_handler=change_pin_cb,
+                                              error_handler=change_pin_eb)
 
     def check_transfer_limit(self):
         warn_limit = self.conf.get('statistics', 'warn_limit', True)
