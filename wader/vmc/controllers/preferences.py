@@ -23,12 +23,12 @@ __version__ = "$Rev: 1172 $"
 from wader.common.config import config
 from wader.vmc.translate import _
 from wader.common.dialers import wvdial
-from wader.vmc.persistent import net_manager
-from wader.vmc import Controller
+#from wader.vmc.persistent import net_manager
+from gtkmvc import Controller
 import wader.vmc.dialogs as dialogs
 from wader.vmc.models.preferences import VALIDITY_DICT, SMSCItem
 from wader.vmc.tray import tray_available
-from vmc.contrib.ValidatedEntry import ValidatedEntry, v_phone
+from wader.vmc.contrib.ValidatedEntry import ValidatedEntry, v_phone
 
 class PreferencesController(Controller):
     """Controller for preferences"""

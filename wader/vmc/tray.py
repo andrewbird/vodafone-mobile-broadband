@@ -25,7 +25,7 @@ import gtk
 
 from twisted.internet import reactor
 
-from wader.common import consts
+from wader.vmc import consts
 
 IMG_PATH = os.path.join(consts.IMAGES_DIR, 'VF_logo.png')
 
