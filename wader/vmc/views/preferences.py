@@ -16,39 +16,36 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 """View for the preferences window"""
-__version__ = "$Rev: 1172 $"
 
 import os.path
 
 import gobject
 import gtk
-
 from gtkmvc import View
-# import wader.common.consts as consts
-from wader.vmc import consts
-from wader.common.config import config
-# from wader.common.dialers import AUTH_OPTS_DICT_REV
-# from wader.common.dialers import get_profiles_list
-from wader.vmc.translate import _
 
+from wader.common.config import config
+
+from wader.vmc.consts import GLADE_DIR
+from wader.vmc.translate import _
 from wader.vmc.models.preferences import SMSCListStoreModel
 
 class PreferencesView(View):
     """View for the preferences window"""
 
-    GLADE_FILE = os.path.join(consts.GLADE_DIR, "preferences.glade")
+    GLADE_FILE = os.path.join(GLADE_DIR, "preferences.glade")
 
-    def __init__(self, ctrl, device):
+    def __init__(self, ctrl):
         super(PreferencesView, self).__init__(ctrl, self.GLADE_FILE,
-            'preferences_window', register=False, domain="VMC")
-        self.device = device
+            'preferences_window', register=False)
         self.ctrl = ctrl
         ctrl.register_view(self)
         self.setup_view()
 
     def setup_view(self):
         # first page of the notebook
-        profile = config.current_profile.get('connection', 'dialer_profile')
+# XXX: hack for now - AJB
+#        profile = config.current_profile.get('connection', 'dialer_profile')
+        profile = 'default'
 
         if profile == 'default':
             self['vbox2'].set_sensitive(False)
@@ -56,21 +53,20 @@ class PreferencesView(View):
             self['custom_profile_checkbutton'].set_active(True)
 
         # third page of the notebook
-        exit_without_confirmation = config.getboolean('preferences',
-                                                'exit_without_confirmation')
+        exit_without_confirmation = True # config.getboolean('preferences', 'exit_without_confirmation')
         chkbt = self['exit_without_confirmation_checkbutton']
         chkbt.set_active(exit_without_confirmation)
 
-        show_icon = config.getboolean('preferences', 'close_minimizes')
+        show_icon = True # config.getboolean('preferences', 'close_minimizes')
         self['show_icon_checkbutton'].set_active(show_icon)
 
-        minimize_to_tray = config.getboolean('preferences', 'close_minimizes')
+        minimize_to_tray = True # config.getboolean('preferences', 'close_minimizes')
         if show_icon:
             self['close_window_checkbutton'].set_active(minimize_to_tray)
         else:
             self['close_window_checkbutton'].set_sensitive(False)
 
-        manage_keyring = config.getboolean('preferences', 'manage_keyring')
+        manage_keyring = True # config.getboolean('preferences', 'manage_keyring')
         self['gnomekeyring_checkbutton'].set_active(manage_keyring)
 
         #setup dialer_combobox
@@ -81,28 +77,25 @@ class PreferencesView(View):
 
         self.setup_usage_options()
 
-    # second notebook page
+    # second notebook page # XXX: maybe use this tab for SMS settings
     def setup_dialer_combobox(self):
         model = self.get_dialer_combobox_model()
         self['dialer_profiles_combobox'].set_model(model)
 
-        profile = config.current_profile.get('connection', 'dialer_profile')
-        self.select_dialer_combobox_option(model, profile)
+        # XXX: moved to profiles dialog
+#        profile = config.current_profile.get('connection', 'dialer_profile')
+#        self.select_dialer_combobox_option(model, profile)
 
     def get_dialer_combobox_model(self):
         print "get_dialer_combobox_model"
+        # XXX: moved to profiles dialog
         model = gtk.ListStore(gobject.TYPE_STRING)
-#        for profile in get_profiles_list():
-#            model.append([profile])
 
         return model
 
     def select_dialer_combobox_option(self, model, profile):
         print "select_dialer_combobox_option"
-#        for i, row in enumerate(model):
-#            if row[0].lower() == AUTH_OPTS_DICT_REV[profile].lower():
-#                self['dialer_profiles_combobox'].set_active(i)
-#                break
+        # XXX: moved to profiles dialog
 
     # third page
     def setup_browser_combobox(self):
@@ -111,7 +104,7 @@ class PreferencesView(View):
         custom_iter = model.append([_('Custom')])
         self['browser_combobox'].set_model(model)
 
-        binary = config.get('preferences', 'browser')
+        binary = 'firefox' # config.get('preferences', 'browser')
         _iter = (binary == 'xdg-open') and xdg_iter or custom_iter
         self['browser_combobox'].set_active_iter(_iter)
 
@@ -124,7 +117,7 @@ class PreferencesView(View):
         custom_iter = model.append([_('Custom')])
         self['mail_combobox'].set_model(model)
 
-        binary = config.get('preferences', 'mail')
+        binary = 'evolution' # config.get('preferences', 'mail')
         _iter = (binary == 'xdg-email') and xdg_iter or custom_iter
         self['mail_combobox'].set_active_iter(_iter)
 
@@ -134,10 +127,9 @@ class PreferencesView(View):
     # fourth page
     def setup_usage_options(self):
         #XXX: From Current Profile if any?
-        max_traffic = config.getint('preferences', 'max_traffic')
-        threshold = config.getint('preferences', 'traffic_threshold')
-        usage_notification = \
-                    config.getboolean('preferences', 'usage_notification')
+        max_traffic = 1 # config.getint('preferences', 'max_traffic')
+        threshold = 1 # config.getint('preferences', 'traffic_threshold')
+        usage_notification = True # config.getboolean('preferences', 'usage_notification')
         self['maximum_traffic_entry'].set_value(max_traffic)
         self['threshold_entry'].set_value(threshold)
         self['usage_notification_check'].set_active(usage_notification)
@@ -146,12 +138,11 @@ class PreferencesView(View):
 
 class SMSPreferencesView(View):
     """View for the SMS preferences window"""
-    GLADE_FILE = os.path.join(consts.GLADE_DIR,
-                              "sms-preferences.glade")
+    GLADE_FILE = os.path.join(GLADE_DIR, "sms-preferences.glade")
 
     def __init__(self, ctrl, parent_ctrl):
         super(SMSPreferencesView, self).__init__(ctrl, self.GLADE_FILE,
-            'sms_preferences', register=False, domain="VMC")
+            'sms_preferences', register=False)
         self.parent_ctrl = parent_ctrl
         self.setup_view(ctrl)
         ctrl.register_view(self)

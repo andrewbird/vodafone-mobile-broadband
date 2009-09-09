@@ -25,7 +25,8 @@ import gtk
 import gobject
 from gtkmvc import View
 
-from wader.vmc.consts import GLADE_DIR, BAND_MAP, MODE_MAP
+from wader.vmc.consts import (GLADE_DIR, VM_NETWORK_AUTH_ANY,
+                              BAND_MAP, MODE_MAP, AUTH_MAP)
 from wader.common.consts import MM_NETWORK_BAND_ANY, MM_NETWORK_MODE_ANY
 
 class ProfileView(View):
@@ -37,8 +38,8 @@ class ProfileView(View):
                                           'new_profile_window')
 
         self._init_combobox(BAND_MAP, 'band', MM_NETWORK_BAND_ANY, self.set_band)
-        self._init_combobox(MODE_MAP, 'connection', MM_NETWORK_MODE_ANY,
-                self.set_network_mode)
+        self._init_combobox(MODE_MAP, 'connection', MM_NETWORK_MODE_ANY, self.set_pref)
+        self._init_combobox(AUTH_MAP, 'authentication', VM_NETWORK_AUTH_ANY, self.set_auth)
 
         ctrl.setup_view(self)
         self['static_dns_check'].connect('toggled', self.on_static_dns_toggled)
@@ -61,12 +62,20 @@ class ProfileView(View):
                     self['band_combobox'].set_active(i)
                     break
 
-    def set_network_mode(self, mode):
-        if mode:
+    def set_pref(self, pref):
+        if pref:
             model = self['connection_combobox'].get_model()
             for i, row in enumerate(model):
-                if row[1] == mode:
+                if row[1] == pref:
                     self['connection_combobox'].set_active(i)
+                    break
+
+    def set_auth(self, auth):
+        if auth:
+            model = self['authentication_combobox'].get_model()
+            for i, row in enumerate(model):
+                if row[1] == auth:
+                    self['authentication_combobox'].set_active(i)
                     break
 
     def on_static_dns_toggled(self, widget):

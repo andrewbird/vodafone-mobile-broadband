@@ -161,7 +161,7 @@ class MainController(WidgetController):
         view.show()
 
     def ask_for_new_profile(self):
-        model = self.model.preferences_model
+        model = self.model.profiles_model
         if self.model.device:
             self.model.get_imsi(lambda imsi:
                 show_profile_window(model, imsi=imsi))
@@ -232,7 +232,7 @@ class MainController(WidgetController):
     def property_operator_value_change(self, model, old, new):
         if new == _('Unknown Network'):
             logger.error("Unknown operator received, using profile name...")
-            profiles_model = self.model.preferences_model.profiles_model
+            profiles_model = self.model.profiles_model
             try:
                 profile = profiles_model.get_active_profile()
             except RuntimeError:
@@ -608,7 +608,7 @@ The csv file that you have tried to import has an invalid format.""")
                     _("No device has been found. Insert one and try again."))
                 return
 
-            profiles_model = self.model.preferences_model.profiles_model
+            profiles_model = self.model.profiles_model
             if not profiles_model.has_active_profile():
                 widget.set_active(False)
                 show_warning_dialog(
@@ -658,7 +658,8 @@ The csv file that you have tried to import has an invalid format.""")
 
         model = PreferencesModel(self.model.device)
         ctrl = PreferencesController(model, self)
-        view = PreferencesView(ctrl, self.model.get_device())
+        view = PreferencesView(ctrl)
+        view.show()
 
 #        from wader.vmc.views.preferences import PreferencesView
 #        from wader.vmc.controllers.preferences import PreferencesController
@@ -784,34 +785,34 @@ The csv file that you have tried to import has an invalid format.""")
 
     def _build_profiles_menu(self):
         def load_profile(widget, profile):
-            profiles_model = self.model.preferences_model.profiles_model
+            profiles_model = self.model.profiles_model
             profiles_model.set_default_profile(profile.uuid)
 
             # refresh menu
             self.on_tools_menu_item_activate(get_fake_toggle_button())
 
         def edit_profile(widget, profile):
-            show_profile_window(self.model.preferences_model,
+            show_profile_window(self.model.profiles_model,
                                 profile=profile)
             # XXX: check out whether editing a profile should make it active
             #      currently it doesn't
             # self.on_tools_menu_item_activate(get_fake_toggle_button())
 
         def delete_profile(widget, profile):
-            profiles_model = self.model.preferences_model.profiles_model
+            profiles_model = self.model.profiles_model
             profiles_model.remove_profile(profile)
 
             # refresh menu
             self.on_tools_menu_item_activate(get_fake_toggle_button())
 
         def is_active_profile(profile):
-            profiles_model = self.model.preferences_model.profiles_model
+            profiles_model = self.model.profiles_model
 
             if not profiles_model.has_active_profile():
                 return False
             return profile.uuid == profiles_model.get_active_profile().uuid
 
-        profiles = self.model.preferences_model.get_profiles(None)
+        profiles = self.model.profiles_model.get_profiles()
 
         menu1 = gtk.Menu()
         for profile in profiles.values():

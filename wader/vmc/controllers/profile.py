@@ -18,7 +18,7 @@
 
 from wader.common.utils import convert_int_to_ip, convert_ip_to_int
 from wader.common.keyring import KeyringNoMatchError
-from wader.vmc.consts import BAND_MAP_REV, MODE_MAP_REV
+from wader.vmc.consts import BAND_MAP_REV, MODE_MAP_REV, AUTH_MAP_REV
 from wader.vmc.controllers import Controller
 from wader.vmc.dialogs import show_error_dialog
 from wader.vmc.logger import logger
@@ -36,7 +36,7 @@ class ProfileController(Controller):
     def setup_view(self, view):
         self.view['profile_name_entry'].set_text(self.model.name)
         self.view['username_entry'].set_text(self.model.username)
-        self.view.set_network_mode(self.model.network_type)
+        self.view.set_pref(self.model.network_type)
         self.view.set_band(self.model.band)
         self.view['apn_entry'].set_text(self.model.apn)
         self.view['static_dns_check'].set_active(self.model.static_dns)
@@ -73,10 +73,13 @@ class ProfileController(Controller):
 
         mode = self.view['connection_combobox'].get_active_text()
         band = self.view['band_combobox'].get_active_text()
+        auth = self.view['authentication_combobox'].get_active_text()
         if mode:
             self.model.network_type = MODE_MAP_REV[mode]
         if band:
             self.model.band = BAND_MAP_REV[band]
+        if auth:
+            self.model.auth = AUTH_MAP_REV[auth]
 
         self.model.apn = self.view['apn_entry'].get_text()
         self.model.static_dns = self.view['static_dns_check'].get_active()
@@ -105,10 +108,13 @@ class ProfileController(Controller):
         self.view['password_entry'].set_text(new)
 
     def property_network_type_value_change(self, model, old, new):
-        self.view.set_network_mode(new)
+        self.view.set_pref(new)
 
     def property_band_value_change(self, model, old, new):
         self.view.set_band(new)
+
+    def property_auth_value_change(self, model, old, new):
+        self.view.set_auth(new)
 
     def property_apn_value_change(self, model, old, new):
         self.view['apn_entry'].set_text(new)

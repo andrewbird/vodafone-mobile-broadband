@@ -112,3 +112,24 @@ MODE_MAP = {
 
 MODE_MAP_REV = revert_dict(MODE_MAP)
 
+# We don't have any values for authentication methods
+# in common.consts, so we'll have to invent them here
+# for now
+VM_NETWORK_AUTH_ANY      = 0xff
+VM_NETWORK_AUTH_PAP      = 0x01
+VM_NETWORK_AUTH_EAP      = 0x02
+VM_NETWORK_AUTH_CHAP     = 0x04
+VM_NETWORK_AUTH_MSCHAP   = 0x08
+VM_NETWORK_AUTH_MSCHAPv2 = 0x10
+
+AUTH_MAP = {
+    VM_NETWORK_AUTH_ANY      : _('Default'),
+    VM_NETWORK_AUTH_PAP      : _('PAP'),
+    VM_NETWORK_AUTH_EAP      : _('EAP'),
+    VM_NETWORK_AUTH_CHAP     : _('CHAP'),
+    VM_NETWORK_AUTH_MSCHAP   : _('MSCHAP'),
+    VM_NETWORK_AUTH_MSCHAPv2 : _('MSCHAPv2'),
+}
+
+AUTH_MAP_REV = revert_dict(AUTH_MAP)
+

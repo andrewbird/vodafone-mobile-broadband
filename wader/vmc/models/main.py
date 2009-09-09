@@ -25,7 +25,7 @@ import datetime
 
 from wader.vmc.logger import logger
 from wader.vmc.dialogs import show_error_dialog
-from wader.vmc.models.profile import ProfileModel
+from wader.vmc.models.profile import ProfilesModel, ProfileModel
 from wader.vmc.models.preferences import PreferencesModel
 from wader.vmc.translate import _
 from wader.vmc.utils import dbus_error_is, get_error_msg
@@ -91,6 +91,7 @@ class MainModel(Model):
         self.ctrl = None
         self.dialer_manager = None
         self.preferences_model = PreferencesModel(lambda: self.device)
+        self.profiles_model = ProfilesModel(lambda: self.device)
         self._init_wader_object()
 
        # usage stuff from vmc
@@ -285,10 +286,9 @@ class MainModel(Model):
             try:
                 profile = manager.get_profile_by_uuid(uuid)
                 if profile:
-                    profiles_model = self.preferences_model.profiles_model
-                    model = ProfileModel(profiles_model, profile=profile,
+                    model = ProfileModel(self.profiles_model, profile=profile,
                                          device_callable=lambda: self.device)
-                    profiles_model.add_profile(model)
+                    self.profiles_model.add_profile(model)
                     self.profile = model
 
                 return

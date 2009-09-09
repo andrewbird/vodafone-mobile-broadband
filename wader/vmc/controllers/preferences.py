@@ -92,14 +92,14 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
                     return True
                 else:
                     # attach and show systray icon
-                    self.parent_ctrl._setup_trayicon(ignoreconf=True)
+#                    self.parent_ctrl._setup_trayicon(ignoreconf=True)
                     # if there's an available tray, enable this chkbtn
                     close_win_chkbtn = self.view['close_window_checkbutton']
                     close_win_chkbtn.set_sensitive(True)
 
             else:
                 # detach icon from systray
-                self.parent_ctrl._detach_trayicon()
+#                self.parent_ctrl._detach_trayicon()
                 # close_window_checkbutton depends on this checkbutton
                 # being active, thats why we set insensitive the chkbtn
                 self.view['close_window_checkbutton'].set_sensitive(False)

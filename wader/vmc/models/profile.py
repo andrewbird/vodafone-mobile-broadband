@@ -18,7 +18,8 @@
 
 from uuid import uuid1
 import dbus
-from gtkmvc import Model
+import gobject
+from gtkmvc import Model, ListStoreModel
 
 from wader.common.consts import (NM_PASSWD, WADER_DIALUP_INTFACE,
                                  WADER_PROFILES_INTFACE, NET_INTFACE,
@@ -26,11 +27,112 @@ from wader.common.consts import (NM_PASSWD, WADER_DIALUP_INTFACE,
 from wader.common.utils import (convert_int_to_uint as convert,
                                 patch_list_signature)
 from wader.common.exceptions import ProfileNotFoundError
+import wader.common.exceptions as ex
+from wader.vmc.config import config
 from wader.vmc.logger import logger
 from wader.vmc.profiles import manager
 from wader.vmc.translate import _
 
+from wader.vmc.consts import (VM_NETWORK_AUTH_ANY,
+                              VM_NETWORK_AUTH_PAP,
+                              VM_NETWORK_AUTH_CHAP)
+
 CONNECTED, DISCONNECTED = range(2)
+
+
+class ProfilesModel(ListStoreModel):
+
+    def __init__(self, device_callable=None):
+        super(ProfilesModel, self).__init__(gobject.TYPE_BOOLEAN,
+                                            gobject.TYPE_PYOBJECT)
+        self.device_callable = device_callable
+        self.active_iter = None
+        self.conf = config
+        self.manager = manager
+        self.populate_profiles()
+
+    def has_active_profile(self):
+        return self.active_iter is not None
+
+    def get_active_profile(self):
+        if self.active_iter is None:
+            raise RuntimeError(_("No active profile"))
+
+        return self.get_value(self.active_iter, 1)
+
+    def add_profile(self, profile, default=False):
+        if not self.has_active_profile():
+            default = True
+
+        if not default:
+            # just add it, do not make it default
+            return self.append([default, profile])
+
+        # set the profile as default and set active_iter
+        self.conf.set('profile', 'uuid', profile.uuid)
+        self.active_iter = self.append([True, profile])
+        return self.active_iter
+
+    def has_profile(self, profile=None, uuid=""):
+        if profile:
+            uuid = profile.uuid
+
+        _iter = self.get_iter_first()
+        while _iter:
+            _profile = self.get_value(_iter, 1)
+
+            if _profile.uuid == uuid:
+                return _iter
+
+            _iter = self.iter_next(_iter)
+
+        return None
+
+    def remove_profile(self, profile):
+        _iter = self.has_profile(profile)
+        if not _iter:
+            uuid = profile.uuid
+            raise ProfileNotFoundError("Profile %s not found" % uuid)
+
+        if profile.uuid == self.get_value(self.active_iter, 1).uuid:
+            self.set(self.active_iter, False, 0)
+            self.active_iter = None
+
+        self.conf.set('profile', 'uuid', '')
+
+        self.remove(_iter)
+        profile.delete()
+
+    def set_default_profile(self, uuid):
+        _iter = self.has_profile(uuid=uuid)
+        assert _iter is not None, "Profile %s does not exist" % uuid
+        if self.active_iter and self.iter_is_valid(self.active_iter):
+            self.set(self.active_iter, 0, False)
+
+        self.set(_iter, 0, True)
+        self.active_iter = _iter
+        self.conf.set('profile', 'uuid', self.get_value(_iter, 1).uuid)
+
+    def populate_profiles(self):
+        uuid = self.conf.get('profile', 'uuid')
+
+        for _uuid, profile in self.get_profiles().iteritems():
+            if not self.has_profile(uuid=_uuid):
+                default = True if uuid and uuid == _uuid else False
+                self.add_profile(profile, default)
+
+    def get_profiles(self):
+        ret = {}
+        for profile in self.manager.get_profiles():
+            settings = profile.get_settings()
+            if 'ppp' in settings:
+                uuid = settings['connection']['uuid']
+                ret[uuid] = ProfileModel(self, profile=profile,
+                                         device_callable=self.device_callable)
+        return ret
+
+    def profile_added(self, profile):
+        self.add_profile(profile)
 
 class ProfileModel(Model):
 
@@ -40,6 +142,7 @@ class ProfileModel(Model):
         'password' : "",
         'band' : MM_NETWORK_BAND_ANY,
         'network_type' : MM_NETWORK_MODE_ANY,
+        'auth' : VM_NETWORK_AUTH_ANY,
         'autoconnect' : False,
         'apn' : "",
         'uuid' : "",
@@ -131,6 +234,23 @@ class ProfileModel(Model):
             if 'band' in settings['gsm']:
                 self.band = settings['gsm']['band']
 
+            if 'refuse-pap' in settings['ppp']:
+                refuse_pap = settings['ppp']['refuse-pap']
+            else:
+                refuse_pap = False
+
+            if 'refuse-chap' in settings['ppp']:
+                refuse_chap = settings['ppp']['refuse-chap']
+            else:
+                refuse_chap = False
+
+            if not refuse_pap and refuse_chap:
+                self.auth = VM_NETWORK_AUTH_PAP
+            elif not refuse_chap and refuse_pap:
+                self.auth = VM_NETWORK_AUTH_CHAP
+            else:
+                self.auth = VM_NETWORK_AUTH_ANY
+
         except KeyError, e:
             logger.error("Missing required key '%s' in %s" % (settings, e))
 
@@ -157,6 +277,16 @@ class ProfileModel(Model):
                        'name' : 'ipv4', 'routes' : [] }
         }
 
+        if self.auth == VM_NETWORK_AUTH_PAP:     # Our GUI only cares about PAP/CHAP
+            props['ppp']['refuse-pap'] = False
+            props['ppp']['refuse-chap'] = True
+        elif self.auth == VM_NETWORK_AUTH_CHAP:
+            props['ppp']['refuse-pap'] = True
+            props['ppp']['refuse-chap'] = False
+        else:
+            props['ppp']['refuse-pap'] = False   # just unset in case NM has set others
+            props['ppp']['refuse-chap'] = False
+
         if not props['ipv4']['ignore-auto-dns']:
             props['ipv4']['dns'] = []
         else:
@@ -174,7 +304,7 @@ class ProfileModel(Model):
             logger.debug("Profile modified: %s" % self.profile)
         else:
             uuid = props['connection']['uuid']
-            if self.parent_model.profiles_model.has_profile(uuid=uuid):
+            if self.parent_model.has_profile(uuid=uuid):
                 msg = _('A profile with udi "%s" exists') % uuid
                 raise RuntimeError(msg)
 
@@ -226,4 +356,5 @@ class ProfileModel(Model):
                 sm.remove()
         else:
             raise RuntimeError(_("Trying to remove an unsaved profile"))
+
 
