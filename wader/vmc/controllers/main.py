@@ -61,9 +61,10 @@ from wader.vmc.views.pin import (PinModifyView, PinEnableView,
 from wader.vmc.controllers.pin import (PinModifyController, PinEnableController,
                                        AskPUKController, AskPINController)
 
-# XXX: disable for now until imports working - AJB
-#from wader.vmc.models.preferences import PreferencesModel
-#from wader.vmc.controllers.preferences import PreferencesController
+
+from wader.vmc.models.preferences import PreferencesModel
+from wader.vmc.controllers.preferences import PreferencesController
+from wader.vmc.views.preferences import PreferencesView
 
 def get_fake_toggle_button():
     """Returns a toggled L{gtk.ToggleToolButton}"""
@@ -653,12 +654,11 @@ The csv file that you have tried to import has an invalid format.""")
             self.model.dial_path = None
 
     def on_preferences_menu_item_activate(self, widget):
-        print "on_preferences_menu_item_activate"
+        print "on_preferences_menu_item_activate -NEW menu"
 
-# XXX: disable for now until imports working - AJB
-#        model = PreferencesModel(self.model.device)
-#        ctrl = PreferencesController(model, self)
-#        view = PreferencesView(ctrl, self.model.get_device())
+        model = PreferencesModel(self.model.device)
+        ctrl = PreferencesController(model, self)
+        view = PreferencesView(ctrl, self.model.get_device())
 
 #        from wader.vmc.views.preferences import PreferencesView
 #        from wader.vmc.controllers.preferences import PreferencesController
