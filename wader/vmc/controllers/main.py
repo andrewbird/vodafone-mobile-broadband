@@ -183,10 +183,6 @@ class MainController(WidgetController):
                                 "Disconnected",
                                 dbus_interface=consts.WADER_DIALUP_INTFACE)
 
-        self.speedchanged_signal_match = self.model.bus.add_signal_receiver(
-                                self._on_speedchanged_cb,
-                                "SpeedChanged",
-                                dbus_interface=consts.NET_INTFACE)
     # properties
     def property_rssi_value_change(self, model, old, new):
         self.view.rssi_changed(new)
@@ -302,6 +298,26 @@ class MainController(WidgetController):
 #        if old != new:
 #            self.view['tx_bytes_label'].set_text(bytes_repr(new))
 #            logger.info("Bytes tx: %d", new)
+
+    def bits_to_human(self, bits):
+        f = float(bits)
+        for m in ['b/s', 'kb/s', 'mb/s', 'gb/s']:
+            if f < 1000:
+                return "%3.2f %s" % (f, m)
+            f /= 1000
+        return _("N/A")
+
+    def property_rx_rate_value_change(self, model, old, new):
+        if old != new:
+            self.view['download_statusbar'].push(1,
+                                                 self.bits_to_human(new*8))
+            logger.info("Rate rx: %d", new)
+
+    def property_tx_rate_value_change(self, model, old, new):
+        if old != new:
+            self.view['upload_statusbar'].push(1,
+                                                 self.bits_to_human(new*8))
+            logger.info("Rate tx: %d", new)
 
     def property_total_bytes_value_change(self, model, old, new):
         pass
@@ -430,10 +446,6 @@ class MainController(WidgetController):
         self.model.stop_stats_tracking()
         self.view.set_disconnected()
 
-        if self.speedchanged_signal_match:
-            self.speedchanged_signal_match.remove()
-            self.speedchanged_signal_match = None
-
         if self.apb:
             self.apb.close()
             self.apb = None
@@ -452,10 +464,6 @@ class MainController(WidgetController):
         if self.apb:
             self.apb.close()
             self.apb = None
-
-    def _on_speedchanged_cb(self, args):
-        self.view['upload_statusbar'].push(1, args[0])
-        self.view['download_statusbar'].push(1, args[1])
 
     def on_icon_activated(self, icon):
         window = self.view.get_top_widget()

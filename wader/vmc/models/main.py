@@ -76,6 +76,8 @@ class MainModel(Model):
 
         'rx_bytes': 0,
         'tx_bytes': 0,
+        'rx_rate' : 0,
+        'tx_rate' : 0,
         'total_bytes': 0,
 
         'transfer_limit_exceeded': False
@@ -86,9 +88,10 @@ class MainModel(Model):
         self.bus = dbus.SystemBus()
         self.obj = None
         self.conf = config
-        self.tracking_stats = False
         # we have to break MVC here :P
         self.ctrl = None
+        # DialStats SignalMatch
+        self.stats_sm = None
         self.dialer_manager = None
         self.preferences_model = PreferencesModel(lambda: self.device)
         self.profiles_model = ProfilesModel(lambda: self.device)
@@ -458,31 +461,31 @@ class MainModel(Model):
         else:
             self.transfer_limit_exceeded = False
 
-    def update_stats(self):
-        if self.dial_path and self.dialer_manager:
-            stats = self.dialer_manager.GetStats(self.dial_path)
-            try:
-                total = int(self.conf.get('statistics', 'total_bytes'))
-            except ValueError:
-                total = 0
+    def on_dial_stats(self, stats):
+        try:
+            total = int(self.conf.get('statistics', 'total_bytes'))
+        except ValueError:
+            total = 0
 
-            self.rx_bytes, self.tx_bytes = stats
-            self.total_bytes = total + self.rx_bytes + self.tx_bytes
-            self.check_transfer_limit()
-
-        if self.tracking_stats:
-            gobject.timeout_add(UPDATE_INTERVAL, self.update_stats)
+        self.rx_bytes, self.tx_bytes = stats[:2]
+        self.rx_rate, self.tx_rate = stats[2:]
+        self.total_bytes = total + self.rx_bytes + self.tx_bytes
+        self.check_transfer_limit()
 
     def start_stats_tracking(self):
-        self.get_dialer_manager()
-        self.tracking_stats = True
-        self.update_stats()
+        self.stats_sm = self.bus.add_signal_receiver(self.on_dial_stats,
+                                                     S.SIG_DIAL_STATS,
+                                                     MDM_INTFACE)
 
     def stop_stats_tracking(self):
+        if self.stats_sm is not None:
+            self.stats_sm.remove()
+            self.stats_sm = None
+
         self.rx_bytes = 0
         self.tx_bytes = 0
+        self.rx_rate = self.tx_rate = 0
         self.conf.set('statistics', 'total_bytes', self.total_bytes)
-        self.tracking_stats = False
 
     #----------------------------------------------#
     # USAGE STATS MODEL                            #
