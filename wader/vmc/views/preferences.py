@@ -49,6 +49,7 @@ class PreferencesView(View):
 
         if profile == 'default':
             self['vbox2'].set_sensitive(False)
+            self['vbox14'].set_sensitive(False)
         else:
             self['custom_profile_checkbutton'].set_active(True)
 
@@ -71,11 +72,18 @@ class PreferencesView(View):
 
         #setup dialer_combobox
         self.setup_dialer_combobox()
+        self.setup_sms_combobox()
 
         self.setup_browser_combobox()
         self.setup_mail_combobox()
 
         self.setup_usage_options()
+
+    # first notbook page
+    def setup_sms_combobox(self):
+        model = self.get_sms_combobox_model()
+        self['sms_profiles_combobox'].set_model(model)
+        
 
     # second notebook page # XXX: maybe use this tab for SMS settings
     def setup_dialer_combobox(self):
@@ -91,6 +99,11 @@ class PreferencesView(View):
         # XXX: moved to profiles dialog
         model = gtk.ListStore(gobject.TYPE_STRING)
 
+        return model
+        
+    def get_sms_combobox_model(self):
+        print "get_sms_combobox_model"
+        model = gtk.ListStore(gobject.TYPE_STRING)
         return model
 
     def select_dialer_combobox_option(self, model, profile):
