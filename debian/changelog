@@ -1,6 +1,6 @@
-wader-vmc (0.3.6-1) jaunty; urgency=low
+wader-vmc (2.99.01-1) jaunty; urgency=low
 
   * Initial import of vmc
 
- -- Andrew Bird <ajb@spheresystems.co.uk>  Thu, 20 Aug 2009 15:50:31 +0200
+ -- Andrew Bird <ajb@spheresystems.co.uk>  Fri, 11 Sep 2009 12:47:31 +0100
 
