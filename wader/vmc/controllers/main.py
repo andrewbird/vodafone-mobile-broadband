@@ -1105,7 +1105,7 @@ The csv file that you have tried to import has an invalid format.""")
         text = model[col][1]
         _buffer = self.view['smsbody_textview'].get_buffer()
         _buffer.set_text(text)
-        self.view['vbox17'].show()
+        self.view['sms_message_pane'].show()
 
     def on_main_notebook_switch_page(self, notebook, ptr, pagenum):
         """
@@ -1121,7 +1121,7 @@ The csv file that you have tried to import has an invalid format.""")
             self.view['contacts_menubar'].hide()
             self.view['sms_menubar'].show()
 
-        self.view['vbox17'].hide()
+        self.view['sms_message_pane'].hide()
 
     #----------------------------------------------#
     # MISC FUNCTIONALITY                           #
@@ -1243,10 +1243,10 @@ The csv file that you have tried to import has an invalid format.""")
             _obj = self.get_obj_from_selected_row()
             if _obj:
                 self.view['smsbody_textview'].get_buffer().set_text(_obj.text)
-                self.view['vbox17'].show()
+                self.view['sms_message_pane'].show()
             else:
                 self.view['smsbody_textview'].get_buffer().set_text('')
-                self.view['vbox17'].hide()
+                self.view['sms_message_pane'].hide()
 
     def _send_sms_to_contact(self, menuitem, treeview):
         selection = treeview.get_selection()

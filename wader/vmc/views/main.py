@@ -87,6 +87,7 @@ class MainView(View):
         self['usage_frame'].hide()       # XXX: AJB - for some reason these items hidden before
         self['support_notebook'].hide()  # in ctrl.register_view() are reshown by parent.show()
         self['contacts_menubar'].hide()
+        self['sms_message_pane'].hide()
 
         return ret
 
@@ -116,7 +117,7 @@ class MainView(View):
         # usage widgets without messing up the initial view
         self.get_top_widget().show_all()
         self.get_top_widget().hide()
-        self['vbox17'].hide()
+        self['sms_message_pane'].hide()
         self['contacts_menubar'].hide()
 
     def set_usage_value(self, widget, value):

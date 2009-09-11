@@ -1065,7 +1065,7 @@
 		  </child>
 
 		  <child>
-		    <widget class="GtkVBox" id="vbox17">
+		    <widget class="GtkVBox" id="sms_message_pane">
 		      <property name="homogeneous">False</property>
 		      <property name="spacing">0</property>
 
