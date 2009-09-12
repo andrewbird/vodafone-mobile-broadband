@@ -2318,39 +2318,47 @@
 	      <property name="enable_popup">False</property>
 
 	      <child>
-		<widget class="GtkScrolledWindow" id="support_notebook_scrolled_window">
+		<widget class="GtkFrame" id="support_notebook_support_help_frame">
 		  <property name="visible">True</property>
-		  <property name="can_focus">True</property>
-		  <property name="hscrollbar_policy">GTK_POLICY_ALWAYS</property>
-		  <property name="vscrollbar_policy">GTK_POLICY_ALWAYS</property>
-		  <property name="shadow_type">GTK_SHADOW_IN</property>
-		  <property name="window_placement">GTK_CORNER_TOP_LEFT</property>
+		  <property name="label_xalign">0</property>
+		  <property name="label_yalign">0.5</property>
+		  <property name="shadow_type">GTK_SHADOW_NONE</property>
 
-		  <child>
-		    <widget class="GtkTextView" id="support_notebook_textview">
-		      <property name="border_width">5</property>
-		      <property name="height_request">235</property>
+	          <child>
+		    <widget class="GtkScrolledWindow" id="support_notebook_scrolled_window">
 		      <property name="visible">True</property>
 		      <property name="can_focus">True</property>
-		      <property name="editable">False</property>
-		      <property name="overwrite">False</property>
-		      <property name="accepts_tab">True</property>
-		      <property name="justification">GTK_JUSTIFY_LEFT</property>
-		      <property name="wrap_mode">GTK_WRAP_WORD</property>
-		      <property name="cursor_visible">True</property>
-		      <property name="pixels_above_lines">0</property>
-		      <property name="pixels_below_lines">0</property>
-		      <property name="pixels_inside_wrap">0</property>
-		      <property name="left_margin">0</property>
-		      <property name="right_margin">0</property>
-		      <property name="indent">0</property>
-		      <property name="text" translatable="yes">In most cases you can find the answer to your questions about the program in the help menu.
+		      <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+		      <property name="vscrollbar_policy">GTK_POLICY_ALWAYS</property>
+		      <property name="shadow_type">GTK_SHADOW_IN</property>
+		      <property name="window_placement">GTK_CORNER_TOP_LEFT</property>
+
+		      <child>
+		        <widget class="GtkTextView" id="support_notebook_textview">
+		          <property name="height_request">235</property>
+		          <property name="visible">True</property>
+		          <property name="can_focus">True</property>
+		          <property name="editable">False</property>
+		          <property name="overwrite">False</property>
+		          <property name="accepts_tab">True</property>
+		          <property name="justification">GTK_JUSTIFY_LEFT</property>
+		          <property name="wrap_mode">GTK_WRAP_WORD</property>
+		          <property name="cursor_visible">True</property>
+		          <property name="pixels_above_lines">0</property>
+		          <property name="pixels_below_lines">0</property>
+		          <property name="pixels_inside_wrap">0</property>
+		          <property name="left_margin">0</property>
+		          <property name="right_margin">0</property>
+		          <property name="indent">0</property>
+		          <property name="text" translatable="yes">In most cases you can find the answer to your questions about the program in the help menu.
 This menu can be accesed if you click on the &quot;Help&quot; label on the menu bar located in the top side of the window, and selecting the &quot;Help topics&quot; option.
 
 You can also find help, updates and tips in Vodafone Mobile Connect's web:
 https://forge.betavine.net/projects/vodafonemobilec.
 
 If you use the mail and browser buttons to access other programs in your system, you might need to ask your Systems Administrator any doubt that you might have.</property>
+		        </widget>
+		      </child>
 		    </widget>
 		  </child>
 		</widget>
@@ -2391,50 +2399,36 @@ If you use the mail and browser buttons to access other programs in your system,
 		  <property name="shadow_type">GTK_SHADOW_NONE</property>
 
 		  <child>
-		    <widget class="GtkAlignment" id="alignment24">
+		    <widget class="GtkScrolledWindow" id="scrolledwindow7">
 		      <property name="visible">True</property>
-		      <property name="xalign">0.5</property>
-		      <property name="yalign">0.5</property>
-		      <property name="xscale">1</property>
-		      <property name="yscale">1</property>
-		      <property name="top_padding">0</property>
-		      <property name="bottom_padding">0</property>
-		      <property name="left_padding">12</property>
-		      <property name="right_padding">0</property>
+		      <property name="can_focus">True</property>
+		      <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+		      <property name="vscrollbar_policy">GTK_POLICY_ALWAYS</property>
+		      <property name="shadow_type">GTK_SHADOW_IN</property>
+		      <property name="window_placement">GTK_CORNER_TOP_LEFT</property>
 
 		      <child>
-			<widget class="GtkScrolledWindow" id="scrolledwindow7">
+			<widget class="GtkTextView" id="textview2">
 			  <property name="visible">True</property>
 			  <property name="can_focus">True</property>
-			  <property name="hscrollbar_policy">GTK_POLICY_ALWAYS</property>
-			  <property name="vscrollbar_policy">GTK_POLICY_ALWAYS</property>
-			  <property name="shadow_type">GTK_SHADOW_NONE</property>
-			  <property name="window_placement">GTK_CORNER_TOP_LEFT</property>
-
-			  <child>
-			    <widget class="GtkTextView" id="textview2">
-			      <property name="visible">True</property>
-			      <property name="can_focus">True</property>
-			      <property name="editable">False</property>
-			      <property name="overwrite">False</property>
-			      <property name="accepts_tab">True</property>
-			      <property name="justification">GTK_JUSTIFY_LEFT</property>
-			      <property name="wrap_mode">GTK_WRAP_NONE</property>
-			      <property name="cursor_visible">True</property>
-			      <property name="pixels_above_lines">0</property>
-			      <property name="pixels_below_lines">0</property>
-			      <property name="pixels_inside_wrap">0</property>
-			      <property name="left_margin">0</property>
-			      <property name="right_margin">0</property>
-			      <property name="indent">0</property>
-			      <property name="text" translatable="yes">If you are using this program in a corporate environment, your company
+			  <property name="editable">False</property>
+			  <property name="overwrite">False</property>
+			  <property name="accepts_tab">True</property>
+			  <property name="justification">GTK_JUSTIFY_LEFT</property>
+			  <property name="wrap_mode">GTK_WRAP_NONE</property>
+			  <property name="cursor_visible">True</property>
+			  <property name="pixels_above_lines">0</property>
+			  <property name="pixels_below_lines">0</property>
+			  <property name="pixels_inside_wrap">0</property>
+			  <property name="left_margin">0</property>
+			  <property name="right_margin">0</property>
+			  <property name="indent">0</property>
+			  <property name="text" translatable="yes">If you are using this program in a corporate environment, your company
 probably has a support center to solve the questions that you might have
 about the program.
 
 If your company does not have a support center, you will have to contact
 your company's System Administrator.</property>
-			    </widget>
-			  </child>
 			</widget>
 		      </child>
 		    </widget>
@@ -2470,31 +2464,38 @@ your company's System Administrator.</property>
 	      </child>
 
 	      <child>
-		<widget class="GtkScrolledWindow" id="scrolledwindow6">
+		<widget class="GtkFrame" id="support_notebook_support_cust_frame">
 		  <property name="visible">True</property>
-		  <property name="can_focus">True</property>
-		  <property name="hscrollbar_policy">GTK_POLICY_ALWAYS</property>
-		  <property name="vscrollbar_policy">GTK_POLICY_ALWAYS</property>
+		  <property name="label_xalign">0</property>
+		  <property name="label_yalign">0.5</property>
 		  <property name="shadow_type">GTK_SHADOW_NONE</property>
-		  <property name="window_placement">GTK_CORNER_TOP_LEFT</property>
 
-		  <child>
-		    <widget class="GtkTextView" id="textview1">
+	          <child>
+		    <widget class="GtkScrolledWindow" id="scrolledwindow6">
 		      <property name="visible">True</property>
 		      <property name="can_focus">True</property>
-		      <property name="editable">False</property>
-		      <property name="overwrite">False</property>
-		      <property name="accepts_tab">True</property>
-		      <property name="justification">GTK_JUSTIFY_LEFT</property>
-		      <property name="wrap_mode">GTK_WRAP_NONE</property>
-		      <property name="cursor_visible">True</property>
-		      <property name="pixels_above_lines">0</property>
-		      <property name="pixels_below_lines">0</property>
-		      <property name="pixels_inside_wrap">0</property>
-		      <property name="left_margin">0</property>
-		      <property name="right_margin">0</property>
-		      <property name="indent">0</property>
-		      <property name="text" translatable="yes">You can easily find answers to the most common questions in the
+		      <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+		      <property name="vscrollbar_policy">GTK_POLICY_ALWAYS</property>
+		      <property name="shadow_type">GTK_SHADOW_IN</property>
+		      <property name="window_placement">GTK_CORNER_TOP_LEFT</property>
+
+		      <child>
+		        <widget class="GtkTextView" id="textview1">
+		          <property name="visible">True</property>
+		          <property name="can_focus">True</property>
+		          <property name="editable">False</property>
+		          <property name="overwrite">False</property>
+		          <property name="accepts_tab">True</property>
+		          <property name="justification">GTK_JUSTIFY_LEFT</property>
+		          <property name="wrap_mode">GTK_WRAP_NONE</property>
+		          <property name="cursor_visible">True</property>
+		          <property name="pixels_above_lines">0</property>
+		          <property name="pixels_below_lines">0</property>
+		          <property name="pixels_inside_wrap">0</property>
+		          <property name="left_margin">0</property>
+		          <property name="right_margin">0</property>
+		          <property name="indent">0</property>
+		          <property name="text" translatable="yes">You can easily find answers to the most common questions in the
 help menu, in your company's support center and in the support
 area at https://forge.betavine.net/projects/vodafonemobilec .
 
@@ -2504,6 +2505,8 @@ the numbers are:
 123, if you are using Vodafone's network, or
 
 +34 607 123 00 if you are calling from other network.</property>
+		        </widget>
+		      </child>
 		    </widget>
 		  </child>
 		</widget>
