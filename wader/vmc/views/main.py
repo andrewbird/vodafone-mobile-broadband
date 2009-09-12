@@ -22,6 +22,7 @@ Views for the main interface
 import os
 
 import gtk
+from pango import ELLIPSIZE_END
 from gtkmvc import View
 
 from wader.vmc.translate import _
@@ -231,7 +232,11 @@ class MainView(View):
                 treeview.append_column(column)
 
                 cell = gtk.CellRendererText()
+                cell.set_fixed_height_from_font(1)
                 cell.set_property('editable', False)
+                cell.set_property('ellipsize', ELLIPSIZE_END)
+                cell.set_property('ellipsize-set', True)
+                cell.set_property('wrap-width', -1)
                 column = gtk.TreeViewColumn(_("Text"), cell,
                                         text=col_smstext)
                 column.set_resizable(True)
