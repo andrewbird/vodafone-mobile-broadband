@@ -22,30 +22,6 @@
                     <child>
                       <widget class="GtkMenu" id="main_file_menu_item_menu">
                         <child>
-                          <widget class="GtkMenuItem" id="connect1">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Connect</property>
-                            <property name="use_underline">True</property>
-                            <child>
-                              <widget class="GtkMenu" id="connect1_menu">
-                                <child>
-                                  <widget class="GtkMenuItem" id="mobile1">
-                                    <property name="visible">True</property>
-                                    <property name="label" translatable="yes">Mobile</property>
-                                    <property name="use_underline">True</property>
-                                    <signal name="activate" handler="on_mobile1_activate"/>
-                                  </widget>
-                                </child>
-                              </widget>
-                            </child>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkSeparatorMenuItem" id="main_separator1">
-                            <property name="visible">True</property>
-                          </widget>
-                        </child>
-                        <child>
                           <widget class="GtkMenuItem" id="import_contacts1">
                             <property name="visible">True</property>
                             <property name="label" translatable="yes">Import contacts...</property>

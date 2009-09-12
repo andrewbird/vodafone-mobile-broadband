@@ -34,8 +34,7 @@ from wader.vmc.models.contacts import ContactsStoreModel
 
 THROBBER = gtk.gdk.PixbufAnimation(os.path.join(GLADE_DIR, 'throbber.gif'))
 
-WIDGETS_TO_SHOW = ['connect1',
-                   'change_pin1', 'request_pin1',
+WIDGETS_TO_SHOW = ['change_pin1', 'request_pin1',
                    'import_contacts1', 'export_contacts1', 'new_menu_item',
                    'new_sms_menu_item', 'contact1', 'reply_sms_menu_item',
                    'reply_sms_menu', 'forward_sms_menu_item',
@@ -166,8 +165,6 @@ class MainView(View):
             obj.set_icon_widget(image)
             obj.set_label(_("Disconnect"))
             obj.set_active(True)
-
-        self['mobile1'].set_sensitive(False)
 
         self['upload_alignment'].show()
         self['download_alignment'].show()
