@@ -355,22 +355,33 @@ class MainModel(Model):
         logger.info("Network mode changed %s" % net_mode)
         self.tech = NET_MODE_SIGNALS[net_mode]
 
+    def _check_pin_status(self):
+        def _check_pin_status_cb():
+            pass
+        def _check_pin_status_eb(e):
+            if dbus_error_is(e, E.SimPinRequired):
+                self.pin_required = False
+                self.pin_required = True
+            elif dbus_error_is(e, E.SimPukRequired):
+                self.puk_required = False
+                self.puk_required = True
+            elif dbus_error_is(e, E.SimPuk2Required):
+                self.puk2_required = False
+                self.puk2_required = True
+            else:
+                self.sim_error = get_error_msg(e)
+
+        self.device.Check(dbus_interface=CRD_INTFACE,
+                          reply_handler=_check_pin_status_cb,
+                          error_handler=_check_pin_status_eb)
+
     def _send_pin_eb(self, e):
         logger.error("SendPin failed %s" % get_error_msg(e))
-        pin_errors = [E.GEN_ERROR, E.PIN_ERROR]
-        if e.get_dbus_name() in pin_errors:
-            # XXX: AJB - I don't like this, after 3 wrong PINs we still call
-            #            ask_for_pin(), surely there must be some way of the
-            #            core signalling that we need PIN, PUK or PUK2(eek!)
-            # setting pin_required = True doesn't works and we have
-            # to break MVC and ask the controller directly
-            self.ctrl.ask_for_pin()
-        else:
-            logger.error("Unknown error while "
-                         "authenticating %s" % get_error_msg(e))
+        self._check_pin_status()
 
     def _send_puk_eb(self, e):
         logger.error("SendPuk failed: %s" % get_error_msg(e))
+        self._check_pin_status()
 
     def send_pin(self, pin, cb):
         logger.info("Trying authentication with PIN %s" % pin)
