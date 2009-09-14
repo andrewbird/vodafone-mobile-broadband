@@ -88,7 +88,7 @@ class ADBContactsManager(object):
     Axiom Contacts manager
     """
     def __init__(self, path=CONTACTS_DB):
-        super(ADBContactsManager, self).__init__(path)
+        super(ADBContactsManager, self).__init__()
         self.store = store.Store(path)
 
     def device_reqd(self):
