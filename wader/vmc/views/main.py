@@ -88,6 +88,8 @@ class MainView(View):
         self['support_notebook'].hide()  # in ctrl.register_view() are reshown by parent.show()
         self['contacts_menubar'].hide()
         self['sms_message_pane'].hide()
+        self['upload_alignment'].hide()
+        self['download_alignment'].hide()
 
         return ret
 
