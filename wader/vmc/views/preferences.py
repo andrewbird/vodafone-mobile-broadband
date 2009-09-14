@@ -71,7 +71,7 @@ class PreferencesView(View):
         self['gnomekeyring_checkbutton'].set_active(manage_keyring)
 
         #setup dialer_combobox
-        self.setup_dialer_combobox()
+        #self.setup_dialer_combobox()
         self.setup_sms_combobox()
 
         self.setup_browser_combobox()
@@ -81,12 +81,14 @@ class PreferencesView(View):
 
     # first notbook page
     def setup_sms_combobox(self):
+        print "setup_sms_combobox"
         model = self.get_sms_combobox_model()
         self['sms_profiles_combobox'].set_model(model)
         
 
     # second notebook page # XXX: maybe use this tab for SMS settings
     def setup_dialer_combobox(self):
+        print "setup_dialer_combobox"
         model = self.get_dialer_combobox_model()
         self['dialer_profiles_combobox'].set_model(model)
 

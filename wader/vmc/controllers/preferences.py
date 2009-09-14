@@ -227,7 +227,7 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
 #            self.view['vbox2'].set_sensitive(False)
             self.view['vbox14'].set_sensitive(False)
 
-        self.view.setup_dialer_combobox()
+        self.view.setup_sms_combobox()
 
     def on_browser_combobox_changed(self, combobox):
         model = combobox.get_model()
