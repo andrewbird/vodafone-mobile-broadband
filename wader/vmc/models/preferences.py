@@ -68,6 +68,7 @@ class PreferencesModel(Model):
     def save(self):
         self.conf.set('statistics', 'warn_limit', self.warn_limit)
         self.conf.set('statistics', 'transfer_limit', self.transfer_limit)
+        self.conf.set('statistics','usage_notification', self.usage_notification)
 
     def reset_statistics(self):
         logger.info('Resetting total bytes')

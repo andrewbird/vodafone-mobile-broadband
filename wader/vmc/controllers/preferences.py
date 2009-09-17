@@ -217,14 +217,12 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
     # second notebook page stuff
     def on_custom_profile_checkbutton_toggled(self, button):
         if button.get_active():
-#            self.view['vbox2'].set_sensitive(True)
             self.view['vbox14'].set_sensitive(True)
         else:
             # commenting out to get basic functionality working.
 #            config.current_profile.set('connection',
 #                                       'dialer_profile', 'default')
 #            config.current_profile.write()
-#            self.view['vbox2'].set_sensitive(False)
             self.view['vbox14'].set_sensitive(False)
 
         self.view.setup_sms_combobox()
