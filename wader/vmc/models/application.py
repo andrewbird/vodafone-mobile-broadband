@@ -28,7 +28,9 @@ from twisted.python.modules import PythonPath
 
 import wader.common.consts as consts
 import wader.common.exceptions as ex
-from wader.common.notifications import THREEG_SIGNALS
+
+THREEG_SIGNALS = [consts.MM_NETWORK_MODE_UMTS, consts.MM_NETWORK_MODE_HSDPA,
+                  consts.MM_NETWORK_MODE_HSUPA, consts.MM_NETWORK_MODE_HSPA]
 
 from wader.common.config import config
 from wader.common.persistent import usage_manager

@@ -35,9 +35,16 @@ from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
                                  WADER_DIALUP_SERVICE, WADER_DIALUP_OBJECT,
                                  CRD_INTFACE, NET_INTFACE, MDM_INTFACE,
                                  NM_SYSTEM_SETTINGS_CONNECTION,
-                                 WADER_DIALUP_INTFACE, WADER_KEYRING_INTFACE)
+                                 WADER_DIALUP_INTFACE, WADER_KEYRING_INTFACE,
+                                 MM_NETWORK_MODE_UMTS, MM_NETWORK_MODE_HSDPA,
+                                 MM_NETWORK_MODE_HSUPA, MM_NETWORK_MODE_HSPA)
+
 import wader.common.aterrors as E
 import wader.common.signals as S
+
+THREEG_SIGNALS = [MM_NETWORK_MODE_UMTS, MM_NETWORK_MODE_HSDPA,
+                  MM_NETWORK_MODE_HSUPA, MM_NETWORK_MODE_HSPA]
+
 
 UPDATE_INTERVAL = CONFIG_INTERVAL = 2 * 1000 # 2ms
 NETREG_INTERVAL = 5 * 1000 # 5ms
