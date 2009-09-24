@@ -71,20 +71,32 @@ class PreferencesModel(Model):
     def load(self):
         self.warn_limit = self.conf.get('statistics', 'warn_limit', True)
         self.transfer_limit = self.conf.get('statistics','transfer_limit', 50.0)
+
+        # ok lets load the application values from configuration
+        self.browser = config.get('preferences',  'browser')
+        self.mail = config.get('preferences',  'mail')
         
         # ok lets load the usage values from configuration
         self.max_traffic = config.get('preferences',  'max_traffic')
         self.traffic_threshold = config.get('preferences',  'traffic_threshold')
         self.usage_notification = config.get('preferences',  'usage_notification')
-        print "Loaded max_traffic : " + repr(self.max_traffic)
-        print "Loaded traffic_threshold : " + repr(self.traffic_threshold)
-        print "Loaded usage_notification : " + repr(self.usage_notification)
        
         
 
     def save(self):
         #self.conf.set('statistics', 'warn_limit', self.warn_limit)
         #self.conf.set('statistics', 'transfer_limit', self.transfer_limit)
+        
+        # Save all the attributes on the SMS tab
+        
+        # Save all the attributes on the user preferences tab
+
+        # Save all the attributes on the applications tab
+        config.set('preferences', 'browser', self.browser)
+        config.set('preferences', 'mail', self.mail)
+        
+        
+        # Save all the attributes on the usage tab
         print "trafic threshold is: "    + repr(self.traffic_threshold)
         print "max_traffic is: " + repr(self.max_traffic)
         print "usage_notification is: " + repr(self.usage_notification)
@@ -92,6 +104,7 @@ class PreferencesModel(Model):
         config.set('preferences', 'traffic_threshold', int(self.traffic_threshold))
         config.set('preferences', 'usage_notification', self.usage_notification)
         
+
 
 
     def reset_statistics(self):

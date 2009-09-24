@@ -122,6 +122,15 @@ class PreferencesView(View):
         if binary != 'xdg-email':
             self['mail_entry'].set_text(binary)
 
+    # methods are called by the controller to setup the view for applications tab in properties.
+    # methods are called on initialisation
+    def setup_application_browser_value(self,  val):
+        print "setup application browser value"
+        self['browser_combobox'].set_value(val)
+        
+    def setup_application_mail_value(self,  val):
+        print "setup application mail value"
+        self['mail_combobox'].set_value(val)
     
     # methods are called by the controller to setup the view for usage options tab
     # methods are called on initialisation 

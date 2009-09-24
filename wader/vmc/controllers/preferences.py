@@ -121,16 +121,6 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
     def get_selected_sms_profile(self):
         model = self.view['sms_profiles_combobox'].get_model()
 
-
-    def get_selected_dialer_profile(self):
-        model = self.view['dialer_profiles_combobox'].get_model()
-        index = self.view['dialer_profiles_combobox'].get_active()
-        if index < 0:
-            return None
-        else:
-            name = model[index][0]
-            return wvdial.get_profile_from_name(name)
-
     # ------------------------------------------------------------ #
     #                       Signals Handling                       #
     # ------------------------------------------------------------ #
@@ -211,17 +201,14 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         
         # get the value from the view and set the model
         max_traffic = self.view['maximum_traffic_entry'].get_value()
-        print "maximum_traffic_entry :" + repr(max_traffic)
         self.model.max_traffic = max_traffic
         
         # get the value from the view and set the model
         threshold = self.view['threshold_entry'].get_value()
-        print "threshold_entry :" +  repr(threshold)
         self.model.traffic_threshold = threshold
         
         # get the value from the view and set the model
         usage_notification = self.view['usage_notification_check'].get_active()
-        print "usage_notification_check :" + repr(usage_notification)
         self.model.usage_notification = usage_notification
         
         # ok lets ask the model to save those items
@@ -241,10 +228,6 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         if button.get_active():
             self.view['vbox14'].set_sensitive(True)
         else:
-            # commenting out to get basic functionality working.
-#            config.current_profile.set('connection',
-#                                       'dialer_profile', 'default')
-#            config.current_profile.write()
             self.view['vbox14'].set_sensitive(False)
 
         self.view.setup_sms_combobox()
