@@ -70,14 +70,11 @@ class PreferencesView(View):
         manage_keyring = True # config.getboolean('preferences', 'manage_keyring')
         self['gnomekeyring_checkbutton'].set_active(manage_keyring)
 
-        #setup dialer_combobox
-        #self.setup_dialer_combobox()
+        #setup sms_combobox
         self.setup_sms_combobox()
-
         self.setup_browser_combobox()
         self.setup_mail_combobox()
 
-        self.setup_usage_options()
 
     # first notbook page
     def setup_sms_combobox(self):
@@ -85,17 +82,7 @@ class PreferencesView(View):
         model = self.get_sms_combobox_model()
         self['sms_profiles_combobox'].set_model(model)
         
-
-    # second notebook page # XXX: maybe use this tab for SMS settings
-    def setup_dialer_combobox(self):
-        print "setup_dialer_combobox"
-        model = self.get_dialer_combobox_model()
-        self['dialer_profiles_combobox'].set_model(model)
-
-        # XXX: moved to profiles dialog
-#        profile = config.current_profile.get('connection', 'dialer_profile')
-#        self.select_dialer_combobox_option(model, profile)
-
+    
     def get_dialer_combobox_model(self):
         print "get_dialer_combobox_model"
         # XXX: moved to profiles dialog
@@ -107,10 +94,6 @@ class PreferencesView(View):
         print "get_sms_combobox_model"
         model = gtk.ListStore(gobject.TYPE_STRING)
         return model
-
-    def select_dialer_combobox_option(self, model, profile):
-        print "select_dialer_combobox_option"
-        # XXX: moved to profiles dialog
 
     # third page
     def setup_browser_combobox(self):
@@ -139,17 +122,21 @@ class PreferencesView(View):
         if binary != 'xdg-email':
             self['mail_entry'].set_text(binary)
 
-    # fourth page
-    def setup_usage_options(self):
-        #XXX: From Current Profile if any?
-        max_traffic = 1 # config.getint('preferences', 'max_traffic')
-        threshold = 1 # config.getint('preferences', 'traffic_threshold')
-        usage_notification = True # config.getboolean('preferences', 'usage_notification')
-        self['maximum_traffic_entry'].set_value(max_traffic)
-        self['threshold_entry'].set_value(threshold)
-        self['usage_notification_check'].set_active(usage_notification)
-        self['threshold_entry'].set_sensitive(usage_notification)
-
+    
+    # methods are called by the controller to setup the view for usage options tab
+    # methods are called on initialisation 
+    def setup_usage_max_traffic_value(self,  val):
+         self['maximum_traffic_entry'].set_value(val)   
+         return
+         
+    def setup_usage_threshold_value(self,  val):
+        self['threshold_entry'].set_value(val)
+        return
+        
+    def setup_usage_notification_check(self,  val):
+        self['usage_notification_check'].set_active(val)
+        return
+         
 
 class SMSPreferencesView(View):
     """View for the SMS preferences window"""

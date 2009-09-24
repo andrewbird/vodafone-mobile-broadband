@@ -51,7 +51,14 @@ class PreferencesModel(Model):
         'current_tab': PREF_TABS[0],
         'default_profile': None,
         'warn_limit' : False,
-        'transfer_limit' : -1
+        'transfer_limit' : -1, 
+        'exit_without_confirmation': False, 
+        'close_minimize':False, 
+        'max_traffic':10, 
+        'traffic_threshold': 100, 
+        'usage_notification':False,
+        'browser':"xdg-open", 
+        'mail':"xdg-email"
     }
 
     def __init__(self, device_callable):
@@ -59,16 +66,33 @@ class PreferencesModel(Model):
         self.bus = dbus.SystemBus()
         self.conf = config
         self.device_callable = device_callable
+        self.load()
 
     def load(self):
         self.warn_limit = self.conf.get('statistics', 'warn_limit', True)
-        self.transfer_limit = self.conf.get('statistics',
-                                            'transfer_limit', 50.0)
+        self.transfer_limit = self.conf.get('statistics','transfer_limit', 50.0)
+        
+        # ok lets load the usage values from configuration
+        self.max_traffic = config.get('preferences',  'max_traffic')
+        self.traffic_threshold = config.get('preferences',  'traffic_threshold')
+        self.usage_notification = config.get('preferences',  'usage_notification')
+        print "Loaded max_traffic : " + repr(self.max_traffic)
+        print "Loaded traffic_threshold : " + repr(self.traffic_threshold)
+        print "Loaded usage_notification : " + repr(self.usage_notification)
+       
+        
 
     def save(self):
-        self.conf.set('statistics', 'warn_limit', self.warn_limit)
-        self.conf.set('statistics', 'transfer_limit', self.transfer_limit)
-        self.conf.set('statistics','usage_notification', self.usage_notification)
+        #self.conf.set('statistics', 'warn_limit', self.warn_limit)
+        #self.conf.set('statistics', 'transfer_limit', self.transfer_limit)
+        print "trafic threshold is: "    + repr(self.traffic_threshold)
+        print "max_traffic is: " + repr(self.max_traffic)
+        print "usage_notification is: " + repr(self.usage_notification)
+        config.set('preferences', 'max_traffic', int(self.max_traffic))
+        config.set('preferences', 'traffic_threshold', int(self.traffic_threshold))
+        config.set('preferences', 'usage_notification', self.usage_notification)
+        
+
 
     def reset_statistics(self):
         logger.info('Resetting total bytes')

@@ -23,7 +23,6 @@ __version__ = "$Rev: 1172 $"
 from wader.common.config import config
 from wader.vmc.translate import _
 from wader.common.dialers import wvdial
-#from wader.vmc.persistent import net_manager
 from gtkmvc import Controller
 import wader.vmc.dialogs as dialogs
 from wader.vmc.models.preferences import VALIDITY_DICT, SMSCItem
@@ -44,6 +43,16 @@ class PreferencesController(Controller):
     def register_view(self, view):
         Controller.register_view(self, view)
         self.setup_signals()
+        self.setup_usage()
+        
+    def setup_usage(self):
+        # setup the usage tab to reflect what's in our model on startup
+        self.view.setup_usage_max_traffic_value(self.model.max_traffic)
+        self.view.setup_usage_threshold_value(self.model.traffic_threshold)
+        self.view.setup_usage_notification_check(self.model.usage_notification)
+        return
+        
+        
 
     def setup_signals(self):
         # setting up the gnomekeyring checkbox
@@ -144,15 +153,17 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         # first page
         if self.view['custom_profile_checkbutton'].get_active():
             # get combobox option
-            profile = self.get_selected_dialer_profile()
-            config.current_profile.set('connection',
-                                       'dialer_profile', profile.name)
+            # profile = self.get_selected_dialer_profile()
+            # config.current_profile.set('connection',
+            #                          'dialer_profile', profile.name)
+            print "saving tab 1 content"
         else:
             # use default profile
-            config.current_profile.set('connection',
-                                       'dialer_profile', 'default')
+            #config.current_profile.set('connection',
+            #                          'dialer_profile', 'default')
+            print "saving tab 1 content when checkbox is inactive"
 
-        config.current_profile.write()
+        # config.current_profile.write()
 
         # second page
         exit_without_confirmation = \
@@ -161,11 +172,11 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         show_icon = self.view['show_icon_checkbutton'].get_active()
         manage_keyring = self.view['gnomekeyring_checkbutton'].get_active()
 
-        config.setboolean('preferences', 'exit_without_confirmation',
-                        exit_without_confirmation)
-        config.setboolean('preferences', 'show_icon', show_icon)
-        config.setboolean('preferences', 'close_minimizes', minimize_to_tray)
-        config.setboolean('preferences', 'manage_keyring', manage_keyring)
+        #config.setboolean('preferences', 'exit_without_confirmation',
+        #               exit_without_confirmation)
+#        config.setboolean('preferences', 'show_icon', show_icon)
+#        config.setboolean('preferences', 'close_minimizes', minimize_to_tray)
+#        config.setboolean('preferences', 'manage_keyring', manage_keyring)
 
         # third page
         model = self.view['browser_combobox'].get_model()
@@ -173,39 +184,50 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         browser_opt = model.get_value(iter, 0)
 
         if browser_opt == 'xdg-open':
-            config.set('preferences', 'browser', browser_opt)
+            print "xdg-open settings"
+ #           config.set('preferences', 'browser', browser_opt)
         else:
             browser_binary = self.view['browser_entry'].get_text()
             if not browser_binary:
                 return
 
-            config.set('preferences', 'browser', browser_binary)
+ #           config.set('preferences', 'browser', browser_binary)
 
         model = self.view['mail_combobox'].get_model()
         iter = self.view['mail_combobox'].get_active_iter()
         mail_opt = model.get_value(iter, 0)
 
         if mail_opt == 'xdg-email':
-            config.set('preferences', 'mail', mail_opt)
+ #           config.set('preferences', 'mail', mail_opt)
+            print "mail options set"
         else:
             mail_binary = self.view['mail_entry'].get_text()
             if not mail_binary:
                 return
 
-            config.set('preferences', 'mail', mail_binary)
+ #           config.set('preferences', 'mail', mail_binary)
 
-        # fourth page
-        #XXX: To Current Profile if any?
+        # fourth tab
+        
+        # get the value from the view and set the model
         max_traffic = self.view['maximum_traffic_entry'].get_value()
+        print "maximum_traffic_entry :" + repr(max_traffic)
+        self.model.max_traffic = max_traffic
+        
+        # get the value from the view and set the model
         threshold = self.view['threshold_entry'].get_value()
+        print "threshold_entry :" +  repr(threshold)
+        self.model.traffic_threshold = threshold
+        
+        # get the value from the view and set the model
         usage_notification = self.view['usage_notification_check'].get_active()
-        config.set('preferences', 'max_traffic', str(int(max_traffic)))
-        config.set('preferences', 'traffic_threshold', str(int(threshold)))
-        config.setboolean('preferences', 'usage_notification', usage_notification)
-
-        config.write()
-
+        print "usage_notification_check :" + repr(usage_notification)
+        self.model.usage_notification = usage_notification
+        
+        # ok lets ask the model to save those items
+        self.model.save()
         self._hide_ourselves()
+        
 
     def on_preferences_cancel_button_clicked(self, widget):
         self._hide_ourselves()
