@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2006-2007  Vodafone España, S.A.
-# Author:  Pablo Martí
+# Copyright (C) 2006-2007  Vodafone 
+# Author:  Pablo Martí  & Nicholas Herriot
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -25,6 +25,8 @@ from wader.vmc.translate import _
 from wader.common.dialers import wvdial
 from gtkmvc import Controller
 import wader.vmc.dialogs as dialogs
+import gtk
+import gobject
 from wader.vmc.models.preferences import VALIDITY_DICT, SMSCItem
 from wader.vmc.tray import tray_available
 from wader.vmc.contrib.ValidatedEntry import ValidatedEntry, v_phone
@@ -40,19 +42,52 @@ class PreferencesController(Controller):
         # handler id of self.view['show_icon_checkbutton']::toggled
         self._hid2 = None
 
+    # setup on initialisation of the view. Make sure you call the setup methods
+    # for all the tabs windows in the view.
     def register_view(self, view):
         Controller.register_view(self, view)
         self.setup_signals()
-        self.setup_usage()
+        self.setup_usage_tab()
+        self.setup_mail_browser_tab()
         
-    def setup_usage(self):
+    def setup_usage_tab(self):
         # setup the usage tab to reflect what's in our model on startup
         self.view.setup_usage_max_traffic_value(self.model.max_traffic)
         self.view.setup_usage_threshold_value(self.model.traffic_threshold)
         self.view.setup_usage_notification_check(self.model.usage_notification)
         return
         
+    def setup_mail_browser_tab(self): 
+        # setup the mail and browser tab to reflect what's in our model on startup
         
+        # ok lets populate the view of the mail combo box and text box first
+        mail_combo_box = gtk.ListStore(gobject.TYPE_STRING)
+        iterator = mail_combo_box.append(['xdg-email'])
+        custom_iter = mail_combo_box.append([_('Custom')])
+        
+        # ok lets get the value for the mail text box from the model if it exists
+        mail_text_box = self.model.mail
+        active_set = iterator if ( mail_text_box == 'xdg-email') else custom_iter
+        # set the combo box in the view to show the values
+        self.view.setup_application_mail_combo_box(mail_combo_box,  active_set)
+        # we have to set the text box if it's a custom value otherwise leve blank and show the default.
+        if mail_text_box != 'xdg-email':
+            self.view.setup_application_mail_text_box(mail_text_box)
+                           
+                           
+        # ok lets populate the view of the browser combo box and text box
+        browser_combo_box = gtk.ListStore(gobject.TYPE_STRING)
+        iterator = browser_combo_box.append(['xdg-open'])
+        custom_iter = browser_combo_box.append([_('Custom')])
+        
+        # ok lets get the value for the browser text box from the model if it exists
+        browser_text_box = self.model.browser
+        active_set = iterator if ( browser_text_box == 'xdg-open') else custom_iter
+        # set the combo box in the view to show values 
+        self.view.setup_application_browser_combo_box(browser_combo_box,  active_set)
+        # we have to set the browser box if it's a custom value otherwise leave blang and show the default
+        if browser_text_box != 'xdg-open':
+            self.view.setup_application_browser_text_box(browser_text_box)
 
     def setup_signals(self):
         # setting up the gnomekeyring checkbox
@@ -169,33 +204,37 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
 #        config.setboolean('preferences', 'manage_keyring', manage_keyring)
 
         # third page
-        model = self.view['browser_combobox'].get_model()
-        iter = self.view['browser_combobox'].get_active_iter()
-        browser_opt = model.get_value(iter, 0)
-
-        if browser_opt == 'xdg-open':
-            print "xdg-open settings"
- #           config.set('preferences', 'browser', browser_opt)
+        # fetch the browser combo box data and the browser custom drop down list
+        browser_combo_view = self.view['browser_combobox'].get_model()
+        iteration = self.view['browser_combobox'].get_active_iter()
+        browser_options = browser_combo_view.get_value(iteration, 0)
+        
+        # ok if the guy selects the xdg-open just save that name value pair in the model
+        # otherwise save the entry in the command box
+        if browser_options == 'xdg-open':
+            self.model.browser = browser_options
         else:
-            browser_binary = self.view['browser_entry'].get_text()
-            if not browser_binary:
+            browser_command = self.view['browser_entry'].get_text()
+            if not browser_command:
                 return
+            self.model.browser = browser_command
+ 
 
- #           config.set('preferences', 'browser', browser_binary)
-
-        model = self.view['mail_combobox'].get_model()
-        iter = self.view['mail_combobox'].get_active_iter()
-        mail_opt = model.get_value(iter, 0)
-
-        if mail_opt == 'xdg-email':
- #           config.set('preferences', 'mail', mail_opt)
-            print "mail options set"
+        # fetch the mail combo box data and the mail custom drop down list
+        mail_combo_view = self.view['mail_combobox'].get_model()
+        iteration = self.view['mail_combobox'].get_active_iter()
+        mail_options = mail_combo_view.get_value(iteration, 0)
+        
+        # ok if the guy selects the xdg-mail just save that name value pair in the model
+        # otherwise save the entry in the comand box
+        if mail_options == 'xdg-email':
+            self.model.mail = mail_options
         else:
-            mail_binary = self.view['mail_entry'].get_text()
-            if not mail_binary:
+            mail_command = self.view['mail_entry'].get_text()
+            if not mail_command:
                 return
-
- #           config.set('preferences', 'mail', mail_binary)
+            self.model.mail = mail_command
+ 
 
         # fourth tab
         

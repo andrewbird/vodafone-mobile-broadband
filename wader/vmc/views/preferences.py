@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2006-2007  Vodafone España, S.A.
-# Author:  Pablo Martí
+# Copyright (C) 2006-2007  Vodafone
+# Author:  Pablo Martí and Nicholas Herriot
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -72,8 +72,6 @@ class PreferencesView(View):
 
         #setup sms_combobox
         self.setup_sms_combobox()
-        self.setup_browser_combobox()
-        self.setup_mail_combobox()
 
 
     # first notbook page
@@ -82,55 +80,30 @@ class PreferencesView(View):
         model = self.get_sms_combobox_model()
         self['sms_profiles_combobox'].set_model(model)
         
-    
-    def get_dialer_combobox_model(self):
-        print "get_dialer_combobox_model"
-        # XXX: moved to profiles dialog
-        model = gtk.ListStore(gobject.TYPE_STRING)
 
-        return model
-        
     def get_sms_combobox_model(self):
         print "get_sms_combobox_model"
         model = gtk.ListStore(gobject.TYPE_STRING)
         return model
 
     # third page
-    def setup_browser_combobox(self):
-        model = gtk.ListStore(gobject.TYPE_STRING)
-        xdg_iter = model.append(['xdg-open'])
-        custom_iter = model.append([_('Custom')])
-        self['browser_combobox'].set_model(model)
-
-        binary = 'firefox' # config.get('preferences', 'browser')
-        _iter = (binary == 'xdg-open') and xdg_iter or custom_iter
-        self['browser_combobox'].set_active_iter(_iter)
-
-        if binary != 'xdg-open':
-            self['browser_entry'].set_text(binary)
-
-    def setup_mail_combobox(self):
-        model = gtk.ListStore(gobject.TYPE_STRING)
-        xdg_iter = model.append(['xdg-email'])
-        custom_iter = model.append([_('Custom')])
-        self['mail_combobox'].set_model(model)
-
-        binary = 'evolution' # config.get('preferences', 'mail')
-        _iter = (binary == 'xdg-email') and xdg_iter or custom_iter
-        self['mail_combobox'].set_active_iter(_iter)
-
-        if binary != 'xdg-email':
-            self['mail_entry'].set_text(binary)
-
     # methods are called by the controller to setup the view for applications tab in properties.
     # methods are called on initialisation
-    def setup_application_browser_value(self,  val):
-        print "setup application browser value"
-        self['browser_combobox'].set_value(val)
+    def setup_application_browser_text_box(self,  val):
+        self['browser_entry'].set_text(val)
         
-    def setup_application_mail_value(self,  val):
-        print "setup application mail value"
-        self['mail_combobox'].set_value(val)
+    def setup_application_mail_text_box(self,  val):
+        self['mail_entry'].set_text(val)
+        
+    def setup_application_mail_combo_box(self,  val,  active_set):    
+        self['mail_combobox'].set_model(val)
+        self['mail_combobox'].set_active_iter(active_set)
+        
+    def setup_application_browser_combo_box(self,  val,  active_set):    
+        self['browser_combobox'].set_model(val)
+        self['browser_combobox'].set_active_iter(active_set)
+
+
     
     # methods are called by the controller to setup the view for usage options tab
     # methods are called on initialisation 

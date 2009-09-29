@@ -92,14 +92,12 @@ class PreferencesModel(Model):
         # Save all the attributes on the user preferences tab
 
         # Save all the attributes on the applications tab
+        print "browser model saved as: "    + repr(self.browser)
+        print "mail model saved as: " + repr(self.mail)
         config.set('preferences', 'browser', self.browser)
         config.set('preferences', 'mail', self.mail)
-        
-        
+
         # Save all the attributes on the usage tab
-        print "trafic threshold is: "    + repr(self.traffic_threshold)
-        print "max_traffic is: " + repr(self.max_traffic)
-        print "usage_notification is: " + repr(self.usage_notification)
         config.set('preferences', 'max_traffic', int(self.max_traffic))
         config.set('preferences', 'traffic_threshold', int(self.traffic_threshold))
         config.set('preferences', 'usage_notification', self.usage_notification)
