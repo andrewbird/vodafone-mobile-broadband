@@ -85,6 +85,28 @@ class PreferencesView(View):
         print "get_sms_combobox_model"
         model = gtk.ListStore(gobject.TYPE_STRING)
         return model
+        
+        
+    # second notebook page
+    # methods are called by the controller to setup the view for user preferences tab in properties.
+    # methods are called on initialisation
+    
+    def setup_user_exit_without_confirmation(self,  val):
+        print " view: setup_exit_without_confirmation"
+        self['exit_without_confirmation_checkbutton'].set_active(False)
+        
+    def setup_user_show_icon_on_tray(self,  val):
+        print " view: setup_icon_on_tray"
+        self['show_icon_checkbutton'].set_active(1)
+                
+    def setup_user_close_window_minimize(self,  val):
+        print " view: setup_close_window_minimize"
+        self['close_window_checkbutton'].set_active(1)
+        
+    def setup_manage_my_pin(self,  val):
+        print " view: setup_manage_my_pin"
+        self['gnomekeyring_checkbutton'].set_active(1)
+
 
     # third page
     # methods are called by the controller to setup the view for applications tab in properties.
@@ -104,7 +126,7 @@ class PreferencesView(View):
         self['browser_combobox'].set_active_iter(active_set)
 
 
-    
+    # fourth page
     # methods are called by the controller to setup the view for usage options tab
     # methods are called on initialisation 
     def setup_usage_max_traffic_value(self,  val):

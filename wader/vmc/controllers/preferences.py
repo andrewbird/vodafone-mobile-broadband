@@ -47,8 +47,16 @@ class PreferencesController(Controller):
     def register_view(self, view):
         Controller.register_view(self, view)
         self.setup_signals()
+        self.setup_user_prefs_tab()
         self.setup_usage_tab()
         self.setup_mail_browser_tab()
+        
+    def setup_user_prefs_tab(self):
+        # setup the user preferences to reflect what's in our model on stuartup
+        self.view.setup_user_exit_without_confirmation(self.model.exit_without_confirmation)
+        self.view.setup_user_show_icon_on_tray(self.model.close_minimize)
+        self.view.setup_user_close_window_minimize(self.model.minimize_to_tray)
+        self.view.setup_manage_my_pin(self.model.manage_my_keyring)
         
     def setup_usage_tab(self):
         # setup the usage tab to reflect what's in our model on startup
@@ -191,8 +199,7 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         # config.current_profile.write()
 
         # second page
-        exit_without_confirmation = \
-            self.view['exit_without_confirmation_checkbutton'].get_active()
+        exit_without_confirmation = self.view['exit_without_confirmation_checkbutton'].get_active()
         minimize_to_tray = self.view['close_window_checkbutton'].get_active()
         show_icon = self.view['show_icon_checkbutton'].get_active()
         manage_keyring = self.view['gnomekeyring_checkbutton'].get_active()

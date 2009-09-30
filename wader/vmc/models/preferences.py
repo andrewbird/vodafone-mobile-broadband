@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2006-2009  Vodafone España, S.A.
-# Author:  Pablo Martí
+# Copyright (C) 2006-2009  Vodafone 
+# Author:  Pablo Martí and Nicholas Herriot
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -53,7 +53,9 @@ class PreferencesModel(Model):
         'warn_limit' : False,
         'transfer_limit' : -1, 
         'exit_without_confirmation': False, 
-        'close_minimize':False, 
+        'close_minimize':False,
+        'minimize_to_tray':False, 
+        'manage_my_keyring':False,  
         'max_traffic':10, 
         'traffic_threshold': 100, 
         'usage_notification':False,
@@ -71,12 +73,22 @@ class PreferencesModel(Model):
     def load(self):
         self.warn_limit = self.conf.get('statistics', 'warn_limit', True)
         self.transfer_limit = self.conf.get('statistics','transfer_limit', 50.0)
+        
+        # ok lets load the user preferences from configuration file
+        self.exit_without_confirmation = config.get('preferences' ,  'exit_without_confirmation')
+        print "model: loading exit_without_confirmation: " + self.exit_without_confirmation
+        self.close_minimize = config.get('preferences',  'close_minimize')
+        print "model: loading close_minmize: " + self.close_minimize
+        self.minimize_to_tray  = config.get('preferences', 'minimize_to_tray')
+        print "model: loading minimize_to_tray: " + self.minimize_to_tray
+        self.manage_my_keyring = config.get('preferences',  'manage_my_keyring')
+        print "model: loading manage_my_keyring: " + self.manage_my_keyring
 
-        # ok lets load the application values from configuration
+        # ok lets load the application values from configuration file
         self.browser = config.get('preferences',  'browser')
         self.mail = config.get('preferences',  'mail')
         
-        # ok lets load the usage values from configuration
+        # ok lets load the usage values from configuration file
         self.max_traffic = config.get('preferences',  'max_traffic')
         self.traffic_threshold = config.get('preferences',  'traffic_threshold')
         self.usage_notification = config.get('preferences',  'usage_notification')
@@ -90,10 +102,15 @@ class PreferencesModel(Model):
         # Save all the attributes on the SMS tab
         
         # Save all the attributes on the user preferences tab
-
+        config.set('preferences',  'exit_without_confirmation',  self.exit_without_confirmation)
+        print "model: saving exit_without_confirmation: " + self.exit_without_confirmation
+        config.set('preferences',  'close_minimize',  self.close_minimize)
+        print "model: saving close_minmize: " + self.close_minimize
+        config.set('preferences',  'minimize_to_tray',  self.minimize_to_tray)
+        print "model: saving minimize_to_tray: " + self.minimize_to_tray
+        config.set('preferences',  'manage_my_keyring',  self.manage_my_keyring)
+        print "model: saving manage_my_keyring: " + self.manage_my_keyring
         # Save all the attributes on the applications tab
-        print "browser model saved as: "    + repr(self.browser)
-        print "mail model saved as: " + repr(self.mail)
         config.set('preferences', 'browser', self.browser)
         config.set('preferences', 'mail', self.mail)
 
