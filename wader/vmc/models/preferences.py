@@ -52,6 +52,9 @@ class PreferencesModel(Model):
         'default_profile': None,
         'warn_limit' : False,
         'transfer_limit' : -1, 
+        'smsc_profile': "default", 
+        'smsc_number':"+447785016005", 
+        'smsc_validity':"maximum", 
         'exit_without_confirmation': False, 
         'show_icon':False,
         'minimize_to_tray':False, 
@@ -73,6 +76,9 @@ class PreferencesModel(Model):
     def load(self):
         self.warn_limit = self.conf.get('statistics', 'warn_limit', True)
         self.transfer_limit = self.conf.get('statistics','transfer_limit', 50.0)
+        
+        # ok lets load the SMS preferences from the configuration file.
+        
         
         # ok lets load the user preferences from configuration file into the model
         # but take care! If the confi file is absent set to false!
@@ -107,7 +113,6 @@ class PreferencesModel(Model):
         self.usage_notification = config.get('preferences',  'usage_notification')
        
         
-
     def save(self):
         #self.conf.set('statistics', 'warn_limit', self.warn_limit)
         #self.conf.set('statistics', 'transfer_limit', self.transfer_limit)
