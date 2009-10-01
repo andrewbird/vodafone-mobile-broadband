@@ -53,7 +53,7 @@ class PreferencesModel(Model):
         'warn_limit' : False,
         'transfer_limit' : -1, 
         'exit_without_confirmation': False, 
-        'close_minimize':False,
+        'show_icon':False,
         'minimize_to_tray':False, 
         'manage_my_keyring':False,  
         'max_traffic':10, 
@@ -74,15 +74,28 @@ class PreferencesModel(Model):
         self.warn_limit = self.conf.get('statistics', 'warn_limit', True)
         self.transfer_limit = self.conf.get('statistics','transfer_limit', 50.0)
         
-        # ok lets load the user preferences from configuration file
+        # ok lets load the user preferences from configuration file into the model
+        # but take care! If the confi file is absent set to false!
         self.exit_without_confirmation = config.get('preferences' ,  'exit_without_confirmation')
-        print "model: loading exit_without_confirmation: " + self.exit_without_confirmation
-        self.close_minimize = config.get('preferences',  'close_minimize')
-        print "model: loading close_minmize: " + self.close_minimize
+        if (self.exit_without_confirmation==''):
+            print "model: Warning! self.exit_without_confirmation is NULL"
+            self.exit_without_confirmation = False
+        
+        self.show_icon = config.get('preferences',  'show_icon')
+        if (self.show_icon == ''):
+            print "model: Warning! self.show_icon is NULL"
+            self.show_icon = False
+        
         self.minimize_to_tray  = config.get('preferences', 'minimize_to_tray')
-        print "model: loading minimize_to_tray: " + self.minimize_to_tray
+        if (self.minimize_to_tray==''):
+            print "model: Warning! self.minimize_to_tray is NULL"
+            self.minimize_to_tray = False
+        
         self.manage_my_keyring = config.get('preferences',  'manage_my_keyring')
-        print "model: loading manage_my_keyring: " + self.manage_my_keyring
+        if (self.manage_my_keyring==''):
+            print "model: Warning! self.manage_my_keyring is NULL"
+            self.manage_my_keyring = False
+
 
         # ok lets load the application values from configuration file
         self.browser = config.get('preferences',  'browser')
@@ -103,13 +116,11 @@ class PreferencesModel(Model):
         
         # Save all the attributes on the user preferences tab
         config.set('preferences',  'exit_without_confirmation',  self.exit_without_confirmation)
-        print "model: saving exit_without_confirmation: " + self.exit_without_confirmation
-        config.set('preferences',  'close_minimize',  self.close_minimize)
-        print "model: saving close_minmize: " + self.close_minimize
+        config.set('preferences',  'show_icon',  self.show_icon)
         config.set('preferences',  'minimize_to_tray',  self.minimize_to_tray)
-        print "model: saving minimize_to_tray: " + self.minimize_to_tray
         config.set('preferences',  'manage_my_keyring',  self.manage_my_keyring)
-        print "model: saving manage_my_keyring: " + self.manage_my_keyring
+        
+        
         # Save all the attributes on the applications tab
         config.set('preferences', 'browser', self.browser)
         config.set('preferences', 'mail', self.mail)
@@ -119,9 +130,6 @@ class PreferencesModel(Model):
         config.set('preferences', 'traffic_threshold', int(self.traffic_threshold))
         config.set('preferences', 'usage_notification', self.usage_notification)
         
-
-
-
     def reset_statistics(self):
         logger.info('Resetting total bytes')
         # self.parent.total_bytes = 0

@@ -53,9 +53,17 @@ class PreferencesController(Controller):
         
     def setup_user_prefs_tab(self):
         # setup the user preferences to reflect what's in our model on stuartup
+        # remember that if 'show_icon_on_tray' is False we have to grey out 'Close_window_app_to_tray' so 
+        # tell the view that he has to do that by checking the show_icon flag and passing this with sensitive flag.
+        sensitive = False
+        if self.model.show_icon:
+            sensitive = False
+        else:
+            sensitive = True
+            
         self.view.setup_user_exit_without_confirmation(self.model.exit_without_confirmation)
-        self.view.setup_user_show_icon_on_tray(self.model.close_minimize)
-        self.view.setup_user_close_window_minimize(self.model.minimize_to_tray)
+        self.view.setup_user_show_icon_on_tray(self.model.show_icon)
+        self.view.setup_user_close_window_minimize(self.model.minimize_to_tray,  sensitive)
         self.view.setup_manage_my_pin(self.model.manage_my_keyring)
         
     def setup_usage_tab(self):
@@ -78,7 +86,7 @@ class PreferencesController(Controller):
         active_set = iterator if ( mail_text_box == 'xdg-email') else custom_iter
         # set the combo box in the view to show the values
         self.view.setup_application_mail_combo_box(mail_combo_box,  active_set)
-        # we have to set the text box if it's a custom value otherwise leve blank and show the default.
+        # we have to set the text box if it's a custom value otherwise leave blank and show the default.
         if mail_text_box != 'xdg-email':
             self.view.setup_application_mail_text_box(mail_text_box)
                            
@@ -154,8 +162,10 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
 #                self.parent_ctrl._detach_trayicon()
                 # close_window_checkbutton depends on this checkbutton
                 # being active, thats why we set insensitive the chkbtn
-                self.view['close_window_checkbutton'].set_sensitive(False)
-                self.view['close_window_checkbutton'].set_active(False)
+                
+                self.view.setup_user_close_window_minimize(False,  True)
+                #self.view['close_window_checkbutton'].set_sensitive(False)
+                #self.view['close_window_checkbutton'].set_active(False)
 
         # keep a reference of the handler id
         self._hid2 = self.view['show_icon_checkbutton'].connect('toggled',
@@ -183,7 +193,7 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         self.view['threshold_entry'].set_sensitive(widget.get_active())
 
     def on_preferences_ok_button_clicked(self, widget):
-        # first page
+        # ----- first tab -----
         if self.view['custom_profile_checkbutton'].get_active():
             # get combobox option
             # profile = self.get_selected_dialer_profile()
@@ -195,14 +205,20 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
             #config.current_profile.set('connection',
             #                          'dialer_profile', 'default')
             print "saving tab 1 content when checkbox is inactive"
+            
 
-        # config.current_profile.write()
-
-        # second page
+        # ----- second tab -----
+        # lets fetch all the vaules stored in the view for the second tab.
         exit_without_confirmation = self.view['exit_without_confirmation_checkbutton'].get_active()
         minimize_to_tray = self.view['close_window_checkbutton'].get_active()
         show_icon = self.view['show_icon_checkbutton'].get_active()
         manage_keyring = self.view['gnomekeyring_checkbutton'].get_active()
+        
+        # ok lets set the model with those values. The model can deal with saving them to disk! :-)
+        self.model.exit_without_confirmation = exit_without_confirmation
+        self.model.minimize_to_tray = minimize_to_tray
+        self.model.show_icon = show_icon
+        self.model.manage_my_keyring = manage_keyring
 
         #config.setboolean('preferences', 'exit_without_confirmation',
         #               exit_without_confirmation)
@@ -210,12 +226,12 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
 #        config.setboolean('preferences', 'close_minimizes', minimize_to_tray)
 #        config.setboolean('preferences', 'manage_keyring', manage_keyring)
 
-        # third page
+        # ------third tab -----
         # fetch the browser combo box data and the browser custom drop down list
         browser_combo_view = self.view['browser_combobox'].get_model()
         iteration = self.view['browser_combobox'].get_active_iter()
         browser_options = browser_combo_view.get_value(iteration, 0)
-        
+                
         # ok if the guy selects the xdg-open just save that name value pair in the model
         # otherwise save the entry in the command box
         if browser_options == 'xdg-open':
@@ -226,7 +242,6 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
                 return
             self.model.browser = browser_command
  
-
         # fetch the mail combo box data and the mail custom drop down list
         mail_combo_view = self.view['mail_combobox'].get_model()
         iteration = self.view['mail_combobox'].get_active_iter()
@@ -243,7 +258,7 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
             self.model.mail = mail_command
  
 
-        # fourth tab
+        # ----- fourth tab -----
         
         # get the value from the view and set the model
         max_traffic = self.view['maximum_traffic_entry'].get_value()

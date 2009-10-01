@@ -53,23 +53,6 @@ class PreferencesView(View):
         else:
             self['custom_profile_checkbutton'].set_active(True)
 
-        # third page of the notebook
-        exit_without_confirmation = True # config.getboolean('preferences', 'exit_without_confirmation')
-        chkbt = self['exit_without_confirmation_checkbutton']
-        chkbt.set_active(exit_without_confirmation)
-
-        show_icon = True # config.getboolean('preferences', 'close_minimizes')
-        self['show_icon_checkbutton'].set_active(show_icon)
-
-        minimize_to_tray = True # config.getboolean('preferences', 'close_minimizes')
-        if show_icon:
-            self['close_window_checkbutton'].set_active(minimize_to_tray)
-        else:
-            self['close_window_checkbutton'].set_sensitive(False)
-
-        manage_keyring = True # config.getboolean('preferences', 'manage_keyring')
-        self['gnomekeyring_checkbutton'].set_active(manage_keyring)
-
         #setup sms_combobox
         self.setup_sms_combobox()
 
@@ -92,20 +75,20 @@ class PreferencesView(View):
     # methods are called on initialisation
     
     def setup_user_exit_without_confirmation(self,  val):
-        print " view: setup_exit_without_confirmation"
-        self['exit_without_confirmation_checkbutton'].set_active(False)
+        self['exit_without_confirmation_checkbutton'].set_active(val)
         
     def setup_user_show_icon_on_tray(self,  val):
-        print " view: setup_icon_on_tray"
-        self['show_icon_checkbutton'].set_active(1)
+        self['show_icon_checkbutton'].set_active(val)
                 
-    def setup_user_close_window_minimize(self,  val):
-        print " view: setup_close_window_minimize"
-        self['close_window_checkbutton'].set_active(1)
+    def setup_user_close_window_minimize(self,  val,  sensitive):
+        # remember that we have to gray our self out if sensitive is 'false'!
+        if sensitive:
+            self['close_window_checkbutton'].set_sensitive(False)
+        else:
+            self['close_window_checkbutton'].set_active(val)
         
     def setup_manage_my_pin(self,  val):
-        print " view: setup_manage_my_pin"
-        self['gnomekeyring_checkbutton'].set_active(1)
+        self['gnomekeyring_checkbutton'].set_active(val)
 
 
     # third page
