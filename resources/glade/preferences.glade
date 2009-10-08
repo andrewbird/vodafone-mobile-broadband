@@ -63,61 +63,20 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkCheckButton" id="custom_profile_checkbutton">
+                      <widget class="GtkCheckButton" id="smsc_profile_checkbutton">
                         <property name="label" translatable="yes">Use an alternative SMS Service centre address</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
                         <property name="use_underline">True</property>
                         <property name="draw_indicator">True</property>
-                        <signal name="toggled" handler="on_custom_profile_checkbutton_toggled"/>
+                        <signal name="toggled" handler="on_custom_smsc_profile_checkbutton_toggled"/>
                       </widget>
                       <packing>
                         <property name="expand">False</property>
                         <property name="fill">False</property>
                         <property name="padding">6</property>
                         <property name="position">1</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="GtkVBox" id="vbox2">
-                        <property name="visible">True</property>
-                        <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                        <property name="spacing">6</property>
-                        <child>
-                          <widget class="GtkHBox" id="hbox2">
-                            <property name="visible">True</property>
-                            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                            <property name="spacing">6</property>
-                            <child>
-                              <widget class="GtkLabel" id="label1">
-                                <property name="visible">True</property>
-                                <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                                <property name="label" translatable="yes">Profile:</property>
-                              </widget>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="position">0</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <widget class="GtkComboBox" id="dialer_profiles_combobox">
-                                <property name="visible">True</property>
-                                <property name="items" translatable="yes"></property>
-                              </widget>
-                              <packing>
-                                <property name="position">1</property>
-                              </packing>
-                            </child>
-                          </widget>
-                          <packing>
-                            <property name="position">0</property>
-                          </packing>
-                        </child>
-                      </widget>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="position">2</property>
                       </packing>
                     </child>
                   </widget>
@@ -199,14 +158,16 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkAlignment" id="alignment5">
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <widget class="GtkEntry" id="smsc_number">
                                 <property name="visible">True</property>
-                                <child>
-                                  <placeholder/>
-                                </child>
+                                <property name="can_focus">True</property>
+                                <property name="invisible_char">&#x25CF;</property>
                               </widget>
                               <packing>
-                                <property name="position">1</property>
+                                <property name="position">2</property>
                               </packing>
                             </child>
                           </widget>
@@ -263,16 +224,6 @@
                                 <property name="position">0</property>
                               </packing>
                             </child>
-                            <child>
-                              <widget class="GtkLabel" id="label12">
-                                <property name="visible">True</property>
-                                <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Class:</property>
-                              </widget>
-                              <packing>
-                                <property name="position">1</property>
-                              </packing>
-                            </child>
                           </widget>
                           <packing>
                             <property name="expand">False</property>
@@ -289,24 +240,11 @@
                             <child>
                               <widget class="GtkComboBox" id="validity_combobox">
                                 <property name="visible">True</property>
-                                <property name="items" translatable="yes">Maximum time
-1 week
-3 days
-1 day</property>
+                                <property name="items" translatable="yes"></property>
                               </widget>
                               <packing>
                                 <property name="expand">False</property>
                                 <property name="position">0</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <widget class="GtkComboBox" id="class_combobox">
-                                <property name="visible">True</property>
-                                <property name="sensitive">False</property>
-                              </widget>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="position">1</property>
                               </packing>
                             </child>
                           </widget>

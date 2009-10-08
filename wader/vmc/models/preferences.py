@@ -52,6 +52,8 @@ class PreferencesModel(Model):
         'default_profile': None,
         'warn_limit' : False,
         'transfer_limit' : -1, 
+        'use_alternate_smsc':False, 
+        'validities':VALIDITY_DICT, 
         'smsc_profile': "default", 
         'smsc_number':"+447785016005", 
         'smsc_validity':"maximum", 
@@ -78,6 +80,26 @@ class PreferencesModel(Model):
         self.transfer_limit = self.conf.get('statistics','transfer_limit', 50.0)
         
         # ok lets load the SMS preferences from the configuration file.
+        # but take care! If the config file is absent set to default values.
+        self.use_alternate_smsc = self.conf.get('preferences',  'use_alternate_smsc')
+        if (self.use_alternate_smsc ==''):
+            print "model: Warning! self.use_alternate_smsc flag is NULL"
+            self.use_alternate_smsc = False
+        
+        self.smsc_profile = self.conf.get('preferences',  'smsc_profile')
+        if (self.smsc_profile ==''):
+            print "model: Warning! self.smsc_profile is NULL"
+            self.smsc_profile = 'Vodafone UK United Kingdon'
+        
+        self.smsc_number = self.conf.get('preferences',  'smsc_number')
+        if (self.smsc_number ==''):
+            print "model: Warning! self.smsc_number is NULL"
+            self.smsc_number = '+447785016005'
+        
+        self.smsc_validity = self.conf.get('preferences',  'smsc_validity')
+        if (self.smsc_validity ==''):
+            print "model: Warning! self.smsc_validity is NULL"
+            self.smsc_validity = 'maximum'
         
         
         # ok lets load the user preferences from configuration file into the model
@@ -118,13 +140,16 @@ class PreferencesModel(Model):
         #self.conf.set('statistics', 'transfer_limit', self.transfer_limit)
         
         # Save all the attributes on the SMS tab
+        config.set('preferences',  'use_alternate_smsc',  self.use_alternate_smsc)
+        config.set('preferences',  'smsc_profile',  self.smsc_profile)
+        config.set('preferences',  'smsc_number',  self.smsc_number)
+        config.set('preferences',  'smsc_validity',  self.smsc_validity)
         
         # Save all the attributes on the user preferences tab
         config.set('preferences',  'exit_without_confirmation',  self.exit_without_confirmation)
         config.set('preferences',  'show_icon',  self.show_icon)
         config.set('preferences',  'minimize_to_tray',  self.minimize_to_tray)
         config.set('preferences',  'manage_my_keyring',  self.manage_my_keyring)
-        
         
         # Save all the attributes on the applications tab
         config.set('preferences', 'browser', self.browser)
