@@ -61,13 +61,7 @@ class PreferencesController(Controller):
         smsc_number = self.model.smsc_number
         smsc_profile = self.model.smsc_profile
         smsc_validity = self.model.smsc_validity
-        
-        show_smsc_preferences = False
-        if alternate_smsc_flag:
-            show_smsc_preferences = True
-        else:
-            show_smsc_preferences = False
-        
+            
         # setup the smsc number 
         self.view.setup_smsc_number(smsc_number)
         
@@ -77,20 +71,18 @@ class PreferencesController(Controller):
         # ok lets populate the view of the sms profile box
         smsc_profile_box = gtk.ListStore(gobject.TYPE_STRING)
         iterator = smsc_profile_box.append([self.model.smsc_profile])
-        self.view.setup_smsc_profile(smsc_profile_box,  iterator,  show_smsc_preferences)
+        self.view.setup_smsc_profile(smsc_profile_box,  iterator,  alternate_smsc_flag)
         
         # finally the validity period
-        #iterator = smsc_validity_box.append()
         smsc_validity_box = gtk.ListStore(gobject.TYPE_STRING)
         
         for key ,  value in self.model.validities.items():
             if key == self.model.smsc_validity:
-                print "Controller: we found a match - using the iterator for this key to pass to the view"
                 iterator = smsc_validity_box.append([key])
             else:
                 smsc_validity_box.append([key])
-            print key,  ".....this is the key.... " , value
         self.view.setup_sms_message_validity(smsc_validity_box,  iterator)
+
 
     def setup_user_prefs_tab(self):
         # setup the user preferences to reflect what's in our model on stuartup
@@ -121,9 +113,6 @@ class PreferencesController(Controller):
         mail_combo_box = gtk.ListStore(gobject.TYPE_STRING)
         iterator = mail_combo_box.append(['xdg-email'])
         custom_iter = mail_combo_box.append([_('Custom')])
-        
-        print "constructor: setup_mail_browser_tab - xdg-email iterator " + repr(iterator)
-        print "constructor: setup_mail_browser_tab - xdg-email combo box " + repr(mail_combo_box)
         
         # ok lets get the value for the mail text box from the model if it exists
         mail_text_box = self.model.mail
@@ -245,7 +234,6 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         sms_validity_view = self.view['validity_combobox'].get_model()
         iteration = self.view['validity_combobox'].get_active_iter()
         validity_option = sms_validity_view.get_value(iteration,  0)
-        print "controller: smsc validity_option is: " + repr(validity_option)
         self.model.smsc_validity = validity_option
         
         # get the 'use an alternative smsc address' and save to config. 
@@ -256,7 +244,6 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         
         # OK only set the SMSC values if the alternate_sms_checkbox is true.
         if alternate_sms_checkbox==True:
-            print "controller: alternate_sms_checkbox is True, save the new vaules"
             smsc_profile_view = self.view['sms_profiles_combobox'].get_model()
             iteration = self.view['sms_profiles_combobox'].get_active_iter()
             smsc_profile_option = smsc_profile_view.get_value(iteration,  0)
@@ -268,19 +255,7 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
             smsc_number = self.view['smsc_number'].get_text()
             self.model.smsc_number = smsc_number
              
-        #if self.view['smsc_profile_checkbutton'].get_active():
-            # get combobox option
-            # profile = self.get_selected_dialer_profile()
-            # config.current_profile.set('connection',
-            #                          'dialer_profile', profile.name)
-            #print "saving tab 1 content"
-        #else:
-            # use default profile
-            #config.current_profile.set('connection',
-            #                          'dialer_profile', 'default')
-           # print "saving tab 1 content when checkbox is inactive"
-            
-
+             
         # ----- second tab -----
         # lets fetch all the vaules stored in the view for the second tab.
         exit_without_confirmation = self.view['exit_without_confirmation_checkbutton'].get_active()
@@ -294,11 +269,6 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         self.model.show_icon = show_icon
         self.model.manage_my_keyring = manage_keyring
 
-        #config.setboolean('preferences', 'exit_without_confirmation',
-        #               exit_without_confirmation)
-#        config.setboolean('preferences', 'show_icon', show_icon)
-#        config.setboolean('preferences', 'close_minimizes', minimize_to_tray)
-#        config.setboolean('preferences', 'manage_keyring', manage_keyring)
 
         # ------third tab -----
         # fetch the browser combo box data and the browser custom drop down list

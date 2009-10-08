@@ -39,28 +39,19 @@ class PreferencesView(View):
             'preferences_window', register=False)
         self.ctrl = ctrl
         ctrl.register_view(self)
-        #self.setup_view()
 
-    
-    
     def setup_alternate_smsc_address_checkbox(self,  val):
-        print "setup_sms_preferences checkbox: " + repr(val)
         self['smsc_profile_checkbutton'].set_active(val)
     
     def setup_smsc_profile(self,  profile_val,  active_set,  show_sms_preferences):
-        print "setup_sms_preferences profile value: " + repr(profile_val)
-        print "setup_sms_preferences active_set: " + repr(active_set)
-        print "setup_sms_preferences show sms preferences: " +  repr(show_sms_preferences)
         self['sms_profiles_combobox'].set_model(profile_val)
         self['sms_profiles_combobox'].set_active_iter(active_set)
         self['vbox14'].set_sensitive(show_sms_preferences)
         
     def setup_smsc_number(self,  smsc_number):
-        print "setup_sms_preferences smsc number: " + smsc_number
         self['smsc_number'].set_text(smsc_number)
      
     def setup_sms_message_validity(self,  val,  active_set):
-        print "setup_sms_messages_validity value: " + repr(val)
         self['validity_combobox'].set_model(val)
         self['validity_combobox'].set_active_iter(active_set)
 
