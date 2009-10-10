@@ -30,6 +30,7 @@ import gobject
 from wader.vmc.models.preferences import VALIDITY_DICT, SMSCItem
 from wader.vmc.tray import tray_available
 from wader.vmc.contrib.ValidatedEntry import ValidatedEntry, v_phone
+from wader.vmc.consts import CFG_PREFS_DEFAULT_BROWSER, CFG_PREFS_DEFAULT_EMAIL
 
 class PreferencesController(Controller):
     """Controller for preferences"""
@@ -111,31 +112,31 @@ class PreferencesController(Controller):
         
         # ok lets populate the view of the mail combo box and text box first
         mail_combo_box = gtk.ListStore(gobject.TYPE_STRING)
-        iterator = mail_combo_box.append(['xdg-email'])
+        iterator = mail_combo_box.append([CFG_PREFS_DEFAULT_EMAIL])
         custom_iter = mail_combo_box.append([_('Custom')])
         
         # ok lets get the value for the mail text box from the model if it exists
         mail_text_box = self.model.mail
-        active_set = iterator if ( mail_text_box == 'xdg-email') else custom_iter
+        active_set = iterator if ( mail_text_box == CFG_PREFS_DEFAULT_EMAIL) else custom_iter
         # set the combo box in the view to show the values
         self.view.setup_application_mail_combo_box(mail_combo_box,  active_set)
         # we have to set the text box if it's a custom value otherwise leave blank and show the default.
-        if mail_text_box != 'xdg-email':
+        if mail_text_box != CFG_PREFS_DEFAULT_EMAIL:
             self.view.setup_application_mail_text_box(mail_text_box)
                            
                            
         # ok lets populate the view of the browser combo box and text box
         browser_combo_box = gtk.ListStore(gobject.TYPE_STRING)
-        iterator = browser_combo_box.append(['xdg-open'])
+        iterator = browser_combo_box.append([CFG_PREFS_DEFAULT_BROWSER])
         custom_iter = browser_combo_box.append([_('Custom')])
         
         # ok lets get the value for the browser text box from the model if it exists
         browser_text_box = self.model.browser
-        active_set = iterator if ( browser_text_box == 'xdg-open') else custom_iter
+        active_set = iterator if ( browser_text_box == CFG_PREFS_DEFAULT_BROWSER) else custom_iter
         # set the combo box in the view to show values 
         self.view.setup_application_browser_combo_box(browser_combo_box,  active_set)
         # we have to set the browser box if it's a custom value otherwise leave blang and show the default
-        if browser_text_box != 'xdg-open':
+        if browser_text_box != CFG_PREFS_DEFAULT_BROWSER:
             self.view.setup_application_browser_text_box(browser_text_box)
 
     def setup_signals(self):
@@ -275,32 +276,27 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         browser_combo_view = self.view['browser_combobox'].get_model()
         iteration = self.view['browser_combobox'].get_active_iter()
         browser_options = browser_combo_view.get_value(iteration, 0)
-                
+
         # ok if the guy selects the xdg-open just save that name value pair in the model
         # otherwise save the entry in the command box
-        if browser_options == 'xdg-open':
-            self.model.browser = browser_options
-        else:
-            browser_command = self.view['browser_entry'].get_text()
-            if not browser_command:
-                return
+        browser_command = self.view['browser_entry'].get_text()
+        if browser_options != CFG_PREFS_DEFAULT_BROWSER and browser_command:
             self.model.browser = browser_command
- 
+        else:
+            self.model.browser = CFG_PREFS_DEFAULT_BROWSER
+
         # fetch the mail combo box data and the mail custom drop down list
         mail_combo_view = self.view['mail_combobox'].get_model()
         iteration = self.view['mail_combobox'].get_active_iter()
         mail_options = mail_combo_view.get_value(iteration, 0)
-        
-        # ok if the guy selects the xdg-mail just save that name value pair in the model
+
+        # ok if the guy selects the xdg-email just save that name value pair in the model
         # otherwise save the entry in the comand box
-        if mail_options == 'xdg-email':
-            self.model.mail = mail_options
-        else:
-            mail_command = self.view['mail_entry'].get_text()
-            if not mail_command:
-                return
+        mail_command = self.view['mail_entry'].get_text()
+        if mail_options != CFG_PREFS_DEFAULT_EMAIL and mail_command:
             self.model.mail = mail_command
- 
+        else:
+            self.model.mail = CFG_PREFS_DEFAULT_EMAIL
 
         # ----- fourth tab -----
         
@@ -340,7 +336,7 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
     def on_browser_combobox_changed(self, combobox):
         model = combobox.get_model()
         iter = combobox.get_active_iter()
-        if model.get_value(iter, 0) == 'xdg-open':
+        if model.get_value(iter, 0) == CFG_PREFS_DEFAULT_BROWSER:
             self.view['hbox6'].set_sensitive(False)
         else:
             self.view['hbox6'].set_sensitive(True)
@@ -348,7 +344,7 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
     def on_mail_combobox_changed(self, combobox):
         model = combobox.get_model()
         iter = combobox.get_active_iter()
-        if model.get_value(iter, 0) == 'xdg-email':
+        if model.get_value(iter, 0) == CFG_PREFS_DEFAULT_EMAIL:
             self.view['hbox7'].set_sensitive(False)
         else:
             self.view['hbox7'].set_sensitive(True)

@@ -25,7 +25,7 @@ from wader.vmc.translate import _
 from wader.vmc.config import config
 from wader.common.utils import revert_dict
 from wader.vmc.translate import _
-
+from wader.vmc.consts import CFG_PREFS_DEFAULT_BROWSER, CFG_PREFS_DEFAULT_EMAIL
 
 PREF_TABS = ["PROFILES"]
 
@@ -64,8 +64,8 @@ class PreferencesModel(Model):
         'max_traffic':10, 
         'traffic_threshold': 100, 
         'usage_notification':False,
-        'browser':"xdg-open", 
-        'mail':"xdg-email"
+        'browser':CFG_PREFS_DEFAULT_BROWSER,
+        'mail':CFG_PREFS_DEFAULT_EMAIL
     }
 
     def __init__(self, device_callable):
@@ -124,11 +124,10 @@ class PreferencesModel(Model):
             print "model: Warning! self.manage_my_keyring is NULL"
             self.manage_my_keyring = False
 
-
         # ok lets load the application values from configuration file
-        self.browser = config.get('preferences',  'browser')
-        self.mail = config.get('preferences',  'mail')
-        
+        self.browser = config.get('preferences', 'browser', CFG_PREFS_DEFAULT_BROWSER)
+        self.mail = config.get('preferences', 'mail', CFG_PREFS_DEFAULT_EMAIL)
+
         # ok lets load the usage values from configuration file
         self.max_traffic = config.get('preferences',  'max_traffic')
         if (self.max_traffic ==''):

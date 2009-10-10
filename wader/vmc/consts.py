@@ -133,3 +133,5 @@ AUTH_MAP = {
 
 AUTH_MAP_REV = revert_dict(AUTH_MAP)
 
+CFG_PREFS_DEFAULT_BROWSER = 'xdg-open'
+CFG_PREFS_DEFAULT_EMAIL   = 'xdg-email'
