@@ -103,8 +103,9 @@ class PreferencesView(View):
     # methods are called by the controller to setup the view for usage options tab
     # methods are called on initialisation 
     def setup_usage_max_traffic_value(self,  val):
-         self['maximum_traffic_entry'].set_value(val)   
-         return
+        print "view: setup_usage_max_traffic_value - :" + repr(val )
+        self['maximum_traffic_entry'].set_value(val)   
+        return
          
     def setup_usage_threshold_value(self,  val):
         self['threshold_entry'].set_value(val)

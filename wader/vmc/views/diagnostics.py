@@ -35,3 +35,9 @@ class DiagnosticsView(View):
 
     def setup_view(self):
         self.get_top_widget().set_position(gtk.WIN_POS_CENTER_ON_PARENT)
+        
+        
+    def set_datacard__info(self, manufacturer,  model,  firmware):
+        self['card_manufacturer_label'].set_text(manufacturer)
+        self['card_model_label'].set_text(model)
+        self['firmware_label'].set_text(firmware)

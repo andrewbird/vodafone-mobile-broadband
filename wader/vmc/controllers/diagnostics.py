@@ -59,10 +59,19 @@ class DiagnosticsController(Controller):
         device.GetImei(dbus_interface=CRD_INTFACE, error_handler=error,
                        reply_handler=lambda imei: self.view['imei_number_label'].set_text(imei))
 
-        def mdm_info(t):
-            self.view['card_manufacturer_label'].set_text(t[0])
-            self.view['card_model_label'].set_text(t[1])
-            self.view['firmware_label'].set_text(t[2])
+        def mdm_info(datacard_info):
+            # ok we don't have a model the data is coming straight from our core via dbus
+            manufacturer = datacard_info[0]
+            model = datacard_info[1]
+            firmware = datacard_info[2]
+            print "controller: diagnostics mdm_info - manufacturer " + manufacturer
+            print "controller: diagnostics mdm_info - model " + model
+            print "controller: diagnostics mdm_info - firmware " + firmware
+            self.view.set_datacard__info(manufacturer,  model,  firmware)
+            
+            #self.view['card_manufacturer_label'].set_text(t[0])
+            #self.view['card_model_label'].set_text(t[1])
+            #self.view['firmware_label'].set_text(t[2])
         device.GetInfo(dbus_interface=MDM_INTFACE, error_handler=error, reply_handler=mdm_info)
 
     # ------------------------------------------------------------ #

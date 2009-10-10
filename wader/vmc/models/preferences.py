@@ -131,9 +131,19 @@ class PreferencesModel(Model):
         
         # ok lets load the usage values from configuration file
         self.max_traffic = config.get('preferences',  'max_traffic')
+        if (self.max_traffic ==''):
+            print "model: Warning! self.max_traffic is NULL"
+            self.max_traffic = 100
+        
         self.traffic_threshold = config.get('preferences',  'traffic_threshold')
+        if (self.traffic_threshold ==''):
+            print "model: Warning! self.traffic_threshold is NULL"
+            self.traffic_threshold = 10
+        
         self.usage_notification = config.get('preferences',  'usage_notification')
-       
+        if (self.usage_notification ==''):
+            print "model: Warning! self.usage_notification is NULL"
+            self.usage_notification = False
         
     def save(self):
         #self.conf.set('statistics', 'warn_limit', self.warn_limit)
