@@ -21,7 +21,7 @@ Main controller for the application
 
 import os
 import gtk
-from twisted.internet.utils import getProcessOutput
+from subprocess import Popen
 
 from wader.vmc.controllers.base import WidgetController, TV_DICT, TV_DICT_REV
 from wader.vmc.controllers.contacts import (AddContactController,
@@ -31,6 +31,7 @@ from wader.vmc.views.contacts import AddContactView, SearchContactView
 import wader.common.consts as consts
 from wader.common.signals import SIG_SMS_COMP
 from wader.common.keyring import KeyringInvalidPassword
+from wader.vmc.config import config
 from wader.vmc.logger import logger
 from wader.vmc.dialogs import (show_profile_window,
                                show_warning_dialog, ActivityProgressBar,
@@ -41,7 +42,7 @@ from wader.vmc.dialogs import (show_profile_window,
 from wader.vmc.utils import bytes_repr, get_error_msg, UNIT_MB, units_to_bits
 from wader.vmc.translate import _
 from wader.vmc.notify import new_notification
-from wader.vmc.consts import GTK_LOCK, GLADE_DIR, IMAGES_DIR
+from wader.vmc.consts import GTK_LOCK, GLADE_DIR, GUIDE_DIR, IMAGES_DIR, APP_URL
 
 from wader.vmc.phonebook import (get_phonebook,
                                 all_same_type, all_contacts_writable)
@@ -60,7 +61,6 @@ from wader.vmc.views.pin import (PinModifyView, PinEnableView,
                                  AskPUKView, AskPINView)
 from wader.vmc.controllers.pin import (PinModifyController, PinEnableController,
                                        AskPUKController, AskPINController)
-
 
 from wader.vmc.models.preferences import PreferencesModel
 from wader.vmc.controllers.preferences import PreferencesController
@@ -369,16 +369,18 @@ class MainController(WidgetController):
             self.view['support_tool_button'].set_active(True)
 
     def on_internet_button_clicked(self, widget):
-        pass
 #        if self._check_if_connected():
-#            binary = config.get('preferences', 'browser')
-#            getProcessOutput(binary, [consts.APP_URL], os.environ)
+        if True:
+            binary = config.get('preferences', 'browser')
+            if binary:
+                Popen([ binary, APP_URL ])
 
     def on_mail_button_clicked(self, widget):
-        pass
 #        if self._check_if_connected():
-#            binary = config.get('preferences', 'mail')
-#            getProcessOutput(binary, ['REPLACE@ME.COM'], os.environ)
+        if True:
+            binary = config.get('preferences', 'mail')
+            if binary:
+                Popen([ binary, 'REPLACE@ME.COM' ])
 
     def on_sms_received_cb(self, index, complete):
         """
@@ -888,10 +890,10 @@ The csv file that you have tried to import has an invalid format.""")
         view.show()
 
     def on_help_topics_menu_item_activate(self, widget):
-        print "on_help_topics_menu_item_activate"
-        #binary = config.get('preferences', 'browser')
-        #index_path = os.path.join(consts.GUIDE_DIR, 'index.html')
-        #getProcessOutput(binary, [index_path], os.environ)
+        binary = config.get('preferences', 'browser')
+        if binary:
+            index_path = os.path.join(GUIDE_DIR, 'index.html')
+            Popen([ binary, index_path ])
 
     def on_about_menu_item_activate(self, widget):
         print "on_help_topics_about_menu_active"

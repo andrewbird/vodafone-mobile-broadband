@@ -66,6 +66,8 @@ RESOURCES_DIR = join(DATA_DIR, 'resources')
 GLADE_DIR = join(RESOURCES_DIR, 'glade')
 IMAGES_DIR = join(RESOURCES_DIR, 'glade')
 THEMES_DIR = join(RESOURCES_DIR, 'themes')
+GUIDE_DIR = join('/usr/share/doc', APP_SLUG_NAME)
+
 GTK_LOCK = join('/tmp', '.wader-vmc-lock')
 
 USER_HOME = expanduser('~')
