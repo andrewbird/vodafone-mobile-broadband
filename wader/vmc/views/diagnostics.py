@@ -21,11 +21,14 @@ import os.path
 import gtk
 
 from gtkmvc import View
-from wader.vmc.consts import GLADE_DIR
+from wader.vmc.consts import GLADE_DIR, IMAGES_DIR
 
 class DiagnosticsView(View):
     """View for the main diagnostics window"""
     GLADE_FILE = os.path.join(GLADE_DIR, "diagnostics.glade")
+    Sim_Image= os.path.join(IMAGES_DIR, "simple_sim_35x20.png")
+    Computer_Image = os.path.join(IMAGES_DIR, "netbookGraphic_50x25.png")
+    Modem_Image= os.path.join(IMAGES_DIR, "blackDongle_65x18.png")
 
     def __init__(self, ctrl):
         View.__init__(self, ctrl, self.GLADE_FILE,
@@ -35,9 +38,20 @@ class DiagnosticsView(View):
 
     def setup_view(self):
         self.get_top_widget().set_position(gtk.WIN_POS_CENTER_ON_PARENT)
-        
+        self['SIMImage'].set_from_file(self.Sim_Image)
+        self['ComputerImage'].set_from_file(self.Computer_Image)
+        self['ModemImage'].set_from_file(self.Modem_Image)
         
     def set_datacard__info(self, manufacturer,  model,  firmware):
         self['card_manufacturer_label'].set_text(manufacturer)
         self['card_model_label'].set_text(model)
         self['firmware_label'].set_text(firmware)
+
+    def set_imsi_info(self, imsi):
+        self['imsi_number_label'].set_text(imsi)
+        
+    def set_imei_info(self,  imei):
+        self['imei_number_label'].set_text(imei)
+        
+        
+        

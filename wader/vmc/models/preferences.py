@@ -38,12 +38,6 @@ VALIDITY_DICT = {
 
 VALIDITY_DICT_REV = revert_dict(VALIDITY_DICT)
 
-#transform_validity = {
-#    'maximum' : timedelta(days=63),
-#    '1week' : timedelta(days=7),
-#    '3days' : timedelta(days=3),
-#    '1day' : timedelta(days=1),
-#}
 
 class PreferencesModel(Model):
 

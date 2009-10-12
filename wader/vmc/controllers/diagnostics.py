@@ -52,13 +52,29 @@ class DiagnosticsController(Controller):
         def error(e):
             print e
 
-        device.GetImsi(dbus_interface=CRD_INTFACE, error_handler=error,
-                       reply_handler=lambda imsi: self.view['imsi_number_label'].set_text(imsi))
+        #device.GetImsi(dbus_interface=CRD_INTFACE, error_handler=error,
+                       #reply_handler=lambda imsi: self.view['imsi_number_label'].set_text(imsi))
+
 
 # XXX: why isn't GetImei under MDM_INTFACE, it's a modem attribute not SIM?
-        device.GetImei(dbus_interface=CRD_INTFACE, error_handler=error,
-                       reply_handler=lambda imei: self.view['imei_number_label'].set_text(imei))
+        #device.GetImei(dbus_interface=CRD_INTFACE, error_handler=error,
+                       #reply_handler=lambda imei: self.view['imei_number_label'].set_text(imei))
+        
+        def  sim_imei(sim_data):
+            # ok we don't have a model the data is coming from dbus from wader core
+            # lets tell the view to set the imsi value in the correct place
+            print "controller: diagnostics sim_imei - IMEI number is: " + sim_data
+            self.view.set_imei_info(sim_data)
+        device.GetImei(dbus_interface=CRD_INTFACE, error_handler=error, reply_handler=sim_imei)
 
+            
+        def sim_imsi(sim_data):
+            # ok we don't have a model the data is coming from dbus from wader core
+            # lets tell the view to set the imei value in the correct place
+            print "controller: diagnostics sim_imsi - IMSI number is: " + sim_data
+            self.view.set_imsi_info(sim_data)
+        device.GetImsi(dbus_interface=CRD_INTFACE, error_handler=error, reply_handler=sim_imsi)
+        
         def mdm_info(datacard_info):
             # ok we don't have a model the data is coming straight from our core via dbus
             manufacturer = datacard_info[0]
@@ -68,10 +84,6 @@ class DiagnosticsController(Controller):
             print "controller: diagnostics mdm_info - model " + model
             print "controller: diagnostics mdm_info - firmware " + firmware
             self.view.set_datacard__info(manufacturer,  model,  firmware)
-            
-            #self.view['card_manufacturer_label'].set_text(t[0])
-            #self.view['card_model_label'].set_text(t[1])
-            #self.view['firmware_label'].set_text(t[2])
         device.GetInfo(dbus_interface=MDM_INTFACE, error_handler=error, reply_handler=mdm_info)
 
     # ------------------------------------------------------------ #
