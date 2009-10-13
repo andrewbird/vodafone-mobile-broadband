@@ -189,27 +189,6 @@
                             <signal name="activate" handler="on_preferences_menu_item_activate"/>
                           </widget>
                         </child>
-                        <child>
-                          <widget class="GtkSeparatorMenuItem" id="main_separator4">
-                            <property name="visible">True</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkImageMenuItem" id="inspect_menu_item">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Inspect</property>
-                            <property name="use_underline">True</property>
-                            <property name="sensitive">False</property>
-                            <signal name="activate" handler="on_inspect_menu_item_activate"/>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image654">
-                                <property name="visible">True</property>
-                                <property name="pixbuf">terminal.png</property>
-                                <property name="icon_size">1</property>
-                              </widget>
-                            </child>
-                          </widget>
-                        </child>
                       </widget>
                     </child>
                   </widget>
