@@ -38,10 +38,12 @@ class DiagnosticsController(Controller):
         super(DiagnosticsController, self).register_view(view)
 
         self.set_device_info()
-
+        
+        self.view.set_appVersion_info(self.model.get_app_version())
         self.view['uptime_number_label'].set_text(self.model.get_uptime())
         self.view['os_name_label'].set_text(self.model.get_os_name())
         self.view['os_version_label'].set_text(self.model.get_os_version())
+        
 
     def set_device_info(self):
 
@@ -83,6 +85,12 @@ class DiagnosticsController(Controller):
             print "controller: diagnostics mdm_info - manufacturer " + manufacturer
             print "controller: diagnostics mdm_info - model " + model
             print "controller: diagnostics mdm_info - firmware " + firmware
+            
+            # we need to take into account when cards don't tell us the truth. so for the huawei e172 reporting e17x we add an exception
+            if model=='E17X' and manufacturer== 'huawei':
+                model='E172'
+                
+            
             self.view.set_datacard__info(manufacturer,  model,  firmware)
         device.GetInfo(dbus_interface=MDM_INTFACE, error_handler=error, reply_handler=mdm_info)
 

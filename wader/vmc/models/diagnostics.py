@@ -20,6 +20,7 @@
 import os
 
 from wader.vmc.uptime import get_uptime
+from wader.vmc.consts import APP_VERSION
 from wader.vmc.models.base import BaseWrapperModel
 
 class DiagnosticsModel(BaseWrapperModel):
@@ -39,4 +40,7 @@ class DiagnosticsModel(BaseWrapperModel):
 
     def get_os_version(self):
         return os.uname()[2]
+        
+    def get_app_version(self):
+        return APP_VERSION
 

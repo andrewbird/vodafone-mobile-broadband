@@ -39,7 +39,7 @@ APP_NAME = 'Vodafone Mobile Connect'
 APP_SLUG_NAME = 'wader-vmc'
 APP_LONG_NAME = 'Vodafone Mobile Connect'
 APP_SHORT_NAME = APP_SLUG_NAME
-APP_VERSION = '2.99.01'
+APP_VERSION = '3.00.0'
 
 # credits
 APP_AUTHORS = ['Andrew Bird <ajb@spheresystems.co.uk>',

@@ -53,5 +53,8 @@ class DiagnosticsView(View):
     def set_imei_info(self,  imei):
         self['imei_number_label'].set_text(imei)
         
+    def set_appVersion_info(self,  appVersion):
+        self['vmc_version'].set_text(appVersion)
+        
         
         
