@@ -65,16 +65,21 @@ class SMSStoreModel(ListStoreModel):
             # of sconn.get_all_contacts(), an unmodified fresh copy of all
             # the contacts, we use it instead of doing a lookup for each
             # contact
-            match = [contact.name for contact in contacts
-                            if message.number == contact.get_number()]
+            print "sms:model - _add_sim_message: contacts are... " + repr(contacts)
+            match=False
+            if contacts !=[None]:
+                print "sms:model - _add_sim_message: contacts number are... " + contacts
+                #match = [contact.name for contact in contacts if message.number == contact.get_number()]
+                match = contacts
+
             if match:
-                entry.append(match[0])
+                entry.append(match)
             else:
                 entry.append(message.number)
 
         else: # no contacts received
             entry.append(message.number)
-
+        
         entry.append(message.datetime)
         entry.append(message)
         self.append(entry)
@@ -87,10 +92,9 @@ class SMSStoreModel(ListStoreModel):
             # of sconn.get_all_contacts(), an unmodified fresh copy of all
             # the contacts, we use it instead of doing a lookup for each
             # contact
-            match = [contact.name for contact in contacts
-                            if message.get_number() == contact.get_number()]
-            if match:
-                entry.append(match[0])
+                
+            if contacts !=None:
+                entry.append(contacts)
             else:
                 entry.append(message.get_number())
 

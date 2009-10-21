@@ -389,20 +389,29 @@ class MainController(WidgetController):
 
         Will read, populate the treeview and notify the user
         """
+        
+        print "main: controller - on_sms_received_cd"
+        
         messages_obj = get_messages_obj(self.model.device)
         sms = messages_obj.get_message(index)
-
+        print "main: controller - on_sms_received_cd: message is.... "  + repr(sms)
+        print "main: controller - on_sms_received_cd: sms number is..." + repr(sms.number)
+        
         # It will take care of looking up the number in the phonebook
         # to show the name if it's a known contact instead of its number
         contact = self._find_contact_by_number(sms.number)
+        print "main: controller - on_sms_received_cd: contact is..." + repr(contact)
+        
         if contact:
-            id = contact.get_name()
+            contacts_value = contact.get_name()
+            print "main: controller - on_sms_received_cd: contact name is..." + repr(contact.get_name())
         else:
-            id = sms.number
+            contacts_value = sms.number
 
         # Populate treeview
         treeview = self.view['inbox_treeview']
-        treeview.get_model().add_message(sms,[contact])
+        #treeview.get_model().add_message(sms,[contact])
+        treeview.get_model().add_message(sms,  contacts_value)
 
         # Send notification
         title = _("SMS received from %s") % id
