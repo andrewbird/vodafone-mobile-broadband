@@ -259,7 +259,7 @@ class ProfileModel(Model):
     def _load_profile_from_imsi(self, imsi):
         logger.info("Loading profile for imsi %s" % str(imsi))
         try:
-            props = self.manager.get_profile_options_from_imsi(imsi[:5])
+            props = self.manager.get_profile_options_from_imsi(imsi)
             self._load_settings(props)
         except ProfileNotFoundError:
             self.uuid = str(uuid1())
