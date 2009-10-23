@@ -231,7 +231,7 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         # lets fetch all the values stored in the view for the first tab and place them in the model.
         
         # get the sms validity virst
-        sms_validity_view = gtk.ListStore(gobject.TYPE_STRING)
+        #sms_validity_view = gtk.ListStore(gobject.TYPE_STRING)
         sms_validity_view = self.view['validity_combobox'].get_model()
         iteration = self.view['validity_combobox'].get_active_iter()
         validity_option = sms_validity_view.get_value(iteration,  0)
