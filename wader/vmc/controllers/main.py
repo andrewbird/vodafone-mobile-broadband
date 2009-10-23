@@ -899,7 +899,7 @@ The csv file that you have tried to import has an invalid format.""")
         view.show()
 
     def on_help_topics_menu_item_activate(self, widget):
-        binary = config.get('preferences', 'browser')
+        binary = config.get('preferences', 'browser', 'xdg-open')
         if binary:
             index_path = os.path.join(GUIDE_DIR, 'index.html')
             Popen([ binary, index_path ])
