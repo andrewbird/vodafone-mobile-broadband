@@ -34,7 +34,7 @@ import wader.common.notifications as N
 from wader.vmc import Controller, Model
 import wader.vmc.dialogs as dialogs
 from vmc.contrib.ValidatedEntry import ValidatedEntry, v_ip
-from vmc.contrib import louie
+#from vmc.contrib import louie
 from wader.vmc.views.initialconf import APNSelectionView
 
 INVALID_CHARS = ['/', '\\']
@@ -373,12 +373,14 @@ class DeviceSelectionController(Controller, DbusComponent):
                 self.udi_device[device.udi] = device
 
     def connect_to_signals(self):
-        louie.connect(self.device_added, N.SIG_DEVICE_ADDED)
-        louie.connect(self.device_removed, N.SIG_DEVICE_REMOVED)
+        pass
+#        louie.connect(self.device_added, N.SIG_DEVICE_ADDED)
+#        louie.connect(self.device_removed, N.SIG_DEVICE_REMOVED)
 
     def disconnect_from_signals(self):
-        louie.disconnect(self.device_added, N.SIG_DEVICE_ADDED)
-        louie.disconnect(self.device_removed, N.SIG_DEVICE_REMOVED)
+        pass
+#        louie.disconnect(self.device_added, N.SIG_DEVICE_ADDED)
+#        louie.disconnect(self.device_removed, N.SIG_DEVICE_REMOVED)
 
     def device_added(self, device):
         self.udi_device[str(device.udi)] = device
