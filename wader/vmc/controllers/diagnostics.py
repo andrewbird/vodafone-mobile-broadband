@@ -21,6 +21,7 @@ Controllers for diagnostics
 from gtkmvc import Controller
 
 from wader.common.consts import CRD_INTFACE, MDM_INTFACE
+from wader.common.provider import NetworkProvider
 
 class DiagnosticsController(Controller):
     """Controller for the diagnostics window"""
@@ -69,11 +70,26 @@ class DiagnosticsController(Controller):
             self.view.set_imei_info(sim_data)
         device.GetImei(dbus_interface=CRD_INTFACE, error_handler=error, reply_handler=sim_imei)
 
+         
+        def sim_network(sim_data):
+            # let's look up what we think this SIM's network is.
+            # so we want to display the country and network operator
             
+            sim_network = NetworkProvider()
+            #networks_attributes = sim_network.get_network_by_id("460009075714956")
+            networks_attributes = sim_network.get_network_by_id(sim_data)
+            if networks_attributes!=[]:
+                net_attrib = networks_attributes[0]
+                print "controller: diagnostics sim_network - country: " + net_attrib.country
+                print "controller: diagnostics sim_network - network opeartor: " + net_attrib.name
+                self.view.set_network_info(net_attrib.name, net_attrib.country)
+            
+        device.GetImsi(dbus_interface=CRD_INTFACE, error_handler=error, reply_handler=sim_network)
+         
         def sim_imsi(sim_data):
             # ok we don't have a model the data is coming from dbus from wader core
             # lets tell the view to set the imei value in the correct place
-            print "controller: diagnostics sim_imsi - IMSI number is: " + sim_data
+            print "controller: diagnostics sim_imsi - IMSI number is: " + sim_data            
             self.view.set_imsi_info(sim_data)
         device.GetImsi(dbus_interface=CRD_INTFACE, error_handler=error, reply_handler=sim_imsi)
         

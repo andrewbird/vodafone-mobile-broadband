@@ -50,6 +50,10 @@ class DiagnosticsView(View):
     def set_imsi_info(self, imsi):
         self['imsi_number_label'].set_text(imsi)
         
+    def set_network_info(self, network="Unknown",  country="Unknown"):
+        self['network_name_label'].set_text(network)
+        self['country_name_label'].set_text(country)
+        
     def set_imei_info(self,  imei):
         self['imei_number_label'].set_text(imei)
         
