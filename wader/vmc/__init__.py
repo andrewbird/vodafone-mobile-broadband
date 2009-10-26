@@ -18,9 +18,4 @@
 """
 GTK port
 """
-__version__ = "$Rev: 1172 $"
 
-#from vmc.contrib.gtkmvc import (Model, TreeStoreModel, ListStoreModel,
-#                                Controller, View)
-#
-#__all__ = ["Model", "TreeStoreModel", "ListStoreModel", "Controller", "View"]
