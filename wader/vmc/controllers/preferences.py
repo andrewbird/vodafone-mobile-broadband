@@ -234,8 +234,9 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         #sms_validity_view = gtk.ListStore(gobject.TYPE_STRING)
         sms_validity_view = self.view['validity_combobox'].get_model()
         iteration = self.view['validity_combobox'].get_active_iter()
-        validity_option = sms_validity_view.get_value(iteration,  0)
-        self.model.smsc_validity = validity_option
+        if iteration is not None :
+            validity_option = sms_validity_view.get_value(iteration,  0)
+            self.model.smsc_validity = validity_option
         
         # get the 'use an alternative smsc address' and save to config. 
         # If this is set 'true' then we should not bother saving details for profile or smsc number, so first get the value from the view.
