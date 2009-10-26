@@ -66,6 +66,9 @@ from wader.vmc.models.preferences import PreferencesModel
 from wader.vmc.controllers.preferences import PreferencesController
 from wader.vmc.views.preferences import PreferencesView
 
+from wader.vmc.consts import CFG_PREFS_DEFAULT_BROWSER
+
+
 def get_fake_toggle_button():
     """Returns a toggled L{gtk.ToggleToolButton}"""
     button = gtk.ToggleToolButton()
@@ -899,7 +902,7 @@ The csv file that you have tried to import has an invalid format.""")
         view.show()
 
     def on_help_topics_menu_item_activate(self, widget):
-        binary = config.get('preferences', 'browser', 'xdg-open')
+        binary = config.get('preferences', 'browser', CFG_PREFS_DEFAULT_BROWSER)
         if binary:
             index_path = os.path.join(GUIDE_DIR, 'index.html')
             Popen([ binary, index_path ])
