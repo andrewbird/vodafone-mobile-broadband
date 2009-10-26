@@ -58,7 +58,8 @@ APP_ARTISTS = ['Nicholas Herriot <Nicholas.Herriot@vodafone.com>',
           'Original glade by María Iglesias Barroso <miglesias@imssystem.net>'
           ]
 
-APP_URL = 'https://forge.betavine.net/projects/vodafonemobilec/'
+#APP_URL = 'https://forge.betavine.net/projects/vodafonemobilec/'
+APP_URL = 'http://www.betavine.net/bvportal/resources/datacards'
 
 DATA_DIR = '/usr/share/%s' % APP_SLUG_NAME
 RESOURCES_DIR = join(DATA_DIR, 'resources')
