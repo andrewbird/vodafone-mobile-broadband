@@ -18,7 +18,6 @@
 """
 Data persistance for VMC
 """
-__version__ = "$Rev: 1172 $"
 
 import datetime
 
@@ -28,113 +27,15 @@ from os.path import join
 from vmc.common.encoding import to_u
 from vmc.common.sms import ShortMessage
 import vmc.common.consts as consts
-from vmc.common.interfaces import IContact
 
 from vmc.contrib.epsilon.extime import Time
 from vmc.contrib.axiom import item, attributes, store
 from vmc.contrib.axiom.attributes import AND
 
 
-class Contact(object):
-    implements(IContact)
-
-    def __init__(self, name, number, index=None):
-        super(Contact, self).__init__()
-        self.name = to_u(name)
-        self.number = to_u(number)
-        self.index = index
-        self.writable = True
-
-    def __repr__(self):
-        if self.index:
-            args = (self.index, self.name, self.number)
-            return '<Contact index="%d" name="%s" number="%s">' % args
-
-        return '<Contact name="%s" number="%s">' % (self.name, self.number)
-
-    __str__ = __repr__
-
-    def __eq__(self, c):
-        return self.name == c.name and self.number == c.number
-
-    def __ne__(self, c):
-        return not (self.name == c.name and self.number == c.number)
-
-    def get_index(self):
-        return self.index
-
-    def get_name(self):
-        return self.name
-
-    def get_number(self):
-        return self.number
-
-    def is_writable(self):
-        return self.writable
-
-    def external_editor(self):
-        return None
-
-    def image_16x16(self):
-        return join(consts.IMAGES_DIR, 'mobile.png')
-
-    def to_csv(self):
-        """Returns a list with the name and number formatted for csv"""
-        name = '"' + self.name + '"'
-        number = '"' + self.number + '"'
-        return [name, number]
-
-
-class DBContact(item.Item):
-    """
-    I represent a contact on the DB
-    """
-    implements(IContact)
-    # (id integer, category integer, name text, number text)
-    typeName = 'DBContact'
-    schemaVersion = 1
-
-    name = attributes.text(allowNone=False)
-    number = attributes.text(allowNone=False)
-    writable = True
-
-    def __repr__(self):
-        return '<DBContact name="%s" number="%s">' % (self.name, self.number)
-
-    def __eq__(self, c):
-        return self.name == c.name and self.number == c.number
-
-    def __ne__(self, c):
-        return not (self.name == c.name and self.number == c.number)
-
-    def get_index(self):
-        return self.storeID
-
-    def get_name(self):
-        return self.name
-
-    def get_number(self):
-        return self.number
-
-    def is_writable(self):
-        return self.writable
-
-    def external_editor(self):
-        return None
-
-    def image_16x16(self):
-        return join(consts.IMAGES_DIR, 'computer.png')
-
-    def to_csv(self):
-        """Returns a list with the name and number formatted for csv"""
-        name = '"' + self.name + '"'
-        number = '"' + self.number + '"'
-        return [name, number]
-
-
 class DBShortMessage(item.Item):
     """
-    I represent a contact on the DB
+    I represent an SMS on the DB
     """
     #  (id integer, category integer, number text, date text, smstext text)
     typeName = 'DBShortMessage'
@@ -180,38 +81,6 @@ class AxiomDBManager(object):
     def close(self):
         self.store.close()
         self.store = None
-
-
-class ContactsManager(AxiomDBManager):
-    """
-    Contacts manager
-    """
-    def __init__(self, path=consts.CONTACTS_DB):
-        super(ContactsManager, self).__init__(path)
-
-    def add_contact(self, contact):
-        return DBContact(store=self.store, name=contact.get_name(),
-                        number=contact.get_number())
-
-    def delete_contact(self, contact):
-        return self.store.query(DBContact,
-                                DBContact == contact).deleteFromStore()
-
-    def delete_contact_by_id(self, index):
-        return self.store.getItemByID(index).deleteFromStore()
-
-    def find_contacts(self, pattern):
-        for contact in self.get_contacts():
-            # XXX: O(N) here!
-            # I can't find a way to do a LIKE comparison
-            if pattern.lower() in contact.get_name().lower():
-                yield contact
-
-    def get_contacts(self):
-        return list(self.store.query(DBContact))
-
-    def get_contact_by_id(self, index):
-        return self.store.getItemByID(index)
 
 
 class SMSManager(AxiomDBManager):
