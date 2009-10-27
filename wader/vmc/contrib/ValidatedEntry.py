@@ -192,7 +192,7 @@ class ValidatedEntry(gtk.Entry):
 
 
 ######################################################################
-#            
+#
 # Sample validation functions to use with ValidatedEntry
 #
 ######################################################################

@@ -147,7 +147,7 @@ class StatsBar(gtk.DrawingArea):
         threshold = self._fraction()
         usage_height = height - (threshold * height)
         #linear = cairo.LinearGradient(0.85, 0.85, 0.85, 0.65)
-        #linear.add_color_stop_rgba(.9,  0.9, 0.9, 0.9, 0.5)
+        #linear.add_color_stop_rgba(.9, 0.9, 0.9, 0.9, 0.5)
         cr.set_source_rgba(0.7, 0.7, 0.7, 0.9)
         cr.rectangle(5, usage_height, inner_width-10, height)
         cr.fill()

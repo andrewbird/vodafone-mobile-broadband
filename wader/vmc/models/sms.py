@@ -79,7 +79,7 @@ class SMSStoreModel(ListStoreModel):
 
         else: # no contacts received
             entry.append(message.number)
-        
+
         entry.append(message.datetime)
         entry.append(message)
         self.append(entry)
@@ -92,7 +92,7 @@ class SMSStoreModel(ListStoreModel):
             # of sconn.get_all_contacts(), an unmodified fresh copy of all
             # the contacts, we use it instead of doing a lookup for each
             # contact
-                
+
             if contacts !=None:
                 entry.append(contacts)
             else:

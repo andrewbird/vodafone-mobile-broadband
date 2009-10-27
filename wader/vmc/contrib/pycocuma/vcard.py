@@ -69,10 +69,10 @@ FIELDNAME2ATTR = {"FormattedName":"fn", "DisplayName":"getDisplayName", "Family"
     "Label":"label",
     "Note":"note", "Categories":"categories", "SortName":"getSortName", "SortString":"sort_string", "URL":"url", "Key":"key",
     "TimeZone":"tz", "GlobalPosition":"geo", "Photo":"photo", "Logo":"logo",
-    "Rev":"rev", "UID":"uid" 
+    "Rev":"rev", "UID":"uid"
     }
 
-vC_adr_types = ["pref", "home", "work", "intl", "postal", "parcel", 
+vC_adr_types = ["pref", "home", "work", "intl", "postal", "parcel",
     "dom"] # DOMestic is currently not supported in PyCoCuMa
 vC_adr_types_default = ["intl", "postal", "parcel", "work"]
 
@@ -82,7 +82,7 @@ vC_tel_types = ["pref", "home", "work", "voice", "cell", "pager",
 vC_tel_types_default = ["voice"]
 
 vC_email_types = ["pref",
-    "internet", "x400"] # These will not display in PyCoCuMa 
+    "internet", "x400"] # These will not display in PyCoCuMa
 vC_email_types_default = ["internet"]
 
 SUPPORTED_VERSIONS = ["2.1", "3.0"]
@@ -343,7 +343,7 @@ class vCard:
             block_of_lines = map(vC_contentline, block_of_lines)
 
         for line in block_of_lines:
-            if line.name == "VERSION" and not line.value in SUPPORTED_VERSIONS :
+            if line.name == "VERSION" and not line.value in SUPPORTED_VERSIONS:
                 #XXX: maybe we need to be a little more clever with stdout, but it should
                 #     end up in twisted's log
                 print "WARNING: Unsupported vCard version (should be \"3.0\" or \"2.1\")."
@@ -380,7 +380,7 @@ class vCard:
     def __repr__(self):
         ret = "<%s: " % self.__class__
         for key, value in zip(self.data.keys(), self.data.values()):
-            ret = ret + "%s: %s\n" % (repr(key), repr(value)) 
+            ret = ret + "%s: %s\n" % (repr(key), repr(value))
         return ret+">"
 
     def handle(self):
@@ -613,7 +613,7 @@ class vCardList:
         if self.data.has_key(handle):
             del self.data[handle]
             return True
-        else: 
+        else:
             return False
 
     def forgetLastReturnedField(self):

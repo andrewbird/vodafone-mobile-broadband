@@ -1760,7 +1760,7 @@ class Store(Empowered):
             for cache in (self.typeToInsertSQLCache,
                           self.typeToDeleteSQLCache,
                           self.typeToSelectSQLCache,
-                          self.typeToTableNameCache) :
+                          self.typeToTableNameCache):
                 if tableClass in cache:
                     del cache[tableClass]
             if tableClass.storeID in self.attrToColumnNameCache:

@@ -75,6 +75,7 @@ def get_fake_toggle_button():
     button.set_active(True)
     return button
 
+
 class MainController(WidgetController):
     """
     I am the controller for the main window
@@ -392,19 +393,19 @@ class MainController(WidgetController):
 
         Will read, populate the treeview and notify the user
         """
-        
+
         print "main: controller - on_sms_received_cd"
-        
+
         messages_obj = get_messages_obj(self.model.device)
         sms = messages_obj.get_message(index)
         print "main: controller - on_sms_received_cd: message is.... "  + repr(sms)
         print "main: controller - on_sms_received_cd: sms number is..." + repr(sms.number)
-        
+
         # It will take care of looking up the number in the phonebook
         # to show the name if it's a known contact instead of its number
         contact = self._find_contact_by_number(sms.number)
         print "main: controller - on_sms_received_cd: contact is..." + repr(contact)
-        
+
         if contact:
             contacts_value = contact.get_name()
             print "main: controller - on_sms_received_cd: contact name is..." + repr(contact.get_name())
@@ -414,7 +415,7 @@ class MainController(WidgetController):
         # Populate treeview
         treeview = self.view['inbox_treeview']
         #treeview.get_model().add_message(sms,[contact])
-        treeview.get_model().add_message(sms,  contacts_value)
+        treeview.get_model().add_message(sms, contacts_value)
 
         # Send notification
         title = _("SMS received from %s") % id
@@ -1045,7 +1046,7 @@ The csv file that you have tried to import has an invalid format.""")
             #show_normal_notification(self.tray, message, details, expires=False)
             n = new_notification(self.icon, message, details, stock=gtk.STOCK_INFO)
             n.show()
-        elif self.model.get_transferred_total(0) < limit :
+        elif self.model.get_transferred_total(0) < limit:
             self.user_limit_notified = False
 
     def update_usage_view(self):

@@ -40,7 +40,7 @@ class DiagnosticsModel(BaseWrapperModel):
 
     def get_os_version(self):
         return os.uname()[2]
-        
+
     def get_app_version(self):
         return APP_VERSION
 

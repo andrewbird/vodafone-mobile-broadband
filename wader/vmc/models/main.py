@@ -524,7 +524,7 @@ class MainModel(Model):
             ret = d.replace(month=new_month, year=new_year)
         except ValueError:
             #It's a last day greater than the last day of the new month
-            next_month = d.replace(day=1, 
+            next_month = d.replace(day=1,
                                   month=(new_month + 1) % 12 or 12,
                                   year=new_year)
             ret = next_month - datetime.timedelta(days=1)

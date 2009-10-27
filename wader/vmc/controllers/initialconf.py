@@ -238,7 +238,7 @@ class BaseProfileController(Controller):
             if self.is_profile_name_insane():
                 raise Problem(_("""The following characters are not allowed in a profile name: %s""") % ' '.join(INVALID_CHARS))
 
-        except Problem, (instance): 
+        except Problem, (instance):
                 message = _('Invalid value in profile')
                 dialogs.open_warning_dialog(message, instance.detail)
                 return False
