@@ -22,8 +22,6 @@ I synchronize the different state machines and set the appropiated callbacks
 to the listeners
 """
 
-__version__ = "$Rev: 1172 $"
-
 from wader.common.behaviour import Behaviour
 from wader.vmc.collaborator import GTKCollaboratorFactory
 from vmc.contrib.epsilon.modal import mode

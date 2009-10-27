@@ -18,7 +18,6 @@
 """
 Controllers for preferences
 """
-__version__ = "$Rev: 1172 $"
 
 from wader.common.config import config
 from wader.vmc.translate import _

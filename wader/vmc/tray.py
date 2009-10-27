@@ -17,8 +17,6 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 """Tray icon module"""
 
-__version__ = "$Rev: 1172 $"
-
 import os.path
 
 import gtk

@@ -17,8 +17,6 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 """Images frequently used"""
 
-__version__ = "$Rev: 1172 $"
-
 from os.path import join, exists
 
 import gtk

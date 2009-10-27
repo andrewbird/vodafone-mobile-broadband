@@ -19,8 +19,6 @@
 Client for gnomekeyring
 """
 
-__version__ = "$Rev$"
-
 import gnomekeyring
 
 try:

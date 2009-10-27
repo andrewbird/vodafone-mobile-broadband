@@ -18,7 +18,6 @@
 """
 Controller for the initial configuration window
 """
-__version__ = "$Rev: 1172 $"
 
 from twisted.internet import threads
 

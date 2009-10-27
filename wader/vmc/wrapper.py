@@ -18,7 +18,6 @@
 """
 GTK Wrapper
 """
-__version__ = "$Rev: 1172 $"
 
 from wader.common.wrapper import BaseWrapper
 from wader.vmc.behaviour import GTKBehaviour

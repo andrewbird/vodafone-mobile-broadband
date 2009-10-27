@@ -17,8 +17,6 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 """Controllers for the main window and the about dialog"""
 
-__version__ = "$Rev: 1172 $"
-
 from wader.vmc import View
 
 class BaseDialogView(View):
