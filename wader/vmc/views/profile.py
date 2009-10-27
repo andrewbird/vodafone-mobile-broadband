@@ -32,6 +32,7 @@ from wader.common.consts import MM_NETWORK_BAND_ANY, MM_NETWORK_MODE_ANY
 class ProfileView(View):
 
     GLADE_FILE = join(GLADE_DIR, "profiles.glade")
+    IMAGE_FILE = join(GLADE_DIR, "proedt.png")
 
     def __init__(self, ctrl):
         super(ProfileView, self).__init__(ctrl, self.GLADE_FILE,
@@ -42,6 +43,7 @@ class ProfileView(View):
         self._init_combobox(AUTH_MAP, 'authentication', VM_NETWORK_AUTH_ANY, self.set_auth)
 
         ctrl.setup_view(self)
+        self['PROimage'].set_from_file(self.IMAGE_FILE)
         self['static_dns_check'].connect('toggled', self.on_static_dns_toggled)
         icon = gtk.gdk.pixbuf_new_from_file(join(GLADE_DIR, 'VF_logo.png'))
         self.get_top_widget().set_icon(icon)
