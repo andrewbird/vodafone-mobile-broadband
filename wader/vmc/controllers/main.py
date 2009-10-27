@@ -374,7 +374,7 @@ class MainController(WidgetController):
     def on_internet_button_clicked(self, widget):
 #        if self._check_if_connected():
         if True:
-            binary = config.get('preferences', 'browser')
+            binary = config.get('preferences', 'browser', CFG_PREFS_DEFAULT_BROWSER)
             if binary:
                 Popen([ binary, APP_URL ])
 
