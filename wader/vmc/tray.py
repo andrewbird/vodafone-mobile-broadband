@@ -18,20 +18,20 @@
 """Tray icon module"""
 
 import os.path
-
 import gtk
+import gobject
+import pynotify
 
-from twisted.internet import reactor
+from wader.vmc.consts import IMAGES_DIR, APP_SHORT_NAME, APP_NAME
 
-from wader.vmc import consts
-
-IMG_PATH = os.path.join(consts.IMAGES_DIR, 'VF_logo.png')
+IMG_PATH = os.path.join(IMAGES_DIR, 'VF_logo.png')
 
 try:
     import gtk.StatusIcon
     HAVE_STATUS_ICON = True
 except ImportError:
     HAVE_STATUS_ICON = False
+
 
 def tray_available():
     """Returns True if any kind of systray widget is present"""
@@ -44,6 +44,7 @@ def tray_available():
         return False
 
     return True
+
 
 class TrayIcon(object):
     """
@@ -76,21 +77,43 @@ class TrayIcon(object):
         else:
             return self.icon.get_property('visible')
 
-    def attach_notification(self, notification):
+    def attach_notification(self, title, text="",
+                            stock=None, actions=None, category=None):
         """
         Attachs C{notification} to the icon
 
         If we're not visible, we will show ourselves for 5 seconds and will
         hide afterwards
         """
-        if HAVE_STATUS_ICON:
-            notification.set_property('status-icon', self.icon)
-        else:
-            notification.attach_to_widget(self.icon)
 
+        # Create
+        if not pynotify.init(APP_NAME):
+            raise RuntimeError("Can not initialize pynotify")
+
+        n = pynotify.Notification(title, text)
+
+        if category:
+            n.set_category(category)
+
+        if actions:
+            for _type, action_text, callback in actions:
+                n.add_action(_type, action_text, callback)
+
+        if stock:
+            icon = gtk.Button().render_icon(stock, gtk.ICON_SIZE_DIALOG)
+            n.set_icon_from_pixbuf(icon)
+
+        # Attach
+        if HAVE_STATUS_ICON:
+            n.set_property('status-icon', self.icon)
+        else:
+            n.attach_to_widget(self.icon)
+
+        # Show
         if not self.visible():
             self.show()
-            reactor.callLater(5, self.hide)
+            gobject.timeout_add(5000, lambda hide: self.hide(), self)
+        n.show()
 
 if HAVE_STATUS_ICON:
     def get_tray_icon(show_ide_cb, get_menu_func):
@@ -109,7 +132,7 @@ if HAVE_STATUS_ICON:
 else:
     def get_tray_icon(show_ide_cb, get_menu_func=None):
         import egg.trayicon
-        tray = egg.trayicon.TrayIcon(consts.APP_SHORT_NAME)
+        tray = egg.trayicon.TrayIcon(APP_SHORT_NAME)
         # attach an image
         image = gtk.Image()
         image.set_from_file(IMG_PATH)

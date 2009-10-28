@@ -19,13 +19,13 @@
 Controllers for preferences
 """
 
+import gobject
+import gtk
+from gtkmvc import Controller
+
 from wader.common.config import config
 from wader.vmc.translate import _
-from wader.common.dialers import wvdial
-from gtkmvc import Controller
-import wader.vmc.dialogs as dialogs
-import gtk
-import gobject
+from wader.vmc.dialogs import show_warning_dialog
 from wader.vmc.models.preferences import VALIDITY_DICT, SMSCItem
 from wader.vmc.tray import tray_available
 from wader.vmc.contrib.ValidatedEntry import ValidatedEntry, v_phone
@@ -47,11 +47,12 @@ class PreferencesController(Controller):
     # for all the tabs windows in the view.
     def register_view(self, view):
         Controller.register_view(self, view)
-        self.setup_signals()
         self.setup_sms_tab()
         self.setup_user_prefs_tab()
         self.setup_mail_browser_tab()
         self.setup_usage_tab()
+        # set up signals after init
+        self.setup_signals()
 
     def setup_sms_tab(self):
         # setup the sms preferences to reflect what's in our model on startup
@@ -161,7 +162,7 @@ class PreferencesController(Controller):
                     message = _("Missing dependency")
                     details = _(
 """To use this feature you need the gnomekeyring module""")
-                    dialogs.open_warning_dialog(message, details)
+                    show_warning_dialog(message, details)
                     return True
 
         # keep a reference of the handler id
@@ -181,24 +182,15 @@ class PreferencesController(Controller):
                     details = _("""
 To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
 """)
-                    dialogs.open_warning_dialog(message, details)
+                    show_warning_dialog(message, details)
                     return True
                 else:
-                    # attach and show systray icon
-#                    self.parent_ctrl._setup_trayicon(ignoreconf=True)
-                    # if there's an available tray, enable this chkbtn
                     close_win_chkbtn = self.view['close_window_checkbutton']
                     close_win_chkbtn.set_sensitive(True)
-
             else:
-                # detach icon from systray
-#                self.parent_ctrl._detach_trayicon()
                 # close_window_checkbutton depends on this checkbutton
                 # being active, thats why we set insensitive the chkbtn
-
                 self.view.setup_user_close_window_minimize(False, True)
-                #self.view['close_window_checkbutton'].set_sensitive(False)
-                #self.view['close_window_checkbutton'].set_active(False)
 
         # keep a reference of the handler id
         self._hid2 = self.view['show_icon_checkbutton'].connect('toggled',
@@ -268,6 +260,12 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         self.model.minimize_to_tray = minimize_to_tray
         self.model.show_icon = show_icon
         self.model.manage_my_keyring = manage_keyring
+
+        # make the change in the parent
+        if self.model.show_icon:
+            self.parent_ctrl._setup_trayicon(ignoreconf=True)
+        else:
+            self.parent_ctrl._detach_trayicon()
 
         # ------third tab -----
         # fetch the browser combo box data and the browser custom drop down list

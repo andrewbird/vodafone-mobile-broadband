@@ -24,7 +24,8 @@ from wader.common.utils import revert_dict
 from wader.vmc.logger import logger
 from wader.vmc.translate import _
 from wader.vmc.config import config
-from wader.vmc.consts import CFG_PREFS_DEFAULT_BROWSER, CFG_PREFS_DEFAULT_EMAIL
+from wader.vmc.consts import ( CFG_PREFS_DEFAULT_BROWSER, CFG_PREFS_DEFAULT_EMAIL,
+                               CFG_PREFS_DEFAULT_TRAY_ICON )
 
 PREF_TABS = ["PROFILES"]
 
@@ -51,7 +52,7 @@ class PreferencesModel(Model):
         'smsc_number':"+447785016005",
         'smsc_validity':"maximum",
         'exit_without_confirmation': False,
-        'show_icon':False,
+        'show_icon':CFG_PREFS_DEFAULT_TRAY_ICON,
         'minimize_to_tray':False,
         'manage_my_keyring':False,
         'max_traffic':10,
@@ -101,10 +102,7 @@ class PreferencesModel(Model):
             print "model: Warning! self.exit_without_confirmation is NULL"
             self.exit_without_confirmation = False
 
-        self.show_icon = config.get('preferences', 'show_icon')
-        if (self.show_icon == ''):
-            print "model: Warning! self.show_icon is NULL"
-            self.show_icon = False
+        self.show_icon = config.get('preferences', 'show_icon', CFG_PREFS_DEFAULT_TRAY_ICON)
 
         self.minimize_to_tray  = config.get('preferences', 'minimize_to_tray')
         if (self.minimize_to_tray==''):

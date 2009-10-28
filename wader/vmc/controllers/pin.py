@@ -18,25 +18,23 @@
 """
 Controllers for PIN screens
 """
+
+from gtk import STATE_NORMAL
+from gtk.gdk import color_parse
 from gtkmvc import Controller
 
 from wader.vmc.translate import _
-
-#import wader.common.exceptions as ex
-
 from wader.vmc.dialogs import show_warning_dialog
-
 from wader.vmc.controllers.base import WidgetController
-from wader.vmc.notify import new_notification
 
-from gtk.gdk import color_parse
-from gtk import STATE_NORMAL
 
 def is_valid_puk(s):
     return (len(s) == 8) and s.isdigit()
 
+
 def is_valid_pin(s):
     return (len(s) >= 4) and (len(s) <= 8) and s.isdigit()
+
 
 def set_bg(widget, colour):
     if colour is 'red':

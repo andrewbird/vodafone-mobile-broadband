@@ -41,8 +41,9 @@ from wader.vmc.dialogs import (show_profile_window,
 #from wader.vmc.keyring_dialogs import NewKeyringDialog, KeyringPasswordDialog
 from wader.vmc.utils import bytes_repr, get_error_msg, UNIT_MB, units_to_bits
 from wader.vmc.translate import _
-from wader.vmc.notify import new_notification
-from wader.vmc.consts import GTK_LOCK, GLADE_DIR, GUIDE_DIR, IMAGES_DIR, APP_URL
+from wader.vmc.tray import get_tray_icon
+from wader.vmc.consts import ( GTK_LOCK, GLADE_DIR, GUIDE_DIR, IMAGES_DIR, APP_URL,
+                               CFG_PREFS_DEFAULT_BROWSER, CFG_PREFS_DEFAULT_TRAY_ICON )
 
 from wader.vmc.phonebook import (get_phonebook,
                                 all_same_type, all_contacts_writable)
@@ -66,8 +67,6 @@ from wader.vmc.models.preferences import PreferencesModel
 from wader.vmc.controllers.preferences import PreferencesController
 from wader.vmc.views.preferences import PreferencesView
 
-from wader.vmc.consts import CFG_PREFS_DEFAULT_BROWSER
-
 
 def get_fake_toggle_button():
     """Returns a toggled L{gtk.ToggleToolButton}"""
@@ -87,20 +86,16 @@ class MainController(WidgetController):
 
         self.signal_matches = []
 
-        # activity progress bar
-        self.apb = None
-        self.icon = None
+        self.apb = None # activity progress bar
+
+        self.tray = None
 
     def register_view(self, view):
         super(MainController, self).register_view(view)
-        self._setup_icon()
+        self._setup_trayicon()
         self.view.set_initialising(True)
         self.connect_to_signals()
         self.start()
-
-    def _setup_icon(self):
-        filename = os.path.join(GLADE_DIR, 'VF_logo_medium.png')
-        self.icon = gtk.status_icon_new_from_file(filename)
 
     def start(self):
         self.view.set_disconnected()
@@ -119,12 +114,6 @@ class MainController(WidgetController):
 
         self.cid = self.view['connect_button'].connect('toggled',
                                             self.on_connect_button_toggled)
-
-#        self.icon.connect('activate', self.on_icon_activated)
-
-#        if config.getboolean('preferences', 'show_icon'):
-        if True:
-            self.icon.connect('popup-menu', self.on_icon_popup_menu)
 
         for treeview_name in list(set(TV_DICT.values())):
             treeview = self.view[treeview_name]
@@ -418,11 +407,8 @@ class MainController(WidgetController):
         treeview.get_model().add_message(sms, contacts_value)
 
         # Send notification
-        title = _("SMS received from %s") % id
-
-        n = new_notification(self.icon, title, sms.text,
-                             stock=gtk.STOCK_INFO)
-        n.show()
+        title = _("SMS received from %s") % contacts_value
+        self.tray.attach_notification(title, sms.text, stock=gtk.STOCK_INFO)
 
     def on_is_pin_enabled_cb(self, enabled):
         self.view['change_pin1'].set_sensitive(enabled)
@@ -488,7 +474,6 @@ class MainController(WidgetController):
             window.present()
 
     def get_trayicon_menu(self):
-
         connect_button = self.view['connect_button']
 
         def _disconnect_from_inet(widget):
@@ -1044,8 +1029,7 @@ The csv file that you have tried to import has an invalid format.""")
             show_warning_dialog(message, details)
 
             #show_normal_notification(self.tray, message, details, expires=False)
-            n = new_notification(self.icon, message, details, stock=gtk.STOCK_INFO)
-            n.show()
+            self.tray.attach_notification(message, details, stock=gtk.STOCK_INFO)
         elif self.model.get_transferred_total(0) < limit:
             self.user_limit_notified = False
 
@@ -1166,6 +1150,46 @@ The csv file that you have tried to import has an invalid format.""")
             contact = model[path][3]
             if contact.set_number(unicode(number, 'utf8')):
                 model[path][2] = number
+
+    def _setup_trayicon(self, ignoreconf=False):
+        """Attaches VMC's trayicon to the systray"""
+        showit = config.get('preferences', 'show_icon', CFG_PREFS_DEFAULT_TRAY_ICON)
+        if ignoreconf:
+            showit = True
+
+        if not self.tray:
+            self.tray = get_tray_icon(self._show_hide_window,
+                                      self.on_icon_popup_menu)
+        self.tray.show()
+        if not showit:
+            self.tray.hide()
+
+    def _detach_trayicon(self):
+        """Detachs VMC's trayicon from the systray"""
+        if self.tray:
+            self.tray.hide()
+
+    def _show_hide_window(self, *args):
+        win = self.view.get_top_widget()
+        if len(args) == 1:
+            # we ask the for the number of args because we use this
+            # function for both egg.tray.TrayIcon and gtk.StatusIcon
+            # the formers callback only has one arg
+            if win.get_property('visible'):
+                win.hide()
+            else:
+                win.present()
+        else:
+            eventbox, event = args
+            if event.button == 1: # left click
+                if win.get_property('visible'):
+                    win.hide()
+                else:
+                    win.present()
+            elif event.button == 3: # right click
+                self.on_icon_popup_menu(None, event.button, event.time)
+#                menu = self.get_trayicon_menu()
+#                menu.popup(None, None, None, event.button, event.time)
 
     def _row_activated_tv(self, treeview, path, col):
         # get selected row
