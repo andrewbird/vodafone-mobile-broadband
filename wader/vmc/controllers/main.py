@@ -43,7 +43,8 @@ from wader.vmc.utils import bytes_repr, get_error_msg, UNIT_MB, units_to_bits
 from wader.vmc.translate import _
 from wader.vmc.tray import get_tray_icon
 from wader.vmc.consts import ( GTK_LOCK, GLADE_DIR, GUIDE_DIR, IMAGES_DIR, APP_URL,
-                               CFG_PREFS_DEFAULT_BROWSER, CFG_PREFS_DEFAULT_TRAY_ICON )
+                               CFG_PREFS_DEFAULT_BROWSER, CFG_PREFS_DEFAULT_EMAIL,
+                               CFG_PREFS_DEFAULT_TRAY_ICON )
 
 from wader.vmc.phonebook import (get_phonebook,
                                 all_same_type, all_contacts_writable)
@@ -371,7 +372,7 @@ class MainController(WidgetController):
     def on_mail_button_clicked(self, widget):
 #        if self._check_if_connected():
         if True:
-            binary = config.get('preferences', 'mail')
+            binary = config.get('preferences', 'mail', CFG_PREFS_DEFAULT_EMAIL)
             if binary:
                 Popen([ binary, 'REPLACE@ME.COM' ])
 
