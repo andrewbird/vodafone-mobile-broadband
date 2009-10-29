@@ -26,10 +26,9 @@ from wader.vmc.consts import IMAGES_DIR, APP_SHORT_NAME, APP_NAME
 
 IMG_PATH = os.path.join(IMAGES_DIR, 'VF_logo.png')
 
-try:
-    import gtk.StatusIcon
+if gtk.ver >= (2, 10, 0):
     HAVE_STATUS_ICON = True
-except ImportError:
+else:
     HAVE_STATUS_ICON = False
 
 
@@ -119,14 +118,15 @@ if HAVE_STATUS_ICON:
     def get_tray_icon(show_ide_cb, get_menu_func):
         icon = gtk.status_icon_new_from_file(IMG_PATH)
         icon.set_visible(True)
-        def popup_menu_cb(widget, button, time, data = None):
-            if button == 3:
-                if data:
-                    data.show_all()
-                    data.popup(None, None, None, 3, time)
+#        def popup_menu_cb(widget, button, time, data = None):
+#            if button == 3:
+#                if data:
+#                    data.show_all()
+#                    data.popup(None, None, None, 3, time)
+#        icon.connect('popup-menu', popup_menu_cb, get_menu_func)
 
         icon.connect('activate', show_ide_cb)
-        icon.connect('popup-menu', popup_menu_cb, get_menu_func())
+        icon.connect('popup-menu', get_menu_func)
         return TrayIcon(icon)
 
 else:

@@ -460,13 +460,6 @@ class MainController(WidgetController):
             self.apb.close()
             self.apb = None
 
-    def on_icon_activated(self, icon):
-        window = self.view.get_top_widget()
-        if window.get_property('visible'):
-            window.hide()
-        else:
-            window.present()
-
     def get_trayicon_menu(self):
         connect_button = self.view['connect_button']
 
@@ -523,6 +516,10 @@ class MainController(WidgetController):
 
         return menu
 
+    def on_icon_popup_menu(self, icon, button, activate_time):
+        menu = self.get_trayicon_menu()
+        menu.popup(None, None, None, button, activate_time)
+
     def get_contacts_popup_menu(self, pathinfo, treeview):
         """Returns a popup menu for the contacts treeview"""
         selection = treeview.get_selection()
@@ -562,10 +559,6 @@ class MainController(WidgetController):
                 menu.append(item)
 
         return menu
-
-    def on_icon_popup_menu(self, icon, button, activate_time):
-        menu = self.get_trayicon_menu()
-        menu.popup(None, None, None, button, activate_time)
 
     def on_import_contacts1_activate(self, widget):
         filepath = open_import_csv_dialog()
@@ -1182,8 +1175,6 @@ The csv file that you have tried to import has an invalid format.""")
                     win.present()
             elif event.button == 3: # right click
                 self.on_icon_popup_menu(None, event.button, event.time)
-#                menu = self.get_trayicon_menu()
-#                menu.popup(None, None, None, event.button, event.time)
 
     def _row_activated_tv(self, treeview, path, col):
         # get selected row
