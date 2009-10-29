@@ -24,8 +24,8 @@ from wader.common.utils import revert_dict
 from wader.vmc.logger import logger
 from wader.vmc.translate import _
 from wader.vmc.config import config
-from wader.vmc.consts import ( CFG_PREFS_DEFAULT_BROWSER, CFG_PREFS_DEFAULT_EMAIL,
-                               CFG_PREFS_DEFAULT_TRAY_ICON )
+from wader.vmc.consts import (CFG_PREFS_DEFAULT_BROWSER, CFG_PREFS_DEFAULT_EMAIL,
+                              CFG_PREFS_DEFAULT_TRAY_ICON, CFG_PREFS_DEFAULT_CLOSE_MINIMIZES)
 
 PREF_TABS = ["PROFILES"]
 
@@ -42,24 +42,24 @@ VALIDITY_DICT_REV = revert_dict(VALIDITY_DICT)
 class PreferencesModel(Model):
 
     __properties__ = {
-        'current_tab': PREF_TABS[0],
-        'default_profile': None,
+        'current_tab' : PREF_TABS[0],
+        'default_profile' : None,
         'warn_limit' : False,
         'transfer_limit' : -1,
-        'use_alternate_smsc':False,
-        'validities':VALIDITY_DICT,
-        'smsc_profile': "default",
-        'smsc_number':"+447785016005",
-        'smsc_validity':"maximum",
-        'exit_without_confirmation': False,
-        'show_icon':CFG_PREFS_DEFAULT_TRAY_ICON,
-        'minimize_to_tray':False,
-        'manage_my_keyring':False,
-        'max_traffic':10,
-        'traffic_threshold': 100,
-        'usage_notification':False,
-        'browser':CFG_PREFS_DEFAULT_BROWSER,
-        'mail':CFG_PREFS_DEFAULT_EMAIL
+        'use_alternate_smsc' : False,
+        'validities' : VALIDITY_DICT,
+        'smsc_profile' : "default",
+        'smsc_number' : "+447785016005",
+        'smsc_validity' : "maximum",
+        'exit_without_confirmation' : False,
+        'show_icon' : CFG_PREFS_DEFAULT_TRAY_ICON,
+        'close_minimizes' : CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
+        'manage_my_keyring' : False,
+        'max_traffic' : 10,
+        'traffic_threshold' : 100,
+        'usage_notification' : False,
+        'browser' : CFG_PREFS_DEFAULT_BROWSER,
+        'mail' : CFG_PREFS_DEFAULT_EMAIL
     }
 
     def __init__(self, device_callable):
@@ -102,12 +102,11 @@ class PreferencesModel(Model):
             print "model: Warning! self.exit_without_confirmation is NULL"
             self.exit_without_confirmation = False
 
-        self.show_icon = config.get('preferences', 'show_icon', CFG_PREFS_DEFAULT_TRAY_ICON)
+        self.show_icon = config.get('preferences', 'show_icon',
+                                    CFG_PREFS_DEFAULT_TRAY_ICON)
 
-        self.minimize_to_tray  = config.get('preferences', 'minimize_to_tray')
-        if (self.minimize_to_tray==''):
-            print "model: Warning! self.minimize_to_tray is NULL"
-            self.minimize_to_tray = False
+        self.close_minimizes = config.get('preferences', 'close_minimizes',
+                                    CFG_PREFS_DEFAULT_CLOSE_MINIMIZES)
 
         self.manage_my_keyring = config.get('preferences', 'manage_my_keyring')
         if (self.manage_my_keyring==''):
@@ -147,7 +146,7 @@ class PreferencesModel(Model):
         # Save all the attributes on the user preferences tab
         config.set('preferences', 'exit_without_confirmation', self.exit_without_confirmation)
         config.set('preferences', 'show_icon', self.show_icon)
-        config.set('preferences', 'minimize_to_tray', self.minimize_to_tray)
+        config.set('preferences', 'close_minimizes', self.close_minimizes)
         config.set('preferences', 'manage_my_keyring', self.manage_my_keyring)
 
         # Save all the attributes on the applications tab

@@ -42,9 +42,9 @@ from wader.vmc.dialogs import (show_profile_window,
 from wader.vmc.utils import bytes_repr, get_error_msg, UNIT_MB, units_to_bits
 from wader.vmc.translate import _
 from wader.vmc.tray import get_tray_icon
-from wader.vmc.consts import ( GTK_LOCK, GLADE_DIR, GUIDE_DIR, IMAGES_DIR, APP_URL,
-                               CFG_PREFS_DEFAULT_BROWSER, CFG_PREFS_DEFAULT_EMAIL,
-                               CFG_PREFS_DEFAULT_TRAY_ICON )
+from wader.vmc.consts import (GTK_LOCK, GLADE_DIR, GUIDE_DIR, IMAGES_DIR, APP_URL,
+                              CFG_PREFS_DEFAULT_BROWSER, CFG_PREFS_DEFAULT_EMAIL,
+                              CFG_PREFS_DEFAULT_TRAY_ICON, CFG_PREFS_DEFAULT_CLOSE_MINIMIZES)
 
 from wader.vmc.phonebook import (get_phonebook,
                                 all_same_type, all_contacts_writable)
@@ -110,8 +110,7 @@ class MainController(WidgetController):
     def connect_to_signals(self):
         self._setup_menubar_hacks()
 
-        self.view['main_window'].connect('delete_event', self.close_application)
-# VMC        self.view.get_top_widget().connect("delete_event", self._quit_or_minimize)
+        self.view['main_window'].connect("delete_event", self._quit_or_minimize)
 
         self.cid = self.view['connect_button'].connect('toggled',
                                             self.on_connect_button_toggled)
@@ -122,7 +121,21 @@ class MainController(WidgetController):
             if treeview.name != 'contacts_treeview':
                 treeview.connect('row-activated', self._row_activated_tv)
 
-    def close_application(self, *args):
+    def _quit_or_minimize(self, *args):
+        close_minimizes = config.get('preferences', 'close_minimizes',
+                                        CFG_PREFS_DEFAULT_CLOSE_MINIMIZES)
+        show_icon = config.get('preferences', 'show_icon',
+                                  CFG_PREFS_DEFAULT_TRAY_ICON)
+        if close_minimizes and show_icon:
+            # pretend the delete_event didn't happen and hide the window
+            window = self.view.get_top_widget()
+            window.emit_stop_by_name("delete_event")
+            window.hide()
+            return True
+        else:
+            return self.quit_application()
+
+    def quit_application(self, *args):
         if self.model.dial_path:
             show_warning_dialog(_("Can not close application"),
                                _("Can not close while a connection is active"))
@@ -136,6 +149,7 @@ class MainController(WidgetController):
         else:
             self.view.start_throbber()
             self.model.quit(self._close_application_cb)
+            return False
 
     def ask_for_pin(self):
         ctrl = AskPINController(self.model)
@@ -694,8 +708,8 @@ The csv file that you have tried to import has an invalid format.""")
 
         view.show()
 
-    def on_exit_menu_item_activate(self, widget):
-        self.close_application()
+#    def on_exit_menu_item_activate(self, widget):
+#        self.close_application()
 
 ########################### copied in from application.py ##############################
 
@@ -725,7 +739,7 @@ The csv file that you have tried to import has an invalid format.""")
         #                                    'exit_without_confirmation')
         exit_without_conf = True
         if exit_without_conf:
-            self.close_application()
+            self.quit_application()
             return
 
         #resp, checked = dialogs.open_dialog_question_checkbox_cancel_ok(

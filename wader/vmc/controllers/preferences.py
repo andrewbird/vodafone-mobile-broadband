@@ -86,18 +86,15 @@ class PreferencesController(Controller):
         self.view.setup_sms_message_validity(smsc_validity_box, iterator)
 
     def setup_user_prefs_tab(self):
-        # setup the user preferences to reflect what's in our model on stuartup
+        # setup the user preferences to reflect what's in our model on startup
         # remember that if 'show_icon_on_tray' is False we have to grey out 'Close_window_app_to_tray' so
         # tell the view that he has to do that by checking the show_icon flag and passing this with sensitive flag.
-        sensitive = False
-        if self.model.show_icon:
-            sensitive = False
-        else:
-            sensitive = True
+        sensitive = self.model.show_icon
 
         self.view.setup_user_exit_without_confirmation(self.model.exit_without_confirmation)
         self.view.setup_user_show_icon_on_tray(self.model.show_icon)
-        self.view.setup_user_close_window_minimize(self.model.minimize_to_tray, sensitive)
+        self.view.setup_user_close_window_minimize(self.model.close_minimizes)
+        self.view.setup_user_close_window_minimize_enable(sensitive)
         self.view.setup_manage_my_pin(self.model.manage_my_keyring)
 
     def setup_usage_tab(self):
@@ -185,12 +182,9 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
                     show_warning_dialog(message, details)
                     return True
                 else:
-                    close_win_chkbtn = self.view['close_window_checkbutton']
-                    close_win_chkbtn.set_sensitive(True)
+                    self.view.setup_user_close_window_minimize_enable(True)
             else:
-                # close_window_checkbutton depends on this checkbutton
-                # being active, thats why we set insensitive the chkbtn
-                self.view.setup_user_close_window_minimize(False, True)
+                self.view.setup_user_close_window_minimize_enable(False)
 
         # keep a reference of the handler id
         self._hid2 = self.view['show_icon_checkbutton'].connect('toggled',
@@ -251,13 +245,13 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         # ----- second tab -----
         # lets fetch all the vaules stored in the view for the second tab.
         exit_without_confirmation = self.view['exit_without_confirmation_checkbutton'].get_active()
-        minimize_to_tray = self.view['close_window_checkbutton'].get_active()
+        close_minimizes = self.view['close_window_checkbutton'].get_active()
         show_icon = self.view['show_icon_checkbutton'].get_active()
         manage_keyring = self.view['gnomekeyring_checkbutton'].get_active()
 
         # ok lets set the model with those values. The model can deal with saving them to disk! :-)
         self.model.exit_without_confirmation = exit_without_confirmation
-        self.model.minimize_to_tray = minimize_to_tray
+        self.model.close_minimizes = close_minimizes
         self.model.show_icon = show_icon
         self.model.manage_my_keyring = manage_keyring
 

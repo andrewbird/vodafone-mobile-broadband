@@ -71,12 +71,11 @@ class PreferencesView(View):
     def setup_user_show_icon_on_tray(self, val):
         self['show_icon_checkbutton'].set_active(val)
 
-    def setup_user_close_window_minimize(self, val, sensitive):
-        # remember that we have to gray our self out if sensitive is 'false'!
-        if sensitive:
-            self['close_window_checkbutton'].set_sensitive(False)
-        else:
-            self['close_window_checkbutton'].set_active(val)
+    def setup_user_close_window_minimize(self, val):
+        self['close_window_checkbutton'].set_active(val)
+
+    def setup_user_close_window_minimize_enable(self, sensitive):
+        self['close_window_checkbutton'].set_sensitive(sensitive)
 
     def setup_manage_my_pin(self, val):
         self['gnomekeyring_checkbutton'].set_active(val)
