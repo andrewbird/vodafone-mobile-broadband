@@ -81,6 +81,7 @@ class MainView(View):
 
         self.theme_ui()
 
+
     def show(self):
         ret = super(MainView, self).show()
 
@@ -171,6 +172,8 @@ class MainView(View):
 
         self['upload_alignment'].show()
         self['download_alignment'].show()
+
+        self['net_statusbar'].push(1, _('Connected'))
 
     def setup_treeview(self, ctrl):
         """Sets up the treeviews"""
