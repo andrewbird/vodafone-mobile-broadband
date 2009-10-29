@@ -20,59 +20,24 @@
 import os.path
 
 from gtkmvc import View
-import wader.vmc.consts as consts
+from wader.vmc.consts import GLADE_DIR
 
 def clear_s(s):
     return s.replace('\n', ' ')
 
-class DialogView(View):
-    """This is the base class for the dialogs"""
-
-    GLADE_FILE = os.path.join(consts.GLADE_DIR, "dialogs.glade")
-
-    def __init__(self, ctrl, top_widget):
-        View.__init__(self, ctrl, self.GLADE_FILE, top_widget, domain="VMC")
-
-    def run(self):
-        resp = self.get_top_widget().run()
-        self.get_top_widget().destroy()
-        return resp
 
 class CheckBoxDialogView(View):
     """This is the base class for dialogs with a checkbox"""
-    GLADE_FILE = os.path.join(consts.GLADE_DIR, "dialogs.glade")
+    GLADE_FILE = os.path.join(GLADE_DIR, "dialogs.glade")
 
     def __init__(self, ctrl, top_widget):
-        View.__init__(self, ctrl, self.GLADE_FILE, top_widget, domain="VMC")
+        View.__init__(self, ctrl, self.GLADE_FILE, top_widget)
 
     def run(self):
         resp = self.get_top_widget().run()
         self.get_top_widget().destroy()
         return resp
 
-class DialogMessage(DialogView):
-    """Dialog message"""
-
-    def __init__(self, ctrl, message, details):
-        DialogView.__init__(self, ctrl, "dialog_message")
-        self['label_message'].set_markup("<big><b>%s</b></big>" % message)
-        self['label_details'].set_text(clear_s(details))
-
-class WarningMessage(DialogView):
-    """Warning dialog"""
-
-    def __init__(self, ctrl, message, details):
-        DialogView.__init__(self, ctrl, "warning_message")
-        self['label_message'].set_markup("<big><b>%s</b></big>" % message)
-        self['label_details'].set_text(clear_s(details))
-
-class WarningRequestOkCancel(DialogView):
-    """Warning dialog with two OK/Cancel buttons"""
-
-    def __init__(self, ctrl, message, details):
-        DialogView.__init__(self, ctrl, "dialog_confirm_cancel_ok")
-        self['label_message'].set_markup("<big><b>%s</b></big>" % message)
-        self['label_details'].set_text(clear_s(details))
 
 class QuestionCheckboxOkCancel(CheckBoxDialogView):
     def __init__(self, ctrl, message, details):
@@ -81,14 +46,51 @@ class QuestionCheckboxOkCancel(CheckBoxDialogView):
         self['title_label'].set_markup("<big><b>%s</b></big>" % message)
         self['message_label'].set_markup("<b>%s</b>" % clear_s(details))
 
-class QuestionConfirmAction(DialogView):
-    """Confirmation dialog for an action"""
+#class DialogView(View):
+#    """This is the base class for the dialogs"""
+#
+#    GLADE_FILE = os.path.join(consts.GLADE_DIR, "dialogs.glade")
+#
+#    def __init__(self, ctrl, top_widget):
+#        View.__init__(self, ctrl, self.GLADE_FILE, top_widget, domain="VMC")
+#
+#    def run(self):
+#        resp = self.get_top_widget().run()
+#        self.get_top_widget().destroy()
+#        return resp
 
-    def __init__(self, ctrl, action_name, message, details):
-        DialogView.__init__(self, ctrl, "dialog_confirm_action")
-        self['label_message'].set_markup("<big><b>%s</b></big>" % message)
-        self['label_details'].set_text(clear_s(details))
-        self['button_action'].set_label(action_name)
-        self.get_top_widget().set_title("")
-        filepath = os.path.join(consts.IMAGES_DIR, 'VF_logo.png')
-        self.get_top_widget().set_icon_from_file(filepath)
+#class DialogMessage(DialogView):
+#    """Dialog message"""
+#
+#    def __init__(self, ctrl, message, details):
+#        DialogView.__init__(self, ctrl, "dialog_message")
+#        self['label_message'].set_markup("<big><b>%s</b></big>" % message)
+#        self['label_details'].set_text(clear_s(details))
+
+#class WarningMessage(DialogView):
+#    """Warning dialog"""
+#
+#    def __init__(self, ctrl, message, details):
+#        DialogView.__init__(self, ctrl, "warning_message")
+#        self['label_message'].set_markup("<big><b>%s</b></big>" % message)
+#        self['label_details'].set_text(clear_s(details))
+
+#class WarningRequestOkCancel(DialogView):
+#    """Warning dialog with two OK/Cancel buttons"""
+#
+#    def __init__(self, ctrl, message, details):
+#        DialogView.__init__(self, ctrl, "dialog_confirm_cancel_ok")
+#        self['label_message'].set_markup("<big><b>%s</b></big>" % message)
+#        self['label_details'].set_text(clear_s(details))
+
+#class QuestionConfirmAction(DialogView):
+#    """Confirmation dialog for an action"""
+#
+#    def __init__(self, ctrl, action_name, message, details):
+#        DialogView.__init__(self, ctrl, "dialog_confirm_action")
+#        self['label_message'].set_markup("<big><b>%s</b></big>" % message)
+#        self['label_details'].set_text(clear_s(details))
+#        self['button_action'].set_label(action_name)
+##        self.get_top_widget().set_title("")
+#        filepath = os.path.join(consts.IMAGES_DIR, 'VF_logo.png')
+#        self.get_top_widget().set_icon_from_file(filepath)

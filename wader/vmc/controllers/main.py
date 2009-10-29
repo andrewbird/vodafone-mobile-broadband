@@ -37,14 +37,17 @@ from wader.vmc.dialogs import (show_profile_window,
                                show_warning_dialog, ActivityProgressBar,
                                show_about_dialog, show_error_dialog,
                                ask_password_dialog,
+                               open_dialog_question_checkbox_cancel_ok,
                                save_csv_file, open_import_csv_dialog)
 #from wader.vmc.keyring_dialogs import NewKeyringDialog, KeyringPasswordDialog
 from wader.vmc.utils import bytes_repr, get_error_msg, UNIT_MB, units_to_bits
 from wader.vmc.translate import _
 from wader.vmc.tray import get_tray_icon
-from wader.vmc.consts import (GTK_LOCK, GLADE_DIR, GUIDE_DIR, IMAGES_DIR, APP_URL,
+from wader.vmc.consts import (GTK_LOCK, GLADE_DIR, GUIDE_DIR, IMAGES_DIR,
+                              APP_URL, APP_LONG_NAME,
                               CFG_PREFS_DEFAULT_BROWSER, CFG_PREFS_DEFAULT_EMAIL,
-                              CFG_PREFS_DEFAULT_TRAY_ICON, CFG_PREFS_DEFAULT_CLOSE_MINIMIZES)
+                              CFG_PREFS_DEFAULT_TRAY_ICON, CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
+                              CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION)
 
 from wader.vmc.phonebook import (get_phonebook,
                                 all_same_type, all_contacts_writable)
@@ -133,9 +136,27 @@ class MainController(WidgetController):
             window.hide()
             return True
         else:
-            return self.quit_application()
+            return self._quit_confirm_exit()
 
-    def quit_application(self, *args):
+    def _quit_confirm_exit(self):
+        exit_without_conf = config.get('preferences', 'exit_without_confirmation',
+                                        CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION)
+        if exit_without_conf:
+            return self._quit_check_connection()
+
+        resp, checked = open_dialog_question_checkbox_cancel_ok(
+                    self.view,
+                    _("Quit %s") % APP_LONG_NAME,
+                    _("Are you sure you want to exit?"))
+
+        config.set('preferences', 'exit_without_confirmation', checked)
+
+        if resp:
+            return self._quit_check_connection()
+
+        return True
+
+    def _quit_check_connection(self, *args):
         if self.model.dial_path:
             show_warning_dialog(_("Can not close application"),
                                _("Can not close while a connection is active"))
@@ -735,23 +756,7 @@ The csv file that you have tried to import has an invalid format.""")
         view.show()
 
     def on_quit_menu_item_activate(self, widget):
-        #exit_without_conf = config.getboolean('preferences',
-        #                                    'exit_without_confirmation')
-        exit_without_conf = True
-        if exit_without_conf:
-            self.quit_application()
-            return
-
-        #resp, checked = dialogs.open_dialog_question_checkbox_cancel_ok(
-        #            self.view,
-        #            _("Quit %s") % APP_LONG_NAME,
-        #            _("Are you sure you want to exit?"))
-
-        #config.setboolean('preferences', 'exit_without_confirmation', checked)
-        #config.write()
-#
-#        if resp:
-#            self.quit_application()
+        self._quit_confirm_exit()
 
     def on_change_pin1_activate(self, widget):
         ctrl = PinModifyController(self.model)

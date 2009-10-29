@@ -22,12 +22,15 @@ import re
 import gtk
 import gobject
 import dbus
+from gtkmvc import Controller, Model
 
 from wader.vmc.logger import logger
 from wader.common.consts import WADER_DIALUP_INTFACE
 from wader.vmc.translate import _
 from wader.vmc.consts import (APP_ARTISTS, APP_AUTHORS, APP_DOCUMENTERS,
                              GLADE_DIR, APP_VERSION, APP_NAME, APP_URL)
+from wader.vmc.views.dialogs import QuestionCheckboxOkCancel
+
 
 def show_uri(uri):
     if not hasattr(gtk, 'show_uri'):
@@ -35,6 +38,7 @@ def show_uri(uri):
         return url_show(uri)
 
     return gtk.show_uri(gtk.gdk.Screen(), uri, 0L)
+
 
 def show_about_dialog():
     abt = gtk.AboutDialog()
@@ -81,6 +85,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
     abt.set_license(_license)
     return abt
 
+
 def show_profile_window(main_model, profile=None, imsi=None):
     from wader.vmc.models.profile import ProfileModel
     from wader.vmc.controllers.profile import ProfileController
@@ -95,6 +100,7 @@ def show_profile_window(main_model, profile=None, imsi=None):
     controller = ProfileController(model)
     view = ProfileView(controller)
     view.show()
+
 
 def make_basic_dialog(title, buttons, stock_image):
     flags = gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT | \
@@ -114,6 +120,7 @@ def make_basic_dialog(title, buttons, stock_image):
     dialog.vbox.add(alignment)
     return dialog, vbox
 
+
 def show_warning_dialog(title, message):
     logger.debug("Warning dialog: %s" % message)
 
@@ -126,6 +133,7 @@ def show_warning_dialog(title, message):
     ret = dialog.run()
     dialog.destroy()
     return ret
+
 
 def show_error_dialog(title, message):
     logger.debug("Error dialog: %s" % message)
@@ -144,6 +152,7 @@ def show_error_dialog(title, message):
     dialog.destroy()
     return ret
 
+
 def show_warning_request_cancel_ok(title, message):
     logger.debug("Warning request cancel/ok dialog: %s" % message)
 
@@ -157,6 +166,7 @@ def show_warning_request_cancel_ok(title, message):
     ret = dialog.run()
     dialog.destroy()
     return ret == gtk.RESPONSE_OK
+
 
 def generic_auth_dialog(title, message, parent, regexp=None):
     buttons = (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
@@ -202,6 +212,7 @@ def generic_auth_dialog(title, message, parent, regexp=None):
     dialog = None
     return ret
 
+
 def ask_password_dialog(parent):
     logger.debug("Asking for password")
     return generic_auth_dialog(
@@ -210,6 +221,33 @@ def ask_password_dialog(parent):
             parent, regexp=None)
 
 ########################## import from VMC ##############################
+
+class CheckBoxPopupDialogCtrl(Controller):
+    def __init__(self):
+        super(CheckBoxPopupDialogCtrl, self).__init__(Model())
+        self.checked = False
+
+    def register_view(self, view):
+        super(CheckBoxPopupDialogCtrl, self).register_view(view)
+        view['checkbutton1'].connect('toggled', self._on_changed)
+
+    def _on_changed(self, widget):
+        self.checked = widget.get_active()
+
+
+def open_dialog_question_checkbox_cancel_ok(parent_view, message, details):
+    """
+    Opens a dialog with a checkbox aka 'Never ask me this again'
+
+    @return: tuple with two bools, the first is whether the user confirmed
+    the action or not, the second is whether the checkbox is toggled
+    """
+    ctrl = CheckBoxPopupDialogCtrl()
+    view = QuestionCheckboxOkCancel(ctrl, message, details)
+    view.set_parent_view(parent_view)
+    resp = view.run()
+    return resp == gtk.RESPONSE_OK, ctrl.checked
+
 
 def save_csv_file(path=None):
     """Opens a filechooser dialog to choose where to save a csv file"""
@@ -248,6 +286,7 @@ If you choose to overwrite this file, the contents will be lost."""))
 
     chooser_dialog.destroy()
     return resp
+
 
 def open_import_csv_dialog(path=None):
     """Opens a filechooser dialog to import a csv file"""

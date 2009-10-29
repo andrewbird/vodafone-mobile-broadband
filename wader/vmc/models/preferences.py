@@ -25,7 +25,8 @@ from wader.vmc.logger import logger
 from wader.vmc.translate import _
 from wader.vmc.config import config
 from wader.vmc.consts import (CFG_PREFS_DEFAULT_BROWSER, CFG_PREFS_DEFAULT_EMAIL,
-                              CFG_PREFS_DEFAULT_TRAY_ICON, CFG_PREFS_DEFAULT_CLOSE_MINIMIZES)
+                              CFG_PREFS_DEFAULT_TRAY_ICON, CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
+                              CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION)
 
 PREF_TABS = ["PROFILES"]
 
@@ -51,7 +52,7 @@ class PreferencesModel(Model):
         'smsc_profile' : "default",
         'smsc_number' : "+447785016005",
         'smsc_validity' : "maximum",
-        'exit_without_confirmation' : False,
+        'exit_without_confirmation' : CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION,
         'show_icon' : CFG_PREFS_DEFAULT_TRAY_ICON,
         'close_minimizes' : CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
         'manage_my_keyring' : False,
@@ -97,10 +98,8 @@ class PreferencesModel(Model):
 
         # ok lets load the user preferences from configuration file into the model
         # but take care! If the confi file is absent set to false!
-        self.exit_without_confirmation = config.get('preferences', 'exit_without_confirmation')
-        if (self.exit_without_confirmation==''):
-            print "model: Warning! self.exit_without_confirmation is NULL"
-            self.exit_without_confirmation = False
+        self.exit_without_confirmation = config.get('preferences', 'exit_without_confirmation',
+                                    CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION)
 
         self.show_icon = config.get('preferences', 'show_icon',
                                     CFG_PREFS_DEFAULT_TRAY_ICON)
