@@ -21,7 +21,6 @@ Main controller for the application
 
 import os
 import gtk
-from gtkmvc import Model
 from subprocess import Popen
 
 from wader.vmc.controllers.base import WidgetController, TV_DICT, TV_DICT_REV
@@ -1201,7 +1200,8 @@ The csv file that you have tried to import has an invalid format.""")
         # get selected row
         message = self.get_obj_from_selected_row()
         if message:
-            ctrl = ForwardSmsController(Model(), self)
+            model = NewSmsModel(self.model.device)
+            ctrl = ForwardSmsController(model, self)
             view = ForwardSmsView(ctrl)
             view.set_parent_view(self.view)
             ctrl.set_textbuffer_text(message.text)
