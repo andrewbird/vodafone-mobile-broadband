@@ -21,6 +21,7 @@ Main controller for the application
 
 import os
 import gtk
+from gtkmvc import Model
 from subprocess import Popen
 
 from wader.vmc.controllers.base import WidgetController, TV_DICT, TV_DICT_REV
