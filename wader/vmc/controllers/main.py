@@ -91,8 +91,9 @@ class MainController(WidgetController):
         self.signal_matches = []
 
         self.apb = None # activity progress bar
-
         self.tray = None
+        # ignore cancelled connection attempts errors
+        self._ignore_no_reply = False
 
     def register_view(self, view):
         super(MainController, self).register_view(view)
@@ -463,14 +464,24 @@ class MainController(WidgetController):
         self.model.dial_path = dev_path
 
     def _on_connect_eb(self, e):
-        logger.error(e)
+        logger.error("_on_connect_eb: %s" % e)
+
         self.view.set_disconnected()
         if self.apb:
             self.apb.close()
             self.apb = None
 
-        title = _('Failed connection attempt')
-        show_error_dialog(title, get_error_msg(e))
+        if 'NoReply' in get_error_msg(e) and self._ignore_no_reply:
+            # do not show NoReply exception as we were expecting it
+            self._ignore_no_reply = False
+        elif 'TypeError' in get_error_msg(e) and self._ignore_no_reply:
+            # do not show TypeError exception as we were expecting it
+            # as ActivateConnection returns None instead of an object
+            # path.
+            self._ignore_no_reply = False
+        else:
+            title = _('Failed connection attempt')
+            show_error_dialog(title, get_error_msg(e))
 
     def _on_disconnect_cb(self, *args):
         logger.info("Disconnected")
@@ -489,8 +500,8 @@ class MainController(WidgetController):
             dialmanager.DeactivateConnection(self.model.dial_path)
             self.model.dial_path = None
 
-    def _on_disconnect_eb(self, args):
-        logger.error(args)
+    def _on_disconnect_eb(self, e):
+        logger.error("_on_disconnect_eb: %s" % e)
         self.model.stop_stats_tracking()
         if self.apb:
             self.apb.close()
@@ -662,12 +673,14 @@ The csv file that you have tried to import has an invalid format.""")
                 self.view.set_disconnected()
                 self.model.dial_path = None
 
-            self.apb = ActivityProgressBar(_("Connecting"), self)
-            self.apb.set_cancel_cb(dialmanager.StopConnection,
-                                   self.model.device_path,
-                                   reply_handler=cancel_cb,
-                                   error_handler=logger.error)
+            def stop_connection_attempt():
+                self._ignore_no_reply = True
+                dialmanager.StopConnection(self.model.device_path,
+                                           reply_handler=cancel_cb,
+                                           error_handler=logger.error)
 
+            self.apb = ActivityProgressBar(_("Connecting"), self)
+            self.apb.set_cancel_cb(stop_connection_attempt)
             self.apb.init()
             logger.info("Connecting...")
         else:

@@ -20,11 +20,10 @@ def get_error_msg(e):
     """
     Returns the message attributte of ``e``
     """
-    if hasattr(e, 'get_dbus_message'):
-        return e.get_dbus_message()
+    if hasattr(e, 'get_dbus_name'):
+        return e.get_dbus_name()
 
-    elif hasattr(e, 'args'):
-        return e.args[0]
+    return e.message
 
 def dbus_error_is(e, exception):
     return exception.__name__ in get_error_msg(e)
