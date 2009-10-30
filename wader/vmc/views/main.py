@@ -25,6 +25,7 @@ import gtk
 from pango import ELLIPSIZE_END
 from gtkmvc import View
 
+from wader.common.config import config
 from wader.vmc.translate import _
 from wader.vmc.consts import GLADE_DIR, IMAGES_DIR, THEMES_DIR, APP_LONG_NAME
 from wader.vmc.utils import repr_usage, UNIT_KB, UNIT_MB, units_to_bits
@@ -32,6 +33,10 @@ from wader.vmc.views.stats import StatsBar
 from wader.vmc.controllers.base import TV_DICT
 from wader.vmc.models.sms import SMSStoreModel
 from wader.vmc.models.contacts import ContactsStoreModel
+
+from wader.vmc.consts import CFG_PREFS_DEFAULT_USAGE_USER_LIMIT, CFG_PREFS_DEFAULT_USAGE_MAX_VALUE
+
+
 
 THROBBER = gtk.gdk.PixbufAnimation(os.path.join(GLADE_DIR, 'throbber.gif'))
 
@@ -63,10 +68,10 @@ class MainView(View):
             'main_window', register=False)
 
         #Usage statistics
-#        self.usage_user_limit = int(config.get('preferences', 'traffic_threshold'))
-#        self.usage_max_value = int(config.get('preferences', 'max_traffic'))
-        self.usage_user_limit = 0
-        self.usage_max_value = 10
+        self.usage_user_limit = int(config.get('preferences', 'traffic_threshold', CFG_PREFS_DEFAULT_USAGE_USER_LIMIT))
+        self.usage_max_value = int(config.get('preferences', 'max_traffic', CFG_PREFS_DEFAULT_USAGE_MAX_VALUE))
+#        self.usage_user_limit = 0
+#        self.usage_max_value = 10
         self.usage_units = UNIT_KB
         self.usage_bars = None
 
@@ -134,10 +139,10 @@ class MainView(View):
         bar.set_value(value)
 
     def update_bars_user_limit(self):
-        #self.usage_user_limit = int(config.get('preferences', 'traffic_threshold'))
-        #self.usage_max_value = int(config.get('preferences', 'max_traffic'))
-        self.usage_user_limit = 0
-        self.usage_max_value = 10
+        self.usage_user_limit = int(config.get('preferences', 'traffic_threshold', CFG_PREFS_DEFAULT_USAGE_USER_LIMIT))
+        self.usage_max_value = int(config.get('preferences', 'max_traffic', CFG_PREFS_DEFAULT_USAGE_MAX_VALUE))
+#        self.usage_user_limit = 0
+#        self.usage_max_value = 10
         for bar in self.usage_bars.values():
             bar.set_user_limit(units_to_bits(self.usage_user_limit, UNIT_MB))
             bar.set_max_value(units_to_bits(self.usage_max_value, UNIT_MB))
