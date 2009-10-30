@@ -1308,9 +1308,11 @@ The csv file that you have tried to import has an invalid format.""")
 
     def _edit_external_contacts(self, menuitem, editor=None):
         if editor:
-            cmd = editor[0]
-            args = len(editor) > 1 and editor[1:] or []
-            getProcessOutput(cmd, args, os.environ)
+            try:
+                Popen(editor)
+            except OSError:
+                show_warning_dialog(_("Editor not available"),
+                                    _("Can not start external contact editor \"%s\"" % editor[0]))
 
     def get_generic_popup_menu(self, pathinfo, treeview):
         """Returns a popup menu for the rest of treeviews"""
