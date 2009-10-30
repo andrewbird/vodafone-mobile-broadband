@@ -149,7 +149,8 @@ class MainController(WidgetController):
                     _("Quit %s") % APP_LONG_NAME,
                     _("Are you sure you want to exit?"))
 
-        config.set('preferences', 'exit_without_confirmation', checked)
+        if checked:
+            config.set('preferences', 'exit_without_confirmation', resp)
 
         if resp:
             return self._quit_check_connection()
