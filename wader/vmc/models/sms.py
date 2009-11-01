@@ -23,11 +23,9 @@ from gtkmvc import Model, ListStoreModel
 
 from wader.common.oal import osobj
 #from wader.common.notifications import SIG_DEVICE_REMOVED
-#from vmc.contrib import louie
 
-#from wader.common.phonebook import get_phonebook
-#from wader.common.persistent import DBShortMessage
 from wader.vmc.images import MOBILE_IMG, COMPUTER_IMG
+from wader.vmc.messages import is_sim_message
 
 class SMSStoreModel(ListStoreModel):
     """
@@ -58,8 +56,23 @@ class SMSStoreModel(ListStoreModel):
         for sms in messages:
             self.add_message(sms, contacts)
 
-    def _add_sim_message(self, message, contacts=None):
-        entry = [MOBILE_IMG, message.text]
+    def add_message(self, message, contacts=None):
+        """
+        Adds C{message} to the ListStoreModel
+
+        Whenever a new message is inserted, I lookup the number on the
+        phonebook and will show the name instead of the number if its a
+        contact. As this can be really expensive for mass insertions, such as
+        during startup, it also accepts a list of contacts to save the lookup.
+
+        @type message: L{wader.common.sms.ShortMessage}
+        @type contacts: list
+        """
+        if is_sim_message(message):
+            entry = [MOBILE_IMG, message.text]
+        else:
+            entry = [COMPUTER_IMG, message.text]
+
         if contacts or contacts == []:
             # this is only used at startup received as the return value
             # of sconn.get_all_contacts(), an unmodified fresh copy of all
@@ -77,69 +90,9 @@ class SMSStoreModel(ListStoreModel):
 
         entry.append(message.datetime)
         entry.append(message)
+
         self.append(entry)
 
-    def _add_db_message(self, message, contacts=None):
-        tzinfo = osobj.get_tzinfo()
-        entry = [COMPUTER_IMG, message.get_text()]
-        if contacts or contacts == []:
-            # this is only used at startup received as the return value
-            # of sconn.get_all_contacts(), an unmodified fresh copy of all
-            # the contacts, we use it instead of doing a lookup for each
-            # contact
-            match = [contact.name for contact in contacts
-                            if message.get_number() == contact.get_number()]
-            if match:
-                entry.append(match[0])
-            else:
-                entry.append(message.get_number())
-
-            entry.append(message.date.asDatetime(tzinfo=tzinfo))
-            entry.append(message)
-            self.append(entry)
-        else:
-            pass
-#            phonebook = get_phonebook(self.sconn)
-#            def lookup_number_cb(clist):
-#                """
-#                Add the contact to the model
-#
-#                If the SMS's number exists in the phonebook, display the
-#                contact's name instead of the number
-#                """
-#                if clist:
-#                    entry.append(clist[0].name)
-#                else:
-#                    entry.append(message.get_number())
-#
-#                entry.append(message.date.asDatetime(tzinfo=tzinfo))
-#                entry.append(message)
-#                self.append(entry)
-#
-#            d = phonebook.find_contact(number=message.get_number())
-#            d.addCallback(lookup_number_cb)
-
-    def add_message(self, message, contacts=None):
-        """
-        Adds C{message} to the ListStoreModel
-
-        Whenever a new message is inserted, I lookup the number on the
-        phonebook and will show the name instead of the number if its a
-        contact. As this can be really expensive for mass insertions, such as
-        during startup, it also accepts a list of contacts to save the lookup.
-
-        @type message: L{wader.common.sms.ShortMessage}
-        @type contacts: list
-        """
-        self._add_sim_message(message, contacts)
-
-#        if not self.sconn:
-#            self.sconn = self._callable()
-#
-#        if isinstance(message, DBShortMessage):
-#            self._add_db_message(message, contacts)
-#        else:
-#            self._add_sim_message(message, contacts)
 
 class NewSmsModel(Model):
     """

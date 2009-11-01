@@ -110,6 +110,9 @@ class MainModel(Model):
         self.origin_date = None
         self.clean_usage_cache()
 
+    def get_device(self):
+        return self.device
+
     def is_connected(self):
         return False # XXX: just for now
 

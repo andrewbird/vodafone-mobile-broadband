@@ -698,8 +698,6 @@ The csv file that you have tried to import has an invalid format.""")
             self.model.dial_path = None
 
     def on_preferences_menu_item_activate(self, widget):
-        print "on_preferences_menu_item_activate -NEW menu"
-
         model = PreferencesModel(self.model.device)
         ctrl = PreferencesController(model, self)
         view = PreferencesView(ctrl)
@@ -914,7 +912,6 @@ The csv file that you have tried to import has an invalid format.""")
             Popen([ binary, index_path ])
 
     def on_about_menu_item_activate(self, widget):
-        print "on_help_topics_about_menu_active"
         about = show_about_dialog()
         about.run()
         about.destroy()
@@ -993,14 +990,9 @@ The csv file that you have tried to import has an invalid format.""")
         sms_list = messages_obj.get_messages()
 
         for sms in sms_list:
-            if sms.where == 1:
-                treeview = self.view['inbox_treeview']
-                treeview.get_model().add_message(sms, contacts)
-
-#            for sms in sms_list:
-#                active_tv = TV_DICT[sms.where]         # get treeview name
-#                treeview = self.view[active_tv]        # get treeview object
-#                treeview.get_model().add_message(sms, contacts) # append to tv
+            active_tv = TV_DICT[sms.where]         # get treeview name
+            treeview = self.view[active_tv]        # get treeview object
+            treeview.get_model().add_message(sms, contacts) # append to tv
 
     def _fill_treeviews(self):
         """
@@ -1363,20 +1355,17 @@ The csv file that you have tried to import has an invalid format.""")
 
     def _save_sms_to_draft(self, widget):
         """This will save the selected SMS to the drafts tv and the DB"""
-        message = self.get_obj_from_selected_row()
-        if message:
-            messages = get_messages_obj(self.model.device)
-            """
-            def get_message_cb(sms):
-                # Now save SMS to DB
-                where = TV_DICT_REV['drafts_treeview']
-                tv = self.view['drafts_treeview']
-                d = messages.add_message(sms, where=where)
-                d.addCallback(lambda smsback:
-                                    tv.get_model().add_message(smsback))
+        # XXX: this needs reworking to allow multiple selections
+        old = self.get_obj_from_selected_row()
+        if old:
+            message_mgr = get_messages_obj(self.model.device)
 
-            messages.get_message(message).addCallback(get_message_cb)
-            """
+            # Now save SMS to DB
+            where = TV_DICT_REV['drafts_treeview']
+            new = message_mgr.add_message(old, where=where)
+            # Add to the view
+            tv = self.view['drafts_treeview']
+            tv.get_model().add_message(new)
 
     def _use_detail_add_contact(self, widget):
         """Handler for the use detail menu"""

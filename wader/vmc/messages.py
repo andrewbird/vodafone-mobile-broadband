@@ -19,17 +19,72 @@
 messages presents a uniform layer to deal with messages from both SIM and DB
 """
 
-#from twisted.internet import defer
+from datetime import datetime
+from os.path import exists
 
-#from wader.vmc.persistent import SMSManager, DBShortMessage
 from wader.common.oal import osobj
 from wader.common.consts import SMS_INTFACE
-from wader.common.sms import Message
+from wader.common.sms import Message as SMMessage
+from wader.common.provider import Message as DBMessage
+from wader.common.provider import (SmsProvider,
+                                   inbox_folder, outbox_folder, drafts_folder)
+
+from wader.vmc.consts import MESSAGES_DB
+
+KNOWN_FOLDERS = [inbox_folder, drafts_folder, outbox_folder]
+
 
 def is_sim_message(sms):
     """Returns True if C{sms} is a SIM sms"""
-#    return not isinstance(sms, DBShortMessage)
-    return True
+    return not isinstance(sms, DBMessage)
+
+
+class DBSMSManager(object):
+    """
+    SMS manager for DB stored messages
+    """
+
+    def __init__(self, path=MESSAGES_DB):
+        super(DBSMSManager, self).__init__()
+
+        if not exists(path):
+            self.provider = SmsProvider(path)
+            for f in KNOWN_FOLDERS.values():
+                self.provider.add_folder(f)
+        else:
+            self.provider = SmsProvider(path)
+
+    def close(self):
+        self.provider.close()
+
+    def add_message(self, sms, where=None):
+        if not where:
+            folder = KNOWN_FOLDERS[0]
+        else:
+            folder = KNOWN_FOLDERS[where-1]
+
+        msg = DBMessage(sms.number, sms.text, _datetime=sms.datetime)
+        self.provider.add_sms(msg, folder=folder)
+        return msg
+
+    def add_messages(self, sms_list, where=None):
+        return [self.add_message(sms, where) for sms in sms_list]
+
+    def delete_message(self, sms):
+        self.provider.delete_sms(sms) # we should delete the containing thread if it's empty
+
+    def get_messages(self):
+        ret = []
+        for i in range(3):
+            folder = KNOWN_FOLDERS[i]
+            tab = i + 1
+            for thread in self.provider.list_from_folder(folder):
+                msgs = list(self.provider.list_from_thread(thread))
+                for msg in msgs:
+                    msg.where = tab
+                ret.extend(msgs)
+        return ret
+
 
 class Messages(object):
     """
@@ -37,7 +92,7 @@ class Messages(object):
     """
     def __init__(self, device=None):
         self.device = device
-#        self.smanager = SMSManager()
+        self.smanager = DBSMSManager()
 
         self.tz = None
         try:
@@ -46,45 +101,45 @@ class Messages(object):
             pass
 
     def close(self):
-#        self.smanager.close()
+        self.smanager.close()
         self.device = None
 
-#    def add_messages(self, smslist, where=None):
-#        if where:
-#            # where is only set when we store a draft or when a copy of
-#            # a sms is kept on the sent treeview
-#            return self.smanager.add_messages(smslist, where)
-#
-#        responses = [self.add_message(sms) for sms in smslist]
-#        return defer.gatherResults(responses)
+    def add_messages(self, smslist, where=None):
+        return self.smanager.add_messages(smslist, where)
 
-#    def add_message(self, sms, where=None):
-#        if where:
-#            # where is only set when is a DB SMS
-#            return defer.maybeDeferred(self.smanager.add_message, sms, where)
-#
-#        if is_sim_message(sms):
-#            raise NotImplementedError()
+    def add_message(self, sms, where=None):
+        if where:
+            # where is only set when is a DB SMS
+            return self.smanager.add_message(sms, where)
 
     def get_messages(self):
-        lst = self.device.List(dbus_interface=SMS_INTFACE)
         ret = []
+
+        # from sim storage
+        lst = self.device.List(dbus_interface=SMS_INTFACE)
         for dct in lst:
-            sms = Message.from_dict(dct, self.tz)
+            sms = SMMessage.from_dict(dct, self.tz)
             ret.append(sms)
 
-        # should return messages in db storage too
+        # return messages in db storage too
+        lst = self.smanager.get_messages()
+        for msg in lst:
+            msg.datetime = msg.datetime.astimezone(self.tz)
+            ret.append(msg)
+
         return ret
 
     def get_message(self, index):
         dct = self.device.Get(index, dbus_interface=SMS_INTFACE)
-        sms = Message.from_dict(dct, self.tz)
+        sms = SMMessage.from_dict(dct, self.tz)
         return sms
 
     def delete_messages(self, smslist):
         for sms in smslist:
             if is_sim_message(sms):
                 self.device.Delete(sms.index, dbus_interface=SMS_INTFACE)
+            else:
+                self.smanager.delete_message(sms)
 
     def delete_objs(self, objs):
         return self.delete_messages(objs)
