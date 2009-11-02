@@ -1333,12 +1333,14 @@ The csv file that you have tried to import has an invalid format.""")
         menu.append(item)
 
         if treeview.get_name() == 'inbox_treeview':
-            item = gtk.ImageMenuItem(_("Migrate to DB"))
-            img = gtk.image_new_from_stock(gtk.STOCK_CONVERT, gtk.ICON_SIZE_MENU)
-            item.set_image(img)
-            item.connect("activate", self._migrate_sms_to_db)
-            item.show()
-            menu.append(item)
+            msg = self.get_obj_from_selected_row()
+            if msg and is_sim_message(msg):
+                item = gtk.ImageMenuItem(_("Migrate to DB"))
+                img = gtk.image_new_from_stock(gtk.STOCK_CONVERT, gtk.ICON_SIZE_MENU)
+                item.set_image(img)
+                item.connect("activate", self._migrate_sms_to_db)
+                item.show()
+                menu.append(item)
 
         if treeview.get_name() != 'drafts_treeview':
             item = gtk.ImageMenuItem(_("Save to draft"))
