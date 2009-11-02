@@ -52,7 +52,7 @@ from wader.vmc.consts import (GTK_LOCK, GLADE_DIR, GUIDE_DIR, IMAGES_DIR,
 from wader.vmc.phonebook import (get_phonebook,
                                 all_same_type, all_contacts_writable)
 from wader.vmc.csvutils import CSVUnicodeWriter, CSVContactsReader
-from wader.vmc.messages import get_messages_obj
+from wader.vmc.messages import get_messages_obj, is_sim_message
 
 from wader.vmc.models.diagnostics import DiagnosticsModel
 from wader.vmc.views.diagnostics import DiagnosticsView
@@ -1332,6 +1332,14 @@ The csv file that you have tried to import has an invalid format.""")
 
         menu.append(item)
 
+        if treeview.get_name() == 'inbox_treeview':
+            item = gtk.ImageMenuItem(_("Migrate to DB"))
+            img = gtk.image_new_from_stock(gtk.STOCK_CONVERT, gtk.ICON_SIZE_MENU)
+            item.set_image(img)
+            item.connect("activate", self._migrate_sms_to_db)
+            item.show()
+            menu.append(item)
+
         if treeview.get_name() != 'drafts_treeview':
             item = gtk.ImageMenuItem(_("Save to draft"))
             img = gtk.image_new_from_stock(gtk.STOCK_SAVE, gtk.ICON_SIZE_MENU)
@@ -1352,6 +1360,28 @@ The csv file that you have tried to import has an invalid format.""")
         menu.append(item)
 
         return menu
+
+    def _migrate_sms_to_db(self, widget):
+        """This will save the selected SMS to the drafts tv and the DB"""
+        # XXX: this needs reworking to allow multiple selections
+        row = self.get_model_iter_obj_from_selected_row()
+        if row:
+            model, _iter, old = row
+            if not is_sim_message(old):
+                return
+
+            message_mgr = get_messages_obj(self.model.device)
+
+            # Save SMS to DB
+            where = TV_DICT_REV['inbox_treeview']
+            new = message_mgr.add_message(old, where=where)
+
+            # Remove SMS from the SIM
+            message_mgr.delete_objs([old])
+
+            # Update the treeview
+            # XXX: need to lookup in contacts
+            model.update_message(_iter, new)
 
     def _save_sms_to_draft(self, widget):
         """This will save the selected SMS to the drafts tv and the DB"""
@@ -1378,7 +1408,12 @@ The csv file that you have tried to import has an invalid format.""")
             view.show()
 
     def get_obj_from_selected_row(self):
-        """Returns the data from the selected row"""
+        """Returns just the object from the selected row"""
+        ret = self.get_model_iter_obj_from_selected_row()
+        return ret[2] if ret else None
+
+    def get_model_iter_obj_from_selected_row(self):
+        """Returns the model, iter and object from the selected row"""
         page = self.view['main_notebook'].get_current_page() + 1
 
         treeview = self.view[TV_DICT[page]]
@@ -1391,6 +1426,5 @@ The csv file that you have tried to import has an invalid format.""")
         # while in the rest the SMS object is at row[4]
         row = (page == TV_DICT_REV['contacts_treeview']) and 3 or 4
         _iter = model.get_iter(selected[0])
-        return model.get_value(_iter, row)
-
+        return (model, _iter, model.get_value(_iter, row))
 

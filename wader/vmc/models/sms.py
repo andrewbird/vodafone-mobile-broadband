@@ -56,18 +56,7 @@ class SMSStoreModel(ListStoreModel):
         for sms in messages:
             self.add_message(sms, contacts)
 
-    def add_message(self, message, contacts=None):
-        """
-        Adds C{message} to the ListStoreModel
-
-        Whenever a new message is inserted, I lookup the number on the
-        phonebook and will show the name instead of the number if its a
-        contact. As this can be really expensive for mass insertions, such as
-        during startup, it also accepts a list of contacts to save the lookup.
-
-        @type message: L{wader.common.sms.ShortMessage}
-        @type contacts: list
-        """
+    def _make_entry(self, message, contacts):
         if is_sim_message(message):
             entry = [MOBILE_IMG, message.text]
         else:
@@ -91,7 +80,32 @@ class SMSStoreModel(ListStoreModel):
         entry.append(message.datetime)
         entry.append(message)
 
+        return entry
+
+    def add_message(self, message, contacts=None):
+        """
+        Adds C{message} to the ListStoreModel
+
+        Whenever a new message is inserted, I lookup the number on the
+        phonebook and will show the name instead of the number if its a
+        contact. As this can be really expensive for mass insertions, such as
+        during startup, it also accepts a list of contacts to save the lookup.
+
+        @type message: L{wader.common.sms.ShortMessage}
+        @type contacts: list
+        """
+
+        entry = self._make_entry(message, contacts)
         self.append(entry)
+
+    def update_message(self, _iter, message, contacts=None):
+        """
+        Updates the existing row specified by C{_iter} with the C{message}
+        """
+
+        entry = self._make_entry(message, contacts)
+        for column in range(len(entry)):
+            self.set_value(_iter, column, entry[column])
 
 
 class NewSmsModel(Model):
