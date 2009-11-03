@@ -200,6 +200,9 @@ class MainController(WidgetController):
             show_profile_window(model)
 
     def _close_application_cb(self, *args):
+        message_mgr = get_messages_obj(self.model.device)
+        message_mgr.close()
+
         try:
             os.unlink(GTK_LOCK)
         except OSError:
