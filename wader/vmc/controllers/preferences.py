@@ -23,7 +23,8 @@ import gobject
 import gtk
 from gtkmvc import Controller
 
-from wader.common.config import config
+
+from wader.vmc.config import config
 from wader.vmc.translate import _
 from wader.vmc.dialogs import show_warning_dialog
 from wader.vmc.models.preferences import VALIDITY_DICT, SMSCItem
