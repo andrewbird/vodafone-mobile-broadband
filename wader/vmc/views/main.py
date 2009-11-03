@@ -25,7 +25,7 @@ import gtk
 from pango import ELLIPSIZE_END
 from gtkmvc import View
 
-from wader.common.config import config
+from wader.vmc.config import config
 from wader.vmc.translate import _
 from wader.vmc.consts import GLADE_DIR, IMAGES_DIR, THEMES_DIR, APP_LONG_NAME
 from wader.vmc.utils import repr_usage, UNIT_KB, UNIT_MB, units_to_bits
