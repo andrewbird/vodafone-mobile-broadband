@@ -19,7 +19,8 @@
 import os
 import gettext
 
-from wader.common.consts import APP_SLUG_NAME as name
+# XXX: redefine to avoid circular import with wader.vmc.consts
+name = APP_SLUG_NAME = 'wader-vmc'
 
 gettext.bindtextdomain(name, os.getenv('TEXTDOMAINDIR', '/usr/share/locale'))
 gettext.textdomain(name)

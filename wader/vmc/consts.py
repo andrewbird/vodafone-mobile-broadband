@@ -36,7 +36,7 @@ from wader.common.utils import revert_dict
 from wader.vmc.translate import _
 
 APP_NAME = 'Vodafone Mobile Connect'
-APP_SLUG_NAME = 'wader-vmc'
+APP_SLUG_NAME = 'wader-vmc' # XXX: also defined in w.v.translate
 APP_LONG_NAME = 'Vodafone Mobile Connect'
 APP_SHORT_NAME = APP_SLUG_NAME
 APP_VERSION = '3.00.0'
