@@ -22,52 +22,13 @@ Data persistance for VMC
 import datetime
 
 from zope.interface import implements
-from os.path import join
 
 from vmc.common.encoding import to_u
-from vmc.common.sms import ShortMessage
 import vmc.common.consts as consts
 
 from vmc.contrib.epsilon.extime import Time
 from vmc.contrib.axiom import item, attributes, store
 from vmc.contrib.axiom.attributes import AND
-
-
-class DBShortMessage(item.Item):
-    """
-    I represent an SMS on the DB
-    """
-    #  (id integer, category integer, number text, date text, smstext text)
-    typeName = 'DBShortMessage'
-    schemaVersion = 1
-
-    date = attributes.timestamp(allowNone=False)
-    number = attributes.text(allowNone=False)
-    text = attributes.text(allowNone=False)
-    where = attributes.integer(allowNone=False)
-
-    def __repr__(self):
-        args = (self.number, self.text, self.date)
-        return '<DBShortMessage number="%s" text="%s" date="%s">' % args
-
-    def __eq__(self, m):
-        if isinstance(m, DBShortMessage):
-            return (self.number == m.number and self.text == m.text
-                    and self.date == m.date)
-        return False
-
-    def __ne__(self, m):
-        return not (self.number == m.number and self.text == m.text
-                and self.date == m.date)
-
-    def get_index(self):
-        return self.storeID
-
-    def get_number(self):
-        return self.number
-
-    def get_text(self):
-        return self.text
 
 
 class AxiomDBManager(object):
@@ -81,30 +42,6 @@ class AxiomDBManager(object):
     def close(self):
         self.store.close()
         self.store = None
-
-
-class SMSManager(AxiomDBManager):
-    """
-    SMS manager
-    """
-    def __init__(self, path=consts.MESSAGES_DB):
-        super(SMSManager, self).__init__(path)
-
-    def add_message(self, sms, where=None):
-        assert isinstance(sms, ShortMessage), "What are you trying to store?"
-        return DBShortMessage(store=self.store, number=to_u(sms.get_number()),
-                        text=sms.get_text(),
-                        date=Time.fromDatetime(sms.datetime),
-                        where=where)
-
-    def add_messages(self, sms_list, where=None):
-        return [self.add_message(sms, where) for sms in sms_list]
-
-    def delete_message_by_id(self, index):
-        self.store.getItemByID(index).deleteFromStore()
-
-    def get_messages(self):
-        return list(self.store.query(DBShortMessage))
 
 
 class DBNetworkOperator(item.Item):
