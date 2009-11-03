@@ -23,7 +23,7 @@ import gobject
 import gtk
 from gtkmvc import View
 
-from wader.common.config import config
+from wader.vmc.config import config
 
 from wader.vmc.consts import GLADE_DIR
 from wader.vmc.translate import _

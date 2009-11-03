@@ -268,7 +268,8 @@ class NewProfileController(BaseProfileController):
         if not self.settings_valid(settings):
             return
 
-        from wader.common.config import config
+#        from wader.common.config import config
+        from wader.vmc.config import config
         prof_manager = get_profile_manager(self.model.get_device())
         prof = prof_manager.create_profile(settings['profile_name'], settings)
         config.set_current_profile(prof)

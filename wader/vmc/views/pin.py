@@ -63,7 +63,7 @@ class AskPINView(View):
 
     def setup_view(self):
         # XXX: fix when we know what we're doing with preferences
-#        from wader.common.config import config
+#        from wader.vmc.config import config
 #        active = config.getboolean('preferences', 'manage_keyring')
         active = False
         self['gnomekeyring_checkbutton'].set_active(active)

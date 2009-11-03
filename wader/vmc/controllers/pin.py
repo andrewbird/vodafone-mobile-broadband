@@ -271,7 +271,7 @@ class AskPINController(Controller):
         pin = self.view['pin_entry'].get_text()
         if pin:
             ## save keyring preferences
-            #from wader.common.config import config
+            #from wader.vmc.config import config
             #active = self.view['gnomekeyring_checkbutton'].get_active()
             #config.setboolean('preferences', 'manage_keyring', active)
             #config.write()

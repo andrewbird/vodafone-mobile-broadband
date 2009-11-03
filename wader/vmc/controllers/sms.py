@@ -20,7 +20,7 @@
 from datetime import datetime
 from gtkmvc import Controller, Model
 
-#from wader.common.config import config as config
+#from wader.vmc.config import config as config
 #import wader.common.exceptions as ex
 #from wader.common.sms import (MAX_LENGTH_7BIT, MAX_LENGTH_UCS2)
 from messaging import (PDU,
