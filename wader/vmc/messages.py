@@ -49,7 +49,7 @@ class DBSMSManager(object):
 
         if not exists(path):
             self.provider = SmsProvider(path)
-            for f in KNOWN_FOLDERS.values():
+            for f in KNOWN_FOLDERS:
                 self.provider.add_folder(f)
         else:
             self.provider = SmsProvider(path)
