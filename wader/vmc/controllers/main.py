@@ -71,6 +71,8 @@ from wader.vmc.models.preferences import PreferencesModel
 from wader.vmc.controllers.preferences import PreferencesController
 from wader.vmc.views.preferences import PreferencesView
 
+from twisted.application.internet import TimerService
+
 
 def get_fake_toggle_button():
     """Returns a toggled L{gtk.ToggleToolButton}"""
@@ -108,8 +110,8 @@ class MainController(WidgetController):
         # we're on SMS mode
         self.on_sms_button_toggled(get_fake_toggle_button())
 
-        #self.usage_updater = TimerService(5, self.update_usage_view)
-        #self.usage_updater.startService()
+        self.usage_updater = TimerService(5, self.update_usage_view)
+        self.usage_updater.startService()
 
     def connect_to_signals(self):
         self._setup_menubar_hacks()
@@ -1030,10 +1032,11 @@ The csv file that you have tried to import has an invalid format.""")
         set_value('transferred_total_session_label', m.get_session_total())
 
     def usage_notifier(self):
-        #limit = int(config.get('preferences', 'traffic_threshold'))
+        limit = int(config.get('preferences', 'traffic_threshold'))
         #notification = config.getboolean('preferences', 'usage_notification')
-        limit = 10
-        notification = 0
+        notification = config.get('preferences', 'usage_notification')
+        #limit = 10
+        #notification = 0
         limit = units_to_bits(limit, UNIT_MB)
         if (notification and limit > 0
                 and self.model.get_transferred_total(0) > limit

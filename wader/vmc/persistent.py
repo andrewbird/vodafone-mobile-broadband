@@ -23,12 +23,13 @@ import datetime
 
 from zope.interface import implements
 
-from vmc.common.encoding import to_u
-import vmc.common.consts as consts
+from wader.common.encoding import to_u
+#import wader.common.consts as consts
+import wader.vmc.consts as consts
 
-from vmc.contrib.epsilon.extime import Time
-from vmc.contrib.axiom import item, attributes, store
-from vmc.contrib.axiom.attributes import AND
+from wader.vmc.contrib.epsilon.extime import Time
+from wader.vmc.contrib.axiom import item, attributes, store
+from wader.vmc.contrib.axiom.attributes import AND
 
 
 class AxiomDBManager(object):

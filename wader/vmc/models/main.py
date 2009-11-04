@@ -42,6 +42,8 @@ from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
 import wader.common.aterrors as E
 import wader.common.signals as S
 
+from wader.vmc.persistent import usage_manager
+
 THREEG_SIGNALS = [MM_NETWORK_MODE_UMTS, MM_NETWORK_MODE_HSDPA,
                   MM_NETWORK_MODE_HSUPA, MM_NETWORK_MODE_HSPA]
 
@@ -538,29 +540,29 @@ class MainModel(Model):
 
     def _get_usage_for_month(self, dateobj):
         key = (dateobj.year, dateobj.month)
-        #if not self.month_cache.has_key(key):
-        #    # Current session information
-        #    if self.is_connected() and self.origin_date.month == dateobj.month:
-        #        tracker = self.connsm.tracker
-        #        tracker.get_current_usage().addCallback(
-        #                                            self._update_session_stats)
-#
-        #        stats = self.session_stats
-        #        umts = tracker.conn_mode in THREEG_SIGNALS
-        #        transferred = stats[0] + stats[1]
-        #        transferred_3g = umts and transferred or 0
-        #        transferred_gprs = not umts and transferred or 0
-        #    else:
-        #        transferred_3g = 0
-        #        transferred_gprs = 0
+        if not self.month_cache.has_key(key):
+            # Current session information
+            if self.is_connected() and self.origin_date.month == dateobj.month:
+                tracker = self.connsm.tracker
+                tracker.get_current_usage().addCallback(
+                                                    self._update_session_stats)
 
-        #    # Historical usage data
-        #    usage = usage_manager.get_usage_for_month(dateobj)
-        #    for item in usage:
-        #        if item.umts:
-        #            transferred_3g += item.bits_recv + item.bits_sent
-        #        else:
-        #            transferred_gprs += item.bits_recv + item.bits_sent
+                stats = self.session_stats
+                umts = tracker.conn_mode in THREEG_SIGNALS
+                transferred = stats[0] + stats[1]
+                transferred_3g = umts and transferred or 0
+                transferred_gprs = not umts and transferred or 0
+            else:
+                transferred_3g = 0
+                transferred_gprs = 0
+
+            # Historical usage data
+            usage = usage_manager.get_usage_for_month(dateobj)
+            for item in usage:
+                if item.umts:
+                    transferred_3g += item.bits_recv + item.bits_sent
+                else:
+                    transferred_gprs += item.bits_recv + item.bits_sent
         transferred_gprs = 100
         transferred_3g = 200
         if True:
