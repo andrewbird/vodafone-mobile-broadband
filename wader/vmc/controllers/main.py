@@ -323,6 +323,10 @@ class MainController(WidgetController):
         if new:
             self.ask_for_puk2()
 
+    def property_profile_required_value_change(self, model, old, new):
+        if new:
+            print "Need to run profile wizard"
+
     def property_rx_bytes_value_change(self, model, old, new):
         pass
 #        if old != new:
@@ -813,12 +817,12 @@ The csv file that you have tried to import has an invalid format.""")
 
     def on_new_profile_menuitem_activate(self, widget):
         self.ask_for_new_profile()
-        # XXX: shouldn't we make it the active one
 
     def _build_profiles_menu(self):
         def load_profile(widget, profile):
             profiles_model = self.model.profiles_model
-            profiles_model.set_default_profile(profile.uuid)
+            profiles_model.set_active_profile(profile)
+            profiles_model.activate_profile()
 
             # refresh menu
             self.on_tools_menu_item_activate(get_fake_toggle_button())
@@ -828,7 +832,7 @@ The csv file that you have tried to import has an invalid format.""")
                                 profile=profile)
             # XXX: check out whether editing a profile should make it active
             #      currently it doesn't
-            # self.on_tools_menu_item_activate(get_fake_toggle_button())
+            self.on_tools_menu_item_activate(get_fake_toggle_button())
 
         def delete_profile(widget, profile):
             profiles_model = self.model.profiles_model
@@ -837,13 +841,6 @@ The csv file that you have tried to import has an invalid format.""")
             # refresh menu
             self.on_tools_menu_item_activate(get_fake_toggle_button())
 
-        def is_active_profile(profile):
-            profiles_model = self.model.profiles_model
-
-            if not profiles_model.has_active_profile():
-                return False
-            return profile.uuid == profiles_model.get_active_profile().uuid
-
         profiles = self.model.profiles_model.get_profiles()
 
         menu1 = gtk.Menu()
@@ -851,7 +848,7 @@ The csv file that you have tried to import has an invalid format.""")
             item = gtk.ImageMenuItem(profile.name)
             item.connect("activate", load_profile, profile)
             item.show()
-            if is_active_profile(profile):
+            if self.model.profiles_model.is_active_profile(profile):
                 item.set_sensitive(False)
             menu1.append(item)
 
@@ -867,7 +864,7 @@ The csv file that you have tried to import has an invalid format.""")
             item = gtk.ImageMenuItem(profile.name)
             item.connect("activate", delete_profile, profile)
             item.show()
-            if is_active_profile(profile):
+            if self.model.profiles_model.is_active_profile(profile):
                 item.set_sensitive(False)
             menu3.append(item)
 
@@ -1101,10 +1098,6 @@ The csv file that you have tried to import has an invalid format.""")
             ctrl.set_textbuffer_text(message.text)
             view.set_parent_view(self.view)
             view.show()
-
-#    XXX: check out if this is needed
-#    def on_add_contact_menu_item_activate(self, widget):
-#        self.on_new_contact_menu_item_activate(None)
 
     def on_delete_menu_item_activate(self, widget):
         page = self.view['main_notebook'].get_current_page() + 1

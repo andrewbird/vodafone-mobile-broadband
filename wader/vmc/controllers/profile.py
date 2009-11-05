@@ -36,7 +36,7 @@ class ProfileController(Controller):
     def setup_view(self, view):
         self.view['profile_name_entry'].set_text(self.model.name)
         self.view['username_entry'].set_text(self.model.username)
-        self.view.set_pref(self.model.network_type)
+        self.view.set_pref(self.model.network_pref)
         self.view.set_band(self.model.band)
         self.view['apn_entry'].set_text(self.model.apn)
         self.view['static_dns_check'].set_active(self.model.static_dns)
@@ -75,7 +75,7 @@ class ProfileController(Controller):
         band = self.view['band_combobox'].get_active_text()
         auth = self.view['authentication_combobox'].get_active_text()
         if mode:
-            self.model.network_type = MODE_MAP_REV[mode]
+            self.model.network_pref = MODE_MAP_REV[mode]
         if band:
             self.model.band = BAND_MAP_REV[band]
         if auth:
@@ -107,7 +107,7 @@ class ProfileController(Controller):
     def property_password_value_change(self, model, old, new):
         self.view['password_entry'].set_text(new)
 
-    def property_network_type_value_change(self, model, old, new):
+    def property_network_pref_value_change(self, model, old, new):
         self.view.set_pref(new)
 
     def property_band_value_change(self, model, old, new):

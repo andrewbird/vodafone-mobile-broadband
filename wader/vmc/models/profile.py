@@ -19,7 +19,7 @@
 from uuid import uuid1
 import dbus
 import gobject
-from gtkmvc import Model, ListStoreModel
+from gtkmvc import Model
 
 from wader.common.consts import (NM_PASSWD, WADER_DIALUP_INTFACE,
                                  WADER_PROFILES_INTFACE, NET_INTFACE,
@@ -40,86 +40,61 @@ from wader.vmc.consts import (VM_NETWORK_AUTH_ANY,
 CONNECTED, DISCONNECTED = range(2)
 
 
-class ProfilesModel(ListStoreModel):
+class ProfilesModel(Model):
 
     def __init__(self, device_callable=None):
-        super(ProfilesModel, self).__init__(gobject.TYPE_BOOLEAN,
-                                            gobject.TYPE_PYOBJECT)
+        super(ProfilesModel, self).__init__()
         self.device_callable = device_callable
-        self.active_iter = None
         self.conf = config
         self.manager = manager
-        self.populate_profiles()
+
+        uuid = self.conf.get('profile', 'uuid')
+        self.active_profile = self.get_profile_by_uuid(uuid)
+        self.activate_profile()
+
+    def activate_profile(self):
+        if self.active_profile:
+            self.active_profile.activate()
 
     def has_active_profile(self):
-        return self.active_iter is not None
+        return self.active_profile is not None
 
     def get_active_profile(self):
-        if self.active_iter is None:
+        if self.active_profile is None:
             raise RuntimeError(_("No active profile"))
 
-        return self.get_value(self.active_iter, 1)
+        return self.active_profile
 
-    def add_profile(self, profile, default=False):
-        if not self.has_active_profile():
-            default = True
-
-        if not default:
-            # just add it, do not make it default
-            return self.append([default, profile])
-
-        # set the profile as default and set active_iter
-        self.conf.set('profile', 'uuid', profile.uuid)
-        self.active_iter = self.append([True, profile])
-        return self.active_iter
-
-    def has_profile(self, profile=None, uuid=""):
-        if profile:
-            uuid = profile.uuid
-
-        _iter = self.get_iter_first()
-        while _iter:
-            _profile = self.get_value(_iter, 1)
-
-            if _profile.uuid == uuid:
-                return _iter
-
-            _iter = self.iter_next(_iter)
-
-        return None
+    def is_active_profile(self, profile):
+        return self.active_profile == profile
 
     def remove_profile(self, profile):
-        _iter = self.has_profile(profile)
-        if not _iter:
-            uuid = profile.uuid
-            raise ProfileNotFoundError("Profile %s not found" % uuid)
+        if self.is_active_profile(profile):
+            self.active_profile = None
+            self.conf.set('profile', 'uuid', '')
 
-        if profile.uuid == self.get_value(self.active_iter, 1).uuid:
-            self.set(self.active_iter, False, 0)
-            self.active_iter = None
-
-        self.conf.set('profile', 'uuid', '')
-
-        self.remove(_iter)
         profile.delete()
 
-    def set_default_profile(self, uuid):
-        _iter = self.has_profile(uuid=uuid)
-        assert _iter is not None, "Profile %s does not exist" % uuid
-        if self.active_iter and self.iter_is_valid(self.active_iter):
-            self.set(self.active_iter, 0, False)
+    def set_active_profile(self, profile, setconf=True):
+        self.active_profile = profile
+        if setconf:
+            self.conf.set('profile', 'uuid', profile.uuid)
 
-        self.set(_iter, 0, True)
-        self.active_iter = _iter
-        self.conf.set('profile', 'uuid', self.get_value(_iter, 1).uuid)
+    def get_profile_by_uuid(self, uuid, setactive=False):
+        if uuid is None:
+            return None
 
-    def populate_profiles(self):
-        uuid = self.conf.get('profile', 'uuid')
-
-        for _uuid, profile in self.get_profiles().iteritems():
-            if not self.has_profile(uuid=_uuid):
-                default = True if uuid and uuid == _uuid else False
-                self.add_profile(profile, default)
+        try:
+            profile = self.manager.get_profile_by_uuid(uuid)
+        except ProfileNotFoundError:
+            print "No profile found with uuid %s" % uuid
+            return None
+        else:
+            profile= ProfileModel(self, profile=profile,
+                                         device_callable=self.device_callable)
+            if setactive:
+                self.active_profile = profile
+            return profile
 
     def get_profiles(self):
         ret = {}
@@ -131,8 +106,6 @@ class ProfilesModel(ListStoreModel):
                                          device_callable=self.device_callable)
         return ret
 
-    def profile_added(self, profile):
-        self.add_profile(profile)
 
 class ProfileModel(Model):
 
@@ -141,7 +114,7 @@ class ProfileModel(Model):
         'username' : "",
         'password' : "",
         'band' : MM_NETWORK_BAND_ANY,
-        'network_type' : MM_NETWORK_MODE_ANY,
+        'network_pref' : MM_NETWORK_MODE_ANY,
         'auth' : VM_NETWORK_AUTH_ANY,
         'autoconnect' : False,
         'apn' : "",
@@ -175,6 +148,16 @@ class ProfileModel(Model):
         self.state = DISCONNECTED
         self.sm = [] # signal matches list
         self.connect_to_signals()
+
+    def __eq__(self, other):
+        if other is None:
+            return False
+        return self.uuid == other.uuid
+
+    def __ne__(self, other):
+        if other is None:
+            return True
+        return self.uuid != other.uuid
 
     def __repr__(self):
         return "<ProfileModel %s>" % self.uuid
@@ -231,7 +214,7 @@ class ProfileModel(Model):
                 self.static_dns = False
 
             if 'network-type' in settings['gsm']:
-                self.network_type = settings['gsm']['network-type']
+                self.network_pref = settings['gsm']['network-type']
 
             if 'band' in settings['gsm']:
                 self.band = settings['gsm']['band']
@@ -270,7 +253,7 @@ class ProfileModel(Model):
                              'name' : 'connection', 'uuid' : self.uuid,
                              'autoconnect' : self.autoconnect },
             'gsm' : { 'band' : self.band, 'username' : self.username,
-                      'number' : '*99#', 'network-type' : self.network_type,
+                      'number' : '*99#', 'network-type' : self.network_pref,
                       'apn' : self.apn, 'name' : 'gsm' },
             'ppp' : { 'name' : 'ppp' },
             'serial' : { 'baud' : 115200, 'name' : 'serial' },
@@ -306,9 +289,9 @@ class ProfileModel(Model):
             logger.debug("Profile modified: %s" % self.profile)
         else:
             uuid = props['connection']['uuid']
-            if self.parent_model.has_profile(uuid=uuid):
-                msg = _('A profile with udi "%s" exists') % uuid
-                raise RuntimeError(msg)
+#            if self.parent_model.has_profile(uuid=uuid):
+#                msg = _('A profile with udi "%s" exists') % uuid
+#                raise RuntimeError(msg)
 
             sm = None # SignalMatch object
             def new_profile_cb(path):
@@ -319,7 +302,7 @@ class ProfileModel(Model):
                 secrets = {'gsm' : { NM_PASSWD : self.password}}
                 self.profile.secrets.update(secrets, ask=True)
 
-                self.parent_model.profile_added(self)
+                self.parent_model.set_active_profile(self)
 
                 sm.remove() # remove SignalMatch handler
 
@@ -328,6 +311,9 @@ class ProfileModel(Model):
                                               WADER_PROFILES_INTFACE)
             self.manager.add_profile(props)
 
+            self.activate()
+
+    def activate(self):
         if self.state == DISCONNECTED and self.device_callable:
             # only perform this operations if we are disconnected and
             # a device is available
@@ -339,8 +325,8 @@ class ProfileModel(Model):
                 device.SetBand(self.band, dbus_interface=NET_INTFACE,
                                reply_handler=lambda: True,
                                error_handler=logger.error)
-            if self.network_type is not None:
-                device.SetNetworkMode(self.network_type,
+            if self.network_pref is not None:
+                device.SetNetworkMode(self.network_pref,
                                       dbus_interface=NET_INTFACE,
                                       reply_handler=lambda: True,
                                       error_handler=logger.error)

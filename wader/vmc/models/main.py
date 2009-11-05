@@ -79,6 +79,7 @@ class MainModel(Model):
         'pin_required': False,
         'puk_required': False,
         'puk2_required': False,
+        'profile_required': False,
         'sim_error' : False,
         'net_error' : '',
         'key_needed' : False,
@@ -261,6 +262,7 @@ class MainModel(Model):
 
         self._start_network_registration()
         # delay the profile creation till the device is completely enabled
+        self.profile_required = False
         self._get_config()
 
     def _enable_device_eb(self, e):
@@ -293,26 +295,15 @@ class MainModel(Model):
         if not first_time and self.status != "Scanning":
             return False
 
-        # Get Configuration
+    # Get Configuration
     def _get_config(self):
-        uuid = self.conf.get('profile', 'uuid')
-        if uuid and not self.profile:
-            from wader.vmc.profiles import manager
-            try:
-                profile = manager.get_profile_by_uuid(uuid)
-                if profile:
-                    model = ProfileModel(self.profiles_model, profile=profile,
-                                         device_callable=lambda: self.device)
-                    self.profiles_model.add_profile(model)
-                    self.profile = model
-
-                return
-            except Exception, e:
-                logger.warn("Error loading initial profile %s %s" % (uuid, e))
-
-            logger.warn("No profile, creating one")
-            # ugly and breaks MVC but necessary
-            self.ctrl.ask_for_new_profile()
+        if not self.profile:
+            self.profile = self.profiles_model.get_active_profile()
+            if self.profile:
+                self.profile_required = False # tell controller
+            else:
+                logger.warn("No profile, creating one")
+                self.profile_required = True # tell controller
 
     def _network_register_cb(self, ignored=None):
         self._get_regstatus(first_time=True)
