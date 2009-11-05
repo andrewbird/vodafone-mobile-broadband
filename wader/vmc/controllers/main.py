@@ -71,7 +71,7 @@ from wader.vmc.models.preferences import PreferencesModel
 from wader.vmc.controllers.preferences import PreferencesController
 from wader.vmc.views.preferences import PreferencesView
 
-from twisted.application.internet import TimerService
+from gobject import timeout_add_seconds 
 
 
 def get_fake_toggle_button():
@@ -110,8 +110,8 @@ class MainController(WidgetController):
         # we're on SMS mode
         self.on_sms_button_toggled(get_fake_toggle_button())
 
-        self.usage_updater = TimerService(5, self.update_usage_view)
-        self.usage_updater.startService()
+        self.usage_updater = timeout_add_seconds(5, self.update_usage_view)
+        #self.usage_updater.startService()
 
     def connect_to_signals(self):
         self._setup_menubar_hacks()
@@ -462,6 +462,7 @@ class MainController(WidgetController):
     def _on_connect_cb(self, dev_path):
         self.view.set_connected()
         self.model.start_stats_tracking()
+        self.usage_updater = timeout_add_seconds(5, self.update_usage_view)
         if self.apb:
             self.apb.close()
             self.apb = None
@@ -1052,12 +1053,20 @@ The csv file that you have tried to import has an invalid format.""")
             self.user_limit_notified = False
 
     def update_usage_view(self):
-        self.model.clean_usage_cache()
-        self._update_usage_panel('current', 0)
-        self._update_usage_panel('last', -1)
-        self._update_usage_session()
-        self.view.update_bars_user_limit()
-        self.usage_notifier()
+        # make sure we ask the view if he is set as connected. If he is update our graph bits.
+        if self.view.get_connected():
+            print "Main- Update Usage View - view.get_connected is True I must be connected so keep measuring stats."
+            self.model.clean_usage_cache()
+            self._update_usage_panel('current', 0)
+            self._update_usage_panel('last', -1)
+            self._update_usage_session()
+            self.view.update_bars_user_limit()
+            self.usage_notifier()
+            return True
+        else:
+            print "Main- Update Usage View - view.get_connected is False I must be disconnected so stop measuring!!!"
+            return False
+
 
     def on_reply_sms_no_quoting_menu_item_activate(self, widget):
         message = self.get_obj_from_selected_row()
