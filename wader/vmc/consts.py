@@ -79,11 +79,7 @@ WADER_HOME = join(USER_HOME, '.gnome2', 'wader')
 DB_DIR = join(WADER_HOME, 'db')
 NETWORKS_DB = join(DB_DIR, 'networks.db')
 MESSAGES_DB = join(DB_DIR, 'messages.db')
-<<<<<<< .mine
-USAGE_DB = join(DB_DIR,  'usage.db')
-=======
 USAGE_DB = join(DB_DIR, 'usage.db')
->>>>>>> .r937
 
 GCONF_BASE_DIR = '/apps/wader-vmc'
 
