@@ -25,9 +25,10 @@ import gtk
 import gobject
 from gtkmvc import View
 
-from wader.common.consts import MM_NETWORK_BAND_ANY, MM_NETWORK_MODE_ANY
+from wader.common.consts import MM_NETWORK_BANDS, MM_NETWORK_BAND_ANY
 
 from wader.vmc.consts import (GLADE_DIR, VM_NETWORK_AUTH_ANY,
+                              VM_NETWORK_AUTH_PAP, VM_NETWORK_AUTH_CHAP,
                               BAND_MAP, MODE_MAP, AUTH_MAP)
 from wader.vmc.translate import _
 
@@ -41,47 +42,52 @@ class ProfileView(View):
         super(ProfileView, self).__init__(ctrl, self.GLADE_FILE,
                                           'new_profile_window')
 
-        self._init_combobox(BAND_MAP, 'band', MM_NETWORK_BAND_ANY, self.set_band)
-        self._init_combobox(MODE_MAP, 'connection', MM_NETWORK_MODE_ANY, self.set_pref)
-        self._init_combobox(AUTH_MAP, 'authentication', VM_NETWORK_AUTH_ANY, self.set_auth)
-
         ctrl.setup_view(self)
         self['PROimage'].set_from_file(self.IMAGE_FILE)
         self['static_dns_check'].connect('toggled', self.on_static_dns_toggled)
         icon = gtk.gdk.pixbuf_new_from_file(join(GLADE_DIR, 'VF_logo.png'))
         self.get_top_widget().set_icon(icon)
 
-    def _init_combobox(self, _dict, name, default, method):
+    def _set_combo(self, combo, model, current):
+        self[combo].set_model(model)
+        if current:
+            for i, row in enumerate(model):
+                if row[1] == current:
+                    self[combo].set_active(i)
+                    break
+
+    def set_bands(self, bands, current):
+        def get_bands(bitwised_band):
+            """Returns all the bitwised bands in ``bitwised_band``"""
+            return [band for band in MM_NETWORK_BANDS if band & bitwised_band]
+
         model = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_INT)
-        for value, human_name in _dict.items():
+
+        for value in [MM_NETWORK_BAND_ANY] + get_bands(bands):
+            human_name = BAND_MAP[value]
             model.append([human_name, value])
 
-        self['%s_combobox' % name].set_model(model)
-        method(default)
+        self._set_combo('band_combobox', model, current)
 
-    def set_band(self, band):
-        if band:
-            model = self['band_combobox'].get_model()
-            for i, row in enumerate(model):
-                if row[1] == band:
-                    self['band_combobox'].set_active(i)
-                    break
+    def set_prefs(self, prefs, current):
+        model = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_INT)
 
-    def set_pref(self, pref):
-        if pref:
-            model = self['connection_combobox'].get_model()
-            for i, row in enumerate(model):
-                if row[1] == pref:
-                    self['connection_combobox'].set_active(i)
-                    break
+        for value in prefs:
+            human_name = MODE_MAP[value]
+            model.append([human_name, value])
 
-    def set_auth(self, auth):
-        if auth:
-            model = self['authentication_combobox'].get_model()
-            for i, row in enumerate(model):
-                if row[1] == auth:
-                    self['authentication_combobox'].set_active(i)
-                    break
+        self._set_combo('connection_combobox', model, current)
+
+    def set_auths(self, current):
+        model = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_INT)
+
+        for value in [VM_NETWORK_AUTH_ANY,
+                      VM_NETWORK_AUTH_PAP,
+                      VM_NETWORK_AUTH_CHAP]:
+            human_name = AUTH_MAP[value]
+            model.append([human_name, value])
+
+        self._set_combo('authentication_combobox', model, current)
 
     def on_static_dns_toggled(self, widget):
         if widget.get_active():

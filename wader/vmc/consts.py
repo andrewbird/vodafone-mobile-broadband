@@ -84,7 +84,7 @@ USAGE_DB = join(DB_DIR, 'usage.db')
 GCONF_BASE_DIR = '/apps/wader-vmc'
 
 BAND_MAP = {
-    MM_NETWORK_BAND_ANY   : _('Any band'),
+    MM_NETWORK_BAND_ANY   : _('Any'),
     MM_NETWORK_BAND_EGSM  : _('EGSM 900'),
     MM_NETWORK_BAND_DCS   : _('GSM DCS'),
     MM_NETWORK_BAND_PCS   : _('GSM PCS'),
@@ -128,7 +128,7 @@ VM_NETWORK_AUTH_MSCHAP   = 0x08
 VM_NETWORK_AUTH_MSCHAPv2 = 0x10
 
 AUTH_MAP = {
-    VM_NETWORK_AUTH_ANY      : _('Default'),
+    VM_NETWORK_AUTH_ANY      : _('Any'),
     VM_NETWORK_AUTH_PAP      : _('PAP'),
     VM_NETWORK_AUTH_EAP      : _('EAP'),
     VM_NETWORK_AUTH_CHAP     : _('CHAP'),

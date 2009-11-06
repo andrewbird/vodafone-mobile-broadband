@@ -39,8 +39,6 @@ class ProfileController(Controller):
     def setup_view(self, view):
         self.view['profile_name_entry'].set_text(self.model.name)
         self.view['username_entry'].set_text(self.model.username)
-        self.view.set_pref(self.model.network_pref)
-        self.view.set_band(self.model.band)
         self.view['apn_entry'].set_text(self.model.apn)
         self.view['static_dns_check'].set_active(self.model.static_dns)
         if self.model.primary_dns:
@@ -65,6 +63,16 @@ class ProfileController(Controller):
                 return
 
         self.view['password_entry'].set_text(self.model.password)
+
+        self.view.set_auths(self.model.auth)
+
+        def bands_callback(bands):
+            self.view.set_bands(bands, self.model.band)
+        self.model.get_supported_bands(bands_callback)
+
+        def prefs_callback(prefs):
+            self.view.set_prefs(prefs, self.model.network_pref)
+        self.model.get_supported_prefs(prefs_callback)
 
     def on_cancel_button_clicked(self, widget):
         self.close_controller()
@@ -110,14 +118,14 @@ class ProfileController(Controller):
     def property_password_value_change(self, model, old, new):
         self.view['password_entry'].set_text(new)
 
-    def property_network_pref_value_change(self, model, old, new):
-        self.view.set_pref(new)
+#    def property_network_pref_value_change(self, model, old, new):
+#        pass
 
-    def property_band_value_change(self, model, old, new):
-        self.view.set_band(new)
+#    def property_band_value_change(self, model, old, new):
+#        pass
 
-    def property_auth_value_change(self, model, old, new):
-        self.view.set_auth(new)
+#    def property_auth_value_change(self, model, old, new):
+#        pass
 
     def property_apn_value_change(self, model, old, new):
         self.view['apn_entry'].set_text(new)

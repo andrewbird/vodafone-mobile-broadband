@@ -23,7 +23,8 @@ from gtkmvc import Model
 
 from wader.common.consts import (NM_PASSWD, WADER_DIALUP_INTFACE,
                                  WADER_PROFILES_INTFACE, NET_INTFACE,
-                                 MM_NETWORK_MODE_ANY, MM_NETWORK_BAND_ANY)
+                                 MM_NETWORK_MODE_ANY, MM_NETWORK_BAND_ANY,
+                                 CRD_INTFACE)
 from wader.common.utils import (convert_int_to_uint as convert,
                                 patch_list_signature)
 from wader.common.exceptions import ProfileNotFoundError
@@ -353,4 +354,19 @@ class ProfileModel(Model):
         else:
             raise RuntimeError(_("Trying to remove an unsaved profile"))
 
+    def get_supported_bands(self, callback):
+        device = self.device_callable()
+
+        bands = device.Get(CRD_INTFACE, 'SupportedBands',
+                           dbus_interface=dbus.PROPERTIES_IFACE,
+                           reply_handler=callback,
+                           error_handler=logger.warn)
+
+    def get_supported_prefs(self, callback):
+        device = self.device_callable()
+
+        prefs = device.Get(CRD_INTFACE, 'SupportedModes',
+                           dbus_interface=dbus.PROPERTIES_IFACE,
+                           reply_handler=callback,
+                           error_handler=logger.warn)
 

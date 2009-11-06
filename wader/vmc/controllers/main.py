@@ -204,7 +204,8 @@ class MainController(WidgetController):
 
         def apn_callback(network):
             main_model = self.model.profiles_model
-            profile_model = ProfileModel(main_model, network=network)
+            profile_model = ProfileModel(main_model, network=network,
+                                         device_callable=main_model.device_callable)
             show_profile_window(main_model, profile=profile_model)
 
         def imsi_callback(imsi):
