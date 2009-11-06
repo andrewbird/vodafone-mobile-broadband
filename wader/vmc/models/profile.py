@@ -60,9 +60,6 @@ class ProfilesModel(Model):
         return self.active_profile is not None
 
     def get_active_profile(self):
-        if self.active_profile is None:
-            raise RuntimeError(_("No active profile"))
-
         return self.active_profile
 
     def is_active_profile(self, profile):
@@ -90,7 +87,7 @@ class ProfilesModel(Model):
             print "No profile found with uuid %s" % uuid
             return None
         else:
-            profile= ProfileModel(self, profile=profile,
+            profile = ProfileModel(self, profile=profile,
                                          device_callable=self.device_callable)
             if setactive:
                 self.active_profile = profile
@@ -124,7 +121,7 @@ class ProfileModel(Model):
         'secondary_dns' : None,
     }
 
-    def __init__(self, parent_model, profile=None, imsi=None,
+    def __init__(self, parent_model, profile=None, imsi=None, network=None,
                  device_callable=None):
         super(ProfileModel, self).__init__()
 
@@ -142,8 +139,11 @@ class ProfileModel(Model):
             self._load_profile(profile=profile)
         elif imsi:
             self._load_profile_from_imsi(imsi)
+        elif network:
+            self._load_profile_from_network(network)
         else:
-            raise ValueError("Bad arguments for ProfileModel.__init__")
+            self.uuid = str(uuid1()) # blank profile
+            self.name = _('Custom')
 
         self.state = DISCONNECTED
         self.sm = [] # signal matches list
@@ -243,6 +243,14 @@ class ProfileModel(Model):
         logger.info("Loading profile for imsi %s" % str(imsi))
         try:
             props = self.manager.get_profile_options_from_imsi(imsi)
+            self._load_settings(props)
+        except ProfileNotFoundError:
+            self.uuid = str(uuid1())
+
+    def _load_profile_from_network(self, network):
+        logger.info("Loading profile for network %s" % str(network))
+        try:
+            props = self.manager.get_profile_options_from_network(network)
             self._load_settings(props)
         except ProfileNotFoundError:
             self.uuid = str(uuid1())

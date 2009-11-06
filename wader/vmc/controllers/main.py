@@ -71,6 +71,10 @@ from wader.vmc.models.preferences import PreferencesModel
 from wader.vmc.controllers.preferences import PreferencesController
 from wader.vmc.views.preferences import PreferencesView
 
+from wader.vmc.models.profile import ProfileModel
+from wader.vmc.views.profile import APNSelectionView
+from wader.vmc.controllers.profile import APNSelectionController
+
 from gobject import timeout_add_seconds 
 
 
@@ -194,12 +198,18 @@ class MainController(WidgetController):
         view.show()
 
     def ask_for_new_profile(self):
-        model = self.model.profiles_model
-        if self.model.device:
-            self.model.get_imsi(lambda imsi:
-                show_profile_window(model, imsi=imsi))
-        else:
-            show_profile_window(model)
+
+        def apn_callback(network):
+            main_model = self.model.profiles_model
+            profile_model = ProfileModel(main_model, network=network)
+            show_profile_window(main_model, profile=profile_model)
+
+        def imsi_callback(imsi):
+            ctrl = APNSelectionController(self.model, imsi, apn_callback)
+            view = APNSelectionView(ctrl)
+            view.show()
+
+        self.model.get_imsi(imsi_callback)
 
     def _close_application_cb(self, *args):
         message_mgr = get_messages_obj(self.model.device)
@@ -325,7 +335,7 @@ class MainController(WidgetController):
 
     def property_profile_required_value_change(self, model, old, new):
         if new:
-            print "Need to run profile wizard"
+            self.ask_for_new_profile()
 
     def property_rx_bytes_value_change(self, model, old, new):
         pass

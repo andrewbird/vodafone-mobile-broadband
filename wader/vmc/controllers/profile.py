@@ -16,14 +16,17 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
+from wader.common.provider import NetworkProvider
 from wader.common.utils import convert_int_to_ip, convert_ip_to_int
 from wader.common.keyring import KeyringNoMatchError
+
 from wader.vmc.consts import BAND_MAP_REV, MODE_MAP_REV, AUTH_MAP_REV
 from wader.vmc.controllers import Controller
 from wader.vmc.dialogs import show_error_dialog
 from wader.vmc.logger import logger
 from wader.vmc.utils import get_error_msg
 from wader.vmc.translate import _
+
 
 class ProfileController(Controller):
 
@@ -130,3 +133,37 @@ class ProfileController(Controller):
             self.view.enable_static_dns()
 
         self.view['secondary_dns_entry'].set_text(convert_int_to_ip(new))
+
+
+class APNSelectionController(Controller):
+    """
+    Controller for the apn selection window
+    """
+    def __init__(self, model, imsi, callback):
+        super(APNSelectionController, self).__init__(model)
+
+        self.callback = callback
+
+        netdb = NetworkProvider()
+        self.apns = netdb.get_network_by_id(imsi)
+        netdb.close()
+
+    def register_view(self, view):
+        super(APNSelectionController, self).register_view(view)
+        self.view.populate(self.apns)
+
+    def on_apn_selection_window_delete_event(self, widget, userdata):
+        self.hide_ourselves()
+
+    def on_ok_button_clicked(self, widget):
+        apn = self.view.get_selected_apn()
+        self.hide_ourselves()
+        self.callback(apn)
+
+    def on_cancel_button_clicked(self, widget):
+        self.hide_ourselves()
+        self.callback(None)
+
+    def hide_ourselves(self):
+        self.view.get_top_widget().destroy()
+
