@@ -177,6 +177,9 @@ class MainController(WidgetController):
             return True
         else:
             self.view.start_throbber()
+            # Quit is slow to happen, it can leave user wondering
+            # if he pressed the button, so hide before actual close
+            self.view.hide()
             self.model.quit(self._close_application_cb)
             return False
 
