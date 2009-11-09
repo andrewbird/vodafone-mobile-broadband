@@ -1045,10 +1045,7 @@ The csv file that you have tried to import has an invalid format.""")
 
     def usage_notifier(self):
         limit = int(config.get('preferences', 'traffic_threshold'))
-        #notification = config.getboolean('preferences', 'usage_notification')
         notification = config.get('preferences', 'usage_notification')
-        #limit = 10
-        #notification = 0
         limit = units_to_bits(limit, UNIT_MB)
         if (notification and limit > 0
                 and self.model.get_transferred_total(0) > limit
