@@ -52,6 +52,7 @@ WIN_HEIGHT = 500
 
 SMS_TEXT_TV_WIDTH = 220
 
+
 class MainView(View):
 
     def __init__(self, ctrl):
@@ -70,8 +71,6 @@ class MainView(View):
         #Usage statistics
         self.usage_user_limit = int(config.get('preferences', 'traffic_threshold', CFG_PREFS_DEFAULT_USAGE_USER_LIMIT))
         self.usage_max_value = int(config.get('preferences', 'max_traffic', CFG_PREFS_DEFAULT_USAGE_MAX_VALUE))
-#        self.usage_user_limit = 0
-#        self.usage_max_value = 10
         self.usage_units = UNIT_KB
         self.usage_bars = None
 
@@ -141,8 +140,6 @@ class MainView(View):
     def update_bars_user_limit(self):
         self.usage_user_limit = int(config.get('preferences', 'traffic_threshold', CFG_PREFS_DEFAULT_USAGE_USER_LIMIT))
         self.usage_max_value = int(config.get('preferences', 'max_traffic', CFG_PREFS_DEFAULT_USAGE_MAX_VALUE))
-#        self.usage_user_limit = 0
-#        self.usage_max_value = 10
         for bar in self.usage_bars.values():
             bar.set_user_limit(units_to_bits(self.usage_user_limit, UNIT_MB))
             bar.set_max_value(units_to_bits(self.usage_max_value, UNIT_MB))
