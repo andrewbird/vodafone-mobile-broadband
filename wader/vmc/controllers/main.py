@@ -1061,6 +1061,7 @@ The csv file that you have tried to import has an invalid format.""")
             self.user_limit_notified = False
 
     def update_usage_view(self):
+        print "Vicente: update_usage_view"
         # make sure we ask the view if he is set as connected. If he is update our graph bits.
         if self.view.get_connected():
             print "Main- Update Usage View - view.get_connected is True I must be connected so keep measuring stats."
@@ -1073,6 +1074,7 @@ The csv file that you have tried to import has an invalid format.""")
             return True
         else:
             print "Main- Update Usage View - view.get_connected is False I must be disconnected so stop measuring!!!"
+            self.view.update_bars_user_limit()  # bar usage limits are updated even when device is not connected.
             return False
 
 
