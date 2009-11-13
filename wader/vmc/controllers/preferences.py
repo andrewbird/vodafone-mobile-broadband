@@ -305,6 +305,7 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         # ok lets ask the model to save those items
         self.model.save()
         self._hide_ourselves()
+        self.parent_ctrl.model.check_transfer_limit()   # check threshold after changing values.
 
     def on_preferences_cancel_button_clicked(self, widget):
         self._hide_ourselves()
