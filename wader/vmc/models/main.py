@@ -42,7 +42,7 @@ from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
 import wader.common.aterrors as E
 import wader.common.signals as S
 
-from wader.vmc.persistent import usage_manager
+#from wader.vmc.persistent import usage_manager
 
 THREEG_SIGNALS = [MM_NETWORK_MODE_UMTS, MM_NETWORK_MODE_HSDPA,
                   MM_NETWORK_MODE_HSUPA, MM_NETWORK_MODE_HSPA]
@@ -93,6 +93,8 @@ class MainModel(Model):
         'transfer_limit_exceeded': False
     }
 
+    connected = False     # XXX: Should this come in properties?
+
     def __init__(self):
         super(MainModel, self).__init__()
         self.bus = dbus.SystemBus()
@@ -117,7 +119,8 @@ class MainModel(Model):
         return self.device
 
     def is_connected(self):
-        return False # XXX: just for now
+ #       return False # XXX: just for now
+        return self.connected
 
     def _init_wader_object(self):
         try:
@@ -464,11 +467,12 @@ class MainModel(Model):
                                               error_handler=change_pin_eb)
 
     def check_transfer_limit(self):
-        warn_limit = self.conf.get('statistics', 'warn_limit', True)
+        warn_limit = self.conf.get('preferences', 'usage_notification', False)
+        print "self.total_bytes: ", self.total_bytes
         if warn_limit:
-            transfer_limit = self.conf.get('statistics', 'transfer_limit', 50.0)
-            transfer_limit = float(transfer_limit) * ONE_MB
-            if self.total_bytes > transfer_limit:
+            transfer_limit = self.conf.get('preferences', 'traffic_threshold', 0.0)
+            transfer_limit = float(transfer_limit) * ONE_MB * 8   # XXX: 8 is needed because we work using bits instead of Bytes.
+            if transfer_limit > 0  and  self.total_bytes > transfer_limit:
                 self.transfer_limit_exceeded = True
             else:
                 self.transfer_limit_exceeded = False
@@ -477,14 +481,17 @@ class MainModel(Model):
 
     def on_dial_stats(self, stats):
         try:
-            total = int(self.conf.get('statistics', 'total_bytes'))
+            total = int(self.conf.get('statistics', 'total_bytes', 0))
         except ValueError:
             total = 0
 
         self.rx_bytes, self.tx_bytes = stats[:2]
         self.rx_rate, self.tx_rate = stats[2:]
         self.total_bytes = total + self.rx_bytes + self.tx_bytes
-        self.check_transfer_limit()
+
+        # Check for transfer limit if it has not already been reached.
+        if not self.transfer_limit_exceeded :
+            self.check_transfer_limit()
 
     def start_stats_tracking(self):
         self.stats_sm = self.bus.add_signal_receiver(self.on_dial_stats,
@@ -500,6 +507,9 @@ class MainModel(Model):
         self.tx_bytes = 0
         self.rx_rate = self.tx_rate = 0
         self.conf.set('statistics', 'total_bytes', self.total_bytes)
+        self.conf.set('statistics', 'current_month_3g', self.total_bytes)
+        self.conf.set('statistics', 'current_month_gprs', 0)   # TODO: We count all traffic as umts. 
+
 
     #----------------------------------------------#
     # USAGE STATS MODEL                            #
@@ -526,43 +536,76 @@ class MainModel(Model):
             ret = next_month - datetime.timedelta(days=1)
         return ret
 
-    def _update_session_stats(self, stats):
-        self.session_stats = stats
+#    def _update_session_stats(self, stats):
+#        self.session_stats = stats
 
     def _get_usage_for_month(self, dateobj):
+        # We check if current month is finished.
+        current_month = self.conf.get('statistics', 'current_month', self.origin_date.month)
+        if self.origin_date.month != current_month :
+            current_month_3g = self.conf.get('statistics', 'current_month_3g', 0)
+            current_month_gprs = self.conf.get('statistics', 'current_month_gprs', 0)
+            self.conf.set('statistics', 'previous_month_3g', current_month_3g)
+            self.conf.set('statistics', 'previous_month_gprs', current_month_gprs)
+            self.conf.set('statistics', 'current_month_3g', 0)
+            self.conf.set('statistics', 'current_month_gprs', 0)
+            self.conf.set('statistics', 'current_month', self.origin_date.month)
+            self.transfer_limit_exceeded = False
+            self.conf.set('statistics', 'total_bytes', 0)
+
         key = (dateobj.year, dateobj.month)
         if not self.month_cache.has_key(key):
             # Current session information
             if self.is_connected() and self.origin_date.month == dateobj.month:
-                tracker = self.connsm.tracker
-                tracker.get_current_usage().addCallback(
-                                                    self._update_session_stats)
+#                tracker = self.connsm.tracker
+#                tracker.get_current_usage().addCallback(
+#                                                    self._update_session_stats)
 
-                stats = self.session_stats
-                umts = tracker.conn_mode in THREEG_SIGNALS
-                transferred = stats[0] + stats[1]
-                transferred_3g = umts and transferred or 0
-                transferred_gprs = not umts and transferred or 0
+#                stats = self.session_stats
+#                umts = tracker.conn_mode in THREEG_SIGNALS
+#                transferred = stats[0] + stats[1]
+#                transferred_3g = umts and transferred or 0
+#                transferred_gprs = not umts and transferred or 0
+                transferred_3g = self.rx_bytes + self.tx_bytes
+                transferred_gprs = 0
             else:
                 transferred_3g = 0
                 transferred_gprs = 0
 
+         # XXX: WARNING - IMPORTANT - RIGHT NOW ALL TRAFFIC IS CONSIDERED AS UMTS TRAFFIC.
+
+            if self.origin_date.month == dateobj.month :    
+                # Get current month data.
+                transferred_3g += self.conf.get('statistics', 'current_month_3g', 0)
+                transferred_gprs += self.conf.get('statistics', 'current_month_gprs', 0)
+            elif self.origin_date.month == (dateobj.month + 1) or (self.origin_date.month == 1 and dateobj.month == 12) :
+                # Get previous month data.
+                transferred_3g += self.conf.get('statistics', 'previous_month_3g', 0)
+                transferred_gprs += self.conf.get('statistics', 'previous_month_gprs', 0)
+            else :
+                # Data not available.
+                transferred_3g = 0
+                transferred_gprs = 0
+        
+                
             # Historical usage data
-            usage = usage_manager.get_usage_for_month(dateobj)
-            for item in usage:
-                if item.umts:
-                    transferred_3g += item.bits_recv + item.bits_sent
-                else:
-                    transferred_gprs += item.bits_recv + item.bits_sent
-        transferred_gprs = 100
-        transferred_3g = 200
-        if True:
+#            usage = usage_manager.get_usage_for_month(dateobj)
+#            for item in usage:
+#                if item.umts:
+#                    transferred_3g += item.bits_recv + item.bits_sent
+#                else:
+#                    transferred_gprs += item.bits_recv + item.bits_sent
+
+#            Dirty workaround:
+#            transferred_gprs = int(self.tx_bytes)
+#            transferred_3g = int(self.rx_bytes)
+
             self.month_cache[key] = {
                 'month': dateobj.strftime(_("%B, %Y")),
                 'transferred_gprs': transferred_gprs,
                 'transferred_3g': transferred_3g,
                 'transferred_total': transferred_gprs + transferred_3g
-            }
+                }
         return self.month_cache[key]
 
     def get_month(self, offset):
@@ -584,18 +627,22 @@ class MainModel(Model):
     def get_session_3g(self):
         if not self.is_connected():
             return 0
-        tracker = self.connsm.tracker
-        umts = tracker.conn_mode in THREEG_SIGNALS
-        total = self.session_stats[0] + self.session_stats[1]
-        return umts and total or 0
+#        tracker = self.connsm.tracker
+#        umts = tracker.conn_mode in THREEG_SIGNALS
+#        total = self.session_stats[0] + self.session_stats[1]
+#        return umts and total or 0
+#        return self.tx_bytes   # This is a foo value.
+        return self.total_bytes
 
     def get_session_gprs(self):
         if not self.is_connected():
             return 0
-        tracker = self.connsm.tracker
-        umts = tracker.conn_mode in THREEG_SIGNALS
-        total = self.session_stats[0] + self.session_stats[1]
-        return not umts and total or 0
+#        tracker = self.connsm.tracker
+#        umts = tracker.conn_mode in THREEG_SIGNALS
+#        total = self.session_stats[0] + self.session_stats[1]
+#        return not umts and total or 0
+#        return self.rx_bytes   # This is a foo value.
+        return 0  # XXX: Right now all traffic is considered as umts traffic.
 
     def get_session_total(self):
         return self.get_session_3g() + self.get_session_gprs()

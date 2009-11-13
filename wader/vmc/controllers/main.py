@@ -478,6 +478,7 @@ class MainController(WidgetController):
 #        self.view['preferences_menu_item'].set_sensitive(True)
 
     def _on_connect_cb(self, dev_path):
+        self.model.connected = True
         self.view.set_connected()
         self.model.start_stats_tracking()
         self.usage_updater = timeout_add_seconds(5, self.update_usage_view)
@@ -488,6 +489,7 @@ class MainController(WidgetController):
         self.model.dial_path = dev_path
 
     def _on_connect_eb(self, e):
+        self.model.connected = False
         logger.error("_on_connect_eb: %s" % e)
 
         self.view.set_disconnected()
@@ -508,6 +510,7 @@ class MainController(WidgetController):
             show_error_dialog(title, get_error_msg(e))
 
     def _on_disconnect_cb(self, *args):
+        self.model.connected = False
         logger.info("Disconnected")
         self.model.stop_stats_tracking()
         self.view.set_disconnected()
@@ -526,6 +529,7 @@ class MainController(WidgetController):
 
     def _on_disconnect_eb(self, e):
         logger.error("_on_disconnect_eb: %s" % e)
+        self.model.connected = True  # XXX. Not really sure about that.
         self.model.stop_stats_tracking()
         if self.apb:
             self.apb.close()
@@ -1043,41 +1047,40 @@ The csv file that you have tried to import has an invalid format.""")
         set_value('transferred_gprs_session_label', m.get_session_gprs())
         set_value('transferred_total_session_label', m.get_session_total())
 
-    def usage_notifier(self):
-        print "Vicente: usage_notifier"
-        limit = int(config.get('preferences', 'traffic_threshold'))
-        notification = config.get('preferences', 'usage_notification')
-        limit = units_to_bits(limit, UNIT_MB)
-        print "limit: %d" % limit
-        if (notification and limit > 0
-                and self.model.get_transferred_total(0) > limit
-                and not self.user_limit_notified):
-            self.user_limit_notified = True
-            message = _("User Limit")
-            details = _("You have reached your limit of maximum usage")
-            show_warning_dialog(message, details)
-
-            #show_normal_notification(self.tray, message, details, expires=False)
-            self.tray.attach_notification(message, details, stock=gtk.STOCK_INFO)
-        elif self.model.get_transferred_total(0) < limit:
-            self.user_limit_notified = False
+#    def usage_notifier(self):
+#        limit = int(config.get('preferences', 'traffic_threshold'))
+#        notification = config.get('preferences', 'usage_notification')
+#        limit = units_to_bits(limit, UNIT_MB)
+#        print "limit: %d" % limit
+#        if (notification and limit > 0
+#                and self.model.get_transferred_total(0) > limit
+#                and not self.user_limit_notified):
+#            self.user_limit_notified = True
+#            message = _("User Limit")
+#            details = _("You have reached your limit of maximum usage")
+#            show_warning_dialog(message, details)
+#
+#            #show_normal_notification(self.tray, message, details, expires=False)
+#            self.tray.attach_notification(message, details, stock=gtk.STOCK_INFO)
+#        elif self.model.get_transferred_total(0) < limit:
+#            self.user_limit_notified = False
 
     def update_usage_view(self):
         # make sure we ask the view if he is set as connected. If he is update our graph bits.
-        if self.view.get_connected():
-            print "Main- Update Usage View - view.get_connected is True I must be connected so keep measuring stats."
+
             self.model.clean_usage_cache()
             self._update_usage_panel('current', 0)
             self._update_usage_panel('last', -1)
             self._update_usage_session()
             self.view.update_bars_user_limit()
-            self.usage_notifier()
-            return True
-        else:
-            print "Main- Update Usage View - view.get_connected is False I must be disconnected so stop measuring!!!"
-            self.view.update_bars_user_limit()  # bar usage limits are updated even when device is not connected.
-            return False
-
+#            self.usage_notifier()   # I rather use check_transfer_limit function in model.
+            # XXX. study if returning True or False is important.
+            if self.view.get_connected():
+                print "Main- Update Usage View - view.get_connected is True I must be connected so keep measuring stats."
+                return True
+            else:
+                print "Main- Update Usage View - view.get_connected is False I must be disconnected so stop measuring!!!"
+                return False                
 
     def on_reply_sms_no_quoting_menu_item_activate(self, widget):
         message = self.get_obj_from_selected_row()
