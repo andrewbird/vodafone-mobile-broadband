@@ -28,7 +28,7 @@ from gtkmvc import View
 from wader.vmc.config import config
 from wader.vmc.translate import _
 from wader.vmc.consts import GLADE_DIR, IMAGES_DIR, THEMES_DIR, APP_LONG_NAME
-from wader.vmc.utils import repr_usage, UNIT_KB, UNIT_MB, units_to_bits
+from wader.vmc.utils import repr_usage, UNIT_KB, UNIT_MB, units_to_bits, units_to_bytes
 from wader.vmc.views.stats import StatsBar
 from wader.vmc.controllers.base import TV_DICT
 from wader.vmc.models.sms import SMSStoreModel
@@ -141,8 +141,10 @@ class MainView(View):
         self.usage_user_limit = int(config.get('preferences', 'traffic_threshold', CFG_PREFS_DEFAULT_USAGE_USER_LIMIT))
         self.usage_max_value = int(config.get('preferences', 'max_traffic', CFG_PREFS_DEFAULT_USAGE_MAX_VALUE))
         for bar in self.usage_bars.values():
-            bar.set_user_limit(units_to_bits(self.usage_user_limit, UNIT_MB))
-            bar.set_max_value(units_to_bits(self.usage_max_value, UNIT_MB))
+#            bar.set_user_limit(units_to_bits(self.usage_user_limit, UNIT_MB))
+            bar.set_user_limit(units_to_bytes(self.usage_user_limit, UNIT_MB))
+#            bar.set_max_value(units_to_bits(self.usage_max_value, UNIT_MB))
+            bar.set_max_value(units_to_bytes(self.usage_max_value, UNIT_MB))
 
     def set_name(self, name=APP_LONG_NAME):
         self.get_top_widget().set_title(name)

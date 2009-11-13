@@ -23,7 +23,7 @@ import os
 import gtk
 import cairo
 
-from wader.vmc.utils import repr_usage, units_to_bits, bits_to_units, UNIT_MB
+from wader.vmc.utils import repr_usage, units_to_bits, units_to_bytes, bits_to_units, bytes_to_units, UNIT_MB
 
 
 class StatsBar(gtk.DrawingArea):
@@ -37,9 +37,12 @@ class StatsBar(gtk.DrawingArea):
         self.value = value
         self.units = units
         #min and max values in self.units
-        self.min_value = units_to_bits(min_value, units)
-        self.max_value = units_to_bits(max_value, units)
-        self.user_limit = units_to_bits(user_limit, units)
+#        self.min_value = units_to_bits(min_value, units)
+        self.min_value = units_to_bytes(min_value, units)
+#        self.max_value = units_to_bits(max_value, units)
+        self.max_value = units_to_bytes(max_value, units)
+#        self.user_limit = units_to_bits(user_limit, units)
+        self.user_limit = units_to_bytes(user_limit, units)
 
         self.connect('expose-event', self.on_expose)
         self.connect('screen-changed', self.on_screen_changed)
@@ -111,7 +114,8 @@ class StatsBar(gtk.DrawingArea):
     def draw_limits(self, cr, inner_width, height):
         cr.set_source_rgba(1.0, 1.0, 1.0, 1.0)
         cr.set_line_width(.1)
-        step = float(height) / bits_to_units(self.max_value, self.units)
+#        step = float(height) / bits_to_units(self.max_value, self.units)
+        step = float(height) / bytes_to_units(self.max_value, self.units)
         frange = lambda a, b, step : [
                                 x * step for x in xrange(a,int(b*(1/step)))]
         for i in frange(0, height + step, step):
