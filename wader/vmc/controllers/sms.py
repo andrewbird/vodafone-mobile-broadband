@@ -36,6 +36,7 @@ from wader.vmc import dialogs
 from wader.vmc.consts import APP_LONG_NAME
 from wader.vmc.translate import _
 from wader.vmc.messages import get_messages_obj
+from wader.vmc.utils import get_error_msg
 
 from wader.vmc.controllers.base import TV_DICT, TV_DICT_REV
 
