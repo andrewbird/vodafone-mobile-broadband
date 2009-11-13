@@ -1044,9 +1044,11 @@ The csv file that you have tried to import has an invalid format.""")
         set_value('transferred_total_session_label', m.get_session_total())
 
     def usage_notifier(self):
+        print "Vicente: usage_notifier"
         limit = int(config.get('preferences', 'traffic_threshold'))
         notification = config.get('preferences', 'usage_notification')
         limit = units_to_bits(limit, UNIT_MB)
+        print "limit: %d" % limit
         if (notification and limit > 0
                 and self.model.get_transferred_total(0) > limit
                 and not self.user_limit_notified):
