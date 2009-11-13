@@ -90,7 +90,7 @@ class MainModel(Model):
         'tx_rate' : 0,
         'total_bytes': 0,
 
-        'transfer_limit_exceeded': False
+        'transfer_limit_exceeded': False  
     }
 
     connected = False     # XXX: Should this come in properties?
@@ -119,7 +119,6 @@ class MainModel(Model):
         return self.device
 
     def is_connected(self):
- #       return False # XXX: just for now
         return self.connected
 
     def _init_wader_object(self):
@@ -471,7 +470,7 @@ class MainModel(Model):
         print "self.total_bytes: ", self.total_bytes
         if warn_limit:
             transfer_limit = self.conf.get('preferences', 'traffic_threshold', 0.0)
-            transfer_limit = float(transfer_limit) * ONE_MB * 8   # XXX: 8 is needed because we work using bits instead of Bytes.
+            transfer_limit = float(transfer_limit) * ONE_MB
             if transfer_limit > 0  and  self.total_bytes > transfer_limit:
                 self.transfer_limit_exceeded = True
             else:
