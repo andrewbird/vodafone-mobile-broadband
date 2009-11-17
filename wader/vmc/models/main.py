@@ -37,7 +37,7 @@ from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
                                  NM_SYSTEM_SETTINGS_CONNECTION,
                                  WADER_DIALUP_INTFACE, WADER_KEYRING_INTFACE,
                                  MM_NETWORK_MODE_UMTS, MM_NETWORK_MODE_HSDPA,
-                                 MM_NETWORK_MODE_HSUPA, MM_NETWORK_MODE_HSPA)
+                                 MM_NETWORK_MODE_HSUPA, MM_NETWORK_MODE_HSPA, MM_NETWORK_MODE_GPRS)
 
 import wader.common.aterrors as E
 import wader.common.signals as S
@@ -94,6 +94,10 @@ class MainModel(Model):
     }
 
     connected = False     # XXX: Should this come in properties?
+    previous_bytes = 0    # This variable shows last session bytes stored in gprs or 3g.
+    previous_tech = _('Unknown') # Last mobile technology used.
+    session_3g = 0  # Stores current session 3g tx and rx bytes.
+    session_gprs = 0 # Stores current session gprs tx and rx bytes.
 
     def __init__(self):
         super(MainModel, self).__init__()
@@ -359,6 +363,8 @@ class MainModel(Model):
     def _network_mode_changed_cb(self, net_mode):
         logger.info("Network mode changed %s" % net_mode)
         self.tech = NET_MODE_SIGNALS[net_mode]
+        self.add_3g_gprs_traffic()
+        self.previous_tech = net_mode
 
     def _check_pin_status(self):
         def _check_pin_status_cb():
@@ -478,6 +484,16 @@ class MainModel(Model):
         else:
             self.transfer_limit_exceeded = False
 
+    def add_3g_gprs_traffic(self): # This does not need parameters because it uses global variables.
+        total = self.rx_bytes + self.tx_bytes
+        delta_bytes = total - self.previous_bytes
+        self.previous_bytes = total
+
+        if self.previous_tech in THREEG_SIGNALS :
+            self.session_3g += delta_bytes
+        elif self.previous_tech == MM_NETWORK_MODE_GPRS :
+            self.session_gprs += delta_bytes
+            
     def on_dial_stats(self, stats):
         try:
             total = int(self.conf.get('statistics', 'total_bytes', 0))
@@ -487,6 +503,7 @@ class MainModel(Model):
         self.rx_bytes, self.tx_bytes = stats[:2]
         self.rx_rate, self.tx_rate = stats[2:]
         self.total_bytes = total + self.rx_bytes + self.tx_bytes
+        self.add_3g_gprs_traffic()
 
         # Check for transfer limit if it has not already been reached.
         if not self.transfer_limit_exceeded :
@@ -505,11 +522,20 @@ class MainModel(Model):
         self.rx_bytes = 0
         self.tx_bytes = 0
         self.rx_rate = self.tx_rate = 0
+        self.previous_bytes = 0
+
         self.conf.set('statistics', 'total_bytes', self.total_bytes)
-        self.conf.set('statistics', 'current_month_3g', self.total_bytes)
-        self.conf.set('statistics', 'current_month_gprs', 0)   # TODO: We count all traffic as umts. 
 
+        current_month_3g = self.conf.get('statistics', 'current_month_3g', 0)
+        current_month_3g += self.session_3g
+        self.conf.set('statistics', 'current_month_3g', current_month_3g)
+        self.session_3g = 0
 
+        current_month_gprs = self.conf.get('statistics', 'current_month_gprs', 0)
+        current_month_gprs += self.session_gprs
+        self.conf.set('statistics', 'current_month_gprs', current_month_gprs)
+        self.session_gprs = 0
+        
     #----------------------------------------------#
     # USAGE STATS MODEL                            #
     #----------------------------------------------#
@@ -565,8 +591,11 @@ class MainModel(Model):
 #                transferred = stats[0] + stats[1]
 #                transferred_3g = umts and transferred or 0
 #                transferred_gprs = not umts and transferred or 0
-                transferred_3g = self.rx_bytes + self.tx_bytes
-                transferred_gprs = 0
+#                transferred_3g = self.rx_bytes + self.tx_bytes
+#                transferred_gprs = 0
+#                transferred_3g
+                transferred_3g = self.session_3g
+                transferred_gprs = self.session_gprs
             else:
                 transferred_3g = 0
                 transferred_gprs = 0
@@ -577,10 +606,12 @@ class MainModel(Model):
                 # Get current month data.
                 transferred_3g += self.conf.get('statistics', 'current_month_3g', 0)
                 transferred_gprs += self.conf.get('statistics', 'current_month_gprs', 0)
+#                transferred_3g = self.current_month_3g
+#                transferred_gprs = self.current_month_gprs
             elif self.origin_date.month == (dateobj.month + 1) or (self.origin_date.month == 1 and dateobj.month == 12) :
                 # Get previous month data.
-                transferred_3g += self.conf.get('statistics', 'previous_month_3g', 0)
-                transferred_gprs += self.conf.get('statistics', 'previous_month_gprs', 0)
+                transferred_3g = self.conf.get('statistics', 'previous_month_3g', 0)
+                transferred_gprs = self.conf.get('statistics', 'previous_month_gprs', 0)
             else :
                 # Data not available.
                 transferred_3g = 0
@@ -594,10 +625,6 @@ class MainModel(Model):
 #                    transferred_3g += item.bits_recv + item.bits_sent
 #                else:
 #                    transferred_gprs += item.bits_recv + item.bits_sent
-
-#            Dirty workaround:
-#            transferred_gprs = int(self.tx_bytes)
-#            transferred_3g = int(self.rx_bytes)
 
             self.month_cache[key] = {
                 'month': dateobj.strftime(_("%B, %Y")),
@@ -630,8 +657,7 @@ class MainModel(Model):
 #        umts = tracker.conn_mode in THREEG_SIGNALS
 #        total = self.session_stats[0] + self.session_stats[1]
 #        return umts and total or 0
-#        return self.tx_bytes   # This is a foo value.
-        return self.total_bytes
+        return self.session_3g
 
     def get_session_gprs(self):
         if not self.is_connected():
@@ -640,8 +666,7 @@ class MainModel(Model):
 #        umts = tracker.conn_mode in THREEG_SIGNALS
 #        total = self.session_stats[0] + self.session_stats[1]
 #        return not umts and total or 0
-#        return self.rx_bytes   # This is a foo value.
-        return 0  # XXX: Right now all traffic is considered as umts traffic.
+        return self.session_gprs
 
     def get_session_total(self):
         return self.get_session_3g() + self.get_session_gprs()
