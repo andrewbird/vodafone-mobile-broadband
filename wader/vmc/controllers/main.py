@@ -1076,10 +1076,10 @@ The csv file that you have tried to import has an invalid format.""")
 #            self.usage_notifier()   # I rather use check_transfer_limit function in model.
             # XXX. study if returning True or False is important.
             if self.view.get_connected():
-                print "Main- Update Usage View - view.get_connected is True I must be connected so keep measuring stats."
+#                print "Main- Update Usage View - view.get_connected is True I must be connected so keep measuring stats."
                 return True
             else:
-                print "Main- Update Usage View - view.get_connected is False I must be disconnected so stop measuring!!!"
+#                print "Main- Update Usage View - view.get_connected is False I must be disconnected so stop measuring!!!"
                 return False                
 
     def on_reply_sms_no_quoting_menu_item_activate(self, widget):
