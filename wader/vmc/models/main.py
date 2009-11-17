@@ -496,7 +496,8 @@ class MainModel(Model):
             
     def on_dial_stats(self, stats):
         try:
-            total = int(self.conf.get('statistics', 'total_bytes', 0))
+            # total = int(self.conf.get('statistics', 'total_bytes', 0))
+            total = ( int(self.conf.get('statistics', 'tx_bytes')) + int(self.conf.get('statistics',  'rx_bytes')))
         except ValueError:
             total = 0
 
@@ -519,12 +520,16 @@ class MainModel(Model):
             self.stats_sm.remove()
             self.stats_sm = None
 
+       
+        # self.conf.set('statistics', 'total_bytes', self.total_bytes)
+        # make sure we save the total number of bytes for this session.
+        self.conf.set('statistics',  'transmited_bytes',  self.tx_bytes)
+        self.conf.set('statistics',  'received_bytes',  self.rx_bytes)
+        
         self.rx_bytes = 0
         self.tx_bytes = 0
         self.rx_rate = self.tx_rate = 0
         self.previous_bytes = 0
-
-        self.conf.set('statistics', 'total_bytes', self.total_bytes)
 
         current_month_3g = self.conf.get('statistics', 'current_month_3g', 0)
         current_month_3g += self.session_3g

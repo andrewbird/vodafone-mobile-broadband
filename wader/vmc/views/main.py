@@ -28,7 +28,7 @@ from gtkmvc import View
 from wader.vmc.config import config
 from wader.vmc.translate import _
 from wader.vmc.consts import GLADE_DIR, IMAGES_DIR, THEMES_DIR, APP_LONG_NAME
-from wader.vmc.utils import repr_usage, UNIT_KB, UNIT_MB, units_to_bits, units_to_bytes
+from wader.vmc.utils import repr_usage, UNIT_KB, UNIT_MB, units_to_bits
 from wader.vmc.views.stats import StatsBar
 from wader.vmc.controllers.base import TV_DICT
 from wader.vmc.models.sms import SMSStoreModel
@@ -52,7 +52,6 @@ WIN_HEIGHT = 500
 
 SMS_TEXT_TV_WIDTH = 220
 
-
 class MainView(View):
 
     def __init__(self, ctrl):
@@ -71,6 +70,8 @@ class MainView(View):
         #Usage statistics
         self.usage_user_limit = int(config.get('preferences', 'traffic_threshold', CFG_PREFS_DEFAULT_USAGE_USER_LIMIT))
         self.usage_max_value = int(config.get('preferences', 'max_traffic', CFG_PREFS_DEFAULT_USAGE_MAX_VALUE))
+#        self.usage_user_limit = 0
+#        self.usage_max_value = 10
         self.usage_units = UNIT_KB
         self.usage_bars = None
 
@@ -140,11 +141,11 @@ class MainView(View):
     def update_bars_user_limit(self):
         self.usage_user_limit = int(config.get('preferences', 'traffic_threshold', CFG_PREFS_DEFAULT_USAGE_USER_LIMIT))
         self.usage_max_value = int(config.get('preferences', 'max_traffic', CFG_PREFS_DEFAULT_USAGE_MAX_VALUE))
+#        self.usage_user_limit = 0
+#        self.usage_max_value = 10
         for bar in self.usage_bars.values():
-#            bar.set_user_limit(units_to_bits(self.usage_user_limit, UNIT_MB))
-            bar.set_user_limit(units_to_bytes(self.usage_user_limit, UNIT_MB))
-#            bar.set_max_value(units_to_bits(self.usage_max_value, UNIT_MB))
-            bar.set_max_value(units_to_bytes(self.usage_max_value, UNIT_MB))
+            bar.set_user_limit(units_to_bits(self.usage_user_limit, UNIT_MB))
+            bar.set_max_value(units_to_bits(self.usage_max_value, UNIT_MB))
 
     def set_name(self, name=APP_LONG_NAME):
         self.get_top_widget().set_title(name)
@@ -359,7 +360,7 @@ class MainView(View):
         self.update_signal_bearer(newsignal = new_rssi)
 
     def tech_changed(self, new_tech):
-        print "tech_changed: %s" % new_tech
+        print "Main- view: tech_changed: %s" % new_tech
         self.update_signal_bearer(newmode = new_tech)
 
     def operator_changed(self, new_operator):
