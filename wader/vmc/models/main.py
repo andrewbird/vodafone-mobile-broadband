@@ -42,6 +42,7 @@ from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
 
 import wader.common.aterrors as E
 import wader.common.signals as S
+from wader.common.provider import UsageProvider
 
 #from wader.vmc.persistent import usage_manager
 
@@ -89,6 +90,8 @@ class MainModel(Model):
         'tx_bytes': 0,
         'rx_rate' : 0,
         'tx_rate' : 0,
+        'start_time':0, 
+        'stop_time':0, 
         'total_bytes': 0,
 
         'transfer_limit_exceeded': False  
@@ -519,6 +522,14 @@ class MainModel(Model):
         if self.stats_sm is not None:
             self.stats_sm.remove()
             self.stats_sm = None
+
+        # before we set the counters to zero let's store this in the usage db.
+        data_usage_entry = UsageProvider()
+        #sim_network = NetworkProvider()
+        #networks_attributes = sim_network.get_network_by_id("460009075714956")
+        #usage_data = data_usage_entry.add_usage_item(self, True, start, end, bytes_recv, bytes_sent):
+            
+        usage_data = data_usage_entry.add_usage_item(True,  1253860338622714,  1253860341703897, 1984,  1560)
 
         self.rx_bytes = 0
         self.tx_bytes = 0
