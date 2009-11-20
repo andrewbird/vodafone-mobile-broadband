@@ -38,7 +38,8 @@ from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
                                  NM_SYSTEM_SETTINGS_CONNECTION,
                                  WADER_DIALUP_INTFACE, WADER_KEYRING_INTFACE,
                                  MM_NETWORK_MODE_UMTS, MM_NETWORK_MODE_HSDPA,
-                                 MM_NETWORK_MODE_HSUPA, MM_NETWORK_MODE_HSPA, MM_NETWORK_MODE_GPRS)
+                                 MM_NETWORK_MODE_HSUPA, MM_NETWORK_MODE_HSPA, 
+                                 MM_NETWORK_MODE_GPRS)
 
 import wader.common.aterrors as E
 import wader.common.signals as S
