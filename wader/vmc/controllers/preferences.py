@@ -306,6 +306,7 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         self.model.save()
         self._hide_ourselves()
         self.parent_ctrl.model.check_transfer_limit()   # check threshold after changing values.
+        self.parent_ctrl.update_usage_view()  # update usage view even if there is no connection active.
 
     def on_preferences_cancel_button_clicked(self, widget):
         self._hide_ourselves()
