@@ -23,6 +23,7 @@ dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
 import gobject
 from gtkmvc import Model
 import datetime
+import time
 
 from wader.vmc.logger import logger
 from wader.vmc.dialogs import show_error_dialog
@@ -515,6 +516,13 @@ class MainModel(Model):
             self.check_transfer_limit()
 
     def start_stats_tracking(self):
+        
+        # ok make sure we get the current epoch start time in UTC format.
+        # store it in the models properites for start_time
+        
+        time_stamp = datetime.datetime.utcnow()
+        self.start_time = time.mktime(time_stamp.timetuple())
+        # create a callback  for getting data send/received via dbus.
         self.stats_sm = self.bus.add_signal_receiver(self.on_dial_stats,
                                                      S.SIG_DIAL_STATS,
                                                      MDM_INTFACE)
@@ -524,13 +532,26 @@ class MainModel(Model):
             self.stats_sm.remove()
             self.stats_sm = None
 
-        # before we set the counters to zero let's store this in the usage db.
+        # before we set the counters to zero let's store the stats in the usage db.
+        # first create a UsageProvider object to store the data into.
         data_usage_entry = UsageProvider()
-        #sim_network = NetworkProvider()
-        #networks_attributes = sim_network.get_network_by_id("460009075714956")
-        #usage_data = data_usage_entry.add_usage_item(self, True, start, end, bytes_recv, bytes_sent):
-            
-        usage_data = data_usage_entry.add_usage_item(True,  1253860338622714,  1253860341703897, 1984,  1560)
+        
+        # lets find out the end time. It's UTC and epoch format.
+        time_stamp = datetime.datetime.utcnow()
+        self.end_time = time.mktime(time_stamp.timetuple())
+        
+        # we also need to see if we were connected to 3g or gprs.
+        # First set bearer type to false
+        bearer_type = False
+        if self.previous_tech == MM_NETWORK_MODE_GPRS :
+            bearer_type = FALSE
+        else:
+            bearer_type = True
+        
+        #usage_data  is now being saved in our sqlite db via the usage_data object
+        # the attributes are:  3G/GPRS, session_start_time, session_end_time, bytes_recv, bytes_sent):
+        
+        usage_data = data_usage_entry.add_usage_item(bearer_type, self.start_time,  self.end_time, self.rx_bytes,  self.tx_bytes)
 
         self.rx_bytes = 0
         self.tx_bytes = 0
@@ -557,8 +578,10 @@ class MainModel(Model):
     # should represent it with other units.
 
     def clean_usage_cache(self):
+        
         self.month_cache = {}
         self.origin_date = datetime.datetime.now()
+        
 
     def _date_from_month_offset(self, offset):
         d = self.origin_date
