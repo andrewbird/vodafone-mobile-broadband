@@ -112,15 +112,23 @@ class MainView(View):
 
     def _setup_usage_view(self):
         args = {'user_limit': self.usage_user_limit}
-        labels = ('GPRS', '3G') * 2
+#       labels = ('GPRS', '3G') * 2
+        labels = ('TOTAL TRAFFIC') * 2  # XXX: Not sure about this.
+#       self.usage_bars = dict(zip(
+#                   ('current-gprs', 'current-3g', 'last-gprs', 'last-3g'),
+#        self.usage_bars = dict(zip(
+#                ('current-3g', 'last-3g'),
+#                    StatsBar.init_array(labels, **args)))
         self.usage_bars = dict(zip(
-                    ('current-gprs', 'current-3g', 'last-gprs', 'last-3g'),
+                ('current-total', 'last-total'),
                     StatsBar.init_array(labels, **args)))
 
-        self['stats_bar_last_box'].add(self.usage_bars['last-gprs'])
-        self['stats_bar_last_box'].add(self.usage_bars['last-3g'])
-        self['stats_bar_current_box'].add(self.usage_bars['current-gprs'])
-        self['stats_bar_current_box'].add(self.usage_bars['current-3g'])
+#       self['stats_bar_last_box'].add(self.usage_bars['last-gprs'])
+#        self['stats_bar_last_box'].add(self.usage_bars['last-3g'])
+        self['stats_bar_last_box'].add(self.usage_bars['last-total'])
+#       self['stats_bar_current_box'].add(self.usage_bars['current-gprs'])
+#        self['stats_bar_current_box'].add(self.usage_bars['current-3g'])
+        self['stats_bar_current_box'].add(self.usage_bars['current-total'])
         # XXX: Malign hack we couldn't find out a better way to build up the
         # usage widgets without messing up the initial view
         self.get_top_widget().show_all()

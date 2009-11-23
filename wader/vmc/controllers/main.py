@@ -1036,10 +1036,12 @@ The csv file that you have tried to import has an invalid format.""")
             value = getattr(m, 'get_%s' % value_name)(offset)
             self.view.set_usage_value(widget, value)
 
-        self.view.set_usage_bar_value('%s-gprs' % name,
-                                            m.get_transferred_gprs(offset))
-        self.view.set_usage_bar_value('%s-3g' % name,
-                                            m.get_transferred_3g(offset))
+#        self.view.set_usage_bar_value('%s-gprs' % name,
+#                                            m.get_transferred_gprs(offset))
+#        self.view.set_usage_bar_value('%s-3g' % name,
+#                                            m.get_transferred_3g(offset))
+        self.view.set_usage_bar_value('%s-total' % name,
+                                      m.get_transferred_total(offset))
 
     def _update_usage_session(self):
         set_value = self.view.set_usage_value
