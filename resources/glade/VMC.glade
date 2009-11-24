@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--*- mode: xml -*-->
+<?xml version="1.0"?>
 <glade-interface>
+  <!-- interface-requires gtk+ 2.16 -->
+  <!-- interface-naming-policy toplevel-contextual -->
   <widget class="GtkWindow" id="main_window">
-    <property name="window_position">GTK_WIN_POS_CENTER_ALWAYS</property>
+    <property name="window_position">center-always</property>
     <property name="icon">VF_logo.png</property>
     <child>
       <widget class="GtkAlignment" id="alignment25">
@@ -44,8 +44,8 @@
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="quit_menu_item">
-                            <property name="visible">True</property>
                             <property name="label">gtk-quit</property>
+                            <property name="visible">True</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">True</property>
                             <signal name="activate" handler="on_quit_menu_item_activate"/>
@@ -65,45 +65,29 @@
                       <widget class="GtkMenu" id="view_menu_item_menu">
                         <child>
                           <widget class="GtkImageMenuItem" id="sms_menu_item">
+                            <property name="label">SMS</property>
                             <property name="visible">True</property>
-                            <property name="label" translatable="yes">SMS</property>
                             <property name="use_underline">True</property>
+                            <property name="use_stock">True</property>
                             <signal name="activate" handler="on_sms_menu_item_activate"/>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image657">
-                                <property name="visible">True</property>
-                                <property name="pixbuf">sms16x16.png</property>
-                              </widget>
-                            </child>
                           </widget>
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="usage_menu_item">
+                            <property name="label">Usage</property>
                             <property name="visible">True</property>
-                            <property name="label" translatable="yes">Usage</property>
                             <property name="use_underline">True</property>
+                            <property name="use_stock">True</property>
                             <signal name="activate" handler="on_usage_menu_item_activate"/>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image659">
-                                <property name="visible">True</property>
-                                <property name="pixbuf">usage16x16.png</property>
-                              </widget>
-                            </child>
                           </widget>
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="support_menu_item">
+                            <property name="label">Support</property>
                             <property name="visible">True</property>
-                            <property name="label" translatable="yes">Support</property>
                             <property name="use_underline">True</property>
+                            <property name="use_stock">True</property>
                             <signal name="activate" handler="on_support_menu_item_activate"/>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image651">
-                                <property name="visible">True</property>
-                                <property name="stock">gtk-help</property>
-                                <property name="icon_size">1</property>
-                              </widget>
-                            </child>
                           </widget>
                         </child>
                       </widget>
@@ -142,17 +126,11 @@
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="diagnostics_item">
+                            <property name="label">Diagnostics</property>
                             <property name="visible">True</property>
-                            <property name="label" translatable="yes">Diagnostics</property>
                             <property name="use_underline">True</property>
+                            <property name="use_stock">True</property>
                             <signal name="activate" handler="on_diagnostics_item_activate"/>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image652">
-                                <property name="visible">True</property>
-                                <property name="stock">gtk-info</property>
-                                <property name="icon_size">1</property>
-                              </widget>
-                            </child>
                           </widget>
                         </child>
                         <child>
@@ -163,16 +141,10 @@
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="profiles_menu_item">
+                            <property name="label">Profiles</property>
                             <property name="visible">True</property>
-                            <property name="label" translatable="yes">Profiles</property>
                             <property name="use_underline">True</property>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image653">
-                                <property name="visible">True</property>
-                                <property name="pixbuf">profiles.png</property>
-                                <property name="icon_size">1</property>
-                              </widget>
-                            </child>
+                            <property name="use_stock">True</property>
                           </widget>
                         </child>
                         <child>
@@ -182,8 +154,8 @@
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="preferences_menu_item">
-                            <property name="visible">True</property>
                             <property name="label">gtk-preferences</property>
+                            <property name="visible">True</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">True</property>
                             <signal name="activate" handler="on_preferences_menu_item_activate"/>
@@ -202,9 +174,9 @@
                       <widget class="GtkMenu" id="help_menu_item_menu">
                         <child>
                           <widget class="GtkImageMenuItem" id="help_topics_menu_item">
+                            <property name="label">gtk-help</property>
                             <property name="visible">True</property>
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                            <property name="label">gtk-help</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">True</property>
                             <signal name="activate" handler="on_help_topics_menu_item_activate"/>
@@ -212,17 +184,11 @@
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="about_menu_item">
+                            <property name="label">_About</property>
                             <property name="visible">True</property>
-                            <property name="label" translatable="yes">_About</property>
                             <property name="use_underline">True</property>
+                            <property name="use_stock">True</property>
                             <signal name="activate" handler="on_about_menu_item_activate"/>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image656">
-                                <property name="visible">True</property>
-                                <property name="stock">gtk-about</property>
-                                <property name="icon_size">1</property>
-                              </widget>
-                            </child>
                           </widget>
                         </child>
                       </widget>
@@ -233,23 +199,25 @@
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">False</property>
+                <property name="position">0</property>
               </packing>
             </child>
             <child>
               <widget class="GtkToolbar" id="main_toolbar">
                 <property name="visible">True</property>
-                <property name="toolbar_style">GTK_TOOLBAR_BOTH</property>
+                <property name="toolbar_style">both</property>
                 <child>
                   <widget class="GtkToggleToolButton" id="connect_button">
                     <property name="visible">True</property>
                     <property name="sensitive">False</property>
                     <property name="use_underline">True</property>
                     <accessibility>
-                      <atkproperty name="AtkObject::accessible_name" translatable="yes">Connect Button</atkproperty>
+                      <atkproperty name="AtkObject::accessible-name" translatable="yes">Connect Button</atkproperty>
                     </accessibility>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
+                    <property name="homogeneous">True</property>
                   </packing>
                 </child>
                 <child>
@@ -258,7 +226,6 @@
                   </widget>
                   <packing>
                     <property name="expand">False</property>
-                    <property name="homogeneous">False</property>
                   </packing>
                 </child>
                 <child>
@@ -268,12 +235,13 @@
                     <property name="use_underline">True</property>
                     <property name="icon">sms.png</property>
                     <accessibility>
-                      <atkproperty name="AtkObject::accessible_name" translatable="yes">SMS Toggle Button</atkproperty>
+                      <atkproperty name="AtkObject::accessible-name" translatable="yes">SMS Toggle Button</atkproperty>
                     </accessibility>
                     <signal name="toggled" handler="on_sms_button_toggled"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
+                    <property name="homogeneous">True</property>
                   </packing>
                 </child>
                 <child>
@@ -284,12 +252,13 @@
                     <property name="use_underline">True</property>
                     <property name="icon">usage.png</property>
                     <accessibility>
-                      <atkproperty name="AtkObject::accessible_name" translatable="yes">Usage Toggle Button</atkproperty>
+                      <atkproperty name="AtkObject::accessible-name" translatable="yes">Usage Toggle Button</atkproperty>
                     </accessibility>
                     <signal name="clicked" handler="on_usage_button_clicked"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
+                    <property name="homogeneous">True</property>
                   </packing>
                 </child>
                 <child>
@@ -299,12 +268,13 @@
                     <property name="use_underline">True</property>
                     <property name="icon">help.png</property>
                     <accessibility>
-                      <atkproperty name="AtkObject::accessible_name" translatable="yes">Support Toggle Button</atkproperty>
+                      <atkproperty name="AtkObject::accessible-name" translatable="yes">Support Toggle Button</atkproperty>
                     </accessibility>
                     <signal name="toggled" handler="on_support_button_toggled"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
+                    <property name="homogeneous">True</property>
                   </packing>
                 </child>
                 <child>
@@ -313,7 +283,6 @@
                   </widget>
                   <packing>
                     <property name="expand">False</property>
-                    <property name="homogeneous">False</property>
                   </packing>
                 </child>
                 <child>
@@ -326,6 +295,7 @@
                   </widget>
                   <packing>
                     <property name="expand">False</property>
+                    <property name="homogeneous">True</property>
                   </packing>
                 </child>
                 <child>
@@ -338,6 +308,7 @@
                   </widget>
                   <packing>
                     <property name="expand">False</property>
+                    <property name="homogeneous">True</property>
                   </packing>
                 </child>
               </widget>
@@ -359,49 +330,33 @@
                         <property name="visible">True</property>
                         <child>
                           <widget class="GtkImageMenuItem" id="new_menu_item">
+                            <property name="label">_New</property>
                             <property name="visible">True</property>
                             <property name="tooltip" translatable="yes">Contacts menu</property>
-                            <property name="label" translatable="yes">_New</property>
                             <property name="use_underline">True</property>
+                            <property name="use_stock">True</property>
                             <child>
                               <widget class="GtkMenu" id="new_menu_item_menu">
                                 <child>
                                   <widget class="GtkImageMenuItem" id="new_sms_menu_item">
+                                    <property name="label">_SMS</property>
                                     <property name="visible">True</property>
                                     <property name="tooltip" translatable="yes">Create new sms</property>
-                                    <property name="label" translatable="yes">_SMS</property>
                                     <property name="use_underline">True</property>
+                                    <property name="use_stock">True</property>
                                     <signal name="activate" handler="on_new_sms_activate"/>
-                                    <accelerator key="n" modifiers="GDK_CONTROL_MASK" signal="activate"/>
-                                    <child internal-child="image">
-                                      <widget class="GtkImage" id="image655">
-                                        <property name="visible">True</property>
-                                        <property name="pixbuf">sms16x16.png</property>
-                                      </widget>
-                                    </child>
+                                    <accelerator key="n" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                                   </widget>
                                 </child>
                                 <child>
                                   <widget class="GtkImageMenuItem" id="contact1">
+                                    <property name="label">_Contact</property>
                                     <property name="visible">True</property>
-                                    <property name="label" translatable="yes">_Contact</property>
                                     <property name="use_underline">True</property>
+                                    <property name="use_stock">True</property>
                                     <signal name="activate" handler="on_new_contact_menu_item_activate"/>
-                                    <child internal-child="image">
-                                      <widget class="GtkImage" id="image647">
-                                        <property name="visible">True</property>
-                                        <property name="pixbuf">contact-new.png</property>
-                                      </widget>
-                                    </child>
                                   </widget>
                                 </child>
-                              </widget>
-                            </child>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image646">
-                                <property name="visible">True</property>
-                                <property name="stock">gtk-new</property>
-                                <property name="icon_size">1</property>
                               </widget>
                             </child>
                           </widget>
@@ -413,10 +368,11 @@
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="reply_sms_menu_item">
+                            <property name="label">_Reply</property>
                             <property name="visible">True</property>
                             <property name="tooltip" translatable="yes">Reply message</property>
-                            <property name="label" translatable="yes">_Reply</property>
                             <property name="use_underline">True</property>
+                            <property name="use_stock">True</property>
                             <child>
                               <widget class="GtkMenu" id="reply_sms_menu">
                                 <child>
@@ -439,97 +395,65 @@
                                 </child>
                               </widget>
                             </child>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image648">
-                                <property name="visible">True</property>
-                                <property name="pixbuf">reply-sender.png</property>
-                              </widget>
-                            </child>
                           </widget>
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="forward_sms_menu_item">
+                            <property name="label">_Forward</property>
                             <property name="visible">True</property>
                             <property name="tooltip" translatable="yes">Forward sms to another contact</property>
-                            <property name="label" translatable="yes">_Forward</property>
                             <property name="use_underline">True</property>
+                            <property name="use_stock">True</property>
                             <signal name="activate" handler="on_forward_sms_menu_item_activate"/>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image649">
-                                <property name="visible">True</property>
-                                <property name="pixbuf">mail-forward.png</property>
-                              </widget>
-                            </child>
                           </widget>
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="sms_delete_menu_item">
+                            <property name="label">_Delete</property>
                             <property name="visible">True</property>
-                            <property name="label" translatable="yes">_Delete</property>
                             <property name="use_underline">True</property>
+                            <property name="use_stock">True</property>
                             <signal name="activate" handler="on_delete_menu_item_activate"/>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image650">
-                                <property name="visible">True</property>
-                                <property name="stock">gtk-delete</property>
-                                <property name="icon_size">1</property>
-                              </widget>
-                            </child>
                           </widget>
                         </child>
                       </widget>
                       <packing>
                         <property name="expand">False</property>
                         <property name="fill">False</property>
+                        <property name="position">0</property>
                       </packing>
                     </child>
                     <child>
                       <widget class="GtkMenuBar" id="contacts_menubar">
                         <child>
                           <widget class="GtkImageMenuItem" id="imagemenuitem1">
+                            <property name="label">_Contacts</property>
                             <property name="visible">True</property>
                             <property name="tooltip" translatable="yes">Contacts menu</property>
-                            <property name="label" translatable="yes">_Contacts</property>
                             <property name="use_underline">True</property>
+                            <property name="use_stock">True</property>
                             <child>
                               <widget class="GtkMenu" id="imagemenuitem1_menu">
                                 <child>
                                   <widget class="GtkImageMenuItem" id="imagemenuitem2">
+                                    <property name="label">_New</property>
                                     <property name="visible">True</property>
                                     <property name="tooltip" translatable="yes">Add a contact</property>
-                                    <property name="label" translatable="yes">_New</property>
                                     <property name="use_underline">True</property>
+                                    <property name="use_stock">True</property>
                                     <signal name="activate" handler="on_new_contact_menu_item_activate"/>
-                                    <child internal-child="image">
-                                      <widget class="GtkImage" id="image595">
-                                        <property name="visible">True</property>
-                                        <property name="pixbuf">contact-new.png</property>
-                                      </widget>
-                                    </child>
                                   </widget>
                                 </child>
                                 <child>
                                   <widget class="GtkImageMenuItem" id="imagemenuitem3">
+                                    <property name="label">_Search</property>
                                     <property name="visible">True</property>
                                     <property name="tooltip" translatable="yes">Search contacts</property>
-                                    <property name="label" translatable="yes">_Search</property>
                                     <property name="use_underline">True</property>
+                                    <property name="use_stock">True</property>
                                     <signal name="activate" handler="on_search_contact_menu_item_activate"/>
-                                    <child internal-child="image">
-                                      <widget class="GtkImage" id="image596">
-                                        <property name="visible">True</property>
-                                        <property name="stock">gtk-find</property>
-                                        <property name="icon_size">1</property>
-                                      </widget>
-                                    </child>
                                   </widget>
                                 </child>
-                              </widget>
-                            </child>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image594">
-                                <property name="visible">True</property>
-                                <property name="pixbuf">contacts.png</property>
                               </widget>
                             </child>
                           </widget>
@@ -541,17 +465,11 @@
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="contact_delete_menu_item">
+                            <property name="label">_Delete</property>
                             <property name="visible">True</property>
-                            <property name="label" translatable="yes">_Delete</property>
                             <property name="use_underline">True</property>
+                            <property name="use_stock">True</property>
                             <signal name="activate" handler="on_delete_menu_item_activate"/>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image597">
-                                <property name="visible">True</property>
-                                <property name="stock">gtk-delete</property>
-                                <property name="icon_size">1</property>
-                              </widget>
-                            </child>
                           </widget>
                         </child>
                       </widget>
@@ -571,7 +489,7 @@
                           <widget class="GtkScrolledWindow" id="scrolledwindow1">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="shadow_type">GTK_SHADOW_IN</property>
+                            <property name="shadow_type">in</property>
                             <child>
                               <widget class="GtkTreeView" id="inbox_treeview">
                                 <property name="visible">True</property>
@@ -593,15 +511,15 @@
                             <property name="single_line_mode">True</property>
                           </widget>
                           <packing>
-                            <property name="type">tab</property>
                             <property name="tab_fill">False</property>
+                            <property name="type">tab</property>
                           </packing>
                         </child>
                         <child>
                           <widget class="GtkScrolledWindow" id="scrolledwindow2">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="shadow_type">GTK_SHADOW_IN</property>
+                            <property name="shadow_type">in</property>
                             <child>
                               <widget class="GtkTreeView" id="drafts_treeview">
                                 <property name="visible">True</property>
@@ -622,16 +540,16 @@
                             <property name="label" translatable="yes">Draft</property>
                           </widget>
                           <packing>
-                            <property name="type">tab</property>
                             <property name="position">1</property>
                             <property name="tab_fill">False</property>
+                            <property name="type">tab</property>
                           </packing>
                         </child>
                         <child>
                           <widget class="GtkScrolledWindow" id="scrolledwindow4">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="shadow_type">GTK_SHADOW_IN</property>
+                            <property name="shadow_type">in</property>
                             <child>
                               <widget class="GtkTreeView" id="sent_treeview">
                                 <property name="visible">True</property>
@@ -652,16 +570,16 @@
                             <property name="label" translatable="yes">Sent</property>
                           </widget>
                           <packing>
-                            <property name="type">tab</property>
                             <property name="position">2</property>
                             <property name="tab_fill">False</property>
+                            <property name="type">tab</property>
                           </packing>
                         </child>
                         <child>
                           <widget class="GtkScrolledWindow" id="scrolledwindow5">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="shadow_type">GTK_SHADOW_IN</property>
+                            <property name="shadow_type">in</property>
                             <child>
                               <widget class="GtkTreeView" id="contacts_treeview">
                                 <property name="visible">True</property>
@@ -681,9 +599,9 @@
                             <property name="label" translatable="yes">Contacts</property>
                           </widget>
                           <packing>
-                            <property name="type">tab</property>
                             <property name="position">3</property>
                             <property name="tab_fill">False</property>
+                            <property name="type">tab</property>
                           </packing>
                         </child>
                       </widget>
@@ -702,19 +620,22 @@
                               <widget class="GtkScrolledWindow" id="scrolledwindow8">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
-                                <property name="shadow_type">GTK_SHADOW_IN</property>
+                                <property name="shadow_type">in</property>
                                 <child>
                                   <widget class="GtkTextView" id="smsbody_textview">
                                     <property name="height_request">70</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="editable">False</property>
-                                    <property name="wrap_mode">GTK_WRAP_WORD</property>
+                                    <property name="wrap_mode">word</property>
                                   </widget>
                                 </child>
                               </widget>
                             </child>
                           </widget>
+                          <packing>
+                            <property name="position">0</property>
+                          </packing>
                         </child>
                       </widget>
                       <packing>
@@ -733,7 +654,7 @@
                 <property name="border_width">6</property>
                 <property name="label_xalign">0.0099999997764825821</property>
                 <property name="label_yalign">0</property>
-                <property name="shadow_type">GTK_SHADOW_NONE</property>
+                <property name="shadow_type">none</property>
                 <child>
                   <widget class="GtkNotebook" id="notebook1">
                     <property name="visible">True</property>
@@ -765,9 +686,9 @@
                                         <property name="visible">True</property>
                                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                                         <property name="label_xalign">0</property>
-                                        <property name="shadow_type">GTK_SHADOW_NONE</property>
+                                        <property name="shadow_type">none</property>
                                         <child>
-                                          <widget class="GtkAlignment" id="alignment2">
+                                          <widget class="GtkAlignment" id="alignment1">
                                             <property name="visible">True</property>
                                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                                             <property name="left_padding">12</property>
@@ -776,13 +697,13 @@
                                                 <property name="visible">True</property>
                                                 <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                                                 <property name="label" translatable="yes">month_label</property>
-                                                <property name="justify">GTK_JUSTIFY_RIGHT</property>
+                                                <property name="justify">right</property>
                                               </widget>
                                             </child>
                                           </widget>
                                         </child>
                                         <child>
-                                          <widget class="GtkLabel" id="frame1">
+                                          <widget class="GtkLabel" id="frame2">
                                             <property name="visible">True</property>
                                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                                             <property name="label" translatable="yes">&lt;b&gt;Month&lt;/b&gt;</property>
@@ -794,15 +715,15 @@
                                         </child>
                                       </widget>
                                       <packing>
-                                        <property name="expand">False</property>
+                                        <property name="position">0</property>
                                       </packing>
                                     </child>
                                     <child>
-                                      <widget class="GtkFrame" id="frame2">
+                                      <widget class="GtkFrame" id="frame3">
                                         <property name="visible">True</property>
                                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                                         <property name="label_xalign">0</property>
-                                        <property name="shadow_type">GTK_SHADOW_NONE</property>
+                                        <property name="shadow_type">none</property>
                                         <child>
                                           <widget class="GtkAlignment" id="alignment3">
                                             <property name="visible">True</property>
@@ -817,19 +738,13 @@
                                                 <property name="column_spacing">6</property>
                                                 <property name="row_spacing">6</property>
                                                 <child>
-                                                  <placeholder/>
-                                                </child>
-                                                <child>
-                                                  <placeholder/>
-                                                </child>
-                                                <child>
                                                   <widget class="GtkLabel" id="transferred_3g_current_label">
                                                     <property name="visible">True</property>
                                                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                                                     <property name="xalign">1</property>
                                                     <property name="yalign">0</property>
                                                     <property name="label" translatable="yes">label</property>
-                                                    <property name="justify">GTK_JUSTIFY_RIGHT</property>
+                                                    <property name="justify">right</property>
                                                   </widget>
                                                   <packing>
                                                     <property name="left_attach">1</property>
@@ -846,7 +761,7 @@
                                                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                                                     <property name="xalign">1</property>
                                                     <property name="label" translatable="yes">label</property>
-                                                    <property name="justify">GTK_JUSTIFY_RIGHT</property>
+                                                    <property name="justify">right</property>
                                                   </widget>
                                                   <packing>
                                                     <property name="left_attach">1</property>
@@ -902,7 +817,7 @@
                                                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                                                     <property name="xalign">1</property>
                                                     <property name="label" translatable="yes">label</property>
-                                                    <property name="justify">GTK_JUSTIFY_RIGHT</property>
+                                                    <property name="justify">right</property>
                                                   </widget>
                                                   <packing>
                                                     <property name="left_attach">1</property>
@@ -910,6 +825,12 @@
                                                     <property name="top_attach">3</property>
                                                     <property name="bottom_attach">4</property>
                                                   </packing>
+                                                </child>
+                                                <child>
+                                                  <placeholder/>
+                                                </child>
+                                                <child>
+                                                  <placeholder/>
                                                 </child>
                                               </widget>
                                             </child>
@@ -936,7 +857,7 @@
                                         <property name="visible">True</property>
                                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                                         <property name="label_xalign">0</property>
-                                        <property name="shadow_type">GTK_SHADOW_NONE</property>
+                                        <property name="shadow_type">none</property>
                                         <child>
                                           <widget class="GtkAlignment" id="alignment6">
                                             <property name="visible">True</property>
@@ -957,7 +878,7 @@
                                                     <property name="xalign">1</property>
                                                     <property name="yalign">0</property>
                                                     <property name="label" translatable="yes">label</property>
-                                                    <property name="justify">GTK_JUSTIFY_RIGHT</property>
+                                                    <property name="justify">right</property>
                                                   </widget>
                                                   <packing>
                                                     <property name="left_attach">1</property>
@@ -974,7 +895,7 @@
                                                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                                                     <property name="xalign">1</property>
                                                     <property name="label" translatable="yes">label</property>
-                                                    <property name="justify">GTK_JUSTIFY_RIGHT</property>
+                                                    <property name="justify">right</property>
                                                   </widget>
                                                   <packing>
                                                     <property name="left_attach">1</property>
@@ -1030,7 +951,7 @@
                                                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                                                     <property name="xalign">1</property>
                                                     <property name="label" translatable="yes">label</property>
-                                                    <property name="justify">GTK_JUSTIFY_RIGHT</property>
+                                                    <property name="justify">right</property>
                                                   </widget>
                                                   <packing>
                                                     <property name="left_attach">1</property>
@@ -1063,6 +984,7 @@
                                   </widget>
                                   <packing>
                                     <property name="expand">False</property>
+                                    <property name="position">0</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1089,6 +1011,9 @@
                                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                                             <property name="label" translatable="yes">GPRS</property>
                                           </widget>
+                                          <packing>
+                                            <property name="position">0</property>
+                                          </packing>
                                         </child>
                                         <child>
                                           <widget class="GtkLabel" id="label6">
@@ -1103,6 +1028,7 @@
                                       </widget>
                                       <packing>
                                         <property name="expand">False</property>
+                                        <property name="position">0</property>
                                       </packing>
                                     </child>
                                     <child>
@@ -1126,6 +1052,9 @@
                                   </packing>
                                 </child>
                               </widget>
+                              <packing>
+                                <property name="position">0</property>
+                              </packing>
                             </child>
                             <child>
                               <widget class="GtkLabel" id="label3">
@@ -1149,8 +1078,8 @@
                         <property name="label" translatable="yes">Current month</property>
                       </widget>
                       <packing>
-                        <property name="type">tab</property>
                         <property name="tab_fill">False</property>
+                        <property name="type">tab</property>
                       </packing>
                     </child>
                     <child>
@@ -1179,7 +1108,7 @@
                                         <property name="visible">True</property>
                                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                                         <property name="label_xalign">0</property>
-                                        <property name="shadow_type">GTK_SHADOW_NONE</property>
+                                        <property name="shadow_type">none</property>
                                         <child>
                                           <widget class="GtkAlignment" id="alignment15">
                                             <property name="visible">True</property>
@@ -1190,7 +1119,7 @@
                                                 <property name="visible">True</property>
                                                 <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                                                 <property name="label" translatable="yes">month_label</property>
-                                                <property name="justify">GTK_JUSTIFY_RIGHT</property>
+                                                <property name="justify">right</property>
                                               </widget>
                                             </child>
                                           </widget>
@@ -1209,6 +1138,7 @@
                                       </widget>
                                       <packing>
                                         <property name="expand">False</property>
+                                        <property name="position">0</property>
                                       </packing>
                                     </child>
                                     <child>
@@ -1216,7 +1146,7 @@
                                         <property name="visible">True</property>
                                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                                         <property name="label_xalign">0</property>
-                                        <property name="shadow_type">GTK_SHADOW_NONE</property>
+                                        <property name="shadow_type">none</property>
                                         <child>
                                           <widget class="GtkAlignment" id="alignment16">
                                             <property name="visible">True</property>
@@ -1231,19 +1161,13 @@
                                                 <property name="column_spacing">6</property>
                                                 <property name="row_spacing">6</property>
                                                 <child>
-                                                  <placeholder/>
-                                                </child>
-                                                <child>
-                                                  <placeholder/>
-                                                </child>
-                                                <child>
                                                   <widget class="GtkLabel" id="transferred_3g_last_label">
                                                     <property name="visible">True</property>
                                                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                                                     <property name="xalign">1</property>
                                                     <property name="yalign">0</property>
                                                     <property name="label" translatable="yes">label</property>
-                                                    <property name="justify">GTK_JUSTIFY_RIGHT</property>
+                                                    <property name="justify">right</property>
                                                   </widget>
                                                   <packing>
                                                     <property name="left_attach">1</property>
@@ -1260,7 +1184,7 @@
                                                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                                                     <property name="xalign">1</property>
                                                     <property name="label" translatable="yes">label</property>
-                                                    <property name="justify">GTK_JUSTIFY_RIGHT</property>
+                                                    <property name="justify">right</property>
                                                   </widget>
                                                   <packing>
                                                     <property name="left_attach">1</property>
@@ -1316,7 +1240,7 @@
                                                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                                                     <property name="xalign">1</property>
                                                     <property name="label" translatable="yes">label</property>
-                                                    <property name="justify">GTK_JUSTIFY_RIGHT</property>
+                                                    <property name="justify">right</property>
                                                   </widget>
                                                   <packing>
                                                     <property name="left_attach">1</property>
@@ -1324,6 +1248,12 @@
                                                     <property name="top_attach">3</property>
                                                     <property name="bottom_attach">4</property>
                                                   </packing>
+                                                </child>
+                                                <child>
+                                                  <placeholder/>
+                                                </child>
+                                                <child>
+                                                  <placeholder/>
                                                 </child>
                                               </widget>
                                             </child>
@@ -1348,6 +1278,7 @@
                                   </widget>
                                   <packing>
                                     <property name="expand">False</property>
+                                    <property name="position">0</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1374,6 +1305,9 @@
                                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                                             <property name="label" translatable="yes">GPRS</property>
                                           </widget>
+                                          <packing>
+                                            <property name="position">0</property>
+                                          </packing>
                                         </child>
                                         <child>
                                           <widget class="GtkLabel" id="label11">
@@ -1388,6 +1322,7 @@
                                       </widget>
                                       <packing>
                                         <property name="expand">False</property>
+                                        <property name="position">0</property>
                                       </packing>
                                     </child>
                                     <child>
@@ -1411,6 +1346,9 @@
                                   </packing>
                                 </child>
                               </widget>
+                              <packing>
+                                <property name="position">0</property>
+                              </packing>
                             </child>
                             <child>
                               <widget class="GtkLabel" id="label16">
@@ -1437,9 +1375,9 @@
                         <property name="label" translatable="yes">Last month</property>
                       </widget>
                       <packing>
-                        <property name="type">tab</property>
                         <property name="position">1</property>
                         <property name="tab_fill">False</property>
+                        <property name="type">tab</property>
                       </packing>
                     </child>
                   </widget>
@@ -1468,20 +1406,20 @@
                   <widget class="GtkFrame" id="support_notebook_support_help_frame">
                     <property name="visible">True</property>
                     <property name="label_xalign">0</property>
-                    <property name="shadow_type">GTK_SHADOW_NONE</property>
+                    <property name="shadow_type">none</property>
                     <child>
                       <widget class="GtkScrolledWindow" id="support_notebook_scrolled_window">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-		        <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
-                        <property name="shadow_type">GTK_SHADOW_IN</property>
+                        <property name="hscrollbar_policy">automatic</property>
+                        <property name="shadow_type">in</property>
                         <child>
                           <widget class="GtkTextView" id="support_notebook_textview">
                             <property name="height_request">235</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="editable">False</property>
-                            <property name="wrap_mode">GTK_WRAP_WORD</property>
+                            <property name="wrap_mode">word</property>
                             <property name="text" translatable="yes">In most cases you can find the answer to your questions about the program in the help menu.
 This menu can be accesed if you click on the "Help" label on the menu bar located in the top side of the window, and selecting the "Help topics" option.
 
@@ -1501,21 +1439,21 @@ If you use the mail and browser buttons to access other programs in your system,
                     <property name="label" translatable="yes">Help menu</property>
                   </widget>
                   <packing>
-                    <property name="type">tab</property>
                     <property name="tab_fill">False</property>
+                    <property name="type">tab</property>
                   </packing>
                 </child>
                 <child>
                   <widget class="GtkFrame" id="support_notebook_support_frame">
                     <property name="visible">True</property>
                     <property name="label_xalign">0</property>
-                    <property name="shadow_type">GTK_SHADOW_NONE</property>
+                    <property name="shadow_type">none</property>
                     <child>
                       <widget class="GtkScrolledWindow" id="scrolledwindow7">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-		        <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
-                        <property name="shadow_type">GTK_SHADOW_IN</property>
+                        <property name="hscrollbar_policy">automatic</property>
+                        <property name="shadow_type">in</property>
                         <child>
                           <widget class="GtkTextView" id="textview2">
                             <property name="visible">True</property>
@@ -1542,22 +1480,22 @@ your company's System Administrator.</property>
                     <property name="label" translatable="yes">Support center</property>
                   </widget>
                   <packing>
-                    <property name="type">tab</property>
                     <property name="position">1</property>
                     <property name="tab_fill">False</property>
+                    <property name="type">tab</property>
                   </packing>
                 </child>
                 <child>
                   <widget class="GtkFrame" id="support_notebook_support_cust_frame">
                     <property name="visible">True</property>
                     <property name="label_xalign">0</property>
-                    <property name="shadow_type">GTK_SHADOW_NONE</property>
+                    <property name="shadow_type">none</property>
                     <child>
                       <widget class="GtkScrolledWindow" id="scrolledwindow6">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-		        <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
-                        <property name="shadow_type">GTK_SHADOW_IN</property>
+                        <property name="hscrollbar_policy">automatic</property>
+                        <property name="shadow_type">in</property>
                         <child>
                           <widget class="GtkTextView" id="textview1">
                             <property name="visible">True</property>
@@ -1588,9 +1526,9 @@ the numbers are:
                     <property name="label" translatable="yes">Customer support</property>
                   </widget>
                   <packing>
-                    <property name="type">tab</property>
                     <property name="position">2</property>
                     <property name="tab_fill">False</property>
+                    <property name="type">tab</property>
                   </packing>
                 </child>
               </widget>
@@ -1615,6 +1553,9 @@ the numbers are:
                           </widget>
                         </child>
                       </widget>
+                      <packing>
+                        <property name="position">0</property>
+                      </packing>
                     </child>
                     <child>
                       <widget class="GtkHBox" id="hbox33">
@@ -1641,6 +1582,7 @@ the numbers are:
                                   <packing>
                                     <property name="expand">False</property>
                                     <property name="fill">False</property>
+                                    <property name="position">0</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1684,6 +1626,7 @@ the numbers are:
                                   <packing>
                                     <property name="expand">False</property>
                                     <property name="fill">False</property>
+                                    <property name="position">0</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1714,6 +1657,9 @@ the numbers are:
                       </packing>
                     </child>
                   </widget>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
                 </child>
                 <child>
                   <widget class="GtkAlignment" id="alignment40">
@@ -1753,6 +1699,7 @@ the numbers are:
                               <packing>
                                 <property name="expand">False</property>
                                 <property name="fill">False</property>
+                                <property name="position">0</property>
                               </packing>
                             </child>
                             <child>
@@ -1793,6 +1740,9 @@ the numbers are:
                               </packing>
                             </child>
                           </widget>
+                          <packing>
+                            <property name="position">0</property>
+                          </packing>
                         </child>
                         <child>
                           <widget class="GtkAlignment" id="throbber_alignment">
@@ -1813,6 +1763,9 @@ the numbers are:
                           </packing>
                         </child>
                       </widget>
+                      <packing>
+                        <property name="position">0</property>
+                      </packing>
                     </child>
                     <child>
                       <placeholder/>
