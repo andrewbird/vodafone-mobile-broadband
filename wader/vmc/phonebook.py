@@ -24,7 +24,7 @@ from wader.vmc.contacts import supported_types
 
 # just for now, we'll interrogate later
 from wader.vmc.contacts.contact_sim import SIMContactsManager
-from wader.vmc.contacts.contact_axiom import ADBContactsManager
+#from wader.vmc.contacts.contact_axiom import ADBContactsManager
 
 def all_same_type(l):
     """Returns True if all items in C{l} are the same type"""

@@ -14,6 +14,12 @@ from wader.vmc.models.main import MainModel
 from wader.vmc.views.main import MainView
 from wader.vmc.consts import GTK_LOCK, APP_LONG_NAME
 
+
+def create_wader_config_dir():
+    wader_conf_dir = os.path.join(os.path.expanduser('~'), '.gnome2', 'wader')
+    if not os.path.exists(wader_conf_dir):
+        os.makedirs(wader_conf_dir)
+
 def check_if_running():
     if not os.path.exists(GTK_LOCK):
         # if there's no lock we're cool
@@ -46,10 +52,11 @@ def raise_window():
         call(["%s" % wmctrl_path, "-a", "%s" % APP_LONG_NAME])
 
 def main():
+    create_wader_config_dir()
+    print "Calling create wader config"
     from wader.vmc.splash import SplashScreen
     splash = SplashScreen()
     splash.show_it(2)
-
     from wader.vmc.startup import create_skeleton_and_return
     create_skeleton_and_return()
 

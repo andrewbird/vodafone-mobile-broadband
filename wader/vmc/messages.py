@@ -144,9 +144,9 @@ class Messages(object):
     def delete_objs(self, objs):
         return self.delete_messages(objs)
 
-_messages = Messages()
 
 def get_messages_obj(device):
+    _messages = Messages()
     _messages.device = device
     return _messages
 
