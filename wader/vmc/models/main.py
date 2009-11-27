@@ -27,7 +27,7 @@ import time
 
 from wader.vmc.logger import logger
 from wader.vmc.dialogs import show_error_dialog
-from wader.vmc.models.profile import ProfilesModel, ProfileModel
+from wader.vmc.models.profile import ProfilesModel
 from wader.vmc.models.preferences import PreferencesModel
 from wader.vmc.translate import _
 from wader.vmc.utils import dbus_error_is, get_error_msg
@@ -46,7 +46,6 @@ import wader.common.aterrors as E
 import wader.common.signals as S
 from wader.common.provider import UsageProvider
 
-#from wader.vmc.persistent import usage_manager
 
 THREEG_SIGNALS = [MM_NETWORK_MODE_UMTS, MM_NETWORK_MODE_HSDPA,
                   MM_NETWORK_MODE_HSUPA, MM_NETWORK_MODE_HSPA]
@@ -61,12 +60,6 @@ REGISTER_TIMEOUT = 3 * 60 # 3m
 
 ONE_MB = 2**20
 
-if dbus.version >= (0, 83, 0):
-    def get_dbus_error(e):
-        return e.get_dbus_name()
-else:
-    def get_dbus_error(e):
-        return e.message
 
 class MainModel(Model):
 
@@ -445,10 +438,10 @@ class MainModel(Model):
             if eb:
                 eb(enable)
 
-            if 'SimPukRequired' in get_dbus_error(e):
+            if 'SimPukRequired' in get_error_msg(e):
                 self.puk_required = True
 
-            if 'SimPuk2Required' in get_dbus_error(e):
+            if 'SimPuk2Required' in get_error_msg(e):
                 self.puk2_required = True
 
         self.device.EnablePin(pin, enable, dbus_interface=CRD_INTFACE,
@@ -467,10 +460,10 @@ class MainModel(Model):
             if eb:
                 eb()
 
-            if 'SimPukRequired' in get_dbus_error(e):
+            if 'SimPukRequired' in get_error_msg(e):
                 self.puk_required = True
 
-            if 'SimPuk2Required' in get_dbus_error(e):
+            if 'SimPuk2Required' in get_error_msg(e):
                 self.puk2_required = True
 
         self.device.ChangePin(oldpin, newpin, dbus_interface=CRD_INTFACE,
@@ -544,7 +537,7 @@ class MainModel(Model):
         # First set bearer type to false
         bearer_type = False
         if self.previous_tech == MM_NETWORK_MODE_GPRS :
-            bearer_type = FALSE
+            bearer_type = False
         else:
             bearer_type = True
         

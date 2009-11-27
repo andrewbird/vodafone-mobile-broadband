@@ -23,6 +23,7 @@ import gobject
 import gtk
 from gtkmvc import Controller
 
+from wader.common.provider import NetworkProvider
 
 from wader.vmc.config import config
 from wader.vmc.translate import _
@@ -374,7 +375,11 @@ class SMSPreferencesController(Controller):
             # we will setup the combobox options here
             items = []
 
-            network = net_manager.get_network_by_id(imsi)
+            netprovider = NetworkProvider()
+            # XXX: Defaulting to first network here
+            network = netprovider.get_network_by_id(imsi)[0]
+            netprovider.close()
+
             if not network:
                 # we dont know anything about this network operator, we will
                 # just show 'Unknown' in the combobox, giving no options to

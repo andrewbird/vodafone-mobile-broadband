@@ -21,9 +21,6 @@ import gtk
 from gobject import TYPE_PYOBJECT, TYPE_STRING
 from gtkmvc import Model, ListStoreModel
 
-from wader.common.oal import osobj
-#from wader.common.notifications import SIG_DEVICE_REMOVED
-
 from wader.vmc.images import MOBILE_IMG, COMPUTER_IMG
 from wader.vmc.messages import is_sim_message
 

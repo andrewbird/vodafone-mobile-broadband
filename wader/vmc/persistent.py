@@ -21,10 +21,6 @@ Data persistance for VMC
 
 import datetime
 
-from zope.interface import implements
-
-from wader.common.encoding import to_u
-#import wader.common.consts as consts
 import wader.vmc.consts as consts
 
 from wader.vmc.contrib.epsilon.extime import Time

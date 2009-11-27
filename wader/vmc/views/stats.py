@@ -19,11 +19,10 @@
 Views for the stats window
 """
 
-import os
 import gtk
 import cairo
 
-from wader.vmc.utils import repr_usage, units_to_bits, units_to_bytes, bits_to_units, bytes_to_units, UNIT_MB
+from wader.vmc.utils import repr_usage, units_to_bytes, bytes_to_units, UNIT_MB
 
 
 class StatsBar(gtk.DrawingArea):

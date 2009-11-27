@@ -17,7 +17,6 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import os
-import re
 
 import gtk
 import gobject
@@ -275,7 +274,7 @@ def save_csv_file(path=None):
         resp = chooser_dialog.get_filename()
         if os.path.isfile(resp):
             # requests to confirm overwrite:
-            overwrite = open_confirm_action_dialog(_("Overwrite"),
+            overwrite = show_warning_request_cancel_ok(_("Overwrite"),
                           _('Overwrite "%s"?') % os.path.basename(resp),
                           _("""A file with this name already exists.
 If you choose to overwrite this file, the contents will be lost."""))

@@ -23,7 +23,6 @@ import gtk
 from gtkmvc import View
 
 from wader.vmc.consts import GLADE_DIR
-from wader.vmc.translate import _
 
 HEIGHT = 200
 WIDTH = 425

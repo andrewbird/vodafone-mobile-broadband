@@ -21,8 +21,10 @@ Main controller for the application
 """
 
 import os
-import gtk
 from subprocess import Popen
+
+import gtk
+from gobject import timeout_add_seconds
 
 from wader.vmc.controllers.base import WidgetController, TV_DICT, TV_DICT_REV
 from wader.vmc.controllers.contacts import (AddContactController,
@@ -41,13 +43,14 @@ from wader.vmc.dialogs import (show_profile_window,
                                open_dialog_question_checkbox_cancel_ok,
                                save_csv_file, open_import_csv_dialog)
 #from wader.vmc.keyring_dialogs import NewKeyringDialog, KeyringPasswordDialog
-from wader.vmc.utils import bytes_repr, get_error_msg, UNIT_MB, units_to_bits
+from wader.vmc.utils import get_error_msg
 from wader.vmc.translate import _
 from wader.vmc.tray import get_tray_icon
-from wader.vmc.consts import (GTK_LOCK, GLADE_DIR, GUIDE_DIR, IMAGES_DIR,
-                              APP_URL, APP_LONG_NAME,
-                              CFG_PREFS_DEFAULT_BROWSER, CFG_PREFS_DEFAULT_EMAIL,
-                              CFG_PREFS_DEFAULT_TRAY_ICON, CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
+from wader.vmc.consts import (GTK_LOCK, GUIDE_DIR, IMAGES_DIR, APP_URL,
+                              APP_LONG_NAME, CFG_PREFS_DEFAULT_BROWSER,
+                              CFG_PREFS_DEFAULT_EMAIL,
+                              CFG_PREFS_DEFAULT_TRAY_ICON,
+                              CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
                               CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION)
 
 from wader.vmc.phonebook import (get_phonebook,
@@ -76,7 +79,6 @@ from wader.vmc.models.profile import ProfileModel
 from wader.vmc.views.profile import APNSelectionView
 from wader.vmc.controllers.profile import APNSelectionController
 
-from gobject import timeout_add_seconds 
 
 
 def get_fake_toggle_button():

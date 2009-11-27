@@ -23,10 +23,7 @@ import gobject
 import gtk
 from gtkmvc import View
 
-from wader.vmc.config import config
-
 from wader.vmc.consts import GLADE_DIR
-from wader.vmc.translate import _
 from wader.vmc.models.preferences import SMSCListStoreModel
 
 

@@ -25,6 +25,7 @@ def get_error_msg(e):
 
     return e.message
 
+
 def dbus_error_is(e, exception):
     return exception.__name__ in get_error_msg(e)
 

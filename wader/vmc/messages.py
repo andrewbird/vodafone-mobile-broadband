@@ -19,7 +19,6 @@
 messages presents a uniform layer to deal with messages from both SIM and DB
 """
 
-from datetime import datetime
 from os.path import exists
 
 from wader.common.oal import osobj

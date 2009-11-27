@@ -19,6 +19,7 @@
 
 from datetime import datetime
 from gtkmvc import Controller, Model
+from twisted.internet.defer import succeed
 
 #from wader.vmc.config import config as config
 #import wader.common.exceptions as ex
@@ -33,20 +34,15 @@ from wader.common.oal import osobj
 from wader.common.sms import Message
 
 from wader.vmc import dialogs
-from wader.vmc.consts import APP_LONG_NAME
 from wader.vmc.translate import _
 from wader.vmc.messages import get_messages_obj
 from wader.vmc.utils import get_error_msg
+from wader.vmc.config import config
 
 from wader.vmc.controllers.base import TV_DICT, TV_DICT_REV
 
 from wader.vmc.views.contacts import ContactsListView
 from wader.vmc.controllers.contacts import ContactsListController
-
-#from wader.vmc.controllers.preferences import SMSPreferencesController
-#from wader.vmc.models.preferences import PreferencesModel, transform_validity
-
-#from wader.vmc.views.preferences import SMSPreferencesView
 
 from wader.vmc.contrib.ValidatedEntry import ValidatedEntry, v_phone
 
@@ -217,7 +213,7 @@ class NewSmsController(Controller):
         message_text = unicode(message_text, 'utf8')
 
         validity = config.get('sms', 'validity')
-        validity = transform_validity[validity]
+        #validity = transform_validity[validity]
 
 #        d = self.parent_ctrl.model.get_smsc()
 #        def get_smsc_cb(smsc):

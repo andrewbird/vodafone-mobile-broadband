@@ -17,8 +17,8 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 from uuid import uuid1
+
 import dbus
-import gobject
 from gtkmvc import Model
 
 from wader.common.consts import (NM_PASSWD, WADER_DIALUP_INTFACE,
@@ -28,7 +28,6 @@ from wader.common.consts import (NM_PASSWD, WADER_DIALUP_INTFACE,
 from wader.common.utils import (convert_int_to_uint as convert,
                                 patch_list_signature)
 from wader.common.exceptions import ProfileNotFoundError
-import wader.common.exceptions as ex
 from wader.vmc.config import config
 from wader.vmc.logger import logger
 from wader.vmc.profiles import manager
@@ -38,7 +37,7 @@ from wader.vmc.consts import (VM_NETWORK_AUTH_ANY,
                               VM_NETWORK_AUTH_PAP,
                               VM_NETWORK_AUTH_CHAP)
 
-CONNECTED, DISCONNECTED = range(2)
+CONNECTED, DISCONNECTED = 0, 1
 
 
 class ProfilesModel(Model):

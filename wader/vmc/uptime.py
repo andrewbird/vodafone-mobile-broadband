@@ -18,10 +18,7 @@
 
 from math import ceil
 
-try:
-    from wader.vmc.translate import _
-except:
-    def _(s): return s
+from wader.vmc.translate import _
 
 TIME_DESCRIPTION = {
       60 : 'minute',
