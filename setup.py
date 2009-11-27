@@ -69,8 +69,6 @@ packages = [
     'wader.vmc.views',
     'wader.vmc.contacts',
     'wader.vmc.contrib',
-    'wader.vmc.contrib.axiom',
-    'wader.vmc.contrib.epsilon',
     'wader.vmc.contrib.pycocuma'
 ]
 
