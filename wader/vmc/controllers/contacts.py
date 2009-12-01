@@ -27,7 +27,9 @@ from wader.vmc.translate import _
 from gtkmvc import Controller
 from wader.vmc import dialogs
 
-from wader.vmc.contrib.ValidatedEntry import ValidatedEntry, v_phone, v_ucs2_name
+from wader.vmc.contrib.ValidatedEntry import (ValidatedEntry, v_phone,
+                                              v_ucs2_name)
+
 
 class AddContactController(Controller):
     """Controller for the add contact dialog"""
@@ -224,4 +226,3 @@ class ContactsListController(Controller):
         model, selected = treeview.get_selection().get_selected_rows()
         if len(selected):
             self.view['add_button'].set_sensitive(True)
-

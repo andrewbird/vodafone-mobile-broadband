@@ -147,6 +147,7 @@ class APNSelectionController(Controller):
     """
     Controller for the apn selection window
     """
+
     def __init__(self, model, imsi, callback):
         super(APNSelectionController, self).__init__(model)
 
@@ -174,4 +175,3 @@ class APNSelectionController(Controller):
 
     def hide_ourselves(self):
         self.view.get_top_widget().destroy()
-

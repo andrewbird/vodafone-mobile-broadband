@@ -96,6 +96,7 @@ class PinModifyController(WidgetController):
         We no longer have to check for any error other than bad passwd,
         since we are now validating the form before allowing submission
         """
+
         def pin_modify_cb():
             self.hide_widgets()
             self.model.unregister_observer(self)
@@ -144,8 +145,10 @@ class PinEnableController(WidgetController):
         self.validate() # Initial validation
 
         # connect the buttons to the handlers
-        self.view['ok_button'].connect('clicked',self.on_pin_enable_ok_button_clicked)
-        self.view['cancel_button'].connect('clicked',self.on_pin_enable_cancel_button_clicked)
+        self.view['ok_button'].connect('clicked',
+                                     self.on_pin_enable_ok_button_clicked)
+        self.view['cancel_button'].connect('clicked',
+                                     self.on_pin_enable_cancel_button_clicked)
 
     def validate(self, widget=None):
         valid = True
@@ -165,7 +168,8 @@ class PinEnableController(WidgetController):
         # A little fun {dis,en}abling the enter key
         if valid:
             if self.pin_activate_id == -1:
-                self.pin_activate_id = pin.connect('activate', self.on_pin_enable_ok_button_clicked)
+                self.pin_activate_id = pin.connect('activate',
+                                          self.on_pin_enable_ok_button_clicked)
         else:
             if self.pin_activate_id >= 0:
                 pin.disconnect(self.pin_activate_id)
@@ -205,6 +209,7 @@ for the PUK code</small>
 
 class AskPINController(Controller):
     """Asks PIN to user and returns it callbacking a deferred"""
+
     def __init__(self, model):
         super(AskPINController, self).__init__(model)
         # handler id of self.view['gnomekeyring_checkbutton']::toggled
@@ -287,6 +292,7 @@ class AskPINController(Controller):
 
 
 class AskPUKController(Controller):
+
     def __init__(self, model):
         super(AskPUKController, self).__init__(model)
 
@@ -343,4 +349,3 @@ class AskPUKController(Controller):
         self.view.hide()
         self.model.unregister_observer(self)
 #        self.close_application()
-

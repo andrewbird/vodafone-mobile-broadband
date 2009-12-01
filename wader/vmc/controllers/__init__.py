@@ -1,5 +1,6 @@
 from gtkmvc import Controller as _Controller
 
+
 class Controller(_Controller):
 
     def close_controller(self):
@@ -7,4 +8,3 @@ class Controller(_Controller):
         self.view.get_top_widget().destroy()
         self.view = None
         self.model = None
-

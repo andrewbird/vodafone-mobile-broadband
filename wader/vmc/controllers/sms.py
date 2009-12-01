@@ -52,10 +52,11 @@ SMS_TOOLTIP = \
 
 IDLE, SENDING = range(2)
 
+
 class NewSmsController(Controller):
     """Controller for the new sms dialog"""
 
-    def __init__(self, model, parent_ctrl = None):
+    def __init__(self, model, parent_ctrl=None):
         super(NewSmsController, self).__init__(model)
         self.pdu = PDU()
         self.state = IDLE

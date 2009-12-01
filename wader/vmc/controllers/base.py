@@ -20,18 +20,21 @@ Base classes for Controllers
 """
 
 from gtkmvc import Controller
+
 from wader.common.utils import revert_dict
 
-TV_DICT = {0 : 'inbox_treeview',
-           1 : 'inbox_treeview',
-           2 : 'drafts_treeview',
-           3 : 'sent_treeview',
-           4 : 'contacts_treeview'}
+TV_DICT = {0: 'inbox_treeview',
+           1: 'inbox_treeview',
+           2: 'drafts_treeview',
+           3: 'sent_treeview',
+           4: 'contacts_treeview'}
 
 TV_DICT_REV = revert_dict(TV_DICT)
 
+
 class WidgetController(Controller):
     """I maintain a list of widgets"""
+
     def __init__(self, model):
         super(WidgetController, self).__init__(model)
         self._widgets = []
@@ -49,4 +52,3 @@ class WidgetController(Controller):
     def append_widget(self, widget):
         """Appends a widget to C{self._widgets}"""
         self._widgets.append(widget)
-

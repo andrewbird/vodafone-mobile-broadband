@@ -47,6 +47,7 @@ class PreferencesController(Controller):
 
     # setup on initialisation of the view. Make sure you call the setup methods
     # for all the tabs windows in the view.
+
     def register_view(self, view):
         Controller.register_view(self, view)
         self.setup_sms_tab()
@@ -116,7 +117,7 @@ class PreferencesController(Controller):
 
         # ok lets get the value for the mail text box from the model if it exists
         mail_text_box = self.model.mail
-        active_set = iterator if ( mail_text_box == CFG_PREFS_DEFAULT_EMAIL) else custom_iter
+        active_set = iterator if mail_text_box == CFG_PREFS_DEFAULT_EMAIL else custom_iter
         # set the combo box in the view to show the values
         self.view.setup_application_mail_combo_box(mail_combo_box, active_set)
         # we have to set the text box if it's a custom value otherwise leave blank and show the default.
@@ -131,7 +132,7 @@ class PreferencesController(Controller):
 
         # ok lets get the value for the browser text box from the model if it exists
         browser_text_box = self.model.browser
-        active_set = iterator if ( browser_text_box == CFG_PREFS_DEFAULT_BROWSER) else custom_iter
+        active_set = iterator if browser_text_box == CFG_PREFS_DEFAULT_BROWSER else custom_iter
         # set the combo box in the view to show values
         self.view.setup_application_browser_combo_box(browser_combo_box, active_set)
         # we have to set the browser box if it's a custom value otherwise leave blang and show the default
@@ -140,6 +141,7 @@ class PreferencesController(Controller):
 
     def setup_signals(self):
         # setting up the gnomekeyring checkbox
+
         def keyringtoggled_cb(checkbutton):
             """
             Callback for the gnomekeyring_checkbutton::toggled signal
@@ -198,6 +200,7 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
     # ------------------------------------------------------------ #
     #                       Signals Handling                       #
     # ------------------------------------------------------------ #
+
     def _on_traffic_entry_value_changed(self):
         max_traffic = self.view['maximum_traffic_entry'].get_value()
         threshold = self.view['threshold_entry'].get_value()
@@ -346,6 +349,7 @@ class SMSPreferencesController(Controller):
     """
     Controller for the SMS preferences window
     """
+
     def __init__(self, model):
         Controller.__init__(self, model)
         self.initial_smsc = None
@@ -357,6 +361,7 @@ class SMSPreferencesController(Controller):
 
     def _setup(self):
         d = self.model.get_smsc()
+
         def get_smsc_cb(smsc):
             if not smsc:
                 # XXX:
@@ -371,6 +376,7 @@ class SMSPreferencesController(Controller):
 
     def _check_smsc(self, smsc):
         d = self.model.get_imsi()
+
         def get_imsi_cb(imsi):
             # we will setup the combobox options here
             items = []
@@ -458,4 +464,3 @@ class SMSPreferencesController(Controller):
 
     def on_cancel_button_clicked(self, widget):
         self._hide_myself()
-

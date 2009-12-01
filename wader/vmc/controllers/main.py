@@ -80,7 +80,6 @@ from wader.vmc.views.profile import APNSelectionView
 from wader.vmc.controllers.profile import APNSelectionController
 
 
-
 def get_fake_toggle_button():
     """Returns a toggled L{gtk.ToggleToolButton}"""
     button = gtk.ToggleToolButton()
@@ -92,6 +91,7 @@ class MainController(WidgetController):
     """
     I am the controller for the main window
     """
+
     def __init__(self, model):
         super(MainController, self).__init__(model)
         model.ctrl = self
@@ -247,7 +247,7 @@ class MainController(WidgetController):
             from wader.vmc.profiles import manager
             profile = manager.get_profile_by_object_path(opath)
             # XXX: do not hardcode NM_PASSWD
-            ret = {tag : {consts.NM_PASSWD :password}}
+            ret = {tag: {consts.NM_PASSWD: password}}
             profile.set_secrets(tag, ret)
 
     def on_keyring_password_required(self, opath):
@@ -367,13 +367,13 @@ class MainController(WidgetController):
     def property_rx_rate_value_change(self, model, old, new):
         if old != new:
             self.view['download_statusbar'].push(1,
-                                                 self.bits_to_human(new*8))
+                                                 self.bits_to_human(new * 8))
             logger.info("Rate rx: %d", new)
 
     def property_tx_rate_value_change(self, model, old, new):
         if old != new:
             self.view['upload_statusbar'].push(1,
-                                                 self.bits_to_human(new*8))
+                                                 self.bits_to_human(new * 8))
             logger.info("Rate tx: %d", new)
 
     def property_total_bytes_value_change(self, model, old, new):
@@ -430,14 +430,14 @@ class MainController(WidgetController):
         if True:
             binary = config.get('preferences', 'browser', CFG_PREFS_DEFAULT_BROWSER)
             if binary:
-                Popen([ binary, APP_URL ])
+                Popen([binary, APP_URL])
 
     def on_mail_button_clicked(self, widget):
 #        if self._check_if_connected():
         if True:
             binary = config.get('preferences', 'mail', CFG_PREFS_DEFAULT_EMAIL)
             if binary:
-                Popen([ binary, 'REPLACE@ME.COM' ])
+                Popen([binary, 'REPLACE@ME.COM'])
 
     def on_sms_received_cb(self, index, complete):
         """
@@ -807,12 +807,14 @@ The csv file that you have tried to import has an invalid format.""")
         view.show()
 
     def on_request_pin1_activate(self, checkmenuitem):
+
         def is_pin_enabled_cb(curval):
             reqval = checkmenuitem.get_active()
             print "request = %d, current = %d" % (reqval, curval)
             if reqval == curval:
                 return
             else:
+
                 def pin_enable_cb(enable):
                     self.view['change_pin1'].set_sensitive(enable)
 
@@ -840,6 +842,7 @@ The csv file that you have tried to import has an invalid format.""")
         self.ask_for_new_profile()
 
     def _build_profiles_menu(self):
+
         def load_profile(widget, profile):
             profiles_model = self.model.profiles_model
             profiles_model.set_active_profile(profile)
@@ -933,16 +936,15 @@ The csv file that you have tried to import has an invalid format.""")
         binary = config.get('preferences', 'browser', CFG_PREFS_DEFAULT_BROWSER)
         if binary:
             index_path = os.path.join(GUIDE_DIR, 'index.html')
-            Popen([ binary, index_path ])
+            Popen([binary, index_path])
 
     def on_about_menu_item_activate(self, widget):
         about = show_about_dialog()
         about.run()
         about.destroy()
 
-######
-
     def _setup_menubar_hacks(self):
+
         def fake_delete_event(widget, event):
             if event.button == 1:
                 self.on_delete_menu_item_activate(widget)
@@ -970,6 +972,7 @@ The csv file that you have tried to import has an invalid format.""")
         # messages_menubar forward item
         self.view['forward_sms_menu_item'].connect("button_press_event",
                                                    fake_forward_event)
+
     def _empty_treeviews(self, treeviews):
         for treeview_name in treeviews:
             model = self.view[treeview_name].get_model()
@@ -1025,11 +1028,9 @@ The csv file that you have tried to import has an invalid format.""")
         contacts = self._fill_contacts()
         self._fill_messages(contacts)
 
-#########
-
     def _update_usage_panel(self, name, offset):
         m = self.model
-        w = lambda label : label % name
+        w = lambda label: label % name
 
         values = ['month', 'transferred_gprs', 'transferred_3g',
                   'transferred_total']
@@ -1085,7 +1086,7 @@ The csv file that you have tried to import has an invalid format.""")
                 return True
             else:
 #                print "Main- Update Usage View - view.get_connected is False I must be disconnected so stop measuring!!!"
-                return False                
+                return False
 
     def on_reply_sms_no_quoting_menu_item_activate(self, widget):
         message = self.get_obj_from_selected_row()
@@ -1459,4 +1460,3 @@ The csv file that you have tried to import has an invalid format.""")
         row = (page == TV_DICT_REV['contacts_treeview']) and 3 or 4
         _iter = model.get_iter(selected[0])
         return (model, _iter, model.get_value(_iter, row))
-

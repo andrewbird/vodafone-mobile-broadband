@@ -23,6 +23,7 @@ from gtkmvc import Controller
 from wader.common.consts import CRD_INTFACE, MDM_INTFACE
 from wader.common.provider import NetworkProvider
 
+
 class DiagnosticsController(Controller):
     """Controller for the diagnostics window"""
 
@@ -54,19 +55,24 @@ class DiagnosticsController(Controller):
             print e
 
         #device.GetImsi(dbus_interface=CRD_INTFACE, error_handler=error,
-                       #reply_handler=lambda imsi: self.view['imsi_number_label'].set_text(imsi))
+                       #reply_handler=lambda imsi:
+                       #self.view['imsi_number_label'].set_text(imsi))
 
 
 # XXX: why isn't GetImei under MDM_INTFACE, it's a modem attribute not SIM?
         #device.GetImei(dbus_interface=CRD_INTFACE, error_handler=error,
-                       #reply_handler=lambda imei: self.view['imei_number_label'].set_text(imei))
+                       #reply_handler=lambda imei:
+                       #self.view['imei_number_label'].set_text(imei))
 
         def sim_imei(sim_data):
-            # ok we don't have a model the data is coming from dbus from wader core
-            # lets tell the view to set the imsi value in the correct place
+            # ok we don't have a model the data is coming from dbus
+            # from wader core lets tell the view to set the imsi value
+            # in the correct place
             print "controller: diagnostics sim_imei - IMEI number is: " + sim_data
             self.view.set_imei_info(sim_data)
-        device.GetImei(dbus_interface=CRD_INTFACE, error_handler=error, reply_handler=sim_imei)
+
+        device.GetImei(dbus_interface=CRD_INTFACE,
+                       error_handler=error, reply_handler=sim_imei)
 
         def sim_network(sim_data):
             # let's look up what we think this SIM's network is.
@@ -75,13 +81,14 @@ class DiagnosticsController(Controller):
             sim_network = NetworkProvider()
             #networks_attributes = sim_network.get_network_by_id("460009075714956")
             networks_attributes = sim_network.get_network_by_id(sim_data)
-            if networks_attributes!=[]:
+            if networks_attributes:
                 net_attrib = networks_attributes[0]
                 print "controller: diagnostics sim_network - country: " + net_attrib.country
                 print "controller: diagnostics sim_network - network opeartor: " + net_attrib.name
                 self.view.set_network_info(net_attrib.name, net_attrib.country)
 
-        device.GetImsi(dbus_interface=CRD_INTFACE, error_handler=error, reply_handler=sim_network)
+        device.GetImsi(dbus_interface=CRD_INTFACE,
+                       error_handler=error, reply_handler=sim_network)
 
         def sim_imsi(sim_data):
             # ok we don't have a model the data is coming from dbus from wader core
@@ -99,9 +106,11 @@ class DiagnosticsController(Controller):
             print "controller: diagnostics mdm_info - model " + model
             print "controller: diagnostics mdm_info - firmware " + firmware
 
-            # we need to take into account when cards don't tell us the truth. so for the huawei e172 reporting e17x we add an exception
-            if model=='E17X' and manufacturer== 'huawei':
-                model='E172'
+            # XXX: Is this necessary?
+            # we need to take into account when cards don't tell us the truth.
+            # so for the huawei e172 reporting e17x we add an exception
+            if model == 'E17X' and manufacturer == 'huawei':
+                model = 'E172'
 
             self.view.set_datacard__info(manufacturer, model, firmware)
         device.GetInfo(dbus_interface=MDM_INTFACE, error_handler=error, reply_handler=mdm_info)
