@@ -35,8 +35,8 @@ from wader.vmc.controllers.base import TV_DICT
 from wader.vmc.models.sms import SMSStoreModel
 from wader.vmc.models.contacts import ContactsStoreModel
 
-from wader.vmc.consts import CFG_PREFS_DEFAULT_USAGE_USER_LIMIT, CFG_PREFS_DEFAULT_USAGE_MAX_VALUE
-
+from wader.vmc.consts import (CFG_PREFS_DEFAULT_USAGE_USER_LIMIT,
+                              CFG_PREFS_DEFAULT_USAGE_MAX_VALUE)
 
 
 THROBBER = gtk.gdk.PixbufAnimation(os.path.join(GLADE_DIR, 'throbber.gif'))
@@ -67,11 +67,15 @@ class MainView(View):
             GLADE_FILE = os.path.join(GLADE_DIR, "VMC.glade")
 
         super(MainView, self).__init__(ctrl, GLADE_FILE,
-            'main_window', register=False)
+                                       'main_window', register=False)
 
         #Usage statistics
-        self.usage_user_limit = int(config.get('preferences', 'traffic_threshold', CFG_PREFS_DEFAULT_USAGE_USER_LIMIT))
-        self.usage_max_value = int(config.get('preferences', 'max_traffic', CFG_PREFS_DEFAULT_USAGE_MAX_VALUE))
+        self.usage_user_limit = int(config.get('preferences',
+                                               'traffic_threshold',
+                                         CFG_PREFS_DEFAULT_USAGE_USER_LIMIT))
+        self.usage_max_value = int(config.get('preferences',
+                                              'max_traffic',
+                                         CFG_PREFS_DEFAULT_USAGE_MAX_VALUE))
         self.usage_units = UNIT_KB
         self.usage_bars = None
 
@@ -86,12 +90,13 @@ class MainView(View):
 
         self.theme_ui()
 
-
     def show(self):
         ret = super(MainView, self).show()
 
-        self['usage_frame'].hide()       # XXX: AJB - for some reason these items hidden before
-        self['support_notebook'].hide()  # in ctrl.register_view() are reshown by parent.show()
+        # XXX: AJB - for some reason these items hidden before
+        self['usage_frame'].hide()
+        # in ctrl.register_view() are reshown by parent.show()
+        self['support_notebook'].hide()
         self['contacts_menubar'].hide()
         self['sms_message_pane'].hide()
         self['upload_alignment'].hide()
@@ -99,7 +104,7 @@ class MainView(View):
 
         return ret
 
-    def setup_view(self,height):
+    def setup_view(self, height):
         self.set_name()
         window = self.get_top_widget()
         window.set_position(gtk.WIN_POS_CENTER)
@@ -147,12 +152,14 @@ class MainView(View):
         bar.set_value(value)
 
     def update_bars_user_limit(self):
-        self.usage_user_limit = int(config.get('preferences', 'traffic_threshold', CFG_PREFS_DEFAULT_USAGE_USER_LIMIT))
-        self.usage_max_value = int(config.get('preferences', 'max_traffic', CFG_PREFS_DEFAULT_USAGE_MAX_VALUE))
+        self.usage_user_limit = int(config.get('preferences',
+                                               'traffic_threshold',
+                                        CFG_PREFS_DEFAULT_USAGE_USER_LIMIT))
+        self.usage_max_value = int(config.get('preferences',
+                                              'max_traffic',
+                                        CFG_PREFS_DEFAULT_USAGE_MAX_VALUE))
         for bar in self.usage_bars.values():
-#            bar.set_user_limit(units_to_bits(self.usage_user_limit, UNIT_MB))
             bar.set_user_limit(units_to_bytes(self.usage_user_limit, UNIT_MB))
-#            bar.set_max_value(units_to_bits(self.usage_max_value, UNIT_MB))
             bar.set_max_value(units_to_bytes(self.usage_max_value, UNIT_MB))
 
     def set_name(self, name=APP_LONG_NAME):
@@ -187,20 +194,18 @@ class MainView(View):
         self['download_alignment'].show()
 
         self['net_statusbar'].push(1, _('Connected'))
-    
+
     def get_connected(self):
         # my job in life is to tell the controller if I think we are connected.
         # And that is what I shall do!
         obj = self['connect_button']
-        if obj.get_active():            
+        if obj.get_active():
             return True
         else:
             return False
-            
 
     def setup_treeview(self, ctrl):
         """Sets up the treeviews"""
-
         for name in list(set(TV_DICT.values())):
             treeview = self[name]
             col_smstype, col_smstext, col_smsnumber, \
@@ -219,7 +224,7 @@ class MainView(View):
                 cell = gtk.CellRendererPixbuf()
                 column = gtk.TreeViewColumn(_("Type"))
                 column.pack_start(cell)
-                column.set_attributes(cell, pixbuf = col_usertype)
+                column.set_attributes(cell, pixbuf=col_usertype)
                 treeview.append_column(column)
 
                 cell = gtk.CellRendererText()
@@ -247,7 +252,8 @@ class MainView(View):
                 treeview.append_column(column)
 
                 cell = gtk.CellRendererText()
-                column = gtk.TreeViewColumn("Editable", cell, text=col_editable)
+                column = gtk.TreeViewColumn("Editable", cell,
+                                            text=col_editable)
                 column.set_visible(False)
                 column.set_sort_column_id(col_editable)
                 treeview.append_column(column)
@@ -256,7 +262,7 @@ class MainView(View):
                 cell = gtk.CellRendererPixbuf()
                 column = gtk.TreeViewColumn(_("Type"))
                 column.pack_start(cell)
-                column.set_attributes(cell, pixbuf = col_smstype)
+                column.set_attributes(cell, pixbuf=col_smstype)
                 treeview.append_column(column)
 
                 cell = gtk.CellRendererText()
@@ -287,11 +293,13 @@ class MainView(View):
                 column = gtk.TreeViewColumn(_("Date"), cell, text=col_smsdate)
                 column.set_resizable(True)
                 column.set_sort_column_id(col_smsdate)
+
                 def render_date(cellview, cell, model, _iter):
                     datetime = model.get_value(_iter, 3)
                     if datetime:
                         cell.set_property('text', datetime.strftime("%c"))
                     return
+
                 def sort_func(model, iter1, iter2, data):
                     date1 = model.get_value(iter1, 3)
                     date2 = model.get_value(iter2, 3)
@@ -334,7 +342,7 @@ class MainView(View):
         elif rssi <= 100:
             return 100
 
-    def update_signal_bearer(self, newsignal = None, newmode = None):
+    def update_signal_bearer(self, newsignal=None, newmode=None):
         if newsignal:
             self.signal = self._get_signal_icon(newsignal)
 
@@ -350,10 +358,6 @@ class MainView(View):
             if obj:
                 obj.set_text(newmode)
 
-#            if self.model.is_connected():
-#                msg = _('Connected to %s') % newmode
-#                self['net_statusbar'].push(1, msg)
-
         if self.signal == -1:
             image = 'radio-off.png'
         else:
@@ -365,11 +369,11 @@ class MainView(View):
 
     def rssi_changed(self, new_rssi):
         print "rssi_changed: %s" % new_rssi
-        self.update_signal_bearer(newsignal = new_rssi)
+        self.update_signal_bearer(newsignal=new_rssi)
 
     def tech_changed(self, new_tech):
         print "tech_changed: %s" % new_tech
-        self.update_signal_bearer(newmode = new_tech)
+        self.update_signal_bearer(newmode=new_tech)
 
     def operator_changed(self, new_operator):
         print "operator_changed: %s" % new_operator
@@ -407,4 +411,3 @@ class MainView(View):
 #                pass
 #
 #            self.throbber = None
-

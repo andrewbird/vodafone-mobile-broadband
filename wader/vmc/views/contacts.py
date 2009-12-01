@@ -24,8 +24,10 @@ from gtkmvc import View
 
 from wader.vmc.consts import GLADE_DIR
 
+
 class ContactView(View):
     """Base view for contacts"""
+
     GLADE_FILE = os.path.join(GLADE_DIR, "contacts.glade")
 
     def __init__(self, *args, **kwds):
@@ -40,6 +42,7 @@ class ContactView(View):
 
 class AddContactView(View):
     """View for add contact dialog"""
+
     GLADE_FILE = os.path.join(GLADE_DIR, "contacts.glade")
 
     def __init__(self, ctrl):

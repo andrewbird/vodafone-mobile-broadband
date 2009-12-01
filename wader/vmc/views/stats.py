@@ -115,8 +115,8 @@ class StatsBar(gtk.DrawingArea):
         cr.set_line_width(.1)
 #        step = float(height) / bits_to_units(self.max_value, self.units)
         step = float(height) / bytes_to_units(self.max_value, self.units)
-        frange = lambda a, b, step : [
-                                x * step for x in xrange(a,int(b*(1/step)))]
+        frange = lambda a, b, step: [x * step
+                                       for x in xrange(a, int(b * (1 / step)))]
         for i in frange(0, height + step, step):
             cr.move_to(inner_width - 5, height - i)
             cr.line_to(inner_width - 15, height - i)
@@ -175,22 +175,26 @@ class StatsBar(gtk.DrawingArea):
         self.queue_draw()
 
     def set_value(self, value):
-        if value == self.value: return
+        if value == self.value:
+            return
         if value >= self.max_value:
             self.max_value = 1.25 * value
+
         self.value = value
         self.update()
 
     def set_max_value(self, max_value):
-        if max_value == self.max_value: return
+        if max_value == self.max_value:
+            return
         self.max_value = max_value
         if self.value >= self.max_value:
             self.max_value = 1.25 * self.value
+
         self.update()
 
     def set_user_limit(self, user_limit):
-        if user_limit == self.user_limit: return
+        if user_limit == self.user_limit:
+            return
         self.user_limit = user_limit
+
         self.update()
-
-

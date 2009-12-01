@@ -19,8 +19,10 @@
 
 from wader.vmc import View
 
+
 class BaseDialogView(View):
     """View from which all dialogs should inherit from"""
+
     GLADE_FILE = None
 
     def __init__(self, ctrl, *args, **kwds):

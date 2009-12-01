@@ -20,7 +20,9 @@
 import os.path
 
 from gtkmvc import View
+
 from wader.vmc.consts import GLADE_DIR
+
 
 def clear_s(s):
     return s.replace('\n', ' ')
@@ -28,6 +30,7 @@ def clear_s(s):
 
 class CheckBoxDialogView(View):
     """This is the base class for dialogs with a checkbox"""
+
     GLADE_FILE = os.path.join(GLADE_DIR, "dialogs.glade")
 
     def __init__(self, ctrl, top_widget):
@@ -40,6 +43,7 @@ class CheckBoxDialogView(View):
 
 
 class QuestionCheckboxOkCancel(CheckBoxDialogView):
+
     def __init__(self, ctrl, message, details):
         CheckBoxDialogView.__init__(self, ctrl,
                                     "dialog_question_checkbox_cancel_ok")

@@ -27,6 +27,7 @@ from wader.vmc.consts import GLADE_DIR
 HEIGHT = 200
 WIDTH = 425
 
+
 class NewSmsView(View):
     """View for the new sms window"""
 
@@ -69,7 +70,9 @@ class NewSmsView(View):
         self['send_button'].set_sensitive(True)
         self['save_button'].set_sensitive(True)
 
+
 class ForwardSmsView(NewSmsView):
     """View for forwarding SMS"""
+
     def __init__(self, ctrl):
         super(ForwardSmsView, self).__init__(ctrl)

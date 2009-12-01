@@ -25,6 +25,7 @@ from gtkmvc import View
 from wader.vmc.consts import GLADE_DIR, IMAGES_DIR
 from wader.vmc.translate import _
 
+
 class PinModifyView(View):
     """View for the PIN modify window"""
 
@@ -86,11 +87,9 @@ PIN and PUK codes""")
         self['message_label'].set_text(msg)
         self['puk_dialog_image'].set_from_file(self.IMAGE_FILE)
 
-
     def set_puk2_view(self):
         msg = _("""
 In order to unlock your SIM, we need your
 PIN and PUK2 codes""")
         self['message_label'].set_text(msg)
         self['puk_label'].set_text('PUK2')
-

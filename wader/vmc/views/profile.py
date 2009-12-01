@@ -57,6 +57,7 @@ class ProfileView(View):
                     break
 
     def set_bands(self, bands, current):
+
         def get_bands(bitwised_band):
             """Returns all the bitwised bands in ``bitwised_band``"""
             return [band for band in MM_NETWORK_BANDS if band & bitwised_band]
@@ -150,10 +151,10 @@ class APNSelectionView(View):
 
         # load data
         for profile in profiles:
-            self.store.append(None,[profile.name,
-                                    profile.country,
-                                    profile.type,
-                                    profile])
+            self.store.append(None, [profile.name,
+                                     profile.country,
+                                     profile.type,
+                                     profile])
 
         # select the first row
         iter = self.store.get_iter(0)
@@ -169,4 +170,3 @@ class APNSelectionView(View):
         else:
             _iter = model.get_iter(selected[0])
         return model.get_value(_iter, 3) # the object
-

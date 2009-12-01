@@ -16,20 +16,21 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-import os.path
+from os.path import join
 
 import gtk
-
 from gtkmvc import View
+
 from wader.vmc.consts import GLADE_DIR, IMAGES_DIR
 
 
 class DiagnosticsView(View):
     """View for the main diagnostics window"""
-    GLADE_FILE = os.path.join(GLADE_DIR, "diagnostics.glade")
-    Sim_Image= os.path.join(IMAGES_DIR, "simple_sim_35x20.png")
-    Computer_Image = os.path.join(IMAGES_DIR, "netbookGraphic_50x25.png")
-    Modem_Image= os.path.join(IMAGES_DIR, "blackDongle_65x18.png")
+
+    GLADE_FILE = join(GLADE_DIR, "diagnostics.glade")
+    Sim_Image = join(IMAGES_DIR, "simple_sim_35x20.png")
+    Computer_Image = join(IMAGES_DIR, "netbookGraphic_50x25.png")
+    Modem_Image = join(IMAGES_DIR, "blackDongle_65x18.png")
 
     def __init__(self, ctrl):
         View.__init__(self, ctrl, self.GLADE_FILE,
@@ -60,4 +61,3 @@ class DiagnosticsView(View):
 
     def set_appVersion_info(self, appVersion):
         self['vmc_version'].set_text(appVersion)
-

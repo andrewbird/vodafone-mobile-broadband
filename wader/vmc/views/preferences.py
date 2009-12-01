@@ -41,7 +41,8 @@ class PreferencesView(View):
     def setup_alternate_smsc_address_checkbox(self, val):
         self['smsc_profile_checkbutton'].set_active(val)
 
-    def setup_smsc_profile(self, profile_val, active_set, show_sms_preferences):
+    def setup_smsc_profile(self, profile_val, active_set,
+                           show_sms_preferences):
         self['sms_profiles_combobox'].set_model(profile_val)
         self['sms_profiles_combobox'].set_active_iter(active_set)
         self['vbox14'].set_sensitive(show_sms_preferences)
@@ -59,8 +60,8 @@ class PreferencesView(View):
         return model
 
     # second notebook page
-    # methods are called by the controller to setup the view for user preferences tab in properties.
-    # methods are called on initialisation
+    # methods are called by the controller to setup the view for user
+    # preferences tab in properties. methods are called on initialisation
 
     def setup_user_exit_without_confirmation(self, val):
         self['exit_without_confirmation_checkbutton'].set_active(val)
@@ -78,8 +79,9 @@ class PreferencesView(View):
         self['gnomekeyring_checkbutton'].set_active(val)
 
     # third page
-    # methods are called by the controller to setup the view for applications tab in properties.
-    # methods are called on initialisation
+    # methods are called by the controller to setup the view for
+    # applications tab in properties. methods are called on initialisation
+
     def setup_application_browser_text_box(self, val):
         self['browser_entry'].set_text(val)
 
@@ -95,20 +97,18 @@ class PreferencesView(View):
         self['browser_combobox'].set_active_iter(active_set)
 
     # fourth page
-    # methods are called by the controller to setup the view for usage options tab
-    # methods are called on initialisation
+    # methods are called by the controller to setup the view
+    # for usage options tab. methods are called on initialisation
+
     def setup_usage_max_traffic_value(self, val):
-        print "view: setup_usage_max_traffic_value - :" + repr(val )
+        print "view: setup_usage_max_traffic_value - :", val
         self['maximum_traffic_entry'].set_value(val)
-        return
 
     def setup_usage_threshold_value(self, val):
         self['threshold_entry'].set_value(val)
-        return
 
     def setup_usage_notification_check(self, val):
         self['usage_notification_check'].set_active(val)
-        return
 
 
 class SMSPreferencesView(View):
@@ -133,6 +133,7 @@ class SMSPreferencesView(View):
 
         cell = gtk.CellRendererText()
         combobox.pack_end(cell, False)
+
         def render_pyobj(cellview, cell, model, iter):
             pyobj = model.get_value(iter, 0)
             if pyobj:
@@ -142,4 +143,3 @@ class SMSPreferencesView(View):
         combobox.set_model(model)
         if model.active:
             combobox.set_active_iter(model.active)
-
