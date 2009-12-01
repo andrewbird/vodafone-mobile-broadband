@@ -32,6 +32,7 @@ from wader.vmc.models.preferences import PreferencesModel
 from wader.vmc.translate import _
 from wader.vmc.utils import dbus_error_is, get_error_msg
 from wader.vmc.signals import NET_MODE_SIGNALS
+from wader.vmc.consts import USAGE_DB
 from wader.vmc.config import config
 from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
                                  WADER_DIALUP_SERVICE, WADER_DIALUP_OBJECT,
@@ -39,7 +40,7 @@ from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
                                  NM_SYSTEM_SETTINGS_CONNECTION,
                                  WADER_DIALUP_INTFACE, WADER_KEYRING_INTFACE,
                                  MM_NETWORK_MODE_UMTS, MM_NETWORK_MODE_HSDPA,
-                                 MM_NETWORK_MODE_HSUPA, MM_NETWORK_MODE_HSPA, 
+                                 MM_NETWORK_MODE_HSUPA, MM_NETWORK_MODE_HSPA,
                                  MM_NETWORK_MODE_GPRS)
 
 import wader.common.aterrors as E
@@ -527,12 +528,12 @@ class MainModel(Model):
 
         # before we set the counters to zero let's store the stats in the usage db.
         # first create a UsageProvider object to store the data into.
-        data_usage_entry = UsageProvider()
-        
+        provider = UsageProvider(USAGE_DB)
+
         # lets find out the end time. It's UTC and epoch format.
         time_stamp = datetime.datetime.utcnow()
         self.end_time = time.mktime(time_stamp.timetuple())
-        
+
         # we also need to see if we were connected to 3g or gprs.
         # First set bearer type to false
         bearer_type = False
@@ -540,11 +541,11 @@ class MainModel(Model):
             bearer_type = False
         else:
             bearer_type = True
-        
+
         #usage_data  is now being saved in our sqlite db via the usage_data object
         # the attributes are:  3G/GPRS, session_start_time, session_end_time, bytes_recv, bytes_sent):
-        
-        usage_data = data_usage_entry.add_usage_item(bearer_type, self.start_time,  self.end_time, self.rx_bytes,  self.tx_bytes)
+
+        usage_item = provider.add_usage_item(bearer_type, self.start_time, self.end_time, self.rx_bytes, self.tx_bytes)
 
         self.rx_bytes = 0
         self.tx_bytes = 0
@@ -562,7 +563,7 @@ class MainModel(Model):
         current_month_gprs += self.session_gprs
         self.conf.set('statistics', 'current_month_gprs', current_month_gprs)
         self.session_gprs = 0
-        
+
     #----------------------------------------------#
     # USAGE STATS MODEL                            #
     #----------------------------------------------#
