@@ -36,11 +36,8 @@ class StatsBar(gtk.DrawingArea):
         self.value = value
         self.units = units
         #min and max values in self.units
-#        self.min_value = units_to_bits(min_value, units)
         self.min_value = units_to_bytes(min_value, units)
-#        self.max_value = units_to_bits(max_value, units)
         self.max_value = units_to_bytes(max_value, units)
-#        self.user_limit = units_to_bits(user_limit, units)
         self.user_limit = units_to_bytes(user_limit, units)
 
         self.connect('expose-event', self.on_expose)
@@ -75,10 +72,9 @@ class StatsBar(gtk.DrawingArea):
     def on_expose(self, widget, event):
         if not widget.window:
             return
-        cr = widget.window.cairo_create()
 
+        cr = widget.window.cairo_create()
         if self.supports_alpha:
-        #if 0:
             cr.set_source_rgba(1.0, 1.0, 1.0, 0.0) # Transparent
         else:
             cr.set_source_rgb(1.0, 1.0, 1.0) # Opaque white
@@ -113,7 +109,7 @@ class StatsBar(gtk.DrawingArea):
     def draw_limits(self, cr, inner_width, height):
         cr.set_source_rgba(1.0, 1.0, 1.0, 1.0)
         cr.set_line_width(.1)
-#        step = float(height) / bits_to_units(self.max_value, self.units)
+
         step = float(height) / bytes_to_units(self.max_value, self.units)
         frange = lambda a, b, step: [x * step
                                        for x in xrange(a, int(b * (1 / step)))]

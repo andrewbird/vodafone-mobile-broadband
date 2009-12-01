@@ -39,17 +39,9 @@ def dbus_error_is(e, exception):
     return exception.__name__ in get_error_msg(e)
 
 
-def units_to_bits(value, units):
-    return value * 8 * (2 ** (units * 10))
-
 
 def units_to_bytes(value, units):
     return value * (2 ** (units * 10))
-
-
-def bits_to_units(bits, units):
-    _bytes = (bits / 8)
-    return float(_bytes) / (2 ** (units * 10))
 
 
 def bytes_to_units(_bytes, units):

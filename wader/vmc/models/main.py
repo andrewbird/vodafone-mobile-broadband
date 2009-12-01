@@ -256,9 +256,7 @@ class MainModel(Model):
     def _enable_device_cb(self):
         logger.info("Device enabled")
 
-        self.pin_required = False
-        self.puk_required = False
-        self.puk2_required = False
+        self.pin_required = self.puk_required = self.puk2_required = False
 
         self.device.connect_to_signal(S.SIG_RSSI, self._rssi_changed_cb)
         self.device.connect_to_signal(S.SIG_NETWORK_MODE,
@@ -371,9 +369,6 @@ class MainModel(Model):
 
     def _check_pin_status(self):
 
-        def _check_pin_status_cb():
-            pass
-
         def _check_pin_status_eb(e):
             if dbus_error_is(e, E.SimPinRequired):
                 self.pin_required = False
@@ -388,7 +383,7 @@ class MainModel(Model):
                 self.sim_error = get_error_msg(e)
 
         self.device.Check(dbus_interface=CRD_INTFACE,
-                          reply_handler=_check_pin_status_cb,
+                          reply_handler=lambda: True,
                           error_handler=_check_pin_status_eb)
 
     def _send_pin_eb(self, e):
@@ -451,8 +446,8 @@ class MainModel(Model):
                 self.puk2_required = True
 
         self.device.EnablePin(pin, enable, dbus_interface=CRD_INTFACE,
-                                           reply_handler=enable_pin_cb,
-                                           error_handler=enable_pin_eb)
+                              reply_handler=enable_pin_cb,
+                              error_handler=enable_pin_eb)
 
     def change_pin(self, oldpin, newpin, cb=None, eb=None):
         logger.info("Change PIN request")
@@ -473,16 +468,15 @@ class MainModel(Model):
                 self.puk2_required = True
 
         self.device.ChangePin(oldpin, newpin, dbus_interface=CRD_INTFACE,
-                                              reply_handler=change_pin_cb,
-                                              error_handler=change_pin_eb)
+                              reply_handler=change_pin_cb,
+                              error_handler=change_pin_eb)
 
     def check_transfer_limit(self):
         warn_limit = self.conf.get('preferences', 'usage_notification', False)
-        print "self.total_bytes: ", self.total_bytes
         if warn_limit:
             transfer_limit = self.conf.get('preferences', 'traffic_threshold', 0.0)
             transfer_limit = float(transfer_limit) * ONE_MB
-            if transfer_limit > 0  and  self.total_bytes > transfer_limit:
+            if transfer_limit > 0 and self.total_bytes > transfer_limit:
                 self.transfer_limit_exceeded = True
             else:
                 self.transfer_limit_exceeded = False
@@ -544,9 +538,7 @@ class MainModel(Model):
                                              self.end_time, self.rx_bytes,
                                              self.tx_bytes)
 
-        self.rx_bytes = 0
-        self.tx_bytes = 0
-        self.rx_rate = self.tx_rate = 0
+        self.rx_bytes = self.tx_bytes = self.rx_rate = self.tx_rate = 0
         self.previous_bytes = 0
 
         self.conf.set('statistics', 'total_bytes', self.total_bytes)
@@ -581,8 +573,8 @@ class MainModel(Model):
         except ValueError:
             #It's a last day greater than the last day of the new month
             next_month = d.replace(day=1,
-                                  month=(new_month + 1) % 12 or 12,
-                                  year=new_year)
+                                   month=(new_month + 1) % 12 or 12,
+                                   year=new_year)
             ret = next_month - datetime.timedelta(days=1)
         return ret
 
@@ -619,8 +611,7 @@ class MainModel(Model):
                 transferred_3g = self.session_3g
                 transferred_gprs = self.session_gprs
             else:
-                transferred_3g = 0
-                transferred_gprs = 0
+                transferred_3g = transferred_gprs = 0
 
             # XXX: RIGHT NOW ALL TRAFFIC IS CONSIDERED AS UMTS TRAFFIC.
 
@@ -636,8 +627,7 @@ class MainModel(Model):
                 transferred_gprs = self.conf.get('statistics', 'previous_month_gprs', 0)
             else:
                 # Data not available.
-                transferred_3g = 0
-                transferred_gprs = 0
+                transferred_3g = transferred_gprs = 0
 
             # Historical usage data
 #            usage = usage_manager.get_usage_for_month(dateobj)

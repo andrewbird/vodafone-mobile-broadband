@@ -197,15 +197,6 @@ class MainView(View):
 
         self['net_statusbar'].push(1, _('Connected'))
 
-    def get_connected(self):
-        # my job in life is to tell the controller if I think we are connected.
-        # And that is what I shall do!
-        obj = self['connect_button']
-        if obj.get_active():
-            return True
-        else:
-            return False
-
     def setup_treeview(self, ctrl):
         """Sets up the treeviews"""
         for name in list(set(TV_DICT.values())):

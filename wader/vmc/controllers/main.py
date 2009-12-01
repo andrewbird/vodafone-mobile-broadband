@@ -427,15 +427,13 @@ class MainController(WidgetController):
             self.view['support_tool_button'].set_active(True)
 
     def on_internet_button_clicked(self, widget):
-#        if self._check_if_connected():
-        if True:
+        if self.model.is_connected():
             binary = config.get('preferences', 'browser', CFG_PREFS_DEFAULT_BROWSER)
             if binary:
                 Popen([binary, APP_URL])
 
     def on_mail_button_clicked(self, widget):
-#        if self._check_if_connected():
-        if True:
+        if self.model.is_connected():
             binary = config.get('preferences', 'mail', CFG_PREFS_DEFAULT_EMAIL)
             if binary:
                 Popen([binary, 'REPLACE@ME.COM'])
@@ -550,8 +548,7 @@ class MainController(WidgetController):
 
         menu = gtk.Menu()
 
-#        if self.model.is_connected():
-        if self.model.dial_path:
+        if self.model.is_connected():
             item = gtk.ImageMenuItem(_("Disconnect"))
             img = gtk.Image()
             img.set_from_file(os.path.join(IMAGES_DIR, 'stop16x16.png'))
@@ -1082,12 +1079,7 @@ The csv file that you have tried to import has an invalid format.""")
         self.view.update_bars_user_limit()
 #            self.usage_notifier()   # I rather use check_transfer_limit function in model.
         # XXX. study if returning True or False is important.
-        if self.view.get_connected():
-#                print "Main- Update Usage View - view.get_connected is True I must be connected so keep measuring stats."
-            return True
-        else:
-#                print "Main- Update Usage View - view.get_connected is False I must be disconnected so stop measuring!!!"
-            return False
+        return self.model.is_connected()
 
     def on_reply_sms_no_quoting_menu_item_activate(self, widget):
         message = self.get_obj_from_selected_row()
@@ -1316,8 +1308,8 @@ The csv file that you have tried to import has an invalid format.""")
             treeview.get_selection().select_iter(_inxt) # select next item
         else:
             n_rows = len(model)                         # select last item
-            if n_rows > 0:
-                _inxt = model[n_rows-1].iter
+            if n_rows:
+                _inxt = model[n_rows - 1].iter
                 treeview.get_selection().select_iter(_inxt)
 
         # If we are in a sms treeview update displayed text
