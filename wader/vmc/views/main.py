@@ -110,6 +110,8 @@ class MainView(View):
         window.set_position(gtk.WIN_POS_CENTER)
         window.set_size_request(width=WIN_WIDTH, height=height)
         self._setup_usage_view()
+        # setup the signal strength to be defaluted to 'zero power'
+        self['signal_image'].set_from_file(os.path.join(IMAGES_DIR, 'throbber.gif'))
 
     def theme_ui(self):
         theme = os.path.join(THEMES_DIR, "default.gtkrc")
