@@ -24,8 +24,10 @@ from wader.common.utils import revert_dict
 from wader.vmc.logger import logger
 from wader.vmc.translate import _
 from wader.vmc.config import config
-from wader.vmc.consts import (CFG_PREFS_DEFAULT_BROWSER, CFG_PREFS_DEFAULT_EMAIL,
-                              CFG_PREFS_DEFAULT_TRAY_ICON, CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
+from wader.vmc.consts import (CFG_PREFS_DEFAULT_BROWSER,
+                              CFG_PREFS_DEFAULT_EMAIL,
+                              CFG_PREFS_DEFAULT_TRAY_ICON,
+                              CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
                               CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION)
 
 PREF_TABS = ["PROFILES"]
@@ -76,30 +78,23 @@ class PreferencesModel(Model):
 
         # ok lets load the SMS preferences from the configuration file.
         # but take care! If the config file is absent set to default values.
-        self.use_alternate_smsc = self.conf.get('preferences', 'use_alternate_smsc')
-        if (self.use_alternate_smsc ==''):
-            print "model: Warning! self.use_alternate_smsc flag is NULL"
-            self.use_alternate_smsc = False
+        self.use_alternate_smsc = self.conf.get('preferences',
+                                                'use_alternate_smsc', False)
 
-        self.smsc_profile = self.conf.get('preferences', 'smsc_profile')
-        if (self.smsc_profile ==''):
-            print "model: Warning! self.smsc_profile is NULL"
-            self.smsc_profile = 'Vodafone UK United Kingdon'
+        self.smsc_profile = self.conf.get('preferences', 'smsc_profile',
+                                          'Vodafone UK United Kingdon')
 
-        self.smsc_number = self.conf.get('preferences', 'smsc_number')
-        if (self.smsc_number ==''):
-            print "model: Warning! self.smsc_number is NULL"
-            self.smsc_number = '+447785016005'
+        self.smsc_number = self.conf.get('preferences', 'smsc_number',
+                                         '+447785016005')
 
-        self.smsc_validity = self.conf.get('preferences', 'smsc_validity')
-        if (self.smsc_validity ==''):
-            print "model: Warning! self.smsc_validity is NULL"
-            self.smsc_validity = 'maximum'
+        self.smsc_validity = self.conf.get('preferences', 'smsc_validity',
+                                           'maximum')
 
-        # ok lets load the user preferences from configuration file into the model
-        # but take care! If the confi file is absent set to false!
-        self.exit_without_confirmation = config.get('preferences', 'exit_without_confirmation',
-                                    CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION)
+        # ok lets load the user preferences from configuration file into the
+        # model but take care! If the config file is absent set to false!
+        self.exit_without_confirmation = config.get('preferences',
+                                                  'exit_without_confirmation',
+                                   CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION)
 
         self.show_icon = config.get('preferences', 'show_icon',
                                     CFG_PREFS_DEFAULT_TRAY_ICON)
@@ -113,37 +108,33 @@ class PreferencesModel(Model):
             self.manage_my_keyring = False
 
         # ok lets load the application values from configuration file
-        self.browser = config.get('preferences', 'browser', CFG_PREFS_DEFAULT_BROWSER)
+        self.browser = config.get('preferences', 'browser',
+                                  CFG_PREFS_DEFAULT_BROWSER)
         self.mail = config.get('preferences', 'mail', CFG_PREFS_DEFAULT_EMAIL)
 
         # ok lets load the usage values from configuration file
-        self.max_traffic = config.get('preferences', 'max_traffic')
-        if (self.max_traffic ==''):
-            print "model: Warning! self.max_traffic is NULL"
-            self.max_traffic = 100
+        self.max_traffic = config.get('preferences', 'max_traffic', 100)
 
-        self.traffic_threshold = config.get('preferences', 'traffic_threshold')
-        if (self.traffic_threshold ==''):
-            print "model: Warning! self.traffic_threshold is NULL"
-            self.traffic_threshold = 10
+        self.traffic_threshold = config.get('preferences',
+                                            'traffic_threshold', 10)
 
-        self.usage_notification = config.get('preferences', 'usage_notification')
-        if (self.usage_notification ==''):
-            print "model: Warning! self.usage_notification is NULL"
-            self.usage_notification = False
+        self.usage_notification = config.get('preferences',
+                                             'usage_notification', False)
 
     def save(self):
         #self.conf.set('statistics', 'warn_limit', self.warn_limit)
         #self.conf.set('statistics', 'transfer_limit', self.transfer_limit)
 
         # Save all the attributes on the SMS tab
-        config.set('preferences', 'use_alternate_smsc', self.use_alternate_smsc)
+        config.set('preferences', 'use_alternate_smsc',
+                   self.use_alternate_smsc)
         config.set('preferences', 'smsc_profile', self.smsc_profile)
         config.set('preferences', 'smsc_number', self.smsc_number)
         config.set('preferences', 'smsc_validity', self.smsc_validity)
 
         # Save all the attributes on the user preferences tab
-        config.set('preferences', 'exit_without_confirmation', self.exit_without_confirmation)
+        config.set('preferences', 'exit_without_confirmation',
+                   self.exit_without_confirmation)
         config.set('preferences', 'show_icon', self.show_icon)
         config.set('preferences', 'close_minimizes', self.close_minimizes)
         config.set('preferences', 'manage_my_keyring', self.manage_my_keyring)

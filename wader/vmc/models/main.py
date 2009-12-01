@@ -92,8 +92,10 @@ class MainModel(Model):
         'transfer_limit_exceeded': False,
     }
 
-    connected = False     # XXX: Should this come in properties?
-    previous_bytes = 0    # This variable shows last session bytes stored in gprs or 3g.
+    # XXX: Should this come in properties?
+    connected = False
+    # This variable shows last session bytes stored in gprs or 3g.
+    previous_bytes = 0
     previous_tech = _('Unknown') # Last mobile technology used.
     session_3g = 0  # Stores current session 3g tx and rx bytes.
     session_gprs = 0 # Stores current session gprs tx and rx bytes.

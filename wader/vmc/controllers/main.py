@@ -103,6 +103,7 @@ class MainController(WidgetController):
         self.tray = None
         # ignore cancelled connection attempts errors
         self._ignore_no_reply = False
+        self.usage_updater = None
 
     def register_view(self, view):
         super(MainController, self).register_view(view)

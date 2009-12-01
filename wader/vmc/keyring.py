@@ -21,10 +21,7 @@ Client for gnomekeyring
 
 import gnomekeyring
 
-try:
-    import gconf
-except ImportError:
-    import vmc.contrib.fakegconf as gconf
+import gconf
 
 from wader.common.consts import APP_SLUG_NAME as slug
 from wader.vmc.consts import APP_LONG_NAME
