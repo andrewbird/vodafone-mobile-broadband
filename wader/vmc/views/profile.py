@@ -117,6 +117,8 @@ class APNSelectionView(View):
         super(APNSelectionView, self).__init__(ctrl, self.GLADE_FILE,
                                                'apn_selection_window',
                                                register=False)
+        self.store = None
+        self._view = None
         self.setup_view()
         ctrl.register_view(self)
 
@@ -157,16 +159,18 @@ class APNSelectionView(View):
                                      profile])
 
         # select the first row
-        iter = self.store.get_iter(0)
-        if iter:
-            self._view.get_selection().select_iter(iter)
+        _iter = self.store.get_iter(0)
+        if _iter:
+            self._view.get_selection().select_iter(_iter)
 
     def get_selected_apn(self):
         model, selected = self._view.get_selection().get_selected_rows()
         if model is None:
             return None
+
         if not selected:
             _iter = model.get_iter(0)    # 1st row if no selection
         else:
             _iter = model.get_iter(selected[0])
+
         return model.get_value(_iter, 3) # the object

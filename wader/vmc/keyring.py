@@ -26,7 +26,8 @@ try:
 except ImportError:
     import vmc.contrib.fakegconf as gconf
 
-from wader.common.consts import APP_SLUG_NAME as slug, APP_LONG_NAME
+from wader.common.consts import APP_SLUG_NAME as slug
+from wader.vmc.consts import APP_LONG_NAME
 
 class KeyringClient(object):
     """

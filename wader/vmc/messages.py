@@ -70,7 +70,8 @@ class DBSMSManager(object):
         return [self.add_message(sms, where) for sms in sms_list]
 
     def delete_message(self, sms):
-        self.provider.delete_sms(sms) # we should delete the containing thread if it's empty
+        # we should delete the containing thread if it's empty
+        self.provider.delete_sms(sms)
 
     def get_messages(self):
         ret = []
@@ -148,4 +149,3 @@ def get_messages_obj(device):
     _messages = Messages()
     _messages.device = device
     return _messages
-

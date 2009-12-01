@@ -37,14 +37,15 @@ class SplashScreen(gtk.Window):
         self.add(img)
 
     def show_it(self, displaytime):
-#        gtk.timeout_add(displaytime*1000, lambda splash: splash.destroy(), self)
+#        gtk.timeout_add(displaytime*1000, lambda splash:
+#                             splash.destroy(), self)
         self.show_all()
         self.show_now()
 
         while gtk.events_pending():
             gtk.main_iteration()
 
-        sleep(displaytime) # XXX: This is poor, need to switch to some other blocking method
+        # XXX: This is poor, need to switch to some other blocking method
+        sleep(displaytime)
 
         self.destroy()
-

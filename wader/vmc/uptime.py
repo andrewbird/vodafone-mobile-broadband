@@ -21,20 +21,21 @@ from math import ceil
 from wader.vmc.translate import _
 
 TIME_DESCRIPTION = {
-      60 : 'minute',
-      3600 : 'hour',
-      86400 : 'day',
+    60 : 'minute',
+    3600: 'hour',
+    86400: 'day',
 }
 
 TIME_KEYS = TIME_DESCRIPTION.keys()
 TIME_KEYS.sort()
 TIME_KEYS.reverse()
 
-def get_uptime():
 
-    pf=open('/proc/uptime', 'r')
+def get_uptime():
+    pf = open('/proc/uptime', 'r')
     if not pf:
         return ""
+
     uptime = pf.readline().rstrip()
     pf.close()
 
@@ -43,9 +44,8 @@ def get_uptime():
 
     uptime = float(uptime.split()[0])
     uptime = int(ceil(uptime))
-    msg = get_uptime_string(uptime)
+    return get_uptime_string(uptime)
 
-    return msg
 
 def get_time_dict(uptime):
     """Returns a dictionary with a resolution of minutes"""
@@ -59,6 +59,7 @@ def get_time_dict(uptime):
         resp[key_name] = div
 
     return resp
+
 
 def get_uptime_string(uptime):
     """Returns a uptime(1)'s like output from a uptime expressed in seconds"""
@@ -90,4 +91,3 @@ def get_uptime_string(uptime):
 
 if __name__ == '__main__':
     print get_uptime()
-

@@ -208,7 +208,7 @@ class MainModel(Model):
             callback(None)
 
         self.device.GetImsi(dbus_interface=CRD_INTFACE,
-                            reply_handler=lambda imsi: callback(imsi),
+                            reply_handler=callback,
                             error_handler=errback)
 
     def _get_devices_eb(self, error):

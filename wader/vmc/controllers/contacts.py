@@ -92,7 +92,7 @@ class SearchContactController(Controller):
 
         def find_contact_cb(contacts):
             if not contacts:
-                dialogs.open_message_dialog(_('No contact found'),
+                dialogs.show_warning_dialog(_('No contact found'),
                             _('No contact with the name %s found') % pattern)
                 return
 

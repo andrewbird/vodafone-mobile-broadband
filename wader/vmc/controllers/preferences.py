@@ -59,8 +59,9 @@ class PreferencesController(Controller):
 
     def setup_sms_tab(self):
         # setup the sms preferences to reflect what's in our model on startup
-        # remember that if 'use an alternative SMSC service centre is set ' is False we have to grey out 'SMSC preferences' so
-        # tell the view that he has to do that by checking the show_smsc_preferences flag.
+        # remember that if 'use an alternative SMSC service centre is set ' is
+        # False we have to grey out 'SMSC preferences' so tell the view that
+        # he has to do that by checking the show_smsc_preferences flag.
 
         alternate_smsc_flag = self.model.use_alternate_smsc
         smsc_number = self.model.smsc_number
@@ -90,8 +91,9 @@ class PreferencesController(Controller):
 
     def setup_user_prefs_tab(self):
         # setup the user preferences to reflect what's in our model on startup
-        # remember that if 'show_icon_on_tray' is False we have to grey out 'Close_window_app_to_tray' so
-        # tell the view that he has to do that by checking the show_icon flag and passing this with sensitive flag.
+        # remember that if 'show_icon_on_tray' is False we have to grey out
+        # 'Close_window_app_to_tray' so tell the view that he has to do that
+        # by checking the show_icon flag and passing this with sensitive flag.
         sensitive = self.model.show_icon
 
         self.view.setup_user_exit_without_confirmation(self.model.exit_without_confirmation)
@@ -108,19 +110,21 @@ class PreferencesController(Controller):
         return
 
     def setup_mail_browser_tab(self):
-        # setup the mail and browser tab to reflect what's in our model on startup
+        # setup the mail and browser tab to reflect what's in model on startup
 
         # ok lets populate the view of the mail combo box and text box first
         mail_combo_box = gtk.ListStore(gobject.TYPE_STRING)
         iterator = mail_combo_box.append([CFG_PREFS_DEFAULT_EMAIL])
         custom_iter = mail_combo_box.append([_('Custom')])
 
-        # ok lets get the value for the mail text box from the model if it exists
+        # ok lets get the value for the mail text box from the model if exists
         mail_text_box = self.model.mail
-        active_set = iterator if mail_text_box == CFG_PREFS_DEFAULT_EMAIL else custom_iter
+        active_set = (iterator if mail_text_box == CFG_PREFS_DEFAULT_EMAIL
+                                   else custom_iter)
         # set the combo box in the view to show the values
         self.view.setup_application_mail_combo_box(mail_combo_box, active_set)
-        # we have to set the text box if it's a custom value otherwise leave blank and show the default.
+        # we have to set the text box if it's a custom value otherwise leave
+        # blank and show the default.
         if mail_text_box != CFG_PREFS_DEFAULT_EMAIL:
             self.view.setup_application_mail_text_box(mail_text_box)
 
@@ -130,12 +134,16 @@ class PreferencesController(Controller):
         iterator = browser_combo_box.append([CFG_PREFS_DEFAULT_BROWSER])
         custom_iter = browser_combo_box.append([_('Custom')])
 
-        # ok lets get the value for the browser text box from the model if it exists
+        # ok lets get the value for the browser text box from the model
+        # if it exists
         browser_text_box = self.model.browser
-        active_set = iterator if browser_text_box == CFG_PREFS_DEFAULT_BROWSER else custom_iter
+        active_set = (iterator if browser_text_box == CFG_PREFS_DEFAULT_BROWSER
+                                   else custom_iter)
         # set the combo box in the view to show values
-        self.view.setup_application_browser_combo_box(browser_combo_box, active_set)
-        # we have to set the browser box if it's a custom value otherwise leave blang and show the default
+        self.view.setup_application_browser_combo_box(browser_combo_box,
+                                                      active_set)
+        # we have to set the browser box if it's a custom value otherwise
+        # leave blank and show the default
         if browser_text_box != CFG_PREFS_DEFAULT_BROWSER:
             self.view.setup_application_browser_text_box(browser_text_box)
 
@@ -218,7 +226,8 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
 
     def on_preferences_ok_button_clicked(self, widget):
         # ----- first tab -----
-        # lets fetch all the values stored in the view for the first tab and place them in the model.
+        # lets fetch all the values stored in the view for the first tab
+        # and place them in the model.
 
         # get the sms validity virst
         #sms_validity_view = gtk.ListStore(gobject.TYPE_STRING)
@@ -229,13 +238,15 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
             self.model.smsc_validity = validity_option
 
         # get the 'use an alternative smsc address' and save to config.
-        # If this is set 'true' then we should not bother saving details for profile or smsc number, so first get the value from the view.
-        alternate_sms_checkbox = self.view['smsc_profile_checkbutton'].get_active()
+        # If this is set 'true' then we should not bother saving details for
+        # profile or smsc number, so first get the value from the view.
+        alternate_sms_checkbox = \
+                self.view['smsc_profile_checkbutton'].get_active()
         # Now set the model to that value.
         self.model.use_alternate_smsc = alternate_sms_checkbox
 
         # OK only set the SMSC values if the alternate_sms_checkbox is true.
-        if alternate_sms_checkbox==True:
+        if alternate_sms_checkbox == True:
             smsc_profile_view = self.view['sms_profiles_combobox'].get_model()
             iteration = self.view['sms_profiles_combobox'].get_active_iter()
             smsc_profile_option = smsc_profile_view.get_value(iteration, 0)
@@ -249,12 +260,13 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
 
         # ----- second tab -----
         # lets fetch all the vaules stored in the view for the second tab.
-        exit_without_confirmation = self.view['exit_without_confirmation_checkbutton'].get_active()
+        exit_without_confirmation = \
+              self.view['exit_without_confirmation_checkbutton'].get_active()
         close_minimizes = self.view['close_window_checkbutton'].get_active()
         show_icon = self.view['show_icon_checkbutton'].get_active()
         manage_keyring = self.view['gnomekeyring_checkbutton'].get_active()
 
-        # ok lets set the model with those values. The model can deal with saving them to disk! :-)
+        # set the model with those values.
         self.model.exit_without_confirmation = exit_without_confirmation
         self.model.close_minimizes = close_minimizes
         self.model.show_icon = show_icon
@@ -285,8 +297,8 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         iteration = self.view['mail_combobox'].get_active_iter()
         mail_options = mail_combo_view.get_value(iteration, 0)
 
-        # ok if the guy selects the xdg-email just save that name value pair in the model
-        # otherwise save the entry in the comand box
+        # ok if the guy selects the xdg-email just save that name
+        # value pair in the model otherwise save the entry in the comand box
         mail_command = self.view['mail_entry'].get_text()
         if mail_options != CFG_PREFS_DEFAULT_EMAIL and mail_command:
             self.model.mail = mail_command
@@ -309,8 +321,10 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         # ok lets ask the model to save those items
         self.model.save()
         self._hide_ourselves()
-        self.parent_ctrl.model.check_transfer_limit()   # check threshold after changing values.
-        self.parent_ctrl.update_usage_view()  # update usage view even if there is no connection active.
+        # check threshold after changing values.
+        self.parent_ctrl.model.check_transfer_limit()
+        # update usage view even if there is no connection active.
+        self.parent_ctrl.update_usage_view()
 
     def on_preferences_cancel_button_clicked(self, widget):
         self._hide_ourselves()
@@ -412,11 +426,8 @@ class SMSPreferencesController(Controller):
         d.addCallback(get_imsi_cb)
 
     def _setup_message_options(self):
-        validity = config.get('sms', 'validity')
-        if not validity:
-            config.set('sms', 'validity', 'maximum')
-            config.write()
-            validity = 'maximum'
+        validity = config.get('sms', 'validity', 'maximum')
+        config.set('sms', 'validity', validity)
 
         combobox = self.view['validity_combobox']
         model = combobox.get_model()
@@ -451,7 +462,6 @@ class SMSPreferencesController(Controller):
         if validity:
             validity_key = VALIDITY_DICT[validity]
             config.set('sms', 'validity', validity_key)
-            config.write()
 
         # check that we have changed the SMSC info
         if self.smsc_entry.isvalid():

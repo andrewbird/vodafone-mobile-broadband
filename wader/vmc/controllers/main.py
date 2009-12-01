@@ -1074,19 +1074,19 @@ The csv file that you have tried to import has an invalid format.""")
     def update_usage_view(self):
         # make sure we ask the view if he is set as connected. If he is update our graph bits.
 
-            self.model.clean_usage_cache()
-            self._update_usage_panel('current', 0)
-            self._update_usage_panel('last', -1)
-            self._update_usage_session()
-            self.view.update_bars_user_limit()
+        self.model.clean_usage_cache()
+        self._update_usage_panel('current', 0)
+        self._update_usage_panel('last', -1)
+        self._update_usage_session()
+        self.view.update_bars_user_limit()
 #            self.usage_notifier()   # I rather use check_transfer_limit function in model.
-            # XXX. study if returning True or False is important.
-            if self.view.get_connected():
+        # XXX. study if returning True or False is important.
+        if self.view.get_connected():
 #                print "Main- Update Usage View - view.get_connected is True I must be connected so keep measuring stats."
-                return True
-            else:
+            return True
+        else:
 #                print "Main- Update Usage View - view.get_connected is False I must be disconnected so stop measuring!!!"
-                return False
+            return False
 
     def on_reply_sms_no_quoting_menu_item_activate(self, widget):
         message = self.get_obj_from_selected_row()
@@ -1309,7 +1309,7 @@ The csv file that you have tried to import has an invalid format.""")
 #      invalidate the selection after delete or the selection is wrong
         _inxt = None
         for _iter in iters:
-            _inxt=model.iter_next(_iter)
+            _inxt = model.iter_next(_iter)
             model.remove(_iter) # delete from treeview
         if _inxt:
             treeview.get_selection().select_iter(_inxt) # select next item
