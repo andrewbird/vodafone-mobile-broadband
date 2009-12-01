@@ -18,11 +18,14 @@
 """Contacts-related models"""
 
 import gtk
+
 from gtkmvc import ListStoreModel
 from gobject import TYPE_STRING, TYPE_PYOBJECT, TYPE_BOOLEAN
 
+
 class ContactsStoreModel(ListStoreModel):
     """Store Model for Contacts treeviews"""
+
     def __init__(self):
         super(ContactsStoreModel, self).__init__(gtk.gdk.Pixbuf,
                 TYPE_STRING, TYPE_STRING, TYPE_PYOBJECT, TYPE_BOOLEAN)
@@ -35,7 +38,8 @@ class ContactsStoreModel(ListStoreModel):
     def add_contact(self, contact):
         """Adds C{contact} to the store"""
         img = gtk.gdk.pixbuf_new_from_file(contact.image_16x16())
-        self.append([img, contact.name, contact.number, contact, contact.writable])
+        self.append([img, contact.name, contact.number, contact,
+                     contact.writable])
 
     def find_contacts_by_number(self, number):
         ret = []
@@ -46,4 +50,5 @@ class ContactsStoreModel(ListStoreModel):
                 ret.append(self.get_value(_iter, 3))
 
             _iter = self.iter_next(_iter)
+
         return ret

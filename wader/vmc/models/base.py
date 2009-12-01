@@ -18,12 +18,15 @@
 """
 Base classes for Models
 """
+
 from gtkmvc import Model
+
 
 class BaseWrapperModel(Model):
     """
     I provide all DevicePlugin's methods to my controller
     """
+
     def __init__(self, device=None):
         super(BaseWrapperModel, self).__init__()
         self.device = device
@@ -33,4 +36,3 @@ class BaseWrapperModel(Model):
             return self.device
 
         return None
-

@@ -31,10 +31,10 @@ from wader.vmc.consts import (CFG_PREFS_DEFAULT_BROWSER, CFG_PREFS_DEFAULT_EMAIL
 PREF_TABS = ["PROFILES"]
 
 VALIDITY_DICT = {
-     _('Maximum time').encode('utf8') : 'maximum',
-     _('1 week').encode('utf8') : '1week',
-     _('3 days').encode('utf8') : '3days',
-     _('1 day').encode('utf8') : '1day',
+     _('Maximum time').encode('utf8'): 'maximum',
+     _('1 week').encode('utf8'): '1week',
+     _('3 days').encode('utf8'): '3days',
+     _('1 day').encode('utf8'): '1day',
 }
 
 VALIDITY_DICT_REV = revert_dict(VALIDITY_DICT)
@@ -43,24 +43,24 @@ VALIDITY_DICT_REV = revert_dict(VALIDITY_DICT)
 class PreferencesModel(Model):
 
     __properties__ = {
-        'current_tab' : PREF_TABS[0],
-        'default_profile' : None,
-        'warn_limit' : False,
-        'transfer_limit' : -1,
-        'use_alternate_smsc' : False,
-        'validities' : VALIDITY_DICT,
-        'smsc_profile' : "default",
-        'smsc_number' : "+447785016005",
-        'smsc_validity' : "maximum",
-        'exit_without_confirmation' : CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION,
-        'show_icon' : CFG_PREFS_DEFAULT_TRAY_ICON,
-        'close_minimizes' : CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
-        'manage_my_keyring' : False,
-        'max_traffic' : 10,
-        'traffic_threshold' : 100,
-        'usage_notification' : False,
-        'browser' : CFG_PREFS_DEFAULT_BROWSER,
-        'mail' : CFG_PREFS_DEFAULT_EMAIL
+        'current_tab': PREF_TABS[0],
+        'default_profile': None,
+        'warn_limit': False,
+        'transfer_limit': -1,
+        'use_alternate_smsc': False,
+        'validities': VALIDITY_DICT,
+        'smsc_profile': "default",
+        'smsc_number': "+447785016005",
+        'smsc_validity': "maximum",
+        'exit_without_confirmation': CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION,
+        'show_icon': CFG_PREFS_DEFAULT_TRAY_ICON,
+        'close_minimizes': CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
+        'manage_my_keyring': False,
+        'max_traffic': 10,
+        'traffic_threshold': 100,
+        'usage_notification': False,
+        'browser': CFG_PREFS_DEFAULT_BROWSER,
+        'mail': CFG_PREFS_DEFAULT_EMAIL,
     }
 
     def __init__(self, device_callable):
@@ -72,7 +72,7 @@ class PreferencesModel(Model):
 
     def load(self):
         self.warn_limit = self.conf.get('statistics', 'warn_limit', True)
-        self.transfer_limit = self.conf.get('statistics','transfer_limit', 50.0)
+        self.transfer_limit = self.conf.get('statistics', 'transfer_limit', 50.0)
 
         # ok lets load the SMS preferences from the configuration file.
         # but take care! If the config file is absent set to default values.
@@ -165,6 +165,7 @@ class PreferencesModel(Model):
 
 class SMSCListStoreModel(ListStoreModel):
     """Store Model for smsc list combobox"""
+
     def __init__(self):
         super(SMSCListStoreModel, self).__init__(gobject.TYPE_PYOBJECT)
         self.active = None
@@ -181,8 +182,8 @@ class SMSCListStoreModel(ListStoreModel):
 
 
 class SMSCItem(object):
+
     def __init__(self, message, number=None, active=True):
         self.message = message
         self.number = number
         self.active = active
-

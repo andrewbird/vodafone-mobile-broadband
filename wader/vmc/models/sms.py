@@ -24,6 +24,7 @@ from gtkmvc import Model, ListStoreModel
 from wader.vmc.images import MOBILE_IMG, COMPUTER_IMG
 from wader.vmc.messages import is_sim_message
 
+
 class SMSStoreModel(ListStoreModel):
     """
     SMS ListStoreModel with some convenience methods
@@ -31,17 +32,11 @@ class SMSStoreModel(ListStoreModel):
     Accepts a callable because as we live in a hotplugging world we need a
     way to obtain a reference to the new plugged device.
     """
+
     def __init__(self, _callable):
         super(SMSStoreModel, self).__init__(gtk.gdk.Pixbuf,
             TYPE_STRING, TYPE_STRING, TYPE_PYOBJECT, TYPE_PYOBJECT)
         self._callable = _callable
-        self.device = None
-#        louie.connect(self.device_removed_handler, SIG_DEVICE_REMOVED)
-
-    def device_removed_handler(self):
-        """
-        I take care of {self.device} and will update it as necessary
-        """
         self.device = None
 
     def add_messages(self, messages, contacts=None):
@@ -114,4 +109,3 @@ class NewSmsModel(Model):
         super(NewSmsModel, self).__init__()
 
         self.device = device
-

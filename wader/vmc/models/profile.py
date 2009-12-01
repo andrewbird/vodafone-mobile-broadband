@@ -107,18 +107,18 @@ class ProfilesModel(Model):
 class ProfileModel(Model):
 
     __properties__ = {
-        'name' : "",
-        'username' : "",
-        'password' : "",
-        'band' : MM_NETWORK_BAND_ANY,
-        'network_pref' : MM_NETWORK_MODE_ANY,
-        'auth' : VM_NETWORK_AUTH_ANY,
-        'autoconnect' : False,
-        'apn' : "",
-        'uuid' : "",
+        'name': "",
+        'username': "",
+        'password': "",
+        'band': MM_NETWORK_BAND_ANY,
+        'network_pref': MM_NETWORK_MODE_ANY,
+        'auth': VM_NETWORK_AUTH_ANY,
+        'autoconnect': False,
+        'apn': "",
+        'uuid': "",
         'static_dns': False,
-        'primary_dns' : None,
-        'secondary_dns' : None,
+        'primary_dns': None,
+        'secondary_dns': None,
     }
 
     def __init__(self, parent_model, profile=None, imsi=None, network=None,
@@ -171,6 +171,7 @@ class ProfileModel(Model):
                                             self._on_connected_cb,
                                             "Connected",
                                             WADER_DIALUP_INTFACE))
+
     def _on_disconnected_cb(self):
         self.state = DISCONNECTED
 
@@ -257,17 +258,17 @@ class ProfileModel(Model):
 
     def save(self):
         props = {
-            'connection' : { 'id' : self.name, 'type' : 'gsm',
-                             'name' : 'connection', 'uuid' : self.uuid,
-                             'autoconnect' : self.autoconnect },
-            'gsm' : { 'band' : self.band, 'username' : self.username,
-                      'number' : '*99#', 'network-type' : self.network_pref,
-                      'apn' : self.apn, 'name' : 'gsm' },
-            'ppp' : { 'name' : 'ppp' },
-            'serial' : { 'baud' : 115200, 'name' : 'serial' },
-            'ipv4' : { 'addresses' : [], 'method': 'auto',
-                       'ignore-auto-dns' : self.static_dns,
-                       'name' : 'ipv4', 'routes' : [] }
+            'connection': {'id': self.name, 'type': 'gsm',
+                           'name': 'connection', 'uuid': self.uuid,
+                           'autoconnect': self.autoconnect},
+            'gsm': {'band': self.band, 'username': self.username,
+                     'number': '*99#', 'network-type': self.network_pref,
+                     'apn': self.apn, 'name': 'gsm'},
+            'ppp': {'name': 'ppp'},
+            'serial': {'baud': 115200, 'name': 'serial'},
+            'ipv4': {'addresses': [], 'method': 'auto',
+                     'ignore-auto-dns': self.static_dns,
+                     'name': 'ipv4', 'routes': []}
         }
 
         if self.auth == VM_NETWORK_AUTH_PAP:     # Our GUI only cares about PAP/CHAP
@@ -291,7 +292,7 @@ class ProfileModel(Model):
         if self.profile:
             self.manager.update_profile(self.profile, props)
             # store password associated to this connection
-            secrets = {'gsm' : { NM_PASSWD : self.password}}
+            secrets = {'gsm': {NM_PASSWD: self.password}}
             self.profile.secrets.update(secrets, ask=True)
 
             logger.debug("Profile modified: %s" % self.profile)
@@ -302,12 +303,13 @@ class ProfileModel(Model):
 #                raise RuntimeError(msg)
 
             sm = None # SignalMatch object
+
             def new_profile_cb(path):
                 self.profile_path = path
                 logger.debug("Profile added: %s" % self.profile_path)
 
                 self.profile = self.manager.get_profile_by_uuid(uuid)
-                secrets = {'gsm' : { NM_PASSWD : self.password}}
+                secrets = {'gsm': {NM_PASSWD: self.password}}
                 self.profile.secrets.update(secrets, ask=True)
 
                 self.parent_model.set_active_profile(self)
@@ -368,4 +370,3 @@ class ProfileModel(Model):
                            dbus_interface=dbus.PROPERTIES_IFACE,
                            reply_handler=callback,
                            error_handler=logger.warn)
-
