@@ -63,12 +63,10 @@ class PreferencesController(Controller):
         device = self.model.get_device()
         if not device:
             return
-
         def error(e):
             logger.error("PreferencesController: Error while getting the IMSI value via dbus interface to wader core: %s" % get_error_msg(e))
-            print e
+            
         print "preferences - controller: set_device_info"   
-        
         device.GetImsi(dbus_interface=CRD_INTFACE, error_handler=error, reply_handler=self.load_smsc)
 
     
