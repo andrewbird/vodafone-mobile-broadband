@@ -21,10 +21,11 @@ Main controller for the application
 """
 
 import os
+import re
 from subprocess import Popen
 
 import gtk
-from gobject import timeout_add_seconds
+from gobject import timeout_add_seconds, source_remove
 
 from wader.vmc.controllers.base import WidgetController, TV_DICT, TV_DICT_REV
 from wader.vmc.controllers.contacts import (AddContactController,
@@ -118,9 +119,6 @@ class MainController(WidgetController):
         # we're on SMS mode
         self.on_sms_button_toggled(get_fake_toggle_button())
 
-        self.usage_updater = timeout_add_seconds(5, self.update_usage_view)
-        #self.usage_updater.startService()
-
     def connect_to_signals(self):
         self._setup_menubar_hacks()
 
@@ -150,9 +148,9 @@ class MainController(WidgetController):
             return self._quit_confirm_exit()
 
     def _quit_confirm_exit(self):
-        exit_without_conf = config.get('preferences', 'exit_without_confirmation',
-                                        CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION)
-        if exit_without_conf:
+        exit_wo_conf = config.get('preferences', 'exit_without_confirmation',
+                                  CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION)
+        if exit_wo_conf:
             return self._quit_check_connection()
 
         resp, checked = open_dialog_question_checkbox_cancel_ok(
@@ -209,7 +207,7 @@ class MainController(WidgetController):
         def apn_callback(network):
             main_model = self.model.profiles_model
             profile_model = ProfileModel(main_model, network=network,
-                                         device_callable=main_model.device_callable)
+                                    device_callable=main_model.device_callable)
             show_profile_window(main_model, profile=profile_model)
 
         def imsi_callback(imsi):
@@ -347,15 +345,9 @@ class MainController(WidgetController):
 
     def property_rx_bytes_value_change(self, model, old, new):
         pass
-#        if old != new:
-#            self.view['rx_bytes_label'].set_text(bytes_repr(new))
-#            logger.info("Bytes rx: %d", new)
 
     def property_tx_bytes_value_change(self, model, old, new):
         pass
-#        if old != new:
-#            self.view['tx_bytes_label'].set_text(bytes_repr(new))
-#            logger.info("Bytes tx: %d", new)
 
     def bits_to_human(self, bits):
         f = float(bits)
@@ -367,28 +359,21 @@ class MainController(WidgetController):
 
     def property_rx_rate_value_change(self, model, old, new):
         if old != new:
-            self.view['download_statusbar'].push(1,
-                                                 self.bits_to_human(new * 8))
+            self.view['download_statusbar'].push(1, self.bits_to_human(new * 8))
             logger.info("Rate rx: %d", new)
 
     def property_tx_rate_value_change(self, model, old, new):
         if old != new:
-            self.view['upload_statusbar'].push(1,
-                                                 self.bits_to_human(new * 8))
+            self.view['upload_statusbar'].push(1, self.bits_to_human(new * 8))
             logger.info("Rate tx: %d", new)
 
     def property_total_bytes_value_change(self, model, old, new):
         pass
-#        if old != new and new != '':
-#            self.view['total_bytes_label'].set_text(bytes_repr(new))
-#            logger.info("Total bytes: %d", new)
 
     def property_transfer_limit_exceeded_value_change(self, model, old, new):
         if not old and new:
             show_warning_dialog(_("Transfer limit exceeded"),
                                 _("You have exceeded your transfer limit"))
-
-    # callbacks
 
     def on_sms_menu_item_activate(self, widget):
         self.on_sms_button_toggled(get_fake_toggle_button())
@@ -428,7 +413,8 @@ class MainController(WidgetController):
 
     def on_internet_button_clicked(self, widget):
         if self.model.is_connected():
-            binary = config.get('preferences', 'browser', CFG_PREFS_DEFAULT_BROWSER)
+            binary = config.get('preferences', 'browser',
+                                CFG_PREFS_DEFAULT_BROWSER)
             if binary:
                 Popen([binary, APP_URL])
 
@@ -452,10 +438,10 @@ class MainController(WidgetController):
         # to show the name if it's a known contact instead of its number
         contact = self._find_contact_by_number(sms.number)
         if contact:
-            id = contact.get_name()
+            who = contact.get_name()
             contacts_list = [contact]
         else:
-            id = sms.number
+            who = sms.number
             contacts_list = None
 
         # Populate treeview
@@ -463,7 +449,7 @@ class MainController(WidgetController):
         treeview.get_model().add_message(sms, contacts_list)
 
         # Send notification
-        title = _("SMS received from %s") % id
+        title = _("SMS received from %s") % who
         self.tray.attach_notification(title, sms.text, stock=gtk.STOCK_INFO)
 
     def on_is_pin_enabled_cb(self, enabled):
@@ -484,6 +470,7 @@ class MainController(WidgetController):
         self.view.set_connected()
         self.model.start_stats_tracking()
         self.usage_updater = timeout_add_seconds(5, self.update_usage_view)
+
         if self.apb:
             self.apb.close()
             self.apb = None
@@ -498,6 +485,11 @@ class MainController(WidgetController):
         if self.apb:
             self.apb.close()
             self.apb = None
+
+        if self.usage_updater is not None:
+            # just in case
+            source_remove(self.usage_updater)
+            self.usage_updater = None
 
         if 'NoReply' in get_error_msg(e) and self._ignore_no_reply:
             # do not show NoReply exception as we were expecting it
@@ -517,6 +509,10 @@ class MainController(WidgetController):
         self.model.stop_stats_tracking()
         self.view.set_disconnected()
 
+        # stop updating usage
+        source_remove(self.usage_updater)
+        self.usage_updater = None
+
         if self.apb:
             self.apb.close()
             self.apb = None
@@ -531,37 +527,34 @@ class MainController(WidgetController):
 
     def _on_disconnect_eb(self, e):
         logger.error("_on_disconnect_eb: %s" % e)
-        self.model.connected = True  # XXX. Not really sure about that.
+        # XXX: If it failed are we connected or not?
+        self.model.connected = False
         self.model.stop_stats_tracking()
+
+        # stop updating usage
+        source_remove(self.usage_updater)
+
         if self.apb:
             self.apb.close()
             self.apb = None
 
     def get_trayicon_menu(self):
-        connect_button = self.view['connect_button']
-
-        def _disconnect_from_inet(widget):
-            connect_button.set_active(False)
-
-        def _connect_to_inet(widget):
-            connect_button.set_active(True)
-
+        button = self.view['connect_button']
         menu = gtk.Menu()
 
         if self.model.is_connected():
             item = gtk.ImageMenuItem(_("Disconnect"))
             img = gtk.Image()
             img.set_from_file(os.path.join(IMAGES_DIR, 'stop16x16.png'))
-            item.connect("activate", _disconnect_from_inet)
+            item.connect("activate", lambda w: button.set_active(False))
         else:
             item = gtk.ImageMenuItem(_("Connect"))
             img = gtk.Image()
             img.set_from_file(os.path.join(IMAGES_DIR, 'connect-16x16.png'))
-            item.connect("activate", _connect_to_inet)
+            item.connect("activate", lambda w: button.set_active(True))
 
         item.set_image(img)
-        if self.model.device is None:
-            item.set_sensitive(False)
+        item.set_sensitive(self.model.device is not None)
         item.show()
         menu.append(item)
 
@@ -574,8 +567,7 @@ class MainController(WidgetController):
         img.set_from_file(os.path.join(IMAGES_DIR, 'sms16x16.png'))
         item.set_image(img)
         item.connect("activate", self.on_new_sms_activate)
-        if self.model.device is None:
-            item.set_sensitive(False)
+        item.set_sensitive(self.model.device is not None)
         item.show()
         menu.append(item)
 
@@ -616,7 +608,8 @@ class MainController(WidgetController):
         # Figure out whether we should show delete, edit, or no extra menu items
         if all_contacts_writable(contacts):
             item = gtk.ImageMenuItem(_("_Delete"))
-            img = gtk.image_new_from_stock(gtk.STOCK_DELETE, gtk.ICON_SIZE_MENU)
+            img = gtk.image_new_from_stock(gtk.STOCK_DELETE,
+                                           gtk.ICON_SIZE_MENU)
             item.set_image(img)
             item.connect("activate", self.delete_entries, pathinfo, treeview)
             item.show()
@@ -626,7 +619,8 @@ class MainController(WidgetController):
             editor = contacts[0].external_editor()
             if editor:
                 item = gtk.ImageMenuItem(_("Edit"))
-                img = gtk.image_new_from_stock(gtk.STOCK_EDIT, gtk.ICON_SIZE_MENU)
+                img = gtk.image_new_from_stock(gtk.STOCK_EDIT,
+                                               gtk.ICON_SIZE_MENU)
                 item.set_image(img)
 
                 item.connect("activate", self._edit_external_contacts, editor)
@@ -732,48 +726,7 @@ The csv file that you have tried to import has an invalid format.""")
         view = PreferencesView(ctrl)
         view.show()
 
-#        from wader.vmc.views.preferences import PreferencesView
-#        from wader.vmc.controllers.preferences import PreferencesController
-#
-#        controller = PreferencesController(self.model.preferences_model,
-#                                           lambda: self.model.device)
-#        view = PreferencesView(controller)
-#
-#        profiles_model = self.model.preferences_model.profiles_model
-#        if not profiles_model.has_active_profile():
-#            show_warning_dialog(
-#                _("Profile needed"),
-#                _("You need to create a profile to save preferences"))
-#            self.ask_for_new_profile()
-#            return
-#        view.show()
-
-    def on_sms_menuitem_activate(self, widget):
-        from wader.vmc.models.sms import SMSContactsModel
-        from wader.vmc.controllers.sms import SMSContactsController
-        from wader.vmc.views.sms import SMSContactsView
-
-        model = SMSContactsModel(self.model.device)
-        ctrl = SMSContactsController(model, self)
-        view = SMSContactsView(ctrl, parent_view=self.view)
-
-        view.show()
-
-    def on_log_menuitem_activate(self, widget):
-        from wader.vmc.controllers.log import LogController
-        from wader.vmc.views.log import LogView
-        from wader.vmc.models.log import LogModel
-
-        model = LogModel()
-        ctrl = LogController(model)
-        view = LogView(ctrl)
-
-        view.show()
-
-#    def on_exit_menu_item_activate(self, widget):
-#        self.close_application()
-
-########################### copied in from application.py ##############################
+    ####### copied in from application.py #######
 
     def on_new_contact_menu_item_activate(self, widget):
         self.view['main_notebook'].set_current_page(3) # contacts_tv
@@ -809,10 +762,7 @@ The csv file that you have tried to import has an invalid format.""")
         def is_pin_enabled_cb(curval):
             reqval = checkmenuitem.get_active()
             print "request = %d, current = %d" % (reqval, curval)
-            if reqval == curval:
-                return
-            else:
-
+            if reqval != curval:
                 def pin_enable_cb(enable):
                     self.view['change_pin1'].set_sensitive(enable)
 
@@ -823,18 +773,14 @@ The csv file that you have tried to import has an invalid format.""")
                     # prevent a loop
                     self.view['request_pin1'].set_active(not enable)
 
-                ctrl = PinEnableController(self.model,
-                           reqval,
-                           pin_enable_cb,
-                           pin_enable_eb)
+                ctrl = PinEnableController(self.model, reqval,
+                                           pin_enable_cb,
+                                           pin_enable_eb)
                 view = PinEnableView(ctrl)
                 view.show()
 
-        def is_pin_enabled_eb(e):
-            pass
-
         self.model.pin_is_enabled(is_pin_enabled_cb,
-                                  is_pin_enabled_eb)
+                                  logger.error)
 
     def on_new_profile_menuitem_activate(self, widget):
         self.ask_for_new_profile()
@@ -853,7 +799,7 @@ The csv file that you have tried to import has an invalid format.""")
             show_profile_window(self.model.profiles_model,
                                 profile=profile)
             # XXX: check out whether editing a profile should make it active
-            #      currently it doesn't
+            # currently it doesn't
             self.on_tools_menu_item_activate(get_fake_toggle_button())
 
         def delete_profile(widget, profile):
@@ -1027,22 +973,21 @@ The csv file that you have tried to import has an invalid format.""")
         self._fill_messages(contacts)
 
     def _update_usage_panel(self, name, offset):
-        m = self.model
         w = lambda label: label % name
 
         values = ['month', 'transferred_gprs', 'transferred_3g',
                   'transferred_total']
         for value_name in values:
             widget = (value_name + '_%s_label') % name
-            value = getattr(m, 'get_%s' % value_name)(offset)
+            value = getattr(self.model, 'get_%s' % value_name)(offset)
             self.view.set_usage_value(widget, value)
 
 #        self.view.set_usage_bar_value('%s-gprs' % name,
 #                                            m.get_transferred_gprs(offset))
 #        self.view.set_usage_bar_value('%s-3g' % name,
 #                                            m.get_transferred_3g(offset))
-        self.view.set_usage_bar_value('%s-total' % name,
-                                      m.get_transferred_total(offset))
+#        self.view.set_usage_bar_value('%s-total' % name,
+#                                            m.get_transferred_total(offset))
 
     def _update_usage_session(self):
         set_value = self.view.set_usage_value
@@ -1051,34 +996,14 @@ The csv file that you have tried to import has an invalid format.""")
         set_value('transferred_gprs_session_label', m.get_session_gprs())
         set_value('transferred_total_session_label', m.get_session_total())
 
-#    def usage_notifier(self):
-#        limit = int(config.get('preferences', 'traffic_threshold'))
-#        notification = config.get('preferences', 'usage_notification')
-#        limit = units_to_bits(limit, UNIT_MB)
-#        print "limit: %d" % limit
-#        if (notification and limit > 0
-#                and self.model.get_transferred_total(0) > limit
-#                and not self.user_limit_notified):
-#            self.user_limit_notified = True
-#            message = _("User Limit")
-#            details = _("You have reached your limit of maximum usage")
-#            show_warning_dialog(message, details)
-#
-#            #show_normal_notification(self.tray, message, details, expires=False)
-#            self.tray.attach_notification(message, details, stock=gtk.STOCK_INFO)
-#        elif self.model.get_transferred_total(0) < limit:
-#            self.user_limit_notified = False
-
     def update_usage_view(self):
-        # make sure we ask the view if he is set as connected. If he is update our graph bits.
-
-        self.model.clean_usage_cache()
+        # make sure we ask the view if its set as connected.
+        # If it is then update our graph bits.
         self._update_usage_panel('current', 0)
         self._update_usage_panel('last', -1)
         self._update_usage_session()
         self.view.update_bars_user_limit()
-#            self.usage_notifier()   # I rather use check_transfer_limit function in model.
-        # XXX. study if returning True or False is important.
+        # if we are connected we want to keep on updating the usage view
         return self.model.is_connected()
 
     def on_reply_sms_no_quoting_menu_item_activate(self, widget):
@@ -1166,7 +1091,7 @@ The csv file that you have tried to import has an invalid format.""")
         """Handler for the cell-edited signal of the name column"""
         # first check that the edit is necessary
         model = self.view['contacts_treeview'].get_model()
-        if newname != model[path][1] and newname != '':
+        if newname != model[path][1] and newname:
             contact = model[path][3]
             if contact.set_name(unicode(newname, 'utf8')):
                 model[path][1] = newname
@@ -1178,7 +1103,6 @@ The csv file that you have tried to import has an invalid format.""")
         # check that the edit is necessary
 
         def is_valid_number(number):
-            import re
             pattern = re.compile('^\+?\d+$')
             return pattern.match(number) and True or False
 
@@ -1189,7 +1113,8 @@ The csv file that you have tried to import has an invalid format.""")
 
     def _setup_trayicon(self, ignoreconf=False):
         """Attaches VMC's trayicon to the systray"""
-        showit = config.get('preferences', 'show_icon', CFG_PREFS_DEFAULT_TRAY_ICON)
+        showit = config.get('preferences', 'show_icon',
+                            CFG_PREFS_DEFAULT_TRAY_ICON)
         if ignoreconf:
             showit = True
 
@@ -1271,10 +1196,11 @@ The csv file that you have tried to import has an invalid format.""")
         model, selected = treeview.get_selection().get_selected_rows()
         iters = [model.get_iter(path) for path in selected]
 
-        # if we are in contacts_treeview the gobject.TYPE_PYOBJECT that
-        # contains the contact is at position 3, if we are on a sms treeview,
-        # then it's at position 4
-        if (treeview.name == 'contacts_treeview'): # filter out the read only items
+        # filter out the read only items
+        if treeview.name == 'contacts_treeview':
+            # if we are in contacts_treeview the gobject.TYPE_PYOBJECT that
+            # contains the contact is at position 3, if we are on a sms
+            # treeview, then it's at position 4
             pos = 3
             objs = []
             _iters = []
@@ -1298,8 +1224,9 @@ The csv file that you have tried to import has an invalid format.""")
 
         manager.delete_objs(objs)
 
-# XXX: when multiple but mixed writable / readonly are in the selection for delete
-#      invalidate the selection after delete or the selection is wrong
+        # XXX: when multiple but mixed writable / readonly are in the
+        # selection for delete invalidate the selection after delete or
+        # the selection is wrong
         _inxt = None
         for _iter in iters:
             _inxt = model.iter_next(_iter)
@@ -1341,8 +1268,10 @@ The csv file that you have tried to import has an invalid format.""")
             try:
                 Popen(editor)
             except OSError:
-                show_warning_dialog(_("Editor not available"),
-                                    _("Can not start external contact editor \"%s\"" % editor[0]))
+                name = editor[0]
+                show_warning_dialog(
+                    _("Editor not available"),
+                    _('Can not start external contact editor "%s"' % name))
 
     def get_generic_popup_menu(self, pathinfo, treeview):
         """Returns a popup menu for the rest of treeviews"""
@@ -1360,7 +1289,8 @@ The csv file that you have tried to import has an invalid format.""")
             msg = self.get_obj_from_selected_row()
             if msg and is_sim_message(msg):
                 item = gtk.ImageMenuItem(_("Migrate to DB"))
-                img = gtk.image_new_from_stock(gtk.STOCK_CONVERT, gtk.ICON_SIZE_MENU)
+                img = gtk.image_new_from_stock(gtk.STOCK_CONVERT,
+                                               gtk.ICON_SIZE_MENU)
                 item.set_image(img)
                 item.connect("activate", self._migrate_sms_to_db)
                 item.show()
@@ -1393,21 +1323,19 @@ The csv file that you have tried to import has an invalid format.""")
         row = self.get_model_iter_obj_from_selected_row()
         if row:
             model, _iter, old = row
-            if not is_sim_message(old):
-                return
+            if is_sim_message(old):
+                message_mgr = get_messages_obj(self.model.device)
 
-            message_mgr = get_messages_obj(self.model.device)
+                # Save SMS to DB
+                where = TV_DICT_REV['inbox_treeview']
+                new = message_mgr.add_message(old, where=where)
 
-            # Save SMS to DB
-            where = TV_DICT_REV['inbox_treeview']
-            new = message_mgr.add_message(old, where=where)
+                # Remove SMS from the SIM
+                message_mgr.delete_objs([old])
 
-            # Remove SMS from the SIM
-            message_mgr.delete_objs([old])
-
-            # Update the treeview
-            # XXX: need to lookup in contacts
-            model.update_message(_iter, new)
+                # Update the treeview
+                # XXX: need to lookup in contacts
+                model.update_message(_iter, new)
 
     def _save_sms_to_draft(self, widget):
         """This will save the selected SMS to the drafts tv and the DB"""
@@ -1415,7 +1343,6 @@ The csv file that you have tried to import has an invalid format.""")
         old = self.get_obj_from_selected_row()
         if old:
             message_mgr = get_messages_obj(self.model.device)
-
             # Now save SMS to DB
             where = TV_DICT_REV['drafts_treeview']
             new = message_mgr.add_message(old, where=where)
@@ -1450,6 +1377,6 @@ The csv file that you have tried to import has an invalid format.""")
 
         # in the contacts treeview, the contact object is at row[3]
         # while in the rest the SMS object is at row[4]
-        row = (page == TV_DICT_REV['contacts_treeview']) and 3 or 4
+        row = 3 if page == TV_DICT_REV['contacts_treeview'] else 4
         _iter = model.get_iter(selected[0])
         return (model, _iter, model.get_value(_iter, row))

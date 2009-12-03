@@ -15,9 +15,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-"""
-Views for the stats window
-"""
+"""Views for the stats window"""
 
 import gtk
 import cairo
@@ -30,12 +28,12 @@ class StatsBar(gtk.DrawingArea):
     def __init__(self, label="", value=0, min_value=0,
                     max_value=10, units=UNIT_MB, user_limit=0):
         super(StatsBar, self).__init__()
-        self.supports_alpha = False
 
-        #value in bits
+        self.supports_alpha = False
+        # value in bits
         self.value = value
         self.units = units
-        #min and max values in self.units
+        # min and max values in self.units
         self.min_value = units_to_bytes(min_value, units)
         self.max_value = units_to_bytes(max_value, units)
         self.user_limit = units_to_bytes(user_limit, units)
@@ -45,20 +43,14 @@ class StatsBar(gtk.DrawingArea):
 
     @classmethod
     def init_array(cls, labels, *args, **kwargs):
-        """
-        This method makes an array of n identical StatsBars
-        """
-        bars = []
-        for label in labels:
-            bar = cls(*((label,) + args), **kwargs)
-            bars.append(bar)
-        return bars
+        """This method makes an array of n identical StatsBars"""
+        return [cls(*((label,) + args), **kwargs) for label in labels]
 
     def on_screen_changed(self, widget, old_screen=None):
         # To check if the display supports alpha channels, get the colormap
         screen = widget.get_screen()
         colormap = screen.get_rgba_colormap()
-        if colormap == None:
+        if colormap is None:
             colormap = screen.get_rgb_colormap()
             self.supports_alpha = False
         else:
@@ -120,8 +112,8 @@ class StatsBar(gtk.DrawingArea):
 
         # Draw limits
         cr.set_source_rgba(1.0, 1.0, 1.0, 1.0)
-        cr.select_font_face("Verdana",
-                            cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD)
+        cr.select_font_face("Verdana", cairo.FONT_SLANT_NORMAL,
+                            cairo.FONT_WEIGHT_BOLD)
 
         #font_size = height * .022
         #cr.set_font_size(font_size)
@@ -159,8 +151,9 @@ class StatsBar(gtk.DrawingArea):
             cr.fill()
 
     def _fraction(self, value=None):
-        if not value:
+        if value is None:
             value = self.value
+
         value = float(value - self.min_value)
         max_value = self.max_value - self.min_value
         return value / max_value
@@ -171,26 +164,23 @@ class StatsBar(gtk.DrawingArea):
         self.queue_draw()
 
     def set_value(self, value):
-        if value == self.value:
-            return
-        if value >= self.max_value:
-            self.max_value = 1.25 * value
+        if value != self.value:
+            if value >= self.max_value:
+                self.max_value = 1.25 * value
 
-        self.value = value
-        self.update()
+            self.value = value
+            self.update()
 
     def set_max_value(self, max_value):
-        if max_value == self.max_value:
-            return
-        self.max_value = max_value
-        if self.value >= self.max_value:
-            self.max_value = 1.25 * self.value
+        if max_value != self.max_value:
+            self.max_value = max_value
+            if self.value >= self.max_value:
+                self.max_value = 1.25 * self.value
 
-        self.update()
+            self.update()
 
     def set_user_limit(self, user_limit):
-        if user_limit == self.user_limit:
-            return
-        self.user_limit = user_limit
+        if user_limit != self.user_limit:
+            self.user_limit = user_limit
 
-        self.update()
+            self.update()

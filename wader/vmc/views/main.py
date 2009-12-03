@@ -130,11 +130,7 @@ class MainView(View):
                 ('current-total', 'last-total'),
                     StatsBar.init_array(labels, **args)))
 
-#       self['stats_bar_last_box'].add(self.usage_bars['last-gprs'])
-#        self['stats_bar_last_box'].add(self.usage_bars['last-3g'])
         self['stats_bar_last_box'].add(self.usage_bars['last-total'])
-#       self['stats_bar_current_box'].add(self.usage_bars['current-gprs'])
-#        self['stats_bar_current_box'].add(self.usage_bars['current-3g'])
         self['stats_bar_current_box'].add(self.usage_bars['current-total'])
         # XXX: Malign hack we couldn't find out a better way to build up the
         # usage widgets without messing up the initial view
@@ -160,6 +156,7 @@ class MainView(View):
         self.usage_max_value = int(config.get('preferences',
                                               'max_traffic',
                                         CFG_PREFS_DEFAULT_USAGE_MAX_VALUE))
+
         for bar in self.usage_bars.values():
             bar.set_user_limit(units_to_bytes(self.usage_user_limit, UNIT_MB))
             bar.set_max_value(units_to_bytes(self.usage_max_value, UNIT_MB))
@@ -370,37 +367,18 @@ class MainView(View):
 
     def operator_changed(self, new_operator):
         print "operator_changed: %s" % new_operator
-        obj = self['network_name_label']
-        if obj:
-            if new_operator in '0':
-                obj.set_text('')
-            else:
-                obj.set_text(new_operator)
+        what = '' if new_operator == '0' else new_operator
+        self['network_name_label'].set_text(what)
 
     def set_status(self, status):
         print "set_status: %s" % status
-#        self['status_label'].set_text(status)
 
     def set_initialising(self, enable):
         self['connect_button'].set_sensitive(not enable)
-#        self['sms_menuitem'].set_sensitive(not enable)
-#        self['preferences_menu_item'].set_sensitive(not enable)
+        self['preferences_menu_item'].set_sensitive(not enable)
 
     def start_throbber(self):
         pass
-#        if self.throbber is None:
-#            self.throbber = gtk.Image()
-#            self['hbox2'].pack_start(self.throbber, expand=False)
-#            self.throbber.set_from_animation(THROBBER)
-#            self.throbber.show()
 
     def stop_throbber(self):
         pass
-#        if self.throbber is not None:
-#            self.throbber.hide()
-#            try:
-#                self['hbox2'].remove(self.throbber)
-#            except AttributeError:
-#                pass
-#
-#            self.throbber = None

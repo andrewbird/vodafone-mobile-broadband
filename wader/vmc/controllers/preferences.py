@@ -26,8 +26,9 @@ from gtkmvc import Controller
 from wader.common.provider import NetworkProvider
 
 from wader.vmc.config import config
-from wader.common.consts import (CRD_INTFACE)
-from wader.vmc.consts import (CFG_PREFS_DEFAULT_BROWSER,  CFG_PREFS_DEFAULT_EMAIL)
+from wader.vmc.consts import (CFG_PREFS_DEFAULT_BROWSER,
+                              CFG_PREFS_DEFAULT_EMAIL)
+from wader.common.consts import CRD_INTFACE
 from wader.vmc.logger import logger
 from wader.vmc.translate import _
 from wader.vmc.dialogs import show_warning_dialog

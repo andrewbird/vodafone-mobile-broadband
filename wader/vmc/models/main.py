@@ -17,7 +17,8 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import datetime
-import time
+from itertools import ifilter, imap
+from operator import attrgetter, methodcaller
 
 #import dbus
 import dbus.mainloop.glib
@@ -39,16 +40,15 @@ from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
                                  CRD_INTFACE, NET_INTFACE, MDM_INTFACE,
                                  NM_SYSTEM_SETTINGS_CONNECTION,
                                  WADER_DIALUP_INTFACE, WADER_KEYRING_INTFACE,
-                                 MM_NETWORK_MODE_UMTS, MM_NETWORK_MODE_HSDPA,
-                                 MM_NETWORK_MODE_HSUPA, MM_NETWORK_MODE_HSPA,
-                                 MM_NETWORK_MODE_GPRS)
+                                 MM_NETWORK_MODE_GPRS, MM_NETWORK_MODE_EDGE,
+                                 MM_NETWORK_MODE_2G_ONLY)
 import wader.common.aterrors as E
 import wader.common.signals as S
 from wader.common.provider import UsageProvider
 
 
-THREEG_SIGNALS = [MM_NETWORK_MODE_UMTS, MM_NETWORK_MODE_HSDPA,
-                  MM_NETWORK_MODE_HSUPA, MM_NETWORK_MODE_HSPA]
+TWOG_SIGNALS = [MM_NETWORK_MODE_GPRS, MM_NETWORK_MODE_EDGE,
+                MM_NETWORK_MODE_2G_ONLY]
 
 
 UPDATE_INTERVAL = CONFIG_INTERVAL = 2 * 1000 # 2ms
@@ -69,10 +69,10 @@ class MainModel(Model):
         'device': None,
         'device_path': None,
         'dial_path': None,
+        'connected': False,
         'operator': _('Unknown'),
         'status': _('Not registered'),
         'tech': _('Unknown'),
-
         'pin_required': False,
         'puk_required': False,
         'puk2_required': False,
@@ -85,20 +85,13 @@ class MainModel(Model):
         'tx_bytes': 0,
         'rx_rate': 0,
         'tx_rate': 0,
-        'start_time': 0,
-        'stop_time': 0,
+        'start_time': None,
+        'stop_time': None,
         'total_bytes': 0,
 
         'transfer_limit_exceeded': False,
     }
 
-    # XXX: Should this come in properties?
-    connected = False
-    # This variable shows last session bytes stored in gprs or 3g.
-    previous_bytes = 0
-    previous_tech = _('Unknown') # Last mobile technology used.
-    session_3g = 0  # Stores current session 3g tx and rx bytes.
-    session_gprs = 0 # Stores current session gprs tx and rx bytes.
 
     def __init__(self):
         super(MainModel, self).__init__()
@@ -107,18 +100,20 @@ class MainModel(Model):
         self.conf = config
         # we have to break MVC here :P
         self.ctrl = None
+        # stats stuff
+        self.bearer_type = True # we assume 3G
+        self.previous_bytes = 0
+        self.session_3g = 0
+        self.session_gprs = 0
         # DialStats SignalMatch
         self.stats_sm = None
         self.dialer_manager = None
         self.preferences_model = PreferencesModel(lambda: self.device)
         self.profiles_model = ProfilesModel(lambda: self.device)
+        self.provider = UsageProvider(USAGE_DB)
         self._init_wader_object()
 
        # usage stuff from vmc
-        self.session_stats = (0, 0)
-        self.month_cache = {}
-        self.origin_date = None
-        self.clean_usage_cache()
 
     def get_device(self):
         return self.device
@@ -188,6 +183,8 @@ class MainModel(Model):
         return self.dialer_manager
 
     def quit(self, quit_cb):
+        # close UsageProvider on exit
+        self.provider.close()
 
         def quit_eb(e):
             logger.error("Error while removing device: %s" % get_error_msg(e))
@@ -202,16 +199,16 @@ class MainModel(Model):
         else:
             quit_cb()
 
-    def get_imsi(self, callback):
+    def get_imsi(self, get_imsi_cb):
 
-        def errback(failure):
+        def get_imsi_eb(failure):
             msg = "Error while getting IMSI for device %s"
             logger.error(msg % self.device_path)
-            callback(None)
+            get_imsi_cb(None)
 
         self.device.GetImsi(dbus_interface=CRD_INTFACE,
-                            reply_handler=callback,
-                            error_handler=errback)
+                            reply_handler=get_imsi_cb,
+                            error_handler=get_imsi_eb)
 
     def _get_devices_eb(self, error):
         logger.error(error)
@@ -228,9 +225,7 @@ class MainModel(Model):
             logger.info("Setting up device %s" % self.device_path)
             self.device = self.bus.get_object(WADER_SERVICE, self.device_path)
 
-            self.pin_required = False
-            self.puk_required = False
-            self.puk2_required = False
+            self.pin_required = self.puk_required = self.puk2_required = False
             self.total_bytes = self.conf.get('statistics', 'total_bytes', 0)
 
             self.enable_device()
@@ -241,7 +236,7 @@ class MainModel(Model):
         self._connect_to_signals()
 
     def enable_device(self):
-        # enabling the device is an expensive operation
+        # Enable is a potentially long operation
         self.ctrl.view.start_throbber()
 
         self.device.Enable(True,
@@ -351,21 +346,25 @@ class MainModel(Model):
             self.operator = operator_name
 
         if status in [1, 5]:
+            # only stop asking for reg status when we are in our home
+            # network or roaming
             return False
 
         def obtain_registration_info():
             self.device.GetRegistrationInfo(dbus_interface=NET_INTFACE,
                                         reply_handler=self._get_regstatus_cb,
                                         error_handler=logger.warn)
-
+        # ask in three seconds for more registration info
         gobject.timeout_add_seconds(3, obtain_registration_info)
         return True
 
     def _network_mode_changed_cb(self, net_mode):
         logger.info("Network mode changed %s" % net_mode)
         self.tech = NET_MODE_SIGNALS[net_mode]
-        self.add_3g_gprs_traffic()
-        self.previous_tech = net_mode
+        # account existing traffic to previous tech mode
+        self.add_traffic_to_stats()
+        # True if 3G bearer, False otherwise
+        self.bearer_type = net_mode not in TWOG_SIGNALS
 
     def _check_pin_status(self):
 
@@ -409,35 +408,21 @@ class MainModel(Model):
                             reply_handler=lambda *args: cb(),
                             error_handler=self._send_puk_eb)
 
-    def pin_is_enabled(self, cb=None, eb=None):
+    def pin_is_enabled(self, is_enabled_cb, is_enabled_eb):
         logger.info("Checking if PIN request is enabled")
-
-        def is_enabled_cb(result):
-            if cb:
-                cb(result)
-
-        def is_enabled_eb(e):
-            logger.warn(e)
-            if eb:
-                eb(e)
 
         self.device.Get(CRD_INTFACE, 'PinEnabled',
                         dbus_interface=dbus.PROPERTIES_IFACE,
                         reply_handler=is_enabled_cb,
                         error_handler=is_enabled_eb)
 
-    def enable_pin(self, enable, pin, cb=None, eb=None):
+    def enable_pin(self, enable, pin, enable_pin_cb, eb):
         s = "Enabling" if enable else "Disabling"
         logger.info("%s PIN request" % s)
 
-        def enable_pin_cb():
-            if cb:
-                cb(enable)
-
         def enable_pin_eb(e):
             logger.error("EnablePin failed %s" % get_error_msg(e))
-            if eb:
-                eb(enable)
+            eb(enable)
 
             if 'SimPukRequired' in get_error_msg(e):
                 self.puk_required = True
@@ -449,17 +434,12 @@ class MainModel(Model):
                               reply_handler=enable_pin_cb,
                               error_handler=enable_pin_eb)
 
-    def change_pin(self, oldpin, newpin, cb=None, eb=None):
+    def change_pin(self, oldpin, newpin, change_pin_cb, eb):
         logger.info("Change PIN request")
-
-        def change_pin_cb():
-            if cb:
-                cb()
 
         def change_pin_eb(e):
             logger.error("ChangePin failed %s" % get_error_msg(e))
-            if eb:
-                eb()
+            eb()
 
             if 'SimPukRequired' in get_error_msg(e):
                 self.puk_required = True
@@ -474,36 +454,34 @@ class MainModel(Model):
     def check_transfer_limit(self):
         warn_limit = self.conf.get('preferences', 'usage_notification', False)
         if warn_limit:
-            transfer_limit = self.conf.get('preferences', 'traffic_threshold', 0.0)
-            transfer_limit = float(transfer_limit) * ONE_MB
-            if transfer_limit > 0 and self.total_bytes > transfer_limit:
-                self.transfer_limit_exceeded = True
-            else:
-                self.transfer_limit_exceeded = False
+            transfer_limit = float(self.conf.get('preferences',
+                                                 'traffic_threshold', 0.0))
+            transfer_limit = transfer_limit * ONE_MB
+            exceeded = self.total_bytes > transfer_limit > 0
+            self.transfer_limit_exceeded = exceeded
         else:
             self.transfer_limit_exceeded = False
 
-    def add_3g_gprs_traffic(self):
+    def add_traffic_to_stats(self):
         # This does not need parameters because it uses global variables.
         total = self.rx_bytes + self.tx_bytes
         delta_bytes = total - self.previous_bytes
         self.previous_bytes = total
 
-        if self.previous_tech in THREEG_SIGNALS:
+        if self.bearer_type:
             self.session_3g += delta_bytes
-        elif self.previous_tech == MM_NETWORK_MODE_GPRS:
+        else:
             self.session_gprs += delta_bytes
 
     def on_dial_stats(self, stats):
-        try:
-            total = int(self.conf.get('statistics', 'total_bytes', 0))
-        except ValueError:
-            total = 0
+        if not self.total_bytes:
+            self.total_bytes = int(self.conf.get('statistics',
+                                                 'total_bytes', 0))
 
         self.rx_bytes, self.tx_bytes = stats[:2]
         self.rx_rate, self.tx_rate = stats[2:]
-        self.total_bytes = total + self.rx_bytes + self.tx_bytes
-        self.add_3g_gprs_traffic()
+        self.total_bytes += self.rx_bytes + self.tx_bytes
+        self.add_traffic_to_stats()
 
         # Check for transfer limit if it has not already been reached.
         if not self.transfer_limit_exceeded:
@@ -512,8 +490,7 @@ class MainModel(Model):
     def start_stats_tracking(self):
         # ok make sure we get the current epoch start time in UTC format.
         # store it in the models properites for start_time
-        time_stamp = datetime.datetime.utcnow()
-        self.start_time = time.mktime(time_stamp.timetuple())
+        self.start_time = datetime.datetime.utcnow()
         # create a callback  for getting data send/received via dbus.
         self.stats_sm = self.bus.add_signal_receiver(self.on_dial_stats,
                                                      S.SIG_DIAL_STATS,
@@ -524,160 +501,58 @@ class MainModel(Model):
             self.stats_sm.remove()
             self.stats_sm = None
 
-        # before we set the counters to zero let's store the stats in the usage db.
-        # first create a UsageProvider object to store the data into.
-        provider = UsageProvider(USAGE_DB)
+        # if start_time is None it means that the connection attempt failed
+        if self.start_time is None:
+            return
 
-        # lets find out the end time. It's UTC and epoch format.
-        time_stamp = datetime.datetime.utcnow()
-        self.end_time = time.mktime(time_stamp.timetuple())
+        # before resetting the counters, we'll store the stats in the usage db.
+        self.end_time = datetime.datetime.utcnow()
 
-        # we also need to see if we were connected to 3g or gprs.
-        bearer_type = not self.previous_tech == MM_NETWORK_MODE_GPRS
-        usage_item = provider.add_usage_item(bearer_type, self.start_time,
-                                             self.end_time, self.rx_bytes,
-                                             self.tx_bytes)
-
-        self.rx_bytes = self.tx_bytes = self.rx_rate = self.tx_rate = 0
-        self.previous_bytes = 0
-
+        self.provider.add_usage_item(self.start_time,
+                                     self.end_time, self.rx_bytes,
+                                     self.tx_bytes, self.bearer_type)
+        # save total_bytes
         self.conf.set('statistics', 'total_bytes', self.total_bytes)
+        # reset counters
+        self.rx_bytes = self.tx_bytes = self.rx_rate = self.tx_rate = 0
+        self.previous_bytes = self.total_bytes = 0
 
-        current_month_3g = self.conf.get('statistics', 'current_month_3g', 0)
-        current_month_3g += self.session_3g
-        self.conf.set('statistics', 'current_month_3g', current_month_3g)
-        self.session_3g = 0
+    def _get_month(self, offset):
+        today = datetime.date.today()
+        if offset:
+            new_month = (today.month + offset) % 12 or 12
+            new_year = today.year + (today.month + offset - 1) / 12
+            try:
+                month = today.replace(year=new_year, month=new_month)
+            except ValueError:
+                next_month = today.replace(day=1,
+                                           month=(new_month + 1) % 12 or 12,
+                                           year=new_year)
+                month = next_month - datetime.timedelta(days=1)
+        else:
+            month = today
 
-        current_month_gprs = self.conf.get('statistics', 'current_month_gprs', 0)
-        current_month_gprs += self.session_gprs
-        self.conf.set('statistics', 'current_month_gprs', current_month_gprs)
-        self.session_gprs = 0
-
-    #----------------------------------------------#
-    # USAGE STATS MODEL                            #
-    #----------------------------------------------#
-
-    # IMPORTANT: All the usage values are measured as bits, only the View
-    # should represent it with other units.
-
-    def clean_usage_cache(self):
-        self.month_cache = {}
-        self.origin_date = datetime.datetime.now()
-
-    def _date_from_month_offset(self, offset):
-        d = self.origin_date
-        new_month = (d.month + offset) % 12 or 12
-        new_year = d.year + (d.month + offset - 1) / 12
-        try:
-            ret = d.replace(month=new_month, year=new_year)
-        except ValueError:
-            #It's a last day greater than the last day of the new month
-            next_month = d.replace(day=1,
-                                   month=(new_month + 1) % 12 or 12,
-                                   year=new_year)
-            ret = next_month - datetime.timedelta(days=1)
-        return ret
-
-    def _get_usage_for_month(self, dateobj):
-        # We check if current month is finished.
-        current_month = self.conf.get('statistics', 'current_month', self.origin_date.month)
-        if self.origin_date.month != current_month:
-            current_month_3g = self.conf.get('statistics', 'current_month_3g', 0)
-            current_month_gprs = self.conf.get('statistics', 'current_month_gprs', 0)
-            self.conf.set('statistics', 'previous_month_3g', current_month_3g)
-            self.conf.set('statistics', 'previous_month_gprs', current_month_gprs)
-            self.conf.set('statistics', 'current_month_3g', 0)
-            self.conf.set('statistics', 'current_month_gprs', 0)
-            self.conf.set('statistics', 'current_month', self.origin_date.month)
-            self.transfer_limit_exceeded = False
-            self.conf.set('statistics', 'total_bytes', 0)
-
-        key = (dateobj.year, dateobj.month)
-        if not key in self.month_cache:
-            # Current session information
-            if self.is_connected() and self.origin_date.month == dateobj.month:
-#                tracker = self.connsm.tracker
-#                tracker.get_current_usage().addCallback(
-#                                                    self._update_session_stats)
-
-#                stats = self.session_stats
-#                umts = tracker.conn_mode in THREEG_SIGNALS
-#                transferred = stats[0] + stats[1]
-#                transferred_3g = umts and transferred or 0
-#                transferred_gprs = not umts and transferred or 0
-#                transferred_3g = self.rx_bytes + self.tx_bytes
-#                transferred_gprs = 0
-#                transferred_3g
-                transferred_3g = self.session_3g
-                transferred_gprs = self.session_gprs
-            else:
-                transferred_3g = transferred_gprs = 0
-
-            # XXX: RIGHT NOW ALL TRAFFIC IS CONSIDERED AS UMTS TRAFFIC.
-
-            if self.origin_date.month == dateobj.month:
-                # Get current month data.
-                transferred_3g += self.conf.get('statistics', 'current_month_3g', 0)
-                transferred_gprs += self.conf.get('statistics', 'current_month_gprs', 0)
-#                transferred_3g = self.current_month_3g
-#                transferred_gprs = self.current_month_gprs
-            elif self.origin_date.month == (dateobj.month + 1) or (self.origin_date.month == 1 and dateobj.month == 12):
-                # Get previous month data.
-                transferred_3g = self.conf.get('statistics', 'previous_month_3g', 0)
-                transferred_gprs = self.conf.get('statistics', 'previous_month_gprs', 0)
-            else:
-                # Data not available.
-                transferred_3g = transferred_gprs = 0
-
-            # Historical usage data
-#            usage = usage_manager.get_usage_for_month(dateobj)
-#            for item in usage:
-#                if item.umts:
-#                    transferred_3g += item.bits_recv + item.bits_sent
-#                else:
-#                    transferred_gprs += item.bits_recv + item.bits_sent
-
-            self.month_cache[key] = {
-                'month': dateobj.strftime(_("%B, %Y")),
-                'transferred_gprs': transferred_gprs,
-                'transferred_3g': transferred_3g,
-                'transferred_total': transferred_gprs + transferred_3g,
-            }
-        return self.month_cache[key]
+        return self.provider.get_usage_for_month(month)
 
     def get_month(self, offset):
-        date = self._date_from_month_offset(offset)
-        return self._get_usage_for_month(date)['month']
-
-    def get_transferred_3g(self, offset):
-        date = self._date_from_month_offset(offset)
-        return self._get_usage_for_month(date)['transferred_3g']
-
-    def get_transferred_gprs(self, offset):
-        date = self._date_from_month_offset(offset)
-        return self._get_usage_for_month(date)['transferred_gprs']
-
-    def get_transferred_total(self, offset):
-        date = self._date_from_month_offset(offset)
-        return self._get_usage_for_month(date)['transferred_total']
+        return sum(imap(methodcaller('total'), self._get_month(offset)))
 
     def get_session_3g(self):
-        if not self.is_connected():
-            return 0
-#        tracker = self.connsm.tracker
-#        umts = tracker.conn_mode in THREEG_SIGNALS
-#        total = self.session_stats[0] + self.session_stats[1]
-#        return umts and total or 0
         return self.session_3g
 
     def get_session_gprs(self):
-        if not self.is_connected():
-            return 0
-#        tracker = self.connsm.tracker
-#        umts = tracker.conn_mode in THREEG_SIGNALS
-#        total = self.session_stats[0] + self.session_stats[1]
-#        return not umts and total or 0
         return self.session_gprs
 
     def get_session_total(self):
         return self.get_session_3g() + self.get_session_gprs()
+
+    def get_transferred_3g(self, offset):
+        threeg_items = ifilter(methodcaller('is_3g'), self._get_month(offset))
+        return sum(imap(methodcaller('total'), threeg_items))
+
+    def get_transferred_gprs(self, offset):
+        gprs_items = ifilter(methodcaller('is_gprs'), self._get_month(offset))
+        return sum(imap(methodcaller('total'), gprs_items))
+
+    def get_transferred_total(self, offset):
+        return sum(imap(methodcaller('total'), self._get_month(offset)))
