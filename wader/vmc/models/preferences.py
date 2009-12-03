@@ -18,7 +18,7 @@
 
 import dbus
 import gobject
-from gtkmvc import Model, ListStoreModel
+from gtkmvc import ListStoreModel
 
 from wader.common.utils import revert_dict
 from wader.vmc.logger import logger

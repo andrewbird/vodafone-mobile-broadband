@@ -15,7 +15,7 @@
 #
 #  $Id: vcard.py 94 2004-12-06 21:10:31Z henning $
 
-import re, time
+import time
 from types import *
 import string
 from wader.vmc.contrib.pycocuma.vcore import *
