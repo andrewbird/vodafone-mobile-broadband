@@ -39,6 +39,7 @@ from wader.vmc.config import config
 from wader.vmc.logger import logger
 from wader.vmc.dialogs import (show_profile_window,
                                show_warning_dialog, ActivityProgressBar,
+                               show_warning_request_cancel_ok,
                                show_about_dialog, show_error_dialog,
                                ask_password_dialog,
                                open_dialog_question_checkbox_cancel_ok,
@@ -412,14 +413,14 @@ class MainController(WidgetController):
             self.view['support_tool_button'].set_active(True)
 
     def on_internet_button_clicked(self, widget):
-        if self.model.is_connected():
+        if self._check_if_connected():
             binary = config.get('preferences', 'browser',
                                 CFG_PREFS_DEFAULT_BROWSER)
             if binary:
                 Popen([binary, APP_URL])
 
     def on_mail_button_clicked(self, widget):
-        if self.model.is_connected():
+        if self._check_if_connected():
             binary = config.get('preferences', 'mail', CFG_PREFS_DEFAULT_EMAIL)
             if binary:
                 Popen([binary, 'REPLACE@ME.COM'])
@@ -886,6 +887,17 @@ The csv file that you have tried to import has an invalid format.""")
         about = show_about_dialog()
         about.run()
         about.destroy()
+
+    def _check_if_connected(self):
+        """
+        Returns True if connected or if the user does not care if not connected
+        """
+        if self.model.is_connected():
+            return True
+        else:
+            message = _("Not connected")
+            details = _("No mobile connection. Do you want to continue?")
+            return show_warning_request_cancel_ok(message, details)
 
     def _setup_menubar_hacks(self):
 
