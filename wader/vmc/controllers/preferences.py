@@ -32,7 +32,8 @@ from wader.vmc.models.preferences import VALIDITY_DICT, SMSCItem
 from wader.vmc.tray import tray_available
 from wader.vmc.contrib.ValidatedEntry import ValidatedEntry, v_phone
 from wader.vmc.consts import CFG_PREFS_DEFAULT_BROWSER, CFG_PREFS_DEFAULT_EMAIL
-
+from wader.common.consts import CRD_INTFACE, MDM_INTFACE
+from wader.common.provider import NetworkProvider
 
 class PreferencesController(Controller):
     """Controller for preferences"""
@@ -50,12 +51,41 @@ class PreferencesController(Controller):
 
     def register_view(self, view):
         Controller.register_view(self, view)
+        self.set_device_info()
         self.setup_sms_tab()
         self.setup_user_prefs_tab()
         self.setup_mail_browser_tab()
         self.setup_usage_tab()
         # set up signals after init
         self.setup_signals()
+
+    def set_device_info(self):
+        device = self.model.get_device()
+        if not device:
+            return
+
+        def error(e):
+            logger.error("PreferencesController: Error while getting the IMSI value via dbus interface to wader core: %s" % get_error_msg(e))
+            print e
+        print "preferences - controller: set_device_info"   
+        
+        device.GetImsi(dbus_interface=CRD_INTFACE, error_handler=error, reply_handler=self.load_smsc)
+
+    
+    def load_smsc(self, sim_data):
+        print "preferences - controller: smsc value in model = " + self.model.smsc_number
+        if (self.model.smsc_number =='Unknown' or self.model.smsc_number == '' or self.model.smsc_number == 'unknown'):
+            print "preferences - controller: Warning! self.smsc_number is Unknown or none!"
+            #create a NetworProvider object to querry our NetworkProvider db
+            sim_network = NetworkProvider()
+            # ask for our network attributes based on what our sim value is
+            networks_attributes = sim_network.get_network_by_id(sim_data)
+            if networks_attributes:
+                net_attrib = networks_attributes[0]
+                print "model: preferences sim_network - sms value: " + net_attrib.smsc
+                # tell the view to setup the smsc number. when the user clicks save or changes him self it will be saved.
+                self.view.setup_smsc_number(net_attrib.smsc)
+
 
     def setup_sms_tab(self):
         # setup the sms preferences to reflect what's in our model on startup

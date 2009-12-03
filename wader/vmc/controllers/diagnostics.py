@@ -54,15 +54,6 @@ class DiagnosticsController(Controller):
         def error(e):
             print e
 
-        #device.GetImsi(dbus_interface=CRD_INTFACE, error_handler=error,
-                       #reply_handler=lambda imsi:
-                       #self.view['imsi_number_label'].set_text(imsi))
-
-
-# XXX: why isn't GetImei under MDM_INTFACE, it's a modem attribute not SIM?
-        #device.GetImei(dbus_interface=CRD_INTFACE, error_handler=error,
-                       #reply_handler=lambda imei:
-                       #self.view['imei_number_label'].set_text(imei))
 
         def sim_imei(sim_data):
             # ok we don't have a model the data is coming from dbus
@@ -85,6 +76,8 @@ class DiagnosticsController(Controller):
                 net_attrib = networks_attributes[0]
                 print "controller: diagnostics sim_network - country: " + net_attrib.country
                 print "controller: diagnostics sim_network - network opeartor: " + net_attrib.name
+                print "controller: diagnostics sim_network - sms value: " + net_attrib.smsc
+                print "controller: diagnostics sim_network - password value: "  + net_attrib.password
                 self.view.set_network_info(net_attrib.name, net_attrib.country)
 
         device.GetImsi(dbus_interface=CRD_INTFACE,
