@@ -24,6 +24,8 @@ from wader.common.utils import revert_dict
 from wader.vmc.logger import logger
 from wader.vmc.translate import _
 from wader.vmc.config import config
+from wader.vmc.models.base import BaseWrapperModel
+
 from wader.vmc.consts import (CFG_PREFS_DEFAULT_BROWSER,
                               CFG_PREFS_DEFAULT_EMAIL,
                               CFG_PREFS_DEFAULT_TRAY_ICON,
@@ -42,7 +44,7 @@ VALIDITY_DICT = {
 VALIDITY_DICT_REV = revert_dict(VALIDITY_DICT)
 
 
-class PreferencesModel(Model):
+class PreferencesModel(BaseWrapperModel):
 
     __properties__ = {
         'current_tab': PREF_TABS[0],
@@ -66,11 +68,12 @@ class PreferencesModel(Model):
     }
 
     def __init__(self, device_callable):
-        super(PreferencesModel, self).__init__()
+        super(PreferencesModel, self).__init__(device_callable)
         self.bus = dbus.SystemBus()
         self.conf = config
         self.device_callable = device_callable
         self.load()
+
 
     def load(self):
         self.warn_limit = self.conf.get('statistics', 'warn_limit', True)
@@ -83,12 +86,20 @@ class PreferencesModel(Model):
 
         self.smsc_profile = self.conf.get('preferences', 'smsc_profile',
                                           'Vodafone UK United Kingdon')
-
-        self.smsc_number = self.conf.get('preferences', 'smsc_number',
-                                         '+447785016005')
-
+                                          
+        self.smsc_number = self.conf.get('preferences', 'smsc_number')
+        
+        if (self.smsc_number ==''):
+            print "model: Warning! self.smsc_number is NULL, setting to unknown"
+            self.smsc_number = 'unknown'
+ 
+        self.smsc_validity = self.conf.get('preferences', 'smsc_validity')
+        if (self.smsc_validity ==''):
+            print "model: Warning! self.smsc_validity is NULL"
+            self.smsc_validity = 'maximum'
         self.smsc_validity = self.conf.get('preferences', 'smsc_validity',
                                            'maximum')
+
 
         # ok lets load the user preferences from configuration file into the
         # model but take care! If the config file is absent set to false!
