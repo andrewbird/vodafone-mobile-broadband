@@ -371,9 +371,9 @@ class MainController(WidgetController):
         if new != old:
             self.view.set_usage_value('transferred_total_session_label', new)
 
-    def bytes_to_human(self, bits):
+    def bits_to_human(self, bits):
         f = float(bits)
-        for m in ['B/s', 'kB/s', 'mB/s', 'gB/s']:
+        for m in ['b/s', 'kb/s', 'mb/s', 'gb/s']:
             if f < 1000:
                 return "%3.2f %s" % (f, m)
             f /= 1000
@@ -381,12 +381,13 @@ class MainController(WidgetController):
 
     def property_rx_rate_value_change(self, model, old, new):
         if old != new:
-            self.view['download_statusbar'].push(1, self.bytes_to_human(new))
+            self.view['download_statusbar'].push(1,
+                                                 self.bits_to_human(new * 8))
             logger.info("Rate rx: %d" % new)
 
     def property_tx_rate_value_change(self, model, old, new):
         if old != new:
-            self.view['upload_statusbar'].push(1, self.bytes_to_human(new))
+            self.view['upload_statusbar'].push(1, self.bits_to_human(new * 8))
             logger.info("Rate tx: %d" % new)
 
     def property_transfer_limit_exceeded_value_change(self, model, old, new):
