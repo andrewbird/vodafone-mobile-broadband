@@ -344,29 +344,28 @@ class MainController(WidgetController):
             self.ask_for_new_profile()
 
     def property_threeg_transferred_value_change(self, model, old, new):
-        print "PROPERTY THREEG TRANSFERRED CHANGED", new
-        if new:
+        if new != old:
             self.view.set_usage_value('transferred_3g_current_label', new)
 
     def property_twog_transferred_value_change(self, model, old, new):
-        print "PROPERTY TWOG TRANSFERRED CHANGED", new
-        if new:
+        if new != old:
             self.view.set_usage_value('transferred_gprs_current_label', new)
 
+    def property_total_transferred_value_change(self, model, old, new):
+        if new != old:
+            self.view.set_usage_value('transferred_total_current_label', new)
+
     def property_threeg_session_value_change(self, model, old, new):
-        print "PROPERTY THREEG SESSION CHANGED", new
-        if new:
+        if new != old:
             self.view.set_usage_value('transferred_3g_session_label', new)
 
     def property_twog_session_value_change(self, model, old, new):
-        print "PROPERTY TWOG SESSION CHANGED", new
-        if new:
+        if new != old:
             self.view.set_usage_value('transferred_gprs_session_label', new)
 
-    def property_total_bytes_value_change(self, model, old, new):
-        print "PROPERTY TOTAL BYTES CHANGED", new
-        if new:
-            self.view.set_usage_value('transferred_total_current_label', new)
+    def property_total_session_value_change(self, model, old, new):
+        if new != old:
+            self.view.set_usage_value('transferred_total_session_label', new)
 
     def bytes_to_human(self, bits):
         f = float(bits)
@@ -778,7 +777,6 @@ The csv file that you have tried to import has an invalid format.""")
 
         def is_pin_enabled_cb(curval):
             reqval = checkmenuitem.get_active()
-            print "request = %d, current = %d" % (reqval, curval)
             if reqval != curval:
                 def pin_enable_cb(enable):
                     self.view['change_pin1'].set_sensitive(enable)

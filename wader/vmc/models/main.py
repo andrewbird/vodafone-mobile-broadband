@@ -85,7 +85,8 @@ class MainModel(Model):
         'twog_transferred': 0,
         'threeg_session': 0,
         'twog_session': 0,
-        'total_bytes': 0,
+        'total_session': 0,
+        'total_transferred': 0,
 
         'rx_rate': 0,
         'tx_rate': 0,
@@ -228,7 +229,8 @@ class MainModel(Model):
             self.device = self.bus.get_object(WADER_SERVICE, self.device_path)
 
             self.pin_required = self.puk_required = self.puk2_required = False
-            self.total_bytes = self.conf.get('statistics', 'total_bytes', 0)
+            self.total_transferred = self.conf.get('statistics',
+                                                   'total_transferred', 0)
 
             self.enable_device()
         else:
@@ -458,7 +460,7 @@ class MainModel(Model):
             transfer_limit = float(self.conf.get('preferences',
                                                  'traffic_threshold', 0.0))
             transfer_limit = transfer_limit * ONE_MB
-            exceeded = self.total_bytes > transfer_limit > 0
+            exceeded = self.total_transferred > transfer_limit > 0
             self.transfer_limit_exceeded = exceeded
         else:
             self.transfer_limit_exceeded = False
@@ -471,15 +473,18 @@ class MainModel(Model):
 
         if self.bearer_type:
             self.threeg_session += delta_bytes
+            self.threeg_transferred += delta_bytes
         else:
             self.twog_session += delta_bytes
+            self.twog_transferred += delta_bytes
 
-        self.total_bytes += delta_bytes
+        self.total_session += delta_bytes
+        self.total_transferred += delta_bytes
 
     def on_dial_stats(self, stats):
-        if not self.total_bytes:
-            self.total_bytes = int(self.conf.get('statistics',
-                                                 'total_bytes', 0))
+        if not self.total_transferred:
+            self.total_transferred = int(self.conf.get('statistics',
+                                                 'total_transferred', 0))
 
         self.rx_bytes, self.tx_bytes = stats[:2]
         self.rx_rate, self.tx_rate = stats[2:]
@@ -511,18 +516,11 @@ class MainModel(Model):
                                          self.end_time, self.rx_bytes,
                                          self.tx_bytes, self.bearer_type)
 
-            # add session stats to transferred stats
-            print "NOW ADDING TOTAL SESSION TO TRANSFERRED"
-            print "THREEG SESSION", self.threeg_session
-            self.threeg_transferred += self.threeg_session
-            print "THREEG TRANSFERRED", self.threeg_transferred
-            print "TWOG SESSION", self.twog_session
-            self.twog_transferred += self.twog_session
-            print "TWOG TRANSFERRED", self.twog_transferred
-            # save total_bytes
-            self.conf.set('statistics', 'total_bytes', self.total_bytes)
+            # save total_transferred
+            self.conf.set('statistics', 'total_transferred',
+                          self.total_transferred)
             # reset counters
-            self.threeg_session = self.twog_session = 0
+            self.threeg_session = self.twog_session = self.total_session = 0
             self.rx_bytes = self.tx_bytes = self.rx_rate = self.tx_rate = 0
             self.previous_bytes = 0
             # reset stats tracking

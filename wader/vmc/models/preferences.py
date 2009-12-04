@@ -160,9 +160,9 @@ class PreferencesModel(BaseWrapperModel):
         config.set('preferences', 'usage_notification', self.usage_notification)
 
     def reset_statistics(self):
-        logger.info('Resetting total bytes')
-        # self.parent.total_bytes = 0
-        self.conf.set('statistics', 'total_bytes', 0)
+        logger.info('Resetting total transferred')
+        # self.parent.total_transferred = 0
+        self.conf.set('statistics', 'total_transferred', 0)
 
 
 class SMSCListStoreModel(ListStoreModel):
