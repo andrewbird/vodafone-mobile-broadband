@@ -349,9 +349,9 @@ class MainController(WidgetController):
     def property_tx_bytes_value_change(self, model, old, new):
         pass
 
-    def bits_to_human(self, bits):
+    def bytes_to_human(self, bits):
         f = float(bits)
-        for m in ['b/s', 'kb/s', 'mb/s', 'gb/s']:
+        for m in ['B/s', 'kB/s', 'mB/s', 'gB/s']:
             if f < 1000:
                 return "%3.2f %s" % (f, m)
             f /= 1000
@@ -359,13 +359,13 @@ class MainController(WidgetController):
 
     def property_rx_rate_value_change(self, model, old, new):
         if old != new:
-            self.view['download_statusbar'].push(1, self.bits_to_human(new * 8))
-            logger.info("Rate rx: %d", new)
+            self.view['download_statusbar'].push(1, self.bytes_to_human(new))
+            logger.info("Rate rx: %d" % new)
 
     def property_tx_rate_value_change(self, model, old, new):
         if old != new:
-            self.view['upload_statusbar'].push(1, self.bits_to_human(new * 8))
-            logger.info("Rate tx: %d", new)
+            self.view['upload_statusbar'].push(1, self.bytes_to_human(new))
+            logger.info("Rate tx: %d" % new)
 
     def property_total_bytes_value_change(self, model, old, new):
         pass
