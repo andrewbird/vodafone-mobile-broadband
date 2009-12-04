@@ -16,9 +16,9 @@ from wader.vmc.consts import GTK_LOCK, APP_LONG_NAME
 
 
 def create_wader_config_dir():
-    wader_conf_dir = os.path.join(os.path.expanduser('~'), '.gnome2', 'wader')
-    if not os.path.exists(wader_conf_dir):
-        os.makedirs(wader_conf_dir)
+    path = os.path.join(os.path.expanduser('~'), '.gnome2', 'wader', 'db')
+    if not os.path.exists(path)
+        os.makedirs(path)
 
 def check_if_running():
     if not os.path.exists(GTK_LOCK):
