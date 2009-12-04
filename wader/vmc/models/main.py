@@ -87,6 +87,7 @@ class MainModel(Model):
         'twog_session': 0,
         'total_session': 0,
         'total_transferred': 0,
+        'total_month': 0,
 
         'rx_rate': 0,
         'tx_rate': 0,
@@ -229,15 +230,18 @@ class MainModel(Model):
             self.device = self.bus.get_object(WADER_SERVICE, self.device_path)
 
             self.pin_required = self.puk_required = self.puk2_required = False
-            self.total_transferred = self.conf.get('statistics',
-                                                   'total_transferred', 0)
-
+            self._initialize_usage_values()
             self.enable_device()
         else:
             logger.warn("No devices found")
 
         # connecting to signals is safe now
         self._connect_to_signals()
+
+    def _initialize_usage_values(self):
+        self.total_transferred = self.conf.get('statistics',
+                                               'total_transferred', 0)
+        self.total_month = self.get_month(0)
 
     def enable_device(self):
         # Enable is a potentially long operation
@@ -523,6 +527,7 @@ class MainModel(Model):
             self.threeg_session = self.twog_session = self.total_session = 0
             self.rx_bytes = self.tx_bytes = self.rx_rate = self.tx_rate = 0
             self.previous_bytes = 0
+            self.total_month = self.get_month(0)
             # reset stats tracking
             self.start_time = self.end_time = None
 
