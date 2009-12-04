@@ -20,7 +20,7 @@ import datetime
 from itertools import ifilter, imap
 from operator import methodcaller
 
-#import dbus
+import dbus
 import dbus.mainloop.glib
 dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
 import gobject
