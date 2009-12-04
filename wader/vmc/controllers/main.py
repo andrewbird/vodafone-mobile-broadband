@@ -312,7 +312,6 @@ class MainController(WidgetController):
         logger.info("A profile has been set for current model %s" % new)
 
     def property_status_value_change(self, model, old, new):
-        self.view.set_status(new)
         if new == _('Initialising'):
             self.view.set_initialising(True)
         elif new == _('No device'):

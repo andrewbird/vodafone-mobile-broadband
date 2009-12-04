@@ -410,7 +410,6 @@ class MainModel(Model):
 
     def pin_is_enabled(self, is_enabled_cb, is_enabled_eb):
         logger.info("Checking if PIN request is enabled")
-
         self.device.Get(CRD_INTFACE, 'PinEnabled',
                         dbus_interface=dbus.PROPERTIES_IFACE,
                         reply_handler=is_enabled_cb,
@@ -503,19 +502,19 @@ class MainModel(Model):
 
         # if start_time is None it means that the connection attempt failed
         if self.start_time is None:
-            return
+            # before resetting the counters, we'll store the stats in the usage db.
+            self.end_time = datetime.datetime.utcnow()
 
-        # before resetting the counters, we'll store the stats in the usage db.
-        self.end_time = datetime.datetime.utcnow()
-
-        self.provider.add_usage_item(self.start_time,
-                                     self.end_time, self.rx_bytes,
-                                     self.tx_bytes, self.bearer_type)
-        # save total_bytes
-        self.conf.set('statistics', 'total_bytes', self.total_bytes)
-        # reset counters
-        self.rx_bytes = self.tx_bytes = self.rx_rate = self.tx_rate = 0
-        self.previous_bytes = self.total_bytes = 0
+            self.provider.add_usage_item(self.start_time,
+                                         self.end_time, self.rx_bytes,
+                                         self.tx_bytes, self.bearer_type)
+            # save total_bytes
+            self.conf.set('statistics', 'total_bytes', self.total_bytes)
+            # reset counters
+            self.rx_bytes = self.tx_bytes = self.rx_rate = self.tx_rate = 0
+            self.previous_bytes = self.total_bytes = 0
+            # reset stats tracking
+            self.start_time = self.end_time = None
 
     def _get_month(self, offset):
         today = datetime.date.today()
@@ -535,6 +534,7 @@ class MainModel(Model):
         return self.provider.get_usage_for_month(month)
 
     def get_month(self, offset):
+        # get a list with the total transferred for every item and sum them up
         return sum(imap(methodcaller('total'), self._get_month(offset)))
 
     def get_session_3g(self):
@@ -547,12 +547,17 @@ class MainModel(Model):
         return self.get_session_3g() + self.get_session_gprs()
 
     def get_transferred_3g(self, offset):
+        # filter out all the items that respond True to "is_3g"
         threeg_items = ifilter(methodcaller('is_3g'), self._get_month(offset))
+        # get a list with the total transferred for every item and sum them up
         return sum(imap(methodcaller('total'), threeg_items))
 
     def get_transferred_gprs(self, offset):
+        # filter out all the items that respond True to "is_gprs"
         gprs_items = ifilter(methodcaller('is_gprs'), self._get_month(offset))
+        # get a list with the total transferred for every item and sum them up
         return sum(imap(methodcaller('total'), gprs_items))
 
     def get_transferred_total(self, offset):
+        # get a list with the total transferred for every item and sum them up
         return sum(imap(methodcaller('total'), self._get_month(offset)))

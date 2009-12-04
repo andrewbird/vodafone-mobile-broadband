@@ -58,7 +58,7 @@ class MainView(View):
 
     def __init__(self, ctrl):
 
-#        if gtk.gdk.screen_height() < 600:
+        # if gtk.gdk.screen_height() < 600:
         if True:
             height = 420
             GLADE_FILE = os.path.join(GLADE_DIR, "VMC-reduced.glade")
@@ -69,7 +69,7 @@ class MainView(View):
         super(MainView, self).__init__(ctrl, GLADE_FILE,
                                        'main_window', register=False)
 
-        #Usage statistics
+        # Usage statistics
         self.usage_user_limit = int(config.get('preferences',
                                                'traffic_threshold',
                                          CFG_PREFS_DEFAULT_USAGE_USER_LIMIT))
@@ -121,11 +121,6 @@ class MainView(View):
         args = {'user_limit': self.usage_user_limit}
 #       labels = ('GPRS', '3G') * 2
         labels = ('TOTAL TRAFFIC') * 2  # XXX: Not sure about this.
-#       self.usage_bars = dict(zip(
-#                   ('current-gprs', 'current-3g', 'last-gprs', 'last-3g'),
-#        self.usage_bars = dict(zip(
-#                ('current-3g', 'last-3g'),
-#                    StatsBar.init_array(labels, **args)))
         self.usage_bars = dict(zip(
                 ('current-total', 'last-total'),
                     StatsBar.init_array(labels, **args)))
@@ -358,20 +353,14 @@ class MainView(View):
             obj.set_from_file(os.path.join(IMAGES_DIR, image))
 
     def rssi_changed(self, new_rssi):
-        print "rssi_changed: %s" % new_rssi
         self.update_signal_bearer(newsignal=new_rssi)
 
     def tech_changed(self, new_tech):
-        print "tech_changed: %s" % new_tech
         self.update_signal_bearer(newmode=new_tech)
 
     def operator_changed(self, new_operator):
-        print "operator_changed: %s" % new_operator
         what = '' if new_operator == '0' else new_operator
         self['network_name_label'].set_text(what)
-
-    def set_status(self, status):
-        print "set_status: %s" % status
 
     def set_initialising(self, enable):
         self['connect_button'].set_sensitive(not enable)
