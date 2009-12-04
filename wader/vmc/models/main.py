@@ -18,7 +18,7 @@
 
 import datetime
 from itertools import ifilter, imap
-from operator import attrgetter, methodcaller
+from operator import methodcaller
 
 #import dbus
 import dbus.mainloop.glib
@@ -80,14 +80,15 @@ class MainModel(Model):
         'sim_error': False,
         'net_error': '',
         'key_needed': False,
+        # usage properties
+        'threeg_transferred': 0,
+        'twog_transferred': 0,
+        'threeg_session': 0,
+        'twog_session': 0,
+        'total_bytes': 0,
 
-        'rx_bytes': 0,
-        'tx_bytes': 0,
         'rx_rate': 0,
         'tx_rate': 0,
-        'start_time': None,
-        'stop_time': None,
-        'total_bytes': 0,
 
         'transfer_limit_exceeded': False,
     }
@@ -103,8 +104,9 @@ class MainModel(Model):
         # stats stuff
         self.bearer_type = True # we assume 3G
         self.previous_bytes = 0
-        self.session_3g = 0
-        self.session_gprs = 0
+        self.start_time = None
+        self.stop_time = None
+        self.rx_bytes = self.tx_bytes = 0
         # DialStats SignalMatch
         self.stats_sm = None
         self.dialer_manager = None
@@ -468,9 +470,11 @@ class MainModel(Model):
         self.previous_bytes = total
 
         if self.bearer_type:
-            self.session_3g += delta_bytes
+            self.threeg_session += delta_bytes
         else:
-            self.session_gprs += delta_bytes
+            self.twog_session += delta_bytes
+
+        self.total_bytes += delta_bytes
 
     def on_dial_stats(self, stats):
         if not self.total_bytes:
@@ -479,7 +483,6 @@ class MainModel(Model):
 
         self.rx_bytes, self.tx_bytes = stats[:2]
         self.rx_rate, self.tx_rate = stats[2:]
-        self.total_bytes += self.rx_bytes + self.tx_bytes
         self.add_traffic_to_stats()
 
         # Check for transfer limit if it has not already been reached.
@@ -501,18 +504,27 @@ class MainModel(Model):
             self.stats_sm = None
 
         # if start_time is None it means that the connection attempt failed
-        if self.start_time is None:
+        if self.start_time is not None:
             # before resetting the counters, we'll store the stats in the usage db.
             self.end_time = datetime.datetime.utcnow()
-
             self.provider.add_usage_item(self.start_time,
                                          self.end_time, self.rx_bytes,
                                          self.tx_bytes, self.bearer_type)
+
+            # add session stats to transferred stats
+            print "NOW ADDING TOTAL SESSION TO TRANSFERRED"
+            print "THREEG SESSION", self.threeg_session
+            self.threeg_transferred += self.threeg_session
+            print "THREEG TRANSFERRED", self.threeg_transferred
+            print "TWOG SESSION", self.twog_session
+            self.twog_transferred += self.twog_session
+            print "TWOG TRANSFERRED", self.twog_transferred
             # save total_bytes
             self.conf.set('statistics', 'total_bytes', self.total_bytes)
             # reset counters
+            self.threeg_session = self.twog_session = 0
             self.rx_bytes = self.tx_bytes = self.rx_rate = self.tx_rate = 0
-            self.previous_bytes = self.total_bytes = 0
+            self.previous_bytes = 0
             # reset stats tracking
             self.start_time = self.end_time = None
 
@@ -538,10 +550,10 @@ class MainModel(Model):
         return sum(imap(methodcaller('total'), self._get_month(offset)))
 
     def get_session_3g(self):
-        return self.session_3g
+        return self.threeg_session
 
     def get_session_gprs(self):
-        return self.session_gprs
+        return self.twog_session
 
     def get_session_total(self):
         return self.get_session_3g() + self.get_session_gprs()

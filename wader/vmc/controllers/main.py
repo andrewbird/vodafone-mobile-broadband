@@ -343,11 +343,30 @@ class MainController(WidgetController):
         if new:
             self.ask_for_new_profile()
 
-    def property_rx_bytes_value_change(self, model, old, new):
-        pass
+    def property_threeg_transferred_value_change(self, model, old, new):
+        print "PROPERTY THREEG TRANSFERRED CHANGED", new
+        if new:
+            self.view.set_usage_value('transferred_3g_current_label', new)
 
-    def property_tx_bytes_value_change(self, model, old, new):
-        pass
+    def property_twog_transferred_value_change(self, model, old, new):
+        print "PROPERTY TWOG TRANSFERRED CHANGED", new
+        if new:
+            self.view.set_usage_value('transferred_gprs_current_label', new)
+
+    def property_threeg_session_value_change(self, model, old, new):
+        print "PROPERTY THREEG SESSION CHANGED", new
+        if new:
+            self.view.set_usage_value('transferred_3g_session_label', new)
+
+    def property_twog_session_value_change(self, model, old, new):
+        print "PROPERTY TWOG SESSION CHANGED", new
+        if new:
+            self.view.set_usage_value('transferred_gprs_session_label', new)
+
+    def property_total_bytes_value_change(self, model, old, new):
+        print "PROPERTY TOTAL BYTES CHANGED", new
+        if new:
+            self.view.set_usage_value('transferred_total_current_label', new)
 
     def bytes_to_human(self, bits):
         f = float(bits)
@@ -366,9 +385,6 @@ class MainController(WidgetController):
         if old != new:
             self.view['upload_statusbar'].push(1, self.bytes_to_human(new))
             logger.info("Rate tx: %d" % new)
-
-    def property_total_bytes_value_change(self, model, old, new):
-        pass
 
     def property_transfer_limit_exceeded_value_change(self, model, old, new):
         if not old and new:
@@ -510,8 +526,9 @@ class MainController(WidgetController):
         self.view.set_disconnected()
 
         # stop updating usage
-        source_remove(self.usage_updater)
-        self.usage_updater = None
+        if self.usage_updater is not None:
+            source_remove(self.usage_updater)
+            self.usage_updater = None
 
         if self.apb:
             self.apb.close()
@@ -992,13 +1009,6 @@ The csv file that you have tried to import has an invalid format.""")
             widget = (value_name + '_%s_label') % name
             value = getattr(self.model, 'get_%s' % value_name)(offset)
             self.view.set_usage_value(widget, value)
-
-#        self.view.set_usage_bar_value('%s-gprs' % name,
-#                                            m.get_transferred_gprs(offset))
-#        self.view.set_usage_bar_value('%s-3g' % name,
-#                                            m.get_transferred_3g(offset))
-#        self.view.set_usage_bar_value('%s-total' % name,
-#                                            m.get_transferred_total(offset))
 
     def _update_usage_session(self):
         set_value = self.view.set_usage_value
