@@ -177,7 +177,7 @@ class PinEnableController(WidgetController):
 
     def on_pin_enable_ok_button_clicked(self, widget):
 
-        def enable_pin_cb(args):
+        def enable_pin_cb(args=None):
             self.callback(self.enable)
             self.hide_widgets()
             self.model.unregister_observer(self)
