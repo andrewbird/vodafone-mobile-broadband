@@ -67,18 +67,28 @@
                           <widget class="GtkImageMenuItem" id="sms_menu_item">
                             <property name="label">SMS</property>
                             <property name="visible">True</property>
-                            <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
+                            <property name="use_stock">False</property>
                             <signal name="activate" handler="on_sms_menu_item_activate"/>
+                            <child internal-child="image">
+                              <widget class="GtkImage" id="image1">
+                                <property name="visible">True</property>
+                                <property name="pixbuf">sms16x16.png</property>
+                              </widget>
+                            </child>
                           </widget>
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="usage_menu_item">
                             <property name="label">Usage</property>
                             <property name="visible">True</property>
-                            <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
+                            <property name="use_stock">False</property>
                             <signal name="activate" handler="on_usage_menu_item_activate"/>
+                            <child internal-child="image">
+                              <widget class="GtkImage" id="image2">
+                                <property name="visible">True</property>
+                                <property name="pixbuf">usage16x16.png</property>
+                              </widget>
+                            </child>
                           </widget>
                         </child>
                         <child>
@@ -128,9 +138,14 @@
                           <widget class="GtkImageMenuItem" id="diagnostics_item">
                             <property name="label">Diagnostics</property>
                             <property name="visible">True</property>
-                            <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
+                            <property name="use_stock">False</property>
                             <signal name="activate" handler="on_diagnostics_item_activate"/>
+                            <child internal-child="image">
+                              <widget class="GtkImage" id="image4">
+                                <property name="visible">True</property>
+                                <property name="pixbuf">sim16x10.png</property>
+                              </widget>
+                            </child>
                           </widget>
                         </child>
                         <child>
@@ -142,8 +157,13 @@
                           <widget class="GtkImageMenuItem" id="profiles_menu_item">
                             <property name="label">Profiles</property>
                             <property name="visible">True</property>
-                            <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
+                            <property name="use_stock">False</property>
+                            <child internal-child="image">
+                              <widget class="GtkImage" id="image3">
+                                <property name="visible">True</property>
+                                <property name="pixbuf">profile16x16.png</property>
+                              </widget>
+                            </child>
                           </widget>
                         </child>
                         <child>
@@ -340,10 +360,15 @@
                                     <property name="label">_SMS</property>
                                     <property name="visible">True</property>
                                     <property name="tooltip" translatable="yes">Create new sms</property>
-                                    <property name="use_underline">True</property>
-                                    <property name="use_stock">True</property>
+                                    <property name="use_stock">False</property>
                                     <signal name="activate" handler="on_new_sms_activate"/>
                                     <accelerator key="n" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                                    <child internal-child="image">
+                                      <widget class="GtkImage" id="image5">
+                                        <property name="visible">True</property>
+                                        <property name="pixbuf">sms16x16.png</property>
+                                      </widget>
+                                    </child>
                                   </widget>
                                 </child>
                                 <child>
@@ -1678,5 +1703,8 @@ the numbers are:
         </child>
       </widget>
     </child>
+  </widget>
+  <widget class="GtkMenu" id="menu1">
+    <property name="visible">True</property>
   </widget>
 </glade-interface>
