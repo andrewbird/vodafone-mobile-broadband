@@ -95,7 +95,6 @@ class MainModel(Model):
         'transfer_limit_exceeded': False,
     }
 
-
     def __init__(self):
         super(MainModel, self).__init__()
         self.bus = dbus.SystemBus()
@@ -508,7 +507,7 @@ class MainModel(Model):
 
         # if start_time is None it means that the connection attempt failed
         if self.start_time is not None:
-            # before resetting the counters, we'll store the stats in the usage db.
+            # before resetting the counters, we'll store the stats
             self.end_time = datetime.datetime.utcnow()
             self.provider.add_usage_item(self.start_time,
                                          self.end_time, self.rx_bytes,

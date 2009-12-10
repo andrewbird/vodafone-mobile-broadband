@@ -66,6 +66,7 @@ class PreferencesController(Controller):
         device = self.model.get_device()
         if not device:
             return
+
         def error(e):
             logger.error("Error while getting IMSI: %s" % get_error_msg(e))
 
@@ -87,7 +88,6 @@ class PreferencesController(Controller):
                 # tell the view to setup the smsc number. when the user clicks
                 # save or changes him self it will be saved.
                 self.view.setup_smsc_number(net_attrib.smsc)
-
 
     def setup_sms_tab(self):
         # setup the sms preferences to reflect what's in our model on startup

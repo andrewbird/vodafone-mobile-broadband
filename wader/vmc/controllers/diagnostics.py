@@ -22,6 +22,7 @@ from gtkmvc import Controller
 
 from wader.common.consts import CRD_INTFACE, MDM_INTFACE
 from wader.common.provider import NetworkProvider
+from wader.vmc.logger import logger
 
 
 class DiagnosticsController(Controller):
@@ -51,53 +52,51 @@ class DiagnosticsController(Controller):
         if not device:
             return
 
-        def error(e):
-            print e
-
-
         def sim_imei(sim_data):
             # ok we don't have a model the data is coming from dbus
             # from wader core lets tell the view to set the imsi value
             # in the correct place
-            print "controller: diagnostics sim_imei - IMEI number is: " + sim_data
+            print "diagnostics sim_imei - IMEI number is", sim_data
             self.view.set_imei_info(sim_data)
 
         device.GetImei(dbus_interface=CRD_INTFACE,
-                       error_handler=error, reply_handler=sim_imei)
+                       error_handler=logger.error, reply_handler=sim_imei)
 
         def sim_network(sim_data):
             # let's look up what we think this SIM's network is.
             # so we want to display the country and network operator
 
             sim_network = NetworkProvider()
-            #networks_attributes = sim_network.get_network_by_id("460009075714956")
             networks_attributes = sim_network.get_network_by_id(sim_data)
             if networks_attributes:
                 net_attrib = networks_attributes[0]
-                print "controller: diagnostics sim_network - country: " + net_attrib.country
-                print "controller: diagnostics sim_network - network opeartor: " + net_attrib.name
-                print "controller: diagnostics sim_network - sms value: " + net_attrib.smsc
-                print "controller: diagnostics sim_network - password value: "  + net_attrib.password
+                print "diagnostics sim_network - country:", net_attrib.country
+                print "diagnostics sim_network - network opeartor:", net_attrib.name
+                print "diagnostics sim_network - sms value:", net_attrib.smsc
+                print "diagnostics sim_network - password value:", net_attrib.password
                 self.view.set_network_info(net_attrib.name, net_attrib.country)
 
         device.GetImsi(dbus_interface=CRD_INTFACE,
-                       error_handler=error, reply_handler=sim_network)
+                       error_handler=logger.error, reply_handler=sim_network)
 
         def sim_imsi(sim_data):
-            # ok we don't have a model the data is coming from dbus from wader core
-            # lets tell the view to set the imei value in the correct place
-            print "controller: diagnostics sim_imsi - IMSI number is: " + sim_data
+            # ok we don't have a model the data is coming from dbus from the
+            # core lets tell the view to set the imei in the correct place
+            print "diagnostics sim_imsi - IMSI number is", sim_data
             self.view.set_imsi_info(sim_data)
-        device.GetImsi(dbus_interface=CRD_INTFACE, error_handler=error, reply_handler=sim_imsi)
+
+        device.GetImsi(dbus_interface=CRD_INTFACE,
+                       error_handler=logger.error, reply_handler=sim_imsi)
 
         def mdm_info(datacard_info):
-            # ok we don't have a model the data is coming straight from our core via dbus
+            # ok we don't have a model the data is coming straight from
+            # our core via dbus
             manufacturer = datacard_info[0]
             model = datacard_info[1]
             firmware = datacard_info[2]
-            print "controller: diagnostics mdm_info - manufacturer " + manufacturer
-            print "controller: diagnostics mdm_info - model " + model
-            print "controller: diagnostics mdm_info - firmware " + firmware
+            print "diagnostics mdm_info - manufacturer", manufacturer
+            print "diagnostics mdm_info - model", model
+            print "diagnostics mdm_info - firmware", firmware
 
             # XXX: Is this necessary?
             # we need to take into account when cards don't tell us the truth.
@@ -106,7 +105,9 @@ class DiagnosticsController(Controller):
                 model = 'E172'
 
             self.view.set_datacard__info(manufacturer, model, firmware)
-        device.GetInfo(dbus_interface=MDM_INTFACE, error_handler=error, reply_handler=mdm_info)
+
+        device.GetInfo(dbus_interface=MDM_INTFACE,
+                       error_handler=logger.error, reply_handler=mdm_info)
 
     # ------------------------------------------------------------ #
     #                       Signals Handling                       #

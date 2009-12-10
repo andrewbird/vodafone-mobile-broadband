@@ -70,7 +70,8 @@ from wader.vmc.controllers.sms import NewSmsController, ForwardSmsController
 
 from wader.vmc.views.pin import (PinModifyView, PinEnableView,
                                  AskPUKView, AskPINView)
-from wader.vmc.controllers.pin import (PinModifyController, PinEnableController,
+from wader.vmc.controllers.pin import (PinModifyController,
+                                       PinEnableController,
                                        AskPUKController, AskPINController)
 
 from wader.vmc.models.preferences import PreferencesModel
@@ -123,7 +124,8 @@ class MainController(WidgetController):
     def connect_to_signals(self):
         self._setup_menubar_hacks()
 
-        self.view['main_window'].connect("delete_event", self._quit_or_minimize)
+        self.view['main_window'].connect("delete_event",
+                                         self._quit_or_minimize)
 
         self.cid = self.view['connect_button'].connect('toggled',
                                             self.on_connect_button_toggled)
@@ -626,7 +628,8 @@ class MainController(WidgetController):
         item.show()
         menu.append(item)
 
-        # Figure out whether we should show delete, edit, or no extra menu items
+        # Figure out whether we should show delete, edit,
+        # or no extra menu items
         if all_contacts_writable(contacts):
             item = gtk.ImageMenuItem(_("_Delete"))
             img = gtk.image_new_from_stock(gtk.STOCK_DELETE,
@@ -679,8 +682,9 @@ The csv file that you have tried to import has an invalid format.""")
             phonebook = get_phonebook(self.model.device)
             # Now we support different backends we need to be more
             # selective about what we write out?
-            contacts = phonebook.get_contacts()
-            writer.write_rows([c.to_csv() for c in contacts if c.is_writable()])
+            contacts = [c.to_csv() for c in phonebook.get_contacts()
+                                if c.is_writable()]
+            writer.write_rows(contacts)
 
     def on_connect_button_toggled(self, widget):
         dialmanager = self.model.get_dialer_manager()
@@ -783,6 +787,7 @@ The csv file that you have tried to import has an invalid format.""")
         def is_pin_enabled_cb(curval):
             reqval = checkmenuitem.get_active()
             if reqval != curval:
+
                 def pin_enable_cb(enable):
                     self.view['change_pin1'].set_sensitive(enable)
 
@@ -897,7 +902,8 @@ The csv file that you have tried to import has an invalid format.""")
         view.show()
 
     def on_help_topics_menu_item_activate(self, widget):
-        binary = config.get('preferences', 'browser', CFG_PREFS_DEFAULT_BROWSER)
+        binary = config.get('preferences', 'browser',
+                            CFG_PREFS_DEFAULT_BROWSER)
         if binary:
             index_path = os.path.join(GUIDE_DIR, 'index.html')
             Popen([binary, index_path])
@@ -1403,4 +1409,4 @@ The csv file that you have tried to import has an invalid format.""")
         # while in the rest the SMS object is at row[4]
         row = 3 if page == TV_DICT_REV['contacts_treeview'] else 4
         _iter = model.get_iter(selected[0])
-        return (model, _iter, model.get_value(_iter, row))
+        return model, _iter, model.get_value(_iter, row)

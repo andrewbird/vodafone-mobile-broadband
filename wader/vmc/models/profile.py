@@ -268,8 +268,7 @@ class ProfileModel(Model):
             'serial': {'baud': 115200, 'name': 'serial'},
             'ipv4': {'addresses': [], 'method': 'auto',
                      'ignore-auto-dns': self.static_dns,
-                     'name': 'ipv4', 'routes': []}
-        }
+                     'name': 'ipv4', 'routes': []}}
 
         if self.auth == VM_NETWORK_AUTH_PAP:     # Our GUI only cares about PAP/CHAP
             props['ppp']['refuse-pap'] = False

@@ -73,7 +73,6 @@ class PreferencesModel(BaseWrapperModel):
         self.device_callable = device_callable
         self.load()
 
-
     def load(self):
         self.warn_limit = self.conf.get('preferences', 'warn_limit', True)
         self.transfer_limit = self.conf.get('preferences', 'transfer_limit',
