@@ -221,6 +221,7 @@ def ask_password_dialog(parent):
 
 ########################## import from VMC ##############################
 
+
 class CheckBoxPopupDialogCtrl(Controller):
 
     def __init__(self):
@@ -254,8 +255,8 @@ def save_csv_file(path=None):
     title = _("Save as ...")
     chooser_dialog = gtk.FileChooserDialog(title,
                     action=gtk.FILE_CHOOSER_ACTION_SAVE,
-                    buttons = (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
-                               gtk.STOCK_SAVE, gtk.RESPONSE_OK))
+                    buttons=(gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
+                             gtk.STOCK_SAVE, gtk.RESPONSE_OK))
 
     chooser_dialog.set_default_response(gtk.RESPONSE_OK)
     filter_ = gtk.FileFilter()
@@ -292,8 +293,8 @@ def open_import_csv_dialog(path=None):
     """Opens a filechooser dialog to import a csv file"""
     title = _("Import contacts from...")
     chooser_dialog = gtk.FileChooserDialog(title,
-                    buttons = (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
-                               gtk.STOCK_OPEN, gtk.RESPONSE_OK))
+                    buttons=(gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
+                             gtk.STOCK_OPEN, gtk.RESPONSE_OK))
 
     chooser_dialog.set_default_response(gtk.RESPONSE_OK)
 

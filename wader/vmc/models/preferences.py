@@ -76,7 +76,8 @@ class PreferencesModel(BaseWrapperModel):
 
     def load(self):
         self.warn_limit = self.conf.get('preferences', 'warn_limit', True)
-        self.transfer_limit = self.conf.get('preferences', 'transfer_limit', 50.0)
+        self.transfer_limit = self.conf.get('preferences', 'transfer_limit',
+                                            50.0)
 
         # ok lets load the SMS preferences from the configuration file.
         # but take care! If the config file is absent set to default values.
@@ -85,17 +86,10 @@ class PreferencesModel(BaseWrapperModel):
 
         self.smsc_profile = self.conf.get('preferences', 'smsc_profile',
                                           'Vodafone UK United Kingdon')
-                                          
-        self.smsc_number = self.conf.get('preferences', 'smsc_number')
-        
-        if (self.smsc_number ==''):
-            print "model: Warning! self.smsc_number is NULL, setting to unknown"
-            self.smsc_number = 'unknown'
- 
-        self.smsc_validity = self.conf.get('preferences', 'smsc_validity')
-        if (self.smsc_validity ==''):
-            print "model: Warning! self.smsc_validity is NULL"
-            self.smsc_validity = 'maximum'
+
+        self.smsc_number = self.conf.get('preferences', 'smsc_number',
+                                         'unknown')
+
         self.smsc_validity = self.conf.get('preferences', 'smsc_validity',
                                            'maximum')
 
@@ -112,10 +106,8 @@ class PreferencesModel(BaseWrapperModel):
         self.close_minimizes = config.get('preferences', 'close_minimizes',
                                     CFG_PREFS_DEFAULT_CLOSE_MINIMIZES)
 
-        self.manage_my_keyring = config.get('preferences', 'manage_my_keyring')
-        if (self.manage_my_keyring==''):
-            print "model: Warning! self.manage_my_keyring is NULL"
-            self.manage_my_keyring = False
+        self.manage_my_keyring = config.get('preferences', 'manage_my_keyring',
+                                            False)
 
         # ok lets load the application values from configuration file
         self.browser = config.get('preferences', 'browser',
