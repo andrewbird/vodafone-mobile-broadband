@@ -239,8 +239,6 @@ class MainModel(Model):
         self._connect_to_signals()
 
     def _initialize_usage_values(self):
-        self.total_transferred = self.conf.get('statistics',
-                                               'total_transferred', 0)
         self.total_month = self.get_month(0)
 
     def enable_device(self):
@@ -464,8 +462,9 @@ class MainModel(Model):
             transfer_limit = float(self.conf.get('preferences',
                                                  'traffic_threshold', 0.0))
             transfer_limit = transfer_limit * ONE_MB
-            exceeded = self.total_transferred > transfer_limit > 0
-            self.transfer_limit_exceeded = exceeded
+            # the session total should be taken into account too
+            total_traffic = self.total_transferred + self.total_session
+            self.transfer_limit_exceeded = total_traffic > transfer_limit > 0
         else:
             self.transfer_limit_exceeded = False
 
@@ -475,21 +474,16 @@ class MainModel(Model):
         delta_bytes = total - self.previous_bytes
         self.previous_bytes = total
 
+        # 3G traffic
         if self.bearer_type:
             self.threeg_session += delta_bytes
-            self.threeg_transferred += delta_bytes
+        # GPRS traffic
         else:
             self.twog_session += delta_bytes
-            self.twog_transferred += delta_bytes
 
         self.total_session += delta_bytes
-        self.total_transferred += delta_bytes
 
     def on_dial_stats(self, stats):
-        if not self.total_transferred:
-            self.total_transferred = int(self.conf.get('statistics',
-                                                 'total_transferred', 0))
-
         self.rx_bytes, self.tx_bytes = stats[:2]
         self.rx_rate, self.tx_rate = stats[2:]
         self.add_traffic_to_stats()
@@ -519,10 +513,11 @@ class MainModel(Model):
             self.provider.add_usage_item(self.start_time,
                                          self.end_time, self.rx_bytes,
                                          self.tx_bytes, self.bearer_type)
+            # add session to transferred
+            self.threeg_transferred += self.threeg_session
+            self.twog_transferred += self.twog_session
+            self.total_transferred += self.total_session
 
-            # save total_transferred
-            self.conf.set('statistics', 'total_transferred',
-                          self.total_transferred)
             # reset counters
             self.threeg_session = self.twog_session = self.total_session = 0
             self.rx_bytes = self.tx_bytes = self.rx_rate = self.tx_rate = 0
@@ -559,7 +554,7 @@ class MainModel(Model):
         return self.twog_session
 
     def get_session_total(self):
-        return self.get_session_3g() + self.get_session_gprs()
+        return self.total_session
 
     def get_transferred_3g(self, offset):
         # filter out all the items that respond True to "is_3g"
@@ -574,5 +569,4 @@ class MainModel(Model):
         return sum(imap(methodcaller('total'), gprs_items))
 
     def get_transferred_total(self, offset):
-        # get a list with the total transferred for every item and sum them up
-        return sum(imap(methodcaller('total'), self._get_month(offset)))
+        return self.total_transferred
