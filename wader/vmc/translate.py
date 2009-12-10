@@ -25,4 +25,3 @@ name = APP_SLUG_NAME = 'wader-vmc'
 gettext.bindtextdomain(name, os.getenv('TEXTDOMAINDIR', '/usr/share/locale'))
 gettext.textdomain(name)
 _ = gettext.gettext
-

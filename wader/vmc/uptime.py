@@ -21,7 +21,7 @@ from math import ceil
 from wader.vmc.translate import _
 
 TIME_DESCRIPTION = {
-    60 : 'minute',
+    60: 'minute',
     3600: 'hour',
     86400: 'day',
 }
@@ -80,9 +80,9 @@ def get_uptime_string(uptime):
     try:
         day = time_dict['day']
         if day > 1:
-            resp = _("%(day)d days, %(msg)s") % {'day': day, 'msg' : msg}
+            resp = _("%(day)d days, %(msg)s") % {'day': day, 'msg': msg}
         else:
-            resp = _("%(day)d day, %(msg)s") % {'day': day, 'msg' : msg}
+            resp = _("%(day)d day, %(msg)s") % {'day': day, 'msg': msg}
 
     except KeyError:
         resp = msg

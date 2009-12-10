@@ -16,9 +16,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-"""
-Configuration singleton for GTK
-"""
+"""Configuration singleton for GTK"""
 
 from wader.common.config import WaderConfig
 from wader.vmc.consts import APP_SLUG_NAME
@@ -28,4 +26,3 @@ CONF_PATH = '/apps/%s' % APP_SLUG_NAME
 DEFAULT_KEYS = ['profile', 'preferences', 'sms']
 
 config = WaderConfig(keys=DEFAULT_KEYS, base_path=CONF_PATH)
-

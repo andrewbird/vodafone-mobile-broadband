@@ -90,6 +90,7 @@ class Messages(object):
     """
     I provide a uniform API to deal with all SMS in the system (SIM, DB, etc.)
     """
+
     def __init__(self, device=None):
         self.device = device
         self.smanager = DBSMSManager()

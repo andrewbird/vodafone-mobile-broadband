@@ -52,6 +52,7 @@ class TrayIcon(object):
     I provide a uniform API for two heterogeneous components and perform
     some trickery to show notifications on a HIG-friendly way
     """
+
     def __init__(self, icon):
         self.icon = icon
 
@@ -115,6 +116,7 @@ class TrayIcon(object):
         n.show()
 
 if HAVE_STATUS_ICON:
+
     def get_tray_icon(show_ide_cb, get_menu_func):
         icon = gtk.status_icon_new_from_file(IMG_PATH)
         icon.set_visible(True)
@@ -130,6 +132,7 @@ if HAVE_STATUS_ICON:
         return TrayIcon(icon)
 
 else:
+
     def get_tray_icon(show_ide_cb, get_menu_func=None):
         import egg.trayicon
         tray = egg.trayicon.TrayIcon(APP_SHORT_NAME)

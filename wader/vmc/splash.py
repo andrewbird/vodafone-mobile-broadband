@@ -24,6 +24,7 @@ from wader.vmc.consts import GLADE_DIR
 
 
 class SplashScreen(gtk.Window):
+
     def __init__(self):
         super(SplashScreen, self).__init__(gtk.WINDOW_POPUP)
 

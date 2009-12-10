@@ -26,4 +26,3 @@ from wader.common.profile import ProfileManager
 from wader.vmc.consts import GCONF_BASE_DIR
 
 manager = ProfileManager(GCONF_BASE_DIR)
-

@@ -28,6 +28,7 @@ COMPUTER_IMG = gtk.gdk.pixbuf_new_from_file(join(IMAGES_DIR, 'computer.png'))
 
 THROBBER = gtk.gdk.PixbufAnimation(join(IMAGES_DIR, 'throbber.gif'))
 
+
 def get_pixbuf_for_device(device):
     """Returns the pixbuf correspondent to C{device}"""
     prop_name = '-'.join(device.name.lower().split(' ')) + '.png'

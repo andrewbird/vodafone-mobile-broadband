@@ -25,6 +25,7 @@ import cStringIO
 
 from wader.vmc.phonebook import Contact
 
+
 class CSVUnicodeWriter(object):
     """
     A CSV writer which will write rows to CSV file "f",
@@ -99,4 +100,3 @@ class CSVContactsReader(CSVUnicodeReader):
             return Contact(name, number)
         except IndexError:
             raise StopIteration
-

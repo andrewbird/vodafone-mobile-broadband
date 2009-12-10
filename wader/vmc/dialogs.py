@@ -222,6 +222,7 @@ def ask_password_dialog(parent):
 ########################## import from VMC ##############################
 
 class CheckBoxPopupDialogCtrl(Controller):
+
     def __init__(self):
         super(CheckBoxPopupDialogCtrl, self).__init__(Model())
         self.checked = False
@@ -323,6 +324,7 @@ MAX_WIDTH = 260
 MIN_WIDTH = 150
 SIZE_PER_CHAR = 15
 
+
 class ActivityProgressBar(object):
     """
     I am an activity progress bar
@@ -330,6 +332,7 @@ class ActivityProgressBar(object):
     useful for situation where we don't know how long will
     take an IO operation to complete
     """
+
     def __init__(self, title, parent, initnow=False, disable_cancel=False):
         self.tree = None
         self.window = None

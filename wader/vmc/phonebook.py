@@ -20,9 +20,9 @@ phonebook presents a uniform layer to deal with contacts from all sources
 """
 
 from wader.vmc.contacts import supported_types
-
 # just for now, we'll interrogate later
 from wader.vmc.contacts.contact_sim import SIMContactsManager
+
 
 def all_same_type(l):
     """Returns True if all items in C{l} are the same type"""
@@ -33,6 +33,7 @@ def all_same_type(l):
             return False
     return True
 
+
 def all_contacts_writable(l):
     """Returns True if all contacts in C{l} are writable"""
     for contact in l:
@@ -42,9 +43,11 @@ def all_contacts_writable(l):
 
 
 class Contact(object):
-    """Generic object capable only of being initialised and returning
-       name and number
     """
+    Generic object capable only of being initialised and returning
+    name and number
+    """
+
     def __init__(self, name, number):
         self.name = unicode(name)
         self.number = unicode(number)
@@ -153,6 +156,7 @@ class PhoneBook(object):
 #            raise NotImplementedError()
 
 _phonebook = PhoneBook()
+
 
 def get_phonebook(device):
     _phonebook.device = device

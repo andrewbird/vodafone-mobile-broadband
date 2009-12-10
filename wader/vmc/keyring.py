@@ -15,9 +15,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-"""
-Client for gnomekeyring
-"""
+"""Client for gnomekeyring"""
 
 import gnomekeyring
 
@@ -25,6 +23,7 @@ import gconf
 
 from wader.common.consts import APP_SLUG_NAME as slug
 from wader.vmc.consts import APP_LONG_NAME
+
 
 class KeyringClient(object):
     """
@@ -34,6 +33,7 @@ class KeyringClient(object):
     the user. The only drawback is what if the user changes the SIM of its
     device? Won't work :)
     """
+
     def __init__(self):
         self.keyring = gnomekeyring.get_default_keyring_sync()
 
@@ -51,6 +51,7 @@ class KeyringClient(object):
         Register C{pin} for C{device}
         """
         d = device.sconn.get_imei()
+
         def imei_cb(imei):
             gconf_key = "/apps/%s/%s/keyring_auth_token" % (slug, imei)
             auth_token = gnomekeyring.item_create_sync(
@@ -70,6 +71,7 @@ class KeyringClient(object):
         Returns the PIN associated with C{device}
         """
         d = device.sconn.get_imei()
+
         def imei_cb(imei):
             gconf_key = "/apps/%s/%s/keyring_auth_token" % (slug, imei)
             auth_token = gconf.client_get_default().get_int(gconf_key)

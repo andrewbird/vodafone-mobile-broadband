@@ -18,7 +18,7 @@
 
 UNIT_B, UNIT_KB, UNIT_MB, UNIT_GB = xrange(4)
 UNIT_REPR = {
-    UNIT_B:  "B",
+    UNIT_B: "B",
     UNIT_KB: "KB",
     UNIT_MB: "MB",
     UNIT_GB: "GB",
@@ -37,7 +37,6 @@ def get_error_msg(e):
 
 def dbus_error_is(e, exception):
     return exception.__name__ in get_error_msg(e)
-
 
 
 def units_to_bytes(value, units):

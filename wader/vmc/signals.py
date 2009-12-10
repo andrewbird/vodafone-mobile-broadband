@@ -20,15 +20,15 @@ from wader.common import consts
 from wader.vmc.translate import _
 
 NET_MODE_SIGNALS = {
-    consts.MM_NETWORK_MODE_UNKNOWN : _('No signal'),
-    consts.MM_NETWORK_MODE_GPRS : _('GPRS'),
-    consts.MM_NETWORK_MODE_EDGE : _('EDGE'),
-    consts.MM_NETWORK_MODE_UMTS : _('UMTS'),
-    consts.MM_NETWORK_MODE_2G_PREFERRED : _('2G preferred'),
-    consts.MM_NETWORK_MODE_3G_PREFERRED : _('3G preferred'),
-    consts.MM_NETWORK_MODE_2G_ONLY : _('2G only'),
-    consts.MM_NETWORK_MODE_3G_ONLY : _('3G only'),
-    consts.MM_NETWORK_MODE_HSDPA : _('HSDPA'),
-    consts.MM_NETWORK_MODE_HSUPA : _('HSUPA'),
-    consts.MM_NETWORK_MODE_HSPA : _('HSPA'),
+    consts.MM_NETWORK_MODE_UNKNOWN: _('No signal'),
+    consts.MM_NETWORK_MODE_GPRS: _('GPRS'),
+    consts.MM_NETWORK_MODE_EDGE: _('EDGE'),
+    consts.MM_NETWORK_MODE_UMTS: _('UMTS'),
+    consts.MM_NETWORK_MODE_2G_PREFERRED: _('2G preferred'),
+    consts.MM_NETWORK_MODE_3G_PREFERRED: _('3G preferred'),
+    consts.MM_NETWORK_MODE_2G_ONLY: _('2G only'),
+    consts.MM_NETWORK_MODE_3G_ONLY: _('3G only'),
+    consts.MM_NETWORK_MODE_HSDPA: _('HSDPA'),
+    consts.MM_NETWORK_MODE_HSUPA: _('HSUPA'),
+    consts.MM_NETWORK_MODE_HSPA: _('HSPA'),
 }
