@@ -15,20 +15,18 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-"""
-Controllers for preferences
-"""
+"""Controllers for preferences"""
 
 import gobject
 import gtk
 from gtkmvc import Controller
 
 from wader.common.provider import NetworkProvider
+from wader.common.consts import CRD_INTFACE
 
 from wader.vmc.config import config
 from wader.vmc.consts import (CFG_PREFS_DEFAULT_BROWSER,
                               CFG_PREFS_DEFAULT_EMAIL)
-from wader.common.consts import CRD_INTFACE
 from wader.vmc.logger import logger
 from wader.vmc.translate import _
 from wader.vmc.dialogs import show_warning_dialog
@@ -76,7 +74,8 @@ class PreferencesController(Controller):
 
     def load_smsc(self, sim_data):
         print "preferences: smsc value in model", self.model.smsc_number
-        if self.model.smsc_number in [_('Unknown'), _('unknown')] or not self.model.smsc_number:
+        if (self.model.smsc_number.capitalize() == _('Unknown')
+                                        or not self.model.smsc_number):
             logger.warning("self.smsc_number is Unknown or None")
             #create a NetworProvider object to querry our NetworkProvider db
             sim_network = NetworkProvider()
@@ -94,7 +93,6 @@ class PreferencesController(Controller):
         # remember that if 'use an alternative SMSC service centre is set ' is
         # False we have to grey out 'SMSC preferences' so tell the view that
         # he has to do that by checking the show_smsc_preferences flag.
-
         alternate_smsc_flag = self.model.use_alternate_smsc
         smsc_number = self.model.smsc_number
         smsc_profile = self.model.smsc_profile
@@ -108,18 +106,19 @@ class PreferencesController(Controller):
 
         # ok lets populate the view of the sms profile box
         smsc_profile_box = gtk.ListStore(gobject.TYPE_STRING)
-        iterator = smsc_profile_box.append([self.model.smsc_profile])
-        self.view.setup_smsc_profile(smsc_profile_box, iterator, alternate_smsc_flag)
+        _iter = smsc_profile_box.append([self.model.smsc_profile])
+        self.view.setup_smsc_profile(smsc_profile_box, _iter,
+                                     alternate_smsc_flag)
 
         # finally the validity period
         smsc_validity_box = gtk.ListStore(gobject.TYPE_STRING)
 
         for key, value in self.model.validities.items():
             if key == self.model.smsc_validity:
-                iterator = smsc_validity_box.append([key])
+                _iter = smsc_validity_box.append([key])
             else:
                 smsc_validity_box.append([key])
-        self.view.setup_sms_message_validity(smsc_validity_box, iterator)
+        self.view.setup_sms_message_validity(smsc_validity_box, _iter)
 
     def setup_user_prefs_tab(self):
         # setup the user preferences to reflect what's in our model on startup
@@ -139,19 +138,18 @@ class PreferencesController(Controller):
         self.view.setup_usage_max_traffic_value(self.model.max_traffic)
         self.view.setup_usage_threshold_value(self.model.traffic_threshold)
         self.view.setup_usage_notification_check(self.model.usage_notification)
-        return
 
     def setup_mail_browser_tab(self):
         # setup the mail and browser tab to reflect what's in model on startup
 
         # ok lets populate the view of the mail combo box and text box first
         mail_combo_box = gtk.ListStore(gobject.TYPE_STRING)
-        iterator = mail_combo_box.append([CFG_PREFS_DEFAULT_EMAIL])
+        _iter = mail_combo_box.append([CFG_PREFS_DEFAULT_EMAIL])
         custom_iter = mail_combo_box.append([_('Custom')])
 
         # ok lets get the value for the mail text box from the model if exists
         mail_text_box = self.model.mail
-        active_set = (iterator if mail_text_box == CFG_PREFS_DEFAULT_EMAIL
+        active_set = (_iter if mail_text_box == CFG_PREFS_DEFAULT_EMAIL
                                    else custom_iter)
         # set the combo box in the view to show the values
         self.view.setup_application_mail_combo_box(mail_combo_box, active_set)
@@ -160,16 +158,15 @@ class PreferencesController(Controller):
         if mail_text_box != CFG_PREFS_DEFAULT_EMAIL:
             self.view.setup_application_mail_text_box(mail_text_box)
 
-
         # ok lets populate the view of the browser combo box and text box
         browser_combo_box = gtk.ListStore(gobject.TYPE_STRING)
-        iterator = browser_combo_box.append([CFG_PREFS_DEFAULT_BROWSER])
+        _iter = browser_combo_box.append([CFG_PREFS_DEFAULT_BROWSER])
         custom_iter = browser_combo_box.append([_('Custom')])
 
         # ok lets get the value for the browser text box from the model
         # if it exists
         browser_text_box = self.model.browser
-        active_set = (iterator if browser_text_box == CFG_PREFS_DEFAULT_BROWSER
+        active_set = (_iter if browser_text_box == CFG_PREFS_DEFAULT_BROWSER
                                    else custom_iter)
         # set the combo box in the view to show values
         self.view.setup_application_browser_combo_box(browser_combo_box,
@@ -264,9 +261,9 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         # get the sms validity virst
         #sms_validity_view = gtk.ListStore(gobject.TYPE_STRING)
         sms_validity_view = self.view['validity_combobox'].get_model()
-        iteration = self.view['validity_combobox'].get_active_iter()
-        if iteration is not None:
-            validity_option = sms_validity_view.get_value(iteration, 0)
+        _iter = self.view['validity_combobox'].get_active_iter()
+        if _iter is not None:
+            validity_option = sms_validity_view.get_value(_iter, 0)
             self.model.smsc_validity = validity_option
 
         # get the 'use an alternative smsc address' and save to config.
@@ -280,8 +277,8 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         # OK only set the SMSC values if the alternate_sms_checkbox is true.
         if alternate_sms_checkbox == True:
             smsc_profile_view = self.view['sms_profiles_combobox'].get_model()
-            iteration = self.view['sms_profiles_combobox'].get_active_iter()
-            smsc_profile_option = smsc_profile_view.get_value(iteration, 0)
+            _iter = self.view['sms_profiles_combobox'].get_active_iter()
+            smsc_profile_option = smsc_profile_view.get_value(_iter, 0)
 
             # ok lets set the model to the value in the view
             self.model.smsc_profile = smsc_profile_option
@@ -313,8 +310,8 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         # ------third tab -----
         # fetch the browser combo box data and the browser custom drop down list
         browser_combo_view = self.view['browser_combobox'].get_model()
-        iteration = self.view['browser_combobox'].get_active_iter()
-        browser_options = browser_combo_view.get_value(iteration, 0)
+        _iter = self.view['browser_combobox'].get_active_iter()
+        browser_options = browser_combo_view.get_value(_iter, 0)
 
         # ok if the guy selects the xdg-open just save that name value pair in the model
         # otherwise save the entry in the command box
@@ -326,8 +323,8 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
 
         # fetch the mail combo box data and the mail custom drop down list
         mail_combo_view = self.view['mail_combobox'].get_model()
-        iteration = self.view['mail_combobox'].get_active_iter()
-        mail_options = mail_combo_view.get_value(iteration, 0)
+        _iter = self.view['mail_combobox'].get_active_iter()
+        mail_options = mail_combo_view.get_value(_iter, 0)
 
         # ok if the guy selects the xdg-email just save that name
         # value pair in the model otherwise save the entry in the comand box
