@@ -21,7 +21,6 @@ import gobject
 from gtkmvc import ListStoreModel
 
 from wader.common.utils import revert_dict
-from wader.vmc.logger import logger
 from wader.vmc.translate import _
 from wader.vmc.config import config
 from wader.vmc.models.base import BaseWrapperModel
@@ -76,8 +75,8 @@ class PreferencesModel(BaseWrapperModel):
 
 
     def load(self):
-        self.warn_limit = self.conf.get('statistics', 'warn_limit', True)
-        self.transfer_limit = self.conf.get('statistics', 'transfer_limit', 50.0)
+        self.warn_limit = self.conf.get('preferences', 'warn_limit', True)
+        self.transfer_limit = self.conf.get('preferences', 'transfer_limit', 50.0)
 
         # ok lets load the SMS preferences from the configuration file.
         # but take care! If the config file is absent set to default values.
@@ -133,9 +132,6 @@ class PreferencesModel(BaseWrapperModel):
                                              'usage_notification', False)
 
     def save(self):
-        #self.conf.set('statistics', 'warn_limit', self.warn_limit)
-        #self.conf.set('statistics', 'transfer_limit', self.transfer_limit)
-
         # Save all the attributes on the SMS tab
         config.set('preferences', 'use_alternate_smsc',
                    self.use_alternate_smsc)
@@ -158,11 +154,6 @@ class PreferencesModel(BaseWrapperModel):
         config.set('preferences', 'max_traffic', int(self.max_traffic))
         config.set('preferences', 'traffic_threshold', int(self.traffic_threshold))
         config.set('preferences', 'usage_notification', self.usage_notification)
-
-    def reset_statistics(self):
-        logger.info('Resetting total transferred')
-        # self.parent.total_transferred = 0
-        self.conf.set('statistics', 'total_transferred', 0)
 
 
 class SMSCListStoreModel(ListStoreModel):
