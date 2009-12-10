@@ -568,4 +568,10 @@ class MainModel(Model):
         return sum(imap(methodcaller('total'), gprs_items))
 
     def get_transferred_total(self, offset):
-        return self.total_transferred
+        # XXX: Needs review
+        # if current month return the total transferred for this month
+        if not offset:
+            return self.total_transferred
+
+        # else return the usage of the given month
+        return self.get_month(offset)

@@ -142,8 +142,7 @@ class MainView(View):
             self[widget].set_text(str(value))
 
     def set_usage_bar_value(self, bar, value):
-        bar = self.usage_bars[bar]
-        bar.set_value(value)
+        self.usage_bars[bar].set_value(value)
 
     def update_bars_user_limit(self):
         self.usage_user_limit = int(config.get('preferences',
