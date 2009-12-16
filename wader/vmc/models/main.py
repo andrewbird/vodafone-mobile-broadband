@@ -368,10 +368,12 @@ class MainModel(Model):
         self.tech = NET_MODE_SIGNALS[net_mode]
         # account existing traffic to previous tech mode
         self.add_traffic_to_stats()
-        self.reset_session_data()
-        # True if 3G bearer, False otherwise
-        self.bearer_type = net_mode not in TWOG_SIGNALS
 
+        # True if 3G bearer, False otherwise
+        old_bearer_type = self.bearer_type
+        self.bearer_type = net_mode not in TWOG_SIGNALS
+        if old_bearer_type != self.bearer_type:
+            self.reset_session_data()
 
     def _check_pin_status(self):
 
