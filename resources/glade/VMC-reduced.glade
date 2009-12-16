@@ -209,8 +209,7 @@
 			  <child internal-child="image">
 			    <widget class="GtkImage" id="image652">
 			      <property name="visible">True</property>
-			      <property name="stock">gtk-info</property>
-			      <property name="icon_size">4</property>
+			      <property name="pixbuf">sim16x10.png</property>
 			      <property name="xalign">0.5</property>
 			      <property name="yalign">0.5</property>
 			      <property name="xpad">0</property>
@@ -235,7 +234,7 @@
 			  <child internal-child="image">
 			    <widget class="GtkImage" id="image653">
 			      <property name="visible">True</property>
-			      <property name="pixbuf">profiles.png</property>
+			      <property name="pixbuf">profile16x16.png</property>
 			      <property name="xalign">0.5</property>
 			      <property name="yalign">0.5</property>
 			      <property name="xpad">0</property>
