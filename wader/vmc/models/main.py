@@ -368,8 +368,10 @@ class MainModel(Model):
         self.tech = NET_MODE_SIGNALS[net_mode]
         # account existing traffic to previous tech mode
         self.add_traffic_to_stats()
+        self.reset_session_data()
         # True if 3G bearer, False otherwise
         self.bearer_type = net_mode not in TWOG_SIGNALS
+
 
     def _check_pin_status(self):
 
@@ -482,6 +484,30 @@ class MainModel(Model):
 
         self.total_session += delta_bytes
 
+    def reset_session_data(self):
+        # This function stores current tx and rx data in usage data base and
+        # reset session counters.
+        # if start_time is None it means that the connection attempt failed
+        if self.start_time is not None:
+            # before resetting the counters, we'll store the stats
+            self.end_time = datetime.datetime.utcnow()
+            self.provider.add_usage_item(self.start_time,
+                                         self.end_time, self.rx_bytes,
+                                         self.tx_bytes, self.bearer_type)
+            # add session to transferred
+            self.threeg_transferred += self.threeg_session
+            self.twog_transferred += self.twog_session
+            self.total_transferred += self.total_session
+
+            # reset counters
+            self.threeg_session = self.twog_session = self.total_session = 0
+            self.rx_bytes = self.tx_bytes = self.rx_rate = self.tx_rate = 0
+            self.previous_bytes = 0
+            self.total_month = self.get_month(0)
+            # reset stats tracking
+            self.start_time = self.end_time
+
+
     def on_dial_stats(self, stats):
         self.rx_bytes, self.tx_bytes = stats[:2]
         self.rx_rate, self.tx_rate = stats[2:]
@@ -505,25 +531,28 @@ class MainModel(Model):
             self.stats_sm.remove()
             self.stats_sm = None
 
-        # if start_time is None it means that the connection attempt failed
-        if self.start_time is not None:
-            # before resetting the counters, we'll store the stats
-            self.end_time = datetime.datetime.utcnow()
-            self.provider.add_usage_item(self.start_time,
-                                         self.end_time, self.rx_bytes,
-                                         self.tx_bytes, self.bearer_type)
-            # add session to transferred
-            self.threeg_transferred += self.threeg_session
-            self.twog_transferred += self.twog_session
-            self.total_transferred += self.total_session
+#         # if start_time is None it means that the connection attempt failed
+#         if self.start_time is not None:
+#             # before resetting the counters, we'll store the stats
+#             self.end_time = datetime.datetime.utcnow()
+#             self.provider.add_usage_item(self.start_time,
+#                                          self.end_time, self.rx_bytes,
+#                                          self.tx_bytes, self.bearer_type)
+#             # add session to transferred
+#             self.threeg_transferred += self.threeg_session
+#             self.twog_transferred += self.twog_session
+#             self.total_transferred += self.total_session
 
-            # reset counters
-            self.threeg_session = self.twog_session = self.total_session = 0
-            self.rx_bytes = self.tx_bytes = self.rx_rate = self.tx_rate = 0
-            self.previous_bytes = 0
-            self.total_month = self.get_month(0)
-            # reset stats tracking
-            self.start_time = self.end_time = None
+#             # reset counters
+#             self.threeg_session = self.twog_session = self.total_session = 0
+#             self.rx_bytes = self.tx_bytes = self.rx_rate = self.tx_rate = 0
+#             self.previous_bytes = 0
+#             self.total_month = self.get_month(0)
+#             # reset stats tracking
+#             self.start_time = self.end_time = None
+
+        self.reset_session_data()
+        self.start_time = self.end_time = None
 
     def _get_month(self, offset):
         today = datetime.date.today()
