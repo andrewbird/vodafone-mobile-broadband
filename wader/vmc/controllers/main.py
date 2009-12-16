@@ -23,6 +23,7 @@ Main controller for the application
 import os
 import re
 from subprocess import Popen
+import datetime
 
 import gtk
 from gobject import timeout_add_seconds, source_remove
@@ -358,8 +359,7 @@ class MainController(WidgetController):
             self.view.set_usage_value('transferred_total_current_label', new)
 
     def property_total_month_value_change(self, model, old, new):
-        if new != old:
-            self.view.set_usage_value('month_current_label', new)
+        pass
 
     def property_threeg_session_value_change(self, model, old, new):
         if new != old:
