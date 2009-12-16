@@ -239,6 +239,9 @@ class MainModel(Model):
 
     def _initialize_usage_values(self):
         self.total_month = self.get_month(0)
+        self.threeg_transferred = self.get_transferred_3g(0)
+        self.twog_transferred = self.get_transferred_gprs(0)
+        self.total_transferred = self.get_transferred_total(0)
 
     def enable_device(self):
         # Enable is a potentially long operation
@@ -509,7 +512,6 @@ class MainModel(Model):
             # reset stats tracking
             self.start_time = self.end_time
 
-
     def on_dial_stats(self, stats):
         self.rx_bytes, self.tx_bytes = stats[:2]
         self.rx_rate, self.tx_rate = stats[2:]
@@ -590,19 +592,31 @@ class MainModel(Model):
         # filter out all the items that respond True to "is_3g"
         threeg_items = ifilter(methodcaller('is_3g'), self._get_month(offset))
         # get a list with the total transferred for every item and sum them up
-        return sum(imap(methodcaller('total'), threeg_items))
+        result = sum(imap(methodcaller('total'), threeg_items))
+        if offset == 0:
+            result += self.threeg_session
+        return result
+    
 
     def get_transferred_gprs(self, offset):
         # filter out all the items that respond True to "is_gprs"
         gprs_items = ifilter(methodcaller('is_gprs'), self._get_month(offset))
         # get a list with the total transferred for every item and sum them up
-        return sum(imap(methodcaller('total'), gprs_items))
+        result = sum(imap(methodcaller('total'), gprs_items))
+        if offset == 0:
+            result += self.twog_session
+        return result
 
     def get_transferred_total(self, offset):
         # XXX: Needs review
         # if current month return the total transferred for this month
-        if not offset:
-            return self.total_transferred
+#         if not offset:
+#             return self.total_transferred
 
-        # else return the usage of the given month
-        return self.get_month(offset)
+#         # else return the usage of the given month
+#         return self.get_month(offset)
+        # XXX: Probably this should be more efficient for offset 0 using self.total_transferred.
+        result = self.get_month(offset)
+        if offset == 0:
+            result += self.total_session
+        return result
