@@ -559,7 +559,7 @@ class MainModel(Model):
         return self.provider.get_usage_for_month(month)
 
     def get_month(self, offset):
-        # get a string like "Dec 2009" showing month and year.
+        # returns a string like "Dec 2009" showing month and year.
         month = self._get_month_date(offset)
         return month.strftime("%b %Y")
 

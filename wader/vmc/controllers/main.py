@@ -348,30 +348,36 @@ class MainController(WidgetController):
 
     def property_threeg_transferred_value_change(self, model, old, new):
         if new != old:
-            self.view.set_usage_value('transferred_3g_current_label', new)
+#            self.view.set_usage_value('transferred_3g_current_label', new)
+            pass
 
     def property_twog_transferred_value_change(self, model, old, new):
         if new != old:
-            self.view.set_usage_value('transferred_gprs_current_label', new)
+#            self.view.set_usage_value('transferred_gprs_current_label', new)
+            pass
 
     def property_total_transferred_value_change(self, model, old, new):
         if new != old:
-            self.view.set_usage_value('transferred_total_current_label', new)
+#            self.view.set_usage_value('transferred_total_current_label', new)
+            pass
 
     def property_total_month_value_change(self, model, old, new):
         pass
 
     def property_threeg_session_value_change(self, model, old, new):
         if new != old:
-            self.view.set_usage_value('transferred_3g_session_label', new)
+#            self.view.set_usage_value('transferred_3g_session_label', new)
+            pass
 
     def property_twog_session_value_change(self, model, old, new):
         if new != old:
-            self.view.set_usage_value('transferred_gprs_session_label', new)
+#            self.view.set_usage_value('transferred_gprs_session_label', new)
+            pass
 
     def property_total_session_value_change(self, model, old, new):
         if new != old:
-            self.view.set_usage_value('transferred_total_session_label', new)
+#            self.view.set_usage_value('transferred_total_session_label', new)
+            pass
 
     def bits_to_human(self, bits):
         f = float(bits)
@@ -530,6 +536,7 @@ class MainController(WidgetController):
         logger.info("Disconnected")
         self.model.stop_stats_tracking()
         self.view.set_disconnected()
+        self.update_usage_view()
 
         # stop updating usage
         if self.usage_updater is not None:
@@ -1015,6 +1022,8 @@ The csv file that you have tried to import has an invalid format.""")
 
         values = ['month', 'transferred_gprs', 'transferred_3g',
                   'transferred_total']
+#        values = ['month']
+        
         for value_name in values:
             widget = (value_name + '_%s_label') % name
             value = getattr(m, 'get_%s' % value_name)(offset)
