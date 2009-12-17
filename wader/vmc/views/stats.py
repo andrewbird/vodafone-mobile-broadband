@@ -102,7 +102,13 @@ class StatsBar(gtk.DrawingArea):
         cr.set_source_rgba(1.0, 1.0, 1.0, 1.0)
         cr.set_line_width(.1)
 
-        step = float(height) / bytes_to_units(self.max_value, self.units)
+        number_steps = bytes_to_units(self.max_value, self.units)
+        # XXX: 20 is a magic number. It should be a constant.
+        if number_steps > 20:
+            number_steps = 20
+#        step = float(height) / bytes_to_units(self.max_value, self.units)
+        step = float(height) / number_steps
+        
         frange = lambda a, b, step: [x * step
                                        for x in xrange(a, int(b * (1 / step)))]
         for i in frange(0, height + step, step):
