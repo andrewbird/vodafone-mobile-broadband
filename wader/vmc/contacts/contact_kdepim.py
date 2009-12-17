@@ -80,6 +80,7 @@ class KDEContactsManager(object):
     """
     Contacts manager
     """
+
     def device_reqd(self):
         return False
 
@@ -96,7 +97,7 @@ class KDEContactsManager(object):
         for contact in self.get_contacts():
             # XXX: O(N) here!
             # I can't find a way to do a LIKE comparison
-            if pattern.lower() in contact.get_name().lower():
+            if (pattern.lower() in contact.get_name().lower()) and contact.get_number():
                 yield contact
 
     def get_contacts(self):
@@ -136,4 +137,3 @@ class KDEContactsManager(object):
 
     def name(self):
         return _('KDE PIM')
-

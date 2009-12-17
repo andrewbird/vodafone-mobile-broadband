@@ -157,4 +157,3 @@ class SIMContactsManager(object):
 
     def name(self):
         return _('Mobile')
-

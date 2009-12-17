@@ -18,6 +18,7 @@
 
 from zope.interface import Interface
 
+
 class IContact(Interface):
     """
     Interface that all contact backends must implement
@@ -49,4 +50,3 @@ class IContact(Interface):
 
     def set_number(self, number):
         """Sets the contact's number - return True if successful"""
-

@@ -23,6 +23,7 @@ from wader.vmc.translate import _
 from wader.vmc.consts import IMAGES_DIR
 from wader.vmc.contacts.interface import IContact
 
+
 class EVContact(object):
     """
     I represent a contact in Evolution
@@ -58,7 +59,7 @@ class EVContact(object):
         return self.writable
 
     def external_editor(self):
-        return ['evolution', '-c', 'contacts' ]
+        return ['evolution', '-c', 'contacts']
 
     def image_16x16(self):
         return join(IMAGES_DIR, 'evolution.png')
@@ -75,10 +76,12 @@ class EVContact(object):
     def set_number(self, number):
         return False
 
+
 class EVContactsManager(object):
     """
     Contacts manager
     """
+
     def device_reqd(self):
         return False
 
@@ -95,7 +98,7 @@ class EVContactsManager(object):
         for contact in self.get_contacts():
             # XXX: O(N) here!
             # I can't find a way to do a LIKE comparison
-            if pattern.lower() in contact.get_name().lower():
+            if (pattern.lower() in contact.get_name().lower()) and contact.get_number():
                 yield contact
 
     def get_contacts(self):
@@ -119,8 +122,7 @@ class EVContactsManager(object):
             for c in addressbook.get_all_contacts():
                 ret.append(EVContact(name=c.get_name(),
                                      number=c.get_property('mobile-phone'),
-                                     index=c.get_property('id')
-                          ))
+                                     index=c.get_property('id')))
         return ret
 
     def get_contact_by_id(self, index):
@@ -132,4 +134,3 @@ class EVContactsManager(object):
 
     def name(self):
         return _('Evolution')
-
