@@ -159,7 +159,10 @@ class APNSelectionController(Controller):
 
     def register_view(self, view):
         super(APNSelectionController, self).register_view(view)
-        self.view.populate(self.apns)
+        if self.apns:
+            self.view.populate(self.apns)
+        else:
+            self.view['ok_button'].set_sensitive(False)
 
     def on_apn_selection_window_delete_event(self, widget, userdata):
         self.hide_ourselves()
