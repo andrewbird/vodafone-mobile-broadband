@@ -502,7 +502,6 @@
 			  <property name="tooltip" translatable="yes">Create new SMS</property>
 			  <property name="label" translatable="yes">_New</property>
 			  <property name="use_underline">True</property>
-			  <signal name="activate" handler="on_new_sms_activate2" last_modification_time="Fri, 18 Dec 2009 14:31:44 GMT"/>
 			  <signal name="select" handler="on_new_sms_activate" last_modification_time="Fri, 18 Dec 2009 14:32:47 GMT"/>
 
 			  <child internal-child="image">
