@@ -627,7 +627,7 @@ class MainController(WidgetController):
 
         menu = gtk.Menu()
 
-        item = gtk.ImageMenuItem(_("_Send SMS"))
+        item = gtk.ImageMenuItem(_("Send SMS"))
         item.connect("activate", self._send_sms_to_contact, treeview)
         img = gtk.Image()
         img.set_from_file(os.path.join(IMAGES_DIR, 'sms16x16.png'))
@@ -946,9 +946,16 @@ The csv file that you have tried to import has an invalid format.""")
                 return True
 
             return False
+        
+        def fake_new_sms_event(widget, event):
+            if event.button == 1:
+                self.on_new_sms_activate(widget)
+                return True
 
+            return False
+        
         items = ['contact_delete_menu_item', 'sms_delete_menu_item',
-                 'forward_sms_menu_item']
+                 'forward_sms_menu_item', 'new_menu_item' ]
 
         for item in items:
             self.view[item].set_events(gtk.gdk.BUTTON_PRESS_MASK)
@@ -960,6 +967,9 @@ The csv file that you have tried to import has an invalid format.""")
         # messages_menubar forward item
         self.view['forward_sms_menu_item'].connect("button_press_event",
                                                    fake_forward_event)
+                                                   
+        # message_menubar sms new item
+        self.view['new_menu_item'].connect("button_press_event", fake_new_sms_event)
 
     def _empty_treeviews(self, treeviews):
         for treeview_name in treeviews:
