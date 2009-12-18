@@ -120,9 +120,16 @@ class EVContactsManager(object):
                 continue
 
             for c in addressbook.get_all_contacts():
-                ret.append(EVContact(name=c.get_name(),
-                                     number=c.get_property('mobile-phone'),
-                                     index=c.get_property('id')))
+
+                item = EVContact(name=c.get_name(),
+                                 number=c.get_property('mobile-phone'),
+                                 index=c.get_property('id'))
+
+                # Ubuntu one mirrors personal address books, so avoid
+                # duplicate entry - might be slow with many contacts
+                if not item in ret:
+                    ret.append(item)
+
         return ret
 
     def get_contact_by_id(self, index):
