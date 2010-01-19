@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Vodafone Mobile Connect
-Exec=vodafone-mobile-connect-card-driver-for-linux
+Name=Betavine Mobile Connect
+Exec=wader-vmc
 Terminal=false
 X-MultipleArgs=false
 Type=Application
