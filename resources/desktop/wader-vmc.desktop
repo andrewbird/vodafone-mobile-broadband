@@ -5,6 +5,6 @@ Exec=wader-vmc
 Terminal=false
 X-MultipleArgs=false
 Type=Application
-Icon=vodafone.png
+Icon=wader-vmc
 Categories=Application;Network;
 StartupNotify=true
