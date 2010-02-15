@@ -19,7 +19,8 @@
 
 import gobject
 import gtk
-from gtkmvc import Controller
+#from gtkmvc import Controller
+from wader.vmc.contrib.gtkmvc import Controller
 
 from wader.common.provider import NetworkProvider
 from wader.common.consts import CRD_INTFACE

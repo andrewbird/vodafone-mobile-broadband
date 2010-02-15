@@ -1,4 +1,5 @@
-from gtkmvc import Controller as _Controller
+#from gtkmvc import Controller as _Controller
+from wader.vmc.contrib.gtkmvc import Controller as _Controller
 
 
 class Controller(_Controller):

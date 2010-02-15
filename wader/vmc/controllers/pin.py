@@ -21,7 +21,8 @@ Controllers for PIN screens
 
 from gtk import STATE_NORMAL
 from gtk.gdk import color_parse
-from gtkmvc import Controller
+#from gtkmvc import Controller
+from wader.vmc.contrib.gtkmvc import Controller
 
 from wader.vmc.translate import _
 from wader.vmc.dialogs import show_warning_dialog

@@ -23,7 +23,8 @@ import os
 
 import gtk
 from pango import ELLIPSIZE_END
-from gtkmvc import View
+#from gtkmvc import View
+from wader.vmc.contrib.gtkmvc import View
 
 
 from wader.vmc.config import config

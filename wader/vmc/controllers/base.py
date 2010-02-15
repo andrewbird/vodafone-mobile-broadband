@@ -19,7 +19,8 @@
 Base classes for Controllers
 """
 
-from gtkmvc import Controller
+#from gtkmvc import Controller
+from wader.vmc.contrib.gtkmvc import Controller
 
 from wader.common.utils import revert_dict
 

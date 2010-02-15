@@ -18,7 +18,8 @@
 """Controllers for the sms dialogs"""
 
 from datetime import datetime
-from gtkmvc import Controller, Model
+#from gtkmvc import Controller, Model
+from wader.vmc.contrib.gtkmvc import Controller, Model
 from twisted.internet.defer import succeed
 
 #from wader.vmc.config import config as config

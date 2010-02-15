@@ -19,7 +19,8 @@
 Base classes for Models
 """
 
-from gtkmvc import Model
+#from gtkmvc import Model
+from wader.vmc.contrib.gtkmvc import Model
 
 
 class BaseWrapperModel(Model):

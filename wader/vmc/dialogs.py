@@ -21,7 +21,8 @@ import os
 import gtk
 import gobject
 import dbus
-from gtkmvc import Controller, Model
+#from gtkmvc import Controller, Model
+from wader.vmc.contrib.gtkmvc import Controller, Model
 
 from wader.vmc.logger import logger
 from wader.common.consts import WADER_DIALUP_INTFACE

@@ -19,7 +19,8 @@
 from uuid import uuid1
 
 import dbus
-from gtkmvc import Model
+#from gtkmvc import Model
+from wader.vmc.contrib.gtkmvc import Model
 
 from wader.common.consts import (NM_PASSWD, WADER_DIALUP_INTFACE,
                                  WADER_PROFILES_INTFACE, NET_INTFACE,

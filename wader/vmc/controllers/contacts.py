@@ -24,7 +24,8 @@ from wader.vmc.models.contacts import ContactsStoreModel
 from wader.vmc.phonebook import get_phonebook, Contact
 from wader.vmc.translate import _
 
-from gtkmvc import Controller
+#from gtkmvc import Controller
+from wader.vmc.contrib.gtkmvc import Controller
 from wader.vmc import dialogs
 
 from wader.vmc.contrib.ValidatedEntry import (ValidatedEntry, v_phone,

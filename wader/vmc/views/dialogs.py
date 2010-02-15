@@ -19,7 +19,8 @@
 
 import os.path
 
-from gtkmvc import View
+#from gtkmvc import View
+from wader.vmc.contrib.gtkmvc import View
 
 from wader.vmc.consts import GLADE_DIR
 

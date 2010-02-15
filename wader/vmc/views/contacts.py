@@ -20,7 +20,8 @@
 import os.path
 
 from gtk import WIN_POS_CENTER_ON_PARENT
-from gtkmvc import View
+#from gtkmvc import View
+from wader.vmc.contrib.gtkmvc import View
 
 from wader.vmc.consts import GLADE_DIR
 

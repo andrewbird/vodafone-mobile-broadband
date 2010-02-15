@@ -18,7 +18,8 @@
 
 import dbus
 import gobject
-from gtkmvc import ListStoreModel
+#from gtkmvc import ListStoreModel
+from wader.vmc.contrib.gtkmvc import ListStoreModel
 
 from wader.common.utils import revert_dict
 from wader.vmc.translate import _

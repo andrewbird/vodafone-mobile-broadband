@@ -23,7 +23,8 @@ from os.path import join
 
 import gtk
 import gobject
-from gtkmvc import View
+#from gtkmvc import View
+from wader.vmc.contrib.gtkmvc import View
 
 from wader.common.consts import MM_NETWORK_BANDS, MM_NETWORK_BAND_ANY
 
