@@ -10,7 +10,7 @@ XS-Python-Version: current
 
 Package: wader-vmc
 Architecture: all
-Depends: ${python:Depends}, wader-core (>= 0.5.0), python-gtk2, python-glade2, python-gtkmvc, python-gnome2, python-gnome2-desktop, python-notify, wmctrl
+Depends: ${python:Depends}, wader-core (>= 0.5.0), python-gtk2, python-glade2, python-gnome2, python-gnomekeyring, python-notify, wmctrl
 Recommends: python-sexy
 XB-Python-Version: ${python:Versions}
 Description: Internet connection assistant for mobile devices.
