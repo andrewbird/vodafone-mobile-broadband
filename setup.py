@@ -70,7 +70,10 @@ packages = [
     'wader.vmc.contacts',
     'wader.vmc.contrib',
     'wader.vmc.contrib.pycocuma',
-    'wader.vmc.contrib.gtkmvc'
+    'wader.vmc.contrib.gtkmvc',
+    'wader.vmc.contrib.gtkmvc.adapters',
+    'wader.vmc.contrib.gtkmvc.progen',
+    'wader.vmc.contrib.gtkmvc.support'
 ]
 
 setup(name=APP_NAME,
