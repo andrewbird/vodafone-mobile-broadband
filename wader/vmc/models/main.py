@@ -18,7 +18,6 @@
 
 import datetime
 from itertools import ifilter, imap
-#from operator import methodcaller
 
 import dbus
 import dbus.mainloop.glib
@@ -576,11 +575,9 @@ class MainModel(Model):
 
     def get_transferred_3g(self, offset):
         # filter out all the items that respond True to "is_3g"
-        # threeg_items = ifilter(methodcaller('is_3g'), self._get_month(offset))
-        threeg_items = [foo for foo in self._get_month(offset) if foo.is_3g()]
+        threeg_items = [item for item in self._get_month(offset) if item.is_3g()]
         # get a list with the total transferred for every item and sum them up
-        #result = sum(imap(methodcaller('total'), threeg_items))
-        result = sum((foo.total() for foo in threeg_items))
+        result = sum((item.total() for item in threeg_items))
         if offset == 0:
             result += self.threeg_session
         return result
@@ -588,11 +585,9 @@ class MainModel(Model):
 
     def get_transferred_gprs(self, offset):
         # filter out all the items that respond True to "is_gprs"
-        #gprs_items = ifilter(methodcaller('is_gprs'), self._get_month(offset))
-        gprs_items = [foo for foo in self._get_month(offset) if foo.is_gprs]
+        gprs_items = [item for item in self._get_month(offset) if item.is_gprs]
         # get a list with the total transferred for every item and sum them up
-        #result = sum(imap(methodcaller('total'), gprs_items))
-        result = sum((foo.total() for foo in gprs_items))
+        result = sum((item.total() for item in gprs_items))
         if offset == 0:
             result += self.twog_session
         return result
@@ -606,8 +601,7 @@ class MainModel(Model):
 #         # else return the usage of the given month
 #         return self.get_month(offset)
         # XXX: Probably this should be more efficient for offset 0 using self.total_transferred.
-        #result = sum(imap(methodcaller('total'), self._get_month(offset)))
-        result = sum((foo.total() for foo in self._get_month(offset)))
+        result = sum((item.total() for item in self._get_month(offset)))
         if offset == 0:
             result += self.total_session
         return result
