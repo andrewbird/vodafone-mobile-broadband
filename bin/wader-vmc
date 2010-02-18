@@ -9,8 +9,10 @@ import gtk
 from twisted.python.procutils import which
 
 from wader.common.utils import save_file, get_file_data
-from wader.vmc.controllers.main import MainController
+
 from wader.vmc.models.main import MainModel
+from wader.vmc.controllers.main import MainController
+
 from wader.vmc.views.main import MainView
 from wader.vmc.consts import GTK_LOCK, APP_LONG_NAME
 
