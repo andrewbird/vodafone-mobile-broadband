@@ -585,7 +585,7 @@ class MainModel(Model):
 
     def get_transferred_gprs(self, offset):
         # filter out all the items that respond True to "is_gprs"
-        gprs_items = [item for item in self._get_month(offset) if item.is_gprs]
+        gprs_items = [item for item in self._get_month(offset) if item.is_gprs()]
         # get a list with the total transferred for every item and sum them up
         result = sum((item.total() for item in gprs_items))
         if offset == 0:
