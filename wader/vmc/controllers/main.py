@@ -487,7 +487,7 @@ class MainController(WidgetController):
         if checkmenuitem.get_active() != enabled:
             checkmenuitem.set_active(enabled)
 
-    def on_device_enabled_cb(self, udi):
+    def on_device_enabled_cb(self, opath):
         self._fill_treeviews()
         self.model.pin_is_enabled(self.on_is_pin_enabled_cb,
                                   lambda *args: True)
@@ -717,7 +717,7 @@ The csv file that you have tried to import has an invalid format.""")
             active_profile = profiles_model.get_active_profile()
 
             dialmanager.ActivateConnection(active_profile.profile_path,
-                                           self.model.device_path,
+                                           self.model.device_opath,
                                            timeout=40,
                                            reply_handler=self._on_connect_cb,
                                            error_handler=self._on_connect_eb)
@@ -730,7 +730,7 @@ The csv file that you have tried to import has an invalid format.""")
 
             def stop_connection_attempt():
                 self._ignore_no_reply = True
-                dialmanager.StopConnection(self.model.device_path,
+                dialmanager.StopConnection(self.model.device_opath,
                                            reply_handler=cancel_cb,
                                            error_handler=logger.error)
 

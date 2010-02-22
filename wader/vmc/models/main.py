@@ -68,7 +68,7 @@ class MainModel(Model):
         'rssi': 0,
         'profile': None,
         'device': None,
-        'device_path': None,
+        'device_opath': None,
         'dial_path': None,
         'connected': False,
         'operator': _('Unknown'),
@@ -151,20 +151,20 @@ class MainModel(Model):
                                      "KeyNeeded",
                                      WADER_KEYRING_INTFACE)
 
-    def _device_added_cb(self, udi):
-        logger.info('Device with udi %s added' % udi)
+    def _device_added_cb(self, opath):
+        logger.info('Device with opath %s added' % opath)
         if not self.device:
-            self._get_devices_cb([udi])
+            self._get_devices_cb([opath])
 
-    def _device_removed_cb(self, udi):
-        logger.info('Device with udi %s removed' % udi)
+    def _device_removed_cb(self, opath):
+        logger.info('Device with opath %s removed' % opath)
 
-        if self.device_path:
-            logger.info('Device path: %s' % self.device_path)
+        if self.device_opath:
+            logger.info('Device path: %s' % self.device_opath)
 
-        if udi == self.device_path:
+        if opath == self.device_opath:
             self.device = None
-            self.device_path = None
+            self.device_opath = None
             self.dial_path = None
             self.operator = _('Unknown')
             self.status = _('No device')
@@ -194,8 +194,8 @@ class MainModel(Model):
             logger.error("Error while removing device: %s" % get_error_msg(e))
             quit_cb()
 
-        if self.device_path and self.obj:
-            logger.debug("Removing device %s before quit." % self.device_path)
+        if self.device_opath and self.obj:
+            logger.debug("Removing device %s before quit." % self.device_opath)
             self.device.Enable(False,
                                dbus_interface=MDM_INTFACE,
                                reply_handler=quit_cb,
@@ -207,7 +207,7 @@ class MainModel(Model):
 
         def get_imsi_eb(failure):
             msg = "Error while getting IMSI for device %s"
-            logger.error(msg % self.device_path)
+            logger.error(msg % self.device_opath)
             get_imsi_cb(None)
 
         self.device.GetImsi(dbus_interface=CRD_INTFACE,
@@ -221,13 +221,13 @@ class MainModel(Model):
 
     def _get_devices_cb(self, opaths):
         if len(opaths):
-            if self.device_path:
-                logger.warn("Device %s is already active" % self.device_path)
+            if self.device_opath:
+                logger.warn("Device %s is already active" % self.device_opath)
                 return
 
-            self.device_path = opaths[0]
-            logger.info("Setting up device %s" % self.device_path)
-            self.device = self.bus.get_object(WADER_SERVICE, self.device_path)
+            self.device_opath = opaths[0]
+            logger.info("Setting up device %s" % self.device_opath)
+            self.device = self.bus.get_object(WADER_SERVICE, self.device_opath)
 
             self.pin_required = self.puk_required = self.puk2_required = False
             self._initialize_usage_values()

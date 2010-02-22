@@ -31,7 +31,7 @@ from messaging import (PDU,
                        is_valid_gsm_text)
 
 from wader.common.consts import SMS_INTFACE
-from wader.common.oal import osobj
+from wader.common.oal import get_os_object
 from wader.common.sms import Message
 
 from wader.vmc import dialogs
@@ -74,7 +74,7 @@ class NewSmsController(Controller):
 
         self.tz = None
         try:
-            self.tz = osobj.get_tzinfo()
+            self.tz = get_os_object().get_tzinfo()
         except:
             pass
 

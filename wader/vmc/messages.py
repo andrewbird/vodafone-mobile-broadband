@@ -21,7 +21,7 @@ messages presents a uniform layer to deal with messages from both SIM and DB
 
 from os.path import exists
 
-from wader.common.oal import osobj
+from wader.common.oal import get_os_object
 from wader.common.consts import SMS_INTFACE
 from wader.common.sms import Message as SMMessage
 from wader.common.provider import Message as DBMessage
@@ -97,7 +97,7 @@ class Messages(object):
 
         self.tz = None
         try:
-            self.tz = osobj.get_tzinfo()
+            self.tz = get_os_object().get_tzinfo()
         except:
             pass
 
