@@ -68,7 +68,7 @@ class NewSmsController(Controller):
 
         try:
             self.numbers_entry.set_tooltip_text(SMS_TOOLTIP)
-        except AttributeError, e:
+        except AttributeError:
             # This fails on Ubuntu Feisty, we can live without it
             pass
 

@@ -358,15 +358,15 @@ class ProfileModel(Model):
     def get_supported_bands(self, callback):
         device = self.device_callable()
 
-        bands = device.Get(CRD_INTFACE, 'SupportedBands',
-                           dbus_interface=dbus.PROPERTIES_IFACE,
-                           reply_handler=callback,
-                           error_handler=logger.warn)
+        device.Get(CRD_INTFACE, 'SupportedBands',
+                   dbus_interface=dbus.PROPERTIES_IFACE,
+                   reply_handler=callback,
+                   error_handler=logger.warn)
 
     def get_supported_prefs(self, callback):
         device = self.device_callable()
 
-        prefs = device.Get(CRD_INTFACE, 'SupportedModes',
-                           dbus_interface=dbus.PROPERTIES_IFACE,
-                           reply_handler=callback,
-                           error_handler=logger.warn)
+        device.Get(CRD_INTFACE, 'SupportedModes',
+                   dbus_interface=dbus.PROPERTIES_IFACE,
+                   reply_handler=callback,
+                   error_handler=logger.warn)

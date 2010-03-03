@@ -41,10 +41,7 @@ class KeyringClient(object):
         """
         Deletes C{auth_token} from the keyring as its faulty
         """
-        try:
-            gnomekeyring.item_delete_sync(self.keyring, auth_token)
-        except Exception, e:
-            raise
+        gnomekeyring.item_delete_sync(self.keyring, auth_token)
 
     def register(self, device, pin):
         """

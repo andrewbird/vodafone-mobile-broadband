@@ -23,7 +23,6 @@ Main controller for the application
 import os
 import re
 from subprocess import Popen
-import datetime
 
 import gtk
 from gobject import timeout_add_seconds, source_remove
@@ -1027,22 +1026,16 @@ The csv file that you have tried to import has an invalid format.""")
         self._fill_messages(contacts)
 
     def _update_usage_panel(self, name, offset):
-        w = lambda label: label % name
         m = self.model
 
         values = ['month', 'transferred_gprs', 'transferred_3g',
                   'transferred_total']
-#        values = ['month']
-        
+
         for value_name in values:
             widget = (value_name + '_%s_label') % name
             value = getattr(m, 'get_%s' % value_name)(offset)
             self.view.set_usage_value(widget, value)
 
-#        self.view.set_usage_bar_value('%s-gprs' % name,
-#                                      m.get_transferred_gprs(offset))
-#        self.view.set_usage_bar_value('%s-3g' % name,
-#                                      m.get_transferred_3g(offset))
         self.view.set_usage_bar_value('%s-total' % name,
                                       m.get_transferred_total(offset))
 

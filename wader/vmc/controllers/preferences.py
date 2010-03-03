@@ -96,8 +96,6 @@ class PreferencesController(Controller):
         # he has to do that by checking the show_smsc_preferences flag.
         alternate_smsc_flag = self.model.use_alternate_smsc
         smsc_number = self.model.smsc_number
-        smsc_profile = self.model.smsc_profile
-        smsc_validity = self.model.smsc_validity
 
         # setup the smsc number
         self.view.setup_smsc_number(smsc_number)
