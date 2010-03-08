@@ -21,8 +21,12 @@ Profile manager
 
 I manage profiles in the system (or connections in NM-lingo)
 """
+import os
 
 from wader.common.profile import ProfileManager
-from wader.vmc.consts import GCONF_BASE_DIR
+from wader.common.backends import get_backend
 
-manager = ProfileManager(GCONF_BASE_DIR)
+from wader.vmc.consts import WADER_HOME
+
+backend = get_backend()
+manager = ProfileManager(backend, WADER_HOME)

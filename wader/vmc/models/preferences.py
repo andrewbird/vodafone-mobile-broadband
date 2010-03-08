@@ -87,8 +87,7 @@ class PreferencesModel(BaseWrapperModel):
         self.smsc_profile = self.conf.get('preferences', 'smsc_profile',
                                           'Vodafone UK United Kingdon')
 
-        self.smsc_number = self.conf.get('preferences', 'smsc_number',
-                                         'unknown')
+        self.smsc_number = self.conf.get('preferences', 'smsc_number', '')
 
         self.smsc_validity = self.conf.get('preferences', 'smsc_validity',
                                            'maximum')

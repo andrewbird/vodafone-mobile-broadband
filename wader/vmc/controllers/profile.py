@@ -52,8 +52,12 @@ class ProfileController(Controller):
             self.view.enable_static_dns()
 
         if not self.model.password:
+            def load_secrets(secrets):
+                self.model.password = secrets['gsm']['passwd']
+                self.view['password_entry'].set_text(self.model.password)
+
             try:
-                self.model.load_password()
+                self.model.load_password(load_secrets)
             except KeyringNoMatchError, e:
                 logger.error("Error while loading connection password: %s" % e)
                 title = _("Error while getting connection password")

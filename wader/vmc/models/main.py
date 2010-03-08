@@ -38,7 +38,6 @@ from wader.vmc.config import config
 from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
                                  WADER_DIALUP_SERVICE, WADER_DIALUP_OBJECT,
                                  CRD_INTFACE, NET_INTFACE, MDM_INTFACE,
-                                 NM_SYSTEM_SETTINGS_CONNECTION,
                                  WADER_DIALUP_INTFACE, WADER_KEYRING_INTFACE,
                                  MM_NETWORK_MODE_GPRS, MM_NETWORK_MODE_EDGE,
                                  MM_NETWORK_MODE_2G_ONLY)
@@ -112,7 +111,7 @@ class MainModel(Model):
         self.stats_sm = None
         self.dialer_manager = None
         self.preferences_model = PreferencesModel(lambda: self.device)
-        self.profiles_model = ProfilesModel(lambda: self.device)
+        self.profiles_model = ProfilesModel(lambda: self.device, lambda: self)
         self.provider = UsageProvider(USAGE_DB)
         self._init_wader_object()
 
@@ -142,11 +141,7 @@ class MainModel(Model):
     def _connect_to_signals(self):
         self.obj.connect_to_signal("DeviceAdded", self._device_added_cb)
         self.obj.connect_to_signal("DeviceRemoved", self._device_removed_cb)
-
-        self.bus.add_signal_receiver(self._on_network_key_needed_cb,
-                                     "KeyNeeded",
-                                     NM_SYSTEM_SETTINGS_CONNECTION)
-        self.bus.add_signal_receiver(self._on_keyring_key_needed_cb,
+        self.bus.add_signal_receiver(self.on_keyring_key_needed_cb,
                                      "KeyNeeded",
                                      WADER_KEYRING_INTFACE)
 
@@ -174,9 +169,9 @@ class MainModel(Model):
         logger.info("KeyNeeded received, opath: %s tag: %s" % (opath, tag))
         self.ctrl.on_net_password_required(opath, tag)
 
-    def _on_keyring_key_needed_cb(self, opath):
+    def on_keyring_key_needed_cb(self, opath, callback=None):
         logger.info("KeyNeeded received")
-        self.ctrl.on_keyring_password_required(opath)
+        self.ctrl.on_keyring_password_required(opath, callback=callback)
 
     def get_dialer_manager(self):
         if not self.dialer_manager:

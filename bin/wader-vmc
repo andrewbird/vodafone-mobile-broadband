@@ -55,7 +55,6 @@ def raise_window():
 
 def main():
     create_wader_config_dir()
-    print "Calling create wader config"
     from wader.vmc.splash import SplashScreen
     splash = SplashScreen()
     splash.show_it(2)

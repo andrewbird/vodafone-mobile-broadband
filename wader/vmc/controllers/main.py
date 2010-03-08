@@ -44,7 +44,7 @@ from wader.vmc.dialogs import (show_profile_window,
                                ask_password_dialog,
                                open_dialog_question_checkbox_cancel_ok,
                                save_csv_file, open_import_csv_dialog)
-#from wader.vmc.keyring_dialogs import NewKeyringDialog, KeyringPasswordDialog
+from wader.vmc.keyring_dialogs import NewKeyringDialog, KeyringPasswordDialog
 from wader.vmc.utils import get_error_msg
 from wader.vmc.translate import _
 from wader.vmc.tray import get_tray_icon
@@ -96,8 +96,8 @@ class MainController(WidgetController):
     """
 
     def __init__(self, model):
-        super(MainController, self).__init__(model)
         model.ctrl = self
+        super(MainController, self).__init__(model)
         self.cid = None
 
         self.signal_matches = []
@@ -248,27 +248,25 @@ class MainController(WidgetController):
         if password:
             from wader.vmc.profiles import manager
             profile = manager.get_profile_by_object_path(opath)
-            # XXX: do not hardcode NM_PASSWD
-            ret = {tag: {consts.NM_PASSWD: password}}
-            profile.set_secrets(tag, ret)
+            secrets = {'gsm': {'passwd': password}}
+            profile.set_secrets(tag, secrets)
 
-    def on_keyring_password_required(self, opath):
+    def on_keyring_password_required(self, opath, callback=None):
         from wader.vmc.profiles import manager
         profile = manager.get_profile_by_object_path(opath)
         password = None
 
-#        if profile.secrets.manager.is_new:
-#            dialog = NewKeyringDialog(self.view.get_top_widget())
-#            response = dialog.run()
-#        else:
-#            # profile.secrets.manager.is_open == True
-#            dialog = KeyringPasswordDialog(self.view.get_top_widget())
-#            response = dialog.run()
-#
-#        if response == gtk.RESPONSE_OK:
-#            password = dialog.password_entry.get_text()
-#
-#        dialog.destroy()
+        if profile.secrets.manager.is_new():
+            dialog = NewKeyringDialog(self.view.get_top_widget())
+            response = dialog.run()
+        elif not profile.secrets.manager.is_open():
+            dialog = KeyringPasswordDialog(self.view.get_top_widget())
+            response = dialog.run()
+
+        if response == gtk.RESPONSE_OK:
+            password = dialog.password_entry.get_text()
+
+        dialog.destroy()
 
         if password is not None:
             try:
@@ -279,6 +277,10 @@ class MainController(WidgetController):
                 show_error_dialog(title, details)
                 # call ourselves again
                 self.on_keyring_password_required(opath)
+            else:
+                if callback is not None:
+                    uuid = profile.get_settings()['connection']['uuid']
+                    callback(profile.secrets.manager.get_secrets(uuid))
 
     def property_operator_value_change(self, model, old, new):
         if new == _('Unknown Network'):
@@ -714,6 +716,8 @@ The csv file that you have tried to import has an invalid format.""")
                 return
 
             active_profile = profiles_model.get_active_profile()
+            if not active_profile.password:
+                active_profile.load_password()
 
             dialmanager.ActivateConnection(active_profile.profile_path,
                                            self.model.device_opath,

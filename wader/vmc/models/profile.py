@@ -22,10 +22,9 @@ import dbus
 #from gtkmvc import Model
 from wader.vmc.contrib.gtkmvc import Model
 
-from wader.common.consts import (NM_PASSWD, WADER_DIALUP_INTFACE,
-                                 WADER_PROFILES_INTFACE, NET_INTFACE,
-                                 MM_NETWORK_MODE_ANY, MM_NETWORK_BAND_ANY,
-                                 CRD_INTFACE)
+from wader.common.consts import (WADER_DIALUP_INTFACE,
+                                 WADER_PROFILES_INTFACE, CRD_INTFACE,
+                                 MM_NETWORK_MODE_ANY, MM_NETWORK_BAND_ANY)
 from wader.common.utils import (convert_int_to_uint as convert,
                                 patch_list_signature)
 from wader.common.exceptions import ProfileNotFoundError
@@ -43,9 +42,10 @@ CONNECTED, DISCONNECTED = 0, 1
 
 class ProfilesModel(Model):
 
-    def __init__(self, device_callable=None):
+    def __init__(self, device_callable=None, parent_model_callable=None):
         super(ProfilesModel, self).__init__()
         self.device_callable = device_callable
+        self.parent_model_callable = parent_model_callable
         self.conf = config
         self.manager = manager
 
@@ -85,11 +85,12 @@ class ProfilesModel(Model):
         try:
             profile = self.manager.get_profile_by_uuid(uuid)
         except ProfileNotFoundError:
-            print "No profile found with uuid %s" % uuid
+            logger.error("No profile found with uuid %s" % uuid)
             return None
         else:
             profile = ProfileModel(self, profile=profile,
-                                         device_callable=self.device_callable)
+                                   device_callable=self.device_callable,
+                                   parent_model_callable=self.parent_model_callable)
             if setactive:
                 self.active_profile = profile
             return profile
@@ -98,10 +99,12 @@ class ProfilesModel(Model):
         ret = {}
         for profile in self.manager.get_profiles():
             settings = profile.get_settings()
+            # filter out wlan profiles
             if 'ppp' in settings:
                 uuid = settings['connection']['uuid']
                 ret[uuid] = ProfileModel(self, profile=profile,
-                                         device_callable=self.device_callable)
+                                         device_callable=self.device_callable,
+                                         parent_model_callable=self.parent_model_callable)
         return ret
 
 
@@ -123,15 +126,16 @@ class ProfileModel(Model):
     }
 
     def __init__(self, parent_model, profile=None, imsi=None, network=None,
-                 device_callable=None):
+                 device_callable=None, parent_model_callable=None):
         super(ProfileModel, self).__init__()
 
         self.bus = dbus.SystemBus()
         self.manager = manager
         self.profile = profile
 
-        self.device_callable = device_callable
         self.parent_model = parent_model
+        self.device_callable = device_callable
+        self.parent_model_callable = parent_model_callable
 
         if self.profile and hasattr(self.profile, '__dbus_object_path__'):
             self.profile_path = self.profile.__dbus_object_path__
@@ -179,67 +183,55 @@ class ProfileModel(Model):
     def _on_connected_cb(self):
         self.state = CONNECTED
 
-    def load_password(self):
+    def load_password(self, callback=None):
         if self.profile:
-            secrets = self.profile.secrets.get(ask=False)
-
-            if secrets and 'gsm' in secrets and NM_PASSWD in secrets['gsm']:
-                self.password = secrets['gsm'][NM_PASSWD]
+            if self.profile.secrets.is_open():
+                secrets = self.profile.secrets.get(ask=True)
+                self.password = secrets['gsm']['passwd']
+            else:
+                # keyring needs to be opened
+                parent_model = self.parent_model_callable()
+                parent_model.on_keyring_key_needed_cb(self.profile.opath,
+                                                      callback=callback)
 
     def _load_profile(self, profile):
         self.profile = profile
         settings = self.profile.get_settings()
-
         if 'ipv4' in settings and 'ignore-auto-dns' not in settings['ipv4']:
             settings['ipv4']['ignore-auto-dns'] = False
-
         self._load_settings(settings)
 
     def _load_settings(self, settings):
         try:
             self.uuid = settings['connection']['uuid']
             self.name = settings['connection']['id']
-            if 'username' in settings['gsm']:
-                self.username = settings['gsm']['username']
-            if 'password' in settings['gsm']:
-                self.password = settings['gsm']['password']
-
+            self.username = settings['gsm']['username']
             self.apn = settings['gsm']['apn']
-            self.autoconnect = settings['connection']['autoconnect']
-            # DNS
-            if 'ipv4' in settings and 'dns' in settings['ipv4']:
-                self.static_dns = bool(settings['ipv4']['ignore-auto-dns'])
-                dns = settings['ipv4']['dns']
-                self.primary_dns = dns[0] if len(dns) else None
-                self.secondary_dns = dns[1] if len(dns) > 1 else None
-            else:
-                self.static_dns = False
+            self.autoconnect = settings['connection'].get('autoconnect', False)
+            self.static_dns = settings['ipv4'].get('ignore-auto-dns')
+            if settings['ipv4'].get('dns', None):
+                dns = settings['ipv4'].get('dns')
+                self.primary_dns = dns[0]
+                if len(dns) > 1:
+                    self.secondary_dns = dns[1]
 
-            if 'network-type' in settings['gsm']:
-                self.network_pref = settings['gsm']['network-type']
+            self.network_pref = settings['gsm'].get('network-type')
+            self.band = settings['gsm'].get('band')
+            self.refuse_chap = settings['ppp'].get('refuse-chap')
+            self.refuse_pap = settings['ppp'].get('refuse-pap')
 
-            if 'band' in settings['gsm']:
-                self.band = settings['gsm']['band']
-
-            if 'refuse-pap' in settings['ppp']:
-                refuse_pap = settings['ppp']['refuse-pap']
-            else:
-                refuse_pap = False
-
-            if 'refuse-chap' in settings['ppp']:
-                refuse_chap = settings['ppp']['refuse-chap']
-            else:
-                refuse_chap = False
-
-            if not refuse_pap and refuse_chap:
+            if not self.refuse_pap and self.refuse_chap:
                 self.auth = VM_NETWORK_AUTH_PAP
-            elif not refuse_chap and refuse_pap:
+            elif not self.refuse_chap and self.refuse_pap:
                 self.auth = VM_NETWORK_AUTH_CHAP
             else:
                 self.auth = VM_NETWORK_AUTH_ANY
 
+            # the last one
+            self.password = settings['gsm']['password']
+
         except KeyError, e:
-            logger.error("Missing required key '%s' in %s" % (settings, e))
+            logger.error("Missing required key '%s' in %s" % (e, settings))
 
     def _load_profile_from_imsi(self, imsi):
         logger.info("Loading profile for imsi %s" % str(imsi))
@@ -263,22 +255,24 @@ class ProfileModel(Model):
                            'name': 'connection', 'uuid': self.uuid,
                            'autoconnect': self.autoconnect},
             'gsm': {'band': self.band, 'username': self.username,
-                     'number': '*99#', 'network-type': self.network_pref,
-                     'apn': self.apn, 'name': 'gsm'},
+                    'number': '*99#', 'network-type': self.network_pref,
+                    'apn': self.apn, 'name': 'gsm'},
             'ppp': {'name': 'ppp'},
             'serial': {'baud': 115200, 'name': 'serial'},
             'ipv4': {'addresses': [], 'method': 'auto',
                      'ignore-auto-dns': self.static_dns,
-                     'name': 'ipv4', 'routes': []}}
+                     'name': 'ipv4', 'routes': []},
+        }
 
-        if self.auth == VM_NETWORK_AUTH_PAP:     # Our GUI only cares about PAP/CHAP
+        # Our GUI only cares about PAP/CHAP
+        if self.auth == VM_NETWORK_AUTH_PAP:
             props['ppp']['refuse-pap'] = False
             props['ppp']['refuse-chap'] = True
         elif self.auth == VM_NETWORK_AUTH_CHAP:
             props['ppp']['refuse-pap'] = True
             props['ppp']['refuse-chap'] = False
         else:
-            props['ppp']['refuse-pap'] = False   # just unset in case NM has set others
+            props['ppp']['refuse-pap'] = False
             props['ppp']['refuse-chap'] = False
 
         if not props['ipv4']['ignore-auto-dns']:
@@ -287,21 +281,22 @@ class ProfileModel(Model):
             dns = [i for i in [self.primary_dns, self.secondary_dns] if i]
             props['ipv4']['dns'] = map(convert, dns)
 
+        # clean up None values just in case
         props = patch_list_signature(props)
+        if props['gsm']['band'] is None:
+            del props['gsm']['band']
+        if props['gsm']['network-type'] is None:
+            del props['gsm']['network-type']
 
         if self.profile:
             self.manager.update_profile(self.profile, props)
             # store password associated to this connection
-            secrets = {'gsm': {NM_PASSWD: self.password}}
+            secrets = {'gsm': {'passwd': self.password}}
             self.profile.secrets.update(secrets, ask=True)
 
             logger.debug("Profile modified: %s" % self.profile)
         else:
             uuid = props['connection']['uuid']
-#            if self.parent_model.has_profile(uuid=uuid):
-#                msg = _('A profile with udi "%s" exists') % uuid
-#                raise RuntimeError(msg)
-
             sm = None # SignalMatch object
 
             def new_profile_cb(path):
@@ -309,7 +304,7 @@ class ProfileModel(Model):
                 logger.debug("Profile added: %s" % self.profile_path)
 
                 self.profile = self.manager.get_profile_by_uuid(uuid)
-                secrets = {'gsm': {NM_PASSWD: self.password}}
+                secrets = {'gsm': {'passwd': self.password}}
                 self.profile.secrets.update(secrets, ask=True)
 
                 self.parent_model.set_active_profile(self)
@@ -332,12 +327,11 @@ class ProfileModel(Model):
                 return
 
             if self.band is not None:
-                device.SetBand(self.band, dbus_interface=NET_INTFACE,
+                device.SetBand(self.band,
                                reply_handler=lambda: True,
                                error_handler=logger.error)
             if self.network_pref is not None:
                 device.SetNetworkMode(self.network_pref,
-                                      dbus_interface=NET_INTFACE,
                                       reply_handler=lambda: True,
                                       error_handler=logger.error)
 
