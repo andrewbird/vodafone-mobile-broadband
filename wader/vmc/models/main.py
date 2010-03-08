@@ -305,6 +305,7 @@ class MainModel(Model):
         if not self.profile:
             self.profile = self.profiles_model.get_active_profile()
             if self.profile:
+                self.profile.activate()
                 self.profile_required = False # tell controller
             else:
                 logger.warn("No profile, creating one")
