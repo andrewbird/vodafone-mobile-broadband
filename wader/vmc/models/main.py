@@ -335,6 +335,7 @@ class MainModel(Model):
     def _get_regstatus_cb(self, (status, operator_code, operator_name)):
         if status == -1:
             self.status = _('Initialising')
+            return
         if status == 1:
             self.status = _("Registered")
         elif status == 2:
