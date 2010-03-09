@@ -318,7 +318,6 @@ you with the relevant information.</property>
 			      <property name="max_length">0</property>
 			      <property name="text" translatable="yes"></property>
 			      <property name="has_frame">True</property>
-			      <property name="invisible_char">*</property>
 			      <property name="activates_default">False</property>
 			      <signal name="activate" handler="on_username_entry_activate"/>
 			    </widget>
@@ -338,7 +337,6 @@ you with the relevant information.</property>
 			      <property name="max_length">0</property>
 			      <property name="text" translatable="yes"></property>
 			      <property name="has_frame">True</property>
-			      <property name="invisible_char">*</property>
 			      <property name="activates_default">False</property>
 			      <signal name="activate" handler="on_password_entry_activate"/>
 			    </widget>
@@ -402,7 +400,6 @@ you with the relevant information.</property>
 			      <property name="max_length">0</property>
 			      <property name="text" translatable="yes"></property>
 			      <property name="has_frame">True</property>
-			      <property name="invisible_char">*</property>
 			      <property name="activates_default">False</property>
 			      <signal name="activate" handler="on_apn_entry_activate"/>
 			    </widget>
@@ -600,7 +597,6 @@ you with the relevant information.</property>
 			          <property name="max_length">0</property>
 			          <property name="text" translatable="yes"></property>
 			          <property name="has_frame">True</property>
-			          <property name="invisible_char">*</property>
 			          <property name="activates_default">False</property>
 			          <signal name="activate" handler="on_primary_dns_entry_activate"/>
 			        </widget>
@@ -621,7 +617,6 @@ you with the relevant information.</property>
 			          <property name="max_length">0</property>
 			          <property name="text" translatable="yes"></property>
 			          <property name="has_frame">True</property>
-			          <property name="invisible_char">*</property>
 			          <property name="activates_default">False</property>
 			          <signal name="activate" handler="on_secondary_dns_entry_activate"/>
 			        </widget>
@@ -811,7 +806,6 @@ you with the relevant information.</property>
 				  <property name="max_length">0</property>
 				  <property name="text" translatable="yes"></property>
 				  <property name="has_frame">True</property>
-				  <property name="invisible_char">*</property>
 				  <property name="activates_default">False</property>
 				</widget>
 				<packing>
@@ -1148,7 +1142,6 @@ You can choose a known device or insert the needed information to set up a custo
 					  <property name="max_length">0</property>
 					  <property name="text" translatable="yes"></property>
 					  <property name="has_frame">True</property>
-					  <property name="invisible_char">*</property>
 					  <property name="activates_default">False</property>
 					</widget>
 					<packing>
@@ -1169,7 +1162,6 @@ You can choose a known device or insert the needed information to set up a custo
 					  <property name="max_length">0</property>
 					  <property name="text" translatable="yes"></property>
 					  <property name="has_frame">True</property>
-					  <property name="invisible_char">*</property>
 					  <property name="activates_default">False</property>
 					</widget>
 					<packing>
@@ -1190,7 +1182,6 @@ You can choose a known device or insert the needed information to set up a custo
 					  <property name="max_length">0</property>
 					  <property name="text" translatable="yes">115200</property>
 					  <property name="has_frame">True</property>
-					  <property name="invisible_char">*</property>
 					  <property name="activates_default">False</property>
 					</widget>
 					<packing>
