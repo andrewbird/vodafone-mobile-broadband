@@ -111,14 +111,14 @@ class NewKeyringDialog(_KeyringDialog):
         self.vbox.add(pin_panel)
 
         self.password_entry = get_object(self.tree, 'new_keyring_password')
-        self.password_entry.get_settings().set_long_property(
-            "gtk-entry-password-hint-timeout", 600, "")
+        #self.password_entry.get_settings().set_long_property(
+        #    "gtk-entry-password-hint-timeout", 600, "")
         add_password_validation(self.password_entry, self.check_ok_conditions)
 
         self.confirm_password_entry = get_object(self.tree,
                                                 'new_keyring_password_confirm')
-        self.confirm_password_entry.get_settings().set_long_property(
-            "gtk-entry-password-hint-timeout", 600, "")
+        #self.confirm_password_entry.get_settings().set_long_property(
+        #    "gtk-entry-password-hint-timeout", 600, "")
         add_password_validation(self.confirm_password_entry,
                                 self.check_ok_conditions)
 
@@ -144,8 +144,8 @@ class KeyringPasswordDialog(_KeyringDialog):
         self.vbox.add(pin_panel)
 
         self.password_entry = get_object(self.tree, 'keyring_password_entry')
-        self.password_entry.get_settings().set_long_property(
-            "gtk-entry-password-hint-timeout", 600, "")
+        #self.password_entry.get_settings().set_long_property(
+        #    "gtk-entry-password-hint-timeout", 600, "")
         add_password_validation(self.password_entry, self.check_ok_conditions)
 
     def check_ok_conditions(self):
