@@ -23,11 +23,11 @@ from os.path import join
 
 import gtk
 import gobject
-#from gtkmvc import View
+
+from wader.common.consts import MM_NETWORK_BAND_ANY, MM_NETWORK_MODE_ANY
+from wader.common.utils import get_network_modes, get_bands
+
 from wader.vmc.contrib.gtkmvc import View
-
-from wader.common.consts import MM_NETWORK_BANDS, MM_NETWORK_BAND_ANY
-
 from wader.vmc.consts import (GLADE_DIR, VM_NETWORK_AUTH_ANY,
                               VM_NETWORK_AUTH_PAP, VM_NETWORK_AUTH_CHAP,
                               BAND_MAP, MODE_MAP, AUTH_MAP)
@@ -58,11 +58,6 @@ class ProfileView(View):
                     break
 
     def set_bands(self, bands, current):
-
-        def get_bands(bitwised_band):
-            """Returns all the bitwised bands in ``bitwised_band``"""
-            return [band for band in MM_NETWORK_BANDS if band & bitwised_band]
-
         model = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_INT)
 
         for value in [MM_NETWORK_BAND_ANY] + get_bands(bands):
@@ -71,10 +66,10 @@ class ProfileView(View):
 
         self._set_combo('band_combobox', model, current)
 
-    def set_prefs(self, prefs, current):
+    def set_prefs(self, modes, current):
         model = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_INT)
 
-        for value in prefs:
+        for value in [MM_NETWORK_MODE_ANY] + get_network_modes(modes):
             human_name = MODE_MAP[value]
             model.append([human_name, value])
 
