@@ -42,7 +42,7 @@ class PayAsYouTalkView(View):
 
     def setup_view(self):
         self.get_top_widget().set_position(gtk.WIN_POS_CENTER_ON_PARENT)
-        self['sim_image'].set_from_file(self.Sim_Image)
+        self['sim_image'].set_from_file(self.sim_image)
         self['payt_image'].set_from_file(self.Computer_Image)
         self['credit_card_image'].set_from_file(self.Modem_Image)
         self['voucher_image'].set_from_file(self.Betavine_Image)
