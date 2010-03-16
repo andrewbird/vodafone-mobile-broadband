@@ -117,6 +117,21 @@ class DiagnosticsController(Controller):
     def on_close_button_clicked(self, widget):
         self._hide_myself()
 
+    def on_send_ussd_button_clicked(self, widget):
+         device = self.model.get_device()
+
+         # ok when the USSD message button is clicked grab the value from the ussd_message
+         # box and save in the model for now.
+         print "diagnostics on_send_ussd_button clicked"
+         ussd_message = self.view['ussd_entry'].get_text().strip()
+         self.view['ussd_entry'].set_text('')
+         print "diagnostics on_send_ussd_button_clicked", ussd_message
+         # self.model.ussd_message = ussd_message
+
+         device.Initiate(ussd_message,
+                         reply_handler=self.view.set_ussd_reply,
+                         error_handler=logger.error)
+
     def _hide_myself(self):
         self.model.unregister_observer(self)
         self.view.hide()
