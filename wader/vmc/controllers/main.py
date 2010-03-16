@@ -68,6 +68,12 @@ from wader.vmc.models.sms import NewSmsModel
 from wader.vmc.views.sms import NewSmsView, ForwardSmsView
 from wader.vmc.controllers.sms import NewSmsController, ForwardSmsController
 
+from wader.vmc.models.payt_model import PayAsYouTalkModel
+from wader.vmc.views.payt_view import PayAsYouTalkView
+from wader.vmc.controllers.payt_controller import PayAsYouTalkController
+
+
+
 from wader.vmc.views.pin import (PinModifyView, PinEnableView,
                                  AskPUKView, AskPINView)
 from wader.vmc.controllers.pin import (PinModifyController,
@@ -441,11 +447,18 @@ class MainController(WidgetController):
             self.view['support_tool_button'].set_active(True)
 
     def on_internet_button_clicked(self, widget):
-        if self._check_if_connected():
-            binary = config.get('preferences', 'browser',
-                                CFG_PREFS_DEFAULT_BROWSER)
-            if binary:
-                Popen([binary, APP_URL])
+          model = PayAsYouTalkModel(self.model.device)
+          ctrl = PayAsYouTalkController(model, self)
+          view = PayAsYouTalkView(ctrl)
+          view.set_parent_view(self.view)
+          view.show()
+         
+         
+#        if self._check_if_connected():
+#            binary = config.get('preferences', 'browser',
+#                                CFG_PREFS_DEFAULT_BROWSER)
+#            if binary:
+#                Popen([binary, APP_URL])
 
     def on_mail_button_clicked(self, widget):
         if self._check_if_connected():
