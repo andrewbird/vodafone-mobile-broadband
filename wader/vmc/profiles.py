@@ -21,8 +21,6 @@ Profile manager
 
 I manage profiles in the system (or connections in NM-lingo)
 """
-import os
-
 from wader.common.profile import ProfileManager
 from wader.common.backends import get_backend
 

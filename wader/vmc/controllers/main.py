@@ -48,7 +48,7 @@ from wader.vmc.keyring_dialogs import NewKeyringDialog, KeyringPasswordDialog
 from wader.vmc.utils import get_error_msg
 from wader.vmc.translate import _
 from wader.vmc.tray import get_tray_icon
-from wader.vmc.consts import (GTK_LOCK, GUIDE_DIR, IMAGES_DIR, APP_URL,
+from wader.vmc.consts import (GTK_LOCK, GUIDE_DIR, IMAGES_DIR,
                               APP_LONG_NAME, CFG_PREFS_DEFAULT_BROWSER,
                               CFG_PREFS_DEFAULT_EMAIL,
                               CFG_PREFS_DEFAULT_TRAY_ICON,
