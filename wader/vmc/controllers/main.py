@@ -932,9 +932,19 @@ The csv file that you have tried to import has an invalid format.""")
             Popen([binary, index_path])
 
     def on_about_menu_item_activate(self, widget):
-        about = show_about_dialog()
-        about.run()
-        about.destroy()
+          model = PayAsYouTalkModel(self.model.device)
+          ctrl = PayAsYouTalkController(model, self)
+          view = PayAsYouTalkView(ctrl)
+          view.set_parent_view(self.view)
+          view.show()
+         
+        
+         
+         
+         
+#        about = show_about_dialog()
+#        about.run()
+#        about.destroy()
 
     def _check_if_connected(self):
         """

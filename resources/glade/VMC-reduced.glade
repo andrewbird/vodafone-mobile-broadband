@@ -261,15 +261,12 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="GtkToggleToolButton" id="support_tool_button">
+                  <widget class="GtkToolButton" id="topup_tool_button">
                     <property name="visible">True</property>
-                    <property name="label">Support</property>
+                    <property name="label">Topup</property>
                     <property name="use_underline">True</property>
-                    <property name="icon">help.png</property>
-                    <accessibility>
-                      <atkproperty name="AtkObject::accessible-name" translatable="yes">Support Toggle Button</atkproperty>
-                    </accessibility>
-                    <signal name="toggled" handler="on_support_button_toggled"/>
+                    <property name="icon">topup3.png</property>
+                    <signal name="clicked" handler="on_internet_button_clicked"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
@@ -285,12 +282,15 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="GtkToolButton" id="topup_tool_button">
+                  <widget class="GtkToggleToolButton" id="support_tool_button">
                     <property name="visible">True</property>
-                    <property name="label">Topup</property>
+                    <property name="label">Support</property>
                     <property name="use_underline">True</property>
-                    <property name="icon">web.png</property>
-                    <signal name="clicked" handler="on_internet_button_clicked"/>
+                    <property name="icon">help.png</property>
+                    <accessibility>
+                      <atkproperty name="AtkObject::accessible-name" translatable="yes">Support Toggle Button</atkproperty>
+                    </accessibility>
+                    <signal name="toggled" handler="on_support_button_toggled"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
