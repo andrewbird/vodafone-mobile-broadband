@@ -30,9 +30,9 @@ class PayAsYouTalkView(View):
 
     GLADE_FILE = join(GLADE_DIR, "payt.glade")
     sim_image = join(IMAGES_DIR, "simple_sim_35x20.png")
-    payt_image = join(IMAGES_DIR,  "payt_graphic.png")
-    creditcard_Image = join(IMAGES_DIR,  "credit_card_50x25.png")
-    voucher_image = join(IMAGES_DIR,  "voucher_image_50x25.png")
+    payt_image = join(IMAGES_DIR,  "topup-banner.png")
+    creditcard_image = join(IMAGES_DIR,  "credit_card_green.png")
+    voucher_image = join(IMAGES_DIR,  "voucher.png")
     
     def __init__(self, ctrl):
         View.__init__(self, ctrl, self.GLADE_FILE,
@@ -43,9 +43,9 @@ class PayAsYouTalkView(View):
     def setup_view(self):
         self.get_top_widget().set_position(gtk.WIN_POS_CENTER_ON_PARENT)
         self['sim_image'].set_from_file(self.sim_image)
-        self['payt_image'].set_from_file(self.Computer_Image)
-        self['creditcard_image'].set_from_file(self.Modem_Image)
-        self['voucher_image'].set_from_file(self.Betavine_Image)
+        self['paytbanner'].set_from_file(self.payt_image)
+        self['credit_card_image'].set_from_file(self.creditcard_image)
+        self['voucher_image'].set_from_file(self.voucher_image)
 
     def set_ussd_reply(self, ussd_reply):
          buffer = self['ussd_textview'].get_buffer()
