@@ -57,8 +57,9 @@ class PayAsYouTalkController(Controller):
             # ok we don't have a model the data is coming from dbus
             # from wader core lets tell the view to set the imsi value
             # in the correct place
-            print "diagnostics sim_imei - IMEI number is", sim_data
-            self.view.set_imei_info(sim_data)
+            print "paty-controller sim_imei - IMEI number is", sim_data
+            # FIXME - Removed not needed at the minute.
+            #self.view.set_imei_info(sim_data)
 
         device.GetImei(dbus_interface=CRD_INTFACE,
                        error_handler=logger.error, reply_handler=sim_imei)
@@ -70,12 +71,13 @@ class PayAsYouTalkController(Controller):
             sim_network = NetworkProvider()
             networks_attributes = sim_network.get_network_by_id(sim_data)
             if networks_attributes:
-                net_attrib = networks_attributes[0]
-                print "diagnostics sim_network - country:", net_attrib.country
-                print "diagnostics sim_network - network opeartor:", net_attrib.name
-                print "diagnostics sim_network - sms value:", net_attrib.smsc
-                print "diagnostics sim_network - password value:", net_attrib.password
-                self.view.set_network_info(net_attrib.name, net_attrib.country)
+               net_attrib = networks_attributes[0]
+               logger.info("payt-controller sim_network - country: " +  net_attrib.country)
+               logger.info("payt-controller sim_network - network operator: " +  net_attrib.name)
+               logger.info("payt-controller sim_network - smsc value: " +  net_attrib.smsc)
+               logger.info("payt-controller sim_network - password value: " +  net_attrib.password)
+               # FIXME - Removed not needed yet.
+               #self.view.set_network_info(net_attrib.name, net_attrib.country)
 
         device.GetImsi(dbus_interface=CRD_INTFACE,
                        error_handler=logger.error, reply_handler=sim_network)
@@ -83,8 +85,9 @@ class PayAsYouTalkController(Controller):
         def sim_imsi(sim_data):
             # ok we don't have a model the data is coming from dbus from the
             # core lets tell the view to set the imei in the correct place
-            print "diagnostics sim_imsi - IMSI number is", sim_data
-            self.view.set_imsi_info(sim_data)
+            logger.info("payt-controller sim_imsi - IMSI number is: %s" % sim_data)
+            # FIXME - Removed not needed yet
+            #self.view.set_imsi_info(sim_data)
 
         device.GetImsi(dbus_interface=CRD_INTFACE,
                        error_handler=logger.error, reply_handler=sim_imsi)
@@ -95,9 +98,9 @@ class PayAsYouTalkController(Controller):
             manufacturer = datacard_info[0]
             model = datacard_info[1]
             firmware = datacard_info[2]
-            print "diagnostics mdm_info - manufacturer", manufacturer
-            print "diagnostics mdm_info - model", model
-            print "diagnostics mdm_info - firmware", firmware
+            print "payt-controller mdm_info - manufacturer", manufacturer
+            print "payt-controller mdm_info - model", model
+            print "payt-controller mdm_info - firmware", firmware
 
             # XXX: Is this necessary?
             # we need to take into account when cards don't tell us the truth.
@@ -105,7 +108,8 @@ class PayAsYouTalkController(Controller):
             if model == 'E17X' and manufacturer == 'huawei':
                 model = 'E172'
 
-            self.view.set_datacard__info(manufacturer, model, firmware)
+            # FIXME - Removed not needed yet
+            #self.view.set_datacard__info(manufacturer, model, firmware)
 
         device.GetInfo(dbus_interface=MDM_INTFACE,
                        error_handler=logger.error, reply_handler=mdm_info)
@@ -122,10 +126,13 @@ class PayAsYouTalkController(Controller):
 
          # ok when the USSD message button is clicked grab the value from the ussd_message
          # box and save in the model for now.
-         print "diagnostics on_send_ussd_button clicked"
+         print "payt-controller on_send_ussd_button clicked"
+         logger.info("payt-controller on_send_ussd_button clicked %s")
+         
+         
          ussd_message = self.view['ussd_entry'].get_text().strip()
          self.view['ussd_entry'].set_text('')
-         print "diagnostics on_send_ussd_button_clicked", ussd_message
+         print "payt-controller on_send_ussd_button_clicked", ussd_message
          # self.model.ussd_message = ussd_message
 
          device.Initiate(ussd_message,

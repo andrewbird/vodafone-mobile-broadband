@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Copyright (C) 2008-2009  Warp Networks, S.L.
-# Author:  Jaime Soriano
+# Author:  Jaime Soriano and Nicholas Herriot
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -29,8 +29,13 @@ except ImportError:
 logger = logging.getLogger(APP_SLUG_NAME)
 
 hdlr = logging.FileHandler(log_str)
-formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
-hdlr.setFormatter(formatter)
+FORMAT = '%(asctime)s %(levelname)s %(message)s'
+formatter = logging.Formatter(FORMAT)
 
+# OK lets just send all this to stdout if Mr User has been using CLI to start us off!
+logging.basicConfig(format=FORMAT) # log sur console
+
+# as usual we set our proper logger handler which should go to /tmp/bcm-<username>.log
+hdlr.setFormatter(formatter)
 logger.addHandler(hdlr)
 logger.setLevel(logging.INFO)

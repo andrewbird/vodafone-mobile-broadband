@@ -21,6 +21,7 @@ from os.path import join
 import gtk
 #from gtkmvc import View
 from wader.vmc.contrib.gtkmvc import View
+from wader.vmc.logger import logger
 
 from wader.vmc.consts import GLADE_DIR, IMAGES_DIR
 
@@ -48,10 +49,14 @@ class PayAsYouTalkView(View):
         self['voucher_image'].set_from_file(self.voucher_image)
 
     def set_ussd_reply(self, ussd_reply):
+         logger.info("payt-view sim_imsi - USSD number is: %s" % ussd_reply)
          buffer = self['ussd_textview'].get_buffer()
          buffer.set_text(ussd_reply)
          self['ussd_textview'].set_buffer(buffer)
 
     def set_msisdn_info(self,  MSISDNvalue):
          self['msisdn'].set_text(MSISDNvalue)
+         
+    def set_credit_date(self,  credit_date_value):
+         self['date'].set_text(credit_date_value)
 

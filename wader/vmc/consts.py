@@ -36,8 +36,9 @@ from wader.common.utils import revert_dict
 from wader.vmc.translate import _
 
 APP_NAME = 'Vodafone Mobile Connect'
-APP_SLUG_NAME = 'wader-vmc' # XXX: also defined in w.v.translate
-APP_LONG_NAME = 'Vodafone Mobile Connect'
+#APP_SLUG_NAME = 'wader-vmc' # XXX: also defined in w.v.translate
+APP_SLUG_NAME = 'bcm'
+APP_LONG_NAME = 'Betavine Connection Manager'
 APP_SHORT_NAME = APP_SLUG_NAME
 APP_VERSION = '3.00.0'
 
@@ -62,7 +63,6 @@ APP_ARTISTS = [
     'Splash by Nicholas Herriot <Nicholas.Herriot@vodafone.com>',
     'Original glade by María Iglesias Barroso <miglesias@imssystem.net>']
 
-#APP_URL = 'https://forge.betavine.net/projects/vodafonemobilec/'
 APP_URL = 'http://www.betavine.net/bvportal/resources/datacards'
 
 DATA_DIR = '/usr/share/%s' % APP_SLUG_NAME
