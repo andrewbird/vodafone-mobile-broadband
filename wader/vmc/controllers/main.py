@@ -325,7 +325,7 @@ class MainController(WidgetController):
         if new == _('Initialising'):
             self.view.set_initialising(True)
         elif new == _('No device'):
-            self.view.set_disconnected(device_present=False)
+            self.view.set_disconnected()
         elif new in [_('Registered'), _('Roaming')]:
             self.view.set_initialising(False)
 
