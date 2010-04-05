@@ -230,9 +230,6 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         self._hid2 = self.view['show_icon_checkbutton'].connect('toggled',
                                                                 show_icon_cb)
 
-    def get_selected_sms_profile(self):
-        model = self.view['sms_profiles_combobox'].get_model()
-
     # ------------------------------------------------------------ #
     #                       Signals Handling                       #
     # ------------------------------------------------------------ #
