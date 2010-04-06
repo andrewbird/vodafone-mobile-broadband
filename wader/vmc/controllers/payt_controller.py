@@ -19,6 +19,7 @@
 Controllers for Pay As You Talk 
 """
 #from gtkmvc import Controller
+import datetime
 from wader.vmc.contrib.gtkmvc import Controller
 
 from wader.common.consts import CRD_INTFACE, MDM_INTFACE
@@ -49,20 +50,54 @@ class PayAsYouTalkController(Controller):
         #self.view['os_version_label'].set_text(self.model.get_os_version())
 
     def set_device_info(self):
+         
+         
         device = self.model.get_device()
+        
+        ussd_msisdn = "*#100#"
+        ussd_check_account = "*#135#"
+        ussd_send_voucher = "*#999#"
+        ussd_check_credit = "*#134#"
+        
         if not device:
             return
 
         def sim_imei(sim_data):
-            # ok we don't have a model the data is coming from dbus
-            # from wader core lets tell the view to set the imsi value
-            # in the correct place
-            print "paty-controller sim_imei - IMEI number is", sim_data
-            # FIXME - Removed not needed at the minute.
-            #self.view.set_imei_info(sim_data)
+          # ok we don't have a model the data is coming from dbus
+          # from wader core lets tell the view to set the imsi value
+          # in the correct place
+          logger.info("payt-controller sim_imei - IMEI number is: " +  sim_data)
+          # FIXME - Removed not needed at the minute.
+          #self.view.set_imei_info(sim_data)
 
         device.GetImei(dbus_interface=CRD_INTFACE,
                        error_handler=logger.error, reply_handler=sim_imei)
+
+
+        def sim_msisdn(msisdn_data):
+          # same as above, no model so lets get the msisdn value from the network
+          # using ussd messages
+          logger.info("payt-controller sim_msisdn - MSISDN number is: " + msisdn_data)
+          self.view.set_msisdn_value(msisdn_data)
+          
+             
+        device.Initiate(ussd_msisdn,
+                         reply_handler= sim_msisdn,
+                         error_handler= logger.error)             
+          
+        def sim_credit(sim_credit):
+          # same as above, no model so lets get the sim credit value from the network
+          # using ussd messages
+          logger.info("payt-controller sim_credit - SIM Credit is: " + sim_credit)
+          self.view.set_credit_view(sim_credit)
+          credit_time = datetime.datetime.utcnow()
+          logger.info("payt-controller sim_credit - Date of querry is: " + credit_time.strftime("%A, %d. %B %Y %I:%M%p"))
+          self.view.set_credit_date(credit_time.strftime("%A, %d. %B %Y %I:%M%p"))
+
+        device.Initiate(ussd_check_account,
+          reply_handler= sim_credit,
+          error_handler= logger.error)             
+
 
         def sim_network(sim_data):
             # let's look up what we think this SIM's network is.
@@ -92,51 +127,68 @@ class PayAsYouTalkController(Controller):
         device.GetImsi(dbus_interface=CRD_INTFACE,
                        error_handler=logger.error, reply_handler=sim_imsi)
 
-        def mdm_info(datacard_info):
-            # ok we don't have a model the data is coming straight from
-            # our core via dbus
-            manufacturer = datacard_info[0]
-            model = datacard_info[1]
-            firmware = datacard_info[2]
-            print "payt-controller mdm_info - manufacturer", manufacturer
-            print "payt-controller mdm_info - model", model
-            print "payt-controller mdm_info - firmware", firmware
+    # ------------------------------------------------------------ #
+    #                Common Functions                #
+    # ------------------------------------------------------------ #
 
-            # XXX: Is this necessary?
-            # we need to take into account when cards don't tell us the truth.
-            # so for the huawei e172 reporting e17x we add an exception
-            if model == 'E17X' and manufacturer == 'huawei':
-                model = 'E172'
+    def reset_credit_and_date(self,  ussd_reply):
+         # a call back must have called us, my job is to reset the credit date and value.
+         # ok lets reset the date and credit of the view
 
-            # FIXME - Removed not needed yet
-            #self.view.set_datacard__info(manufacturer, model, firmware)
+         logger.info("payt-controller set_credit_and_date - USSD reply is: " + ussd_reply)
+         self.view.set_credit_view(ussd_reply)
+         credit_time = datetime.datetime.utcnow()
+         logger.info("payt-controller reset_credit_and_date - Date of querry is: " + credit_time.strftime("%A, %d. %B %Y %I:%M%p"))
+         self.view.set_credit_date(credit_time.strftime("%A, %d. %B %Y %I:%M%p"))
 
-        device.GetInfo(dbus_interface=MDM_INTFACE,
-                       error_handler=logger.error, reply_handler=mdm_info)
+
 
     # ------------------------------------------------------------ #
-    #                       Signals Handling                       #
+    #                       Signals Handling             #
     # ------------------------------------------------------------ #
 
     def on_close_button_clicked(self, widget):
         self._hide_myself()
-
-    def on_send_ussd_button_clicked(self, widget):
+        
+     
+        
+    def on_credit_button_clicked(self,  widget):
          device = self.model.get_device()
-
-         # ok when the USSD message button is clicked grab the value from the ussd_message
-         # box and save in the model for now.
-         print "payt-controller on_send_ussd_button clicked"
-         logger.info("payt-controller on_send_ussd_button clicked %s")
+         ussd_message = "*#135#"
+         logger.info("payt-controller on_credit_button_clicked- USSD Message is:" + ussd_message)
          
+         # ok we need to tell the view to wipe current data and prepare for the new!
+         # So lets remove our current credit and date first.
+         self.view.set_credit_view("Fetching current credit from network.....")
+         self.view.set_credit_date("Fetching ......")
          
-         ussd_message = self.view['ussd_entry'].get_text().strip()
-         self.view['ussd_entry'].set_text('')
-         print "payt-controller on_send_ussd_button_clicked", ussd_message
-         # self.model.ussd_message = ussd_message
-
+         # lets now do a credit check via USSD
+         
          device.Initiate(ussd_message,
-                         reply_handler=self.view.set_ussd_reply,
+               reply_handler= self.reset_credit_and_date,
+               error_handler= logger.error)  
+         
+         
+         
+
+    def on_send_voucher_button_clicked(self, widget):
+          device = self.model.get_device()
+
+          # ok when the send voucher button is clicked grab the value from the view entry box and send 
+          # to the network. 
+
+          ussd_voucher_init = "*#1345*"
+          ussd_voucher_end = "#"
+          voucher_code = self.view['voucher_code'].get_text().strip()
+          self.view.set_voucher_entry_view('')
+          #self.view['voucher_code'].set_text('')
+          
+          ussd_voucher_message = ussd_voucher_init + voucher_code + ussd_voucher_end
+          logger.info("payt-controller on_send_voucher_button_clicked - USSD Message: " + ussd_voucher_message)
+          
+
+          device.Initiate(ussd_voucher_message,
+                         reply_handler=self.view.set_voucher_entry_view,
                          error_handler=logger.error)
 
     def _hide_myself(self):

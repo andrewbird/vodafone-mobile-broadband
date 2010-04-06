@@ -446,7 +446,8 @@ class MainController(WidgetController):
             self.view['support_notebook'].show()
             self.view['support_tool_button'].set_active(True)
 
-    def on_internet_button_clicked(self, widget):
+    def on_topup_button_clicked(self, widget):
+          logger.info("BCM Main: Topup button clicked")         
           model = PayAsYouTalkModel(self.model.device)
           ctrl = PayAsYouTalkController(model, self)
           view = PayAsYouTalkView(ctrl)

@@ -266,7 +266,7 @@
                     <property name="label">Topup</property>
                     <property name="use_underline">True</property>
                     <property name="icon">topup3.png</property>
-                    <signal name="clicked" handler="on_internet_button_clicked"/>
+                    <signal name="clicked" handler="on_topup_button_clicked"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>

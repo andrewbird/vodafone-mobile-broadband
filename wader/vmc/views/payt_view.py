@@ -48,15 +48,25 @@ class PayAsYouTalkView(View):
         self['credit_card_image'].set_from_file(self.creditcard_image)
         self['voucher_image'].set_from_file(self.voucher_image)
 
-    def set_ussd_reply(self, ussd_reply):
-         logger.info("payt-view sim_imsi - USSD number is: %s" % ussd_reply)
-         buffer = self['ussd_textview'].get_buffer()
-         buffer.set_text(ussd_reply)
-         self['ussd_textview'].set_buffer(buffer)
-
-    def set_msisdn_info(self,  MSISDNvalue):
-         self['msisdn'].set_text(MSISDNvalue)
+    def set_msisdn_value(self,  MSISDNvalue):
+         self['msisdn_view'].set_text(MSISDNvalue)
          
+    def set_credit_view(self,  credit_value):
+          self['credit_view'].set_text(credit_value)
+    
     def set_credit_date(self,  credit_date_value):
-         self['date'].set_text(credit_date_value)
+         self['date_view'].set_text(credit_date_value)
+
+    def set_voucher_entry_view(self,  voucher_value):
+         
+         #ok if the view has been asked to reset with a null string, make sure we reset any previous messages too.
+         if voucher_value=='':
+              self['voucher_code'].set_text('')
+              self['voucher_response_message'].set_text('')
+              logger.info("payt-view set_voucher_entry_view (value-null) - USSD Message: " + voucher_value)
+         else:
+              self['voucher_response_message'].set_text(voucher_value)
+              logger.info("payt-view set_voucher_entry_view - USSD Message: " + voucher_value)
+         
+         
 
