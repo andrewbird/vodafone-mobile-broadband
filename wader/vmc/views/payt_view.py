@@ -52,10 +52,16 @@ class PayAsYouTalkView(View):
          self['msisdn_view'].set_text(MSISDNvalue)
          
     def set_credit_view(self,  credit_value):
-          self['credit_view'].set_text(credit_value)
+          self['credit_view'].set_text(credit_value.replace('#',' £'))
     
     def set_credit_date(self,  credit_date_value):
          self['date_view'].set_text(credit_date_value)
+
+
+    def set_waiting_credit_view(self):
+         self['date_view'].set_text("Fetching ......")
+         self['credit_view'].set_text("Fetching current credit from network.....")
+         
 
     def set_voucher_entry_view(self,  voucher_value):
          
@@ -65,7 +71,7 @@ class PayAsYouTalkView(View):
               self['voucher_response_message'].set_text('')
               logger.info("payt-view set_voucher_entry_view (value-null) - USSD Message: " + voucher_value)
          else:
-              self['voucher_response_message'].set_text(voucher_value)
+              self['voucher_response_message'].set_text(voucher_value.replace('#',' £'))
               logger.info("payt-view set_voucher_entry_view - USSD Message: " + voucher_value)
          
          

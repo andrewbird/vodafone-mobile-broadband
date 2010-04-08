@@ -133,6 +133,8 @@ class PayAsYouTalkController(Controller):
 
     def reset_credit_and_date(self,  ussd_reply):
          # a call back must have called us, my job is to reset the credit date and value.
+         # I take care of reseting both as a credit amount is only valid at the time you check, so make sure when you update
+         # the credit you also update the time you did the check.
          # ok lets reset the date and credit of the view
 
          logger.info("payt-controller set_credit_and_date - USSD reply is: " + ussd_reply)
@@ -141,7 +143,33 @@ class PayAsYouTalkController(Controller):
          logger.info("payt-controller reset_credit_and_date - Date of querry is: " + credit_time.strftime("%A, %d. %B %Y %I:%M%p"))
          self.view.set_credit_date(credit_time.strftime("%A, %d. %B %Y %I:%M%p"))
 
+    def check_voucher_update_response(self,  ussd_voucher_update_response):
+         device = self.model.get_device()         
+         # ok my job is to work out what happened after a credit voucher update message was sent.
+         # we can have three possibilities, it was succesfull, the voucher code was wrong, or you tried with
+         # an illegal number too many times. For now I only do something when it works, the other two
+         # possibilities I just report the error provided by the network.
+         
+         if (ussd_voucher_update_response.find('TopUp successful') == -1):
+              # ok we got a -1 from our 'find' so it failed just log for now as we report the message to the view no matter what happens.
+               logger.info("payt-controoler check_voucher_update_response - topup failed: "  + ussd_voucher_update_response)
 
+         else:
+              # ok we established his voucher code is good - lets cause the system to update the UI with his new credit
+              # to do that we need to fire off another ussd to cause a credit request to happen
+              logger.info("payt-controler check_voucher_update_response - topup was succesful: "  + ussd_voucher_update_response)
+              self.view.set_waiting_credit_view()
+              # lets now do a credit check via USSD
+              device.Initiate(ussd_message,
+                    reply_handler= self.reset_credit_and_date,
+                    error_handler= logger.error)  
+
+          # ok no matter we have, we need to update our view to show good or bad!
+         logger.info("payt-controoler check_voucher_update_response - topup follows normal path: "  + ussd_voucher_update_response)
+         set_voucher_entry_view(ussd_voucher_update_response)
+              
+         
+     
 
     # ------------------------------------------------------------ #
     #                       Signals Handling             #
@@ -149,8 +177,7 @@ class PayAsYouTalkController(Controller):
 
     def on_close_button_clicked(self, widget):
         self._hide_myself()
-        
-     
+             
         
     def on_credit_button_clicked(self,  widget):
          device = self.model.get_device()
@@ -159,18 +186,14 @@ class PayAsYouTalkController(Controller):
          
          # ok we need to tell the view to wipe current data and prepare for the new!
          # So lets remove our current credit and date first.
-         self.view.set_credit_view("Fetching current credit from network.....")
-         self.view.set_credit_date("Fetching ......")
+         self.view.set_waiting_credit_view()
          
          # lets now do a credit check via USSD
-         
          device.Initiate(ussd_message,
                reply_handler= self.reset_credit_and_date,
                error_handler= logger.error)  
          
          
-         
-
     def on_send_voucher_button_clicked(self, widget):
           device = self.model.get_device()
 
@@ -181,15 +204,15 @@ class PayAsYouTalkController(Controller):
           ussd_voucher_end = "#"
           voucher_code = self.view['voucher_code'].get_text().strip()
           self.view.set_voucher_entry_view('')
-          #self.view['voucher_code'].set_text('')
-          
+          # make sure we construct the string to enable PAYT Topup vouchers to be used e.g. *#1345*<voucher number>#
           ussd_voucher_message = ussd_voucher_init + voucher_code + ussd_voucher_end
           logger.info("payt-controller on_send_voucher_button_clicked - USSD Message: " + ussd_voucher_message)
           
-
           device.Initiate(ussd_voucher_message,
-                         reply_handler=self.view.set_voucher_entry_view,
+                         reply_handler=self.check_voucher_update_response,
                          error_handler=logger.error)
+
+
 
     def _hide_myself(self):
         self.model.unregister_observer(self)
