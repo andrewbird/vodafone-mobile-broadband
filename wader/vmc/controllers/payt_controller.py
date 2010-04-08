@@ -111,8 +111,6 @@ class PayAsYouTalkController(Controller):
                logger.info("payt-controller sim_network - network operator: " +  net_attrib.name)
                logger.info("payt-controller sim_network - smsc value: " +  net_attrib.smsc)
                logger.info("payt-controller sim_network - password value: " +  net_attrib.password)
-               # FIXME - Removed not needed yet.
-               #self.view.set_network_info(net_attrib.name, net_attrib.country)
 
         device.GetImsi(dbus_interface=CRD_INTFACE,
                        error_handler=logger.error, reply_handler=sim_network)
@@ -121,8 +119,6 @@ class PayAsYouTalkController(Controller):
             # ok we don't have a model the data is coming from dbus from the
             # core lets tell the view to set the imei in the correct place
             logger.info("payt-controller sim_imsi - IMSI number is: %s" % sim_data)
-            # FIXME - Removed not needed yet
-            #self.view.set_imsi_info(sim_data)
 
         device.GetImsi(dbus_interface=CRD_INTFACE,
                        error_handler=logger.error, reply_handler=sim_imsi)
@@ -166,7 +162,7 @@ class PayAsYouTalkController(Controller):
 
           # ok no matter we have, we need to update our view to show good or bad!
          logger.info("payt-controoler check_voucher_update_response - topup follows normal path: "  + ussd_voucher_update_response)
-         set_voucher_entry_view(ussd_voucher_update_response)
+         self.view.set_voucher_entry_view(ussd_voucher_update_response)
               
          
      
