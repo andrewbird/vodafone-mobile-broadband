@@ -1,3 +1,9 @@
+bcm (2.99.02-1) jaunty; urgency=low
+
+  * Rename to bcm
+
+ -- Andrew Bird <ajb@spheresystems.co.uk>  Mon, 12 Apr 2010 17:43:31 +0100
+
 wader-vmc (2.99.01-1) jaunty; urgency=low
 
   * Initial import of vmc
