@@ -21,7 +21,7 @@ from os.path import join, exists
 
 import gtk
 
-from wader.vmc.consts import IMAGES_DIR
+from wader.bcm.consts import IMAGES_DIR
 
 MOBILE_IMG = gtk.gdk.pixbuf_new_from_file(join(IMAGES_DIR, 'mobile.png'))
 COMPUTER_IMG = gtk.gdk.pixbuf_new_from_file(join(IMAGES_DIR, 'computer.png'))

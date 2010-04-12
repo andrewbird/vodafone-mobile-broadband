@@ -22,8 +22,8 @@ msgid "_File"
 msgstr ""
 
 #: ../glade/VMC-reduced.glade:55 ../glade/VMC.glade:27
-#: ../../wader/vmc/views/application.py:328
-#: ../../wader/vmc/controllers/application.py:1074
+#: ../../wader/bcm/views/application.py:328
+#: ../../wader/bcm/controllers/application.py:1074
 msgid "Connect"
 msgstr ""
 
@@ -167,7 +167,7 @@ msgstr ""
 
 #: ../glade/VMC-reduced.glade:703 ../glade/VMC-reduced.glade:808
 #: ../glade/VMC.glade:534 ../glade/VMC.glade:611
-#: ../../wader/vmc/controllers/application.py:1132
+#: ../../wader/bcm/controllers/application.py:1132
 msgid "_Delete"
 msgstr ""
 
@@ -254,15 +254,15 @@ msgstr ""
 
 #: ../glade/VMC-reduced.glade:1739 ../glade/VMC-reduced.glade:2211
 #: ../glade/VMC.glade:1156 ../glade/VMC.glade:1441
-#: ../../wader/vmc/consts.py:101
-#: ../../wader/vmc/controllers/application.py:1295
-#: ../../wader/vmc/controllers/application.py:1329
+#: ../../wader/bcm/consts.py:101
+#: ../../wader/bcm/controllers/application.py:1295
+#: ../../wader/bcm/controllers/application.py:1329
 msgid "GPRS"
 msgstr ""
 
 #: ../glade/VMC-reduced.glade:1764 ../glade/VMC-reduced.glade:2236
 #: ../glade/VMC.glade:1163 ../glade/VMC.glade:1448
-#: ../../wader/vmc/controllers/application.py:1331
+#: ../../wader/bcm/controllers/application.py:1331
 msgid "3G"
 msgstr ""
 
@@ -510,8 +510,8 @@ msgstr ""
 msgid "Device model:"
 msgstr ""
 
-#: ../glade/config2.glade:782 ../../wader/vmc/controllers/preferences.py:280
-#: ../../wader/vmc/controllers/preferences.py:295
+#: ../glade/config2.glade:782 ../../wader/bcm/controllers/preferences.py:280
+#: ../../wader/bcm/controllers/preferences.py:295
 msgid "Unknown"
 msgstr ""
 
@@ -624,7 +624,7 @@ msgid "IMSI: "
 msgstr ""
 
 #: ../glade/diagnostics.glade:92
-msgid "VMC number:"
+msgid "BCM number:"
 msgstr ""
 
 #: ../glade/diagnostics.glade:115
@@ -871,16 +871,16 @@ msgstr ""
 msgid "3G Devices Manager"
 msgstr ""
 
-#: ../../wader/vmc/startup.py:151
+#: ../../wader/bcm/startup.py:151
 msgid "Initial setup..."
 msgstr ""
 
-#: ../../wader/vmc/startup.py:191 ../../wader/vmc/startup.py:210
-#: ../../wader/vmc/controllers/initialconf.py:402
+#: ../../wader/bcm/startup.py:191 ../../wader/bcm/startup.py:210
+#: ../../wader/bcm/controllers/initialconf.py:402
 msgid "Device setup not completed"
 msgstr ""
 
-#: ../../wader/vmc/startup.py:192
+#: ../../wader/bcm/startup.py:192
 #, python-format
 msgid ""
 "\n"
@@ -889,11 +889,11 @@ msgid ""
 "%s"
 msgstr ""
 
-#: ../../wader/vmc/startup.py:211
+#: ../../wader/bcm/startup.py:211
 #, python-format
 msgid ""
 "\n"
-"Your device \"%(name)s\" is not properly registered with the kernel. %(vmc)"
+"Your device \"%(name)s\" is not properly registered with the kernel. %(bcm)"
 "s\n"
 "needs at least two serial ports to communicate with your %(name)s.\n"
 "The program includes a set of udev rules plus some binaries that make sure\n"
@@ -901,11 +901,11 @@ msgid ""
 "source, then make sure to copy the relevant files in the contrib dir\n"
 msgstr ""
 
-#: ../../wader/vmc/startup.py:227
+#: ../../wader/bcm/startup.py:227
 msgid "Device not responding"
 msgstr ""
 
-#: ../../wader/vmc/startup.py:228
+#: ../../wader/bcm/startup.py:228
 msgid ""
 "\n"
 "Your device took more than 15 seconds to reply to my last command. Unplug "
@@ -913,272 +913,272 @@ msgid ""
 "plug it again, and try in a moment."
 msgstr ""
 
-#: ../../wader/vmc/startup.py:303
+#: ../../wader/bcm/startup.py:303
 msgid "Authenticated!"
 msgstr ""
 
-#: ../../wader/vmc/startup.py:306
+#: ../../wader/bcm/startup.py:306
 msgid "Authenticating..."
 msgstr ""
 
-#: ../../wader/vmc/consts.py:82
+#: ../../wader/bcm/consts.py:82
 msgid "Any band"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:83
+#: ../../wader/bcm/consts.py:83
 msgid "EGSM 900"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:84
+#: ../../wader/bcm/consts.py:84
 msgid "GSM DCS"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:85
+#: ../../wader/bcm/consts.py:85
 msgid "GSM PCS"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:86
+#: ../../wader/bcm/consts.py:86
 msgid "GSM 850"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:87
+#: ../../wader/bcm/consts.py:87
 msgid "WCDMA 2100"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:88
+#: ../../wader/bcm/consts.py:88
 msgid "WCDMA 1700"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:89
+#: ../../wader/bcm/consts.py:89
 msgid "WCDMA 17IV"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:90
+#: ../../wader/bcm/consts.py:90
 msgid "WCDMA 800"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:91
+#: ../../wader/bcm/consts.py:91
 msgid "WCDMA 850"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:92
+#: ../../wader/bcm/consts.py:92
 msgid "WCDMA 900"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:93
+#: ../../wader/bcm/consts.py:93
 msgid "WCDMA 17IX"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:94
+#: ../../wader/bcm/consts.py:94
 msgid "WCDMA 1900"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:100
+#: ../../wader/bcm/consts.py:100
 msgid "Any"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:102
-#: ../../wader/vmc/controllers/application.py:1295
+#: ../../wader/bcm/consts.py:102
+#: ../../wader/bcm/controllers/application.py:1295
 msgid "EDGE"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:103
+#: ../../wader/bcm/consts.py:103
 msgid "UMTS"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:104
+#: ../../wader/bcm/consts.py:104
 msgid "HSDPA"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:105
+#: ../../wader/bcm/consts.py:105
 msgid "HSUPA"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:106
+#: ../../wader/bcm/consts.py:106
 msgid "HSPA"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:107
+#: ../../wader/bcm/consts.py:107
 msgid "2G preferred"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:108
+#: ../../wader/bcm/consts.py:108
 #: ../../wader/common.orig/hardware/__init__.py:32
 #: ../../wader/common.orig/hardware/__init__.py:39
 msgid "3G preferred"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:109
+#: ../../wader/bcm/consts.py:109
 msgid "2G only"
 msgstr ""
 
-#: ../../wader/vmc/consts.py:110
+#: ../../wader/bcm/consts.py:110
 #: ../../wader/common.orig/hardware/__init__.py:30
 #: ../../wader/common.orig/hardware/__init__.py:37
 msgid "3G only"
 msgstr ""
 
-#: ../../wader/vmc/views/pin.py:65
+#: ../../wader/bcm/views/pin.py:65
 msgid ""
 "\n"
 "In order to unlock your SIM, we need your\n"
 "PIN and PUK codes"
 msgstr ""
 
-#: ../../wader/vmc/views/pin.py:73
+#: ../../wader/bcm/views/pin.py:73
 msgid ""
 "\n"
 "In order to unlock your SIM, we need your\n"
 "PIN and PUK2 codes"
 msgstr ""
 
-#: ../../wader/vmc/views/preferences.py:107
-#: ../../wader/vmc/views/preferences.py:120
-#: ../../wader/vmc/controllers/preferences.py:287
+#: ../../wader/bcm/views/preferences.py:107
+#: ../../wader/bcm/views/preferences.py:120
+#: ../../wader/bcm/controllers/preferences.py:287
 msgid "Custom"
 msgstr ""
 
-#: ../../wader/vmc/views/application.py:55
+#: ../../wader/bcm/views/application.py:55
 msgid "B"
 msgstr ""
 
-#: ../../wader/vmc/views/application.py:56
+#: ../../wader/bcm/views/application.py:56
 msgid "KB"
 msgstr ""
 
-#: ../../wader/vmc/views/application.py:57
+#: ../../wader/bcm/views/application.py:57
 msgid "MB"
 msgstr ""
 
-#: ../../wader/vmc/views/application.py:58
+#: ../../wader/bcm/views/application.py:58
 msgid "GB"
 msgstr ""
 
-#: ../../wader/vmc/views/application.py:334
-#: ../../wader/vmc/controllers/application.py:951
+#: ../../wader/bcm/views/application.py:334
+#: ../../wader/bcm/controllers/application.py:951
 msgid "Not connected"
 msgstr ""
 
-#: ../../wader/vmc/views/application.py:342
-#: ../../wader/vmc/controllers/application.py:1068
+#: ../../wader/bcm/views/application.py:342
+#: ../../wader/bcm/controllers/application.py:1068
 msgid "Disconnect"
 msgstr ""
 
-#: ../../wader/vmc/views/application.py:354
+#: ../../wader/bcm/views/application.py:354
 msgid "No device present"
 msgstr ""
 
-#: ../../wader/vmc/views/application.py:356
-#: ../../wader/vmc/views/application.py:357
-#: ../../wader/vmc/controllers/application.py:1293
-#: ../../wader/vmc/controllers/application.py:1327
+#: ../../wader/bcm/views/application.py:356
+#: ../../wader/bcm/views/application.py:357
+#: ../../wader/bcm/controllers/application.py:1293
+#: ../../wader/bcm/controllers/application.py:1327
 msgid "N/A"
 msgstr ""
 
-#: ../../wader/vmc/views/application.py:384
-#: ../../wader/vmc/views/application.py:421
-#: ../../wader/vmc/views/initialconf.py:104
-#: ../../wader/vmc/controllers/contacts.py:143
+#: ../../wader/bcm/views/application.py:384
+#: ../../wader/bcm/views/application.py:421
+#: ../../wader/bcm/views/initialconf.py:104
+#: ../../wader/bcm/controllers/contacts.py:143
 msgid "Type"
 msgstr ""
 
-#: ../../wader/vmc/views/application.py:390
-#: ../../wader/vmc/views/initialconf.py:98
-#: ../../wader/vmc/views/initialconf.py:312
-#: ../../wader/vmc/controllers/contacts.py:149
+#: ../../wader/bcm/views/application.py:390
+#: ../../wader/bcm/views/initialconf.py:98
+#: ../../wader/bcm/views/initialconf.py:312
+#: ../../wader/bcm/controllers/contacts.py:149
 msgid "Name"
 msgstr ""
 
-#: ../../wader/vmc/views/application.py:399
-#: ../../wader/vmc/controllers/contacts.py:156
+#: ../../wader/bcm/views/application.py:399
+#: ../../wader/bcm/controllers/contacts.py:156
 msgid "Number"
 msgstr ""
 
-#: ../../wader/vmc/views/application.py:428
+#: ../../wader/bcm/views/application.py:428
 msgid "Text"
 msgstr ""
 
-#: ../../wader/vmc/views/application.py:439
+#: ../../wader/bcm/views/application.py:439
 msgid "Recipient"
 msgstr ""
 
-#: ../../wader/vmc/views/application.py:439
+#: ../../wader/bcm/views/application.py:439
 msgid "Sender"
 msgstr ""
 
-#: ../../wader/vmc/views/application.py:447
+#: ../../wader/bcm/views/application.py:447
 msgid "Date"
 msgstr ""
 
-#: ../../wader/vmc/views/initialconf.py:101
+#: ../../wader/bcm/views/initialconf.py:101
 msgid "Country"
 msgstr ""
 
-#: ../../wader/vmc/views/initialconf.py:226
+#: ../../wader/bcm/views/initialconf.py:226
 msgid "No known devices found"
 msgstr ""
 
-#: ../../wader/vmc/views/initialconf.py:319
+#: ../../wader/bcm/views/initialconf.py:319
 msgid "Address"
 msgstr ""
 
-#: ../../wader/vmc/models/preferences.py:34
+#: ../../wader/bcm/models/preferences.py:34
 msgid "Maximum time"
 msgstr ""
 
-#: ../../wader/vmc/models/preferences.py:35
+#: ../../wader/bcm/models/preferences.py:35
 msgid "1 week"
 msgstr ""
 
-#: ../../wader/vmc/models/preferences.py:36
+#: ../../wader/bcm/models/preferences.py:36
 msgid "3 days"
 msgstr ""
 
-#: ../../wader/vmc/models/preferences.py:37
+#: ../../wader/bcm/models/preferences.py:37
 msgid "1 day"
 msgstr ""
 
-#: ../../wader/vmc/models/application.py:232
+#: ../../wader/bcm/models/application.py:232
 msgid "%B, %Y"
 msgstr ""
 
-#: ../../wader/vmc/controllers/sms.py:45
+#: ../../wader/bcm/controllers/sms.py:45
 msgid "You can send the SMS to several recipients separating them by commas"
 msgstr ""
 
-#: ../../wader/vmc/controllers/sms.py:65
+#: ../../wader/bcm/controllers/sms.py:65
 #, python-format
 msgid "Text message: 0/%d chars"
 msgstr ""
 
-#: ../../wader/vmc/controllers/sms.py:88
+#: ../../wader/bcm/controllers/sms.py:88
 msgid "Send empty message"
 msgstr ""
 
-#: ../../wader/vmc/controllers/sms.py:89
+#: ../../wader/bcm/controllers/sms.py:89
 msgid "Are you sure you want to send an empty message?"
 msgstr ""
 
-#: ../../wader/vmc/controllers/sms.py:107
+#: ../../wader/bcm/controllers/sms.py:107
 msgid "Unknown Error"
 msgstr ""
 
-#: ../../wader/vmc/controllers/sms.py:108
+#: ../../wader/bcm/controllers/sms.py:108
 msgid ""
 "Your message cannot be sent to some of its recipients. Unsent messages have "
 "been saved in drafts. Please, check that you have typed the number correctly."
 msgstr ""
 
-#: ../../wader/vmc/controllers/sms.py:174
+#: ../../wader/bcm/controllers/sms.py:174
 #, python-format
 msgid "Text message: %(chrcnt)d/%(maxchr)d chars"
 msgstr ""
 
-#: ../../wader/vmc/controllers/sms.py:216
+#: ../../wader/bcm/controllers/sms.py:216
 msgid "No SMSC number"
 msgstr ""
 
-#: ../../wader/vmc/controllers/sms.py:218
+#: ../../wader/bcm/controllers/sms.py:218
 #, python-format
 msgid ""
 "\n"
@@ -1187,12 +1187,12 @@ msgid ""
 "If you do not know the SMSC number, contact your customer service.\n"
 msgstr ""
 
-#: ../../wader/vmc/controllers/pin.py:109
-#: ../../wader/vmc/controllers/pin.py:300
+#: ../../wader/bcm/controllers/pin.py:109
+#: ../../wader/bcm/controllers/pin.py:300
 msgid "Incorrect PIN"
 msgstr ""
 
-#: ../../wader/vmc/controllers/pin.py:110
+#: ../../wader/bcm/controllers/pin.py:110
 msgid ""
 "\n"
 "<small>The PIN you've just entered is\n"
@@ -1201,11 +1201,11 @@ msgid ""
 "for the PUK code</small>\n"
 msgstr ""
 
-#: ../../wader/vmc/controllers/pin.py:216
+#: ../../wader/bcm/controllers/pin.py:216
 msgid "Incorrect PUK"
 msgstr ""
 
-#: ../../wader/vmc/controllers/pin.py:217
+#: ../../wader/bcm/controllers/pin.py:217
 msgid ""
 "\n"
 "<small>The PUK you've just entered is\n"
@@ -1215,7 +1215,7 @@ msgid ""
 "should be your last PIN.</small>\n"
 msgstr ""
 
-#: ../../wader/vmc/controllers/pin.py:301
+#: ../../wader/bcm/controllers/pin.py:301
 msgid ""
 "\n"
 "The PIN you've just entered is\n"
@@ -1224,35 +1224,35 @@ msgid ""
 "for the PUK code\n"
 msgstr ""
 
-#: ../../wader/vmc/controllers/pin.py:403
-#: ../../wader/vmc/controllers/preferences.py:68
-#: ../../wader/vmc/controllers/preferences.py:87
-#: ../../wader/vmc/controllers/application.py:582
+#: ../../wader/bcm/controllers/pin.py:403
+#: ../../wader/bcm/controllers/preferences.py:68
+#: ../../wader/bcm/controllers/preferences.py:87
+#: ../../wader/bcm/controllers/application.py:582
 msgid "Missing dependency"
 msgstr ""
 
-#: ../../wader/vmc/controllers/pin.py:405
-#: ../../wader/vmc/controllers/preferences.py:70
+#: ../../wader/bcm/controllers/pin.py:405
+#: ../../wader/bcm/controllers/preferences.py:70
 msgid "To use this feature you need the gnomekeyring module"
 msgstr ""
 
-#: ../../wader/vmc/controllers/preferences.py:88
+#: ../../wader/bcm/controllers/preferences.py:88
 msgid ""
 "\n"
 "To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
 "module\n"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:115
-#: ../../wader/vmc/controllers/initialconf.py:576
+#: ../../wader/bcm/controllers/application.py:115
+#: ../../wader/bcm/controllers/initialconf.py:576
 msgid "Shutting down"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:133
+#: ../../wader/bcm/controllers/application.py:133
 msgid "Connected to Internet"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:134
+#: ../../wader/bcm/controllers/application.py:134
 #, python-format
 msgid ""
 "\n"
@@ -1261,155 +1261,155 @@ msgid ""
 "if you want to do so, press the OK button.\n"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:253
+#: ../../wader/bcm/controllers/application.py:253
 msgid "Reading contacts..."
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:280
+#: ../../wader/bcm/controllers/application.py:280
 msgid "Reading messages..."
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:334
+#: ../../wader/bcm/controllers/application.py:334
 msgid "User Limit"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:335
+#: ../../wader/bcm/controllers/application.py:335
 msgid "You have reached your limit of maximum usage"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:357
+#: ../../wader/bcm/controllers/application.py:357
 msgid "New mobile profile available"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:358
+#: ../../wader/bcm/controllers/application.py:358
 msgid ""
 "\n"
 "New profile available, do you want to load it?"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:360
+#: ../../wader/bcm/controllers/application.py:360
 msgid "Load"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:395
-#: ../../wader/vmc/controllers/application.py:1293
+#: ../../wader/bcm/controllers/application.py:395
+#: ../../wader/bcm/controllers/application.py:1293
 msgid "Radio Disabled"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:423
+#: ../../wader/bcm/controllers/application.py:423
 #, python-format
 msgid "Quit %s"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:424
+#: ../../wader/bcm/controllers/application.py:424
 msgid "Are you sure you want to exit?"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:481
+#: ../../wader/bcm/controllers/application.py:481
 msgid "_New Profile"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:490
+#: ../../wader/bcm/controllers/application.py:490
 msgid "Load Profile"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:495
+#: ../../wader/bcm/controllers/application.py:495
 msgid "Edit Profile"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:500
+#: ../../wader/bcm/controllers/application.py:500
 msgid "Delete Profile"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:583
+#: ../../wader/bcm/controllers/application.py:583
 msgid "To use this widget you need python-vte installed"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:630
+#: ../../wader/bcm/controllers/application.py:630
 msgid "Invalid CSV format"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:631
+#: ../../wader/bcm/controllers/application.py:631
 msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:662
-#: ../../wader/vmc/controllers/application.py:684
+#: ../../wader/bcm/controllers/application.py:662
+#: ../../wader/bcm/controllers/application.py:684
 msgid "Connecting..."
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:679
-#: ../../wader/vmc/controllers/application.py:1302
+#: ../../wader/bcm/controllers/application.py:679
+#: ../../wader/bcm/controllers/application.py:1302
 #, python-format
 msgid "Connected to %s"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:681
+#: ../../wader/bcm/controllers/application.py:681
 msgid "Connected"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:952
+#: ../../wader/bcm/controllers/application.py:952
 msgid "No mobile connection. Do you want to continue?"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:1090
+#: ../../wader/bcm/controllers/application.py:1090
 msgid "Send SMS"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:1104
+#: ../../wader/bcm/controllers/application.py:1104
 msgid "Quit"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:1122
+#: ../../wader/bcm/controllers/application.py:1122
 msgid "_Send SMS"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:1142
+#: ../../wader/bcm/controllers/application.py:1142
 msgid "Edit"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:1157
+#: ../../wader/bcm/controllers/application.py:1157
 msgid "_Add to contacts"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:1166
+#: ../../wader/bcm/controllers/application.py:1166
 msgid "Save to draft"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:1177
+#: ../../wader/bcm/controllers/application.py:1177
 msgid "Delete"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:1318
+#: ../../wader/bcm/controllers/application.py:1318
 msgid "Illegal Operation!"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:1319
+#: ../../wader/bcm/controllers/application.py:1319
 msgid ""
 "\n"
 "Your device only has one port and you are currently connected\n"
 "to Internet, you cannot perform any operation while connected"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:1348
+#: ../../wader/bcm/controllers/application.py:1348
 #, python-format
 msgid "<small>SMS received from %s</small>"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:1351
+#: ../../wader/bcm/controllers/application.py:1351
 #, python-format
 msgid ""
 "<small>Received at %(date)s</small>\n"
 "<b>%(text)s</b>"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:1363
+#: ../../wader/bcm/controllers/application.py:1363
 msgid "Invalid DNS received from Network"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:1365
+#: ../../wader/bcm/controllers/application.py:1365
 msgid ""
 "\n"
 "<small>The DNS settings received from the mobile network are invalid. You "
@@ -1418,11 +1418,11 @@ msgid ""
 "can specify a static DNS entry in the connection preferences</small>\n"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:1380
+#: ../../wader/bcm/controllers/application.py:1380
 msgid "Disconnected from Internet"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:1381
+#: ../../wader/bcm/controllers/application.py:1381
 #, python-format
 msgid ""
 "\n"
@@ -1432,11 +1432,11 @@ msgid ""
 "that there's no carrier.</small>"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:1393
+#: ../../wader/bcm/controllers/application.py:1393
 msgid "Device in use removed"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:1395
+#: ../../wader/bcm/controllers/application.py:1395
 #, python-format
 msgid ""
 "\n"
@@ -1446,11 +1446,11 @@ msgid ""
 "plug in the 3G device and start again."
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:1431
+#: ../../wader/bcm/controllers/application.py:1431
 msgid "3G Device added"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:1432
+#: ../../wader/bcm/controllers/application.py:1432
 #, python-format
 msgid ""
 "\n"
@@ -1459,29 +1459,29 @@ msgid ""
 "(%(app_name)s) will resume its functioning"
 msgstr ""
 
-#: ../../wader/vmc/controllers/application.py:1440
+#: ../../wader/bcm/controllers/application.py:1440
 msgid "Setting up device..."
 msgstr ""
 
-#: ../../wader/vmc/controllers/contacts.py:92
+#: ../../wader/bcm/controllers/contacts.py:92
 msgid "No contact found"
 msgstr ""
 
-#: ../../wader/vmc/controllers/contacts.py:93
+#: ../../wader/bcm/controllers/contacts.py:93
 #, python-format
 msgid "No contact with the name %s found"
 msgstr ""
 
-#: ../../wader/vmc/controllers/initialconf.py:239
+#: ../../wader/bcm/controllers/initialconf.py:239
 #, python-format
 msgid "The following characters are not allowed in a profile name: %s"
 msgstr ""
 
-#: ../../wader/vmc/controllers/initialconf.py:242
+#: ../../wader/bcm/controllers/initialconf.py:242
 msgid "Invalid value in profile"
 msgstr ""
 
-#: ../../wader/vmc/controllers/initialconf.py:403
+#: ../../wader/bcm/controllers/initialconf.py:403
 #, python-format
 msgid ""
 "\n"
@@ -1489,38 +1489,38 @@ msgid ""
 "%s"
 msgstr ""
 
-#: ../../wader/vmc/controllers/initialconf.py:468
+#: ../../wader/bcm/controllers/initialconf.py:468
 #, python-format
 msgid "Authentication Error from %s !"
 msgstr ""
 
-#: ../../wader/vmc/controllers/initialconf.py:472
+#: ../../wader/bcm/controllers/initialconf.py:472
 #, python-format
 msgid "Connecting to %s ..."
 msgstr ""
 
-#: ../../wader/vmc/controllers/initialconf.py:520
+#: ../../wader/bcm/controllers/initialconf.py:520
 msgid "Discovery started..."
 msgstr ""
 
-#: ../../wader/vmc/controllers/initialconf.py:524
+#: ../../wader/bcm/controllers/initialconf.py:524
 msgid "Discovery finished!"
 msgstr ""
 
-#: ../../wader/vmc/controllers/initialconf.py:548
+#: ../../wader/bcm/controllers/initialconf.py:548
 msgid "No control port"
 msgstr ""
 
-#: ../../wader/vmc/controllers/initialconf.py:554
+#: ../../wader/bcm/controllers/initialconf.py:554
 msgid "Connecting to device..."
 msgstr ""
 
-#: ../../wader/vmc/controllers/initialconf.py:562
+#: ../../wader/bcm/controllers/initialconf.py:562
 #, python-format
 msgid "Exception received connecting to %s"
 msgstr ""
 
-#: ../../wader/vmc/controllers/initialconf.py:563
+#: ../../wader/bcm/controllers/initialconf.py:563
 #, python-format
 msgid ""
 "\n"
@@ -1528,47 +1528,47 @@ msgid ""
 "%s"
 msgstr ""
 
-#: ../../wader/vmc/dialogs.py:94
+#: ../../wader/bcm/dialogs.py:94
 msgid "Import contacts from..."
 msgstr ""
 
-#: ../../wader/vmc/dialogs.py:102 ../../wader/vmc/dialogs.py:164
+#: ../../wader/bcm/dialogs.py:102 ../../wader/bcm/dialogs.py:164
 msgid "Csv files"
 msgstr ""
 
-#: ../../wader/vmc/dialogs.py:107 ../../wader/vmc/dialogs.py:132
-#: ../../wader/vmc/dialogs.py:170
+#: ../../wader/bcm/dialogs.py:107 ../../wader/bcm/dialogs.py:132
+#: ../../wader/bcm/dialogs.py:170
 msgid "All files"
 msgstr ""
 
-#: ../../wader/vmc/dialogs.py:123 ../../wader/vmc/dialogs.py:156
+#: ../../wader/bcm/dialogs.py:123 ../../wader/bcm/dialogs.py:156
 msgid "Save as ..."
 msgstr ""
 
-#: ../../wader/vmc/dialogs.py:142 ../../wader/vmc/dialogs.py:180
+#: ../../wader/bcm/dialogs.py:142 ../../wader/bcm/dialogs.py:180
 msgid "Overwrite"
 msgstr ""
 
-#: ../../wader/vmc/dialogs.py:143 ../../wader/vmc/dialogs.py:181
+#: ../../wader/bcm/dialogs.py:143 ../../wader/bcm/dialogs.py:181
 #, python-format
 msgid "Overwrite \"%s\"?"
 msgstr ""
 
-#: ../../wader/vmc/dialogs.py:144 ../../wader/vmc/dialogs.py:182
+#: ../../wader/bcm/dialogs.py:144 ../../wader/bcm/dialogs.py:182
 msgid ""
 "A file with this name already exists.\n"
 "If you choose to overwrite this file, the contents will be lost."
 msgstr ""
 
-#: ../../wader/vmc/dialogs.py:196
+#: ../../wader/bcm/dialogs.py:196
 msgid "Device List"
 msgstr ""
 
-#: ../../wader/vmc/dialogs.py:229
+#: ../../wader/bcm/dialogs.py:229
 msgid "Vodafone Spain S.A."
 msgstr ""
 
-#: ../../wader/vmc/dialogs.py:236
+#: ../../wader/bcm/dialogs.py:236
 msgid "translated to $LANG by $translater"
 msgstr ""
 

@@ -20,7 +20,7 @@ Base classes for Models
 """
 
 #from gtkmvc import Model
-from wader.vmc.contrib.gtkmvc import Model
+from wader.bcm.contrib.gtkmvc import Model
 
 
 class BaseWrapperModel(Model):

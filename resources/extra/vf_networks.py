@@ -1,5 +1,5 @@
 """
-Automatically generated from a VMC Opcos.XML file embedded
+Automatically generated from a BCM Opcos.XML file embedded
 in a zip file called Opco_04_9.4.3_RC4
 """
 

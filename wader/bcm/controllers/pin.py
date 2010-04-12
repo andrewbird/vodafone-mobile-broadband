@@ -22,11 +22,11 @@ Controllers for PIN screens
 from gtk import STATE_NORMAL
 from gtk.gdk import color_parse
 #from gtkmvc import Controller
-from wader.vmc.contrib.gtkmvc import Controller
+from wader.bcm.contrib.gtkmvc import Controller
 
-from wader.vmc.translate import _
-from wader.vmc.dialogs import show_warning_dialog
-from wader.vmc.controllers.base import WidgetController
+from wader.bcm.translate import _
+from wader.bcm.dialogs import show_warning_dialog
+from wader.bcm.controllers.base import WidgetController
 
 
 def is_valid_puk(s):
@@ -277,7 +277,7 @@ class AskPINController(Controller):
         pin = self.view['pin_entry'].get_text()
         if pin:
             ## save keyring preferences
-            #from wader.vmc.config import config
+            #from wader.bcm.config import config
             #active = self.view['gnomekeyring_checkbutton'].get_active()
             #config.setboolean('preferences', 'manage_keyring', active)
             #config.write()

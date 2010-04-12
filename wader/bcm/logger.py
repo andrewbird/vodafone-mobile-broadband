@@ -19,7 +19,7 @@
 import os
 import logging
 
-from wader.vmc.consts import APP_SLUG_NAME
+from wader.bcm.consts import APP_SLUG_NAME
 try:
     import pwd
     log_str = '/tmp/%s-%s.log' % (APP_SLUG_NAME, pwd.getpwuid(os.getuid())[0])

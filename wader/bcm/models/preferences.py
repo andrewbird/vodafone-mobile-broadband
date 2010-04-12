@@ -19,14 +19,14 @@
 import dbus
 import gobject
 #from gtkmvc import ListStoreModel
-from wader.vmc.contrib.gtkmvc import ListStoreModel
+from wader.bcm.contrib.gtkmvc import ListStoreModel
 
 from wader.common.utils import revert_dict
-from wader.vmc.translate import _
-from wader.vmc.config import config
-from wader.vmc.models.base import BaseWrapperModel
+from wader.bcm.translate import _
+from wader.bcm.config import config
+from wader.bcm.models.base import BaseWrapperModel
 
-from wader.vmc.consts import (CFG_PREFS_DEFAULT_BROWSER,
+from wader.bcm.consts import (CFG_PREFS_DEFAULT_BROWSER,
                               CFG_PREFS_DEFAULT_EMAIL,
                               CFG_PREFS_DEFAULT_TRAY_ICON,
                               CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,

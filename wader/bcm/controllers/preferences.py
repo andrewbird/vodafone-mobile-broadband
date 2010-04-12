@@ -20,21 +20,21 @@
 import gobject
 import gtk
 #from gtkmvc import Controller
-from wader.vmc.contrib.gtkmvc import Controller
+from wader.bcm.contrib.gtkmvc import Controller
 
 from wader.common.provider import NetworkProvider
 from wader.common.consts import CRD_INTFACE
 
-from wader.vmc.config import config
-from wader.vmc.consts import (CFG_PREFS_DEFAULT_BROWSER,
+from wader.bcm.config import config
+from wader.bcm.consts import (CFG_PREFS_DEFAULT_BROWSER,
                               CFG_PREFS_DEFAULT_EMAIL)
-from wader.vmc.logger import logger
-from wader.vmc.translate import _
-from wader.vmc.dialogs import show_warning_dialog
-from wader.vmc.models.preferences import VALIDITY_DICT, SMSCItem
-from wader.vmc.tray import tray_available
-from wader.vmc.utils import get_error_msg
-from wader.vmc.contrib.ValidatedEntry import ValidatedEntry, v_phone
+from wader.bcm.logger import logger
+from wader.bcm.translate import _
+from wader.bcm.dialogs import show_warning_dialog
+from wader.bcm.models.preferences import VALIDITY_DICT, SMSCItem
+from wader.bcm.tray import tray_available
+from wader.bcm.utils import get_error_msg
+from wader.bcm.contrib.ValidatedEntry import ValidatedEntry, v_phone
 
 
 class PreferencesController(Controller):

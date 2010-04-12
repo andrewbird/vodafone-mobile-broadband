@@ -31,9 +31,9 @@ from basic import UserClassAdapter, Adapter
 #from gtkmvc.adapters.default import * 
 from default import * 
 #from gtkmvc.observer import Observer
-from wader.vmc.contrib.gtkmvc.observer import Observer
+from wader.bcm.contrib.gtkmvc.observer import Observer
 #from gtkmvc.support.wrappers import ObsMapWrapper
-from wader.vmc.contrib.gtkmvc.support.wrappers import ObsMapWrapper
+from wader.bcm.contrib.gtkmvc.support.wrappers import ObsMapWrapper
 
 
 # ----------------------------------------------------------------------

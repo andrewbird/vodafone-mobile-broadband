@@ -20,7 +20,7 @@ import gtk
 import os
 from time import sleep
 
-from wader.vmc.consts import GLADE_DIR
+from wader.bcm.consts import GLADE_DIR
 
 
 class SplashScreen(gtk.Window):

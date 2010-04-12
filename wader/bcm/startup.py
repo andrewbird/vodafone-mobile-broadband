@@ -19,7 +19,7 @@
 
 import os
 
-import wader.vmc.consts as consts
+import wader.bcm.consts as consts
 
 
 def create_skeleton_and_return():

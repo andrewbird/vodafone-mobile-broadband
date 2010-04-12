@@ -21,9 +21,9 @@ import os.path
 
 import gtk
 #from gtkmvc import View
-from wader.vmc.contrib.gtkmvc import View
+from wader.bcm.contrib.gtkmvc import View
 
-from wader.vmc.consts import GLADE_DIR
+from wader.bcm.consts import GLADE_DIR
 
 HEIGHT = 200
 WIDTH = 425
@@ -47,8 +47,8 @@ class NewSmsView(View):
         self.setup_custom_buttons(ctrl)
 
     def setup_custom_buttons(self, ctrl):
-        items = [('vmc-send', '_Send', 0, 0, None)]
-        aliases = [('vmc-send', gtk.STOCK_OK)]
+        items = [('bcm-send', '_Send', 0, 0, None)]
+        aliases = [('bcm-send', gtk.STOCK_OK)]
         gtk.stock_add(items)
         factory = gtk.IconFactory()
         factory.add_default()
@@ -58,7 +58,7 @@ class NewSmsView(View):
             factory.add(new_stock, icon_set)
 
         bbox = self['sms_edit_hbutton_box']
-        button = gtk.Button(stock='vmc-send')
+        button = gtk.Button(stock='bcm-send')
         button.connect('clicked', ctrl.on_send_button_clicked)
         self['send_button'] = button
         bbox.pack_end(button)

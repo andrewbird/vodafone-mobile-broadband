@@ -24,17 +24,17 @@ dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
 
 import gobject
 #from gtkmvc import Model
-from wader.vmc.contrib.gtkmvc import Model
+from wader.bcm.contrib.gtkmvc import Model
 
-from wader.vmc.logger import logger
-from wader.vmc.dialogs import show_error_dialog
-from wader.vmc.models.profile import ProfilesModel
-from wader.vmc.models.preferences import PreferencesModel
-from wader.vmc.translate import _
-from wader.vmc.utils import dbus_error_is, get_error_msg
-from wader.vmc.signals import NET_MODE_SIGNALS
-from wader.vmc.consts import USAGE_DB
-from wader.vmc.config import config
+from wader.bcm.logger import logger
+from wader.bcm.dialogs import show_error_dialog
+from wader.bcm.models.profile import ProfilesModel
+from wader.bcm.models.preferences import PreferencesModel
+from wader.bcm.translate import _
+from wader.bcm.utils import dbus_error_is, get_error_msg
+from wader.bcm.signals import NET_MODE_SIGNALS
+from wader.bcm.consts import USAGE_DB
+from wader.bcm.config import config
 from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
                                  WADER_DIALUP_SERVICE, WADER_DIALUP_OBJECT,
                                  CRD_INTFACE, NET_INTFACE, MDM_INTFACE,
@@ -115,7 +115,7 @@ class MainModel(Model):
         self.provider = UsageProvider(USAGE_DB)
         self._init_wader_object()
 
-       # usage stuff from vmc
+       # usage stuff from bcm
 
     def get_device(self):
         return self.device

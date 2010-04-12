@@ -19,11 +19,11 @@
 Controllers for diagnostics
 """
 #from gtkmvc import Controller
-from wader.vmc.contrib.gtkmvc import Controller
+from wader.bcm.contrib.gtkmvc import Controller
 
 from wader.common.consts import CRD_INTFACE, MDM_INTFACE
 from wader.common.provider import NetworkProvider
-from wader.vmc.logger import logger
+from wader.bcm.logger import logger
 
 
 class DiagnosticsController(Controller):

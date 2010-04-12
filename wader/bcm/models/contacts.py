@@ -20,7 +20,7 @@
 import gtk
 
 #from gtkmvc import ListStoreModel
-from wader.vmc.contrib.gtkmvc import ListStoreModel
+from wader.bcm.contrib.gtkmvc import ListStoreModel
 from gobject import TYPE_STRING, TYPE_PYOBJECT, TYPE_BOOLEAN
 
 

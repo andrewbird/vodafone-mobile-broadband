@@ -618,7 +618,7 @@
                         <property name="orientation">vertical</property>
                         <property name="spacing">6</property>
                         <child>
-                          <widget class="GtkLabel" id="vmc_version">
+                          <widget class="GtkLabel" id="bcm_version">
                             <property name="visible">True</property>
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">Not supported</property>

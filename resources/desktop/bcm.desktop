@@ -1,10 +1,10 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Betavine Mobile Connect
-Exec=wader-vmc
+Exec=bcm
 Terminal=false
 X-MultipleArgs=false
 Type=Application
-Icon=wader-vmc
+Icon=bcm
 Categories=Application;Network;
 StartupNotify=true

@@ -20,10 +20,10 @@ from os.path import join
 
 import gtk
 #from gtkmvc import View
-from wader.vmc.contrib.gtkmvc import View
-from wader.vmc.logger import logger
+from wader.bcm.contrib.gtkmvc import View
+from wader.bcm.logger import logger
 
-from wader.vmc.consts import GLADE_DIR, IMAGES_DIR
+from wader.bcm.consts import GLADE_DIR, IMAGES_DIR
 
 
 class PayAsYouTalkView(View):

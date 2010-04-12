@@ -20,9 +20,9 @@ from os.path import join
 
 import gtk
 #from gtkmvc import View
-from wader.vmc.contrib.gtkmvc import View
+from wader.bcm.contrib.gtkmvc import View
 
-from wader.vmc.consts import GLADE_DIR, IMAGES_DIR
+from wader.bcm.consts import GLADE_DIR, IMAGES_DIR
 
 
 class DiagnosticsView(View):
@@ -71,4 +71,4 @@ class DiagnosticsView(View):
         self['imei_number_label'].set_text(imei)
 
     def set_appVersion_info(self, appVersion):
-        self['vmc_version'].set_text(appVersion)
+        self['bcm_version'].set_text(appVersion)

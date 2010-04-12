@@ -33,10 +33,10 @@ from wader.common.consts import (MM_NETWORK_MODE_ANY, MM_NETWORK_MODE_GPRS,
                                  MM_NETWORK_BAND_U900, MM_NETWORK_BAND_U17IX,
                                  MM_NETWORK_BAND_U1900)
 from wader.common.utils import revert_dict
-from wader.vmc.translate import _
+from wader.bcm.translate import _
 
 APP_NAME = 'Vodafone Mobile Connect'
-#APP_SLUG_NAME = 'wader-vmc' # XXX: also defined in w.v.translate
+#APP_SLUG_NAME = 'bcm' # XXX: also defined in w.v.translate
 APP_SLUG_NAME = 'bcm'
 APP_LONG_NAME = 'Betavine Connection Manager'
 APP_SHORT_NAME = APP_SLUG_NAME
@@ -73,10 +73,10 @@ IMAGES_DIR = join(RESOURCES_DIR, 'glade')
 THEMES_DIR = join(RESOURCES_DIR, 'themes')
 GUIDE_DIR = join('/usr/share/doc', APP_SLUG_NAME)
 
-GTK_LOCK = join('/tmp', '.wader-vmc-lock')
+GTK_LOCK = join('/tmp', '.bcm-lock')
 
 USER_HOME = expanduser('~')
-# TODO: should we change WADER_HOME to wader-vmc?
+# TODO: should we change WADER_HOME to bcm?
 WADER_HOME = join(USER_HOME, '.gnome2', 'wader')
 
 # NETWORKS_DB is a deprecated path
@@ -85,7 +85,7 @@ NETWORKS_DB = join(DB_DIR, 'networks.db')
 MESSAGES_DB = join(DB_DIR, 'messages.db')
 USAGE_DB = join(DB_DIR, 'usage.db')
 
-GCONF_BASE_DIR = '/apps/wader-vmc'
+GCONF_BASE_DIR = '/apps/bcm'
 
 BAND_MAP = {
     MM_NETWORK_BAND_ANY: _('Any'),

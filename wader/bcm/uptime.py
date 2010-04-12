@@ -18,7 +18,7 @@
 
 from math import ceil
 
-from wader.vmc.translate import _
+from wader.bcm.translate import _
 
 TIME_DESCRIPTION = {
     60: 'minute',

@@ -19,16 +19,16 @@
 
 import gtk
 
-from wader.vmc.models.contacts import ContactsStoreModel
+from wader.bcm.models.contacts import ContactsStoreModel
 
-from wader.vmc.phonebook import get_phonebook, Contact
-from wader.vmc.translate import _
+from wader.bcm.phonebook import get_phonebook, Contact
+from wader.bcm.translate import _
 
 #from gtkmvc import Controller
-from wader.vmc.contrib.gtkmvc import Controller
-from wader.vmc import dialogs
+from wader.bcm.contrib.gtkmvc import Controller
+from wader.bcm import dialogs
 
-from wader.vmc.contrib.ValidatedEntry import (ValidatedEntry, v_phone,
+from wader.bcm.contrib.ValidatedEntry import (ValidatedEntry, v_phone,
                                               v_ucs2_name)
 
 

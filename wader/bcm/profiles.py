@@ -24,7 +24,7 @@ I manage profiles in the system (or connections in NM-lingo)
 from wader.common.profile import ProfileManager
 from wader.common.backends import get_backend
 
-from wader.vmc.consts import WADER_HOME
+from wader.bcm.consts import WADER_HOME
 
 backend = get_backend()
 manager = ProfileManager(backend, WADER_HOME)

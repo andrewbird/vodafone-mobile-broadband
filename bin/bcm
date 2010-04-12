@@ -10,11 +10,11 @@ from twisted.python.procutils import which
 
 from wader.common.utils import save_file, get_file_data
 
-from wader.vmc.models.main import MainModel
-from wader.vmc.controllers.main import MainController
+from wader.bcm.models.main import MainModel
+from wader.bcm.controllers.main import MainController
 
-from wader.vmc.views.main import MainView
-from wader.vmc.consts import GTK_LOCK, APP_LONG_NAME
+from wader.bcm.views.main import MainView
+from wader.bcm.consts import GTK_LOCK, APP_LONG_NAME
 
 
 def create_wader_config_dir():
@@ -27,7 +27,7 @@ def check_if_running():
         # if there's no lock we're cool
         return False
 
-    cmd = "ps aux | grep 'wader-vmc' | grep -v grep | grep python | awk '{ print $2 }'"
+    cmd = "ps aux | grep 'bcm' | grep -v grep | grep python | awk '{ print $2 }'"
     pipe = Popen(cmd, shell=True, stdout=PIPE).stdout
     pid = pipe.read().strip()
     if not pid:
@@ -55,10 +55,10 @@ def raise_window():
 
 def main():
     create_wader_config_dir()
-    from wader.vmc.splash import SplashScreen
+    from wader.bcm.splash import SplashScreen
     splash = SplashScreen()
     splash.show_it(2)
-    from wader.vmc.startup import create_skeleton_and_return
+    from wader.bcm.startup import create_skeleton_and_return
     create_skeleton_and_return()
 
     model = MainModel()

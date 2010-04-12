@@ -19,9 +19,9 @@
 
 import os
 
-from wader.vmc.uptime import get_uptime
-from wader.vmc.consts import APP_VERSION
-from wader.vmc.models.base import BaseWrapperModel
+from wader.bcm.uptime import get_uptime
+from wader.bcm.consts import APP_VERSION
+from wader.bcm.models.base import BaseWrapperModel
 
 
 class DiagnosticsModel(BaseWrapperModel):

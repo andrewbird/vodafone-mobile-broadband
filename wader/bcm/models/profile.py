@@ -20,7 +20,7 @@ from uuid import uuid1
 
 import dbus
 #from gtkmvc import Model
-from wader.vmc.contrib.gtkmvc import Model
+from wader.bcm.contrib.gtkmvc import Model
 
 from wader.common.consts import (WADER_DIALUP_INTFACE,
                                  WADER_PROFILES_INTFACE, CRD_INTFACE,
@@ -28,12 +28,12 @@ from wader.common.consts import (WADER_DIALUP_INTFACE,
 from wader.common.utils import (convert_int_to_uint as convert,
                                 patch_list_signature)
 from wader.common.exceptions import ProfileNotFoundError
-from wader.vmc.config import config
-from wader.vmc.logger import logger
-from wader.vmc.profiles import manager
-from wader.vmc.translate import _
+from wader.bcm.config import config
+from wader.bcm.logger import logger
+from wader.bcm.profiles import manager
+from wader.bcm.translate import _
 
-from wader.vmc.consts import (VM_NETWORK_AUTH_ANY,
+from wader.bcm.consts import (VM_NETWORK_AUTH_ANY,
                               VM_NETWORK_AUTH_PAP,
                               VM_NETWORK_AUTH_CHAP)
 

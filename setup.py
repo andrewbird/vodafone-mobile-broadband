@@ -16,7 +16,7 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 """
-setuptools file for Wader vmc
+setuptools file for Wader bcm
 """
 
 import sys
@@ -25,7 +25,7 @@ from os.path import join, isdir, walk
 from ez_setup import use_setuptools; use_setuptools()
 from setuptools import setup
 
-from wader.vmc.consts import (APP_VERSION, APP_NAME,
+from wader.bcm.consts import (APP_VERSION, APP_NAME,
                               RESOURCES_DIR)
 
 BIN_DIR = '/usr/bin'
@@ -52,28 +52,28 @@ def list_files(path, exclude=None):
 data_files = [
    (join(RESOURCES_DIR, 'glade'), list_files('resources/glade')),
    (join(RESOURCES_DIR, 'themes'), list_files('resources/themes')),
-   (BIN_DIR, ['bin/wader-vmc']),
+   (BIN_DIR, ['bin/bcm']),
 ]
 
 if sys.platform == 'linux2':
     append = data_files.append
-    append((APPLICATIONS, ['resources/desktop/wader-vmc.desktop']))
-    append((PIXMAPS, ['resources/desktop/wader-vmc.png']))
-    append((DBUS_SYSTEMD, ['resources/dbus/wader-vmc.conf']))
+    append((APPLICATIONS, ['resources/desktop/bcm.desktop']))
+    append((PIXMAPS, ['resources/desktop/bcm.png']))
+    append((DBUS_SYSTEMD, ['resources/dbus/bcm.conf']))
 
 
 packages = [
-    'wader.vmc',
-    'wader.vmc.models',
-    'wader.vmc.controllers',
-    'wader.vmc.views',
-    'wader.vmc.contacts',
-    'wader.vmc.contrib',
-    'wader.vmc.contrib.pycocuma',
-    'wader.vmc.contrib.gtkmvc',
-    'wader.vmc.contrib.gtkmvc.adapters',
-    'wader.vmc.contrib.gtkmvc.progen',
-    'wader.vmc.contrib.gtkmvc.support'
+    'wader.bcm',
+    'wader.bcm.models',
+    'wader.bcm.controllers',
+    'wader.bcm.views',
+    'wader.bcm.contacts',
+    'wader.bcm.contrib',
+    'wader.bcm.contrib.pycocuma',
+    'wader.bcm.contrib.gtkmvc',
+    'wader.bcm.contrib.gtkmvc.adapters',
+    'wader.bcm.contrib.gtkmvc.progen',
+    'wader.bcm.contrib.gtkmvc.support'
 ]
 
 setup(name=APP_NAME,

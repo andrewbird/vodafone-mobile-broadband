@@ -27,11 +27,11 @@ import gobject
 from wader.common.consts import MM_NETWORK_BAND_ANY, MM_NETWORK_MODE_ANY
 from wader.common.utils import get_network_modes, get_bands
 
-from wader.vmc.contrib.gtkmvc import View
-from wader.vmc.consts import (GLADE_DIR, VM_NETWORK_AUTH_ANY,
+from wader.bcm.contrib.gtkmvc import View
+from wader.bcm.consts import (GLADE_DIR, VM_NETWORK_AUTH_ANY,
                               VM_NETWORK_AUTH_PAP, VM_NETWORK_AUTH_CHAP,
                               BAND_MAP, MODE_MAP, AUTH_MAP)
-from wader.vmc.translate import _
+from wader.bcm.translate import _
 
 
 class ProfileView(View):

@@ -21,9 +21,9 @@ import os.path
 
 from gtk import WIN_POS_CENTER_ON_PARENT
 #from gtkmvc import View
-from wader.vmc.contrib.gtkmvc import View
+from wader.bcm.contrib.gtkmvc import View
 
-from wader.vmc.consts import GLADE_DIR
+from wader.bcm.consts import GLADE_DIR
 
 
 class ContactView(View):

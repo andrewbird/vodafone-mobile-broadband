@@ -24,19 +24,19 @@ import os
 import gtk
 from pango import ELLIPSIZE_END
 #from gtkmvc import View
-from wader.vmc.contrib.gtkmvc import View
+from wader.bcm.contrib.gtkmvc import View
 
 
-from wader.vmc.config import config
-from wader.vmc.translate import _
-from wader.vmc.consts import GLADE_DIR, IMAGES_DIR, THEMES_DIR, APP_LONG_NAME
-from wader.vmc.utils import repr_usage, UNIT_KB, UNIT_MB, units_to_bytes
-from wader.vmc.views.stats import StatsBar
-from wader.vmc.controllers.base import TV_DICT
-from wader.vmc.models.sms import SMSStoreModel
-from wader.vmc.models.contacts import ContactsStoreModel
+from wader.bcm.config import config
+from wader.bcm.translate import _
+from wader.bcm.consts import GLADE_DIR, IMAGES_DIR, THEMES_DIR, APP_LONG_NAME
+from wader.bcm.utils import repr_usage, UNIT_KB, UNIT_MB, units_to_bytes
+from wader.bcm.views.stats import StatsBar
+from wader.bcm.controllers.base import TV_DICT
+from wader.bcm.models.sms import SMSStoreModel
+from wader.bcm.models.contacts import ContactsStoreModel
 
-from wader.vmc.consts import (CFG_PREFS_DEFAULT_USAGE_USER_LIMIT,
+from wader.bcm.consts import (CFG_PREFS_DEFAULT_USAGE_USER_LIMIT,
                               CFG_PREFS_DEFAULT_USAGE_MAX_VALUE)
 
 

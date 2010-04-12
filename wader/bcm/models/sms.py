@@ -20,10 +20,10 @@
 import gtk
 from gobject import TYPE_PYOBJECT, TYPE_STRING
 #from gtkmvc import Model, ListStoreModel
-from wader.vmc.contrib.gtkmvc import Model, ListStoreModel
+from wader.bcm.contrib.gtkmvc import Model, ListStoreModel
 
-from wader.vmc.images import MOBILE_IMG, COMPUTER_IMG
-from wader.vmc.messages import is_sim_message
+from wader.bcm.images import MOBILE_IMG, COMPUTER_IMG
+from wader.bcm.messages import is_sim_message
 
 
 class SMSStoreModel(ListStoreModel):

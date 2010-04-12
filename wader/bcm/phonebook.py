@@ -19,9 +19,9 @@
 phonebook presents a uniform layer to deal with contacts from all sources
 """
 
-from wader.vmc.contacts import supported_types
+from wader.bcm.contacts import supported_types
 # just for now, we'll interrogate later
-from wader.vmc.contacts.contact_sim import SIMContactsManager
+from wader.bcm.contacts.contact_sim import SIMContactsManager
 
 
 def all_same_type(l):

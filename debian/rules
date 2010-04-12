@@ -23,7 +23,7 @@ install: build
 	dh_testroot
 	dh_clean -k
 	dh_installdirs
-	python setup.py install --root $(CURDIR)/debian/wader-vmc
+	python setup.py install --root $(CURDIR)/debian/bcm
 	DH_PYCENTRAL=nomove dh_pycentral
 	dh_install resources/po/locale usr/share
 	dh_install

@@ -22,7 +22,7 @@ import gtk
 import gobject
 import pynotify
 
-from wader.vmc.consts import IMAGES_DIR, APP_SHORT_NAME, APP_NAME
+from wader.bcm.consts import IMAGES_DIR, APP_SHORT_NAME, APP_NAME
 
 IMG_PATH = os.path.join(IMAGES_DIR, 'VF_logo.png')
 

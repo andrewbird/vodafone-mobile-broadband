@@ -2,6 +2,6 @@ all:
 	dpkg-buildpackage -rfakeroot
 
 clean:
-	rm -rf build debian/wader-vmc debian/wader-vmc.* Wader_VMC.egg-info
+	rm -rf build debian/bcm debian/bcm.* Bcm.egg-info
 	make -C resources/po clean
 

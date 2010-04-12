@@ -22,10 +22,10 @@ import os.path
 import gobject
 import gtk
 #from gtkmvc import View
-from wader.vmc.contrib.gtkmvc import View
+from wader.bcm.contrib.gtkmvc import View
 
-from wader.vmc.consts import GLADE_DIR
-from wader.vmc.models.preferences import SMSCListStoreModel
+from wader.bcm.consts import GLADE_DIR
+from wader.bcm.models.preferences import SMSCListStoreModel
 
 
 class PreferencesView(View):

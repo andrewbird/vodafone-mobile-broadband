@@ -19,7 +19,7 @@
 import os
 import gettext
 
-# XXX: redefine to avoid circular import with wader.vmc.consts
+# XXX: redefine to avoid circular import with wader.bcm.consts
 name = APP_SLUG_NAME = 'bcm'
 
 gettext.bindtextdomain(name, os.getenv('TEXTDOMAINDIR', '/usr/share/locale'))

@@ -19,7 +19,7 @@
 """Configuration singleton for GTK"""
 
 from wader.common.config import WaderConfig
-from wader.vmc.consts import APP_SLUG_NAME
+from wader.bcm.consts import APP_SLUG_NAME
 
 CONF_PATH = '/apps/%s' % APP_SLUG_NAME
 

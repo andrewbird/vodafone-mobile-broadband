@@ -19,9 +19,9 @@
 from zope.interface import implements
 from os.path import join
 
-from wader.vmc.translate import _
-from wader.vmc.consts import IMAGES_DIR
-from wader.vmc.contacts.interface import IContact
+from wader.bcm.translate import _
+from wader.bcm.consts import IMAGES_DIR
+from wader.bcm.contacts.interface import IContact
 
 
 class EVContact(object):

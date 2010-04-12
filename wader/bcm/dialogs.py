@@ -22,14 +22,14 @@ import gtk
 import gobject
 import dbus
 #from gtkmvc import Controller, Model
-from wader.vmc.contrib.gtkmvc import Controller, Model
+from wader.bcm.contrib.gtkmvc import Controller, Model
 
-from wader.vmc.logger import logger
+from wader.bcm.logger import logger
 from wader.common.consts import WADER_DIALUP_INTFACE
-from wader.vmc.translate import _
-from wader.vmc.consts import (APP_ARTISTS, APP_AUTHORS, APP_DOCUMENTERS,
+from wader.bcm.translate import _
+from wader.bcm.consts import (APP_ARTISTS, APP_AUTHORS, APP_DOCUMENTERS,
                              GLADE_DIR, APP_VERSION, APP_NAME, APP_URL)
-from wader.vmc.views.dialogs import QuestionCheckboxOkCancel
+from wader.bcm.views.dialogs import QuestionCheckboxOkCancel
 
 
 def show_uri(uri):
@@ -87,9 +87,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 
 def show_profile_window(main_model, profile=None, imsi=None):
-    from wader.vmc.models.profile import ProfileModel
-    from wader.vmc.controllers.profile import ProfileController
-    from wader.vmc.views.profile import ProfileView
+    from wader.bcm.models.profile import ProfileModel
+    from wader.bcm.controllers.profile import ProfileController
+    from wader.bcm.views.profile import ProfileView
 
     if profile is not None:
         model = profile
@@ -220,7 +220,7 @@ def ask_password_dialog(parent):
             _("Please, insert the password of your connection"),
             parent, regexp=None)
 
-########################## import from VMC ##############################
+########################## import from BCM ##############################
 
 
 class CheckBoxPopupDialogCtrl(Controller):

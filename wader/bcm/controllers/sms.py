@@ -19,10 +19,10 @@
 
 from datetime import datetime
 #from gtkmvc import Controller, Model
-from wader.vmc.contrib.gtkmvc import Controller, Model
+from wader.bcm.contrib.gtkmvc import Controller, Model
 from twisted.internet.defer import succeed
 
-#from wader.vmc.config import config as config
+#from wader.bcm.config import config as config
 #import wader.common.exceptions as ex
 #from wader.common.sms import (MAX_LENGTH_7BIT, MAX_LENGTH_UCS2)
 from messaging import (PDU,
@@ -34,18 +34,18 @@ from wader.common.consts import SMS_INTFACE
 from wader.common.oal import get_os_object
 from wader.common.sms import Message
 
-from wader.vmc import dialogs
-from wader.vmc.translate import _
-from wader.vmc.messages import get_messages_obj
-from wader.vmc.utils import get_error_msg
-from wader.vmc.config import config
+from wader.bcm import dialogs
+from wader.bcm.translate import _
+from wader.bcm.messages import get_messages_obj
+from wader.bcm.utils import get_error_msg
+from wader.bcm.config import config
 
-from wader.vmc.controllers.base import TV_DICT, TV_DICT_REV
+from wader.bcm.controllers.base import TV_DICT, TV_DICT_REV
 
-from wader.vmc.views.contacts import ContactsListView
-from wader.vmc.controllers.contacts import ContactsListController
+from wader.bcm.views.contacts import ContactsListView
+from wader.bcm.controllers.contacts import ContactsListController
 
-from wader.vmc.contrib.ValidatedEntry import ValidatedEntry, v_phone
+from wader.bcm.contrib.ValidatedEntry import ValidatedEntry, v_phone
 
 
 SMS_TOOLTIP = \

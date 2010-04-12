@@ -27,66 +27,66 @@ from subprocess import Popen
 import gtk
 from gobject import timeout_add_seconds, source_remove
 
-from wader.vmc.controllers.base import WidgetController, TV_DICT, TV_DICT_REV
-from wader.vmc.controllers.contacts import (AddContactController,
+from wader.bcm.controllers.base import WidgetController, TV_DICT, TV_DICT_REV
+from wader.bcm.controllers.contacts import (AddContactController,
                                           SearchContactController)
-from wader.vmc.views.contacts import AddContactView, SearchContactView
+from wader.bcm.views.contacts import AddContactView, SearchContactView
 
 import wader.common.consts as consts
 from wader.common.signals import SIG_SMS_COMP
 from wader.common.keyring import KeyringInvalidPassword
-from wader.vmc.config import config
-from wader.vmc.logger import logger
-from wader.vmc.dialogs import (show_profile_window,
+from wader.bcm.config import config
+from wader.bcm.logger import logger
+from wader.bcm.dialogs import (show_profile_window,
                                show_warning_dialog, ActivityProgressBar,
                                show_warning_request_cancel_ok,
                                show_about_dialog, show_error_dialog,
                                ask_password_dialog,
                                open_dialog_question_checkbox_cancel_ok,
                                save_csv_file, open_import_csv_dialog)
-from wader.vmc.keyring_dialogs import NewKeyringDialog, KeyringPasswordDialog
-from wader.vmc.utils import get_error_msg
-from wader.vmc.translate import _
-from wader.vmc.tray import get_tray_icon
-from wader.vmc.consts import (GTK_LOCK, GUIDE_DIR, IMAGES_DIR,
+from wader.bcm.keyring_dialogs import NewKeyringDialog, KeyringPasswordDialog
+from wader.bcm.utils import get_error_msg
+from wader.bcm.translate import _
+from wader.bcm.tray import get_tray_icon
+from wader.bcm.consts import (GTK_LOCK, GUIDE_DIR, IMAGES_DIR,
                               APP_LONG_NAME, CFG_PREFS_DEFAULT_BROWSER,
                               CFG_PREFS_DEFAULT_EMAIL,
                               CFG_PREFS_DEFAULT_TRAY_ICON,
                               CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
                               CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION)
 
-from wader.vmc.phonebook import (get_phonebook,
+from wader.bcm.phonebook import (get_phonebook,
                                 all_same_type, all_contacts_writable)
-from wader.vmc.csvutils import CSVUnicodeWriter, CSVContactsReader
-from wader.vmc.messages import get_messages_obj, is_sim_message
+from wader.bcm.csvutils import CSVUnicodeWriter, CSVContactsReader
+from wader.bcm.messages import get_messages_obj, is_sim_message
 
-from wader.vmc.models.diagnostics import DiagnosticsModel
-from wader.vmc.views.diagnostics import DiagnosticsView
-from wader.vmc.controllers.diagnostics import DiagnosticsController
+from wader.bcm.models.diagnostics import DiagnosticsModel
+from wader.bcm.views.diagnostics import DiagnosticsView
+from wader.bcm.controllers.diagnostics import DiagnosticsController
 
-from wader.vmc.models.sms import NewSmsModel
-from wader.vmc.views.sms import NewSmsView, ForwardSmsView
-from wader.vmc.controllers.sms import NewSmsController, ForwardSmsController
+from wader.bcm.models.sms import NewSmsModel
+from wader.bcm.views.sms import NewSmsView, ForwardSmsView
+from wader.bcm.controllers.sms import NewSmsController, ForwardSmsController
 
-from wader.vmc.models.payt_model import PayAsYouTalkModel
-from wader.vmc.views.payt_view import PayAsYouTalkView
-from wader.vmc.controllers.payt_controller import PayAsYouTalkController
+from wader.bcm.models.payt_model import PayAsYouTalkModel
+from wader.bcm.views.payt_view import PayAsYouTalkView
+from wader.bcm.controllers.payt_controller import PayAsYouTalkController
 
 
 
-from wader.vmc.views.pin import (PinModifyView, PinEnableView,
+from wader.bcm.views.pin import (PinModifyView, PinEnableView,
                                  AskPUKView, AskPINView)
-from wader.vmc.controllers.pin import (PinModifyController,
+from wader.bcm.controllers.pin import (PinModifyController,
                                        PinEnableController,
                                        AskPUKController, AskPINController)
 
-from wader.vmc.models.preferences import PreferencesModel
-from wader.vmc.controllers.preferences import PreferencesController
-from wader.vmc.views.preferences import PreferencesView
+from wader.bcm.models.preferences import PreferencesModel
+from wader.bcm.controllers.preferences import PreferencesController
+from wader.bcm.views.preferences import PreferencesView
 
-from wader.vmc.models.profile import ProfileModel
-from wader.vmc.views.profile import APNSelectionView
-from wader.vmc.controllers.profile import APNSelectionController
+from wader.bcm.models.profile import ProfileModel
+from wader.bcm.views.profile import APNSelectionView
+from wader.bcm.controllers.profile import APNSelectionController
 
 
 def get_fake_toggle_button():
@@ -252,13 +252,13 @@ class MainController(WidgetController):
         password = ask_password_dialog(self.view)
 
         if password:
-            from wader.vmc.profiles import manager
+            from wader.bcm.profiles import manager
             profile = manager.get_profile_by_object_path(opath)
             secrets = {'gsm': {'passwd': password}}
             profile.set_secrets(tag, secrets)
 
     def on_keyring_password_required(self, opath, callback=None):
-        from wader.vmc.profiles import manager
+        from wader.bcm.profiles import manager
         profile = manager.get_profile_by_object_path(opath)
         password = None
 
@@ -1036,7 +1036,7 @@ The csv file that you have tried to import has an invalid format.""")
         inefficient, as we would have to lookup the sender number of every
         SMS to find out whether is a known contact or not. The solution is
         to cache the previous result and pass the contacts list to the
-        L{wader.vmc.models.sms.SMSStoreModel}
+        L{wader.bcm.models.sms.SMSStoreModel}
         """
         messages_obj = get_messages_obj(self.model.device)
         sms_list = messages_obj.get_messages()
@@ -1147,7 +1147,7 @@ The csv file that you have tried to import has an invalid format.""")
 
     def on_main_notebook_switch_page(self, notebook, ptr, pagenum):
         """
-        Callback for whenever VMC's main notebook is switched
+        Callback for whenever BCM's main notebook is switched
 
         Basically takes care of showing and hiding the appropiate menubars
         depending on the page the user is viewing
@@ -1190,7 +1190,7 @@ The csv file that you have tried to import has an invalid format.""")
                 model[path][2] = number
 
     def _setup_trayicon(self, ignoreconf=False):
-        """Attaches VMC's trayicon to the systray"""
+        """Attaches BCM's trayicon to the systray"""
         showit = config.get('preferences', 'show_icon',
                             CFG_PREFS_DEFAULT_TRAY_ICON)
         if ignoreconf:
@@ -1204,7 +1204,7 @@ The csv file that you have tried to import has an invalid format.""")
             self.tray.hide()
 
     def _detach_trayicon(self):
-        """Detachs VMC's trayicon from the systray"""
+        """Detachs BCM's trayicon from the systray"""
         if self.tray:
             self.tray.hide()
 
