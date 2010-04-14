@@ -87,10 +87,13 @@ class MainModel(Model):
         'total_session': 0,
         'total_transferred': 0,
         'total_month': 0,
-
+        'sim_msisdn': 'unknown', 
+        'sim_type':'contract',
+        'credit_check' :False, 
+        'credit_date_check':'unknown', 
+        'credit_amount':'unknown', 
         'rx_rate': 0,
         'tx_rate': 0,
-
         'transfer_limit_exceeded': False,
     }
 
