@@ -310,8 +310,9 @@
               <widget class="GtkHBox" id="hbox1">
                 <property name="visible">True</property>
                 <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                <property name="spacing">6</property>
                 <child>
-                  <widget class="GtkImage" id="image1">
+                  <widget class="GtkImage" id="logo_image">
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="stock">gtk-dialog-question</property>

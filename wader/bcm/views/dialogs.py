@@ -22,7 +22,7 @@ import os.path
 #from gtkmvc import View
 from wader.bcm.contrib.gtkmvc import View
 
-from wader.bcm.consts import GLADE_DIR
+from wader.bcm.consts import APP_LONG_NAME, GLADE_DIR, IMAGES_DIR
 
 
 def clear_s(s):
@@ -45,11 +45,15 @@ class CheckBoxDialogView(View):
 
 class QuestionCheckboxOkCancel(CheckBoxDialogView):
 
+    IMAGE_FILE = os.path.join(IMAGES_DIR, 'VF_logo_medium.png')
+
     def __init__(self, ctrl, message, details):
         CheckBoxDialogView.__init__(self, ctrl,
                                     "dialog_question_checkbox_cancel_ok")
+        self.get_top_widget().set_title(APP_LONG_NAME)
         self['title_label'].set_markup("<big><b>%s</b></big>" % message)
         self['message_label'].set_markup("<b>%s</b>" % clear_s(details))
+        self['logo_image'].set_from_file(self.IMAGE_FILE)
 
 #class DialogView(View):
 #    """This is the base class for the dialogs"""
