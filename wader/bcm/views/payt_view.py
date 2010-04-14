@@ -19,12 +19,11 @@
 from os.path import join
 
 import gtk
-#from gtkmvc import View
+import string
 from wader.bcm.contrib.gtkmvc import View
 from wader.bcm.logger import logger
 
 from wader.bcm.consts import GLADE_DIR, IMAGES_DIR
-
 
 class PayAsYouTalkView(View):
     """View for the main Pay As You Talk window"""
@@ -52,7 +51,13 @@ class PayAsYouTalkView(View):
          self['msisdn_view'].set_text(MSISDNvalue)
          
     def set_credit_view(self,  credit_value):
-          self['credit_view'].set_text(credit_value.replace('#',' £'))
+        # I set the credit view, this message comes from the core network via ussd
+        # hence we can't trust those nasty core network programers to give us a good
+        # text string to display! Make sure we check the string for illegal chars before we
+        # display to Mr Joe Public!!!
+        clean_message = ''.join(s for s in credit_value if s in string.printable)
+        # we also want to display local currency for now we just do UK, so it's simple dude! :-)
+        self['credit_view'].set_text(clean_message.replace('#',' £'))
     
     def set_credit_date(self,  credit_date_value):
          self['date_view'].set_text(credit_date_value)
@@ -71,8 +76,11 @@ class PayAsYouTalkView(View):
               self['voucher_response_message'].set_text('')
               logger.info("payt-view set_voucher_entry_view (value-null) - USSD Message: " + voucher_value)
          else:
-              self['voucher_response_message'].set_text(voucher_value.replace('#',' £'))
-              logger.info("payt-view set_voucher_entry_view - USSD Message: " + voucher_value)
+              # we need to format to £ and clean the message, it's from the core network so we can't trust those
+              # nasty wee core network developers! :-(
+              clean_message = ''.join(s for s in voucher_value if s in string.printable)
+              self['voucher_response_message'].set_text(clean_message.replace('#',' £'))
+              logger.info("payt-view set_voucher_entry_view - USSD Message: " + clean_message)
          
          
 

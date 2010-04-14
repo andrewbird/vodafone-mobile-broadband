@@ -57,7 +57,7 @@ class DiagnosticsController(Controller):
             # ok we don't have a model the data is coming from dbus
             # from wader core lets tell the view to set the imsi value
             # in the correct place
-            print "diagnostics sim_imei - IMEI number is", sim_data
+            logger.info("diagnostics sim_imei - IMEI number is: " + sim_data)
             self.view.set_imei_info(sim_data)
 
         device.GetImei(dbus_interface=CRD_INTFACE,
@@ -71,11 +71,10 @@ class DiagnosticsController(Controller):
             networks_attributes = sim_network.get_network_by_id(sim_data)
             if networks_attributes:
                 net_attrib = networks_attributes[0]
-                print "diagnostics sim_network - country:", net_attrib.country
-                print "diagnostics sim_network - network opeartor:", net_attrib.name
-                print "diagnostics sim_network - sms value:", net_attrib.smsc
-                print "diagnostics sim_network - password value:", net_attrib.password
-                self.view.set_network_info(net_attrib.name, net_attrib.country)
+                logger.info("diagnostics sim_network - country: " + net_attrib.country)                
+                logger.info("diagnostics sim_network - network opeartor: " + net_attrib.name )                
+                logger.info("diagnostics sim_network - sms value: " + net_attrib.smsc)                
+                logger.info("diagnostics sim_network - password value: " + net_attrib.password )                
 
         device.GetImsi(dbus_interface=CRD_INTFACE,
                        error_handler=logger.error, reply_handler=sim_network)
@@ -83,7 +82,7 @@ class DiagnosticsController(Controller):
         def sim_imsi(sim_data):
             # ok we don't have a model the data is coming from dbus from the
             # core lets tell the view to set the imei in the correct place
-            print "diagnostics sim_imsi - IMSI number is", sim_data
+            logger.info("diagnostics sim_imsi - IMSI number is: " + sim_data )                           
             self.view.set_imsi_info(sim_data)
 
         device.GetImsi(dbus_interface=CRD_INTFACE,
@@ -95,9 +94,9 @@ class DiagnosticsController(Controller):
             manufacturer = datacard_info[0]
             model = datacard_info[1]
             firmware = datacard_info[2]
-            print "diagnostics mdm_info - manufacturer", manufacturer
-            print "diagnostics mdm_info - model", model
-            print "diagnostics mdm_info - firmware", firmware
+            logger.info("diagnostics mdm_info - manufacturer: " + manufacturer )                           
+            logger.info("diagnostics mdm_info - model: " +  model)                           
+            logger.info("diagnostics mdm_info - firmware:  " + firmware)                                      
 
             # XXX: Is this necessary?
             # we need to take into account when cards don't tell us the truth.
@@ -122,12 +121,10 @@ class DiagnosticsController(Controller):
 
          # ok when the USSD message button is clicked grab the value from the ussd_message
          # box and save in the model for now.
-         print "diagnostics on_send_ussd_button clicked"
          ussd_message = self.view['ussd_entry'].get_text().strip()
          self.view['ussd_entry'].set_text('')
-         print "diagnostics on_send_ussd_button_clicked", ussd_message
-         # self.model.ussd_message = ussd_message
-
+         logger.info("diagnostics on_send_ussd_button clicked " + ussd_message)                                                        
+         
          device.Initiate(ussd_message,
                          reply_handler=self.view.set_ussd_reply,
                          error_handler=logger.error)

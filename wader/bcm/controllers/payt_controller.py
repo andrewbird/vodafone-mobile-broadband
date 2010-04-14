@@ -26,7 +26,6 @@ from wader.common.consts import CRD_INTFACE, MDM_INTFACE
 from wader.common.provider import NetworkProvider
 from wader.bcm.logger import logger
 
-
 class PayAsYouTalkController(Controller):
     """Controller for the pay as you talk window"""
 
@@ -133,7 +132,7 @@ class PayAsYouTalkController(Controller):
          # the credit you also update the time you did the check.
          # ok lets reset the date and credit of the view
 
-         logger.info("payt-controller set_credit_and_date - USSD reply is: " + ussd_reply)
+         logger.info("payt-controller set_credit_and_date - USSD reply is: " +ussd_reply)
          self.view.set_credit_view(ussd_reply)
          credit_time = datetime.datetime.utcnow()
          logger.info("payt-controller reset_credit_and_date - Date of querry is: " + credit_time.strftime("%A, %d. %B %Y %I:%M%p"))
@@ -148,7 +147,7 @@ class PayAsYouTalkController(Controller):
          
          if (ussd_voucher_update_response.find('TopUp successful') == -1):
               # ok we got a -1 from our 'find' so it failed just log for now as we report the message to the view no matter what happens.
-               logger.info("payt-controoler check_voucher_update_response - topup failed: "  + ussd_voucher_update_response)
+               logger.info("payt-controler check_voucher_update_response - topup failed: "  + ussd_voucher_update_response)
 
          else:
               # ok we established his voucher code is good - lets cause the system to update the UI with his new credit
@@ -160,7 +159,7 @@ class PayAsYouTalkController(Controller):
                     reply_handler= self.reset_credit_and_date,
                     error_handler= logger.error)  
 
-          # ok no matter we have, we need to update our view to show good or bad!
+          # ok no matter what we have, we need to update our view to show good or bad!
          logger.info("payt-controoler check_voucher_update_response - topup follows normal path: "  + ussd_voucher_update_response)
          self.view.set_voucher_entry_view(ussd_voucher_update_response)
               
