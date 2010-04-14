@@ -574,7 +574,9 @@ class MainController(WidgetController):
         self.model.stop_stats_tracking()
 
         # stop updating usage
-        source_remove(self.usage_updater)
+        if self.usage_updater is not None:
+            source_remove(self.usage_updater)
+            self.usage_updater = None
 
         if self.apb:
             self.apb.close()
