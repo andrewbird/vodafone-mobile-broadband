@@ -72,8 +72,6 @@ from wader.bcm.models.payt_model import PayAsYouTalkModel
 from wader.bcm.views.payt_view import PayAsYouTalkView
 from wader.bcm.controllers.payt_controller import PayAsYouTalkController
 
-
-
 from wader.bcm.views.pin import (PinModifyView, PinEnableView,
                                  AskPUKView, AskPINView)
 from wader.bcm.controllers.pin import (PinModifyController,
@@ -447,14 +445,13 @@ class MainController(WidgetController):
             self.view['support_tool_button'].set_active(True)
 
     def on_topup_button_clicked(self, widget):
-          logger.info("BCM Main: Topup button clicked")         
-          model = PayAsYouTalkModel(self.model.device)
-          ctrl = PayAsYouTalkController(model, self)
-          view = PayAsYouTalkView(ctrl)
-          view.set_parent_view(self.view)
-          view.show()
-         
-         
+        logger.info("BCM Main: Topup button clicked")
+        model = PayAsYouTalkModel(self.model.device)
+        ctrl = PayAsYouTalkController(model, self)
+        view = PayAsYouTalkView(ctrl)
+        view.set_parent_view(self.view)
+        view.show()
+
 #        if self._check_if_connected():
 #            binary = config.get('preferences', 'browser',
 #                                CFG_PREFS_DEFAULT_BROWSER)
@@ -933,19 +930,9 @@ The csv file that you have tried to import has an invalid format.""")
             Popen([binary, index_path])
 
     def on_about_menu_item_activate(self, widget):
-          model = PayAsYouTalkModel(self.model.device)
-          ctrl = PayAsYouTalkController(model, self)
-          view = PayAsYouTalkView(ctrl)
-          view.set_parent_view(self.view)
-          view.show()
-         
-        
-         
-         
-         
-#        about = show_about_dialog()
-#        about.run()
-#        about.destroy()
+        about = show_about_dialog()
+        about.run()
+        about.destroy()
 
     def _check_if_connected(self):
         """
@@ -973,16 +960,16 @@ The csv file that you have tried to import has an invalid format.""")
                 return True
 
             return False
-        
+
         def fake_new_sms_event(widget, event):
             if event.button == 1:
                 self.on_new_sms_activate(widget)
                 return True
 
             return False
-        
+
         items = ['contact_delete_menu_item', 'sms_delete_menu_item',
-                 'forward_sms_menu_item', 'new_menu_item' ]
+                 'forward_sms_menu_item', 'new_menu_item']
 
         for item in items:
             self.view[item].set_events(gtk.gdk.BUTTON_PRESS_MASK)
@@ -994,9 +981,10 @@ The csv file that you have tried to import has an invalid format.""")
         # messages_menubar forward item
         self.view['forward_sms_menu_item'].connect("button_press_event",
                                                    fake_forward_event)
-                                                   
+
         # message_menubar sms new item
-        self.view['new_menu_item'].connect("button_press_event", fake_new_sms_event)
+        self.view['new_menu_item'].connect("button_press_event",
+                                           fake_new_sms_event)
 
     def _empty_treeviews(self, treeviews):
         for treeview_name in treeviews:
