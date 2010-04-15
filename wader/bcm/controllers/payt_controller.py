@@ -24,6 +24,8 @@ from wader.bcm.contrib.gtkmvc import Controller
 
 from wader.common.consts import CRD_INTFACE, MDM_INTFACE
 from wader.common.provider import NetworkProvider
+from wader.common.oal import get_os_object
+
 from wader.bcm.logger import logger
 
 class PayAsYouTalkController(Controller):
@@ -32,6 +34,12 @@ class PayAsYouTalkController(Controller):
     def __init__(self, model, parent_ctrl):
         super(PayAsYouTalkController, self).__init__(model)
         self.parent_ctrl = parent_ctrl
+
+        self.tz = None
+        try:
+            self.tz = get_os_object().get_tzinfo()
+        except:
+            pass
 
     def register_view(self, view):
         """
@@ -89,14 +97,13 @@ class PayAsYouTalkController(Controller):
           # using ussd messages
           logger.info("payt-controller sim_credit - SIM Credit is: " + sim_credit)
           self.view.set_credit_view(sim_credit)
-          credit_time = datetime.datetime.utcnow()
-          logger.info("payt-controller sim_credit - Date of querry is: " + credit_time.strftime("%A, %d. %B %Y %I:%M%p"))
-          self.view.set_credit_date(credit_time.strftime("%A, %d. %B %Y %I:%M%p"))
+          credit_time = datetime.datetime.now(self.tz)
+          logger.info("payt-controller sim_credit - Date of querry is: " + credit_time.strftime("%c"))
+          self.view.set_credit_date(credit_time.strftime("%c"))
 
         device.Initiate(ussd_check_account,
           reply_handler= sim_credit,
           error_handler= logger.error)             
-
 
         def sim_network(sim_data):
             # let's look up what we think this SIM's network is.
@@ -134,9 +141,9 @@ class PayAsYouTalkController(Controller):
 
          logger.info("payt-controller set_credit_and_date - USSD reply is: " +ussd_reply)
          self.view.set_credit_view(ussd_reply)
-         credit_time = datetime.datetime.utcnow()
-         logger.info("payt-controller reset_credit_and_date - Date of querry is: " + credit_time.strftime("%A, %d. %B %Y %I:%M%p"))
-         self.view.set_credit_date(credit_time.strftime("%A, %d. %B %Y %I:%M%p"))
+         credit_time = datetime.datetime.now(self.tz)
+         logger.info("payt-controller reset_credit_and_date - Date of querry is: " + credit_time.strftime("%c"))
+         self.view.set_credit_date(credit_time.strftime("%c"))
 
     def check_voucher_update_response(self,  ussd_voucher_update_response):
          device = self.model.get_device()         
