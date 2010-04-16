@@ -79,6 +79,8 @@ class DiagnosticsController(Controller):
                             + net_attrib.smsc)
                 logger.info("diagnostics sim_network - password value: "
                             + net_attrib.password)
+                self.view.set_network_info(network=net_attrib.name,
+                                           country=net_attrib.country)
 
         self.model.get_imsi(sim_network)
 
@@ -89,6 +91,8 @@ class DiagnosticsController(Controller):
             self.view.set_imsi_info(sim_data)
 
         self.model.get_imsi(sim_imsi)
+
+        self.model.get_msisdn(self.view.set_msisdn_info)
 
         def mdm_info(datacard_info):
             # ok we don't have a model the data is coming straight from

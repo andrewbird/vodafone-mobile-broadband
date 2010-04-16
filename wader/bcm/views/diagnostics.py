@@ -58,7 +58,7 @@ class DiagnosticsView(View):
          self['ussd_textview'].set_buffer(buffer)
 
     def set_msisdn_info(self,  MSISDNvalue):
-         self['msisdn'].set_text(MSISDNvalue)
+         self['msisdn_name_label'].set_text(MSISDNvalue)
 
     def set_imsi_info(self, imsi):
         self['imsi_number_label'].set_text(imsi)
