@@ -117,8 +117,9 @@ class MainModel(Model):
         self.profiles_model = ProfilesModel(lambda: self.device, lambda: self)
         self.provider = UsageProvider(USAGE_DB)
         self._init_wader_object()
-
-       # usage stuff from bcm
+        # Per SIM stuff
+        self.imsi = None
+        self.msisdn = None
 
     def get_device(self):
         return self.device
@@ -167,6 +168,8 @@ class MainModel(Model):
             self.status = _('No device')
             self.tech = '----'
             self.rssi = 0
+            self.imsi = None
+            self.msisdn = None
 
     def _on_network_key_needed_cb(self, opath, tag):
         logger.info("KeyNeeded received, opath: %s tag: %s" % (opath, tag))
@@ -200,16 +203,60 @@ class MainModel(Model):
         else:
             quit_cb()
 
-    def get_imsi(self, get_imsi_cb):
+    def get_imsi(self, cb):
+
+        if self.imsi:
+            cb(self.imsi)
+            return
+
+        def get_imsi_cb(imsi):
+            self.imsi = imsi
+            cb(self.imsi)
 
         def get_imsi_eb(failure):
             msg = "Error while getting IMSI for device %s"
             logger.error(msg % self.device_opath)
-            get_imsi_cb(None)
+            cb(None)
 
         self.device.GetImsi(dbus_interface=CRD_INTFACE,
                             reply_handler=get_imsi_cb,
                             error_handler=get_imsi_eb)
+
+    def get_msisdn(self, cb):
+
+        if self.msisdn:
+            logger.info("Got MSISDN from model cache %s: " % self.msisdn)
+            cb(self.msisdn)
+            return
+
+        ussd_msisdn = "*#100#"
+
+        def get_msisdn_cb(msisdn):
+            self.msisdn = msisdn
+            logger.info("Got MSISDN from network %s: " % msisdn)
+            if self.imsi:
+                self.conf.set("sim/%s" % self.imsi, 'msisdn', self.msisdn)
+            cb(self.msisdn)
+
+        def get_msisdn_eb(failure):
+            msg = "Error while getting MSISDN from network"
+            logger.error(msg)
+            cb(None)
+
+        def get_imsi_cb(imsi):
+            if imsi:
+                msisdn = self.conf.get("sim/%s" % imsi, 'msisdn')
+                if msisdn:
+                    logger.info("Got MSISDN from gconf %s: " % msisdn)
+                    self.msisdn = msisdn
+                    cb(self.msisdn)
+                    return
+
+            self.device.Initiate(ussd_msisdn,
+                                 reply_handler=get_msisdn_cb,
+                                 error_handler=get_msisdn_eb)
+
+        self.get_imsi(get_imsi_cb)
 
     def _get_devices_eb(self, error):
         logger.error(error)

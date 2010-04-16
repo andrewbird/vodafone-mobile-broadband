@@ -57,53 +57,47 @@ class PayAsYouTalkController(Controller):
         #self.view['os_version_label'].set_text(self.model.get_os_version())
 
     def set_device_info(self):
-         
-         
+
         device = self.model.get_device()
-        
-        ussd_msisdn = "*#100#"
+
         ussd_check_account = "*#135#"
         ussd_send_voucher = "*#999#"
         ussd_check_credit = "*#134#"
-        
+
         if not device:
             return
 
         def sim_imei(sim_data):
-          # ok we don't have a model the data is coming from dbus
-          # from wader core lets tell the view to set the imsi value
-          # in the correct place
-          logger.info("payt-controller sim_imei - IMEI number is: " +  sim_data)
-          # FIXME - Removed not needed at the minute.
-          #self.view.set_imei_info(sim_data)
+            # ok we don't have a model the data is coming from dbus
+            # from wader core lets tell the view to set the imsi value
+            # in the correct place
+            logger.info("payt-controller sim_imei - IMEI number is: " +  sim_data)
+            # FIXME - Removed not needed at the minute.
+            #self.view.set_imei_info(sim_data)
 
         device.GetImei(dbus_interface=CRD_INTFACE,
                        error_handler=logger.error, reply_handler=sim_imei)
 
-
         def sim_msisdn(msisdn_data):
-          # same as above, no model so lets get the msisdn value from the network
-          # using ussd messages
-          logger.info("payt-controller sim_msisdn - MSISDN number is: " + msisdn_data)
-          self.view.set_msisdn_value(msisdn_data)
-          
-             
-        device.Initiate(ussd_msisdn,
-                         reply_handler= sim_msisdn,
-                         error_handler= logger.error)             
-          
+            # same as above, no model so lets get the msisdn value from the network
+            # using ussd messages
+            logger.info("payt-controller sim_msisdn - MSISDN number is: " + msisdn_data)
+            self.view.set_msisdn_value(msisdn_data)
+
+        self.model.get_msisdn(sim_msisdn)
+
         def sim_credit(sim_credit):
-          # same as above, no model so lets get the sim credit value from the network
-          # using ussd messages
-          logger.info("payt-controller sim_credit - SIM Credit is: " + sim_credit)
-          self.view.set_credit_view(sim_credit)
-          credit_time = datetime.datetime.now(self.tz)
-          logger.info("payt-controller sim_credit - Date of querry is: " + credit_time.strftime("%c"))
-          self.view.set_credit_date(credit_time.strftime("%c"))
+            # same as above, no model so lets get the sim credit value from the network
+            # using ussd messages
+            logger.info("payt-controller sim_credit - SIM Credit is: " + sim_credit)
+            self.view.set_credit_view(sim_credit)
+            credit_time = datetime.datetime.now(self.tz)
+            logger.info("payt-controller sim_credit - Date of querry is: " + credit_time.strftime("%c"))
+            self.view.set_credit_date(credit_time.strftime("%c"))
 
         device.Initiate(ussd_check_account,
-          reply_handler= sim_credit,
-          error_handler= logger.error)             
+                        reply_handler=sim_credit,
+                        error_handler=logger.error)
 
         def sim_network(sim_data):
             # let's look up what we think this SIM's network is.
@@ -113,21 +107,19 @@ class PayAsYouTalkController(Controller):
             networks_attributes = sim_network.get_network_by_id(sim_data)
             if networks_attributes:
                net_attrib = networks_attributes[0]
-               logger.info("payt-controller sim_network - country: " +  net_attrib.country)
-               logger.info("payt-controller sim_network - network operator: " +  net_attrib.name)
-               logger.info("payt-controller sim_network - smsc value: " +  net_attrib.smsc)
-               logger.info("payt-controller sim_network - password value: " +  net_attrib.password)
+               logger.info("payt-controller sim_network - country: " + net_attrib.country)
+               logger.info("payt-controller sim_network - network operator: " + net_attrib.name)
+               logger.info("payt-controller sim_network - smsc value: " + net_attrib.smsc)
+               logger.info("payt-controller sim_network - password value: " + net_attrib.password)
 
-        device.GetImsi(dbus_interface=CRD_INTFACE,
-                       error_handler=logger.error, reply_handler=sim_network)
+        self.model.get_imsi(sim_network)
 
         def sim_imsi(sim_data):
             # ok we don't have a model the data is coming from dbus from the
             # core lets tell the view to set the imei in the correct place
             logger.info("payt-controller sim_imsi - IMSI number is: %s" % sim_data)
 
-        device.GetImsi(dbus_interface=CRD_INTFACE,
-                       error_handler=logger.error, reply_handler=sim_imsi)
+        self.model.get_imsi(sim_imsi)
 
     # ------------------------------------------------------------ #
     #                Common Functions                #
@@ -146,7 +138,7 @@ class PayAsYouTalkController(Controller):
          self.view.set_credit_date(credit_time.strftime("%c"))
 
     def check_voucher_update_response(self,  ussd_voucher_update_response):
-         device = self.model.get_device()         
+         device = self.model.get_device()
          # ok my job is to work out what happened after a credit voucher update message was sent.
          # we can have three possibilities, it was succesfull, the voucher code was wrong, or you tried with
          # an illegal number too many times. For now I only do something when it works, the other two
