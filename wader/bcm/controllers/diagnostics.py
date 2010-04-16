@@ -71,22 +71,24 @@ class DiagnosticsController(Controller):
             networks_attributes = sim_network.get_network_by_id(sim_data)
             if networks_attributes:
                 net_attrib = networks_attributes[0]
-                logger.info("diagnostics sim_network - country: " + net_attrib.country)                
-                logger.info("diagnostics sim_network - network opeartor: " + net_attrib.name )                
-                logger.info("diagnostics sim_network - sms value: " + net_attrib.smsc)                
-                logger.info("diagnostics sim_network - password value: " + net_attrib.password )                
+                logger.info("diagnostics sim_network - country: "
+                            + net_attrib.country)
+                logger.info("diagnostics sim_network - network opeartor: "
+                            + net_attrib.name)
+                logger.info("diagnostics sim_network - sms value: "
+                            + net_attrib.smsc)
+                logger.info("diagnostics sim_network - password value: "
+                            + net_attrib.password)
 
-        device.GetImsi(dbus_interface=CRD_INTFACE,
-                       error_handler=logger.error, reply_handler=sim_network)
+        self.model.get_imsi(sim_network)
 
         def sim_imsi(sim_data):
             # ok we don't have a model the data is coming from dbus from the
             # core lets tell the view to set the imei in the correct place
-            logger.info("diagnostics sim_imsi - IMSI number is: " + sim_data )                           
+            logger.info("diagnostics sim_imsi - IMSI number is: " + sim_data)
             self.view.set_imsi_info(sim_data)
 
-        device.GetImsi(dbus_interface=CRD_INTFACE,
-                       error_handler=logger.error, reply_handler=sim_imsi)
+        self.model.get_imsi(sim_imsi)
 
         def mdm_info(datacard_info):
             # ok we don't have a model the data is coming straight from
@@ -94,15 +96,9 @@ class DiagnosticsController(Controller):
             manufacturer = datacard_info[0]
             model = datacard_info[1]
             firmware = datacard_info[2]
-            logger.info("diagnostics mdm_info - manufacturer: " + manufacturer )                           
-            logger.info("diagnostics mdm_info - model: " +  model)                           
-            logger.info("diagnostics mdm_info - firmware:  " + firmware)                                      
-
-            # XXX: Is this necessary?
-            # we need to take into account when cards don't tell us the truth.
-            # so for the huawei e172 reporting e17x we add an exception
-            if model == 'E17X' and manufacturer == 'huawei':
-                model = 'E172'
+            logger.info("diagnostics mdm_info - manufacturer: " + manufacturer)
+            logger.info("diagnostics mdm_info - model: " + model)
+            logger.info("diagnostics mdm_info - firmware:  " + firmware)
 
             self.view.set_datacard__info(manufacturer, model, firmware)
 
@@ -117,17 +113,17 @@ class DiagnosticsController(Controller):
         self._hide_myself()
 
     def on_send_ussd_button_clicked(self, widget):
-         device = self.model.get_device()
+        device = self.model.get_device()
 
-         # ok when the USSD message button is clicked grab the value from the ussd_message
-         # box and save in the model for now.
-         ussd_message = self.view['ussd_entry'].get_text().strip()
-         self.view['ussd_entry'].set_text('')
-         logger.info("diagnostics on_send_ussd_button clicked " + ussd_message)                                                        
-         
-         device.Initiate(ussd_message,
-                         reply_handler=self.view.set_ussd_reply,
-                         error_handler=logger.error)
+        # ok when the USSD message button is clicked grab the value from the
+        # ussd_message box and save in the model for now.
+        ussd_message = self.view['ussd_entry'].get_text().strip()
+        self.view['ussd_entry'].set_text('')
+        logger.info("diagnostics on_send_ussd_button clicked " + ussd_message)
+
+        device.Initiate(ussd_message,
+                        reply_handler=self.view.set_ussd_reply,
+                        error_handler=logger.error)
 
     def _hide_myself(self):
         self.model.unregister_observer(self)

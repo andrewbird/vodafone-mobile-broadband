@@ -60,7 +60,6 @@ from wader.bcm.phonebook import (get_phonebook,
 from wader.bcm.csvutils import CSVUnicodeWriter, CSVContactsReader
 from wader.bcm.messages import get_messages_obj, is_sim_message
 
-from wader.bcm.models.diagnostics import DiagnosticsModel
 from wader.bcm.views.diagnostics import DiagnosticsView
 from wader.bcm.controllers.diagnostics import DiagnosticsController
 
@@ -68,7 +67,6 @@ from wader.bcm.models.sms import NewSmsModel
 from wader.bcm.views.sms import NewSmsView, ForwardSmsView
 from wader.bcm.controllers.sms import NewSmsController, ForwardSmsController
 
-from wader.bcm.models.payt_model import PayAsYouTalkModel
 from wader.bcm.views.payt_view import PayAsYouTalkView
 from wader.bcm.controllers.payt_controller import PayAsYouTalkController
 
@@ -445,18 +443,11 @@ class MainController(WidgetController):
             self.view['support_tool_button'].set_active(True)
 
     def on_topup_button_clicked(self, widget):
-          logger.info("BCM Main: Topup button clicked")         
-          #model = PayAsYouTalkModel(self.model.device)
+          logger.info("BCM Main: Topup button clicked")
           ctrl = PayAsYouTalkController(self.model, self)
           view = PayAsYouTalkView(ctrl)
           view.set_parent_view(self.view)
           view.show()
-         
-#        if self._check_if_connected():
-#            binary = config.get('preferences', 'browser',
-#                                CFG_PREFS_DEFAULT_BROWSER)
-#            if binary:
-#                Popen([binary, APP_URL])
 
     def on_mail_button_clicked(self, widget):
         if self._check_if_connected():
@@ -918,8 +909,7 @@ The csv file that you have tried to import has an invalid format.""")
         parent.set_submenu(menu)
 
     def on_diagnostics_item_activate(self, widget):
-        model = DiagnosticsModel(self.model.device)
-        ctrl = DiagnosticsController(model, self)
+        ctrl = DiagnosticsController(self.model, self)
         view = DiagnosticsView(ctrl)
         view.set_parent_view(self.view)
         view.show()

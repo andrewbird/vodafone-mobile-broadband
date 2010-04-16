@@ -16,6 +16,7 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
+import os
 import datetime
 
 import dbus
@@ -33,8 +34,9 @@ from wader.bcm.models.preferences import PreferencesModel
 from wader.bcm.translate import _
 from wader.bcm.utils import dbus_error_is, get_error_msg
 from wader.bcm.signals import NET_MODE_SIGNALS
-from wader.bcm.consts import USAGE_DB
+from wader.bcm.consts import USAGE_DB, APP_VERSION
 from wader.bcm.config import config
+from wader.bcm.uptime import get_uptime
 from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
                                  WADER_DIALUP_SERVICE, WADER_DIALUP_OBJECT,
                                  CRD_INTFACE, NET_INTFACE, MDM_INTFACE,
@@ -45,10 +47,8 @@ import wader.common.aterrors as E
 import wader.common.signals as S
 from wader.common.provider import UsageProvider
 
-
 TWOG_SIGNALS = [MM_NETWORK_MODE_GPRS, MM_NETWORK_MODE_EDGE,
                 MM_NETWORK_MODE_2G_ONLY]
-
 
 UPDATE_INTERVAL = CONFIG_INTERVAL = 2 * 1000 # 2ms
 NETREG_INTERVAL = 5 * 1000 # 5ms
@@ -650,3 +650,17 @@ class MainModel(Model):
         if offset == 0:
             result += self.total_session
         return result
+
+    def get_uptime(self):
+        """Returns the uptime with uptime(1)'s format"""
+        return get_uptime()
+
+    def get_os_name(self):
+        return os.uname()[0]
+
+    def get_os_version(self):
+        return os.uname()[2]
+
+    def get_app_version(self):
+        return APP_VERSION
+
