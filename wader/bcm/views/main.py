@@ -56,16 +56,12 @@ SMS_TEXT_TV_WIDTH = 220
 
 
 class MainView(View):
-
+    """View for the main window"""
+    
     def __init__(self, ctrl):
 
-        # if gtk.gdk.screen_height() < 600:
-        if True:
-            height = 420
-            GLADE_FILE = os.path.join(GLADE_DIR, "VMC-reduced.glade")
-        else:
-            height = WIN_HEIGHT
-            GLADE_FILE = os.path.join(GLADE_DIR, "VMC.glade")
+        height = 420        # define the max height of the main window
+        GLADE_FILE = os.path.join(GLADE_DIR, "bcm.glade")
 
         super(MainView, self).__init__(ctrl, GLADE_FILE,
                                        'main_window', register=False)
