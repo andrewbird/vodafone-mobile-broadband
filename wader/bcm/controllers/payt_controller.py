@@ -16,7 +16,7 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fi1fth Floor, Boston, MA 02110-1301 USA.
 """
-Controllers for Pay As You Talk 
+Controllers for Pay As You Talk
 """
 #from gtkmvc import Controller
 import datetime
@@ -27,6 +27,7 @@ from wader.common.provider import NetworkProvider
 from wader.common.oal import get_os_object
 
 from wader.bcm.logger import logger
+
 
 class PayAsYouTalkController(Controller):
     """Controller for the pay as you talk window"""
@@ -71,7 +72,8 @@ class PayAsYouTalkController(Controller):
             # ok we don't have a model the data is coming from dbus
             # from wader core lets tell the view to set the imsi value
             # in the correct place
-            logger.info("payt-controller sim_imei - IMEI number is: " +  sim_data)
+            logger.info("payt-controller sim_imei - IMEI number is: "
+                        + sim_data)
             # FIXME - Removed not needed at the minute.
             #self.view.set_imei_info(sim_data)
 
@@ -79,20 +81,23 @@ class PayAsYouTalkController(Controller):
                        error_handler=logger.error, reply_handler=sim_imei)
 
         def sim_msisdn(msisdn_data):
-            # same as above, no model so lets get the msisdn value from the network
-            # using ussd messages
-            logger.info("payt-controller sim_msisdn - MSISDN number is: " + msisdn_data)
+            # same as above, no model so lets get the msisdn value from the
+            # network using ussd messages
+            logger.info("payt-controller sim_msisdn - MSISDN number is: "
+                        + msisdn_data)
             self.view.set_msisdn_value(msisdn_data)
 
         self.model.get_msisdn(sim_msisdn)
 
         def sim_credit(sim_credit):
-            # same as above, no model so lets get the sim credit value from the network
-            # using ussd messages
-            logger.info("payt-controller sim_credit - SIM Credit is: " + sim_credit)
+            # same as above, no model so lets get the sim credit value from
+            # the network using ussd messages
+            logger.info("payt-controller sim_credit - SIM Credit is: "
+                        + sim_credit)
             self.view.set_credit_view(sim_credit)
             credit_time = datetime.datetime.now(self.tz)
-            logger.info("payt-controller sim_credit - Date of querry is: " + credit_time.strftime("%c"))
+            logger.info("payt-controller sim_credit - Date of querry is: "
+                        + credit_time.strftime("%c"))
             self.view.set_credit_date(credit_time.strftime("%c"))
 
         device.Initiate(ussd_check_account,
@@ -106,18 +111,23 @@ class PayAsYouTalkController(Controller):
             sim_network = NetworkProvider()
             networks_attributes = sim_network.get_network_by_id(sim_data)
             if networks_attributes:
-               net_attrib = networks_attributes[0]
-               logger.info("payt-controller sim_network - country: " + net_attrib.country)
-               logger.info("payt-controller sim_network - network operator: " + net_attrib.name)
-               logger.info("payt-controller sim_network - smsc value: " + net_attrib.smsc)
-               logger.info("payt-controller sim_network - password value: " + net_attrib.password)
+                net_attrib = networks_attributes[0]
+                logger.info("payt-controller sim_network - country: "
+                            + net_attrib.country)
+                logger.info("payt-controller sim_network - network operator: "
+                            + net_attrib.name)
+                logger.info("payt-controller sim_network - smsc value: "
+                            + net_attrib.smsc)
+                logger.info("payt-controller sim_network - password value: "
+                            + net_attrib.password)
 
         self.model.get_imsi(sim_network)
 
         def sim_imsi(sim_data):
             # ok we don't have a model the data is coming from dbus from the
             # core lets tell the view to set the imei in the correct place
-            logger.info("payt-controller sim_imsi - IMSI number is: %s" % sim_data)
+            logger.info("payt-controller sim_imsi - IMSI number is: %s"
+                        % sim_data)
 
         self.model.get_imsi(sim_imsi)
 
@@ -125,45 +135,51 @@ class PayAsYouTalkController(Controller):
     #                Common Functions                #
     # ------------------------------------------------------------ #
 
-    def reset_credit_and_date(self,  ussd_reply):
-         # a call back must have called us, my job is to reset the credit date and value.
-         # I take care of reseting both as a credit amount is only valid at the time you check, so make sure when you update
-         # the credit you also update the time you did the check.
-         # ok lets reset the date and credit of the view
+    def reset_credit_and_date(self, ussd_reply):
+        # a call back must have called us, my job is to reset the credit date
+        # and value. I take care of reseting both as a credit amount is only
+        # valid at the time you check, so make sure when you update the credit
+        # you also update the time you did the check. ok lets reset the date
+        # and credit of the view
 
-         logger.info("payt-controller set_credit_and_date - USSD reply is: " +ussd_reply)
-         self.view.set_credit_view(ussd_reply)
-         credit_time = datetime.datetime.now(self.tz)
-         logger.info("payt-controller reset_credit_and_date - Date of querry is: " + credit_time.strftime("%c"))
-         self.view.set_credit_date(credit_time.strftime("%c"))
+        logger.info("payt-controller set_credit_and_date - USSD reply is: "
+                    + ussd_reply)
+        self.view.set_credit_view(ussd_reply)
+        credit_time = datetime.datetime.now(self.tz)
+        logger.info("payt-controller reset_credit_and_date - Date of querry"
+                    " is: " + credit_time.strftime("%c"))
+        self.view.set_credit_date(credit_time.strftime("%c"))
 
-    def check_voucher_update_response(self,  ussd_voucher_update_response):
-         device = self.model.get_device()
-         # ok my job is to work out what happened after a credit voucher update message was sent.
-         # we can have three possibilities, it was succesfull, the voucher code was wrong, or you tried with
-         # an illegal number too many times. For now I only do something when it works, the other two
-         # possibilities I just report the error provided by the network.
-         
-         if (ussd_voucher_update_response.find('TopUp successful') == -1):
-              # ok we got a -1 from our 'find' so it failed just log for now as we report the message to the view no matter what happens.
-               logger.info("payt-controler check_voucher_update_response - topup failed: "  + ussd_voucher_update_response)
+    def check_voucher_update_response(self, ussd_voucher_update_response):
+        device = self.model.get_device()
+        # ok my job is to work out what happened after a credit voucher update
+        # message was sent. we can have three possibilities, it was successful,
+        # the voucher code was wrong, or you tried with an illegal number too
+        # many times. For now I only do something when it works, the other two
+        # possibilities I just report the error provided by the network.
 
-         else:
-              # ok we established his voucher code is good - lets cause the system to update the UI with his new credit
-              # to do that we need to fire off another ussd to cause a credit request to happen
-              logger.info("payt-controler check_voucher_update_response - topup was succesful: "  + ussd_voucher_update_response)
-              self.view.set_waiting_credit_view()
-              # lets now do a credit check via USSD
-              device.Initiate(ussd_message,
-                    reply_handler= self.reset_credit_and_date,
-                    error_handler= logger.error)  
+        if (ussd_voucher_update_response.find('TopUp successful') == -1):
+            # ok we got a -1 from our 'find' so it failed just log for now as
+            # we report the message to the view no matter what happens.
+            logger.info("payt-controler check_voucher_update_response - topup"
+                        " failed: " + ussd_voucher_update_response)
+        else:
+            # ok we established his voucher code is good - let's cause the
+            # system to update the UI with his new credit to do that we need to
+            # fire off another ussd to cause a credit request to happen
+            logger.info("payt-controler check_voucher_update_response - topup"
+                        " was successful: " + ussd_voucher_update_response)
+            self.view.set_waiting_credit_view()
+            # let's now do a credit check via USSD
+            device.Initiate(ussd_message,
+                            reply_handler=self.reset_credit_and_date,
+                            error_handler=logger.error)
 
-          # ok no matter what we have, we need to update our view to show good or bad!
-         logger.info("payt-controoler check_voucher_update_response - topup follows normal path: "  + ussd_voucher_update_response)
-         self.view.set_voucher_entry_view(ussd_voucher_update_response)
-              
-         
-     
+        # ok no matter what we have, we need to update our view to show good or
+        # bad!
+        logger.info("payt-controoler check_voucher_update_response - topup"
+                    " follows normal path: " + ussd_voucher_update_response)
+        self.view.set_voucher_entry_view(ussd_voucher_update_response)
 
     # ------------------------------------------------------------ #
     #                       Signals Handling             #
@@ -171,42 +187,42 @@ class PayAsYouTalkController(Controller):
 
     def on_close_button_clicked(self, widget):
         self._hide_myself()
-             
-        
-    def on_credit_button_clicked(self,  widget):
-         device = self.model.get_device()
-         ussd_message = "*#135#"
-         logger.info("payt-controller on_credit_button_clicked- USSD Message is:" + ussd_message)
-         
-         # ok we need to tell the view to wipe current data and prepare for the new!
-         # So lets remove our current credit and date first.
-         self.view.set_waiting_credit_view()
-         
-         # lets now do a credit check via USSD
-         device.Initiate(ussd_message,
-               reply_handler= self.reset_credit_and_date,
-               error_handler= logger.error)  
-         
-         
+
+    def on_credit_button_clicked(self, widget):
+        device = self.model.get_device()
+        ussd_message = "*#135#"
+        logger.info("payt-controller on_credit_button_clicked- USSD Message"
+                    " is:" + ussd_message)
+
+        # ok we need to tell the view to wipe current data and prepare for the
+        # new! So let's remove our current credit and date first.
+        self.view.set_waiting_credit_view()
+
+        # let's now do a credit check via USSD
+        device.Initiate(ussd_message,
+                        reply_handler=self.reset_credit_and_date,
+                        error_handler=logger.error)
+
     def on_send_voucher_button_clicked(self, widget):
-          device = self.model.get_device()
+        device = self.model.get_device()
 
-          # ok when the send voucher button is clicked grab the value from the view entry box and send 
-          # to the network. 
+        # ok when the send voucher button is clicked grab the value from the
+        # view entry box and send to the network.
 
-          ussd_voucher_init = "*#1345*"
-          ussd_voucher_end = "#"
-          voucher_code = self.view['voucher_code'].get_text().strip()
-          self.view.set_voucher_entry_view('')
-          # make sure we construct the string to enable PAYT Topup vouchers to be used e.g. *#1345*<voucher number>#
-          ussd_voucher_message = ussd_voucher_init + voucher_code + ussd_voucher_end
-          logger.info("payt-controller on_send_voucher_button_clicked - USSD Message: " + ussd_voucher_message)
-          
-          device.Initiate(ussd_voucher_message,
-                         reply_handler=self.check_voucher_update_response,
-                         error_handler=logger.error)
+        ussd_voucher_init = "*#1345*"
+        ussd_voucher_end = "#"
+        voucher_code = self.view['voucher_code'].get_text().strip()
+        self.view.set_voucher_entry_view('')
+        # make sure we construct the string to enable PAYT Topup vouchers to be
+        # used e.g. *#1345*<voucher number>#
+        ussd_voucher_message = (ussd_voucher_init + voucher_code
+                                + ussd_voucher_end)
+        logger.info("payt-controller on_send_voucher_button_clicked - USSD"
+                    " Message: " + ussd_voucher_message)
 
-
+        device.Initiate(ussd_voucher_message,
+                        reply_handler=self.check_voucher_update_response,
+                        error_handler=logger.error)
 
     def _hide_myself(self):
         self.model.unregister_observer(self)

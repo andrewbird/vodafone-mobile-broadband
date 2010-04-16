@@ -57,7 +57,7 @@ AUTH_TIMEOUT = 150        # 2.5m
 ENABLE_TIMEOUT = 2 * 60   # 2m
 REGISTER_TIMEOUT = 3 * 60 # 3m
 
-ONE_MB = 2**20
+ONE_MB = 2 ** 20
 
 
 class MainModel(Model):
@@ -87,11 +87,11 @@ class MainModel(Model):
         'total_session': 0,
         'total_transferred': 0,
         'total_month': 0,
-        'sim_msisdn': 'unknown', 
-        'sim_type':'contract',
-        'credit_check' :False, 
-        'credit_date_check':'unknown', 
-        'credit_amount':'unknown', 
+        'sim_msisdn': 'unknown',
+        'sim_type': 'contract',
+        'credit_check': False,
+        'credit_date_check': 'unknown',
+        'credit_amount': 'unknown',
         'rx_rate': 0,
         'tx_rate': 0,
         'transfer_limit_exceeded': False,
@@ -627,7 +627,6 @@ class MainModel(Model):
         if offset == 0:
             result += self.threeg_session
         return result
-    
 
     def get_transferred_gprs(self, offset):
         # filter out all the items that respond True to "is_gprs"
