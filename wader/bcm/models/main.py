@@ -18,6 +18,7 @@
 
 import os
 import datetime
+import re
 
 import dbus
 import dbus.mainloop.glib
@@ -37,6 +38,8 @@ from wader.bcm.signals import NET_MODE_SIGNALS
 from wader.bcm.consts import USAGE_DB, APP_VERSION
 from wader.bcm.config import config
 from wader.bcm.uptime import get_uptime
+from wader.bcm.network_codes import get_msisdn_ussd_info
+
 from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
                                  WADER_DIALUP_SERVICE, WADER_DIALUP_OBJECT,
                                  CRD_INTFACE, NET_INTFACE, MDM_INTFACE,
@@ -222,39 +225,54 @@ class MainModel(Model):
                             reply_handler=get_imsi_cb,
                             error_handler=get_imsi_eb)
 
+    def _get_msisdn_by_ussd(self, ussd, cb):
+
+        mccmnc, request, regex = ussd
+
+        def get_msisdn_cb(response):
+
+            msisdn = re.search(regex, response).group('number')
+            if msisdn:
+                self.msisdn = msisdn
+                logger.info("MSISDN from network %s: " % msisdn)
+                if self.imsi:
+                    self.conf.set("sim/%s" % self.imsi, 'msisdn', self.msisdn)
+                cb(self.msisdn)
+            else:
+                logger.info("MSISDN from network %s didn't match regex" % msisdn)
+                cb(None)
+
+
+        def get_msisdn_eb(failure):
+            msg = "MSISDN Error fetching via USSD"
+            logger.error(msg)
+            cb(None)
+
+        self.device.Initiate(request,
+                             reply_handler=get_msisdn_cb,
+                             error_handler=get_msisdn_eb)
+
     def get_msisdn(self, cb):
 
         if self.msisdn:
-            logger.info("Got MSISDN from model cache %s: " % self.msisdn)
+            logger.info("MSISDN from model cache %s: " % self.msisdn)
             cb(self.msisdn)
             return
-
-        ussd_msisdn = "*#100#"
-
-        def get_msisdn_cb(msisdn):
-            self.msisdn = msisdn
-            logger.info("Got MSISDN from network %s: " % msisdn)
-            if self.imsi:
-                self.conf.set("sim/%s" % self.imsi, 'msisdn', self.msisdn)
-            cb(self.msisdn)
-
-        def get_msisdn_eb(failure):
-            msg = "Error while getting MSISDN from network"
-            logger.error(msg)
-            cb(None)
 
         def get_imsi_cb(imsi):
             if imsi:
                 msisdn = self.conf.get("sim/%s" % imsi, 'msisdn')
                 if msisdn:
-                    logger.info("Got MSISDN from gconf %s: " % msisdn)
+                    logger.info("MSISDN from gconf %s: " % msisdn)
                     self.msisdn = msisdn
                     cb(self.msisdn)
                     return
 
-            self.device.Initiate(ussd_msisdn,
-                                 reply_handler=get_msisdn_cb,
-                                 error_handler=get_msisdn_eb)
+            ussd = get_msisdn_ussd_info(imsi)
+            if ussd:
+                self._get_msisdn_by_ussd(ussd, cb)
+            else:
+                cb(_("Unknown"))
 
         self.get_imsi(get_imsi_cb)
 
