@@ -23,6 +23,7 @@ from datetime import datetime
 from time import time
 
 from wader.bcm.contrib.gtkmvc import Controller
+from wader.bcm.dialogs import show_warning_dialog
 from wader.bcm.logger import logger
 from wader.bcm.network_codes import get_payt_credit_check_info
 from wader.bcm.translate import _
@@ -103,9 +104,9 @@ class PayAsYouTalkController(Controller):
                                                  'payt_available', None)
 
             if payt_available == False: # Not a PAYT SIM
+                show_warning_dialog(_("PAYT credit check"),
+                                    _("SIM is not on a PAYT plan"))
                 return
-
-            self.model.payt_credit_busy = True
 
             def ussd_cb(credit):
                 if credit:
@@ -136,9 +137,13 @@ class PayAsYouTalkController(Controller):
 
             ussd = get_payt_credit_check_info(imsi)
             if ussd:
+                self.model.payt_credit_busy = True
                 self._get_current_sim_credit_by_ussd(ussd, ussd_cb)
             # elif have payt SMS credit check info:
             #    self._get_current_sim_credit_by_sms()
+            else:
+                show_warning_dialog(_("PAYT credit check"),
+                                    _("No PAYT credit check method available"))
 
         self.model.get_imsi(imsi_cb)
 
