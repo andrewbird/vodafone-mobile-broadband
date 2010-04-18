@@ -20,10 +20,11 @@ from os.path import join
 
 import gtk
 import string
+
 from wader.bcm.contrib.gtkmvc import View
 from wader.bcm.logger import logger
-
 from wader.bcm.consts import GLADE_DIR, IMAGES_DIR
+
 
 class PayAsYouTalkView(View):
     """View for the main Pay As You Talk window"""
@@ -33,10 +34,10 @@ class PayAsYouTalkView(View):
     payt_image = join(IMAGES_DIR,  "topup-banner.png")
     creditcard_image = join(IMAGES_DIR,  "credit_card_green.png")
     voucher_image = join(IMAGES_DIR,  "voucher.png")
-    
-    def __init__(self, ctrl):
-        View.__init__(self, ctrl, self.GLADE_FILE,
-                      'payt_window', register=False)
+
+    def __init__(self, ctrl, parent_view):
+        super(PayAsYouTalkView, self).__init__(ctrl, self.GLADE_FILE,
+                'payt_window', parent_view, register=False)
         self.setup_view()
         ctrl.register_view(self)
 
@@ -47,40 +48,35 @@ class PayAsYouTalkView(View):
         self['credit_card_image'].set_from_file(self.creditcard_image)
         self['voucher_image'].set_from_file(self.voucher_image)
 
-    def set_msisdn_value(self,  MSISDNvalue):
-         self['msisdn_view'].set_text(MSISDNvalue)
-         
-    def set_credit_view(self,  credit_value):
-        # I set the credit view, this message comes from the core network via ussd
-        # hence we can't trust those nasty core network programers to give us a good
-        # text string to display! Make sure we check the string for illegal chars before we
-        # display to Mr Joe Public!!!
-        clean_message = ''.join(s for s in credit_value if s in string.printable)
-        # we also want to display local currency for now we just do UK, so it's simple dude! :-)
-        self['credit_view'].set_text(clean_message.replace('#',' £'))
-    
-    def set_credit_date(self,  credit_date_value):
-         self['date_view'].set_text(credit_date_value)
+    def set_msisdn_value(self, MSISDNvalue):
+        self['msisdn_view'].set_text(MSISDNvalue)
 
+    def enable_credit_button(self, sensitive):
+        self['credit_button1'].set_sensitive(sensitive)
+
+    def set_credit_view(self, credit_value):
+        self['credit_view'].set_text(credit_value)
+
+    def set_credit_date(self, credit_date_value):
+        self['date_view'].set_text(credit_date_value)
 
     def set_waiting_credit_view(self):
-         self['date_view'].set_text("Fetching ......")
-         self['credit_view'].set_text("Fetching current credit from network.....")
-         
+        self['date_view'].set_text("Fetching ......")
+        self['credit_view'].set_text("Fetching current credit from network.....")
+
+    def enable_send_button(self, sensitive):
+        self['button2'].set_sensitive(sensitive)
 
     def set_voucher_entry_view(self,  voucher_value):
-         
-         #ok if the view has been asked to reset with a null string, make sure we reset any previous messages too.
-         if voucher_value=='':
-              self['voucher_code'].set_text('')
-              self['voucher_response_message'].set_text('')
-              logger.info("payt-view set_voucher_entry_view (value-null) - USSD Message: " + voucher_value)
-         else:
-              # we need to format to £ and clean the message, it's from the core network so we can't trust those
-              # nasty wee core network developers! :-(
-              clean_message = ''.join(s for s in voucher_value if s in string.printable)
-              self['voucher_response_message'].set_text(clean_message.replace('#',' £'))
-              logger.info("payt-view set_voucher_entry_view - USSD Message: " + clean_message)
-         
-         
 
+        #ok if the view has been asked to reset with a null string, make sure we reset any previous messages too.
+        if voucher_value=='':
+            self['voucher_code'].set_text('')
+            self['voucher_response_message'].set_text('')
+            logger.info("payt-view set_voucher_entry_view (value-null) - USSD Message: " + voucher_value)
+        else:
+            # we need to format to £ and clean the message, it's from the core network so we can't trust those
+            # nasty wee core network developers! :-(
+            clean_message = ''.join(s for s in voucher_value if s in string.printable)
+            self['voucher_response_message'].set_text(clean_message.replace('#',' £'))
+            logger.info("payt-view set_voucher_entry_view - USSD Message: " + clean_message)

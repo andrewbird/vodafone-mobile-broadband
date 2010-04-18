@@ -263,6 +263,7 @@
                 <child>
                   <widget class="GtkToolButton" id="topup_tool_button">
                     <property name="visible">True</property>
+                    <property name="sensitive">False</property>
                     <property name="label">Topup</property>
                     <property name="use_underline">True</property>
                     <property name="icon">topup3.png</property>

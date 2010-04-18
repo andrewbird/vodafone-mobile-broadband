@@ -179,9 +179,7 @@
                 <child>
                   <widget class="GtkLabel" id="credit_view">
                     <property name="visible">True</property>
-                    <property name="label" translatable="yes">Data allowance remaining:       unknown
-Data expires:                             unknown
-Data allowance:                         unknown</property>
+                    <property name="label" translatable="yes">Default value</property>
                     <property name="use_markup">True</property>
                   </widget>
                   <packing>
@@ -213,6 +211,7 @@ Data allowance:                         unknown</property>
                 <child>
                   <widget class="GtkButton" id="credit_button1">
                     <property name="label" translatable="yes">Check Credit</property>
+                    <property name="sensitive">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -329,6 +328,7 @@ Data allowance:                         unknown</property>
                 <child>
                   <widget class="GtkButton" id="button2">
                     <property name="label" translatable="yes">Send</property>
+                    <property name="sensitive">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>

@@ -18,23 +18,23 @@
 """
 Controllers for Pay As You Talk
 """
-#from gtkmvc import Controller
-import datetime
+import re
+from datetime import datetime
+from time import time
+
 from wader.bcm.contrib.gtkmvc import Controller
-
-from wader.common.consts import CRD_INTFACE, MDM_INTFACE
-from wader.common.provider import NetworkProvider
-from wader.common.oal import get_os_object
-
 from wader.bcm.logger import logger
+from wader.bcm.network_codes import get_payt_credit_check_info
+from wader.bcm.translate import _
+
+from wader.common.oal import get_os_object
 
 
 class PayAsYouTalkController(Controller):
     """Controller for the pay as you talk window"""
 
-    def __init__(self, model, parent_ctrl):
-        super(PayAsYouTalkController, self).__init__(model)
-        self.parent_ctrl = parent_ctrl
+    def __init__(self, model):
+        super(PayAsYouTalkController, self).__init__(model, spurious=True)
 
         self.tz = None
         try:
@@ -52,106 +52,129 @@ class PayAsYouTalkController(Controller):
 
         self.set_device_info()
 
-        #self.view.set_appVersion_info(self.model.get_app_version())
-        #self.view['uptime_number_label'].set_text(self.model.get_uptime())
-        #self.view['os_name_label'].set_text(self.model.get_os_name())
-        #self.view['os_version_label'].set_text(self.model.get_os_version())
-
     def set_device_info(self):
+        self.model.get_msisdn(self.view.set_msisdn_value)
+
+        self.get_cached_sim_credit()
+
+        # Set initial button state
+        if self.model.status in [_("Registered"), _("Roaming")]:
+            self.view.enable_credit_button(True)
+            self.view.enable_send_button(True)
+
+    def _get_current_sim_credit_by_ussd(self, ussd, cb):
+
+        mccmnc, request, regex, format = ussd
 
         device = self.model.get_device()
-
-        ussd_check_account = "*#135#"
-        ussd_send_voucher = "*#999#"
-        ussd_check_credit = "*#134#"
-
         if not device:
             return
 
-        def sim_imei(sim_data):
-            # ok we don't have a model the data is coming from dbus
-            # from wader core lets tell the view to set the imsi value
-            # in the correct place
-            logger.info("payt-controller sim_imei - IMEI number is: "
-                        + sim_data)
-            # FIXME - Removed not needed at the minute.
-            #self.view.set_imei_info(sim_data)
+        def get_credit_cb(response):
+            match = re.search(regex, response)
+            if match:
+                credit = format % match.group('value')
+                cb(credit)
+            else:
+                logger.info("PAYT SIM credit '%s' didn't match USSD regex"
+                            % response)
+                cb(None)
 
-        device.GetImei(dbus_interface=CRD_INTFACE,
-                       error_handler=logger.error, reply_handler=sim_imei)
+        def get_credit_eb(error):
+            logger.error("PAYT SIM error fetching via USSD: %s" % error)
+            cb(None)
 
-        def sim_msisdn(msisdn_data):
-            # same as above, no model so lets get the msisdn value from the
-            # network using ussd messages
-            logger.info("payt-controller sim_msisdn - MSISDN number is: "
-                        + msisdn_data)
-            self.view.set_msisdn_value(msisdn_data)
+        device.Initiate(request,
+                        reply_handler=get_credit_cb,
+                        error_handler=get_credit_eb)
 
-        self.model.get_msisdn(sim_msisdn)
+    def get_current_sim_credit(self):
+        # my job is to obtain the current credit value. I take care of setting
+        # both value and time as a credit amount is only valid at the time you
+        # check. I store the values in Gconf and set a flag indicating whether
+        # this SIM is prepay capable
 
-        def sim_credit(sim_credit):
-            # same as above, no model so lets get the sim credit value from
-            # the network using ussd messages
-            logger.info("payt-controller sim_credit - SIM Credit is: "
-                        + sim_credit)
-            self.view.set_credit_view(sim_credit)
-            credit_time = datetime.datetime.now(self.tz)
-            logger.info("payt-controller sim_credit - Date of querry is: "
-                        + credit_time.strftime("%c"))
-            self.view.set_credit_date(credit_time.strftime("%c"))
+        def imsi_cb(imsi):
 
-        device.Initiate(ussd_check_account,
-                        reply_handler=sim_credit,
-                        error_handler=logger.error)
+            if not imsi:
+                return
 
-        def sim_network(sim_data):
-            # let's look up what we think this SIM's network is.
-            # so we want to display the country and network operator
+            payt_available = self.model.conf.get("sim/%s" % imsi,
+                                                 'payt_available', None)
 
-            sim_network = NetworkProvider()
-            networks_attributes = sim_network.get_network_by_id(sim_data)
-            if networks_attributes:
-                net_attrib = networks_attributes[0]
-                logger.info("payt-controller sim_network - country: "
-                            + net_attrib.country)
-                logger.info("payt-controller sim_network - network operator: "
-                            + net_attrib.name)
-                logger.info("payt-controller sim_network - smsc value: "
-                            + net_attrib.smsc)
-                logger.info("payt-controller sim_network - password value: "
-                            + net_attrib.password)
+            if payt_available == False: # Not a PAYT SIM
+                return
 
-        self.model.get_imsi(sim_network)
+            self.model.payt_credit_busy = True
 
-        def sim_imsi(sim_data):
-            # ok we don't have a model the data is coming from dbus from the
-            # core lets tell the view to set the imei in the correct place
-            logger.info("payt-controller sim_imsi - IMSI number is: %s"
-                        % sim_data)
+            def ussd_cb(credit):
+                if credit:
+                    utc = time()
+                    now = datetime.fromtimestamp(utc, self.tz)
+                    logger.info("PAYT SIM credit: %s on %s" %
+                                    (credit, now.strftime("%c")))
 
-        self.model.get_imsi(sim_imsi)
+                    self.model.payt_credit_balance = credit
+                    self.model.conf.set("sim/%s" % imsi,
+                                        'payt_credit_balance', credit)
+
+                    self.model.payt_credit_date = now
+                    self.model.conf.set("sim/%s" % imsi,
+                                        'payt_credit_date', utc)
+                else:
+                    self.model.payt_credit_balance = _("Not available")
+                    self.model.payt_credit_date = None
+
+                # Record SIM as PAYT or not
+                if not isinstance(payt_available, bool):
+                    self.model.payt_available = (credit is not None)
+                    self.model.conf.set("sim/%s" % imsi,
+                                        'payt_available',
+                                        self.model.payt_available)
+
+                self.model.payt_credit_busy = False
+
+            ussd = get_payt_credit_check_info(imsi)
+            if ussd:
+                self._get_current_sim_credit_by_ussd(ussd, ussd_cb)
+            # elif have payt SMS credit check info:
+            #    self._get_current_sim_credit_by_sms()
+
+        self.model.get_imsi(imsi_cb)
+
+    def get_cached_sim_credit(self):
+
+        def imsi_cb(imsi):
+
+            if not imsi:
+                return
+
+            available = self.model.conf.get("sim/%s" % imsi,
+                                             'payt_available')
+            if available:
+                credit = self.model.conf.get("sim/%s" % imsi,
+                                             'payt_credit_balance')
+                utc = self.model.conf.get("sim/%s" % imsi,
+                                             'payt_credit_date')
+                if credit and utc:
+                    now = datetime.fromtimestamp(utc, self.tz)
+                    logger.info("PAYT SIM credit from gconf: %s - %s" %
+                                    (credit, now.strftime("%c")))
+
+                    self.model.payt_credit_balance = credit
+                    self.model.payt_credit_date = now
+                    return
+
+            self.model.payt_credit_balance = _("Not available")
+            self.model.payt_credit_date = None
+
+        self.model.get_imsi(imsi_cb)
 
     # ------------------------------------------------------------ #
-    #                Common Functions                #
+    #                        Common Functions                      #
     # ------------------------------------------------------------ #
-
-    def reset_credit_and_date(self, ussd_reply):
-        # a call back must have called us, my job is to reset the credit date
-        # and value. I take care of reseting both as a credit amount is only
-        # valid at the time you check, so make sure when you update the credit
-        # you also update the time you did the check. ok lets reset the date
-        # and credit of the view
-
-        logger.info("payt-controller set_credit_and_date - USSD reply is: "
-                    + ussd_reply)
-        self.view.set_credit_view(ussd_reply)
-        credit_time = datetime.datetime.now(self.tz)
-        logger.info("payt-controller reset_credit_and_date - Date of querry"
-                    " is: " + credit_time.strftime("%c"))
-        self.view.set_credit_date(credit_time.strftime("%c"))
 
     def check_voucher_update_response(self, ussd_voucher_update_response):
-        device = self.model.get_device()
         # ok my job is to work out what happened after a credit voucher update
         # message was sent. we can have three possibilities, it was successful,
         # the voucher code was wrong, or you tried with an illegal number too
@@ -169,11 +192,8 @@ class PayAsYouTalkController(Controller):
             # fire off another ussd to cause a credit request to happen
             logger.info("payt-controler check_voucher_update_response - topup"
                         " was successful: " + ussd_voucher_update_response)
-            self.view.set_waiting_credit_view()
             # let's now do a credit check via USSD
-            device.Initiate(ussd_message,
-                            reply_handler=self.reset_credit_and_date,
-                            error_handler=logger.error)
+            self.get_current_sim_credit()
 
         # ok no matter what we have, we need to update our view to show good or
         # bad!
@@ -182,26 +202,49 @@ class PayAsYouTalkController(Controller):
         self.view.set_voucher_entry_view(ussd_voucher_update_response)
 
     # ------------------------------------------------------------ #
-    #                       Signals Handling             #
+    #                       Properties Changed                     #
+    # ------------------------------------------------------------ #
+
+    def property_payt_credit_balance_value_change(self, model, old, new):
+        self.view.set_credit_view(new)
+
+    def property_payt_credit_date_value_change(self, model, old, new):
+        if new is None:
+            self.view.set_credit_date(_("Unknown"))
+        else:
+            now = new.strftime("%c")
+            self.view.set_credit_date(now)
+
+    def property_payt_credit_busy_value_change(self, model, old, new):
+        if new:
+            # ok we need to tell the view to wipe current data and prepare for
+            # the new! So let's remove our current credit and date first.
+            self.view.set_waiting_credit_view()
+        #    Could start a local throbber here
+        #else:
+        #    stop throbber image
+
+        # disable buttons whilst busy
+        self.view.enable_credit_button(not new)
+        self.view.enable_send_button(not new)
+
+    def property_status_value_change(self, model, old, new):
+        if new in [_("Registered"), _("Roaming")]:
+            self.view.enable_credit_button(True)
+            self.view.enable_send_button(True)
+
+    # ------------------------------------------------------------ #
+    #                       Signals Handling                       #
     # ------------------------------------------------------------ #
 
     def on_close_button_clicked(self, widget):
         self._hide_myself()
 
     def on_credit_button_clicked(self, widget):
-        device = self.model.get_device()
-        ussd_message = "*#135#"
-        logger.info("payt-controller on_credit_button_clicked- USSD Message"
-                    " is:" + ussd_message)
-
-        # ok we need to tell the view to wipe current data and prepare for the
-        # new! So let's remove our current credit and date first.
-        self.view.set_waiting_credit_view()
+        logger.info("payt-controller on_credit_button_clicked")
 
         # let's now do a credit check via USSD
-        device.Initiate(ussd_message,
-                        reply_handler=self.reset_credit_and_date,
-                        error_handler=logger.error)
+        self.get_current_sim_credit()
 
     def on_send_voucher_button_clicked(self, widget):
         device = self.model.get_device()

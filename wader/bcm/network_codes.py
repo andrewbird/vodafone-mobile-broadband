@@ -19,19 +19,35 @@
 # Using list instead of dict because I want to preserve the order
 # as some len(mcc+mnc) != 5
 MSISDN_USSD = [
+    # mccmnc, msisdn request, extract number regex
     ('20404', '*#100#', '(?P<number>\+?\d+)'), # VF-NL
     ('23415', '*#100#', '(?P<number>\+?\d+)'), # VF-UK
     ('28000', '#109#', '(?P<number>\+?\d+)'),  # Cytamobile
 ]
 
-def get_msisdn_ussd_info(imsi):
-    for net in MSISDN_USSD:
+PAYT_CREDIT_CHECK_USSD = [
+    # mccmnc, balance request, extract value regex, display currency format
+    ('20404', '*101#', '.*?(?P<value>\d+\.\d\d).*?', '€%s'),    # VF-NL
+    ('23415', '*#135#', '.*?(?P<value>\d+\.\d\d).*?', '£%s'),   # VF-UK
+    ('28000', '*110#', '.*?(?P<value>\d+\.\d\d).*?', '€%s'),    # Cytamobile
+    ('65501', '*111*500#', '.*?(?P<value>\d+\.\d\d).*?', 'R%s'),# Vodacom SA
+    ('73001', '*#1345#', '.*?(?P<value>\d+\.?\d\d).*?', '$%s'), # Chile
+]
+
+
+def get_ussd_info(imsi, info):
+    for net in info:
         if imsi.startswith(net[0]):
             return net
     return None
 
-#Holland,
-#UK
-#Cyprus,
-#SA,
-#Chille
+
+def get_msisdn_ussd_info(imsi):
+    return get_ussd_info(imsi, MSISDN_USSD)
+
+
+def get_payt_credit_check_info(imsi):
+    return get_ussd_info(imsi, PAYT_CREDIT_CHECK_USSD)
+
+
+

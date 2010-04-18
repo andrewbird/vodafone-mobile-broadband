@@ -92,12 +92,14 @@ class MainModel(Model):
         'total_month': 0,
         'sim_msisdn': 'unknown',
         'sim_type': 'contract',
-        'credit_check': False,
-        'credit_date_check': 'unknown',
-        'credit_amount': 'unknown',
         'rx_rate': 0,
         'tx_rate': 0,
         'transfer_limit_exceeded': False,
+        # payt properties
+        'payt_available': None,
+        'payt_credit_balance': _('Not available'),
+        'payt_credit_date': None,
+        'payt_credit_busy': False,
     }
 
     def __init__(self):

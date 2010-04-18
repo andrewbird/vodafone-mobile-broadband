@@ -313,6 +313,8 @@ class MainController(WidgetController):
             while self.signal_matches:
                 sm = self.signal_matches.pop()
                 sm.remove()
+            self.view['connect_button'].set_sensitive(False)
+            self.view['topup_tool_button'].set_sensitive(False)
 
     def property_profile_value_change(self, model, old, new):
         logger.info("A profile has been set for current model %s" % new)
@@ -443,11 +445,10 @@ class MainController(WidgetController):
             self.view['support_tool_button'].set_active(True)
 
     def on_topup_button_clicked(self, widget):
-          logger.info("BCM Main: Topup button clicked")
-          ctrl = PayAsYouTalkController(self.model, self)
-          view = PayAsYouTalkView(ctrl)
-          view.set_parent_view(self.view)
-          view.show()
+        logger.info("BCM Main: Topup button clicked")
+        ctrl = PayAsYouTalkController(self.model)
+        view = PayAsYouTalkView(ctrl, self.view)
+        view.show()
 
     def on_mail_button_clicked(self, widget):
         if self._check_if_connected():
@@ -495,6 +496,7 @@ class MainController(WidgetController):
         self.model.pin_is_enabled(self.on_is_pin_enabled_cb,
                                   lambda *args: True)
 #        self.view['preferences_menu_item'].set_sensitive(True)
+        self.view['topup_tool_button'].set_sensitive(True)
 
     def _on_connect_cb(self, dev_path):
         self.model.connected = True
