@@ -225,23 +225,38 @@ class MainModel(Model):
                             reply_handler=get_imsi_cb,
                             error_handler=get_imsi_eb)
 
+    def get_sim_conf(self, item, default=None):
+        if self.imsi is None:
+            def imsi_cb(imsi):
+                logger.info("get_sim_conf - fetched IMSI %s" % imsi)
+
+            self.get_imsi(imsi_cb)
+
+        return self.conf.get("sim/%s" % self.imsi, item, default)
+
+    def set_sim_conf(self, item, value):
+        if self.imsi is None:
+            def imsi_cb(imsi):
+                logger.info("set_sim_conf - fetched IMSI %s" % imsi)
+
+            self.get_imsi(imsi_cb)
+        self.conf.set("sim/%s" % self.imsi, item, value)
+
     def _get_msisdn_by_ussd(self, ussd, cb):
 
         mccmnc, request, regex = ussd
 
         def get_msisdn_cb(response):
-
-            msisdn = re.search(regex, response).group('number')
-            if msisdn:
+            match = re.search(regex, response)
+            if match:
+                msisdn = match.group('number')
                 self.msisdn = msisdn
-                logger.info("MSISDN from network %s: " % msisdn)
-                if self.imsi:
-                    self.conf.set("sim/%s" % self.imsi, 'msisdn', self.msisdn)
+                logger.info("MSISDN from network: %s" % msisdn)
+                self.set_sim_conf('msisdn', self.msisdn)
                 cb(self.msisdn)
             else:
-                logger.info("MSISDN from network %s didn't match regex" % msisdn)
+                logger.info("MSISDN from network: '%s' didn't match regex" % response)
                 cb(None)
-
 
         def get_msisdn_eb(failure):
             msg = "MSISDN Error fetching via USSD"

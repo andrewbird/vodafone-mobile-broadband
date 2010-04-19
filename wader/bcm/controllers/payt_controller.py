@@ -95,85 +95,63 @@ class PayAsYouTalkController(Controller):
         # check. I store the values in Gconf and set a flag indicating whether
         # this SIM is prepay capable
 
-        def imsi_cb(imsi):
+        payt_available = self.model.get_sim_conf('payt_available', None)
+        if payt_available == False: # Not a PAYT SIM
+            show_warning_dialog(_("PAYT credit check"),
+                                _("SIM is not on a PAYT plan"))
+            return
 
-            if not imsi:
-                return
+        def credit_cb(credit):
+            if credit:
+                utc = time()
+                now = datetime.fromtimestamp(utc, self.tz)
+                logger.info("PAYT SIM credit: %s on %s" %
+                                (credit, now.strftime("%c")))
 
-            payt_available = self.model.conf.get("sim/%s" % imsi,
-                                                 'payt_available', None)
+                self.model.payt_credit_balance = credit
+                self.model.set_sim_conf('payt_credit_balance', credit)
 
-            if payt_available == False: # Not a PAYT SIM
-                show_warning_dialog(_("PAYT credit check"),
-                                    _("SIM is not on a PAYT plan"))
-                return
+                self.model.payt_credit_date = now
+                self.model.set_sim_conf('payt_credit_date', utc)
+            else:
+                self.model.payt_credit_balance = _("Not available")
+                self.model.payt_credit_date = None
 
-            def ussd_cb(credit):
-                if credit:
-                    utc = time()
-                    now = datetime.fromtimestamp(utc, self.tz)
-                    logger.info("PAYT SIM credit: %s on %s" %
-                                    (credit, now.strftime("%c")))
-
-                    self.model.payt_credit_balance = credit
-                    self.model.conf.set("sim/%s" % imsi,
-                                        'payt_credit_balance', credit)
-
-                    self.model.payt_credit_date = now
-                    self.model.conf.set("sim/%s" % imsi,
-                                        'payt_credit_date', utc)
-                else:
-                    self.model.payt_credit_balance = _("Not available")
-                    self.model.payt_credit_date = None
-
-                # Record SIM as PAYT or not
-                if not isinstance(payt_available, bool):
-                    self.model.payt_available = (credit is not None)
-                    self.model.conf.set("sim/%s" % imsi,
-                                        'payt_available',
+            # Record SIM as PAYT or not
+            if not isinstance(payt_available, bool):
+                self.model.payt_available = (credit is not None)
+                self.model.set_sim_conf('payt_available',
                                         self.model.payt_available)
 
-                self.model.payt_credit_busy = False
+            self.model.payt_credit_busy = False
 
-            ussd = get_payt_credit_check_info(imsi)
-            if ussd:
-                self.model.payt_credit_busy = True
-                self._get_current_sim_credit_by_ussd(ussd, ussd_cb)
-            # elif have payt SMS credit check info:
-            #    self._get_current_sim_credit_by_sms()
-            else:
-                show_warning_dialog(_("PAYT credit check"),
-                                    _("No PAYT credit check method available"))
-
-        self.model.get_imsi(imsi_cb)
+        ussd = get_payt_credit_check_info(self.model.imsi)
+        if ussd:
+            self.model.payt_credit_busy = True
+            self._get_current_sim_credit_by_ussd(ussd, credit_cb)
+        # elif have payt SMS credit check info:
+        #    self._get_current_sim_credit_by_sms()
+        else:
+            show_warning_dialog(_("PAYT credit check"),
+                                _("No PAYT credit check method available"))
 
     def get_cached_sim_credit(self):
 
-        def imsi_cb(imsi):
+        if self.model.get_sim_conf('payt_available'):
+            credit = self.model.get_sim_conf('payt_credit_balance')
+            utc = self.model.get_sim_conf('payt_credit_date')
 
-            if not imsi:
+            if credit and utc:
+                now = datetime.fromtimestamp(utc, self.tz)
+                logger.info("PAYT SIM credit from gconf: %s - %s" %
+                                (credit, now.strftime("%c")))
+
+                self.model.payt_credit_balance = credit
+                self.model.payt_credit_date = now
                 return
 
-            available = self.model.conf.get("sim/%s" % imsi,
-                                             'payt_available')
-            if available:
-                credit = self.model.conf.get("sim/%s" % imsi,
-                                             'payt_credit_balance')
-                utc = self.model.conf.get("sim/%s" % imsi,
-                                             'payt_credit_date')
-                if credit and utc:
-                    now = datetime.fromtimestamp(utc, self.tz)
-                    logger.info("PAYT SIM credit from gconf: %s - %s" %
-                                    (credit, now.strftime("%c")))
-
-                    self.model.payt_credit_balance = credit
-                    self.model.payt_credit_date = now
-                    return
-
-            self.model.payt_credit_balance = _("Not available")
-            self.model.payt_credit_date = None
-
-        self.model.get_imsi(imsi_cb)
+        self.model.payt_credit_balance = _("Not available")
+        self.model.payt_credit_date = None
 
     # ------------------------------------------------------------ #
     #                        Common Functions                      #
