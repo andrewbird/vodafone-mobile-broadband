@@ -34,6 +34,15 @@ PAYT_CREDIT_CHECK_USSD = [
     ('73001', '*#1345#', '.*?(?P<value>\d+\.?\d\d).*?', '$%s'), # Chile
 ]
 
+PAYT_SUBMIT_VOUCHER_USSD = [
+    # mccmnc, submit request, success regex
+    ('20404', '*#1345*%s#', '.*?(?P<success>geslaagd).*?'),         # VF-NL(guessed)
+    ('23415', '*#1345*%s#', '.*?(?P<success>TopUp successful).*?'), # VF-UK
+    ('28000', '*116*%s#', '.*?(?P<success>επιτυχής).*?'),           # Cytamobile(guessed)
+    ('65501', '*111*501#%s#', '.*?(?P<success>suksesvolle).*?'),    # Vodacom SA(guessed)
+    ('73001', '*#1345*%s#', '.*?(?P<success>exitoso).*?'),          # Chile(guessed)
+]
+
 
 def get_ussd_info(imsi, info):
     for net in info:
@@ -50,4 +59,5 @@ def get_payt_credit_check_info(imsi):
     return get_ussd_info(imsi, PAYT_CREDIT_CHECK_USSD)
 
 
-
+def get_payt_submit_voucher_info(imsi):
+    return get_ussd_info(imsi, PAYT_SUBMIT_VOUCHER_USSD)

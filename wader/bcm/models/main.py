@@ -99,6 +99,7 @@ class MainModel(Model):
         'payt_credit_balance': _('Not available'),
         'payt_credit_date': None,
         'payt_credit_busy': False,
+        'payt_submit_busy': False,
     }
 
     def __init__(self):

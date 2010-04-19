@@ -25,7 +25,8 @@ from time import time
 from wader.bcm.contrib.gtkmvc import Controller
 from wader.bcm.dialogs import show_warning_dialog
 from wader.bcm.logger import logger
-from wader.bcm.network_codes import get_payt_credit_check_info
+from wader.bcm.network_codes import (get_payt_credit_check_info,
+                                     get_payt_submit_voucher_info)
 from wader.bcm.translate import _
 
 from wader.common.oal import get_os_object
@@ -61,6 +62,72 @@ class PayAsYouTalkController(Controller):
         if self.model.status in [_("Registered"), _("Roaming")]:
             self.view.enable_credit_button(True)
             self.view.enable_send_button(True)
+
+    def _submit_voucher_by_ussd(self, ussd, voucher, cb):
+
+        mccmnc, format, regex = ussd
+
+        device = self.model.get_device()
+        if not device:
+            return
+
+        # make sure we construct the string to enable PAYT Topup vouchers to be
+        # used e.g. *#1345*<voucher number>#
+        request = format % voucher
+
+        def ussd_cb(response):
+            match = re.search(regex, response)
+            if match:
+#                success = match.group('success')
+                logger.info("PAYT SIM submit voucher via USSD success")
+                cb(True)
+            else:
+                logger.info("PAYT SIM submit voucher didn't match USSD regex:"
+                            " '%s'" % response)
+                cb(None)
+
+        def ussd_eb(error):
+            logger.error("PAYT SIM error submitting voucher via USSD: %s"
+                         % error)
+            cb(None)
+
+        device.Initiate(request,
+                        reply_handler=ussd_cb,
+                        error_handler=ussd_eb)
+
+    def submit_voucher(self, _voucher):
+
+        voucher = _voucher.strip()
+
+        payt_available = self.model.get_sim_conf('payt_available', None)
+        if payt_available == False: # Not a PAYT SIM
+            show_warning_dialog(_("PAYT submit voucher"),
+                                _("SIM is not on a PAYT plan"))
+            return
+
+        def submit_cb(success):
+            if success:
+                logger.info("PAYT SIM submit voucher success")
+                # ok we established his voucher code is good, let's cause the
+                # system to update the UI with his new credit. To do that we
+                # need to fire off another request
+                self.get_current_sim_credit()
+            else:
+                logger.error("PAYT SIM submit voucher success")
+                show_warning_dialog(_("PAYT submit voucher"),
+                                    _("PAYT submit voucher failed"))
+
+            self.model.payt_submit_busy = False
+
+        ussd = get_payt_submit_voucher_info(self.model.imsi)
+        if ussd:
+            self.model.payt_submit_busy = True
+            self._submit_voucher_by_ussd(ussd, voucher, submit_cb)
+        # elif have payt SMS submit voucher info:
+        #    self._submit_voucher_by_sms()
+        else:
+            show_warning_dialog(_("PAYT submit voucher"),
+                                _("No PAYT submit voucher method available"))
 
     def _get_current_sim_credit_by_ussd(self, ussd, cb):
 
@@ -153,37 +220,6 @@ class PayAsYouTalkController(Controller):
         self.model.payt_credit_date = None
 
     # ------------------------------------------------------------ #
-    #                        Common Functions                      #
-    # ------------------------------------------------------------ #
-
-    def check_voucher_update_response(self, ussd_voucher_update_response):
-        # ok my job is to work out what happened after a credit voucher update
-        # message was sent. we can have three possibilities, it was successful,
-        # the voucher code was wrong, or you tried with an illegal number too
-        # many times. For now I only do something when it works, the other two
-        # possibilities I just report the error provided by the network.
-
-        if (ussd_voucher_update_response.find('TopUp successful') == -1):
-            # ok we got a -1 from our 'find' so it failed just log for now as
-            # we report the message to the view no matter what happens.
-            logger.info("payt-controler check_voucher_update_response - topup"
-                        " failed: " + ussd_voucher_update_response)
-        else:
-            # ok we established his voucher code is good - let's cause the
-            # system to update the UI with his new credit to do that we need to
-            # fire off another ussd to cause a credit request to happen
-            logger.info("payt-controler check_voucher_update_response - topup"
-                        " was successful: " + ussd_voucher_update_response)
-            # let's now do a credit check via USSD
-            self.get_current_sim_credit()
-
-        # ok no matter what we have, we need to update our view to show good or
-        # bad!
-        logger.info("payt-controoler check_voucher_update_response - topup"
-                    " follows normal path: " + ussd_voucher_update_response)
-        self.view.set_voucher_entry_view(ussd_voucher_update_response)
-
-    # ------------------------------------------------------------ #
     #                       Properties Changed                     #
     # ------------------------------------------------------------ #
 
@@ -206,6 +242,11 @@ class PayAsYouTalkController(Controller):
         self.view.enable_credit_button(not new)
         self.view.enable_send_button(not new)
 
+    def property_payt_submit_busy_value_change(self, model, old, new):
+        # disable buttons whilst busy
+        self.view.enable_credit_button(not new)
+        self.view.enable_send_button(not new)
+
     def property_msisdn_value_change(self, model, old, new):
         self.view.set_msisdn_value(new)
 
@@ -222,31 +263,14 @@ class PayAsYouTalkController(Controller):
         self._hide_myself()
 
     def on_credit_button_clicked(self, widget):
-        logger.info("payt-controller on_credit_button_clicked")
-
-        # let's now do a credit check via USSD
         self.get_current_sim_credit()
 
     def on_send_voucher_button_clicked(self, widget):
-        device = self.model.get_device()
-
         # ok when the send voucher button is clicked grab the value from the
         # view entry box and send to the network.
-
-        ussd_voucher_init = "*#1345*"
-        ussd_voucher_end = "#"
         voucher_code = self.view['voucher_code'].get_text().strip()
+        self.submit_voucher(voucher_code)
         self.view.set_voucher_entry_view('')
-        # make sure we construct the string to enable PAYT Topup vouchers to be
-        # used e.g. *#1345*<voucher number>#
-        ussd_voucher_message = (ussd_voucher_init + voucher_code
-                                + ussd_voucher_end)
-        logger.info("payt-controller on_send_voucher_button_clicked - USSD"
-                    " Message: " + ussd_voucher_message)
-
-        device.Initiate(ussd_voucher_message,
-                        reply_handler=self.check_voucher_update_response,
-                        error_handler=logger.error)
 
     def _hide_myself(self):
         self.model.unregister_observer(self)
