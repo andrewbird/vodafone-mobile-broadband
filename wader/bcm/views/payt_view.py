@@ -24,6 +24,7 @@ import string
 from wader.bcm.contrib.gtkmvc import View
 from wader.bcm.logger import logger
 from wader.bcm.consts import GLADE_DIR, IMAGES_DIR
+from wader.bcm.translate import _
 
 
 class PayAsYouTalkView(View):
@@ -48,8 +49,11 @@ class PayAsYouTalkView(View):
         self['credit_card_image'].set_from_file(self.creditcard_image)
         self['voucher_image'].set_from_file(self.voucher_image)
 
-    def set_msisdn_value(self, MSISDNvalue):
-        self['msisdn_view'].set_text(MSISDNvalue)
+    def set_msisdn_value(self, value):
+        if value is None:
+            self['msisdn_view'].set_text(_("Unknown"))
+        else:
+            self['msisdn_view'].set_text(value)
 
     def enable_credit_button(self, sensitive):
         self['credit_button1'].set_sensitive(sensitive)
@@ -57,8 +61,12 @@ class PayAsYouTalkView(View):
     def set_credit_view(self, credit_value):
         self['credit_view'].set_text(credit_value)
 
-    def set_credit_date(self, credit_date_value):
-        self['date_view'].set_text(credit_date_value)
+    def set_credit_date(self, value):
+        if value is None:
+            self['date_view'].set_text(_("Unknown"))
+        else:
+            now = value.strftime("%c")
+            self['date_view'].set_text(now)
 
     def set_waiting_credit_view(self):
         self['date_view'].set_text("Fetching ......")

@@ -75,6 +75,7 @@ class MainModel(Model):
         'operator': _('Unknown'),
         'status': _('Not registered'),
         'tech': _('Unknown'),
+        'msisdn': _('Unknown'),
         'pin_required': False,
         'puk_required': False,
         'puk2_required': False,
@@ -343,11 +344,6 @@ class MainModel(Model):
         self.device.connect_to_signal(S.SIG_NETWORK_MODE,
                                       self._network_mode_changed_cb)
 
-        self.device.GetSignalQuality(dbus_interface=NET_INTFACE,
-                                     reply_handler=self._rssi_changed_cb,
-                                     error_handler=lambda m:
-                                        logger.warn("Cannot get RSSI %s" % m))
-
         self._start_network_registration()
         # delay the profile creation till the device is completely enabled
         self.profile_required = False
@@ -396,6 +392,13 @@ class MainModel(Model):
 
     def _network_register_cb(self, ignored=None):
         self._get_regstatus(first_time=True)
+        self.get_msisdn(lambda x: True)
+
+        self.device.GetSignalQuality(dbus_interface=NET_INTFACE,
+                                     reply_handler=self._rssi_changed_cb,
+                                     error_handler=lambda m:
+                                     logger.warn("Cannot get RSSI %s" % m))
+
         # once we are registered stop the throbber
         self.ctrl.view.stop_throbber()
 

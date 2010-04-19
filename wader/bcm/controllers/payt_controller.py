@@ -54,9 +54,8 @@ class PayAsYouTalkController(Controller):
         self.set_device_info()
 
     def set_device_info(self):
-        self.model.get_msisdn(self.view.set_msisdn_value)
-
         self.get_cached_sim_credit()
+        self.view.set_msisdn_value(self.model.msisdn)
 
         # Set initial button state
         if self.model.status in [_("Registered"), _("Roaming")]:
@@ -192,11 +191,7 @@ class PayAsYouTalkController(Controller):
         self.view.set_credit_view(new)
 
     def property_payt_credit_date_value_change(self, model, old, new):
-        if new is None:
-            self.view.set_credit_date(_("Unknown"))
-        else:
-            now = new.strftime("%c")
-            self.view.set_credit_date(now)
+        self.view.set_credit_date(new)
 
     def property_payt_credit_busy_value_change(self, model, old, new):
         if new:
@@ -210,6 +205,9 @@ class PayAsYouTalkController(Controller):
         # disable buttons whilst busy
         self.view.enable_credit_button(not new)
         self.view.enable_send_button(not new)
+
+    def property_msisdn_value_change(self, model, old, new):
+        self.view.set_msisdn_value(new)
 
     def property_status_value_change(self, model, old, new):
         if new in [_("Registered"), _("Roaming")]:
