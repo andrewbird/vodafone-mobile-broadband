@@ -315,6 +315,7 @@ class MainController(WidgetController):
                 sm.remove()
             self.view['connect_button'].set_sensitive(False)
             self.view['topup_tool_button'].set_sensitive(False)
+            logger.info("main-controller: property_device_value_change - device : " +  self.model.device)
 
     def property_profile_value_change(self, model, old, new):
         logger.info("A profile has been set for current model %s" % new)
