@@ -57,7 +57,7 @@ SMS_TEXT_TV_WIDTH = 220
 
 class MainView(View):
     """View for the main window"""
-    
+
     def __init__(self, ctrl):
 
         height = 420        # define the max height of the main window
@@ -362,6 +362,7 @@ class MainView(View):
     def set_initialising(self, enable):
         self['connect_button'].set_sensitive(not enable)
         self['preferences_menu_item'].set_sensitive(not enable)
+        self['topup_tool_button'].set_sensitive(not enable)
 
     def start_throbber(self):
         pass
