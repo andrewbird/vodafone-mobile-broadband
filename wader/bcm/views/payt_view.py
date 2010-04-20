@@ -56,7 +56,7 @@ class PayAsYouTalkView(View):
             self['msisdn_view'].set_text(value)
 
     def enable_credit_button(self, sensitive):
-        self['credit_button1'].set_sensitive(sensitive)
+        self['credit_button'].set_sensitive(sensitive)
 
     def set_credit_view(self, credit_value):
         self['credit_view'].set_text(credit_value)
