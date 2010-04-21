@@ -73,7 +73,7 @@ class PayAsYouTalkView(View):
         self['credit_view'].set_text("Fetching current credit from network.....")
 
     def enable_send_button(self, sensitive):
-        self['button2'].set_sensitive(sensitive)
+        self['voucher_button'].set_sensitive(sensitive)
 
     def set_voucher_entry_view(self,  voucher_value):
 

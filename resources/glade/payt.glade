@@ -3,7 +3,6 @@
   <!-- interface-requires gtk+ 2.16 -->
   <!-- interface-naming-policy project-wide -->
   <widget class="GtkWindow" id="payt_window">
-    <property name="border_width">5</property>
     <property name="title" translatable="yes">Topup Credit </property>
     <child>
       <widget class="GtkVBox" id="vbox1">
@@ -21,6 +20,7 @@
         <child>
           <widget class="GtkVBox" id="vbox2">
             <property name="visible">True</property>
+            <property name="border_width">5</property>
             <property name="orientation">vertical</property>
             <child>
               <widget class="GtkHBox" id="hbox2">
@@ -32,7 +32,6 @@
                   </widget>
                   <packing>
                     <property name="expand">False</property>
-                    <property name="padding">15</property>
                     <property name="position">0</property>
                   </packing>
                 </child>
@@ -44,6 +43,7 @@
                     <property name="use_markup">True</property>
                   </widget>
                   <packing>
+                    <property name="padding">20</property>
                     <property name="position">1</property>
                   </packing>
                 </child>
@@ -64,98 +64,47 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkExpander" id="expander1">
+              <widget class="GtkVBox" id="vbox3">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="border_width">10</property>
-                <property name="spacing">5</property>
+                <property name="orientation">vertical</property>
                 <child>
-                  <widget class="GtkVBox" id="vbox7">
+                  <widget class="GtkHBox" id="hbox6">
                     <property name="visible">True</property>
-                    <property name="orientation">vertical</property>
                     <child>
-                      <widget class="GtkHBox" id="hbox1">
+                      <widget class="GtkVBox" id="vbox6">
                         <property name="visible">True</property>
+                        <property name="orientation">vertical</property>
                         <child>
-                          <widget class="GtkVBox" id="vbox10">
+                          <widget class="GtkLabel" id="label1">
                             <property name="visible">True</property>
-                            <property name="orientation">vertical</property>
-                            <child>
-                              <widget class="GtkLabel" id="label12">
-                                <property name="visible">True</property>
-                                <property name="xalign">0</property>
-                                <property name="label" translatable="yes">&lt;b&gt;Number&lt;/b&gt;</property>
-                                <property name="use_markup">True</property>
-                              </widget>
-                              <packing>
-                                <property name="position">0</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <widget class="GtkLabel" id="label13">
-                                <property name="visible">True</property>
-                                <property name="xalign">0</property>
-                                <property name="label" translatable="yes">&lt;b&gt;Date&lt;/b&gt;</property>
-                                <property name="use_markup">True</property>
-                              </widget>
-                              <packing>
-                                <property name="position">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <widget class="GtkLabel" id="label14">
-                                <property name="visible">True</property>
-                                <property name="xalign">0</property>
-                                <property name="label" translatable="yes">&lt;b&gt;Credit&lt;/b&gt;</property>
-                                <property name="use_markup">True</property>
-                              </widget>
-                              <packing>
-                                <property name="position">2</property>
-                              </packing>
-                            </child>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;b&gt;Number&lt;/b&gt;</property>
+                            <property name="use_markup">True</property>
                           </widget>
                           <packing>
-                            <property name="padding">15</property>
                             <property name="position">0</property>
                           </packing>
                         </child>
                         <child>
-                          <widget class="GtkVBox" id="vbox11">
+                          <widget class="GtkLabel" id="label2">
                             <property name="visible">True</property>
-                            <property name="orientation">vertical</property>
-                            <child>
-                              <widget class="GtkLabel" id="msisdn_view">
-                                <property name="visible">True</property>
-                                <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Unknown</property>
-                              </widget>
-                              <packing>
-                                <property name="position">0</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <widget class="GtkLabel" id="credit_view">
-                                <property name="visible">True</property>
-                                <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Unknown</property>
-                              </widget>
-                              <packing>
-                                <property name="position">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <widget class="GtkLabel" id="date_view">
-                                <property name="visible">True</property>
-                                <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Unknown</property>
-                              </widget>
-                              <packing>
-                                <property name="position">2</property>
-                              </packing>
-                            </child>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;b&gt;Date&lt;/b&gt;</property>
+                            <property name="use_markup">True</property>
                           </widget>
                           <packing>
                             <property name="position">1</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkLabel" id="label3">
+                            <property name="visible">True</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;b&gt;Credit&lt;/b&gt;</property>
+                            <property name="use_markup">True</property>
+                          </widget>
+                          <packing>
+                            <property name="position">2</property>
                           </packing>
                         </child>
                       </widget>
@@ -164,63 +113,94 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkHBox" id="hbox3">
+                      <widget class="GtkVBox" id="vbox8">
                         <property name="visible">True</property>
+                        <property name="orientation">vertical</property>
                         <child>
-                          <widget class="GtkLabel" id="label19">
+                          <widget class="GtkLabel" id="msisdn_view">
                             <property name="visible">True</property>
-                            <property name="label" translatable="yes">Recheck my credit:</property>
-                            <property name="use_markup">True</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">Unknown</property>
                           </widget>
                           <packing>
-                            <property name="expand">False</property>
-                            <property name="padding">15</property>
                             <property name="position">0</property>
                           </packing>
                         </child>
                         <child>
-                          <widget class="GtkAlignment" id="alignment2">
+                          <widget class="GtkLabel" id="credit_view">
                             <property name="visible">True</property>
-                            <property name="left_padding">168</property>
-                            <child>
-                              <widget class="GtkButton" id="credit_button">
-                                <property name="label" translatable="yes">Check Credit</property>
-                                <property name="visible">True</property>
-                                <property name="sensitive">False</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <signal name="clicked" handler="on_credit_button_clicked"/>
-                              </widget>
-                            </child>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">Unknown</property>
                           </widget>
                           <packing>
-                            <property name="fill">False</property>
                             <property name="position">1</property>
                           </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkLabel" id="date_view">
+                            <property name="visible">True</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">Unknown</property>
+                          </widget>
+                          <packing>
+                            <property name="position">2</property>
+                          </packing>
+                        </child>
+                      </widget>
+                      <packing>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkHBox" id="hbox8">
+                    <property name="visible">True</property>
+                    <child>
+                      <widget class="GtkLabel" id="label5">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Recheck my credit:</property>
+                        <property name="use_markup">True</property>
+                      </widget>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="GtkAlignment" id="alignment1">
+                        <property name="visible">True</property>
+                        <property name="left_padding">55</property>
+                        <child>
+                          <widget class="GtkButton" id="credit_button">
+                            <property name="label" translatable="yes">Check Credit</property>
+                            <property name="visible">True</property>
+                            <property name="sensitive">False</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                          </widget>
                         </child>
                       </widget>
                       <packing>
                         <property name="expand">False</property>
                         <property name="fill">False</property>
-                        <property name="padding">5</property>
                         <property name="position">1</property>
                       </packing>
                     </child>
                   </widget>
-                </child>
-                <child>
-                  <widget class="GtkLabel" id="label9">
-                    <property name="visible">True</property>
-                    <property name="label" translatable="yes">&lt;b&gt;More&lt;/b&gt;</property>
-                    <property name="use_markup">True</property>
-                  </widget>
                   <packing>
-                    <property name="type">label_item</property>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
+                    <property name="padding">5</property>
+                    <property name="position">1</property>
                   </packing>
                 </child>
               </widget>
               <packing>
-                <property name="padding">5</property>
                 <property name="position">2</property>
               </packing>
             </child>
@@ -232,6 +212,7 @@
         <child>
           <widget class="GtkVBox" id="vbox4">
             <property name="visible">True</property>
+            <property name="border_width">5</property>
             <property name="orientation">vertical</property>
             <child>
               <widget class="GtkHBox" id="hbox5">
@@ -243,7 +224,6 @@
                   </widget>
                   <packing>
                     <property name="expand">False</property>
-                    <property name="padding">15</property>
                     <property name="position">0</property>
                   </packing>
                 </child>
@@ -255,6 +235,7 @@
                     <property name="use_markup">True</property>
                   </widget>
                   <packing>
+                    <property name="padding">10</property>
                     <property name="position">1</property>
                   </packing>
                 </child>
@@ -300,6 +281,19 @@
                     <property name="position">1</property>
                   </packing>
                 </child>
+                <child>
+                  <widget class="GtkButton" id="voucher_button">
+                    <property name="label" translatable="yes">send</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_send_voucher_button_clicked"/>
+                  </widget>
+                  <packing>
+                    <property name="padding">15</property>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
               </widget>
               <packing>
                 <property name="position">2</property>
@@ -314,31 +308,6 @@
                 <property name="position">3</property>
               </packing>
             </child>
-            <child>
-              <widget class="GtkHButtonBox" id="hbuttonbox1">
-                <property name="visible">True</property>
-                <property name="layout_style">end</property>
-                <child>
-                  <widget class="GtkButton" id="button2">
-                    <property name="label" translatable="yes">Send</property>
-                    <property name="visible">True</property>
-                    <property name="sensitive">False</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <signal name="clicked" handler="on_send_voucher_button_clicked"/>
-                  </widget>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-              </widget>
-              <packing>
-                <property name="padding">1</property>
-                <property name="position">4</property>
-              </packing>
-            </child>
           </widget>
           <packing>
             <property name="position">2</property>
@@ -347,6 +316,7 @@
         <child>
           <widget class="GtkVBox" id="vbox5">
             <property name="visible">True</property>
+            <property name="border_width">5</property>
             <property name="orientation">vertical</property>
             <child>
               <widget class="GtkHBox" id="hbox7">
@@ -358,7 +328,6 @@
                   </widget>
                   <packing>
                     <property name="expand">False</property>
-                    <property name="padding">15</property>
                     <property name="position">0</property>
                   </packing>
                 </child>
@@ -370,6 +339,7 @@
                     <property name="use_markup">True</property>
                   </widget>
                   <packing>
+                    <property name="padding">10</property>
                     <property name="position">1</property>
                   </packing>
                 </child>
@@ -443,6 +413,7 @@
                 </child>
               </widget>
               <packing>
+                <property name="padding">20</property>
                 <property name="position">0</property>
               </packing>
             </child>
