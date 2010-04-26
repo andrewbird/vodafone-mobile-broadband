@@ -57,7 +57,7 @@ IDLE, SENDING = range(2)
 class NewSmsController(Controller):
     """Controller for the new sms dialog"""
 
-    def __init__(self, model, parent_ctrl=None):
+    def __init__(self, model, parent_ctrl=None, contacts=None):
         super(NewSmsController, self).__init__(model)
         self.pdu = PDU()
         self.state = IDLE
@@ -65,6 +65,7 @@ class NewSmsController(Controller):
         self.max_length = SEVENBIT_SIZE
         self.numbers_entry = ValidatedEntry(v_phone)
         self.sms = None
+        self.contacts = contacts
 
         try:
             self.numbers_entry.set_tooltip_text(SMS_TOOLTIP)
@@ -166,7 +167,7 @@ class NewSmsController(Controller):
         self.view.hide()
 
     def on_contacts_button_clicked(self, widget):
-        ctrl = ContactsListController(Model(), self)
+        ctrl = ContactsListController(Model(), self, self.contacts)
         view = ContactsListView(ctrl)
         view.run()
 
@@ -277,8 +278,8 @@ class NewSmsController(Controller):
 class ForwardSmsController(NewSmsController):
     """Controller for ForwardSms"""
 
-    def __init__(self, model, parent_ctrl):
-        super(ForwardSmsController, self).__init__(model, parent_ctrl)
+    def __init__(self, model, parent_ctrl, contacts=None):
+        super(ForwardSmsController, self).__init__(model, parent_ctrl, contacts)
 
     def set_recipient_numbers(self, text):
         self.numbers_entry.set_text(text)

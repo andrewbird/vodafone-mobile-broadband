@@ -786,7 +786,8 @@ The csv file that you have tried to import has an invalid format.""")
 
     def on_new_sms_activate(self, widget):
         model = NewSmsModel(self.model.device)
-        ctrl = NewSmsController(model, self)
+        ctrl = NewSmsController(model, self,
+                                self._get_treeview_contacts())
         view = NewSmsView(ctrl)
         view.set_parent_view(self.view)
         view.show()
@@ -1036,6 +1037,10 @@ The csv file that you have tried to import has an invalid format.""")
         contacts = self._fill_contacts()
         self._fill_messages(contacts)
 
+    def _get_treeview_contacts(self):
+        treeview = self.view['contacts_treeview']
+        return treeview.get_model().get_contacts()
+
     def _update_usage_panel(self, name, offset):
         m = self.model
 
@@ -1071,7 +1076,8 @@ The csv file that you have tried to import has an invalid format.""")
         message = self.get_obj_from_selected_row()
         if message:
             model = NewSmsModel(self.model.device)
-            ctrl = ForwardSmsController(model, self)
+            ctrl = ForwardSmsController(model, self,
+                                        self._get_treeview_contacts())
             view = ForwardSmsView(ctrl)
             view.set_parent_view(self.view)
             ctrl.set_recipient_numbers(message.number)
@@ -1082,7 +1088,8 @@ The csv file that you have tried to import has an invalid format.""")
         message = self.get_obj_from_selected_row()
         if message:
             model = NewSmsModel(self.model.device)
-            ctrl = ForwardSmsController(model, self)
+            ctrl = ForwardSmsController(model, self,
+                                        self._get_treeview_contacts())
             view = ForwardSmsView(ctrl)
             view.set_parent_view(self.view)
             ctrl.set_recipient_numbers(message.number)
@@ -1093,8 +1100,10 @@ The csv file that you have tried to import has an invalid format.""")
     def on_forward_sms_menu_item_activate(self, widget):
         message = self.get_obj_from_selected_row()
         if message:
+
             model = NewSmsModel(self.model.device)
-            ctrl = ForwardSmsController(model, self)
+            ctrl = ForwardSmsController(model, self,
+                                        self._get_treeview_contacts())
             view = ForwardSmsView(ctrl)
             ctrl.numbers_entry.grab_focus()
             ctrl.set_textbuffer_text(message.text)
@@ -1216,7 +1225,8 @@ The csv file that you have tried to import has an invalid format.""")
         message = self.get_obj_from_selected_row()
         if message:
             model = NewSmsModel(self.model.device)
-            ctrl = ForwardSmsController(model, self)
+            ctrl = ForwardSmsController(model, self,
+                                        self._get_treeview_contacts())
             view = ForwardSmsView(ctrl)
             view.set_parent_view(self.view)
             ctrl.set_textbuffer_text(message.text)
@@ -1317,7 +1327,8 @@ The csv file that you have tried to import has an invalid format.""")
         numbers = [model.get_value(_iter, 2) for _iter in iters]
 
         model = NewSmsModel(self.model.device)
-        ctrl = NewSmsController(model, self)
+        ctrl = NewSmsController(model, self,
+                                self._get_treeview_contacts())
         view = NewSmsView(ctrl)
         view.set_parent_view(self.view)
         view.show()

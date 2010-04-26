@@ -67,3 +67,13 @@ class ContactsStoreModel(ListStoreModel):
             _iter = self.iter_next(_iter)
 
         return ret
+
+    def get_contacts(self):
+        ret = []
+        _iter = self.get_iter_first()
+        while _iter:
+            ret.append(self.get_value(_iter, 3))
+
+            _iter = self.iter_next(_iter)
+
+        return ret

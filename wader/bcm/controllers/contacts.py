@@ -113,9 +113,10 @@ class SearchContactController(Controller):
 class ContactsListController(Controller):
     """Controller for the contacts list"""
 
-    def __init__(self, model, parent_ctrl):
+    def __init__(self, model, parent_ctrl, contacts):
         super(ContactsListController, self).__init__(model)
         self.parent_ctrl = parent_ctrl
+        self.contacts = contacts
 
     def register_view(self, view):
         super(ContactsListController, self).register_view(view)
@@ -177,10 +178,9 @@ class ContactsListController(Controller):
         self.view['add_button'].set_sensitive(False)
 
     def _fill_treeview(self):
-        _model = self.view['treeview1'].get_model()
-        phonebook = get_phonebook(self.parent_ctrl.parent_ctrl.model.device)
-        contacts = phonebook.get_contacts()
-        _model.add_contacts(contacts)
+        if self.contacts:
+            _model = self.view['treeview1'].get_model()
+            _model.add_contacts(self.contacts)
 
     def _row_activated_handler(self, treeview, path, col):
         model, selected = treeview.get_selection().get_selected_rows()
