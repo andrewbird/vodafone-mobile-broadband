@@ -1406,8 +1406,7 @@ The csv file that you have tried to import has an invalid format.""")
                 message_mgr.delete_objs([old])
 
                 # Update the treeview
-                # XXX: need to lookup in contacts
-                model.update_message(_iter, new)
+                model.update_message(_iter, new, self._get_treeview_contacts())
 
     def _save_sms_to_draft(self, widget):
         """This will save the selected SMS to the drafts tv and the DB"""
