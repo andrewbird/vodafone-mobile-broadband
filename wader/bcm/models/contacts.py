@@ -53,3 +53,17 @@ class ContactsStoreModel(ListStoreModel):
             _iter = self.iter_next(_iter)
 
         return ret
+
+    def find_contacts(self, pattern):
+        ret = []
+        _iter = self.get_iter_first()
+        while _iter:
+            _name = self.get_value(_iter, 1)
+            _number = self.get_value(_iter, 2)
+
+            if (pattern.lower() in _name.lower()) and _number:
+                ret.append(self.get_value(_iter, 3))
+
+            _iter = self.iter_next(_iter)
+
+        return ret

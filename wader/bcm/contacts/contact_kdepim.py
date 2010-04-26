@@ -93,13 +93,6 @@ class KDEContactsManager(object):
     def delete_contact_by_id(self, index):
         return False
 
-    def find_contacts(self, pattern):
-        for contact in self.get_contacts():
-            # XXX: O(N) here!
-            # I can't find a way to do a LIKE comparison
-            if (pattern.lower() in contact.get_name().lower()) and contact.get_number():
-                yield contact
-
     def get_contacts(self):
         from os.path import expanduser
 

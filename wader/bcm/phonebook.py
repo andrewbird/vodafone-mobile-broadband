@@ -86,30 +86,6 @@ class PhoneBook(object):
         for contact in contacts:
             self.add_contact(contact, sim)
 
-    def find_contact(self, name=None, number=None):
-        ret = []
-
-        if (not name and not number) or (name and number):
-            return ret
-
-        if name:
-            for cclass, mclass in supported_types:
-                manager = mclass()
-                if manager.device_reqd():
-                    manager.set_device(self.device)
-                ret.extend(manager.find_contacts(name))
-
-        elif number:
-            # searching by name is pretty easy as the SIM allows to lookup
-            # contacts by name. However searching by number is more difficult
-            # as the SIM doesn't provides any facility for it. Thus we need
-            # to get *all* contacts and iterate through them looking for
-            # a number that matches the pattern
-            ret = [c for c in self.get_contacts()
-                         if c.get_number() == number]
-
-        return ret
-
     def get_writable_types(self):
         ret = []
         for cclass, mclass in supported_types:

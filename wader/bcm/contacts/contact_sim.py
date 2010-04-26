@@ -128,13 +128,6 @@ class SIMContactsManager(object):
         self.device.Delete(index, dbus_interface=CTS_INTFACE)
         return True
 
-    def find_contacts(self, pattern):
-        for contact in self.get_contacts():
-            # XXX: O(N) here!
-            # I can't find a way to do a LIKE comparison
-            if pattern.lower() in contact.get_name().lower():
-                yield contact
-
     def get_contacts(self):
         ret = []
         clist = self.device.List(dbus_interface=CTS_INTFACE)

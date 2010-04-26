@@ -89,29 +89,25 @@ class SearchContactController(Controller):
 
     def on_search_find_button_clicked(self, widget):
         pattern = self.view['search_entry'].get_text()
-        phonebook = get_phonebook(self.parent_ctrl.model.device)
 
-        def find_contact_cb(contacts):
-            if not contacts:
-                dialogs.show_warning_dialog(_('No contact found'),
-                            _('No contact with the name %s found') % pattern)
-                return
+        treeview = self.parent_ctrl.view['contacts_treeview']
+        model = treeview.get_model()
 
-            treeview = self.parent_ctrl.view['contacts_treeview']
-            model = treeview.get_model()
-            # get the path
-            path = [str(i) for i, row in enumerate(model)
-                        if row[3] in contacts]
-            # unselect
-            sel = treeview.get_selection()
-            sel.unselect_all()
-            for elem in path:
-                # and set the new selection
-                sel.select_path(elem)
+        contacts = model.find_contacts(pattern)
+        if not contacts:
+            dialogs.show_warning_dialog(_('No contact found'),
+                _('No contact with the name %s found') % pattern)
+            return
 
-        #phonebook.find_contact(pattern).addCallback(find_contact_cb)
-        clist = phonebook.find_contact(pattern)
-        find_contact_cb(clist)
+        # get the path
+        path = [str(i) for i, row in enumerate(model)
+                    if row[3] in contacts]
+        # unselect
+        sel = treeview.get_selection()
+        sel.unselect_all()
+        for elem in path:
+            # and set the new selection
+            sel.select_path(elem)
 
 
 class ContactsListController(Controller):
