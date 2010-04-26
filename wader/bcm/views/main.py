@@ -40,8 +40,6 @@ from wader.bcm.consts import (CFG_PREFS_DEFAULT_USAGE_USER_LIMIT,
                               CFG_PREFS_DEFAULT_USAGE_MAX_VALUE)
 
 
-THROBBER = gtk.gdk.PixbufAnimation(os.path.join(GLADE_DIR, 'throbber.gif'))
-
 WIDGETS_TO_SHOW = ['change_pin1', 'request_pin1',
                    'import_contacts1', 'export_contacts1', 'new_menu_item',
                    'new_sms_menu_item', 'contact1', 'reply_sms_menu_item',
@@ -107,9 +105,7 @@ class MainView(View):
         window.set_position(gtk.WIN_POS_CENTER)
         window.set_size_request(width=WIN_WIDTH, height=height)
         self._setup_usage_view()
-        # setup the signal strength to be defaluted to 'zero power'
-        self['signal_image'].set_from_file(os.path.join(IMAGES_DIR,
-                                                        'throbber.gif'))
+        self.set_no_device()
 
     def theme_ui(self):
         theme = os.path.join(THEMES_DIR, "default.gtkrc")
@@ -156,7 +152,13 @@ class MainView(View):
     def set_name(self, name=APP_LONG_NAME):
         self.get_top_widget().set_title(name)
 
-    def set_disconnected(self):
+    def _set_disconnected(self):
+        """
+        States (no device, have device, disconnected are similar except for:
+            status bar
+            signal image
+            button enablement
+        """
         obj = self['connect_button']
         if obj:
             image = gtk.Image()
@@ -169,6 +171,26 @@ class MainView(View):
         self['upload_alignment'].hide()
         self['download_alignment'].hide()
 
+    def set_no_device(self):
+        self._set_disconnected()
+        self['connect_button'].set_sensitive(False)
+        self['topup_tool_button'].set_sensitive(False)
+        self['net_statusbar'].push(1, _('No device'))
+        self['signal_image'].set_from_file(os.path.join(IMAGES_DIR,
+                                                        'nodevice.png'))
+
+    def set_have_device(self):
+        self._set_disconnected()
+        self['connect_button'].set_sensitive(False)
+        self['topup_tool_button'].set_sensitive(True)
+        self['net_statusbar'].push(1, _('Searching'))
+        self['signal_image'].set_from_file(os.path.join(IMAGES_DIR,
+                                                        'throbber.gif'))
+
+    def set_disconnected(self):
+        self._set_disconnected()
+        self['connect_button'].set_sensitive(True)
+        self['topup_tool_button'].set_sensitive(True)
         self['net_statusbar'].push(1, _('Not connected'))
 
     def set_connected(self):
@@ -184,6 +206,8 @@ class MainView(View):
         self['upload_alignment'].show()
         self['download_alignment'].show()
 
+        self['connect_button'].set_sensitive(True)
+        self['topup_tool_button'].set_sensitive(True)
         self['net_statusbar'].push(1, _('Connected'))
 
     def setup_treeview(self, ctrl):

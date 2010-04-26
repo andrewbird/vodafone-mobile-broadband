@@ -424,7 +424,7 @@ class MainModel(Model):
 
     def _get_regstatus_cb(self, (status, operator_code, operator_name)):
         if status == -1:
-            self.status = _('Initialising')
+            self.status = _('No device')
             return
         if status == 1:
             self.status = _("Registered")

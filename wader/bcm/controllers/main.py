@@ -114,12 +114,11 @@ class MainController(WidgetController):
     def register_view(self, view):
         super(MainController, self).register_view(view)
         self._setup_trayicon()
-        self.view.set_initialising(True)
         self.connect_to_signals()
         self.start()
 
     def start(self):
-        self.view.set_disconnected()
+        self.view.set_no_device()
 
         # we're on SMS mode
         self.on_sms_button_toggled(get_fake_toggle_button())
@@ -310,26 +309,28 @@ class MainController(WidgetController):
             sm = self.model.device.connect_to_signal(SIG_SMS_COMP,
                                                 self.on_sms_received_cb)
             self.signal_matches.append(sm)
+            self.model.status = _('Scanning')
         else:
             while self.signal_matches:
                 sm = self.signal_matches.pop()
                 sm.remove()
-            self.view['connect_button'].set_sensitive(False)
-            self.view['topup_tool_button'].set_sensitive(False)
             self._hide_sim_contacts()
             self._hide_sim_messages()
+            self.model.status = _('No device')
             logger.info("main-controller: property_device_value_change")
 
     def property_profile_value_change(self, model, old, new):
         logger.info("A profile has been set for current model %s" % new)
 
     def property_status_value_change(self, model, old, new):
-        if new == _('Initialising'):
-            self.view.set_initialising(True)
-        elif new == _('No device'):
+        if new == _('No device'):
+            self.view.set_no_device()
+        elif new == _('Scanning'):
+            self.view.set_have_device()
+        elif new in [_('Registered'), _('Roaming'), _('Not connected')]:
             self.view.set_disconnected()
-        elif new in [_('Registered'), _('Roaming')]:
-            self.view.set_initialising(False)
+        elif new == _('Connected'):
+            self.view.set_connected()
 
     def property_sim_error_value_change(self, model, old, details):
         title = _('Unknown error while initting device')
@@ -496,15 +497,14 @@ class MainController(WidgetController):
             checkmenuitem.set_active(enabled)
 
     def on_device_enabled_cb(self, opath):
+        self.model.status = _('Scanning')
         self._fill_treeviews()
         self.model.pin_is_enabled(self.on_is_pin_enabled_cb,
                                   lambda *args: True)
-#        self.view['preferences_menu_item'].set_sensitive(True)
-        self.view['topup_tool_button'].set_sensitive(True)
 
     def _on_connect_cb(self, dev_path):
         self.model.connected = True
-        self.view.set_connected()
+        self.model.status = _('Connected')
         self.model.start_stats_tracking()
         self.usage_updater = timeout_add_seconds(5, self.update_usage_view)
 
@@ -516,9 +516,9 @@ class MainController(WidgetController):
 
     def _on_connect_eb(self, e):
         self.model.connected = False
+        self.model.status = _('Not connected')
         logger.error("_on_connect_eb: %s" % e)
 
-        self.view.set_disconnected()
         if self.apb:
             self.apb.close()
             self.apb = None
@@ -542,9 +542,9 @@ class MainController(WidgetController):
 
     def _on_disconnect_cb(self, *args):
         self.model.connected = False
+        self.model.status = _('Not connected')
         logger.info("Disconnected")
         self.model.stop_stats_tracking()
-        self.view.set_disconnected()
         self.update_usage_view()
 
         # stop updating usage
@@ -738,7 +738,7 @@ The csv file that you have tried to import has an invalid format.""")
             self._setup_connection_signals()
 
             def cancel_cb():
-                self.view.set_disconnected()
+                self.model.status = _('Not connected')
                 self.model.dial_path = None
 
             def stop_connection_attempt():
@@ -1067,6 +1067,7 @@ The csv file that you have tried to import has an invalid format.""")
         """
         Fills the treeviews with SMS and contacts
         """
+        self._empty_treeviews(list(set(TV_DICT.values())))
         contacts = self._fill_contacts()
         self._fill_messages(contacts)
 
