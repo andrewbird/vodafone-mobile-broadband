@@ -55,6 +55,7 @@ from wader.bcm.consts import (GTK_LOCK, GUIDE_DIR, IMAGES_DIR,
                               CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
                               CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION)
 
+from wader.bcm.contacts import SIMContact
 from wader.bcm.phonebook import (get_phonebook,
                                 all_same_type, all_contacts_writable)
 from wader.bcm.csvutils import CSVUnicodeWriter, CSVContactsReader
@@ -315,6 +316,8 @@ class MainController(WidgetController):
                 sm.remove()
             self.view['connect_button'].set_sensitive(False)
             self.view['topup_tool_button'].set_sensitive(False)
+            self._hide_sim_contacts()
+            self._hide_sim_messages()
             logger.info("main-controller: property_device_value_change")
 
     def property_profile_value_change(self, model, old, new):
@@ -997,6 +1000,36 @@ The csv file that you have tried to import has an invalid format.""")
         model = treeview.get_model()
         model.add_contacts(contacts)
         return contacts
+
+    def _hide_sim_contacts(self):
+        """
+        Called when the device holding the SIM is removed
+        """
+        treeview = self.view['contacts_treeview']
+        model = treeview.get_model()
+
+        iter = model.get_iter_first()
+        while iter:
+            obj = model.get_value(iter, 3)
+            _iter = model.iter_next(iter)
+            if isinstance(obj, SIMContact):
+                model.remove(iter)
+            iter = _iter
+
+    def _hide_sim_messages(self):
+        """
+        Called when the device holding the SIM is removed
+        """
+        treeview = self.view['inbox_treeview']
+        model = treeview.get_model()
+
+        iter = model.get_iter_first()
+        while iter:
+            obj = model.get_value(iter, 4)
+            _iter = model.iter_next(iter)
+            if is_sim_message(obj):
+                model.remove(iter)
+            iter = _iter
 
     def _find_contact_by_number(self, number):
         treeview = self.view['contacts_treeview']
