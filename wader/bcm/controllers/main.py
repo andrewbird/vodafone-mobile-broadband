@@ -697,7 +697,7 @@ The csv file that you have tried to import has an invalid format.""")
             phonebook = get_phonebook(self.model.device)
             # Now we support different backends we need to be more
             # selective about what we write out?
-            contacts = [c.to_csv() for c in phonebook.get_contacts()
+            contacts = [c.to_csv() for c in self._get_treeview_contacts()
                                 if c.is_writable()]
             writer.write_rows(contacts)
 
