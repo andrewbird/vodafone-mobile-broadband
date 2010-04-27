@@ -191,17 +191,20 @@ class MainController(WidgetController):
             return False
 
     def ask_for_pin(self):
+        self.model.status = _('SIM locked')
         ctrl = AskPINController(self.model)
         view = AskPINView(ctrl)
         view.show()
 
     def ask_for_puk(self):
+        self.model.status = _('SIM locked')
         ctrl = AskPUKController(self.model)
         view = AskPUKView(ctrl)
         view.set_puk_view()
         view.show()
 
     def ask_for_puk2(self):
+        self.model.status = _('SIM locked')
         ctrl = AskPUKController(self.model)
         view = AskPUKView(ctrl)
         view.set_puk2_view()
@@ -325,6 +328,10 @@ class MainController(WidgetController):
     def property_status_value_change(self, model, old, new):
         if new == _('No device'):
             self.view.set_no_device()
+        elif new == _('SIM locked'):
+            self.view.set_sim_locked()
+        elif new == _('Authenticating'):
+            self.view.set_authenticating()
         elif new == _('Scanning'):
             self.view.set_have_device()
         elif new in [_('Registered'), _('Roaming'), _('Not connected')]:

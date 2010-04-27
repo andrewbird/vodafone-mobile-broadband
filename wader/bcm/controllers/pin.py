@@ -282,6 +282,7 @@ class AskPINController(Controller):
             #config.setboolean('preferences', 'manage_keyring', active)
             #config.write()
 
+            self.model.status = _('Authenticating')
             self.model.send_pin(pin, self.model.enable_device)
             self.view.hide()
             self.model.unregister_observer(self)
@@ -342,6 +343,7 @@ class AskPUKController(Controller):
         puk = self.view['puk_entry'].get_text()
 
         if pin and puk:
+            self.model.status = _('Authenticating')
             self.model.send_puk(puk, pin, self.model.enable_device)
             self.view.hide()
             self.model.unregister_observer(self)

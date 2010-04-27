@@ -73,7 +73,7 @@ class MainModel(Model):
         'dial_path': None,
         'connected': False,
         'operator': None,
-        'status': _('Not registered'),
+        'status': _('No device'),
         'tech': None,
         'msisdn': _('Unknown'),
         'pin_required': False,
