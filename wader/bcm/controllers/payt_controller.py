@@ -52,16 +52,11 @@ class PayAsYouTalkController(Controller):
         """
         super(PayAsYouTalkController, self).register_view(view)
 
-        self.set_device_info()
-
-    def set_device_info(self):
         self.get_cached_sim_credit()
         self.view.set_msisdn_value(self.model.msisdn)
 
-        # Set initial button state
-        if self.model.status in [_("Registered"), _("Roaming")]:
-            self.view.enable_credit_button(True)
-            self.view.enable_send_button(True)
+        # Set initial form state
+        self._set_form_state(self.model.status)
 
     def _submit_voucher_by_ussd(self, ussd, voucher, cb):
 
@@ -76,9 +71,6 @@ class PayAsYouTalkController(Controller):
         request = format % voucher
 
         def ussd_cb(response):
-            # ok so we got a call back so make sure we reset the animations
-            self.view.clear_banner_voucher_animation()
-
             match = re.search(regex, response)
             if match:
 #                success = match.group('success')
@@ -94,15 +86,11 @@ class PayAsYouTalkController(Controller):
                          % error)
             cb(None)
 
-         # ok we are firing a ussd so lets set the annimations off
-        self.view.set_banner_voucher_animation()
         device.Initiate(request,
                         reply_handler=ussd_cb,
                         error_handler=ussd_eb)
 
-    def submit_voucher(self, _voucher):
-
-        voucher = _voucher.strip()
+    def submit_voucher(self, voucher):
 
         payt_available = self.model.get_sim_conf('payt_available', None)
         if payt_available == False: # Not a PAYT SIM
@@ -117,12 +105,12 @@ class PayAsYouTalkController(Controller):
                 # system to update the UI with his new credit. To do that we
                 # need to fire off another request
                 self.get_current_sim_credit()
+                self.model.payt_submit_busy = False
             else:
-                logger.error("PAYT SIM submit voucher success")
+                logger.error("PAYT SIM submit voucher failed")
+                self.model.payt_submit_busy = False
                 show_warning_dialog(_("PAYT submit voucher"),
                                     _("PAYT submit voucher failed"))
-
-            self.model.payt_submit_busy = False
 
         ussd = get_payt_submit_voucher_info(self.model.imsi)
         if ussd:
@@ -143,8 +131,6 @@ class PayAsYouTalkController(Controller):
             return
 
         def get_credit_cb(response):
-             # make sure we stop any animation in the view now we got a response.
-            self.view.clear_banner_credit_check_animation()
             match = re.search(regex, response)
             if match:
                 credit = format % match.group('value')
@@ -155,14 +141,9 @@ class PayAsYouTalkController(Controller):
                 cb(None)
 
         def get_credit_eb(error):
-             # make sure we stop any animation in the view now we got a response.
-            self.view.clear_banner_credit_check_animation()
             logger.error("PAYT SIM error fetching via USSD: %s" % error)
             cb(None)
 
-        #ok we need to initiate a USSD now, so lets do that and make sure we set the
-        # banner throbber to let Joe Public we are doing something
-        self.view.set_banner_credit_check_animation()
         device.Initiate(request,
                         reply_handler=get_credit_cb,
                         error_handler=get_credit_eb)
@@ -221,8 +202,9 @@ class PayAsYouTalkController(Controller):
 
             if credit and utc:
                 now = datetime.fromtimestamp(utc, self.tz)
-                logger.info("payt_controller - get_cached_sim_credit: PAYT SIM credit from gconf: %s - %s" %
-                                (credit, now.strftime("%c")))
+                logger.info("payt_controller - get_cached_sim_credit: PAYT "
+                            "SIM credit from gconf: %s - %s" %
+                            (credit, now.strftime("%c")))
 
                 self.model.payt_credit_balance = credit
                 self.model.payt_credit_date = now
@@ -230,6 +212,15 @@ class PayAsYouTalkController(Controller):
 
         self.model.payt_credit_balance = _("Not available")
         self.model.payt_credit_date = None
+
+    def _set_form_state(self, status):
+        if status in [_("Registered"), _("Roaming"), _("Not connected")]:
+            self.view.enable_credit_button(True)
+            self.view.enable_send_button(True)
+        else: # 'No device', 'SIM locked', 'Authenticating', 'Scanning',
+              # 'Connected'
+            self.view.enable_credit_button(False)
+            self.view.enable_send_button(False)
 
     # ------------------------------------------------------------ #
     #                       Properties Changed                     #
@@ -243,18 +234,27 @@ class PayAsYouTalkController(Controller):
 
     def property_payt_credit_busy_value_change(self, model, old, new):
         if new:
-            # ok we need to tell the view to wipe current data and prepare for
-            # the new! So let's remove our current credit and date first.
-            self.view.set_waiting_credit_view()
-        #    Could start a local throbber here
-        #else:
-        #    stop throbber image
+#            # ok we need to tell the view to wipe current data and prepare for
+#            # the new! So let's remove our current credit and date first.
+#            self.view.set_waiting_credit_view()
+            # set the banner throbber to let Joe Public know we are busy
+            self.view.set_banner_credit_check_animation()
+        else:
+            # stop any animation in the view now we got a response.
+            self.view.clear_banner_credit_check_animation()
 
         # disable buttons whilst busy
         self.view.enable_credit_button(not new)
         self.view.enable_send_button(not new)
 
     def property_payt_submit_busy_value_change(self, model, old, new):
+        if new:
+            # ok we are firing a ussd so lets set the animations off
+            self.view.set_banner_voucher_animation()
+        else:
+            # stop any animation in the view now we got a response.
+            self.view.clear_banner_credit_check_animation()
+
         # disable buttons whilst busy
         self.view.enable_credit_button(not new)
         self.view.enable_send_button(not new)
@@ -263,13 +263,7 @@ class PayAsYouTalkController(Controller):
         self.view.set_msisdn_value(new)
 
     def property_status_value_change(self, model, old, new):
-        if new in [_("Registered"), _("Roaming"), _("Not connected")]:
-            self.view.enable_credit_button(True)
-            self.view.enable_send_button(True)
-        else: # 'No device', 'SIM locked', 'Authenticating', 'Scanning',
-              # 'Connected'
-            self.view.enable_credit_button(False)
-            self.view.enable_send_button(False)
+        self._set_form_state(new)
 
     # ------------------------------------------------------------ #
     #                       Signals Handling                       #
