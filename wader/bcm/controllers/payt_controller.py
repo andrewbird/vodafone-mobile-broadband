@@ -76,6 +76,9 @@ class PayAsYouTalkController(Controller):
         request = format % voucher
 
         def ussd_cb(response):
+            # ok so we got a call back so make sure we reset the animations
+            self.view.clear_banner_voucher_animation()
+
             match = re.search(regex, response)
             if match:
 #                success = match.group('success')
@@ -91,6 +94,8 @@ class PayAsYouTalkController(Controller):
                          % error)
             cb(None)
 
+         # ok we are firing a ussd so lets set the annimations off
+        self.view.set_banner_voucher_animation()
         device.Initiate(request,
                         reply_handler=ussd_cb,
                         error_handler=ussd_eb)
@@ -138,6 +143,8 @@ class PayAsYouTalkController(Controller):
             return
 
         def get_credit_cb(response):
+             # make sure we stop any animation in the view now we got a response.
+            self.view.clear_banner_credit_check_animation()
             match = re.search(regex, response)
             if match:
                 credit = format % match.group('value')
@@ -148,9 +155,14 @@ class PayAsYouTalkController(Controller):
                 cb(None)
 
         def get_credit_eb(error):
+             # make sure we stop any animation in the view now we got a response.
+            self.view.clear_banner_credit_check_animation()
             logger.error("PAYT SIM error fetching via USSD: %s" % error)
             cb(None)
 
+        #ok we need to initiate a USSD now, so lets do that and make sure we set the
+        # banner throbber to let Joe Public we are doing something
+        self.view.set_banner_credit_check_animation()
         device.Initiate(request,
                         reply_handler=get_credit_cb,
                         error_handler=get_credit_eb)
@@ -209,7 +221,7 @@ class PayAsYouTalkController(Controller):
 
             if credit and utc:
                 now = datetime.fromtimestamp(utc, self.tz)
-                logger.info("PAYT SIM credit from gconf: %s - %s" %
+                logger.info("payt_controller - get_cached_sim_credit: PAYT SIM credit from gconf: %s - %s" %
                                 (credit, now.strftime("%c")))
 
                 self.model.payt_credit_balance = credit
@@ -272,7 +284,7 @@ class PayAsYouTalkController(Controller):
     def on_send_voucher_button_clicked(self, widget):
         # ok when the send voucher button is clicked grab the value from the
         # view entry box and send to the network.
-        voucher_code = self.view['voucher_code'].get_text().strip()
+        voucher_code = self.view.get_voucher_code()
         self.submit_voucher(voucher_code)
         self.view.set_voucher_entry_view('')
 

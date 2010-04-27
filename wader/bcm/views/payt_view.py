@@ -23,7 +23,7 @@ import string
 
 from wader.bcm.contrib.gtkmvc import View
 from wader.bcm.logger import logger
-from wader.bcm.consts import GLADE_DIR, IMAGES_DIR
+from wader.bcm.consts import GLADE_DIR, IMAGES_DIR,  ANIMATION_DIR
 from wader.bcm.translate import _
 
 
@@ -35,6 +35,9 @@ class PayAsYouTalkView(View):
     payt_image = join(IMAGES_DIR,  "topup-banner.png")
     creditcard_image = join(IMAGES_DIR,  "credit_card_green.png")
     voucher_image = join(IMAGES_DIR,  "voucher.png")
+    voucher_throb = join(ANIMATION_DIR,  "voucher.gif")
+    payt_banner_voucher = join(ANIMATION_DIR,  "topup-voucher-banner.gif")
+    payt_banner_credit_check = join(ANIMATION_DIR,  "topup-credit-check-banner.gif" )
 
     def __init__(self, ctrl, parent_view):
         super(PayAsYouTalkView, self).__init__(ctrl, self.GLADE_FILE,
@@ -88,3 +91,40 @@ class PayAsYouTalkView(View):
             clean_message = ''.join(s for s in voucher_value if s in string.printable)
             self['voucher_response_message'].set_text(clean_message.replace('#',' £'))
             logger.info("payt-view set_voucher_entry_view - USSD Message: " + clean_message)
+
+    def get_voucher_code(self):
+         # make sure we get the voucher code from the view
+          voucher_code = self['voucher_code'].get_text().strip()
+          return voucher_code
+
+
+    def set_voucher_throbbing(self):
+         logger.info("payt-view set_voucher_throbbing")
+         self['voucher_image'].set_from_file(self.voucher_throb)
+
+    def clear_voucher_throbbing(self):
+         logger.info("payt-view clear_voucher_throbbing")
+         self['voucher_image'].set_from_file(self.voucher_image)
+
+
+    def set_banner_voucher_animation(self):
+         logger.info("payt-view set_banner_voucher_annimation")
+         self.set_voucher_throbbing()
+         self['paytbanner'].set_from_file(self.payt_banner_voucher)
+
+
+    def clear_banner_voucher_animation(self):
+         logger.info("payt-view clear_banner_voucher_annimation")
+         self.clear_voucher_throbbing()
+         self['paytbanner'].set_from_file(self.payt_image)
+
+
+    def set_banner_credit_check_animation(self):
+         logger.info("payt-view set_banner_credit_check_animation")
+         self['paytbanner'].set_from_file(self.payt_banner_credit_check)
+
+
+    def clear_banner_credit_check_animation(self):
+         logger.info("payt-view clear_banner_credit_check_animation")
+         self.clear_voucher_throbbing()
+         self['paytbanner'].set_from_file(self.payt_image)
