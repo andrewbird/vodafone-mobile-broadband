@@ -349,6 +349,10 @@ class MainView(View):
             return 100
 
     def update_signal_bearer(self, newsignal=None, newmode=None):
+        if newsignal is None and newmode is None:
+            self['cell_type_label'].set_text('')
+            return
+
         if newsignal:
             self.signal = self._get_signal_icon(newsignal)
 
@@ -380,13 +384,8 @@ class MainView(View):
         self.update_signal_bearer(newmode=new_tech)
 
     def operator_changed(self, new_operator):
-        what = '' if new_operator == '0' else new_operator
+        what = '' if new_operator in ['0', None] else new_operator
         self['network_name_label'].set_text(what)
-
-    def set_initialising(self, enable):
-        self['connect_button'].set_sensitive(not enable)
-        self['preferences_menu_item'].set_sensitive(not enable)
-        self['topup_tool_button'].set_sensitive(not enable)
 
     def start_throbber(self):
         pass

@@ -66,15 +66,15 @@ ONE_MB = 2 ** 20
 class MainModel(Model):
 
     __properties__ = {
-        'rssi': 0,
+        'rssi': None,
         'profile': None,
         'device': None,
         'device_opath': None,
         'dial_path': None,
         'connected': False,
-        'operator': _('Unknown'),
+        'operator': None,
         'status': _('Not registered'),
-        'tech': _('Unknown'),
+        'tech': None,
         'msisdn': _('Unknown'),
         'pin_required': False,
         'puk_required': False,
@@ -172,10 +172,10 @@ class MainModel(Model):
             self.device = None
             self.device_opath = None
             self.dial_path = None
-            self.operator = _('Unknown')
             self.status = _('No device')
-            self.tech = '----'
-            self.rssi = 0
+            self.operator = None
+            self.tech = None
+            self.rssi = None
             self.imsi = None
             self.msisdn = None
 
