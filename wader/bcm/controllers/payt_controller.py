@@ -251,9 +251,13 @@ class PayAsYouTalkController(Controller):
         self.view.set_msisdn_value(new)
 
     def property_status_value_change(self, model, old, new):
-        if new in [_("Registered"), _("Roaming")]:
+        if new in [_("Registered"), _("Roaming"), _("Not connected")]:
             self.view.enable_credit_button(True)
             self.view.enable_send_button(True)
+        else: # 'No device', 'SIM locked', 'Authenticating', 'Scanning',
+              # 'Connected'
+            self.view.enable_credit_button(False)
+            self.view.enable_send_button(False)
 
     # ------------------------------------------------------------ #
     #                       Signals Handling                       #
