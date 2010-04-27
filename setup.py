@@ -51,6 +51,8 @@ def list_files(path, exclude=None):
 
 data_files = [
    (join(RESOURCES_DIR, 'glade'), list_files('resources/glade')),
+   (join(RESOURCES_DIR, 'glade/animation'),
+        list_files('resources/glade/animation')),
    (join(RESOURCES_DIR, 'themes'), list_files('resources/themes')),
    (BIN_DIR, ['bin/bcm']),
 ]
