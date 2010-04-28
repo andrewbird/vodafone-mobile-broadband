@@ -109,13 +109,11 @@ class PayAsYouTalkView(View):
 
     def set_banner_voucher_animation(self):
          logger.info("payt-view set_banner_voucher_annimation")
-         self.set_voucher_throbbing()
          self['paytbanner'].set_from_file(self.payt_banner_voucher)
 
 
     def clear_banner_voucher_animation(self):
          logger.info("payt-view clear_banner_voucher_annimation")
-         self.clear_voucher_throbbing()
          self['paytbanner'].set_from_file(self.payt_image)
 
 
@@ -126,5 +124,4 @@ class PayAsYouTalkView(View):
 
     def clear_banner_credit_check_animation(self):
          logger.info("payt-view clear_banner_credit_check_animation")
-         self.clear_voucher_throbbing()
          self['paytbanner'].set_from_file(self.payt_image)

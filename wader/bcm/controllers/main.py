@@ -61,8 +61,8 @@ from wader.bcm.phonebook import (get_phonebook,
 from wader.bcm.csvutils import CSVUnicodeWriter, CSVContactsReader
 from wader.bcm.messages import get_messages_obj, is_sim_message
 
-from wader.bcm.views.diagnostics import DiagnosticsView
-from wader.bcm.controllers.diagnostics import DiagnosticsController
+from wader.bcm.views.diagnostics_view import DiagnosticsView
+from wader.bcm.controllers.diagnostics_controller import DiagnosticsController
 
 from wader.bcm.models.sms import NewSmsModel
 from wader.bcm.views.sms import NewSmsView, ForwardSmsView
