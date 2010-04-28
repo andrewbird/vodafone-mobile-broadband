@@ -35,11 +35,11 @@ from wader.common.consts import (MM_NETWORK_MODE_ANY, MM_NETWORK_MODE_GPRS,
 from wader.common.utils import revert_dict
 from wader.bcm.translate import _
 
-APP_NAME = 'Vodafone Mobile Connect'
+APP_NAME = 'Betavine Connection Manager'
 APP_SLUG_NAME = 'bcm' # XXX: also defined in w.v.translate
 APP_LONG_NAME = 'Betavine Connection Manager'
 APP_SHORT_NAME = APP_SLUG_NAME
-APP_VERSION = '3.00.0'
+APP_VERSION = '2.99.03'
 
 # credits
 APP_AUTHORS = [

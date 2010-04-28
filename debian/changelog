@@ -1,3 +1,9 @@
+bcm (2.99.03-1) lucid; urgency=low
+
+  * First alpha release
+
+ -- Andrew Bird <ajb@spheresystems.co.uk>  Wed, 28 Apr 2010 20:05:45 +0100
+
 bcm (2.99.02-1) jaunty; urgency=low
 
   * Rename to bcm

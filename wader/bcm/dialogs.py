@@ -55,7 +55,7 @@ def show_about_dialog():
     else:
         abt.set_name(APP_NAME)
     abt.set_version(APP_VERSION)
-    abt.set_copyright("Copyright (C) 2006-2009 Vodafone España S.A.\n" +
+    abt.set_copyright("Copyright (C) 2006-2010 Vodafone España S.A.\n" +
                       "Copyright (C) 2008-2009 Wader contributors")
     abt.set_authors(APP_AUTHORS)
     abt.set_documenters(APP_DOCUMENTERS)
@@ -65,9 +65,9 @@ def show_about_dialog():
 
     abt.set_website_label(APP_URL)
     _license = """
-Vodafone Mobile Connect Card driver for Linux
-Copyright (C) 2006-2009 Vodafone España S.A.
-Copyright (C) 2008-2009 Warp Networks, S.L.
+Betavine Connection Manager
+Copyright (C) 2006-2010 Vodafone España S.A.
+Copyright (C) 2008-2010 Warp Networks, S.L.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -219,8 +219,6 @@ def ask_password_dialog(parent):
             _("Password required"),
             _("Please, insert the password of your connection"),
             parent, regexp=None)
-
-########################## import from BCM ##############################
 
 
 class CheckBoxPopupDialogCtrl(Controller):
