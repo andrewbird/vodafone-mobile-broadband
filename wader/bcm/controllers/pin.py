@@ -85,9 +85,11 @@ class PinModifyController(WidgetController):
     def register_view(self, view):
         super(PinModifyController, self).register_view(view)
 
-        self.view['pin_modify_current_pin_entry'].connect('changed', self.validate)
+        self.view['pin_modify_current_pin_entry'].connect('changed',
+                                                          self.validate)
         self.view['pin_modify_new_pin_entry'].connect('changed', self.validate)
-        self.view['pin_modify_confirm_pin_entry'].connect('changed', self.validate)
+        self.view['pin_modify_confirm_pin_entry'].connect('changed',
+                                                          self.validate)
         self.validate() # Initial validation
 
     def on_pin_modify_ok_button_clicked(self, widget):
@@ -235,7 +237,8 @@ class AskPINController(Controller):
         # A little fun {dis,en}abling the enter key
         if valid:
             if self.pin_activate_id == -1:
-                self.pin_activate_id = pin.connect('activate', self.on_ok_button_clicked)
+                self.pin_activate_id = pin.connect('activate',
+                                                   self.on_ok_button_clicked)
         else:
             if self.pin_activate_id >= 0:
                 pin.disconnect(self.pin_activate_id)
@@ -243,7 +246,8 @@ class AskPINController(Controller):
 
     def register_view(self, view):
         super(AskPINController, self).register_view(view)
-#        self.view['ask_pin_window'].connect('delete-event',self.close_application)
+#        self.view['ask_pin_window'].connect('delete-event',
+#                                            self.close_application)
 
         def toggled_cb(checkbutton):
             """
@@ -264,7 +268,8 @@ class AskPINController(Controller):
                     # restore handler
                     checkbutton.handler_unblock(self._hid)
                     message = _("Missing dependency")
-                    details = _("""To use this feature you need the gnomekeyring module""")
+                    details = _("To use this feature you need the "
+                                "gnomekeyring module")
                     show_warning_dialog(message, details)
                     return True
 
@@ -331,7 +336,8 @@ class AskPUKController(Controller):
 
     def register_view(self, view):
         super(AskPUKController, self).register_view(view)
-#        self.view['ask_puk_window'].connect('delete-event',self.close_application)
+#        self.view['ask_puk_window'].connect('delete-event',
+#                                            self.close_application)
 
         self.view['puk_entry'].connect('changed', self.validate)
         self.view['pin_entry'].connect('changed', self.validate)

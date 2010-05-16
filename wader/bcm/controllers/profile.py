@@ -52,6 +52,7 @@ class ProfileController(Controller):
             self.view.enable_static_dns()
 
         if not self.model.password:
+
             def load_secrets(secrets):
                 self.model.password = secrets['gsm']['passwd']
                 self.view['password_entry'].set_text(self.model.password)

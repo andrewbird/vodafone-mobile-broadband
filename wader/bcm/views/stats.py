@@ -108,7 +108,7 @@ class StatsBar(gtk.DrawingArea):
             number_steps = 20
 #        step = float(height) / bytes_to_units(self.max_value, self.units)
         step = float(height) / number_steps
-        
+
         frange = lambda a, b, step: [x * step
                                        for x in xrange(a, int(b * (1 / step)))]
         for i in frange(0, height + step, step):

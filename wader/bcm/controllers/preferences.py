@@ -126,7 +126,8 @@ class PreferencesController(Controller):
         # by checking the show_icon flag and passing this with sensitive flag.
         sensitive = self.model.show_icon
 
-        self.view.setup_user_exit_without_confirmation(self.model.exit_without_confirmation)
+        self.view.setup_user_exit_without_confirmation(
+            self.model.exit_without_confirmation)
         self.view.setup_user_show_icon_on_tray(self.model.show_icon)
         self.view.setup_user_close_window_minimize(self.model.close_minimizes)
         self.view.setup_user_close_window_minimize_enable(sensitive)
@@ -190,7 +191,7 @@ class PreferencesController(Controller):
                 try:
                     import gnomekeyring
                 except ImportError:
-                    # block the handler so the set_active method doesnt executes
+                    # block the handler so the set_active method doesnt execute
                     # this callback again
                     checkbutton.handler_block(self._hid1)
                     checkbutton.set_active(False)
@@ -304,13 +305,13 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
             self.parent_ctrl._detach_trayicon()
 
         # ------third tab -----
-        # fetch the browser combo box data and the browser custom drop down list
+        # fetch the browser combo box data + the browser custom drop down list
         browser_combo_view = self.view['browser_combobox'].get_model()
         _iter = self.view['browser_combobox'].get_active_iter()
         browser_options = browser_combo_view.get_value(_iter, 0)
 
-        # ok if the guy selects the xdg-open just save that name value pair in the model
-        # otherwise save the entry in the command box
+        # ok if the guy selects the xdg-open just save that name value pair in
+        # the model otherwise save the entry in the command box
         browser_command = self.view['browser_entry'].get_text()
         if browser_options != CFG_PREFS_DEFAULT_BROWSER and browser_command:
             self.model.browser = browser_command

@@ -23,7 +23,7 @@ import string
 
 from wader.bcm.contrib.gtkmvc import View
 from wader.bcm.logger import logger
-from wader.bcm.consts import GLADE_DIR, IMAGES_DIR,  ANIMATION_DIR
+from wader.bcm.consts import GLADE_DIR, IMAGES_DIR, ANIMATION_DIR
 from wader.bcm.translate import _
 
 
@@ -32,12 +32,13 @@ class PayAsYouTalkView(View):
 
     GLADE_FILE = join(GLADE_DIR, "payt.glade")
     sim_image = join(IMAGES_DIR, "simple_sim_35x20.png")
-    payt_image = join(IMAGES_DIR,  "topup-banner.png")
-    creditcard_image = join(IMAGES_DIR,  "credit_card_green.png")
-    voucher_image = join(IMAGES_DIR,  "voucher.png")
-    voucher_throb = join(ANIMATION_DIR,  "voucher.gif")
-    payt_banner_voucher = join(ANIMATION_DIR,  "topup-voucher-banner.gif")
-    payt_banner_credit_check = join(ANIMATION_DIR,  "topup-credit-check-banner.gif" )
+    payt_image = join(IMAGES_DIR, "topup-banner.png")
+    creditcard_image = join(IMAGES_DIR, "credit_card_green.png")
+    voucher_image = join(IMAGES_DIR, "voucher.png")
+    voucher_throb = join(ANIMATION_DIR, "voucher.gif")
+    payt_banner_voucher = join(ANIMATION_DIR, "topup-voucher-banner.gif")
+    payt_banner_credit_check = join(ANIMATION_DIR,
+                                    "topup-credit-check-banner.gif")
 
     def __init__(self, ctrl, parent_view):
         super(PayAsYouTalkView, self).__init__(ctrl, self.GLADE_FILE,
@@ -71,57 +72,54 @@ class PayAsYouTalkView(View):
             now = value.strftime("%c")
             self['date_view'].set_text(now)
 
-    def set_waiting_credit_view(self):
-        self['date_view'].set_text("Fetching ......")
-        self['credit_view'].set_text("Fetching current credit from network.....")
-
     def enable_send_button(self, sensitive):
         self['voucher_button'].set_sensitive(sensitive)
 
-    def set_voucher_entry_view(self,  voucher_value):
+    def set_voucher_entry_view(self, voucher_value):
 
-        #ok if the view has been asked to reset with a null string, make sure we reset any previous messages too.
-        if voucher_value=='':
+        # ok if the view has been asked to reset with a null string, make sure
+        # we reset any previous messages too.
+        if voucher_value == '':
             self['voucher_code'].set_text('')
             self['voucher_response_message'].set_text('')
-            logger.info("payt-view set_voucher_entry_view (value-null) - USSD Message: " + voucher_value)
+            logger.info("payt-view set_voucher_entry_view (value-null) - USSD "
+                        "Message: " + voucher_value)
         else:
-            # we need to format to £ and clean the message, it's from the core network so we can't trust those
-            # nasty wee core network developers! :-(
-            clean_message = ''.join(s for s in voucher_value if s in string.printable)
-            self['voucher_response_message'].set_text(clean_message.replace('#',' £'))
-            logger.info("payt-view set_voucher_entry_view - USSD Message: " + clean_message)
+            # we need to format to £ and clean the message, it's from the core
+            # network so we can't trust those nasty wee core network
+            # developers! :-(
+            clean_message = ''.join(s for s in voucher_value
+                                          if s in string.printable)
+            self['voucher_response_message'].set_text(
+                clean_message.replace('#', ' £'))
+            logger.info("payt-view set_voucher_entry_view - USSD Message: " +
+                        clean_message)
 
     def get_voucher_code(self):
-         # make sure we get the voucher code from the view
-          voucher_code = self['voucher_code'].get_text().strip()
-          return voucher_code
-
+        # make sure we get the voucher code from the view
+        voucher_code = self['voucher_code'].get_text().strip()
+        return voucher_code
 
     def set_voucher_throbbing(self):
-         logger.info("payt-view set_voucher_throbbing")
-         self['voucher_image'].set_from_file(self.voucher_throb)
+        logger.info("payt-view set_voucher_throbbing")
+        self['voucher_image'].set_from_file(self.voucher_throb)
 
     def clear_voucher_throbbing(self):
-         logger.info("payt-view clear_voucher_throbbing")
-         self['voucher_image'].set_from_file(self.voucher_image)
-
+        logger.info("payt-view clear_voucher_throbbing")
+        self['voucher_image'].set_from_file(self.voucher_image)
 
     def set_banner_voucher_animation(self):
-         logger.info("payt-view set_banner_voucher_annimation")
-         self['paytbanner'].set_from_file(self.payt_banner_voucher)
-
+        logger.info("payt-view set_banner_voucher_annimation")
+        self['paytbanner'].set_from_file(self.payt_banner_voucher)
 
     def clear_banner_voucher_animation(self):
-         logger.info("payt-view clear_banner_voucher_annimation")
-         self['paytbanner'].set_from_file(self.payt_image)
-
+        logger.info("payt-view clear_banner_voucher_annimation")
+        self['paytbanner'].set_from_file(self.payt_image)
 
     def set_banner_credit_check_animation(self):
-         logger.info("payt-view set_banner_credit_check_animation")
-         self['paytbanner'].set_from_file(self.payt_banner_credit_check)
-
+        logger.info("payt-view set_banner_credit_check_animation")
+        self['paytbanner'].set_from_file(self.payt_banner_credit_check)
 
     def clear_banner_credit_check_animation(self):
-         logger.info("payt-view clear_banner_credit_check_animation")
-         self['paytbanner'].set_from_file(self.payt_image)
+        logger.info("payt-view clear_banner_credit_check_animation")
+        self['paytbanner'].set_from_file(self.payt_image)

@@ -234,9 +234,6 @@ class PayAsYouTalkController(Controller):
 
     def property_payt_credit_busy_value_change(self, model, old, new):
         if new:
-#            # ok we need to tell the view to wipe current data and prepare for
-#            # the new! So let's remove our current credit and date first.
-#            self.view.set_waiting_credit_view()
             # set the banner throbber to let Joe Public know we are busy
             self.view.set_banner_credit_check_animation()
         else:

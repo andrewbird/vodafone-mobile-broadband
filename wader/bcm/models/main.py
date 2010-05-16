@@ -91,9 +91,6 @@ class MainModel(Model):
         'total_session': 0,
         'total_transferred': 0,
         'total_month': 0,
-        'home_plmn':'Unknown',
-        'sim_msisdn': 'Unknown',
-        'sim_type':'contract',
         'rx_rate': 0,
         'tx_rate': 0,
         'transfer_limit_exceeded': False,
@@ -232,6 +229,7 @@ class MainModel(Model):
 
     def get_sim_conf(self, item, default=None):
         if self.imsi is None:
+
             def imsi_cb(imsi):
                 logger.info("get_sim_conf - fetched IMSI %s" % imsi)
 
@@ -241,6 +239,7 @@ class MainModel(Model):
 
     def set_sim_conf(self, item, value):
         if self.imsi is None:
+
             def imsi_cb(imsi):
                 logger.info("set_sim_conf - fetched IMSI %s" % imsi)
 
@@ -260,7 +259,8 @@ class MainModel(Model):
                 self.set_sim_conf('msisdn', self.msisdn)
                 cb(self.msisdn)
             else:
-                logger.info("MSISDN from network: '%s' didn't match regex" % response)
+                logger.info("MSISDN from network: '%s' didn't match regex" %
+                            response)
                 cb(None)
 
         def get_msisdn_eb(failure):
@@ -685,7 +685,8 @@ class MainModel(Model):
 
 #         # else return the usage of the given month
 #         return self.get_month(offset)
-        # XXX: Probably this should be more efficient for offset 0 using self.total_transferred.
+        # XXX: Probably this should be more efficient for offset 0 using
+        # self.total_transferred.
         result = sum((item.total() for item in self._get_month(offset)))
         if offset == 0:
             result += self.total_session
