@@ -24,6 +24,7 @@ from os.path import join, isdir, walk
 
 from ez_setup import use_setuptools; use_setuptools()
 from setuptools import setup
+from distutils.command.install_data import install_data as _install_data
 
 from wader.bcm.consts import (APP_VERSION, APP_NAME,
                               RESOURCES_DIR)
@@ -33,8 +34,29 @@ APPLICATIONS = '/usr/share/applications'
 PIXMAPS = '/usr/share/pixmaps'
 DBUS_SYSTEMD = '/etc/dbus-1/system.d'
 
+
+def paint_file(path, text):
+    from PIL import Image, ImageFont, ImageDraw
+    im = Image.open(path)
+    draw = ImageDraw.Draw(im)
+    font = ImageFont.truetype("resources/tools/FreeSans.ttf", 12)
+    draw.text((300, 0), text, font=font)
+    im.save(path)
+
+
+class install_data(_install_data):
+
+    def run(self):
+        _install_data.run(self)
+
+        for outfile in self.outfiles:
+            if 'splash.png' in outfile:
+                paint_file(outfile, APP_VERSION)
+
+
 def list_files(path, exclude=None):
     result = []
+
     def walk_callback(arg, directory, files):
         for ext in ['.svn', '.git']:
             if ext in files:
@@ -75,8 +97,12 @@ packages = [
     'wader.bcm.contrib.gtkmvc',
     'wader.bcm.contrib.gtkmvc.adapters',
     'wader.bcm.contrib.gtkmvc.progen',
-    'wader.bcm.contrib.gtkmvc.support'
+    'wader.bcm.contrib.gtkmvc.support',
 ]
+
+cmdclass = {
+    'install_data': install_data,
+}
 
 setup(name=APP_NAME,
       version=APP_VERSION,
@@ -87,9 +113,10 @@ setup(name=APP_NAME,
       license='GPL',
       packages=packages,
       data_files=data_files,
+      cmdclass=cmdclass,
       zip_safe=False,
       test_suite='wader.test',
-      classifiers = [
+      classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: X11 Applications :: GTK',
         'Intended Audience :: End Users/Desktop',
