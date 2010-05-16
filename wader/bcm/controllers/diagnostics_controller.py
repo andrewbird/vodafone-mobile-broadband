@@ -53,42 +53,33 @@ class DiagnosticsController(Controller):
         if not device:
             return
 
-        def sim_imei(sim_data):
+        def sim_imei(imei):
             # ok we don't have a model the data is coming from dbus
             # from wader core lets tell the view to set the imsi value
             # in the correct place
-            logger.info("diagnostics sim_imei - IMEI number is: " + sim_data)
-            self.view.set_imei_info(sim_data)
+            logger.info("diagnostics sim_imei - IMEI number is: " + str(imei))
+            self.view.set_imei_info(imei)
 
         device.GetImei(dbus_interface=CRD_INTFACE,
                        error_handler=logger.error, reply_handler=sim_imei)
 
-        def sim_network(sim_data):
+        def sim_imsi(imsi):
+            logger.info("diagnostics sim_imsi - IMSI number is: " + str(imsi))
+            self.view.set_imsi_info(imsi)
+
             # let's look up what we think this SIM's network is.
             # so we want to display the country and network operator
-
-            sim_network = NetworkProvider()
-            networks_attributes = sim_network.get_network_by_id(sim_data)
+            provider = NetworkProvider()
+            networks_attributes = provider.get_network_by_id(imsi)
             if networks_attributes:
                 net_attrib = networks_attributes[0]
-                logger.info("diagnostics sim_network - country: "
-                            + net_attrib.country)
-                logger.info("diagnostics sim_network - network opeartor: "
-                            + net_attrib.name)
-                logger.info("diagnostics sim_network - sms value: "
-                            + net_attrib.smsc)
-                logger.info("diagnostics sim_network - password value: "
-                            + net_attrib.password)
+                logger.info("diagnostics sim_imsi - country: "
+                            + str(net_attrib.country))
+                logger.info("diagnostics sim_imsi - network operator: "
+                            + str(net_attrib.name))
                 self.view.set_network_info(network=net_attrib.name,
                                            country=net_attrib.country)
-
-        self.model.get_imsi(sim_network)
-
-        def sim_imsi(sim_data):
-            # ok we don't have a model the data is coming from dbus from the
-            # core lets tell the view to set the imei in the correct place
-            logger.info("diagnostics sim_imsi - IMSI number is: " + sim_data)
-            self.view.set_imsi_info(sim_data)
+            provider.close()
 
         self.model.get_imsi(sim_imsi)
 
