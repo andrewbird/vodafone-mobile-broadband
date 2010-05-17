@@ -104,6 +104,7 @@ class PayAsYouTalkController(Controller):
                 # need to fire off another request
                 self.get_current_sim_credit()
                 self.model.payt_submit_busy = False
+                self.view.clear_voucher_entry_view()
             else:
                 logger.error("PAYT SIM submit voucher failed")
                 self.model.payt_submit_busy = False
@@ -273,7 +274,6 @@ class PayAsYouTalkController(Controller):
         # view entry box and send to the network.
         voucher_code = self.view.get_voucher_code()
         self.submit_voucher(voucher_code)
-        self.view.set_voucher_entry_view('')
 
     def _hide_myself(self):
         self.model.unregister_observer(self)

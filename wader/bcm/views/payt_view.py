@@ -75,25 +75,12 @@ class PayAsYouTalkView(View):
     def enable_send_button(self, sensitive):
         self['voucher_button'].set_sensitive(sensitive)
 
-    def set_voucher_entry_view(self, voucher_value):
-
+    def clear_voucher_entry_view(self):
         # ok if the view has been asked to reset with a null string, make sure
         # we reset any previous messages too.
-        if voucher_value == '':
-            self['voucher_code'].set_text('')
-            self['voucher_response_message'].set_text('')
-            logger.info("payt-view set_voucher_entry_view (value-null) - USSD "
-                        "Message: " + voucher_value)
-        else:
-            # we need to format to £ and clean the message, it's from the core
-            # network so we can't trust those nasty wee core network
-            # developers! :-(
-            clean_message = ''.join(s for s in voucher_value
-                                          if s in string.printable)
-            self['voucher_response_message'].set_text(
-                clean_message.replace('#', ' £'))
-            logger.info("payt-view set_voucher_entry_view - USSD Message: " +
-                        clean_message)
+        self['voucher_code'].set_text('')
+        self['voucher_response_message'].set_text('')
+        logger.info("payt-view clear_voucher_entry_view")
 
     def get_voucher_code(self):
         # make sure we get the voucher code from the view
