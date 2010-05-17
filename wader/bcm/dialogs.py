@@ -275,7 +275,7 @@ def save_csv_file(path=None):
         resp = chooser_dialog.get_filename()
         if os.path.isfile(resp):
             # requests to confirm overwrite:
-            overwrite = show_warning_request_cancel_ok(_("Overwrite"),
+            overwrite = show_warning_request_cancel_ok(
                           _('Overwrite "%s"?') % os.path.basename(resp),
                           _("""A file with this name already exists.
 If you choose to overwrite this file, the contents will be lost."""))
