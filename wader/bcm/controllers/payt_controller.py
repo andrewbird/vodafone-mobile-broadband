@@ -59,7 +59,6 @@ class PayAsYouTalkController(Controller):
         self._set_form_state(self.model.status)
 
     def _submit_voucher_by_ussd(self, ussd, voucher, cb):
-
         mccmnc, format, regex = ussd
 
         device = self.model.get_device()
@@ -75,31 +74,30 @@ class PayAsYouTalkController(Controller):
             if match:
 #                success = match.group('success')
                 logger.info("PAYT SIM submit voucher via USSD success")
-                cb(True)
+                cb(None)
             else:
                 logger.info("PAYT SIM submit voucher didn't match USSD regex:"
                             " '%s'" % response)
-                cb(None)
+                cb(response)
 
         def ussd_eb(error):
             logger.error("PAYT SIM error submitting voucher via USSD: %s"
                          % error)
-            cb(None)
+            cb(error)
 
         device.Initiate(request,
                         reply_handler=ussd_cb,
                         error_handler=ussd_eb)
 
     def submit_voucher(self, voucher):
-
         payt_available = self.model.get_sim_conf('payt_available', None)
         if payt_available == False: # Not a PAYT SIM
             show_warning_dialog(_("PAYT submit voucher"),
                                 _("SIM is not on a PAYT plan"))
             return
 
-        def submit_cb(success):
-            if success:
+        def submit_cb(error):
+            if not error:
                 logger.info("PAYT SIM submit voucher success")
                 # ok we established his voucher code is good, let's cause the
                 # system to update the UI with his new credit. To do that we
@@ -110,7 +108,7 @@ class PayAsYouTalkController(Controller):
                 logger.error("PAYT SIM submit voucher failed")
                 self.model.payt_submit_busy = False
                 show_warning_dialog(_("PAYT submit voucher"),
-                                    _("PAYT submit voucher failed"))
+                    _("PAYT submit voucher failed\n\'%s\'") % error)
 
         ussd = get_payt_submit_voucher_info(self.model.imsi)
         if ussd:
@@ -123,7 +121,6 @@ class PayAsYouTalkController(Controller):
                                 _("No PAYT submit voucher method available"))
 
     def _get_current_sim_credit_by_ussd(self, ussd, cb):
-
         mccmnc, request, regex, format = ussd
 
         device = self.model.get_device()
@@ -153,7 +150,6 @@ class PayAsYouTalkController(Controller):
         # both value and time as a credit amount is only valid at the time you
         # check. I store the values in Gconf and set a flag indicating whether
         # this SIM is prepay capable
-
         payt_available = self.model.get_sim_conf('payt_available', None)
         if payt_available == False: # Not a PAYT SIM
             show_warning_dialog(_("PAYT credit check"),
