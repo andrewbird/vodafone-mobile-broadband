@@ -76,11 +76,14 @@ class PayAsYouTalkView(View):
         self['voucher_button'].set_sensitive(sensitive)
 
     def clear_voucher_entry_view(self):
-        # ok if the view has been asked to reset with a null string, make sure
+        # ok if the view has been asked to reset, make sure
         # we reset any previous messages too.
         self['voucher_code'].set_text('')
         self['voucher_response_message'].set_text('')
         logger.info("payt-view clear_voucher_entry_view")
+
+    def enable_voucher_entry_view(self, sensitive):
+        self['voucher_code'].set_sensitive(sensitive)
 
     def get_voucher_code(self):
         # make sure we get the voucher code from the view

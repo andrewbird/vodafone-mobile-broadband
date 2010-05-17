@@ -237,9 +237,10 @@ class PayAsYouTalkController(Controller):
             # stop any animation in the view now we got a response.
             self.view.clear_banner_credit_check_animation()
 
-        # disable buttons whilst busy
+        # disable things whilst busy
         self.view.enable_credit_button(not new)
         self.view.enable_send_button(not new)
+        self.view.enable_voucher_entry_view(not new)
 
     def property_payt_submit_busy_value_change(self, model, old, new):
         if new:
@@ -249,9 +250,10 @@ class PayAsYouTalkController(Controller):
             # stop any animation in the view now we got a response.
             self.view.clear_banner_credit_check_animation()
 
-        # disable buttons whilst busy
+        # disable stuff whilst busy
         self.view.enable_credit_button(not new)
         self.view.enable_send_button(not new)
+        self.view.enable_voucher_entry_view(not new)
 
     def property_msisdn_value_change(self, model, old, new):
         self.view.set_msisdn_value(new)
