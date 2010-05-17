@@ -247,7 +247,6 @@ class MainModel(Model):
         self.conf.set("sim/%s" % self.imsi, item, value)
 
     def _get_msisdn_by_ussd(self, ussd, cb):
-
         mccmnc, request, regex = ussd
 
         def get_msisdn_cb(response):
@@ -273,7 +272,6 @@ class MainModel(Model):
                              error_handler=get_msisdn_eb)
 
     def get_msisdn(self, cb):
-
         if self.msisdn:
             logger.info("MSISDN from model cache %s: " % self.msisdn)
             cb(self.msisdn)
@@ -312,7 +310,9 @@ class MainModel(Model):
             self.device = self.bus.get_object(WADER_SERVICE, self.device_opath)
 
             self.pin_required = self.puk_required = self.puk2_required = False
+            self.sim_error = False
             self._initialize_usage_values()
+            self.status = _('Device found')
             self.enable_device()
         else:
             logger.warn("No devices found")
@@ -424,7 +424,9 @@ class MainModel(Model):
 
     def _get_regstatus_cb(self, (status, operator_code, operator_name)):
         if status == -1:
-            self.status = _('No device')
+            # Don't set status here, as it stamps on 'Device found' and others
+            # that aren't included in registration values
+            # self.status = _('No device')
             return
         if status == 1:
             self.status = _("Registered")
@@ -704,4 +706,3 @@ class MainModel(Model):
 
     def get_app_version(self):
         return APP_VERSION
-

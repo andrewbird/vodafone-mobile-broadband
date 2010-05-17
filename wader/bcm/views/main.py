@@ -179,6 +179,14 @@ class MainView(View):
         self['signal_image'].set_from_file(os.path.join(IMAGES_DIR,
                                                         'nodevice.png'))
 
+    def set_have_device(self):
+        self._set_disconnected()
+        self['connect_button'].set_sensitive(False)
+        self['topup_tool_button'].set_sensitive(False)
+        self['net_statusbar'].push(1, _('Device found'))
+        self['signal_image'].set_from_file(os.path.join(IMAGES_DIR,
+                                                        'device.png'))
+
     def set_sim_locked(self):
         self._set_disconnected()
         self['connect_button'].set_sensitive(False)
@@ -195,7 +203,7 @@ class MainView(View):
         self['signal_image'].set_from_file(os.path.join(IMAGES_DIR,
                                                         'throbber.gif'))
 
-    def set_have_device(self):
+    def set_searching(self):
         self._set_disconnected()
         self['connect_button'].set_sensitive(False)
         self['topup_tool_button'].set_sensitive(True)

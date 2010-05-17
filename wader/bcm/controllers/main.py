@@ -312,7 +312,7 @@ class MainController(WidgetController):
             sm = self.model.device.connect_to_signal(SIG_SMS_COMP,
                                                 self.on_sms_received_cb)
             self.signal_matches.append(sm)
-            self.model.status = _('Scanning')
+            self.model.status = _('Device found')
         else:
             while self.signal_matches:
                 sm = self.signal_matches.pop()
@@ -326,21 +326,41 @@ class MainController(WidgetController):
         logger.info("A profile has been set for current model %s" % new)
 
     def property_status_value_change(self, model, old, new):
+
+        def update_treeviews():
+            try:
+                self._fill_treeviews()
+                return False
+            except:
+                return True
+
         if new == _('No device'):
             self.view.set_no_device()
+        elif new == _('Device found'):
+            self.view.set_have_device()
         elif new == _('SIM locked'):
             self.view.set_sim_locked()
         elif new == _('Authenticating'):
             self.view.set_authenticating()
         elif new == _('Scanning'):
-            self.view.set_have_device()
+            self.view.set_searching()
+            # ask in two seconds for contacts and SMS
+            timeout_add_seconds(2, update_treeviews)
         elif new in [_('Registered'), _('Roaming'), _('Not connected')]:
             self.view.set_disconnected()
         elif new == _('Connected'):
             self.view.set_connected()
 
-    def property_sim_error_value_change(self, model, old, details):
-        title = _('Unknown error while initting device')
+    def property_sim_error_value_change(self, model, old, new):
+        if not new:
+            return
+        elif new == 'org.freedesktop.ModemManager.Gsm.SimNotInserted':
+            title = _('SIM error')
+            details = _('Perhaps your SIM is not inserted correctly?')
+        else:
+            title = _('Unknown error')
+            details = new
+
         show_error_dialog(title, details)
 
     def property_net_error_value_change(self, model, old, new):
@@ -505,7 +525,6 @@ class MainController(WidgetController):
 
     def on_device_enabled_cb(self, opath):
         self.model.status = _('Scanning')
-        self._fill_treeviews()
         self.model.pin_is_enabled(self.on_is_pin_enabled_cb,
                                   lambda *args: True)
 
@@ -696,15 +715,16 @@ The csv file that you have tried to import has an invalid format.""")
                 phonebook.add_contacts(contacts, True)
                 # Flip the notebook to contacts
                 self.view['main_notebook'].set_current_page(3)
+                # contacts from all backends(inc SIM)
+                contacts = phonebook.get_contacts()
                 # Refresh contacts display
                 self._empty_treeviews(['contacts_treeview'])
-                self._fill_contacts()
+                self._fill_contacts(contacts)
 
     def on_export_contacts1_activate(self, widget):
         filepath = save_csv_file()
         if filepath:
             writer = CSVUnicodeWriter(open(filepath, 'w'))
-            phonebook = get_phonebook(self.model.device)
             # Now we support different backends we need to be more
             # selective about what we write out?
             contacts = [c.to_csv() for c in self._get_treeview_contacts()
@@ -998,16 +1018,6 @@ The csv file that you have tried to import has an invalid format.""")
             if model:
                 model.clear()
 
-    def _fill_contacts(self, ignored=None):
-        """Fills the contacts treeview with contacts"""
-        phonebook = get_phonebook(device=self.model.device)
-
-        treeview = self.view['contacts_treeview']
-        contacts = phonebook.get_contacts()
-        model = treeview.get_model()
-        model.add_contacts(contacts)
-        return contacts
-
     def _hide_sim_contacts(self):
         """
         Called when the device holding the SIM is removed
@@ -1051,21 +1061,25 @@ The csv file that you have tried to import has an invalid format.""")
                 print contact.get_name()
         return contacts[0]
 
-    def _fill_messages(self, contacts=None):
+    def _fill_contacts(self, contacts):
+        """Fills the contacts treeview with contacts"""
+        treeview = self.view['contacts_treeview']
+
+        model = treeview.get_model()
+        model.add_contacts(contacts)
+
+    def _fill_messages(self, messages):
         """
         Fills the messages treeview with SIM & DB SMS
 
-        We're receiving the contacts list produced by _fill_contacts because
+        We're using the contacts list installed in the contacts treeview because
         otherwise, adding dozens of SMS to the treeview would be very
-        inefficient, as we would have to lookup the sender number of every
-        SMS to find out whether is a known contact or not. The solution is
-        to cache the previous result and pass the contacts list to the
-        L{wader.bcm.models.sms.SMSStoreModel}
+        inefficient, as we would have to lookup the sender number of every SMS
+        to find out whether is a known contact or not.
         """
-        messages_obj = get_messages_obj(self.model.device)
-        sms_list = messages_obj.get_messages()
+        contacts = self._get_treeview_contacts()
 
-        for sms in sms_list:
+        for sms in messages:
             active_tv = TV_DICT[sms.where]         # get treeview name
             treeview = self.view[active_tv]        # get treeview object
             treeview.get_model().add_message(sms, contacts) # append to tv
@@ -1074,9 +1088,17 @@ The csv file that you have tried to import has an invalid format.""")
         """
         Fills the treeviews with SMS and contacts
         """
+        # contacts from all backends(inc SIM)
+        phonebook = get_phonebook(device=self.model.device)
+        contacts = phonebook.get_contacts()
+
+        # messages from all backends(inc SIM)
+        messages_obj = get_messages_obj(self.model.device)
+        messages = messages_obj.get_messages()
+
         self._empty_treeviews(list(set(TV_DICT.values())))
-        contacts = self._fill_contacts()
-        self._fill_messages(contacts)
+        self._fill_contacts(contacts)
+        self._fill_messages(messages)
 
     def _get_treeview_contacts(self):
         treeview = self.view['contacts_treeview']
@@ -1288,8 +1310,11 @@ The csv file that you have tried to import has an invalid format.""")
             treeview_name = TV_DICT[num]
             # now do the refresh
             if treeview_name in 'contacts_treeview':
+                # contacts from all backends(inc SIM)
+                phonebook = get_phonebook(device=self.model.device)
+                contacts = phonebook.get_contacts()
                 self._empty_treeviews(['contacts_treeview'])
-                self._fill_contacts()
+                self._fill_contacts(contacts)
 
         if keyval_name(event.keyval) in 'Delete':
             # get current treeview
