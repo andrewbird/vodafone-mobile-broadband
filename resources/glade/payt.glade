@@ -3,7 +3,9 @@
   <!-- interface-requires gtk+ 2.16 -->
   <!-- interface-naming-policy project-wide -->
   <widget class="GtkWindow" id="payt_window">
-    <property name="title" translatable="yes">Topup Credit </property>
+    <property name="title" translatable="yes">Topup Credit</property>
+    <property name="resizable">False</property>
+    <property name="window_position">center-on-parent</property>
     <child>
       <widget class="GtkVBox" id="vbox1">
         <property name="visible">True</property>
