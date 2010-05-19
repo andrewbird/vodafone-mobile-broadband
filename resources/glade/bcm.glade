@@ -69,8 +69,13 @@
                             <property name="label">SMS</property>
                             <property name="visible">True</property>
                             <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
                             <signal name="activate" handler="on_sms_menu_item_activate"/>
+                            <child internal-child="image">
+                              <widget class="GtkImage" id="image657">
+                                <property name="visible">True</property>
+                                <property name="pixbuf">sms16x16.png</property>
+                              </widget>
+                            </child>
                           </widget>
                         </child>
                         <child>
@@ -78,8 +83,13 @@
                             <property name="label">Usage</property>
                             <property name="visible">True</property>
                             <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
                             <signal name="activate" handler="on_usage_menu_item_activate"/>
+                            <child internal-child="image">
+                              <widget class="GtkImage" id="image659">
+                                <property name="visible">True</property>
+                                <property name="pixbuf">usage16x16.png</property>
+                              </widget>
+                            </child>
                           </widget>
                         </child>
                         <child>
@@ -87,8 +97,18 @@
                             <property name="label">Support</property>
                             <property name="visible">True</property>
                             <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
                             <signal name="activate" handler="on_support_menu_item_activate"/>
+                            <child internal-child="image">
+                              <widget class="GtkImage" id="image651">
+                                <property name="visible">True</property>
+                                <property name="stock">gtk-help</property>
+                                <property name="icon_size">1</property>
+                                <property name="xalign">0.5</property>
+                                <property name="yalign">0.5</property>
+                                <property name="xpad">0</property>
+                                <property name="ypad">0</property>
+                              </widget>
+                            </child>
                           </widget>
                         </child>
                       </widget>
@@ -130,8 +150,18 @@
                             <property name="label">Diagnostics</property>
                             <property name="visible">True</property>
                             <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
                             <signal name="activate" handler="on_diagnostics_item_activate"/>
+                            <child internal-child="image">
+                              <widget class="GtkImage" id="image652">
+                                <property name="visible">True</property>
+                                <property name="stock">gtk-info</property>
+                                <property name="icon_size">1</property>
+                                <property name="xalign">0.5</property>
+                                <property name="yalign">0.5</property>
+                                <property name="xpad">0</property>
+                                <property name="ypad">0</property>
+                              </widget>
+                            </child>
                           </widget>
                         </child>
                         <child>
@@ -144,7 +174,16 @@
                             <property name="label">Profiles</property>
                             <property name="visible">True</property>
                             <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
+                            <child internal-child="image">
+                              <widget class="GtkImage" id="image653">
+                                <property name="visible">True</property>
+                                <property name="pixbuf">profiles.png</property>
+                                <property name="xalign">0.5</property>
+                                <property name="yalign">0.5</property>
+                                <property name="xpad">0</property>
+                                <property name="ypad">0</property>
+                              </widget>
+                            </child>
                           </widget>
                         </child>
                         <child>
@@ -186,8 +225,18 @@
                             <property name="label">_About</property>
                             <property name="visible">True</property>
                             <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
                             <signal name="activate" handler="on_about_menu_item_activate"/>
+                            <child internal-child="image">
+                              <widget class="GtkImage" id="image656">
+                                <property name="visible">True</property>
+                                <property name="stock">gtk-about</property>
+                                <property name="icon_size">1</property>
+                                <property name="xalign">0.5</property>
+                                <property name="yalign">0.5</property>
+                                <property name="xpad">0</property>
+                                <property name="ypad">0</property>
+                              </widget>
+                            </child>
                           </widget>
                         </child>
                       </widget>
@@ -419,7 +468,16 @@
                             <property name="visible">True</property>
                             <property name="tooltip" translatable="yes">Contacts menu</property>
                             <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
+                            <child internal-child="image">
+                              <widget class="GtkImage" id="image594">
+                                <property name="visible">True</property>
+                                <property name="pixbuf">contacts.png</property>
+                                <property name="xalign">0.5</property>
+                                <property name="yalign">0.5</property>
+                                <property name="xpad">0</property>
+                                <property name="ypad">0</property>
+                              </widget>
+                            </child>
                             <child>
                               <widget class="GtkMenu" id="imagemenuitem1_menu">
                                 <child>
@@ -428,8 +486,17 @@
                                     <property name="visible">True</property>
                                     <property name="tooltip" translatable="yes">Add a contact</property>
                                     <property name="use_underline">True</property>
-                                    <property name="use_stock">True</property>
                                     <signal name="activate" handler="on_new_contact_menu_item_activate"/>
+                                    <child internal-child="image">
+                                      <widget class="GtkImage" id="image595">
+                                        <property name="visible">True</property>
+                                        <property name="pixbuf">contact-new.png</property>
+                                        <property name="xalign">0.5</property>
+                                        <property name="yalign">0.5</property>
+                                        <property name="xpad">0</property>
+                                        <property name="ypad">0</property>
+                                      </widget>
+                                    </child>
                                   </widget>
                                 </child>
                                 <child>
@@ -438,8 +505,18 @@
                                     <property name="visible">True</property>
                                     <property name="tooltip" translatable="yes">Search contacts</property>
                                     <property name="use_underline">True</property>
-                                    <property name="use_stock">True</property>
                                     <signal name="activate" handler="on_search_contact_menu_item_activate"/>
+                                    <child internal-child="image">
+                                      <widget class="GtkImage" id="image596">
+                                        <property name="visible">True</property>
+                                        <property name="stock">gtk-find</property>
+                                        <property name="icon_size">1</property>
+                                        <property name="xalign">0.5</property>
+                                        <property name="yalign">0.5</property>
+                                        <property name="xpad">0</property>
+                                        <property name="ypad">0</property>
+                                      </widget>
+                                    </child>
                                   </widget>
                                 </child>
                               </widget>
@@ -456,8 +533,18 @@
                             <property name="label">_Delete</property>
                             <property name="visible">True</property>
                             <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
                             <signal name="activate" handler="on_delete_menu_item_activate"/>
+                            <child internal-child="image">
+                              <widget class="GtkImage" id="image597">
+                                <property name="visible">True</property>
+                                <property name="stock">gtk-delete</property>
+                                <property name="icon_size">4</property>
+                                <property name="xalign">0.5</property>
+                                <property name="yalign">0.5</property>
+                                <property name="xpad">0</property>
+                                <property name="ypad">0</property>
+                              </widget>
+                            </child>
                           </widget>
                         </child>
                       </widget>
