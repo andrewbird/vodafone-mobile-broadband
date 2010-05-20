@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # Copyright (C) 2008-2009  Warp Networks, S.L.
+# Copyright (C) 2010  Vodafone España, S.A.
 # Author:  Pablo Martí
 #
 # This program is free software; you can redistribute it and/or modify
@@ -23,16 +24,13 @@ import wader.bcm.consts as consts
 
 
 def create_skeleton_and_return():
-    try:
-        os.makedirs(consts.WADER_HOME, 0700)
-    except OSError:
-        pass
 
-    try:
-        os.mkdir(consts.DB_DIR, 0700)
-    except OSError:
-        pass
+    def mkdir(path):
+        if not os.path.exists(path):
+            try:
+                os.makedirs(path, 0700)
+            except OSError:
+                raise RuntimeError("Cannot create %s" % path)
 
-    if os.path.exists(consts.NETWORKS_DB):
-        # remove old way of populating networks database
-        os.unlink(consts.NETWORKS_DB)
+    for path in [consts.WADER_HOME, consts.DB_DIR]:
+        mkdir(path)

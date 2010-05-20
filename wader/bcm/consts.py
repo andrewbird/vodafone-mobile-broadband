@@ -69,19 +69,16 @@ RESOURCES_DIR = join(DATA_DIR, 'resources')
 
 GLADE_DIR = join(RESOURCES_DIR, 'glade')
 IMAGES_DIR = join(RESOURCES_DIR, 'glade')
-ANIMATION_DIR = join(IMAGES_DIR,  'animation')
+ANIMATION_DIR = join(IMAGES_DIR, 'animation')
 THEMES_DIR = join(RESOURCES_DIR, 'themes')
 GUIDE_DIR = join('/usr/share/doc', APP_SLUG_NAME)
 
 GTK_LOCK = join('/tmp', '.bcm-lock')
 
 USER_HOME = expanduser('~')
-# TODO: should we change WADER_HOME to bcm?
-WADER_HOME = join(USER_HOME, '.gnome2', 'wader')
+WADER_HOME = join(USER_HOME, '.bcm')
 
-# NETWORKS_DB is a deprecated path
 DB_DIR = join(WADER_HOME, 'db')
-NETWORKS_DB = join(DB_DIR, 'networks.db')
 MESSAGES_DB = join(DB_DIR, 'messages.db')
 USAGE_DB = join(DB_DIR, 'usage.db')
 
