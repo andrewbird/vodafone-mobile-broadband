@@ -2,7 +2,6 @@
 
 import os
 from subprocess import Popen, PIPE, call
-import sys
 
 import dbus
 import gtk
@@ -16,11 +15,15 @@ from wader.bcm.controllers.main import MainController
 from wader.bcm.views.main import MainView
 from wader.bcm.consts import GTK_LOCK, APP_LONG_NAME
 
+from wader.bcm.splash import SplashScreen
+from wader.bcm.startup import create_skeleton_and_return
+
 
 def create_wader_config_dir():
     path = os.path.join(os.path.expanduser('~'), '.gnome2', 'wader', 'db')
     if not os.path.exists(path):
         os.makedirs(path)
+
 
 def check_if_running():
     if not os.path.exists(GTK_LOCK):
@@ -45,6 +48,7 @@ def check_if_running():
 
     return int(pid) == int(saved_pid)
 
+
 def raise_window():
     try:
         wmctrl_path = which('wmctrl')[0]
@@ -53,12 +57,9 @@ def raise_window():
     else:
         call(["%s" % wmctrl_path, "-a", "%s" % APP_LONG_NAME])
 
+
 def main():
     create_wader_config_dir()
-    from wader.bcm.splash import SplashScreen
-    splash = SplashScreen()
-    splash.show_it(2)
-    from wader.bcm.startup import create_skeleton_and_return
     create_skeleton_and_return()
 
     model = MainModel()
@@ -67,7 +68,9 @@ def main():
     model.ctrl = ctrl
     view = MainView(ctrl)
 
-    view.show()
+    # pass view to show after splash
+    splash = SplashScreen(view)
+    splash.show_it(2)
 
     # save the pid
     try:
@@ -83,9 +86,9 @@ def main():
         print "Removing gtk lock..."
         os.unlink(GTK_LOCK)
 
+
 if __name__ == '__main__':
     if check_if_running():
         raise_window()
     else:
         main()
-

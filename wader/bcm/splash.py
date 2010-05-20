@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2009  Vodafone España, S.A.
+# Copyright (C) 2009-2010  Vodafone España, S.A.
 # Author:  Andrew Bird
 #
 # This program is free software; you can redistribute it and/or modify
@@ -16,37 +16,39 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
+import gobject
 import gtk
+from gtk.gdk import WINDOW_TYPE_HINT_SPLASHSCREEN
 import os
-from time import sleep
-
 from wader.bcm.consts import GLADE_DIR
 
 
 class SplashScreen(gtk.Window):
 
-    def __init__(self):
+    def __init__(self, parent_view):
         super(SplashScreen, self).__init__(gtk.WINDOW_POPUP)
+        self.parent_view = parent_view
 
-        self.connect('destroy', lambda win: self.hide())
-        self.set_resizable(True)
+        def done(win):
+            self.hide()
+            self.parent_view.show()
+
+        self.connect('destroy', done)
+        self.set_resizable(False)
         self.set_modal(1)
         self.set_position(1)
+        self.set_type_hint(WINDOW_TYPE_HINT_SPLASHSCREEN)
 
         img = gtk.Image()
         img.set_from_file(os.path.join(GLADE_DIR, "splash.png"))
         self.add(img)
 
     def show_it(self, displaytime):
-#        gtk.timeout_add(displaytime*1000, lambda splash:
-#                             splash.destroy(), self)
+        gobject.timeout_add(displaytime * 1000,
+                            lambda splash: splash.destroy(), self)
+
         self.show_all()
         self.show_now()
 
         while gtk.events_pending():
             gtk.main_iteration()
-
-        # XXX: This is poor, need to switch to some other blocking method
-        sleep(displaytime)
-
-        self.destroy()
