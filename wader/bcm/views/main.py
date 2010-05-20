@@ -29,7 +29,8 @@ from wader.bcm.contrib.gtkmvc import View
 
 from wader.bcm.config import config
 from wader.bcm.translate import _
-from wader.bcm.consts import GLADE_DIR, IMAGES_DIR, THEMES_DIR, APP_LONG_NAME
+from wader.bcm.consts import (GLADE_DIR, IMAGES_DIR, THEMES_DIR,
+                              APP_LONG_NAME, APP_URL)
 from wader.bcm.utils import repr_usage, UNIT_KB, UNIT_MB, units_to_bytes
 from wader.bcm.views.stats import StatsBar
 from wader.bcm.controllers.base import TV_DICT
@@ -104,12 +105,51 @@ class MainView(View):
         window = self.get_top_widget()
         window.set_position(gtk.WIN_POS_CENTER)
         window.set_size_request(width=WIN_WIDTH, height=height)
+        self._setup_support_tabs()
         self._setup_usage_view()
         self.set_no_device()
 
     def theme_ui(self):
         theme = os.path.join(THEMES_DIR, "default.gtkrc")
         gtk.rc_parse(theme)
+
+    def _setup_support_tabs(self):
+        # populate Help tab
+        tbuf = gtk.TextBuffer()
+        tbuf.set_text(_("In most cases you can find the answer to your"
+            " questions about the program in the help menu. This menu can be"
+            " accessed if you click on the \"Help\" label on the menu bar"
+            " located in the top side of the window, and selecting the"
+            " \"Help topics\" option."
+            "\n\nYou can also find help, updates and tips in %s's web:"
+            "\n\n%s."
+            "\n\nIf you use the mail and browser buttons to access other"
+            " programs in your system, you might need to ask your Systems"
+            " Administrator any doubt that you might have."
+            % (APP_LONG_NAME, APP_URL)))
+        self['support_notebook_help_text'].set_buffer(tbuf)
+
+        # populate Support center tab
+        tbuf = gtk.TextBuffer()
+        tbuf.set_text(_("If you are using this program in a corporate"
+            " environment, your company probably has a support center to"
+            " solve the questions that you might have about the program."
+            "\n\nIf your company does not have a support center, you will have"
+            " to contact your company's System Administrator."))
+        self['support_notebook_support_text'].set_buffer(tbuf)
+
+        # populate Customer support tab
+        tbuf = gtk.TextBuffer()
+        tbuf.set_text(_("You can easily find answers to the most common"
+            " questions in the help menu, in your company's support center and"
+            " in the support area at:"
+            "\n\n%s."
+            "\n\nIf you still have difficulties you can call to Vodafone's"
+            " Customer Support Center, the numbers are:"
+            "\n\n123, if you are using Vodafone's network, or"
+            "\n\n+34 607 123 00 if you are calling from other network."
+             % APP_URL))
+        self['support_notebook_customer_text'].set_buffer(tbuf)
 
     def _setup_usage_view(self):
         args = {'user_limit': self.usage_user_limit}

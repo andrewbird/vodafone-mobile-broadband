@@ -1404,19 +1404,13 @@
                         <property name="hscrollbar_policy">automatic</property>
                         <property name="shadow_type">in</property>
                         <child>
-                          <widget class="GtkTextView" id="support_notebook_textview">
+                          <widget class="GtkTextView" id="support_notebook_help_text">
                             <property name="height_request">235</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="editable">False</property>
                             <property name="wrap_mode">word</property>
-                            <property name="text" translatable="yes">In most cases you can find the answer to your questions about the program in the help menu.
-This menu can be accesed if you click on the "Help" label on the menu bar located in the top side of the window, and selecting the "Help topics" option.
-
-You can also find help, updates and tips in Vodafone Mobile Connect's web:
-https://forge.betavine.net/projects/vodafonemobilec.
-
-If you use the mail and browser buttons to access other programs in your system, you might need to ask your Systems Administrator any doubt that you might have.</property>
+                            <property name="text" translatable="no">placeholder</property>
                           </widget>
                         </child>
                       </widget>
@@ -1445,16 +1439,12 @@ If you use the mail and browser buttons to access other programs in your system,
                         <property name="hscrollbar_policy">automatic</property>
                         <property name="shadow_type">in</property>
                         <child>
-                          <widget class="GtkTextView" id="textview2">
+                          <widget class="GtkTextView" id="support_notebook_support_text">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="editable">False</property>
-                            <property name="text" translatable="yes">If you are using this program in a corporate environment, your company
-probably has a support center to solve the questions that you might have
-about the program.
-
-If your company does not have a support center, you will have to contact
-your company's System Administrator.</property>
+                            <property name="wrap_mode">word</property>
+                            <property name="text" translatable="no">placeholder</property>
                           </widget>
                         </child>
                       </widget>
@@ -1487,20 +1477,12 @@ your company's System Administrator.</property>
                         <property name="hscrollbar_policy">automatic</property>
                         <property name="shadow_type">in</property>
                         <child>
-                          <widget class="GtkTextView" id="textview1">
+                          <widget class="GtkTextView" id="support_notebook_customer_text">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="editable">False</property>
-                            <property name="text" translatable="yes">You can easily find answers to the most common questions in the
-help menu, in your company's support center and in the support
-area at https://forge.betavine.net/projects/vodafonemobilec .
-
-If you still have difficulties you can call to Vodafone's Customer Support Center,
-the numbers are:
-
-123, if you are using Vodafone's network, or
-
-+34 607 123 00 if you are calling from other network.</property>
+                            <property name="wrap_mode">word</property>
+                            <property name="text" translatable="no">placeholder</property>
                           </widget>
                         </child>
                       </widget>
