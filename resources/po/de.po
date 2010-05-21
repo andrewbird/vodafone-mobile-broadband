@@ -60,7 +60,6 @@ msgid "Export contacts..."
 msgstr "Exportiere Kontakte..."
 
 #: ../glade/bcm.glade:48
-#, fuzzy
 msgid "_Quit"
 msgstr "Verlassen"
 
@@ -74,7 +73,7 @@ msgstr "Nutzung"
 
 #: ../glade/bcm.glade:107 ../glade/bcm.glade:367
 msgid "Support"
-msgstr "Support"
+msgstr "Unterstützung"
 
 #: ../glade/bcm.glade:131
 msgid "_Tools"
@@ -94,9 +93,8 @@ msgid "Diagnostics"
 msgstr "Diagnose"
 
 #: ../glade/bcm.glade:184
-#, fuzzy
 msgid "Profiles"
-msgstr "Profil:"
+msgstr "Profile"
 
 #: ../glade/bcm.glade:206 ../glade/preferences.glade:7
 msgid "Preferences"
@@ -107,9 +105,8 @@ msgid "_Help"
 msgstr "_Hilfe"
 
 #: ../glade/bcm.glade:236
-#, fuzzy
 msgid "Help"
-msgstr "_Hilfe"
+msgstr "Hilfe"
 
 #: ../glade/bcm.glade:255
 msgid "_About"
@@ -178,9 +175,8 @@ msgid "Add a contact"
 msgstr "Einen Kontakt hinzufügen"
 
 #: ../glade/bcm.glade:534
-#, fuzzy
 msgid "_Search"
-msgstr "Searching"
+msgstr "_Suche"
 
 #: ../glade/bcm.glade:536
 msgid "Search contacts"
@@ -219,7 +215,7 @@ msgstr "label"
 
 #: ../glade/bcm.glade:888 ../glade/bcm.glade:998 ../glade/bcm.glade:1283
 msgid "3G:"
-msgstr "3G"
+msgstr "3G:"
 
 #: ../glade/bcm.glade:903 ../glade/bcm.glade:972
 msgid "Total:"
@@ -227,7 +223,7 @@ msgstr "Gesamt:"
 
 #: ../glade/bcm.glade:918 ../glade/bcm.glade:985 ../glade/bcm.glade:1297
 msgid "GPRS:"
-msgstr "GPRS"
+msgstr "GPRS:"
 
 #: ../glade/bcm.glade:934 ../glade/bcm.glade:1313
 msgid "<b>Transferred Data</b>"
