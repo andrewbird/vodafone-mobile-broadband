@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-21 14:22+0100\n"
+"POT-Creation-Date: 2010-05-21 15:51+0100\n"
 "PO-Revision-Date: 2010-05-20 21:14+0100\n"
 "Last-Translator: Paulo Arinto <artinto@portugalmail.pt>\n"
 "Language-Team: Portuguese <PT@li.org>\n"
@@ -86,7 +86,6 @@ msgid "Request PIN"
 msgstr "Pedir PIN"
 
 #: ../glade/bcm.glade:160 ../glade/diagnostics.glade:7
-#: ../glade/diagnostics2.glade:7
 msgid "Diagnostics"
 msgstr "Diagnósticos"
 
@@ -369,35 +368,35 @@ msgstr "Computador"
 msgid "<b>Datacard details</b>"
 msgstr "<b>Detalhes Datacard</b>"
 
-#: ../glade/diagnostics.glade:81 ../glade/diagnostics2.glade:85
+#: ../glade/diagnostics.glade:81
 msgid "Manufacturer:"
 msgstr "Fabricante:"
 
-#: ../glade/diagnostics.glade:92 ../glade/diagnostics2.glade:96
+#: ../glade/diagnostics.glade:92
 msgid "Model:"
 msgstr "Modelo: "
 
-#: ../glade/diagnostics.glade:103 ../glade/diagnostics2.glade:107
+#: ../glade/diagnostics.glade:103
 msgid "Firmware: "
 msgstr "Firmware: "
 
-#: ../glade/diagnostics.glade:114 ../glade/diagnostics2.glade:118
+#: ../glade/diagnostics.glade:114
 msgid "IMEI: "
 msgstr "IMEI: "
 
-#: ../glade/diagnostics.glade:138 ../glade/diagnostics2.glade:141
+#: ../glade/diagnostics.glade:138
 msgid "Card manufacturer"
 msgstr "Fabricante do cartão"
 
-#: ../glade/diagnostics.glade:149 ../glade/diagnostics2.glade:152
+#: ../glade/diagnostics.glade:149
 msgid "Card model"
 msgstr "Cartão modelo"
 
-#: ../glade/diagnostics.glade:160 ../glade/diagnostics2.glade:163
+#: ../glade/diagnostics.glade:160
 msgid "Firmware"
 msgstr "Firmware"
 
-#: ../glade/diagnostics.glade:172 ../glade/diagnostics2.glade:175
+#: ../glade/diagnostics.glade:172
 msgid "IMEI"
 msgstr "IMEI"
 
@@ -409,7 +408,7 @@ msgstr "Modem"
 msgid "<b>Network details from SIM</b>"
 msgstr "<b>detalhes da Rede SIM</b>"
 
-#: ../glade/diagnostics.glade:265 ../glade/diagnostics2.glade:257
+#: ../glade/diagnostics.glade:265
 msgid "IMSI:"
 msgstr "IMSI:"
 
@@ -425,7 +424,7 @@ msgstr "País"
 msgid "Mobile Number:"
 msgstr "Número:"
 
-#: ../glade/diagnostics.glade:321 ../glade/diagnostics2.glade:279
+#: ../glade/diagnostics.glade:321
 msgid "IMSI"
 msgstr "IMSI"
 
@@ -448,15 +447,15 @@ msgstr "SIM"
 msgid "<b>Device information</b>"
 msgstr "<b>Dispositivo informação</b>"
 
-#: ../glade/diagnostics.glade:446 ../glade/diagnostics2.glade:442
+#: ../glade/diagnostics.glade:446
 msgid "Operating System:"
 msgstr "Sistema Operativo: "
 
-#: ../glade/diagnostics.glade:457 ../glade/diagnostics2.glade:453
+#: ../glade/diagnostics.glade:457
 msgid "Version:"
 msgstr "Versão: "
 
-#: ../glade/diagnostics.glade:468 ../glade/diagnostics2.glade:464
+#: ../glade/diagnostics.glade:468
 msgid "Uptime:"
 msgstr "Tempo Ligado: "
 
@@ -468,11 +467,11 @@ msgstr "Dispositivo"
 msgid "<b>Betavine Connection Manager</b>"
 msgstr "<b>Betavine Connection Manager</b>"
 
-#: ../glade/diagnostics.glade:602 ../glade/diagnostics2.glade:339
+#: ../glade/diagnostics.glade:602
 msgid "Software Version:"
 msgstr "Versã de software:"
 
-#: ../glade/diagnostics.glade:624 ../glade/diagnostics2.glade:360
+#: ../glade/diagnostics.glade:624
 msgid "Not supported"
 msgstr "Não Suportado"
 
@@ -499,22 +498,6 @@ msgstr "Enviar"
 #: ../glade/diagnostics.glade:822
 msgid "USSD"
 msgstr "USSD"
-
-#: ../glade/diagnostics2.glade:37
-msgid "<b>Modem</b>"
-msgstr "<b>Modem</b>"
-
-#: ../glade/diagnostics2.glade:209
-msgid "<b>SIM</b>"
-msgstr "<b>SIM</b>"
-
-#: ../glade/diagnostics2.glade:310
-msgid "<b>Mobile Connect</b>"
-msgstr "<b>Mobile Connect</b>"
-
-#: ../glade/diagnostics2.glade:394
-msgid "<b>Computer</b>"
-msgstr "<b>Computador</b>"
 
 #: ../glade/dialogs.glade:38 ../glade/dialogs.glade:239
 #: ../glade/dialogs.glade:451
@@ -1689,6 +1672,18 @@ msgstr "KDE PIM"
 #: ../../wader/bcm/contacts/contact_evolution.py:136
 msgid "Evolution"
 msgstr "Evolution"
+
+#~ msgid "<b>Modem</b>"
+#~ msgstr "<b>Modem</b>"
+
+#~ msgid "<b>SIM</b>"
+#~ msgstr "<b>SIM</b>"
+
+#~ msgid "<b>Mobile Connect</b>"
+#~ msgstr "<b>Mobile Connect</b>"
+
+#~ msgid "<b>Computer</b>"
+#~ msgstr "<b>Computador</b>"
 
 #~ msgid "APN Selection Window"
 #~ msgstr "APN Selection Window"

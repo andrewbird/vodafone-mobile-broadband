@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-21 14:22+0100\n"
+"POT-Creation-Date: 2010-05-21 15:51+0100\n"
 "PO-Revision-Date: 2010-05-21 12:42+0100\n"
 "Last-Translator: Øystein Gulliksen <oystein@gulliksen.org>\n"
 "Language-Team: Norwegian <nb@li.org>\n"
@@ -88,7 +88,6 @@ msgid "Request PIN"
 msgstr "Spør om PIN"
 
 #: ../glade/bcm.glade:160 ../glade/diagnostics.glade:7
-#: ../glade/diagnostics2.glade:7
 msgid "Diagnostics"
 msgstr "Diagnose"
 
@@ -383,36 +382,36 @@ msgstr "Datamaskin"
 msgid "<b>Datacard details</b>"
 msgstr "<b>En detaljert melding</b>"
 
-#: ../glade/diagnostics.glade:81 ../glade/diagnostics2.glade:85
+#: ../glade/diagnostics.glade:81
 msgid "Manufacturer:"
 msgstr ""
 
-#: ../glade/diagnostics.glade:92 ../glade/diagnostics2.glade:96
+#: ../glade/diagnostics.glade:92
 #, fuzzy
 msgid "Model:"
 msgstr "Modell:"
 
-#: ../glade/diagnostics.glade:103 ../glade/diagnostics2.glade:107
+#: ../glade/diagnostics.glade:103
 msgid "Firmware: "
 msgstr "Firmware: "
 
-#: ../glade/diagnostics.glade:114 ../glade/diagnostics2.glade:118
+#: ../glade/diagnostics.glade:114
 msgid "IMEI: "
 msgstr "IMEI: "
 
-#: ../glade/diagnostics.glade:138 ../glade/diagnostics2.glade:141
+#: ../glade/diagnostics.glade:138
 msgid "Card manufacturer"
 msgstr ""
 
-#: ../glade/diagnostics.glade:149 ../glade/diagnostics2.glade:152
+#: ../glade/diagnostics.glade:149
 msgid "Card model"
 msgstr "Kortmodell"
 
-#: ../glade/diagnostics.glade:160 ../glade/diagnostics2.glade:163
+#: ../glade/diagnostics.glade:160
 msgid "Firmware"
 msgstr "Firmware"
 
-#: ../glade/diagnostics.glade:172 ../glade/diagnostics2.glade:175
+#: ../glade/diagnostics.glade:172
 msgid "IMEI"
 msgstr "IMEI"
 
@@ -424,7 +423,7 @@ msgstr "Modem"
 msgid "<b>Network details from SIM</b>"
 msgstr ""
 
-#: ../glade/diagnostics.glade:265 ../glade/diagnostics2.glade:257
+#: ../glade/diagnostics.glade:265
 msgid "IMSI:"
 msgstr "IMSI:"
 
@@ -440,7 +439,7 @@ msgstr "Land:"
 msgid "Mobile Number:"
 msgstr "Mobilnummer:"
 
-#: ../glade/diagnostics.glade:321 ../glade/diagnostics2.glade:279
+#: ../glade/diagnostics.glade:321
 msgid "IMSI"
 msgstr "IMSI"
 
@@ -463,15 +462,15 @@ msgstr "SIM"
 msgid "<b>Device information</b>"
 msgstr "<b>Enhetsinformasjon</b>"
 
-#: ../glade/diagnostics.glade:446 ../glade/diagnostics2.glade:442
+#: ../glade/diagnostics.glade:446
 msgid "Operating System:"
 msgstr "Operativ System:"
 
-#: ../glade/diagnostics.glade:457 ../glade/diagnostics2.glade:453
+#: ../glade/diagnostics.glade:457
 msgid "Version:"
 msgstr "Versjon:"
 
-#: ../glade/diagnostics.glade:468 ../glade/diagnostics2.glade:464
+#: ../glade/diagnostics.glade:468
 #, fuzzy
 msgid "Uptime:"
 msgstr "Oppetid :"
@@ -485,12 +484,12 @@ msgstr "Ingen enhet funnet"
 msgid "<b>Betavine Connection Manager</b>"
 msgstr "<b>Betavine Connection Manager</b>"
 
-#: ../glade/diagnostics.glade:602 ../glade/diagnostics2.glade:339
+#: ../glade/diagnostics.glade:602
 #, fuzzy
 msgid "Software Version:"
 msgstr "Versjon :"
 
-#: ../glade/diagnostics.glade:624 ../glade/diagnostics2.glade:360
+#: ../glade/diagnostics.glade:624
 msgid "Not supported"
 msgstr "Ikke støttet"
 
@@ -518,25 +517,6 @@ msgstr "Avsender"
 #: ../glade/diagnostics.glade:822
 msgid "USSD"
 msgstr ""
-
-#: ../glade/diagnostics2.glade:37
-#, fuzzy
-msgid "<b>Modem</b>"
-msgstr "<b>Datamaskin</b>"
-
-#: ../glade/diagnostics2.glade:209
-#, fuzzy
-msgid "<b>SIM</b>"
-msgstr "<b>Datamaskin</b>"
-
-#: ../glade/diagnostics2.glade:310
-#, fuzzy
-msgid "<b>Mobile Connect</b>"
-msgstr "<b>Datamaskin</b>"
-
-#: ../glade/diagnostics2.glade:394
-msgid "<b>Computer</b>"
-msgstr "<b>Datamaskin</b>"
 
 #: ../glade/dialogs.glade:38 ../glade/dialogs.glade:239
 #: ../glade/dialogs.glade:451
@@ -1759,6 +1739,21 @@ msgstr ""
 #: ../../wader/bcm/contacts/contact_evolution.py:136
 msgid "Evolution"
 msgstr ""
+
+#, fuzzy
+#~ msgid "<b>Modem</b>"
+#~ msgstr "<b>Datamaskin</b>"
+
+#, fuzzy
+#~ msgid "<b>SIM</b>"
+#~ msgstr "<b>Datamaskin</b>"
+
+#, fuzzy
+#~ msgid "<b>Mobile Connect</b>"
+#~ msgstr "<b>Datamaskin</b>"
+
+#~ msgid "<b>Computer</b>"
+#~ msgstr "<b>Datamaskin</b>"
 
 #, fuzzy
 #~ msgid "Connect Button"
