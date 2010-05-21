@@ -484,7 +484,7 @@
                               <widget class="GtkLabel" id="os_name_label">
                                 <property name="visible">True</property>
                                 <property name="xalign">0</property>
-                                <property name="label" translatable="yes">label26</property>
+                                <property name="label">label26</property>
                                 <property name="wrap">True</property>
                               </widget>
                               <packing>
@@ -495,7 +495,7 @@
                               <widget class="GtkLabel" id="os_version_label">
                                 <property name="visible">True</property>
                                 <property name="xalign">0</property>
-                                <property name="label" translatable="yes">label27</property>
+                                <property name="label">label27</property>
                                 <property name="wrap">True</property>
                               </widget>
                               <packing>
@@ -506,7 +506,7 @@
                               <widget class="GtkLabel" id="uptime_number_label">
                                 <property name="visible">True</property>
                                 <property name="xalign">0</property>
-                                <property name="label" translatable="yes">label28</property>
+                                <property name="label">label28</property>
                               </widget>
                               <packing>
                                 <property name="position">2</property>

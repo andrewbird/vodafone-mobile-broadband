@@ -45,11 +45,21 @@
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="quit_menu_item">
-                            <property name="label">gtk-quit</property>
+                            <property name="label" translatable="yes">_Quit</property>
                             <property name="visible">True</property>
                             <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
                             <signal name="activate" handler="on_quit_menu_item_activate"/>
+                            <child internal-child="image">
+                              <widget class="GtkImage" id="image651">
+                                <property name="visible">True</property>
+                                <property name="stock">gtk-quit</property>
+                                <property name="icon_size">1</property>
+                                <property name="xalign">0.5</property>
+                                <property name="yalign">0.5</property>
+                                <property name="xpad">0</property>
+                                <property name="ypad">0</property>
+                              </widget>
+                            </child>
                           </widget>
                         </child>
                       </widget>
@@ -94,7 +104,7 @@
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="support_menu_item">
-                            <property name="label">Support</property>
+                            <property name="label" translatable="yes">Support</property>
                             <property name="visible">True</property>
                             <property name="use_underline">True</property>
                             <signal name="activate" handler="on_support_menu_item_activate"/>
@@ -147,7 +157,7 @@
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="diagnostics_item">
-                            <property name="label">Diagnostics</property>
+                            <property name="label" translatable="yes">Diagnostics</property>
                             <property name="visible">True</property>
                             <property name="use_underline">True</property>
                             <signal name="activate" handler="on_diagnostics_item_activate"/>
@@ -171,7 +181,7 @@
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="profiles_menu_item">
-                            <property name="label">Profiles</property>
+                            <property name="label" translatable="yes">Profiles</property>
                             <property name="visible">True</property>
                             <property name="use_underline">True</property>
                             <child internal-child="image">
@@ -193,11 +203,21 @@
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="preferences_menu_item">
-                            <property name="label">gtk-preferences</property>
+                            <property name="label" translatable="yes">Preferences</property>
                             <property name="visible">True</property>
                             <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
                             <signal name="activate" handler="on_preferences_menu_item_activate"/>
+                            <child internal-child="image">
+                              <widget class="GtkImage" id="image651">
+                                <property name="visible">True</property>
+                                <property name="stock">gtk-preferences</property>
+                                <property name="icon_size">1</property>
+                                <property name="xalign">0.5</property>
+                                <property name="yalign">0.5</property>
+                                <property name="xpad">0</property>
+                                <property name="ypad">0</property>
+                              </widget>
+                            </child>
                           </widget>
                         </child>
                       </widget>
@@ -213,16 +233,26 @@
                       <widget class="GtkMenu" id="help_menu_item_menu">
                         <child>
                           <widget class="GtkImageMenuItem" id="help_topics_menu_item">
-                            <property name="label">gtk-help</property>
+                            <property name="label" translatable="yes">Help</property>
                             <property name="visible">True</property>
                             <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
                             <signal name="activate" handler="on_help_topics_menu_item_activate"/>
+                            <child internal-child="image">
+                              <widget class="GtkImage" id="image651">
+                                <property name="visible">True</property>
+                                <property name="stock">gtk-help</property>
+                                <property name="icon_size">1</property>
+                                <property name="xalign">0.5</property>
+                                <property name="yalign">0.5</property>
+                                <property name="xpad">0</property>
+                                <property name="ypad">0</property>
+                              </widget>
+                            </child>
                           </widget>
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="about_menu_item">
-                            <property name="label">_About</property>
+                            <property name="label" translatable="yes">_About</property>
                             <property name="visible">True</property>
                             <property name="use_underline">True</property>
                             <signal name="activate" handler="on_about_menu_item_activate"/>
@@ -260,7 +290,7 @@
                     <property name="sensitive">False</property>
                     <property name="use_underline">True</property>
                     <accessibility>
-                      <atkproperty name="AtkObject::accessible-name" translatable="yes">Connect Button</atkproperty>
+                      <atkproperty name="AtkObject::accessible-name">Connect Button</atkproperty>
                     </accessibility>
                   </widget>
                   <packing>
@@ -313,7 +343,7 @@
                   <widget class="GtkToolButton" id="topup_tool_button">
                     <property name="visible">True</property>
                     <property name="sensitive">False</property>
-                    <property name="label">Topup</property>
+                    <property name="label" translatable="yes">Topup</property>
                     <property name="use_underline">True</property>
                     <property name="icon">topup3.png</property>
                     <signal name="clicked" handler="on_topup_button_clicked"/>
@@ -367,7 +397,7 @@
                         <property name="visible">True</property>
                         <child>
                           <widget class="GtkImageMenuItem" id="new_menu_item">
-                            <property name="label">_New</property>
+                            <property name="label" translatable="yes">_New</property>
                             <property name="visible">True</property>
                             <property name="tooltip" translatable="yes">Create new SMS</property>
                             <property name="use_underline">True</property>
@@ -384,7 +414,7 @@
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="reply_sms_menu_item">
-                            <property name="label">_Reply</property>
+                            <property name="label" translatable="yes">_Reply</property>
                             <property name="visible">True</property>
                             <property name="tooltip" translatable="yes">Reply message</property>
                             <property name="use_underline">True</property>
@@ -422,7 +452,7 @@
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="forward_sms_menu_item">
-                            <property name="label">_Forward</property>
+                            <property name="label" translatable="yes">_Forward</property>
                             <property name="visible">True</property>
                             <property name="tooltip" translatable="yes">Forward sms to another contact</property>
                             <property name="use_underline">True</property>
@@ -439,7 +469,7 @@
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="sms_delete_menu_item">
-                            <property name="label">_Delete</property>
+                            <property name="label" translatable="yes">_Delete</property>
                             <property name="visible">True</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">False</property>
@@ -464,7 +494,7 @@
                       <widget class="GtkMenuBar" id="contacts_menubar">
                         <child>
                           <widget class="GtkImageMenuItem" id="imagemenuitem1">
-                            <property name="label">_Contacts</property>
+                            <property name="label" translatable="yes">_Contacts</property>
                             <property name="visible">True</property>
                             <property name="tooltip" translatable="yes">Contacts menu</property>
                             <property name="use_underline">True</property>
@@ -482,7 +512,7 @@
                               <widget class="GtkMenu" id="imagemenuitem1_menu">
                                 <child>
                                   <widget class="GtkImageMenuItem" id="imagemenuitem2">
-                                    <property name="label">_New</property>
+                                    <property name="label" translatable="yes">_New</property>
                                     <property name="visible">True</property>
                                     <property name="tooltip" translatable="yes">Add a contact</property>
                                     <property name="use_underline">True</property>
@@ -501,7 +531,7 @@
                                 </child>
                                 <child>
                                   <widget class="GtkImageMenuItem" id="imagemenuitem3">
-                                    <property name="label">_Search</property>
+                                    <property name="label" translatable="yes">_Search</property>
                                     <property name="visible">True</property>
                                     <property name="tooltip" translatable="yes">Search contacts</property>
                                     <property name="use_underline">True</property>
@@ -530,7 +560,7 @@
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="contact_delete_menu_item">
-                            <property name="label">_Delete</property>
+                            <property name="label" translatable="yes">_Delete</property>
                             <property name="visible">True</property>
                             <property name="use_underline">True</property>
                             <signal name="activate" handler="on_delete_menu_item_activate"/>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-21 12:50+0100\n"
+"POT-Creation-Date: 2010-05-21 14:22+0100\n"
 "PO-Revision-Date: 2010-05-21 12:42+0100\n"
 "Last-Translator: Øystein Gulliksen <oystein@gulliksen.org>\n"
 "Language-Team: Norwegian <nb@li.org>\n"
@@ -21,10 +21,6 @@ msgstr ""
 #, fuzzy
 msgid "APN selection"
 msgstr "Action"
-
-#: ../glade/apnsel.glade:22
-msgid "APN Selection Window"
-msgstr ""
 
 #: ../glade/apnsel.glade:69
 msgid ""
@@ -62,166 +58,219 @@ msgstr "Importere kontakter..."
 msgid "Export contacts..."
 msgstr "Eksportere kontakter..."
 
-#: ../glade/bcm.glade:62
+#: ../glade/bcm.glade:48
+#, fuzzy
+msgid "_Quit"
+msgstr "Avslutt"
+
+#: ../glade/bcm.glade:72
 msgid "_View"
 msgstr "_Vis"
 
-#: ../glade/bcm.glade:83 ../glade/bcm.glade:299 ../glade/preferences.glade:781
+#: ../glade/bcm.glade:93 ../glade/bcm.glade:329 ../glade/preferences.glade:781
 msgid "Usage"
 msgstr "Bruk"
 
-#: ../glade/bcm.glade:121
-msgid "_Tools"
-msgstr "_Verktøy"
-
-#: ../glade/bcm.glade:129
-msgid "Change PIN"
-msgstr "Endre PIN"
-
-#: ../glade/bcm.glade:137
-msgid "Request PIN"
-msgstr "Spør om PIN"
-
-#: ../glade/bcm.glade:210
-msgid "_Help"
-msgstr "_Hjelp"
-
-#: ../glade/bcm.glade:263
-#, fuzzy
-msgid "Connect Button"
-msgstr "Tilkobling"
-
-#: ../glade/bcm.glade:337
+#: ../glade/bcm.glade:107 ../glade/bcm.glade:367
 msgid "Support"
 msgstr "Support"
 
-#: ../glade/bcm.glade:372
+#: ../glade/bcm.glade:131
+msgid "_Tools"
+msgstr "_Verktøy"
+
+#: ../glade/bcm.glade:139
+msgid "Change PIN"
+msgstr "Endre PIN"
+
+#: ../glade/bcm.glade:147
+msgid "Request PIN"
+msgstr "Spør om PIN"
+
+#: ../glade/bcm.glade:160 ../glade/diagnostics.glade:7
+#: ../glade/diagnostics2.glade:7
+msgid "Diagnostics"
+msgstr "Diagnose"
+
+#: ../glade/bcm.glade:184
+#, fuzzy
+msgid "Profiles"
+msgstr "Profiler"
+
+#: ../glade/bcm.glade:206 ../glade/preferences.glade:7
+msgid "Preferences"
+msgstr "Innstillinger"
+
+#: ../glade/bcm.glade:230
+msgid "_Help"
+msgstr "_Hjelp"
+
+#: ../glade/bcm.glade:236
+#, fuzzy
+msgid "Help"
+msgstr "_Hjelp"
+
+#: ../glade/bcm.glade:255
+msgid "_About"
+msgstr "_Om"
+
+#: ../glade/bcm.glade:346
+msgid "Topup"
+msgstr ""
+
+#: ../glade/bcm.glade:400 ../glade/bcm.glade:515
+msgid "_New"
+msgstr "_Ny"
+
+#: ../glade/bcm.glade:402
 #, fuzzy
 msgid "Create new SMS"
 msgstr "Lag ny sms"
 
-#: ../glade/bcm.glade:389
+#: ../glade/bcm.glade:417
+msgid "_Reply"
+msgstr "_Svar"
+
+#: ../glade/bcm.glade:419
 msgid "Reply message"
 msgstr "Svar på melding"
 
-#: ../glade/bcm.glade:398
+#: ../glade/bcm.glade:428
 msgid "Reply without quoting original text"
 msgstr "Svar uten original tekst"
 
-#: ../glade/bcm.glade:399
+#: ../glade/bcm.glade:429
 msgid "Send new"
 msgstr "Send ny"
 
-#: ../glade/bcm.glade:407
+#: ../glade/bcm.glade:437
 msgid "Reply quoting original message"
 msgstr "Svar uten original tekst"
 
-#: ../glade/bcm.glade:408
+#: ../glade/bcm.glade:438
 msgid "Reply quoting"
 msgstr "Svar melding"
 
-#: ../glade/bcm.glade:427
+#: ../glade/bcm.glade:455
+msgid "_Forward"
+msgstr "_Videresend"
+
+#: ../glade/bcm.glade:457
 msgid "Forward sms to another contact"
 msgstr "Videresend sms til annen kontakt"
 
-#: ../glade/bcm.glade:469
+#: ../glade/bcm.glade:472 ../glade/bcm.glade:563
+#: ../../wader/bcm/controllers/main.py:678
+msgid "_Delete"
+msgstr "_Slett"
+
+#: ../glade/bcm.glade:497
+msgid "_Contacts"
+msgstr "_Kontakter"
+
+#: ../glade/bcm.glade:499
 msgid "Contacts menu"
 msgstr "Kontakt meny"
 
-#: ../glade/bcm.glade:487 ../glade/contacts.glade:158
+#: ../glade/bcm.glade:517 ../glade/contacts.glade:158
 msgid "Add a contact"
 msgstr "Legg til kontakt"
 
-#: ../glade/bcm.glade:506
+#: ../glade/bcm.glade:534
+#, fuzzy
+msgid "_Search"
+msgstr "_Søk"
+
+#: ../glade/bcm.glade:536
 msgid "Search contacts"
 msgstr "Søk kontakter"
 
-#: ../glade/bcm.glade:585
+#: ../glade/bcm.glade:615
 msgid "Inbox"
 msgstr "Innboks"
 
-#: ../glade/bcm.glade:615
+#: ../glade/bcm.glade:645
 msgid "Draft"
 msgstr "Kladd"
 
-#: ../glade/bcm.glade:645
+#: ../glade/bcm.glade:675
 msgid "Sent"
 msgstr "Sendt"
 
-#: ../glade/bcm.glade:674 ../glade/sms.glade:34
+#: ../glade/bcm.glade:704 ../glade/sms.glade:34
 msgid "Contacts"
 msgstr "Kontakter"
 
-#: ../glade/bcm.glade:762 ../glade/bcm.glade:1144
+#: ../glade/bcm.glade:792 ../glade/bcm.glade:1174
 #, fuzzy
 msgid "<b>Month</b>"
 msgstr "<b>Datamaskin</b>"
 
-#: ../glade/bcm.glade:772 ../glade/bcm.glade:1156
+#: ../glade/bcm.glade:802 ../glade/bcm.glade:1186
 #, fuzzy
 msgid "month_label"
 msgstr "label"
 
-#: ../glade/bcm.glade:811 ../glade/bcm.glade:827 ../glade/bcm.glade:841
-#: ../glade/bcm.glade:982 ../glade/bcm.glade:997 ../glade/bcm.glade:1012
-#: ../glade/bcm.glade:1193 ../glade/bcm.glade:1209 ../glade/bcm.glade:1223
+#: ../glade/bcm.glade:841 ../glade/bcm.glade:857 ../glade/bcm.glade:871
+#: ../glade/bcm.glade:1012 ../glade/bcm.glade:1027 ../glade/bcm.glade:1042
+#: ../glade/bcm.glade:1223 ../glade/bcm.glade:1239 ../glade/bcm.glade:1253
 #: ../glade/pin.glade:591
 msgid "label"
 msgstr "label"
 
-#: ../glade/bcm.glade:858 ../glade/bcm.glade:968 ../glade/bcm.glade:1253
+#: ../glade/bcm.glade:888 ../glade/bcm.glade:998 ../glade/bcm.glade:1283
 msgid "3G:"
 msgstr ""
 
-#: ../glade/bcm.glade:873 ../glade/bcm.glade:942
+#: ../glade/bcm.glade:903 ../glade/bcm.glade:972
 msgid "Total:"
 msgstr ""
 
-#: ../glade/bcm.glade:888 ../glade/bcm.glade:955 ../glade/bcm.glade:1267
+#: ../glade/bcm.glade:918 ../glade/bcm.glade:985 ../glade/bcm.glade:1297
 msgid "GPRS:"
 msgstr ""
 
-#: ../glade/bcm.glade:904 ../glade/bcm.glade:1283
+#: ../glade/bcm.glade:934 ../glade/bcm.glade:1313
 #, fuzzy
 msgid "<b>Transferred Data</b>"
 msgstr "<b>Overført</b>"
 
-#: ../glade/bcm.glade:1031
+#: ../glade/bcm.glade:1061
 #, fuzzy
 msgid "<b>Current session</b>"
 msgstr "<b>SMSC innstillinger</b>"
 
-#: ../glade/bcm.glade:1069 ../glade/bcm.glade:1319
+#: ../glade/bcm.glade:1099 ../glade/bcm.glade:1349
 msgid "Total Traffic"
 msgstr ""
 
-#: ../glade/bcm.glade:1112
+#: ../glade/bcm.glade:1142
 #, fuzzy
 msgid "Current month"
 msgstr "Gjeldende måned"
 
-#: ../glade/bcm.glade:1239
+#: ../glade/bcm.glade:1269
 msgid "<b>Total:</b>"
 msgstr "<b>Tittel:</b>"
 
-#: ../glade/bcm.glade:1365
+#: ../glade/bcm.glade:1395
 #, fuzzy
 msgid "Last month"
 msgstr "Sist måned"
 
-#: ../glade/bcm.glade:1379
+#: ../glade/bcm.glade:1409
 msgid "<b>Usage</b> - Remember that this information is only orientative."
 msgstr ""
 
-#: ../glade/bcm.glade:1423
+#: ../glade/bcm.glade:1453
 msgid "Help menu"
 msgstr "Hjelpe meny"
 
-#: ../glade/bcm.glade:1460
+#: ../glade/bcm.glade:1490
 msgid "Support center"
 msgstr "Support senter"
 
-#: ../glade/bcm.glade:1498
+#: ../glade/bcm.glade:1528
 msgid "Customer support"
 msgstr "Kunde support"
 
@@ -329,10 +378,6 @@ msgstr "Mobil"
 msgid "Computer"
 msgstr "Datamaskin"
 
-#: ../glade/diagnostics.glade:7 ../glade/diagnostics2.glade:7
-msgid "Diagnostics"
-msgstr "Diagnose"
-
 #: ../glade/diagnostics.glade:43
 #, fuzzy
 msgid "<b>Datacard details</b>"
@@ -430,18 +475,6 @@ msgstr "Versjon:"
 #, fuzzy
 msgid "Uptime:"
 msgstr "Oppetid :"
-
-#: ../glade/diagnostics.glade:491 ../glade/diagnostics2.glade:487
-msgid "label26"
-msgstr "larbel26"
-
-#: ../glade/diagnostics.glade:501 ../glade/diagnostics2.glade:498
-msgid "label27"
-msgstr "label27"
-
-#: ../glade/diagnostics.glade:511 ../glade/diagnostics2.glade:509
-msgid "label28"
-msgstr "label28"
 
 #: ../glade/diagnostics.glade:537
 #, fuzzy
@@ -680,10 +713,6 @@ msgstr "Oppgi PUK-koden"
 #, fuzzy
 msgid "PUK:"
 msgstr "PUK"
-
-#: ../glade/preferences.glade:7
-msgid "Preferences"
-msgstr "Innstillinger"
 
 #: ../glade/preferences.glade:55
 #, fuzzy
@@ -1446,10 +1475,6 @@ msgstr "Send SMS"
 msgid "Quit"
 msgstr "Avslutt"
 
-#: ../../wader/bcm/controllers/main.py:678
-msgid "_Delete"
-msgstr "_Slett"
-
 #: ../../wader/bcm/controllers/main.py:689
 msgid "Edit"
 msgstr "Rediger"
@@ -1735,29 +1760,27 @@ msgstr ""
 msgid "Evolution"
 msgstr ""
 
+#, fuzzy
+#~ msgid "Connect Button"
+#~ msgstr "Tilkobling"
+
+#~ msgid "label26"
+#~ msgstr "larbel26"
+
+#~ msgid "label27"
+#~ msgstr "label27"
+
+#~ msgid "label28"
+#~ msgstr "label28"
+
 #~ msgid "Inspect"
 #~ msgstr "Inspisere"
-
-#~ msgid "_About"
-#~ msgstr "_Om"
-
-#~ msgid "_New"
-#~ msgstr "_Ny"
 
 #~ msgid "_SMS"
 #~ msgstr "_SMS"
 
 #~ msgid "_Contact"
 #~ msgstr "_Kontakt"
-
-#~ msgid "_Reply"
-#~ msgstr "_Svar"
-
-#~ msgid "_Forward"
-#~ msgstr "_Videresend"
-
-#~ msgid "_Contacts"
-#~ msgstr "_Kontakter"
 
 #~ msgid "<b>GSM device</b>"
 #~ msgstr "<b>GSM enhet</b>"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-21 12:50+0100\n"
+"POT-Creation-Date: 2010-05-21 14:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,10 +18,6 @@ msgstr ""
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
-msgstr ""
-
-#: ../glade/apnsel.glade:22
-msgid "APN Selection Window"
 msgstr ""
 
 #: ../glade/apnsel.glade:69
@@ -58,158 +54,208 @@ msgstr ""
 msgid "Export contacts..."
 msgstr ""
 
-#: ../glade/bcm.glade:62
+#: ../glade/bcm.glade:48
+msgid "_Quit"
+msgstr ""
+
+#: ../glade/bcm.glade:72
 msgid "_View"
 msgstr ""
 
-#: ../glade/bcm.glade:83 ../glade/bcm.glade:299 ../glade/preferences.glade:781
+#: ../glade/bcm.glade:93 ../glade/bcm.glade:329 ../glade/preferences.glade:781
 msgid "Usage"
 msgstr ""
 
-#: ../glade/bcm.glade:121
-msgid "_Tools"
-msgstr ""
-
-#: ../glade/bcm.glade:129
-msgid "Change PIN"
-msgstr ""
-
-#: ../glade/bcm.glade:137
-msgid "Request PIN"
-msgstr ""
-
-#: ../glade/bcm.glade:210
-msgid "_Help"
-msgstr ""
-
-#: ../glade/bcm.glade:263
-msgid "Connect Button"
-msgstr ""
-
-#: ../glade/bcm.glade:337
+#: ../glade/bcm.glade:107 ../glade/bcm.glade:367
 msgid "Support"
 msgstr ""
 
-#: ../glade/bcm.glade:372
+#: ../glade/bcm.glade:131
+msgid "_Tools"
+msgstr ""
+
+#: ../glade/bcm.glade:139
+msgid "Change PIN"
+msgstr ""
+
+#: ../glade/bcm.glade:147
+msgid "Request PIN"
+msgstr ""
+
+#: ../glade/bcm.glade:160 ../glade/diagnostics.glade:7
+#: ../glade/diagnostics2.glade:7
+msgid "Diagnostics"
+msgstr ""
+
+#: ../glade/bcm.glade:184
+msgid "Profiles"
+msgstr ""
+
+#: ../glade/bcm.glade:206 ../glade/preferences.glade:7
+msgid "Preferences"
+msgstr ""
+
+#: ../glade/bcm.glade:230
+msgid "_Help"
+msgstr ""
+
+#: ../glade/bcm.glade:236
+msgid "Help"
+msgstr ""
+
+#: ../glade/bcm.glade:255
+msgid "_About"
+msgstr ""
+
+#: ../glade/bcm.glade:346
+msgid "Topup"
+msgstr ""
+
+#: ../glade/bcm.glade:400 ../glade/bcm.glade:515
+msgid "_New"
+msgstr ""
+
+#: ../glade/bcm.glade:402
 msgid "Create new SMS"
 msgstr ""
 
-#: ../glade/bcm.glade:389
+#: ../glade/bcm.glade:417
+msgid "_Reply"
+msgstr ""
+
+#: ../glade/bcm.glade:419
 msgid "Reply message"
 msgstr ""
 
-#: ../glade/bcm.glade:398
+#: ../glade/bcm.glade:428
 msgid "Reply without quoting original text"
 msgstr ""
 
-#: ../glade/bcm.glade:399
+#: ../glade/bcm.glade:429
 msgid "Send new"
 msgstr ""
 
-#: ../glade/bcm.glade:407
+#: ../glade/bcm.glade:437
 msgid "Reply quoting original message"
 msgstr ""
 
-#: ../glade/bcm.glade:408
+#: ../glade/bcm.glade:438
 msgid "Reply quoting"
 msgstr ""
 
-#: ../glade/bcm.glade:427
+#: ../glade/bcm.glade:455
+msgid "_Forward"
+msgstr ""
+
+#: ../glade/bcm.glade:457
 msgid "Forward sms to another contact"
 msgstr ""
 
-#: ../glade/bcm.glade:469
+#: ../glade/bcm.glade:472 ../glade/bcm.glade:563
+#: ../../wader/bcm/controllers/main.py:678
+msgid "_Delete"
+msgstr ""
+
+#: ../glade/bcm.glade:497
+msgid "_Contacts"
+msgstr ""
+
+#: ../glade/bcm.glade:499
 msgid "Contacts menu"
 msgstr ""
 
-#: ../glade/bcm.glade:487 ../glade/contacts.glade:158
+#: ../glade/bcm.glade:517 ../glade/contacts.glade:158
 msgid "Add a contact"
 msgstr ""
 
-#: ../glade/bcm.glade:506
+#: ../glade/bcm.glade:534
+msgid "_Search"
+msgstr ""
+
+#: ../glade/bcm.glade:536
 msgid "Search contacts"
 msgstr ""
 
-#: ../glade/bcm.glade:585
+#: ../glade/bcm.glade:615
 msgid "Inbox"
 msgstr ""
 
-#: ../glade/bcm.glade:615
+#: ../glade/bcm.glade:645
 msgid "Draft"
 msgstr ""
 
-#: ../glade/bcm.glade:645
+#: ../glade/bcm.glade:675
 msgid "Sent"
 msgstr ""
 
-#: ../glade/bcm.glade:674 ../glade/sms.glade:34
+#: ../glade/bcm.glade:704 ../glade/sms.glade:34
 msgid "Contacts"
 msgstr ""
 
-#: ../glade/bcm.glade:762 ../glade/bcm.glade:1144
+#: ../glade/bcm.glade:792 ../glade/bcm.glade:1174
 msgid "<b>Month</b>"
 msgstr ""
 
-#: ../glade/bcm.glade:772 ../glade/bcm.glade:1156
+#: ../glade/bcm.glade:802 ../glade/bcm.glade:1186
 msgid "month_label"
 msgstr ""
 
-#: ../glade/bcm.glade:811 ../glade/bcm.glade:827 ../glade/bcm.glade:841
-#: ../glade/bcm.glade:982 ../glade/bcm.glade:997 ../glade/bcm.glade:1012
-#: ../glade/bcm.glade:1193 ../glade/bcm.glade:1209 ../glade/bcm.glade:1223
+#: ../glade/bcm.glade:841 ../glade/bcm.glade:857 ../glade/bcm.glade:871
+#: ../glade/bcm.glade:1012 ../glade/bcm.glade:1027 ../glade/bcm.glade:1042
+#: ../glade/bcm.glade:1223 ../glade/bcm.glade:1239 ../glade/bcm.glade:1253
 #: ../glade/pin.glade:591
 msgid "label"
 msgstr ""
 
-#: ../glade/bcm.glade:858 ../glade/bcm.glade:968 ../glade/bcm.glade:1253
+#: ../glade/bcm.glade:888 ../glade/bcm.glade:998 ../glade/bcm.glade:1283
 msgid "3G:"
 msgstr ""
 
-#: ../glade/bcm.glade:873 ../glade/bcm.glade:942
+#: ../glade/bcm.glade:903 ../glade/bcm.glade:972
 msgid "Total:"
 msgstr ""
 
-#: ../glade/bcm.glade:888 ../glade/bcm.glade:955 ../glade/bcm.glade:1267
+#: ../glade/bcm.glade:918 ../glade/bcm.glade:985 ../glade/bcm.glade:1297
 msgid "GPRS:"
 msgstr ""
 
-#: ../glade/bcm.glade:904 ../glade/bcm.glade:1283
+#: ../glade/bcm.glade:934 ../glade/bcm.glade:1313
 msgid "<b>Transferred Data</b>"
 msgstr ""
 
-#: ../glade/bcm.glade:1031
+#: ../glade/bcm.glade:1061
 msgid "<b>Current session</b>"
 msgstr ""
 
-#: ../glade/bcm.glade:1069 ../glade/bcm.glade:1319
+#: ../glade/bcm.glade:1099 ../glade/bcm.glade:1349
 msgid "Total Traffic"
 msgstr ""
 
-#: ../glade/bcm.glade:1112
+#: ../glade/bcm.glade:1142
 msgid "Current month"
 msgstr ""
 
-#: ../glade/bcm.glade:1239
+#: ../glade/bcm.glade:1269
 msgid "<b>Total:</b>"
 msgstr ""
 
-#: ../glade/bcm.glade:1365
+#: ../glade/bcm.glade:1395
 msgid "Last month"
 msgstr ""
 
-#: ../glade/bcm.glade:1379
+#: ../glade/bcm.glade:1409
 msgid "<b>Usage</b> - Remember that this information is only orientative."
 msgstr ""
 
-#: ../glade/bcm.glade:1423
+#: ../glade/bcm.glade:1453
 msgid "Help menu"
 msgstr ""
 
-#: ../glade/bcm.glade:1460
+#: ../glade/bcm.glade:1490
 msgid "Support center"
 msgstr ""
 
-#: ../glade/bcm.glade:1498
+#: ../glade/bcm.glade:1528
 msgid "Customer support"
 msgstr ""
 
@@ -308,10 +354,6 @@ msgstr ""
 msgid "Computer"
 msgstr ""
 
-#: ../glade/diagnostics.glade:7 ../glade/diagnostics2.glade:7
-msgid "Diagnostics"
-msgstr ""
-
 #: ../glade/diagnostics.glade:43
 msgid "<b>Datacard details</b>"
 msgstr ""
@@ -405,18 +447,6 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:468 ../glade/diagnostics2.glade:464
 msgid "Uptime:"
-msgstr ""
-
-#: ../glade/diagnostics.glade:491 ../glade/diagnostics2.glade:487
-msgid "label26"
-msgstr ""
-
-#: ../glade/diagnostics.glade:501 ../glade/diagnostics2.glade:498
-msgid "label27"
-msgstr ""
-
-#: ../glade/diagnostics.glade:511 ../glade/diagnostics2.glade:509
-msgid "label28"
 msgstr ""
 
 #: ../glade/diagnostics.glade:537
@@ -634,10 +664,6 @@ msgstr ""
 
 #: ../glade/pin.glade:650
 msgid "PUK:"
-msgstr ""
-
-#: ../glade/preferences.glade:7
-msgid "Preferences"
 msgstr ""
 
 #: ../glade/preferences.glade:55
@@ -1310,10 +1336,6 @@ msgstr ""
 
 #: ../../wader/bcm/controllers/main.py:645
 msgid "Quit"
-msgstr ""
-
-#: ../../wader/bcm/controllers/main.py:678
-msgid "_Delete"
 msgstr ""
 
 #: ../../wader/bcm/controllers/main.py:689
