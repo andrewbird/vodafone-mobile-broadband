@@ -183,11 +183,14 @@ class NewSmsController(Controller):
             num_sms = len(self.pdu.encode_pdu('+342453435', text))
             if num_sms == 1:
                 max_length = SEVENBIT_SIZE if is_valid_gsm_text(text) else UCS2_SIZE
-                msg = _('Text message: %d/%d chars') % (len(text), max_length)
+                args = dict(num=len(text), tot=max_length)
+                msg = _('Text message: %(num)d/%(tot)d chars') % args
             else:
                 max_length = SEVENBIT_MP_SIZE if is_valid_gsm_text(text) else UCS2_MP_SIZE
                 used = len(text) - (max_length * (num_sms - 1))
-                msg = _('Text message: %d/%d chars (%d SMS)') % (used, max_length, num_sms)
+                args = dict(num=used, tot=max_length, msgs=num_sms)
+                msg = _('Text message: '
+                        '%(num)d/%(tot)d chars (%(msgs)d SMS)') % args
 
         self.view.get_top_widget().set_title(msg)
 
