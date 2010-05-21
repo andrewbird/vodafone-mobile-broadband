@@ -121,12 +121,12 @@ class MainView(View):
             " accessed if you click on the \"Help\" label on the menu bar"
             " located in the top side of the window, and selecting the"
             " \"Help topics\" option."
-            "\n\nYou can also find help, updates and tips in %s's web:"
-            "\n\n%s."
+            "\n\nYou can also find help, updates and tips in %(name)s's web:"
+            "\n\n%(url)s."
             "\n\nIf you use the mail and browser buttons to access other"
             " programs in your system, you might need to ask your Systems"
-            " Administrator any doubt that you might have."
-            % (APP_LONG_NAME, APP_URL)))
+            " Administrator any doubt that you might have.")
+            % {'name':APP_LONG_NAME, 'url':APP_URL})
         self['support_notebook_help_text'].set_buffer(tbuf)
 
         # populate Support center tab
@@ -147,8 +147,8 @@ class MainView(View):
             "\n\nIf you still have difficulties you can call to Vodafone's"
             " Customer Support Center, the numbers are:"
             "\n\n123, if you are using Vodafone's network, or"
-            "\n\n+34 607 123 00 if you are calling from other network."
-             % APP_URL))
+            "\n\n+34 607 123 00 if you are calling from other network.")
+             % APP_URL)
         self['support_notebook_customer_text'].set_buffer(tbuf)
 
     def _setup_usage_view(self):

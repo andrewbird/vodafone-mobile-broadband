@@ -80,7 +80,7 @@
                         </child>
                         <child>
                           <widget class="GtkImageMenuItem" id="usage_menu_item">
-                            <property name="label">Usage</property>
+                            <property name="label" translatable="yes">Usage</property>
                             <property name="visible">True</property>
                             <property name="use_underline">True</property>
                             <signal name="activate" handler="on_usage_menu_item_activate"/>
@@ -283,7 +283,7 @@
                     <property name="use_underline">True</property>
                     <property name="icon">sms.png</property>
                     <accessibility>
-                      <atkproperty name="AtkObject::accessible-name" translatable="yes">SMS Toggle Button</atkproperty>
+                      <atkproperty name="AtkObject::accessible-name">SMS Toggle Button</atkproperty>
                     </accessibility>
                     <signal name="toggled" handler="on_sms_button_toggled"/>
                   </widget>
@@ -296,11 +296,11 @@
                   <widget class="GtkToggleToolButton" id="usage_tool_button">
                     <property name="visible">True</property>
                     <property name="visible_vertical">False</property>
-                    <property name="label">Usage</property>
+                    <property name="label" translatable="yes">Usage</property>
                     <property name="use_underline">True</property>
                     <property name="icon">usage.png</property>
                     <accessibility>
-                      <atkproperty name="AtkObject::accessible-name" translatable="yes">Usage Toggle Button</atkproperty>
+                      <atkproperty name="AtkObject::accessible-name">Usage Toggle Button</atkproperty>
                     </accessibility>
                     <signal name="clicked" handler="on_usage_button_clicked"/>
                   </widget>
@@ -334,11 +334,11 @@
                 <child>
                   <widget class="GtkToggleToolButton" id="support_tool_button">
                     <property name="visible">True</property>
-                    <property name="label">Support</property>
+                    <property name="label" translatable="yes">Support</property>
                     <property name="use_underline">True</property>
                     <property name="icon">help.png</property>
                     <accessibility>
-                      <atkproperty name="AtkObject::accessible-name" translatable="yes">Support Toggle Button</atkproperty>
+                      <atkproperty name="AtkObject::accessible-name">Support Toggle Button</atkproperty>
                     </accessibility>
                     <signal name="toggled" handler="on_support_button_toggled"/>
                   </widget>
