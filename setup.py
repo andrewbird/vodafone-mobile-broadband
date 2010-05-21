@@ -69,7 +69,7 @@ class build_trans(cmd.Command):
             tfil = join(tdir, 'bcm.mo')
             call(['msgfmt', '-cf', '-o', tfil, filename])
 
-#        raise RuntimeError("Uncomment to stop and see errors easily")
+#        raise RuntimeError("Uncomment to stop and see translation errors easily")
 
 
 class build(_build):

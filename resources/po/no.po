@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-20 21:24+0100\n"
-"PO-Revision-Date: 2007-08-09 09:44+0200\n"
+"POT-Creation-Date: 2010-05-21 12:50+0100\n"
+"PO-Revision-Date: 2010-05-21 12:42+0100\n"
 "Last-Translator: Øystein Gulliksen <oystein@gulliksen.org>\n"
 "Language-Team: Norwegian <nb@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -303,24 +303,18 @@ msgstr ""
 msgid "Contact search"
 msgstr "Kontakt søk"
 
-#: ../glade/contacts.glade:29
+#: ../glade/contacts.glade:29 ../glade/contacts.glade:178
 #, fuzzy
-msgid " Name:"
-msgstr " Navn : "
+msgid "Name:"
+msgstr "Navn:"
 
 #: ../glade/contacts.glade:93
 msgid "Contacts List"
 msgstr "Kontakt liste"
 
-#: ../glade/contacts.glade:178
-#, fuzzy
-msgid "Name:"
-msgstr "Navn"
-
 #: ../glade/contacts.glade:221
-#, fuzzy
 msgid "Number:"
-msgstr "Nummer"
+msgstr "Nummer:"
 
 #: ../glade/contacts.glade:257
 #, fuzzy
@@ -354,14 +348,12 @@ msgid "Model:"
 msgstr "Modell:"
 
 #: ../glade/diagnostics.glade:103 ../glade/diagnostics2.glade:107
-#, fuzzy
 msgid "Firmware: "
-msgstr "Firmware :"
+msgstr "Firmware: "
 
 #: ../glade/diagnostics.glade:114 ../glade/diagnostics2.glade:118
-#, fuzzy
 msgid "IMEI: "
-msgstr "IMEI :"
+msgstr "IMEI: "
 
 #: ../glade/diagnostics.glade:138 ../glade/diagnostics2.glade:141
 msgid "Card manufacturer"
@@ -380,33 +372,28 @@ msgid "IMEI"
 msgstr "IMEI"
 
 #: ../glade/diagnostics.glade:196
-#, fuzzy
 msgid "Modem"
-msgstr "Modell:"
+msgstr "Modem"
 
 #: ../glade/diagnostics.glade:227
 msgid "<b>Network details from SIM</b>"
 msgstr ""
 
 #: ../glade/diagnostics.glade:265 ../glade/diagnostics2.glade:257
-#, fuzzy
 msgid "IMSI:"
 msgstr "IMSI:"
 
 #: ../glade/diagnostics.glade:276
-#, fuzzy
 msgid "Network:"
-msgstr "Nettverk"
+msgstr "Nettverk:"
 
 #: ../glade/diagnostics.glade:287
-#, fuzzy
 msgid "Country:"
-msgstr "Datamaskin"
+msgstr "Land:"
 
 #: ../glade/diagnostics.glade:298
-#, fuzzy
 msgid "Mobile Number:"
-msgstr "Nummer"
+msgstr "Mobilnummer:"
 
 #: ../glade/diagnostics.glade:321 ../glade/diagnostics2.glade:279
 msgid "IMSI"
@@ -424,24 +411,20 @@ msgid "Unknown"
 msgstr ""
 
 #: ../glade/diagnostics.glade:377
-#, fuzzy
 msgid "SIM"
-msgstr "SMS"
+msgstr "SIM"
 
 #: ../glade/diagnostics.glade:409
-#, fuzzy
 msgid "<b>Device information</b>"
-msgstr "<b>Meldings valg</b>"
+msgstr "<b>Enhetsinformasjon</b>"
 
 #: ../glade/diagnostics.glade:446 ../glade/diagnostics2.glade:442
-#, fuzzy
 msgid "Operating System:"
-msgstr "Operativ System :"
+msgstr "Operativ System:"
 
 #: ../glade/diagnostics.glade:457 ../glade/diagnostics2.glade:453
-#, fuzzy
 msgid "Version:"
-msgstr "Versjon :"
+msgstr "Versjon:"
 
 #: ../glade/diagnostics.glade:468 ../glade/diagnostics2.glade:464
 #, fuzzy
@@ -466,9 +449,8 @@ msgid "Device"
 msgstr "Ingen enhet funnet"
 
 #: ../glade/diagnostics.glade:565
-#, fuzzy
 msgid "<b>Betavine Connection Manager</b>"
-msgstr "<b>Tilkoblings innstillinger</b>"
+msgstr "<b>Betavine Connection Manager</b>"
 
 #: ../glade/diagnostics.glade:602 ../glade/diagnostics2.glade:339
 #, fuzzy
@@ -484,18 +466,16 @@ msgid "Modem Manager"
 msgstr ""
 
 #: ../glade/diagnostics.glade:668
-#, fuzzy
 msgid "<b>USSD Test Message Diagnostics</b>"
-msgstr "<b>Meldings valg</b>"
+msgstr "<b>USSD Test Melding Diagnostic</b>"
 
 #: ../glade/diagnostics.glade:697
 msgid "Add your USSD string:"
 msgstr ""
 
 #: ../glade/diagnostics.glade:745
-#, fuzzy
 msgid "USSD reply message:"
-msgstr "Svar på melding"
+msgstr "USSD svarmelding:"
 
 #: ../glade/diagnostics.glade:789
 #, fuzzy
@@ -881,14 +861,12 @@ msgid "Use static DNS"
 msgstr "Bruk statiske navntjenere"
 
 #: ../glade/profiles.glade:518
-#, fuzzy
 msgid "Primary DNS:"
-msgstr "Primær DNS"
+msgstr "Primær DNS:"
 
 #: ../glade/profiles.glade:543
-#, fuzzy
 msgid "Secondary DNS:"
-msgstr "Sekundær DNS        "
+msgstr "Sekundær DNS:"
 
 #: ../glade/profiles.glade:715
 #, fuzzy
@@ -1137,7 +1115,7 @@ msgid "Type"
 msgstr "Type"
 
 #: ../../wader/bcm/views/main.py:119
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "In most cases you can find the answer to your questions about the program in "
 "the help menu. This menu can be accessed if you click on the \"Help\" label "
@@ -1154,14 +1132,17 @@ msgid ""
 msgstr ""
 "I de fleste tilfeller kan du finne svaret på dine spørsmål om programmet i "
 "hjelpe menyen Denne menyen kan du finne dersom du trykker på \"Hjelp\" "
-"knappen på menylinjen øverst til høyre og velger \"Hjelpe sider\" Du kan "
-"også finne hjelp, oppdateringer og tips på Vodafone Mobile Connect's web: "
-"https://forge.betavine.net/projects/vodafonemobilec Dersom du bruker epost "
-"og nettleser knappene for å åpne programmer i ditt system, bør du kanskje "
-"snakke med din System Administrator dersom du er i tvil"
+"knappen på menylinjen øverst til høyre og velger \"Hjelpe sider\"\n"
+"\n"
+"Du kan også finne hjelp, oppdateringer og tips på %(name)s's web:\n"
+"\n"
+" %(url)s\n"
+"\n"
+"Dersom du bruker epost og nettleser knappene for å åpne programmer i ditt "
+"system, bør du kanskje snakke med din System Administrator dersom du er i "
+"tvil"
 
 #: ../../wader/bcm/views/main.py:134
-#, fuzzy
 msgid ""
 "If you are using this program in a corporate environment, your company "
 "probably has a support center to solve the questions that you might have "
@@ -1170,15 +1151,14 @@ msgid ""
 "If your company does not have a support center, you will have to contact "
 "your company's System Administrator."
 msgstr ""
-"Dersom du bruker dette programmet i din bedrift, så har sikkert din\n"
-"bedrift et eget support senter, som kan svare på spørsmål du har om\n"
-"programmet\n"
+"Dersom du bruker dette programmet i din bedrift, så har sikkert din bedrift "
+"et eget support senter, som kan svare på spørsmål du har om programmet\n"
 "\n"
-"Dersom din bedrift ikke har noe support senter, så må du ta kontakt med\n"
-"din bedrifts System Administrator"
+"Dersom din bedrift ikke har noe support senter, så må du ta kontakt med din "
+"bedrifts System Administrator"
 
 #: ../../wader/bcm/views/main.py:143
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "You can easily find answers to the most common questions in the help menu, "
 "in your company's support center and in the support area at:\n"
@@ -1192,14 +1172,17 @@ msgid ""
 "\n"
 "+34 607 123 00 if you are calling from other network."
 msgstr ""
-"Du kan lett finne svar på de vanligste spørsmålene i hjelpe menyen\n"
-"hos ditt support senter eller i support område på:\n"
-"https://forge.betavine.net/projects/vodafonemobilec .\n"
+"Du kan lett finne svar på de vanligste spørsmålene i hjelpe menyen hos ditt "
+"support senter eller i support område på:\n"
+"\n"
+"%s .\n"
+"\n"
 "Dersom du fremdeles har problemer, kan du ringe Vodafone's Kunde Support "
 "Senter på:\n"
+"\n"
 "123, hvis du bruker Vodafone's nettverk, eller\n"
 "\n"
-"+34 607 123 00 dersom du ringer fra et annet nettverk. "
+"+34 607 123 00 dersom du ringer fra et annet nettverk."
 
 #: ../../wader/bcm/views/main.py:208 ../../wader/bcm/controllers/main.py:618
 msgid "Connect"
@@ -1353,17 +1336,18 @@ msgstr "Mangler avhengige pakker"
 
 #: ../../wader/bcm/controllers/pin.py:271
 #: ../../wader/bcm/controllers/preferences.py:202
-#, fuzzy
 msgid "To use this feature you need the gnomekeyring module"
-msgstr "For å bruke denne widget trenger du python-vte installert"
+msgstr "To use this feature you need the gnomekeyring module"
 
 #: ../../wader/bcm/controllers/preferences.py:220
-#, fuzzy
 msgid ""
 "\n"
 "To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
 "module\n"
-msgstr "For å bruke denne widget trenger du python-vte installert"
+msgstr ""
+"\n"
+"To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
+"module\n"
 
 #: ../../wader/bcm/controllers/profile.py:64
 msgid "Error while getting connection password"
@@ -1475,13 +1459,12 @@ msgid "Invalid CSV format"
 msgstr "Ugyldig CSV format"
 
 #: ../../wader/bcm/controllers/main.py:710
-#, fuzzy
 msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
 msgstr ""
 "\n"
-"    CSV filen du prøver å importere har ugyldig format."
+"CSV filen du prøver å importere har ugyldig format."
 
 #: ../../wader/bcm/controllers/main.py:742
 #, fuzzy
@@ -1566,7 +1549,7 @@ msgstr ""
 
 #: ../../wader/bcm/controllers/sms.py:85
 #: ../../wader/bcm/controllers/sms.py:179
-#, fuzzy, python-format
+#, python-format
 msgid "Text message: 0/%d chars"
 msgstr "Tekst melding: 0/%d"
 
@@ -1579,19 +1562,18 @@ msgid "Are you sure you want to send an empty message?"
 msgstr "Er du sikker på at du vil sende en tom melding ?"
 
 #: ../../wader/bcm/controllers/sms.py:136
-#, fuzzy
 msgid "Error while sending SMS"
-msgstr "Feil ved sletting av profil"
+msgstr "Error while sending SMS"
 
 #: ../../wader/bcm/controllers/sms.py:187
-#, fuzzy, python-format
+#, python-format
 msgid "Text message: %(num)d/%(tot)d chars"
-msgstr "%(chrcnt)d/%(maxchr)d tegn"
+msgstr "%(num)d/%(tot)d tegn"
 
 #: ../../wader/bcm/controllers/sms.py:192
-#, fuzzy, python-format
+#, python-format
 msgid "Text message: %(num)d/%(tot)d chars (%(msgs)d SMS)"
-msgstr "%(chrcnt)d/%(maxchr)d tegn"
+msgstr "%(num)d/%(tot)d tegn (%(msgs)d SMS)"
 
 #: ../../wader/bcm/dialogs.py:64
 msgid "translator-credits"
@@ -1646,14 +1628,12 @@ msgid "EGSM 900"
 msgstr ""
 
 #: ../../wader/bcm/consts.py:90
-#, fuzzy
 msgid "GSM DCS"
-msgstr "SMS"
+msgstr "GSM DCS"
 
 #: ../../wader/bcm/consts.py:91
-#, fuzzy
 msgid "GSM PCS"
-msgstr "SMS"
+msgstr "GSM PCS"
 
 #: ../../wader/bcm/consts.py:92
 msgid "GSM 850"
@@ -1708,18 +1688,16 @@ msgid "HSPA"
 msgstr ""
 
 #: ../../wader/bcm/consts.py:113 ../../wader/bcm/signals.py:27
-#, fuzzy
 msgid "2G preferred"
-msgstr "3G foretrukket"
+msgstr "2G foretrukket"
 
 #: ../../wader/bcm/consts.py:114 ../../wader/bcm/signals.py:28
 msgid "3G preferred"
 msgstr "3G foretrukket"
 
 #: ../../wader/bcm/consts.py:115 ../../wader/bcm/signals.py:29
-#, fuzzy
 msgid "2G only"
-msgstr "Kun 3G"
+msgstr "Kun 2G"
 
 #: ../../wader/bcm/consts.py:116 ../../wader/bcm/signals.py:30
 msgid "3G only"

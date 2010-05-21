@@ -1,14 +1,14 @@
 # Copyright (C) 2007, Vodafone España S.A.
 # This file is distributed under the same license as the Vodafone Mobile
 # Connect Card driver for Linux package.
-# m1r0 <h15m1r0@gmail.com>, 2007
 # 
+# m1r0 <h15m1r0@gmail.com>, 2007, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-20 21:24+0100\n"
-"PO-Revision-Date: 2008-01-09 22:11+0100\n"
+"POT-Creation-Date: 2010-05-21 12:50+0100\n"
+"PO-Revision-Date: 2010-05-21 10:54+0100\n"
 "Last-Translator: m1r0 <h15m1r0@gmail.com>\n"
 "Language-Team: Croatian <HR@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,6 @@ msgid "APN Selection Window"
 msgstr ""
 
 #: ../glade/apnsel.glade:69
-#, fuzzy
 msgid ""
 "<b>Preconfigured APNs for your Operator.</b>\n"
 "\n"
@@ -36,7 +35,6 @@ msgstr ""
 "\n"
 "Izaberite poznati uređaj ili ubacite potrebne podatke  za ručno "
 "postavljanje.\n"
-"\n"
 
 #: ../glade/apnsel.glade:193 ../glade/pin.glade:222
 #: ../glade/profiles.glade:1334
@@ -231,14 +229,11 @@ msgid "Device setup"
 msgstr "Postavke uređaja"
 
 #: ../glade/config.glade:34
-#, fuzzy
 msgid ""
 "Please select from the following options how do you want to connect to the "
 "Internet"
 msgstr ""
-"Molimo izaberite iz sljedećih\n"
-"opcija kako se želite\n"
-"spojiti na Internet"
+"Molimo izaberite iz sljedećih opcija kako se želite spojiti na Internet"
 
 #: ../glade/config.glade:56
 msgid "Device model: "
@@ -306,17 +301,13 @@ msgstr "Omogući softverski protok podataka"
 msgid "Contact search"
 msgstr "Pretaga kontakata"
 
-#: ../glade/contacts.glade:29
-msgid " Name:"
-msgstr " Ime: "
+#: ../glade/contacts.glade:29 ../glade/contacts.glade:178
+msgid "Name:"
+msgstr "Ime:"
 
 #: ../glade/contacts.glade:93
 msgid "Contacts List"
 msgstr "Lista kontakata"
-
-#: ../glade/contacts.glade:178
-msgid "Name:"
-msgstr "Ime:"
 
 #: ../glade/contacts.glade:221
 msgid "Number:"
@@ -438,9 +429,8 @@ msgid "Version:"
 msgstr "Verzija:"
 
 #: ../glade/diagnostics.glade:468 ../glade/diagnostics2.glade:464
-#, fuzzy
 msgid "Uptime:"
-msgstr "Vrijeme rada : "
+msgstr "Vrijeme rada: "
 
 #: ../glade/diagnostics.glade:491 ../glade/diagnostics2.glade:487
 msgid "label26"
@@ -478,18 +468,16 @@ msgid "Modem Manager"
 msgstr ""
 
 #: ../glade/diagnostics.glade:668
-#, fuzzy
 msgid "<b>USSD Test Message Diagnostics</b>"
-msgstr "<b>Opcije poruka</b>"
+msgstr "<b>USSD Test Message Diagnostics</b>"
 
 #: ../glade/diagnostics.glade:697
 msgid "Add your USSD string:"
 msgstr ""
 
 #: ../glade/diagnostics.glade:745
-#, fuzzy
 msgid "USSD reply message:"
-msgstr "Odgovori na poruku"
+msgstr "USSD reply message:"
 
 #: ../glade/diagnostics.glade:789
 #, fuzzy
@@ -501,19 +489,16 @@ msgid "USSD"
 msgstr ""
 
 #: ../glade/diagnostics2.glade:37
-#, fuzzy
 msgid "<b>Modem</b>"
-msgstr "<b>Mjesec</b>"
+msgstr "<b>Modem</b>"
 
 #: ../glade/diagnostics2.glade:209
-#, fuzzy
 msgid "<b>SIM</b>"
-msgstr "<b>Mjesec</b>"
+msgstr "<b>SIM</b>"
 
 #: ../glade/diagnostics2.glade:310
-#, fuzzy
 msgid "<b>Mobile Connect</b>"
-msgstr "<b>Mjesec</b>"
+msgstr "<b>Mobile Connect</b>"
 
 #: ../glade/diagnostics2.glade:394
 msgid "<b>Computer</b>"
@@ -591,24 +576,20 @@ msgid "Topup Credit"
 msgstr ""
 
 #: ../glade/payt.glade:44
-#, fuzzy
 msgid "<b>SIM Details</b>"
-msgstr "<b>DNS postavke</b>"
+msgstr "<b>SIM Details</b>"
 
 #: ../glade/payt.glade:83
-#, fuzzy
 msgid "<b>Number</b>"
-msgstr "<b>Broj: </b>"
+msgstr "<b>Number</b>"
 
 #: ../glade/payt.glade:94
-#, fuzzy
 msgid "<b>Date</b>"
-msgstr "<b>Upotreba</b>"
+msgstr "<b>Date</b>"
 
 #: ../glade/payt.glade:105
-#, fuzzy
 msgid "<b>Credit</b>"
-msgstr "<b>Serijski Port</b>"
+msgstr "<b>Credit</b>"
 
 #: ../glade/payt.glade:167
 msgid "Recheck my credit:"
@@ -619,9 +600,8 @@ msgid "Check Credit"
 msgstr ""
 
 #: ../glade/payt.glade:237
-#, fuzzy
 msgid "<b>Voucher Code</b>"
-msgstr "<b>Računalo</b>"
+msgstr "<b>Voucher Code</b>"
 
 #: ../glade/payt.glade:267
 msgid "Enter Code:"
@@ -633,9 +613,8 @@ msgid "send"
 msgstr "Pošiljatelj"
 
 #: ../glade/payt.glade:341
-#, fuzzy
 msgid "<b>Credit Card</b>"
-msgstr "<b>Serijski Port</b>"
+msgstr "<b>Credit Card</b>"
 
 #: ../glade/payt.glade:371
 msgid "Pay by credit card"
@@ -651,9 +630,8 @@ msgid "Insert PIN Window"
 msgstr "Upišite vaš PIN kod"
 
 #: ../glade/pin.glade:64
-#, fuzzy
 msgid "Please insert your PIN code"
-msgstr "Molimo upišite vaš PIN kod : "
+msgstr "Molimo upišite vaš PIN kod"
 
 #: ../glade/pin.glade:104
 #, fuzzy
@@ -815,7 +793,6 @@ msgid "New Profile Window"
 msgstr "Novi profil"
 
 #: ../glade/profiles.glade:64
-#, fuzzy
 msgid ""
 "<b>Create a new profile for your device.</b>\n"
 "\n"
@@ -825,8 +802,8 @@ msgid ""
 msgstr ""
 "<b>Kreiranje novog profila za vaš uređaj.</b>\n"
 "\n"
-"Ako niste sigurni koje podatke trebate upisati, kontaktirajte\n"
-"vašu korisnkičku podršku i oni bi vam trebali dostaviti\n"
+"Ako niste sigurni koje podatke trebate upisati, kontaktirajte vašu "
+"korisnkičku podršku i oni bi vam trebali dostaviti\n"
 "valjane informacije."
 
 #: ../glade/profiles.glade:115
@@ -864,14 +841,12 @@ msgid "Use static DNS"
 msgstr "Koristi statični DNS"
 
 #: ../glade/profiles.glade:518
-#, fuzzy
 msgid "Primary DNS:"
-msgstr "Primarni DNS"
+msgstr "Primarni DNS:"
 
 #: ../glade/profiles.glade:543
-#, fuzzy
 msgid "Secondary DNS:"
-msgstr "Sekundarni DNS         "
+msgstr "Sekundarni DNS:"
 
 #: ../glade/profiles.glade:715
 msgid "<b>Profile settings</b>"
@@ -891,7 +866,6 @@ msgid "Device Selection Window"
 msgstr "Odabir uređaja"
 
 #: ../glade/profiles.glade:925
-#, fuzzy
 msgid ""
 "<b>Select a device for your connection.</b>\n"
 "\n"
@@ -902,7 +876,6 @@ msgstr ""
 "\n"
 "Izaberite poznati uređaj ili ubacite potrebne podatke  za ručno "
 "postavljanje.\n"
-"\n"
 
 #: ../glade/profiles.glade:1024
 msgid "Known devices"
@@ -1040,9 +1013,8 @@ msgid "Not available"
 msgstr ""
 
 #: ../../wader/bcm/models/main.py:139
-#, fuzzy
 msgid "Error while starting wader"
-msgstr "Greška kod brisanja profila"
+msgstr "Error while starting wader"
 
 #: ../../wader/bcm/models/main.py:140
 #, python-format
@@ -1119,7 +1091,7 @@ msgid "Type"
 msgstr "Tip"
 
 #: ../../wader/bcm/views/main.py:119
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "In most cases you can find the answer to your questions about the program in "
 "the help menu. This menu can be accessed if you click on the \"Help\" label "
@@ -1137,14 +1109,10 @@ msgstr ""
 "U većini slučajeva odgovore na vaša pitanja o programumožete pronaći u "
 "izborniku pomoć.\n"
 "\n"
-"Isto tako pomoć , nadogradnje i upute možete potražiti naVodafone Mobile "
-"Connect's webu:\n"
-"https://forge.betavine.net/projects/vodafonemobilec.\n"
-"\n"
-"  "
+"Isto tako pomoć , nadogradnje i upute možete potražiti na%(name)s's webu:\n"
+"%(url)s."
 
 #: ../../wader/bcm/views/main.py:134
-#, fuzzy
 msgid ""
 "If you are using this program in a corporate environment, your company "
 "probably has a support center to solve the questions that you might have "
@@ -1153,14 +1121,14 @@ msgid ""
 "If your company does not have a support center, you will have to contact "
 "your company's System Administrator."
 msgstr ""
-"Ako koristite ovaj program u korporacijskoj okolini, vaša kompanija\n"
-"bi trebala imati tehničku podršku da odgovori na pitanja\n"
-"koja imate o programu.\n"
+"Ako koristite ovaj program u korporacijskoj okolini, vaša kompanija bi "
+"trebala imati tehničku podršku da odgovori na pitanja koja imate o "
+"programu.\n"
 "\n"
 "U suprotnom zatražite pomoć od sistemskog administrator vaše kompanije."
 
 #: ../../wader/bcm/views/main.py:143
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "You can easily find answers to the most common questions in the help menu, "
 "in your company's support center and in the support area at:\n"
@@ -1175,8 +1143,9 @@ msgid ""
 "+34 607 123 00 if you are calling from other network."
 msgstr ""
 "Možete naći odgovore na česta pitanja u izborniku pomoć, u tehničkoj podršci "
-"vaše kompanije i na web korisničkoj podršci na https://forge.betavine.net/"
-"projects/vodafonemobilec."
+"vaše kompanije i na web korisničkoj podršci na\n"
+"\n"
+"%s."
 
 #: ../../wader/bcm/views/main.py:208 ../../wader/bcm/controllers/main.py:618
 msgid "Connect"
@@ -1418,9 +1387,9 @@ msgid "You have exceeded your transfer limit"
 msgstr ""
 
 #: ../../wader/bcm/controllers/main.py:516
-#, fuzzy, python-format
+#, python-format
 msgid "SMS received from %s"
-msgstr "<small>SMS primljen od %s</small>"
+msgstr "SMS primljen od %s"
 
 #: ../../wader/bcm/controllers/main.py:566
 #, fuzzy
@@ -1550,19 +1519,18 @@ msgid "Are you sure you want to send an empty message?"
 msgstr "Da li ste sigurni da želite poslati praznu poruku?"
 
 #: ../../wader/bcm/controllers/sms.py:136
-#, fuzzy
 msgid "Error while sending SMS"
-msgstr "Greška kod brisanja profila"
+msgstr "Error while sending SMS"
 
 #: ../../wader/bcm/controllers/sms.py:187
-#, fuzzy, python-format
+#, python-format
 msgid "Text message: %(num)d/%(tot)d chars"
-msgstr "Tekstualna Poruka: %(chrcnt)d/%(maxchr)d chars"
+msgstr "Tekstualna Poruka: %(num)d/%(tot)d chars"
 
 #: ../../wader/bcm/controllers/sms.py:192
-#, fuzzy, python-format
+#, python-format
 msgid "Text message: %(num)d/%(tot)d chars (%(msgs)d SMS)"
-msgstr "Tekstualna Poruka: %(chrcnt)d/%(maxchr)d chars"
+msgstr "Tekstualna Poruka: %(num)d/%(tot)d chars (%(msgs)d SMS)"
 
 #: ../../wader/bcm/dialogs.py:64
 msgid "translator-credits"
@@ -1574,9 +1542,8 @@ msgid "Password required"
 msgstr "Lozinka:"
 
 #: ../../wader/bcm/dialogs.py:220
-#, fuzzy
 msgid "Please, insert the password of your connection"
-msgstr "Molimo upišite vaš PIN kod : "
+msgstr "Please, insert the password of your connection"
 
 #: ../../wader/bcm/dialogs.py:254
 msgid "Save as ..."
@@ -1617,14 +1584,12 @@ msgid "EGSM 900"
 msgstr ""
 
 #: ../../wader/bcm/consts.py:90
-#, fuzzy
 msgid "GSM DCS"
-msgstr "SMS"
+msgstr "GSM DCS"
 
 #: ../../wader/bcm/consts.py:91
-#, fuzzy
 msgid "GSM PCS"
-msgstr "SMS"
+msgstr "GSM PCS"
 
 #: ../../wader/bcm/consts.py:92
 msgid "GSM 850"
@@ -1679,18 +1644,16 @@ msgid "HSPA"
 msgstr ""
 
 #: ../../wader/bcm/consts.py:113 ../../wader/bcm/signals.py:27
-#, fuzzy
 msgid "2G preferred"
-msgstr "Preferiraj 3G"
+msgstr "Preferiraj 2G"
 
 #: ../../wader/bcm/consts.py:114 ../../wader/bcm/signals.py:28
 msgid "3G preferred"
 msgstr "Preferiraj 3G"
 
 #: ../../wader/bcm/consts.py:115 ../../wader/bcm/signals.py:29
-#, fuzzy
 msgid "2G only"
-msgstr "Samo 3G"
+msgstr "Samo 2G"
 
 #: ../../wader/bcm/consts.py:116 ../../wader/bcm/signals.py:30
 msgid "3G only"
@@ -1701,23 +1664,20 @@ msgid "PAP"
 msgstr "PAP"
 
 #: ../../wader/bcm/consts.py:134
-#, fuzzy
 msgid "EAP"
-msgstr "PAP"
+msgstr "EAP"
 
 #: ../../wader/bcm/consts.py:135
 msgid "CHAP"
 msgstr "CHAP"
 
 #: ../../wader/bcm/consts.py:136
-#, fuzzy
 msgid "MSCHAP"
-msgstr "CHAP"
+msgstr "MSCHAP"
 
 #: ../../wader/bcm/consts.py:137
-#, fuzzy
 msgid "MSCHAPv2"
-msgstr "CHAP"
+msgstr "MSCHAPv2"
 
 #: ../../wader/bcm/signals.py:23
 msgid "No signal"

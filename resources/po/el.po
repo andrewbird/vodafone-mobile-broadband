@@ -2,14 +2,14 @@
 # Greek Translation file
 # Copyright (C) 2007
 # This file is distributed under the same license as the BCM package.
-# Dimitrios Psychogios <dpsychogios@gmail.com>, 2007.
 #
+# Dimitrios Psychogios <dpsychogios@gmail.com>, 2007, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-20 21:24+0100\n"
-"PO-Revision-Date: \n"
+"POT-Creation-Date: 2010-05-21 12:50+0100\n"
+"PO-Revision-Date: 2010-05-21 11:32+0100\n"
 "Last-Translator: Dimitrios Psychogios <dpsychogios@gmail.com>\n"
 "Language-Team: Greek <EL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -152,9 +152,8 @@ msgid "Contacts"
 msgstr "Επαφές"
 
 #: ../glade/bcm.glade:762 ../glade/bcm.glade:1144
-#, fuzzy
 msgid "<b>Month</b>"
-msgstr "<b>Υπολογιστής</b>"
+msgstr "<b>Μήνας</b>"
 
 #: ../glade/bcm.glade:772 ../glade/bcm.glade:1156
 #, fuzzy
@@ -169,18 +168,16 @@ msgid "label"
 msgstr "label"
 
 #: ../glade/bcm.glade:858 ../glade/bcm.glade:968 ../glade/bcm.glade:1253
-#, fuzzy
 msgid "3G:"
-msgstr "3G"
+msgstr "3G:"
 
 #: ../glade/bcm.glade:873 ../glade/bcm.glade:942
 msgid "Total:"
 msgstr ""
 
 #: ../glade/bcm.glade:888 ../glade/bcm.glade:955 ../glade/bcm.glade:1267
-#, fuzzy
 msgid "GPRS:"
-msgstr "GPRS"
+msgstr "GPRS:"
 
 #: ../glade/bcm.glade:904 ../glade/bcm.glade:1283
 #, fuzzy
@@ -306,17 +303,13 @@ msgstr "Enable software flow control"
 msgid "Contact search"
 msgstr "Αναζήτηση επαφών"
 
-#: ../glade/contacts.glade:29
-msgid " Name:"
-msgstr " Όνομα:"
+#: ../glade/contacts.glade:29 ../glade/contacts.glade:178
+msgid "Name:"
+msgstr "Όνομα:"
 
 #: ../glade/contacts.glade:93
 msgid "Contacts List"
 msgstr "Λίστα επαφών"
-
-#: ../glade/contacts.glade:178
-msgid "Name:"
-msgstr "Όνομα:"
 
 #: ../glade/contacts.glade:221
 msgid "Number:"
@@ -339,9 +332,8 @@ msgid "Diagnostics"
 msgstr "Διαγνωστικά"
 
 #: ../glade/diagnostics.glade:43
-#, fuzzy
 msgid "<b>Datacard details</b>"
-msgstr "<b>Ρυθμίσεις σύνδεσης</b>"
+msgstr "<b>Datacard λεπτομέρειες</b>"
 
 #: ../glade/diagnostics.glade:81 ../glade/diagnostics2.glade:85
 msgid "Manufacturer:"
@@ -376,27 +368,24 @@ msgid "IMEI"
 msgstr "IMEI"
 
 #: ../glade/diagnostics.glade:196
-#, fuzzy
 msgid "Modem"
-msgstr "Τύπος:"
+msgstr "Modem"
 
 #: ../glade/diagnostics.glade:227
 msgid "<b>Network details from SIM</b>"
 msgstr ""
 
 #: ../glade/diagnostics.glade:265 ../glade/diagnostics2.glade:257
-#, fuzzy
 msgid "IMSI:"
-msgstr "IMSI: "
+msgstr "IMSI:"
 
 #: ../glade/diagnostics.glade:276
 msgid "Network:"
 msgstr "Δίκτυο:"
 
 #: ../glade/diagnostics.glade:287
-#, fuzzy
 msgid "Country:"
-msgstr "Υπολογιστής"
+msgstr "Χώρα"
 
 #: ../glade/diagnostics.glade:298
 #, fuzzy
@@ -419,14 +408,12 @@ msgid "Unknown"
 msgstr "Άγνωστο"
 
 #: ../glade/diagnostics.glade:377
-#, fuzzy
 msgid "SIM"
-msgstr "SMS"
+msgstr "SIM"
 
 #: ../glade/diagnostics.glade:409
-#, fuzzy
 msgid "<b>Device information</b>"
-msgstr "<b>Ρυθμίσεις σύνδεσης</b>"
+msgstr "<b>πληροφορίες Συσκευών</b>"
 
 #: ../glade/diagnostics.glade:446 ../glade/diagnostics2.glade:442
 msgid "Operating System:"
@@ -453,14 +440,12 @@ msgid "label28"
 msgstr "label28"
 
 #: ../glade/diagnostics.glade:537
-#, fuzzy
 msgid "Device"
-msgstr "Κατάλογος συσκευών"
+msgstr "Συσκευή"
 
 #: ../glade/diagnostics.glade:565
-#, fuzzy
 msgid "<b>Betavine Connection Manager</b>"
-msgstr "<b>Ρυθμίσεις σύνδεσης</b>"
+msgstr "<b>Betavine Connection Manager</b>"
 
 #: ../glade/diagnostics.glade:602 ../glade/diagnostics2.glade:339
 #, fuzzy
@@ -476,18 +461,16 @@ msgid "Modem Manager"
 msgstr ""
 
 #: ../glade/diagnostics.glade:668
-#, fuzzy
 msgid "<b>USSD Test Message Diagnostics</b>"
-msgstr "<b>Επιλογές Μηνυμάτων</b>"
+msgstr "<b>USSD Διαγνωστικά Μήνυμα Test</b>"
 
 #: ../glade/diagnostics.glade:697
 msgid "Add your USSD string:"
-msgstr ""
+msgstr "Προσθέστε USSD string σας:"
 
 #: ../glade/diagnostics.glade:745
-#, fuzzy
 msgid "USSD reply message:"
-msgstr "Απάντηση σε μύνημα"
+msgstr "USSD μήνυμα απάντησης"
 
 #: ../glade/diagnostics.glade:789
 #, fuzzy
@@ -499,19 +482,16 @@ msgid "USSD"
 msgstr ""
 
 #: ../glade/diagnostics2.glade:37
-#, fuzzy
 msgid "<b>Modem</b>"
-msgstr "<b>Υπολογιστής</b>"
+msgstr "<b>Modem</b>"
 
 #: ../glade/diagnostics2.glade:209
-#, fuzzy
 msgid "<b>SIM</b>"
-msgstr "<b>Υπολογιστής</b>"
+msgstr "<b>SIM</b>"
 
 #: ../glade/diagnostics2.glade:310
-#, fuzzy
 msgid "<b>Mobile Connect</b>"
-msgstr "<b>Υπολογιστής</b>"
+msgstr "<b>Mobile Connect</b>"
 
 #: ../glade/diagnostics2.glade:394
 msgid "<b>Computer</b>"
@@ -594,19 +574,16 @@ msgid "<b>SIM Details</b>"
 msgstr "<b>Ρυθμίσεις σύνδεσης</b>"
 
 #: ../glade/payt.glade:83
-#, fuzzy
 msgid "<b>Number</b>"
-msgstr "<b>Υπολογιστής</b>"
+msgstr "<b>Αριθμός</b>"
 
 #: ../glade/payt.glade:94
-#, fuzzy
 msgid "<b>Date</b>"
-msgstr "<b>Χρήση</b>"
+msgstr "<b>Ημερομηνία</b>"
 
 #: ../glade/payt.glade:105
-#, fuzzy
 msgid "<b>Credit</b>"
-msgstr "<b>τίτλος</b>"
+msgstr "<b>Πίστωση</b>"
 
 #: ../glade/payt.glade:167
 msgid "Recheck my credit:"
@@ -631,9 +608,8 @@ msgid "send"
 msgstr "Αποστολέας"
 
 #: ../glade/payt.glade:341
-#, fuzzy
 msgid "<b>Credit Card</b>"
-msgstr "<b>Σειριακή Θύρα</b>"
+msgstr "<b>Πιστωτική κάρτα</b>"
 
 #: ../glade/payt.glade:371
 msgid "Pay by credit card"
@@ -694,25 +670,24 @@ msgid "Preferences"
 msgstr "Προτιμήσεις"
 
 #: ../glade/preferences.glade:55
-#, fuzzy
 msgid "<b>Change to global SMS settings </b>"
-msgstr "<b>Ρυθμίσεις σύνδεσης</b>"
+msgstr "<b>Αλλαγή σε παγκόσμιο επίπεδο τις ρυθμίσεις SMS</b>"
 
 #: ../glade/preferences.glade:71
-#, fuzzy
 msgid "Allow SMS confirmation"
-msgstr "Ρυθμίσεις Bluetooth"
+msgstr "Επιτρέψτε SMS επιβεβαίωσης"
 
 #: ../glade/preferences.glade:75
 msgid ""
 "Allows SMS confirmation reports. This lets you see when someone has received "
 "your text message."
 msgstr ""
+"Επιτρέπει την επιβεβαίωση εκθέσεις SMS. Αυτό σας επιτρέπει να δείτε πότε "
+"κάποιος έχει λάβει το μήνυμα κειμένου."
 
 #: ../glade/preferences.glade:86
-#, fuzzy
 msgid "Use an alternative SMS Service centre address"
-msgstr "Αδυναμία διαγραφής προφίλ"
+msgstr "Χρησιμοποιήστε μια εναλλακτική διεύθυνση SMS Κέντρο υπηρεσιών"
 
 #: ../glade/preferences.glade:90
 msgid ""
@@ -853,9 +828,8 @@ msgid "APN host:"
 msgstr "Αναγνωριστικό APN:"
 
 #: ../glade/profiles.glade:447
-#, fuzzy
 msgid "<b>DNS settings</b>"
-msgstr "<b>Ρυθμίσεις σύνδεσης</b>"
+msgstr "<b>Ρυθμίσεις DNS</b>"
 
 #: ../glade/profiles.glade:485
 #, fuzzy
@@ -947,9 +921,8 @@ msgid "Custom Device Settings Radio"
 msgstr "Δεν βρέθηκε συσκευή"
 
 #: ../glade/profiles.glade:1369
-#, fuzzy
 msgid "<b>Device Settings</b>"
-msgstr "<b>Ρυθμίσεις σύνδεσης</b>"
+msgstr "<b>Ρυθμίσεις Συσκευών</b>"
 
 #: ../glade/sms-preferences.glade:7
 msgid "SMS preferences"
@@ -1121,7 +1094,7 @@ msgid "Type"
 msgstr "Τύπος"
 
 #: ../../wader/bcm/views/main.py:119
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "In most cases you can find the answer to your questions about the program in "
 "the help menu. This menu can be accessed if you click on the \"Help\" label "
@@ -1137,21 +1110,21 @@ msgid ""
 "might have."
 msgstr ""
 "Στις περισσότερες περιπτώσεις θα βρείτε απαντήσεις στα θέματα βοήθειας της "
-"εφαρμογής.\n"
-"Τα θέματα βοήθειας βρίσκονται στο μενού \"Βοήθεια\" στη μπάρα επιλογών που "
-"βρίσκεται στην κορυφή του παραθύρου, επιλέγοντας \"Θέματα βοήθειας\" απο τις "
-"επιλογές.\n"
+"εφαρμογής. Τα θέματα βοήθειας βρίσκονται στο μενού \"Βοήθεια\" στη μπάρα "
+"επιλογών που βρίσκεται στην κορυφή του παραθύρου, επιλέγοντας \"Θέματα "
+"βοήθειας\" απο τις επιλογές.\n"
+"\n"
+"%(name)s\n"
 "\n"
 "Μπορείτε επίσης να βρείτε βοήθεια,αναβαθμίσεις και συμβουλές στην "
 "ιστοσελίδα:\n"
-"https://forge.betavine.net/projects/vodafonemobilec.\n"
+"%(url)s.\n"
 "\n"
 "Αν κάνετε χρήση των κουμπιών mail και browser για να ενεργοποιήσετε "
 "εφαρμογές του συστήματός σας, ίσως χρειαστείτε τη βοήθεια του Διαχειριστή "
 "σας για τυχών απορίες που μπορεί να έχετε."
 
 #: ../../wader/bcm/views/main.py:134
-#, fuzzy
 msgid ""
 "If you are using this program in a corporate environment, your company "
 "probably has a support center to solve the questions that you might have "
@@ -1160,13 +1133,12 @@ msgid ""
 "If your company does not have a support center, you will have to contact "
 "your company's System Administrator."
 msgstr ""
-"Αν κάνετε χρήση της εφαρμογής αυτής σε εταιρικό περιβάλλον, η εταιρία σας\n"
-"πιθανών διαθέτει τμήμα υποστήριξης που μπορεί να σας βοηθήσει σχετικά\n"
-"με τη χρήση της.\n"
+"Αν κάνετε χρήση της εφαρμογής αυτής σε εταιρικό περιβάλλον, η εταιρία σας "
+"πιθανών διαθέτει τμήμα υποστήριξης που μπορεί να σας βοηθήσει σχετικά με τη "
+"χρήση της.\n"
 "\n"
 "Αν η εταιρία σας δεν διαθέτει τμήμα υποστήριξης, θα χρειαστεί να "
-"επικοινωνήσετε\n"
-"με το Διαχειριστή Συστημάτων σας."
+"επικοινωνήσετε με το Διαχειριστή Συστημάτων σας."
 
 #: ../../wader/bcm/views/main.py:143
 #, python-format
@@ -1428,9 +1400,9 @@ msgid "You have exceeded your transfer limit"
 msgstr ""
 
 #: ../../wader/bcm/controllers/main.py:516
-#, fuzzy, python-format
+#, python-format
 msgid "SMS received from %s"
-msgstr "<small>Ελήφθη SMS από %s</small>"
+msgstr "Ελήφθη SMS από %s"
 
 #: ../../wader/bcm/controllers/main.py:566
 #, fuzzy
@@ -1549,7 +1521,7 @@ msgstr ""
 
 #: ../../wader/bcm/controllers/sms.py:85
 #: ../../wader/bcm/controllers/sms.py:179
-#, fuzzy, python-format
+#, python-format
 msgid "Text message: 0/%d chars"
 msgstr "Μήνυμα κειμένου: 0/%d"
 
@@ -1567,14 +1539,14 @@ msgid "Error while sending SMS"
 msgstr "Σφάλμα κατά τη διαγραφή του προφίλ"
 
 #: ../../wader/bcm/controllers/sms.py:187
-#, fuzzy, python-format
+#, python-format
 msgid "Text message: %(num)d/%(tot)d chars"
-msgstr "%(chrcnt)d/%(maxchr)d χαρακτήρες"
+msgstr "%(num)d/%(tot)d χαρακτήρες"
 
 #: ../../wader/bcm/controllers/sms.py:192
-#, fuzzy, python-format
+#, python-format
 msgid "Text message: %(num)d/%(tot)d chars (%(msgs)d SMS)"
-msgstr "%(chrcnt)d/%(maxchr)d χαρακτήρες"
+msgstr "%(num)d/%(tot)d χαρακτήρες (%(msgs)d SMS)"
 
 #: ../../wader/bcm/dialogs.py:64
 msgid "translator-credits"
@@ -1622,21 +1594,19 @@ msgstr "Εισαγωγή επαφών από..."
 #: ../../wader/bcm/consts.py:88 ../../wader/bcm/consts.py:106
 #: ../../wader/bcm/consts.py:132
 msgid "Any"
-msgstr ""
+msgstr "Κάθε"
 
 #: ../../wader/bcm/consts.py:89
 msgid "EGSM 900"
 msgstr ""
 
 #: ../../wader/bcm/consts.py:90
-#, fuzzy
 msgid "GSM DCS"
-msgstr "SMS"
+msgstr "GSM DCS"
 
 #: ../../wader/bcm/consts.py:91
-#, fuzzy
 msgid "GSM PCS"
-msgstr "SMS"
+msgstr "GSM PCS"
 
 #: ../../wader/bcm/consts.py:92
 msgid "GSM 850"
@@ -1691,18 +1661,16 @@ msgid "HSPA"
 msgstr ""
 
 #: ../../wader/bcm/consts.py:113 ../../wader/bcm/signals.py:27
-#, fuzzy
 msgid "2G preferred"
-msgstr "Προτίμηση 3G"
+msgstr "Προτίμηση 2G"
 
 #: ../../wader/bcm/consts.py:114 ../../wader/bcm/signals.py:28
 msgid "3G preferred"
 msgstr "Προτίμηση 3G"
 
 #: ../../wader/bcm/consts.py:115 ../../wader/bcm/signals.py:29
-#, fuzzy
 msgid "2G only"
-msgstr "Μόνο 3G"
+msgstr "Μόνο 2G"
 
 #: ../../wader/bcm/consts.py:116 ../../wader/bcm/signals.py:30
 msgid "3G only"

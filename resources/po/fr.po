@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-20 21:24+0100\n"
-"PO-Revision-Date: 2008-12-26 14:06+0100\n"
+"POT-Creation-Date: 2010-05-21 12:50+0100\n"
+"PO-Revision-Date: 2010-05-21 12:27+0100\n"
 "Last-Translator: sissie <sissie@bullteam.net>\n"
 "Language-Team: bullteam.net <sissie@bullteam.net>\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,6 @@ msgid "APN Selection Window"
 msgstr ""
 
 #: ../glade/apnsel.glade:69
-#, fuzzy
 msgid ""
 "<b>Preconfigured APNs for your Operator.</b>\n"
 "\n"
@@ -38,7 +37,6 @@ msgstr ""
 "\n"
 "Vous pouvez choisir un périphérique connu ou insérer les informations "
 "nécessaires pour configurer un périphérique personnalisé.\n"
-"\n"
 
 #: ../glade/apnsel.glade:193 ../glade/pin.glade:222
 #: ../glade/profiles.glade:1334
@@ -52,7 +50,6 @@ msgid "OK"
 msgstr ""
 
 #: ../glade/apnsel.glade:228
-#, fuzzy
 msgid "<b>APN Settings</b>"
 msgstr "<b>Configuration des APN</b>"
 
@@ -102,7 +99,6 @@ msgid "Support"
 msgstr "Support"
 
 #: ../glade/bcm.glade:372
-#, fuzzy
 msgid "Create new SMS"
 msgstr "Créer un nouveau SMS"
 
@@ -306,17 +302,13 @@ msgstr "Activer le contrôle de flux logiciel"
 msgid "Contact search"
 msgstr " Recherche de Contact"
 
-#: ../glade/contacts.glade:29
-msgid " Name:"
+#: ../glade/contacts.glade:29 ../glade/contacts.glade:178
+msgid "Name:"
 msgstr "Nom:"
 
 #: ../glade/contacts.glade:93
 msgid "Contacts List"
 msgstr "Liste de contacts"
-
-#: ../glade/contacts.glade:178
-msgid "Name:"
-msgstr "Nom:"
 
 #: ../glade/contacts.glade:221
 msgid "Number:"
@@ -339,9 +331,8 @@ msgid "Diagnostics"
 msgstr "Diagnostiques"
 
 #: ../glade/diagnostics.glade:43
-#, fuzzy
 msgid "<b>Datacard details</b>"
-msgstr "<b>Configuration du périphérique</b>"
+msgstr "<b>Datacard détails</b>"
 
 #: ../glade/diagnostics.glade:81 ../glade/diagnostics2.glade:85
 msgid "Manufacturer:"
@@ -376,33 +367,28 @@ msgid "IMEI"
 msgstr "IMEI"
 
 #: ../glade/diagnostics.glade:196
-#, fuzzy
 msgid "Modem"
-msgstr "Modèle:"
+msgstr "Modem"
 
 #: ../glade/diagnostics.glade:227
 msgid "<b>Network details from SIM</b>"
 msgstr ""
 
 #: ../glade/diagnostics.glade:265 ../glade/diagnostics2.glade:257
-#, fuzzy
 msgid "IMSI:"
-msgstr "IMSI: "
+msgstr "IMSI:"
 
 #: ../glade/diagnostics.glade:276
-#, fuzzy
 msgid "Network:"
-msgstr "Réseau Inconnu"
+msgstr "Réseau:"
 
 #: ../glade/diagnostics.glade:287
-#, fuzzy
 msgid "Country:"
-msgstr "Ordinateur"
+msgstr "Pays:"
 
 #: ../glade/diagnostics.glade:298
-#, fuzzy
 msgid "Mobile Number:"
-msgstr "Numéro:"
+msgstr "Numéro de portable:"
 
 #: ../glade/diagnostics.glade:321 ../glade/diagnostics2.glade:279
 msgid "IMSI"
@@ -420,14 +406,12 @@ msgid "Unknown"
 msgstr "Inconnu"
 
 #: ../glade/diagnostics.glade:377
-#, fuzzy
 msgid "SIM"
-msgstr "SMS"
+msgstr "SIM"
 
 #: ../glade/diagnostics.glade:409
-#, fuzzy
 msgid "<b>Device information</b>"
-msgstr "<b>Configuration du périphérique</b>"
+msgstr "<b>Informations sur l'appareil</b>"
 
 #: ../glade/diagnostics.glade:446 ../glade/diagnostics2.glade:442
 msgid "Operating System:"
@@ -459,14 +443,12 @@ msgid "Device"
 msgstr "Liste de périphériques"
 
 #: ../glade/diagnostics.glade:565
-#, fuzzy
 msgid "<b>Betavine Connection Manager</b>"
-msgstr "<b>Configuration de la Connexion</b>"
+msgstr "<b>Betavine Connection Manager</b>"
 
 #: ../glade/diagnostics.glade:602 ../glade/diagnostics2.glade:339
-#, fuzzy
 msgid "Software Version:"
-msgstr "Version:"
+msgstr "Version du logiciel"
 
 #: ../glade/diagnostics.glade:624 ../glade/diagnostics2.glade:360
 msgid "Not supported"
@@ -477,42 +459,36 @@ msgid "Modem Manager"
 msgstr ""
 
 #: ../glade/diagnostics.glade:668
-#, fuzzy
 msgid "<b>USSD Test Message Diagnostics</b>"
-msgstr "<b>Options de Message</b>"
+msgstr "<b>Diagnostics USSD message de test</b>"
 
 #: ../glade/diagnostics.glade:697
 msgid "Add your USSD string:"
 msgstr ""
 
 #: ../glade/diagnostics.glade:745
-#, fuzzy
 msgid "USSD reply message:"
-msgstr "Répondre au message"
+msgstr "message de réponse USSD"
 
 #: ../glade/diagnostics.glade:789
-#, fuzzy
 msgid "Send"
-msgstr "Expéditeur"
+msgstr "Envoyer"
 
 #: ../glade/diagnostics.glade:822
 msgid "USSD"
 msgstr ""
 
 #: ../glade/diagnostics2.glade:37
-#, fuzzy
 msgid "<b>Modem</b>"
-msgstr "<b>Mois</b>"
+msgstr "<b>Modem</b>"
 
 #: ../glade/diagnostics2.glade:209
-#, fuzzy
 msgid "<b>SIM</b>"
-msgstr "<b>Mois</b>"
+msgstr "<b>SIM</b>"
 
 #: ../glade/diagnostics2.glade:310
-#, fuzzy
 msgid "<b>Mobile Connect</b>"
-msgstr "<b>Mois</b>"
+msgstr "<b>Mobile Connect</b>"
 
 #: ../glade/diagnostics2.glade:394
 msgid "<b>Computer</b>"
@@ -564,9 +540,8 @@ msgid "Password:"
 msgstr "Mot de passe:"
 
 #: ../glade/keyring.glade:100
-#, fuzzy
 msgid "Confirm password:"
-msgstr "Confirmer le code PIN:"
+msgstr "Confirmer mot de passe:"
 
 #: ../glade/keyring.glade:131
 msgid "Unlock Keyring"
@@ -590,24 +565,20 @@ msgid "Topup Credit"
 msgstr ""
 
 #: ../glade/payt.glade:44
-#, fuzzy
 msgid "<b>SIM Details</b>"
-msgstr "<b>Configuration des DNS</b>"
+msgstr "<b>Détails sur le SIM</b>"
 
 #: ../glade/payt.glade:83
-#, fuzzy
 msgid "<b>Number</b>"
-msgstr "<b>Ordinateurr</b>"
+msgstr "<b>Numéro</b>"
 
 #: ../glade/payt.glade:94
-#, fuzzy
 msgid "<b>Date</b>"
-msgstr "<b>Usage</b>"
+msgstr "<b>Date</b>"
 
 #: ../glade/payt.glade:105
-#, fuzzy
 msgid "<b>Credit</b>"
-msgstr "<b>titre</b>"
+msgstr "<b>Crédit</b>"
 
 #: ../glade/payt.glade:167
 msgid "Recheck my credit:"
@@ -618,23 +589,20 @@ msgid "Check Credit"
 msgstr ""
 
 #: ../glade/payt.glade:237
-#, fuzzy
 msgid "<b>Voucher Code</b>"
-msgstr "<b>Ordinateurr</b>"
+msgstr "<b>Code de réduction</b>"
 
 #: ../glade/payt.glade:267
 msgid "Enter Code:"
 msgstr ""
 
 #: ../glade/payt.glade:289
-#, fuzzy
 msgid "send"
-msgstr "Expéditeur"
+msgstr "envoyer"
 
 #: ../glade/payt.glade:341
-#, fuzzy
 msgid "<b>Credit Card</b>"
-msgstr "<b>Port Série</b>"
+msgstr "<b>Carte de crédit</b>"
 
 #: ../glade/payt.glade:371
 msgid "Pay by credit card"
@@ -695,14 +663,12 @@ msgid "Preferences"
 msgstr "Préférences"
 
 #: ../glade/preferences.glade:55
-#, fuzzy
 msgid "<b>Change to global SMS settings </b>"
-msgstr "<b>Configuration de la Connexion</b>"
+msgstr "<b>Changement de paramètres globaux SMS</b>"
 
 #: ../glade/preferences.glade:71
-#, fuzzy
 msgid "Allow SMS confirmation"
-msgstr "configuration Bluetooth "
+msgstr "Laisser SMS de confirmation"
 
 #: ../glade/preferences.glade:75
 msgid ""
@@ -711,15 +677,16 @@ msgid ""
 msgstr ""
 
 #: ../glade/preferences.glade:86
-#, fuzzy
 msgid "Use an alternative SMS Service centre address"
-msgstr "Utiliser un profil de numéroteur alternatif"
+msgstr "Utilisez une autre adresse centre de service SMS"
 
 #: ../glade/preferences.glade:90
 msgid ""
 "Lets you configure a different service centre address if you are not a "
 "Vodafone customer or the default one is incorrect."
 msgstr ""
+"Permet de configurer une adresse de service différents centre si vous n'êtes "
+"pas un client Vodafone ou celui par défaut est incorrect."
 
 #: ../glade/preferences.glade:118 ../glade/sms-preferences.glade:28
 msgid "<b>SMSC preferences</b>"
@@ -742,9 +709,8 @@ msgid "Validity:"
 msgstr "Validité:"
 
 #: ../glade/preferences.glade:289
-#, fuzzy
 msgid "SMS Profile"
-msgstr "Profiles"
+msgstr "profil SMS"
 
 #: ../glade/preferences.glade:308
 msgid "<b>User options</b>"
@@ -812,7 +778,6 @@ msgid "New Profile Window"
 msgstr "Nouveau profil"
 
 #: ../glade/profiles.glade:64
-#, fuzzy
 msgid ""
 "<b>Create a new profile for your device.</b>\n"
 "\n"
@@ -822,8 +787,8 @@ msgid ""
 msgstr ""
 "<b>Créez un nouveau profile pour votre périphérique.</b>\n"
 "\n"
-"Si vous n'êtes pas sur des données que vous devriez rentrer contacter\n"
-"votre service de support clientèle qui devrait vous fournir\n"
+"Si vous n'êtes pas sur des données que vous devriez rentrer contacter votre "
+"service de support clientèle qui devrait vous fournir\n"
 "les informations nécessaires"
 
 #: ../glade/profiles.glade:115
@@ -835,18 +800,16 @@ msgid "Username:"
 msgstr "Nom d'utilisateur:"
 
 #: ../glade/profiles.glade:202
-#, fuzzy
 msgid "Authentication method:"
-msgstr "Mode d'authentification:"
+msgstr "Méthode d'authentification:"
 
 #: ../glade/profiles.glade:227
 msgid "Preferred connection:"
 msgstr "Connexion préférée:"
 
 #: ../glade/profiles.glade:252
-#, fuzzy
 msgid "Preferred band:"
-msgstr "Connexion préférée:"
+msgstr "Band préféré:"
 
 #: ../glade/profiles.glade:277
 msgid "APN host:"
@@ -886,7 +849,6 @@ msgid "Device Selection Window"
 msgstr "Sélection du périphérique"
 
 #: ../glade/profiles.glade:925
-#, fuzzy
 msgid ""
 "<b>Select a device for your connection.</b>\n"
 "\n"
@@ -897,7 +859,6 @@ msgstr ""
 "\n"
 "Vous pouvez choisir un périphérique connu ou insérer les informations "
 "nécessaires pour configurer un périphérique personnalisé.\n"
-"\n"
 
 #: ../glade/profiles.glade:1024
 msgid "Known devices"
@@ -1043,6 +1004,8 @@ msgstr ""
 msgid ""
 "Check that your installation is correct and your  OS/distro is supported: %s"
 msgstr ""
+"Vérifiez que votre installation est correcte et que votre OS / distribution "
+"est pris en charge:%s"
 
 #: ../../wader/bcm/models/main.py:315 ../../wader/bcm/views/main.py:226
 #: ../../wader/bcm/controllers/main.py:315
@@ -1102,9 +1065,8 @@ msgid "Name"
 msgstr "Nom"
 
 #: ../../wader/bcm/views/profile.py:132
-#, fuzzy
 msgid "Country"
-msgstr "Ordinateur"
+msgstr "Pays"
 
 #: ../../wader/bcm/views/profile.py:137 ../../wader/bcm/views/main.py:295
 #: ../../wader/bcm/views/main.py:333
@@ -1114,7 +1076,7 @@ msgstr "Type"
 
 # gnagnagna
 #: ../../wader/bcm/views/main.py:119
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "In most cases you can find the answer to your questions about the program in "
 "the help menu. This menu can be accessed if you click on the \"Help\" label "
@@ -1130,21 +1092,20 @@ msgid ""
 "might have."
 msgstr ""
 "Dans la majorité des cas vous pouvez trouver la réponse à vos questions sur "
-"ce programme dans le menu d'aide.\n"
-"Ce menu est acccessible en cliquant sur l'onglet  \"Aide\" ldans la barre de "
-"menu située en haut de la fenêtre et en sélectionnant l'option  \"Sujets "
-"d'aide\" option.\n"
+"ce programme dans le menu d'aide. Ce menu est acccessible en cliquant sur "
+"l'onglet  \"Aide\" ldans la barre de menu située en haut de la fenêtre et en "
+"sélectionnant l'option  \"Sujets d'aide\" option.\n"
 "\n"
 "Vous pouvez également trouver de l'aide, des astuces et des mises à jour sur "
-"le site Vodafone Mobile Connect:\n"
-"http://empresas.vodafone.es.\n"
+"le site %(name)s:\n"
 "\n"
-"If you use the mail and browser buttons to access other programs in your "
-"system, you might need to ask your Systems Administrator any doubt that you "
-"might have."
+"%(url)s\n"
+"\n"
+"Si vous utilisez l'e-mail et boutons de navigation pour accéder à d'autres "
+"programmes sur votre système, vous pourriez avoir besoin de demander à votre "
+"administrateur de systèmes de tout doute que vous pourriez avoir."
 
 #: ../../wader/bcm/views/main.py:134
-#, fuzzy
 msgid ""
 "If you are using this program in a corporate environment, your company "
 "probably has a support center to solve the questions that you might have "
@@ -1153,17 +1114,15 @@ msgid ""
 "If your company does not have a support center, you will have to contact "
 "your company's System Administrator."
 msgstr ""
-"Si vous utilisez ce programme dans un environnement corporate, votre "
-"société\n"
+"Si vous utilisez ce programme dans un environnement corporate, votre société "
 "dispose probablement d'un centre de support pour répondre aux questions que "
-"vous pourriez avoir\n"
-"au sujet du programme.\n"
+"vous pourriez avoir au sujet du programme.\n"
 "\n"
 "Si votre entreprise ne dispose pas d'un centre de support, contactez votre "
 "administrateur système."
 
 #: ../../wader/bcm/views/main.py:143
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "You can easily find answers to the most common questions in the help menu, "
 "in your company's support center and in the support area at:\n"
@@ -1177,14 +1136,14 @@ msgid ""
 "\n"
 "+34 607 123 00 if you are calling from other network."
 msgstr ""
-"Vous pouvez trouver la réponse aux questions les plus communes dans le\n"
-"menu d'aide, auprès du service de support de votre entreprise\n"
-"ou le site de support de Vodaphone\n"
-"http://empresas.vodafone.es .\n"
+"Vous pouvez trouver la réponse aux questions les plus communes dans le menu "
+"d'aide, auprès du service de support de votre entreprise ou le site de "
+"support de Vodaphone\n"
+"\n"
+"%s.\n"
 "\n"
 "Si vous rencontrez encore des difficultés vous pouvez appeler le centre de "
-"support clientèle de Vodaphone\n"
-"dont les numéros sont:\n"
+"support clientèle de Vodaphone dont les numéros sont:\n"
 "\n"
 "123, si vous utilisez le réseau Vodaphone ou\n"
 "\n"
@@ -1209,9 +1168,8 @@ msgid "Authenticating"
 msgstr "Authentification..."
 
 #: ../../wader/bcm/views/main.py:250
-#, fuzzy
 msgid "Searching"
-msgstr "_Recherche"
+msgstr "Recherche"
 
 #: ../../wader/bcm/views/main.py:258
 #: ../../wader/bcm/controllers/payt_controller.py:214
@@ -1411,7 +1369,7 @@ msgstr ""
 
 #: ../../wader/bcm/controllers/main.py:359
 msgid "Perhaps your SIM is not inserted correctly?"
-msgstr ""
+msgstr "Peut-être que votre carte SIM n'est pas insérée correctement?"
 
 #: ../../wader/bcm/controllers/main.py:361
 #, fuzzy
@@ -1431,14 +1389,13 @@ msgid "You have exceeded your transfer limit"
 msgstr ""
 
 #: ../../wader/bcm/controllers/main.py:516
-#, fuzzy, python-format
+#, python-format
 msgid "SMS received from %s"
-msgstr "<small>SMS reçu de %s</small>"
+msgstr "SMS reçu de %s"
 
 #: ../../wader/bcm/controllers/main.py:566
-#, fuzzy
 msgid "Failed connection attempt"
-msgstr "Vitesse de connexion:"
+msgstr "Tentative de connexion a échoué"
 
 #: ../../wader/bcm/controllers/main.py:632
 #: ../../wader/bcm/controllers/main.py:667
@@ -1479,9 +1436,8 @@ msgid "No device has been found. Insert one and try again."
 msgstr ""
 
 #: ../../wader/bcm/controllers/main.py:750
-#, fuzzy
 msgid "Profile needed"
-msgstr "Nom du Profil:"
+msgstr "Le profil requis"
 
 #: ../../wader/bcm/controllers/main.py:751
 msgid "You need to create a profile for connecting."
@@ -1567,28 +1523,26 @@ msgid "Error while sending SMS"
 msgstr ""
 
 #: ../../wader/bcm/controllers/sms.py:187
-#, fuzzy, python-format
+#, python-format
 msgid "Text message: %(num)d/%(tot)d chars"
-msgstr "Texte du message: %(chrcnt)d/%(maxchr)d caractères"
+msgstr "Texte du message: %(num)d/%(tot)d caractères"
 
 #: ../../wader/bcm/controllers/sms.py:192
-#, fuzzy, python-format
+#, python-format
 msgid "Text message: %(num)d/%(tot)d chars (%(msgs)d SMS)"
-msgstr "Texte du message: %(chrcnt)d/%(maxchr)d caractères"
+msgstr "Texte du message: %(num)d/%(tot)d caractères (%(msgs)d SMS)"
 
 #: ../../wader/bcm/dialogs.py:64
 msgid "translator-credits"
 msgstr ""
 
 #: ../../wader/bcm/dialogs.py:219
-#, fuzzy
 msgid "Password required"
-msgstr "Mot de passe:"
+msgstr "Mot de passe nécessaire"
 
 #: ../../wader/bcm/dialogs.py:220
-#, fuzzy
 msgid "Please, insert the password of your connection"
-msgstr "Merci d'insérer votre code PIN"
+msgstr "S'il vous plaît, insérer le mot de passe de votre connexion"
 
 #: ../../wader/bcm/dialogs.py:254
 msgid "Save as ..."
@@ -1622,21 +1576,19 @@ msgstr "Importer les contacts de..."
 #: ../../wader/bcm/consts.py:88 ../../wader/bcm/consts.py:106
 #: ../../wader/bcm/consts.py:132
 msgid "Any"
-msgstr ""
+msgstr "Tout"
 
 #: ../../wader/bcm/consts.py:89
 msgid "EGSM 900"
 msgstr ""
 
 #: ../../wader/bcm/consts.py:90
-#, fuzzy
 msgid "GSM DCS"
-msgstr "SMS"
+msgstr "GSM DCS"
 
 #: ../../wader/bcm/consts.py:91
-#, fuzzy
 msgid "GSM PCS"
-msgstr "SMS"
+msgstr "GSM PCS"
 
 #: ../../wader/bcm/consts.py:92
 msgid "GSM 850"
@@ -1691,18 +1643,16 @@ msgid "HSPA"
 msgstr ""
 
 #: ../../wader/bcm/consts.py:113 ../../wader/bcm/signals.py:27
-#, fuzzy
 msgid "2G preferred"
-msgstr "3G préférée"
+msgstr "2G préférée"
 
 #: ../../wader/bcm/consts.py:114 ../../wader/bcm/signals.py:28
 msgid "3G preferred"
 msgstr "3G préférée"
 
 #: ../../wader/bcm/consts.py:115 ../../wader/bcm/signals.py:29
-#, fuzzy
 msgid "2G only"
-msgstr "3G seulement"
+msgstr "2G seulement"
 
 #: ../../wader/bcm/consts.py:116 ../../wader/bcm/signals.py:30
 msgid "3G only"
@@ -1713,23 +1663,20 @@ msgid "PAP"
 msgstr "PAP"
 
 #: ../../wader/bcm/consts.py:134
-#, fuzzy
 msgid "EAP"
-msgstr "PAP"
+msgstr "EAP"
 
 #: ../../wader/bcm/consts.py:135
 msgid "CHAP"
 msgstr "CHAP"
 
 #: ../../wader/bcm/consts.py:136
-#, fuzzy
 msgid "MSCHAP"
-msgstr "CHAP"
+msgstr "MSCHAP"
 
 #: ../../wader/bcm/consts.py:137
-#, fuzzy
 msgid "MSCHAPv2"
-msgstr "CHAP"
+msgstr "MSCHAPv2"
 
 #: ../../wader/bcm/signals.py:23
 msgid "No signal"
@@ -1737,11 +1684,11 @@ msgstr ""
 
 #: ../../wader/bcm/contacts/contact_kdepim.py:132
 msgid "KDE PIM"
-msgstr ""
+msgstr "KDE PIM"
 
 #: ../../wader/bcm/contacts/contact_evolution.py:136
 msgid "Evolution"
-msgstr ""
+msgstr "Evolution"
 
 #~ msgid "Inspect"
 #~ msgstr "Inspecter"

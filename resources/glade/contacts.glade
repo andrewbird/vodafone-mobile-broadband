@@ -26,7 +26,7 @@
             <child>
               <widget class="GtkLabel" id="search_label">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes"> Name:</property>
+                <property name="label" translatable="yes">Name:</property>
               </widget>
               <packing>
                 <property name="expand">False</property>

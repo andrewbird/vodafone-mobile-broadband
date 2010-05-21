@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-20 21:24+0100\n"
+"POT-Creation-Date: 2010-05-21 12:50+0100\n"
 "PO-Revision-Date: 2010-05-20 21:14+0100\n"
 "Last-Translator: Paulo Arinto <artinto@portugalmail.pt>\n"
 "Language-Team: Portuguese <PT@li.org>\n"
@@ -291,17 +291,13 @@ msgstr "Enable software flow control"
 msgid "Contact search"
 msgstr "Procurar contacto"
 
-#: ../glade/contacts.glade:29
-msgid " Name:"
-msgstr " Nome: "
+#: ../glade/contacts.glade:29 ../glade/contacts.glade:178
+msgid "Name:"
+msgstr "Nome:"
 
 #: ../glade/contacts.glade:93
 msgid "Contacts List"
 msgstr "Lista de contactos"
-
-#: ../glade/contacts.glade:178
-msgid "Name:"
-msgstr "Nome"
 
 #: ../glade/contacts.glade:221
 msgid "Number:"
