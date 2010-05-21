@@ -36,7 +36,7 @@ class DiagnosticsView(View):
 
     def __init__(self, ctrl):
         View.__init__(self, ctrl, self.GLADE_FILE,
-                      'diagnostics_window', register=False)
+                      'diagnostics_window', register=False, domain='bcm')
         self.setup_view()
         ctrl.register_view(self)
 

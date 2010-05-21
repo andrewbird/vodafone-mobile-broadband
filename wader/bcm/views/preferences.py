@@ -35,7 +35,7 @@ class PreferencesView(View):
 
     def __init__(self, ctrl):
         super(PreferencesView, self).__init__(ctrl, self.GLADE_FILE,
-            'preferences_window', register=False)
+            'preferences_window', register=False, domain='bcm')
         self.ctrl = ctrl
         ctrl.register_view(self)
 
@@ -118,7 +118,7 @@ class SMSPreferencesView(View):
 
     def __init__(self, ctrl, parent_ctrl):
         super(SMSPreferencesView, self).__init__(ctrl, self.GLADE_FILE,
-            'sms_preferences', register=False)
+            'sms_preferences', register=False, domain='bcm')
         self.parent_ctrl = parent_ctrl
         self.setup_view(ctrl)
         ctrl.register_view(self)

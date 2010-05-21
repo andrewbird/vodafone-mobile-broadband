@@ -23,15 +23,20 @@
 #  or email to the author Roberto Cavada <cavada@fbk.eu>.
 #  Please report bugs to <cavada@fbk.eu>.
 
-
 import gtk.glade
 from controller import Controller
 import types
 
+
 class View (object):
 
+    #
+    # modified for BCM to use translation domain
+    #
+
     def __init__(self, controller, glade_filename=None,
-                 glade_top_widget_name=None, parent_view=None, register=True):
+                 glade_top_widget_name=None, parent_view=None,
+                 register=True, domain=None):
         """If register is False you *must* call 'controller.register_view(self)'
         from the derived class constructor (i.e. registration is delayed)
         If filename is not given (or None) all following parameters must be
@@ -52,10 +57,14 @@ class View (object):
 
         # retrieves XML objects from glade
         if (glade_filename is not None):
-            for i in range(0,len(wids)):
-                self.xmlWidgets.append(gtk.glade.XML(glade_filename, wids[i]))
-                pass
-            pass        
+            if domain is not None:
+                for i in range(0,len(wids)):
+                    self.xmlWidgets.append(gtk.glade.XML(glade_filename,
+                                                         wids[i], domain))
+            else:
+                for i in range(0,len(wids)):
+                    self.xmlWidgets.append(gtk.glade.XML(glade_filename,
+                                                         wids[i]))
 
         # top widget list or singleton:
         if (glade_top_widget_name is not None):

@@ -42,7 +42,7 @@ class PayAsYouTalkView(View):
 
     def __init__(self, ctrl, parent_view):
         super(PayAsYouTalkView, self).__init__(ctrl, self.GLADE_FILE,
-                'payt_window', parent_view, register=False)
+                'payt_window', parent_view, register=False, domain='bcm')
         self.setup_view()
         ctrl.register_view(self)
 

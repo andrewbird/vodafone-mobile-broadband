@@ -36,7 +36,7 @@ class NewSmsView(View):
 
     def __init__(self, ctrl):
         super(NewSmsView, self).__init__(ctrl, self.GLADE_FILE,
-            'sms_edit_window', register=False)
+            'sms_edit_window', register=False, domain='bcm')
         self.setup_view(ctrl)
         ctrl.register_view(self)
 

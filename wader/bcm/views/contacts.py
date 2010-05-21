@@ -47,8 +47,8 @@ class AddContactView(View):
     GLADE_FILE = os.path.join(GLADE_DIR, "contacts.glade")
 
     def __init__(self, ctrl):
-        View.__init__(self, ctrl, self.GLADE_FILE,
-                      'add_contact_window', register=False)
+        View.__init__(self, ctrl, self.GLADE_FILE, 'add_contact_window',
+                      register=False, domain='bcm')
         self.setup_view(ctrl)
         ctrl.register_view(self)
 
@@ -65,7 +65,7 @@ class SearchContactView(ContactView):
 
     def __init__(self, ctrl):
         ContactView.__init__(self, ctrl, self.GLADE_FILE,
-                      'search_dialog', register=True)
+                      'search_dialog', register=True, domain='bcm')
 
 
 class ContactsListView(ContactView):
@@ -73,4 +73,4 @@ class ContactsListView(ContactView):
 
     def __init__(self, ctrl):
         ContactView.__init__(self, ctrl, self.GLADE_FILE,
-                      'contacts_list_dialog')
+                      'contacts_list_dialog', domain='bcm')

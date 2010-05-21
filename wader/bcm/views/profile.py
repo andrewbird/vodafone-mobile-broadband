@@ -41,7 +41,7 @@ class ProfileView(View):
 
     def __init__(self, ctrl):
         super(ProfileView, self).__init__(ctrl, self.GLADE_FILE,
-                                          'new_profile_window')
+                                          'new_profile_window', domain='bcm')
 
         ctrl.setup_view(self)
         self['PROimage'].set_from_file(self.IMAGE_FILE)
@@ -112,7 +112,7 @@ class APNSelectionView(View):
     def __init__(self, ctrl):
         super(APNSelectionView, self).__init__(ctrl, self.GLADE_FILE,
                                                'apn_selection_window',
-                                               register=False)
+                                               register=False, domain='bcm')
         self.store = None
         self._view = None
         self.setup_view()

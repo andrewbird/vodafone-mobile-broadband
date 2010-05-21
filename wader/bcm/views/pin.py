@@ -34,7 +34,7 @@ class PinModifyView(View):
 
     def __init__(self, ctrl):
         super(PinModifyView, self).__init__(ctrl, self.GLADE_FILE,
-                'pin_modify_window', register=True)
+                'pin_modify_window', register=True, domain='bcm')
 
 
 class PinEnableView(View):
@@ -44,7 +44,7 @@ class PinEnableView(View):
 
     def __init__(self, ctrl):
         super(PinEnableView, self).__init__(ctrl, self.GLADE_FILE,
-            'ask_pin_window', register=False)
+            'ask_pin_window', register=False, domain='bcm')
         self.setup_view()
         ctrl.register_view(self)
 
@@ -59,7 +59,7 @@ class AskPINView(View):
 
     def __init__(self, ctrl):
         super(AskPINView, self).__init__(ctrl, self.GLADE_FILE,
-            'ask_pin_window', register=False)
+            'ask_pin_window', register=False, domain='bcm')
         self.setup_view()
         ctrl.register_view(self)
 
@@ -79,7 +79,7 @@ class AskPUKView(View):
 
     def __init__(self, ctrl):
         super(AskPUKView, self).__init__(ctrl, self.GLADE_FILE,
-            'ask_puk_window', register=True)
+            'ask_puk_window', register=True, domain='bcm')
 
     def set_puk_view(self):
         msg = _("""
