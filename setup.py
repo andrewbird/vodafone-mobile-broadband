@@ -20,11 +20,17 @@ setuptools file for Wader bcm
 """
 
 import sys
-from os.path import join, isdir, walk
+from os import listdir, makedirs
+from os.path import basename, exists, join, isdir, walk
+from glob import glob
+from subprocess import call
 
 from ez_setup import use_setuptools; use_setuptools()
 from setuptools import setup
+
 from distutils.command.install_data import install_data as _install_data
+from distutils import cmd
+from distutils.command.build import build as _build
 
 from wader.bcm.consts import (APP_VERSION, APP_NAME,
                               RESOURCES_DIR)
@@ -44,9 +50,43 @@ def paint_file(path, text):
     im.save(path)
 
 
+class build_trans(cmd.Command):
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        for filename in glob(join('.', 'resources', 'po', '*.po')):
+            lang = basename(filename)[:-3]
+
+            tdir = join('build', 'locale', lang, 'LC_MESSAGES')
+            if not exists(tdir):
+                makedirs(tdir)
+
+            tfil = join(tdir, 'bcm.mo')
+            call(['msgfmt', '-cf', '-o', tfil, filename])
+
+#        raise RuntimeError("Uncomment to stop and see errors easily")
+
+
+class build(_build):
+    sub_commands = _build.sub_commands + [('build_trans', None)]
+
+    def run(self):
+        _build.run(self)
+
+
 class install_data(_install_data):
 
     def run(self):
+        for lang in listdir('build/locale/'):
+            lang_dir = join('share', 'locale', lang, 'LC_MESSAGES')
+            lang_file = join('build', 'locale', lang, 'LC_MESSAGES', 'bcm.mo')
+            self.data_files.append((lang_dir, [lang_file]))
+
         _install_data.run(self)
 
         for outfile in self.outfiles:
@@ -101,6 +141,8 @@ packages = [
 ]
 
 cmdclass = {
+    'build': build,
+    'build_trans': build_trans,
     'install_data': install_data,
 }
 
@@ -127,5 +169,4 @@ setup(name=APP_NAME,
         'Programming Language :: Python :: 2.5',
         'Programming Language :: Python :: 2.6',
         'Topic :: Communications :: Telephony',
-        ]
-)
+      ])

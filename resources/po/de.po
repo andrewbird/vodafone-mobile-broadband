@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-20 15:42+0100\n"
+"POT-Creation-Date: 2010-05-20 21:24+0100\n"
 "PO-Revision-Date: 2009-06-11 20:14+0100\n"
 "Last-Translator: Andrew Bird (Sphere Systems) <ajb@spheresystems.co.uk>\n"
 "Language-Team:  <en@li.org>\n"
@@ -16,368 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-
-#: ../glade/VMC-reduced.glade:46 ../glade/VMC.glade:20
-#: ../glade/helpbrowser.glade:21
-msgid "_File"
-msgstr "_Datei"
-
-#: ../glade/VMC-reduced.glade:55 ../glade/VMC.glade:27
-#: ../../wader/bcm/views/application.py:328
-#: ../../wader/bcm/controllers/application.py:1074
-msgid "Connect"
-msgstr "Verbinde"
-
-#: ../glade/VMC-reduced.glade:64 ../glade/VMC.glade:34
-#: ../glade/contacts.glade:301
-msgid "Mobile"
-msgstr "Mobile"
-
-#: ../glade/VMC-reduced.glade:83 ../glade/VMC.glade:51
-msgid "Import contacts..."
-msgstr "Importiere Kontakte..."
-
-#: ../glade/VMC-reduced.glade:92 ../glade/VMC.glade:59
-msgid "Export contacts..."
-msgstr "Exportiere Kontakte..."
-
-#: ../glade/VMC-reduced.glade:120 ../glade/VMC.glade:85
-msgid "_View"
-msgstr "_Ansicht"
-
-#: ../glade/VMC-reduced.glade:130 ../glade/VMC.glade:93
-msgid "SMS"
-msgstr "SMS"
-
-#: ../glade/VMC-reduced.glade:146 ../glade/VMC.glade:107
-#: ../glade/preferences.glade:590
-msgid "Usage"
-msgstr "Nutzung"
-
-#: ../glade/VMC-reduced.glade:162 ../glade/VMC.glade:121
-msgid "Support"
-msgstr "Support"
-
-#: ../glade/VMC-reduced.glade:187 ../glade/VMC.glade:140
-msgid "_Tools"
-msgstr "_Werkzeuge"
-
-#: ../glade/VMC-reduced.glade:197 ../glade/VMC.glade:148
-msgid "Change PIN"
-msgstr "Ändere PIN"
-
-#: ../glade/VMC-reduced.glade:206 ../glade/VMC.glade:156
-msgid "Request PIN"
-msgstr "Fordere PIN an"
-
-#: ../glade/VMC-reduced.glade:222 ../glade/VMC.glade:170
-#: ../glade/sms-preferences.glade:7
-msgid "SMS preferences"
-msgstr "SMS Präferenzen"
-
-#: ../glade/VMC-reduced.glade:243 ../glade/VMC.glade:189
-#: ../glade/diagnostics.glade:7
-msgid "Diagnostics"
-msgstr "Diagnose"
-
-#: ../glade/VMC-reduced.glade:269 ../glade/VMC.glade:210
-msgid "Profiles"
-msgstr "Profile"
-
-#: ../glade/VMC-reduced.glade:309 ../glade/VMC.glade:243
-msgid "Inspect"
-msgstr "Überprüfe"
-
-#: ../glade/VMC-reduced.glade:334 ../glade/VMC.glade:263
-msgid "_Help"
-msgstr "_Hilfe"
-
-#: ../glade/VMC-reduced.glade:353 ../glade/VMC.glade:281
-msgid "_About"
-msgstr "_Über"
-
-#: ../glade/VMC-reduced.glade:401 ../glade/VMC.glade:313
-msgid "Connect Button"
-msgstr "Verbindungs-Button"
-
-#: ../glade/VMC-reduced.glade:435 ../glade/VMC.glade:337
-msgid "SMS Toggle Button"
-msgstr "SMS Umschalt-Button"
-
-#: ../glade/VMC-reduced.glade:456 ../glade/VMC.glade:353
-msgid "Usage Toggle Button"
-msgstr "Nutzung Umschalt-Button"
-
-#: ../glade/VMC-reduced.glade:477 ../glade/VMC.glade:368
-msgid "Support Toggle Button"
-msgstr "Support Umschalt-Button"
-
-#: ../glade/VMC-reduced.glade:567 ../glade/VMC-reduced.glade:734
-#: ../glade/VMC.glade:429 ../glade/VMC.glade:557
-msgid "Contacts menu"
-msgstr "Kontakte Menue"
-
-#: ../glade/VMC-reduced.glade:568 ../glade/VMC-reduced.glade:756
-#: ../glade/VMC.glade:430 ../glade/VMC.glade:566
-msgid "_New"
-msgstr "_Neu"
-
-#: ../glade/VMC-reduced.glade:589 ../glade/VMC.glade:437
-msgid "Create new sms"
-msgstr "Erzeuge eine neue SMS"
-
-#: ../glade/VMC-reduced.glade:590 ../glade/VMC.glade:438
-msgid "_SMS"
-msgstr "_SMS"
-
-#: ../glade/VMC-reduced.glade:607 ../glade/VMC.glade:453
-msgid "_Contact"
-msgstr "_Kontakt"
-
-#: ../glade/VMC-reduced.glade:637 ../glade/VMC.glade:483
-msgid "Reply message"
-msgstr "Antwortnachricht"
-
-#: ../glade/VMC-reduced.glade:638 ../glade/VMC.glade:484
-msgid "_Reply"
-msgstr "_Antwort"
-
-#: ../glade/VMC-reduced.glade:658 ../glade/VMC.glade:491
-msgid "Reply without quoting original text"
-msgstr "Antworte ohne den Orginaltext zu zitieren"
-
-#: ../glade/VMC-reduced.glade:659 ../glade/VMC.glade:492
-msgid "Send new"
-msgstr "Erneut senden"
-
-#: ../glade/VMC-reduced.glade:668 ../glade/VMC.glade:500
-msgid "Reply quoting original message"
-msgstr "Antworte mit Zitat der Orginalnachricht"
-
-#: ../glade/VMC-reduced.glade:669 ../glade/VMC.glade:501
-msgid "Reply quoting"
-msgstr "Antworte mit Zitat"
-
-#: ../glade/VMC-reduced.glade:682 ../glade/VMC.glade:519
-msgid "Forward sms to another contact"
-msgstr "Leite die SMS an einen anderen Kontakt weiter"
-
-#: ../glade/VMC-reduced.glade:683 ../glade/VMC.glade:520
-msgid "_Forward"
-msgstr "_Weiterleitung"
-
-#: ../glade/VMC-reduced.glade:703 ../glade/VMC-reduced.glade:808
-#: ../glade/VMC.glade:534 ../glade/VMC.glade:611
-#: ../../wader/bcm/controllers/application.py:1132
-msgid "_Delete"
-msgstr "_Löschen"
-
-#: ../glade/VMC-reduced.glade:735 ../glade/VMC.glade:558
-msgid "_Contacts"
-msgstr "_Kontakte"
-
-#: ../glade/VMC-reduced.glade:755 ../glade/VMC.glade:565
-#: ../glade/contacts.glade:159
-msgid "Add a contact"
-msgstr "Einen Kontakt hinzufügen"
-
-#: ../glade/VMC-reduced.glade:776 ../glade/VMC.glade:580
-msgid "Search contacts"
-msgstr "Durchsuche Kontakte"
-
-#: ../glade/VMC-reduced.glade:777 ../glade/VMC.glade:581
-msgid "_Search"
-msgstr "_Suche"
-
-#: ../glade/VMC-reduced.glade:880 ../glade/VMC.glade:658
-msgid "Inbox"
-msgstr "Eingangskorb"
-
-#: ../glade/VMC-reduced.glade:934 ../glade/VMC.glade:688
-msgid "Draft"
-msgstr "Entwurf"
-
-#: ../glade/VMC-reduced.glade:988 ../glade/VMC.glade:718
-msgid "Sent"
-msgstr "Gesendet"
-
-#: ../glade/VMC-reduced.glade:1041 ../glade/VMC.glade:747
-#: ../glade/sms.glade:34
-msgid "Contacts"
-msgstr "Kontakte"
-
-#: ../glade/VMC-reduced.glade:1198 ../glade/VMC-reduced.glade:1898
-#: ../glade/VMC.glade:854 ../glade/VMC.glade:1268
-msgid "<b>Month</b>"
-msgstr "<b>Monat</b>"
-
-#: ../glade/VMC-reduced.glade:1223 ../glade/VMC-reduced.glade:1923
-#: ../glade/VMC.glade:844 ../glade/VMC.glade:1258
-msgid "month_label"
-msgstr "Monats_Kennzeichnung"
-
-#: ../glade/VMC-reduced.glade:1283 ../glade/VMC-reduced.glade:1311
-#: ../glade/VMC-reduced.glade:1395 ../glade/VMC-reduced.glade:1511
-#: ../glade/VMC-reduced.glade:1539 ../glade/VMC-reduced.glade:1649
-#: ../glade/VMC-reduced.glade:1983 ../glade/VMC-reduced.glade:2011
-#: ../glade/VMC-reduced.glade:2121 ../glade/VMC.glade:897
-#: ../glade/VMC.glade:914 ../glade/VMC.glade:970 ../glade/VMC.glade:1025
-#: ../glade/VMC.glade:1042 ../glade/VMC.glade:1098 ../glade/VMC.glade:1311
-#: ../glade/VMC.glade:1328 ../glade/VMC.glade:1384 ../glade/pin.glade:595
-msgid "label"
-msgstr "label"
-
-#: ../glade/VMC-reduced.glade:1339 ../glade/VMC-reduced.glade:1567
-#: ../glade/VMC-reduced.glade:2039 ../glade/VMC.glade:929
-#: ../glade/VMC.glade:1057 ../glade/VMC.glade:1343
-msgid "3G:"
-msgstr "3G"
-
-#: ../glade/VMC-reduced.glade:1367 ../glade/VMC-reduced.glade:1595
-#: ../glade/VMC-reduced.glade:2067 ../glade/VMC.glade:944
-#: ../glade/VMC.glade:1072 ../glade/VMC.glade:1358
-msgid "GPRS:"
-msgstr "GPRS"
-
-#: ../glade/VMC-reduced.glade:1422 ../glade/VMC-reduced.glade:1623
-#: ../glade/VMC.glade:1085
-msgid "Total:"
-msgstr "Gesamt:"
-
-#: ../glade/VMC-reduced.glade:1453 ../glade/VMC-reduced.glade:2151
-#: ../glade/VMC.glade:988 ../glade/VMC.glade:1402
-msgid "<b>Transferred Data</b>"
-msgstr "<b>Übertragene Daten</b>"
-
-#: ../glade/VMC-reduced.glade:1679 ../glade/VMC.glade:1116
-msgid "<b>Current session</b>"
-msgstr "<b>Laufende Session</b>"
-
-#: ../glade/VMC-reduced.glade:1739 ../glade/VMC-reduced.glade:2211
-#: ../glade/VMC.glade:1156 ../glade/VMC.glade:1441
-#: ../../wader/bcm/consts.py:101
-#: ../../wader/bcm/controllers/application.py:1295
-#: ../../wader/bcm/controllers/application.py:1329
-msgid "GPRS"
-msgstr "GPRS"
-
-#: ../glade/VMC-reduced.glade:1764 ../glade/VMC-reduced.glade:2236
-#: ../glade/VMC.glade:1163 ../glade/VMC.glade:1448
-#: ../../wader/bcm/controllers/application.py:1331
-msgid "3G"
-msgstr "3G"
-
-#: ../glade/VMC-reduced.glade:1837 ../glade/VMC.glade:1215
-msgid "Current month"
-msgstr "Laufender Monat"
-
-#: ../glade/VMC-reduced.glade:2095 ../glade/VMC.glade:957
-#: ../glade/VMC.glade:1371
-msgid "<b>Total:</b>"
-msgstr "<b>Gesamt:</b>"
-
-#: ../glade/VMC-reduced.glade:2309 ../glade/VMC.glade:1503
-msgid "Last month"
-msgstr "Letzter Monat"
-
-#: ../glade/VMC-reduced.glade:2334
-msgid "<b>Usage</b> - Remember that this information is only orientative."
-msgstr ""
-"<b>Usage</b> - Bedenken Sie, dass diese Information nur zur Orientierung "
-"dient"
-
-#: ../glade/VMC-reduced.glade:2397 ../glade/VMC.glade:1546
-msgid ""
-"In most cases you can find the answer to your questions about the program in "
-"the help menu.\n"
-"This menu can be accesed if you click on the \"Help\" label on the menu bar "
-"located in the top side of the window, and selecting the \"Help topics\" "
-"option.\n"
-"\n"
-"You can also find help, updates and tips in Vodafone Mobile Connect's web:\n"
-"https://forge.betavine.net/projects/vodafonemobilec.\n"
-"\n"
-"If you use the mail and browser buttons to access other programs in your "
-"system, you might need to ask your Systems Administrator any doubt that you "
-"might have."
-msgstr ""
-"In den meisten Fällen können Sie die Antwort auf Ihre Fragen über das "
-"Programm im Hilfe-Menue finden.\n"
-"Auf dieses Menue kann zugegriffen werden, wenn Sie auf das \"Hilfe\" Symbol "
-"auf der Menue-Leiste klicken- befindet sich am oberen Rand des Fensters - "
-"und die Option \"Hilfethemen auswählen\".\n"
-"\n"
-"Sie können auch Hilfe, Updates Und Tips finden in Vodafone Mobile Connect's "
-"web:\n"
-"https://forge.betavine.net/projects/vodafonemobilec\n"
-"\n"
-"Wenn Sie die Mail und Browser Buttons benutzen, um auf andere Programme in "
-"Ihrem System zuzugreifen, sollten Sie im Zweifel Ihren System Administrator "
-"fragen. "
-
-#: ../glade/VMC-reduced.glade:2416 ../glade/VMC.glade:1560
-msgid "Help menu"
-msgstr "Hilfe-Menue"
-
-#: ../glade/VMC-reduced.glade:2480 ../glade/VMC.glade:1585
-msgid ""
-"If you are using this program in a corporate environment, your company\n"
-"probably has a support center to solve the questions that you might have\n"
-"about the program.\n"
-"\n"
-"If your company does not have a support center, you will have to contact\n"
-"your company's System Administrator."
-msgstr ""
-"Wenn Sie dieses Programm in einem \"Corporate Environment\" benutzen, wird "
-"Ihre Firma\n"
-"warscheinlich ein Support Center haben um Ihre möglichen Fragen über dieses "
-"Programm\n"
-"zu beantworten\n"
-"\n"
-"Falls Ihre Firma kein Support Center hat, sollten Sie\n"
-"den System Administrator Ihrer Firma ansprechen."
-
-#: ../glade/VMC-reduced.glade:2502 ../glade/VMC.glade:1605
-msgid "Support center"
-msgstr "Support Center"
-
-#: ../glade/VMC-reduced.glade:2547 ../glade/VMC.glade:1622
-msgid ""
-"You can easily find answers to the most common questions in the\n"
-"help menu, in your company's support center and in the support\n"
-"area at https://forge.betavine.net/projects/vodafonemobilec .\n"
-"\n"
-"If you still have difficulties you can call to Vodafone's Customer Support "
-"Center,\n"
-"the numbers are:\n"
-"\n"
-"123, if you are using Vodafone's network, or\n"
-"\n"
-"+34 607 123 00 if you are calling from other network."
-msgstr ""
-"Sie finden Antworten zu den üblichen Fragen im\n"
-"Hilfe-Menue, im Support Center Ihrer Firma sowie im Support\n"
-"Area at https://forge.betavine.net/projects/vodafonemobilec .\n"
-"\n"
-"Falls Sie dennoch Schwierigkeiten haben, können Sie beim Vodafone's Customer "
-"Support Center anrufen.\n"
-"Die Nummer ist:\n"
-"\n"
-"1212, wenn Sie vom Vodafone Netzwerk aus anrufen, oder\n"
-"\n"
-"+49 172 1212 wenn Sie von anderen Netzwerken anrufen."
-
-#: ../glade/VMC-reduced.glade:2569 ../glade/VMC.glade:1642
-msgid "Customer support"
-msgstr "Customer Support"
-
-#: ../glade/VMC.glade:1200 ../glade/VMC.glade:1485
-msgid "Remember that this information is only orientative."
-msgstr "Bedenken Sie, dass diese Information nur zur Orientierung dient"
-
-#: ../glade/VMC.glade:1517
-msgid "<b>Usage</b>"
-msgstr "<b>Nutzung</b>"
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
@@ -399,19 +37,189 @@ msgstr ""
 "Sie können einen vorkonfigurierten APN auswählen oder löschen um die "
 "notwendigen Informationen für einen anwendungsspezifischen APN einzugeben.\n"
 
-#: ../glade/apnsel.glade:193 ../glade/config2.glade:1333
-#: ../glade/pin.glade:223
+#: ../glade/apnsel.glade:193 ../glade/pin.glade:222
+#: ../glade/profiles.glade:1334
 msgid "Cancel"
 msgstr "Abbruch"
 
-#: ../glade/apnsel.glade:208 ../glade/config2.glade:1348
-#: ../glade/pin.glade:240
+#: ../glade/apnsel.glade:208 ../glade/pin.glade:239
+#: ../glade/profiles.glade:1349
 msgid "OK"
 msgstr "ok"
 
 #: ../glade/apnsel.glade:228
 msgid "<b>APN Settings</b>"
 msgstr "<b>APN Einstellungen</b>"
+
+#: ../glade/bcm.glade:21 ../glade/helpbrowser.glade:21
+msgid "_File"
+msgstr "_Datei"
+
+#: ../glade/bcm.glade:28
+msgid "Import contacts..."
+msgstr "Importiere Kontakte..."
+
+#: ../glade/bcm.glade:36
+msgid "Export contacts..."
+msgstr "Exportiere Kontakte..."
+
+#: ../glade/bcm.glade:62
+msgid "_View"
+msgstr "_Ansicht"
+
+#: ../glade/bcm.glade:83 ../glade/bcm.glade:299 ../glade/preferences.glade:781
+msgid "Usage"
+msgstr "Nutzung"
+
+#: ../glade/bcm.glade:121
+msgid "_Tools"
+msgstr "_Werkzeuge"
+
+#: ../glade/bcm.glade:129
+msgid "Change PIN"
+msgstr "Ändere PIN"
+
+#: ../glade/bcm.glade:137
+msgid "Request PIN"
+msgstr "Fordere PIN an"
+
+#: ../glade/bcm.glade:210
+msgid "_Help"
+msgstr "_Hilfe"
+
+#: ../glade/bcm.glade:263
+msgid "Connect Button"
+msgstr "Verbindungs-Button"
+
+#: ../glade/bcm.glade:337
+msgid "Support"
+msgstr "Support"
+
+#: ../glade/bcm.glade:372
+#, fuzzy
+msgid "Create new SMS"
+msgstr "Erzeuge eine neue SMS"
+
+#: ../glade/bcm.glade:389
+msgid "Reply message"
+msgstr "Antwortnachricht"
+
+#: ../glade/bcm.glade:398
+msgid "Reply without quoting original text"
+msgstr "Antworte ohne den Orginaltext zu zitieren"
+
+#: ../glade/bcm.glade:399
+msgid "Send new"
+msgstr "Erneut senden"
+
+#: ../glade/bcm.glade:407
+msgid "Reply quoting original message"
+msgstr "Antworte mit Zitat der Orginalnachricht"
+
+#: ../glade/bcm.glade:408
+msgid "Reply quoting"
+msgstr "Antworte mit Zitat"
+
+#: ../glade/bcm.glade:427
+msgid "Forward sms to another contact"
+msgstr "Leite die SMS an einen anderen Kontakt weiter"
+
+#: ../glade/bcm.glade:469
+msgid "Contacts menu"
+msgstr "Kontakte Menue"
+
+#: ../glade/bcm.glade:487 ../glade/contacts.glade:158
+msgid "Add a contact"
+msgstr "Einen Kontakt hinzufügen"
+
+#: ../glade/bcm.glade:506
+msgid "Search contacts"
+msgstr "Durchsuche Kontakte"
+
+#: ../glade/bcm.glade:585
+msgid "Inbox"
+msgstr "Eingangskorb"
+
+#: ../glade/bcm.glade:615
+msgid "Draft"
+msgstr "Entwurf"
+
+#: ../glade/bcm.glade:645
+msgid "Sent"
+msgstr "Gesendet"
+
+#: ../glade/bcm.glade:674 ../glade/sms.glade:34
+msgid "Contacts"
+msgstr "Kontakte"
+
+#: ../glade/bcm.glade:762 ../glade/bcm.glade:1144
+msgid "<b>Month</b>"
+msgstr "<b>Monat</b>"
+
+#: ../glade/bcm.glade:772 ../glade/bcm.glade:1156
+msgid "month_label"
+msgstr "Monats_Kennzeichnung"
+
+#: ../glade/bcm.glade:811 ../glade/bcm.glade:827 ../glade/bcm.glade:841
+#: ../glade/bcm.glade:982 ../glade/bcm.glade:997 ../glade/bcm.glade:1012
+#: ../glade/bcm.glade:1193 ../glade/bcm.glade:1209 ../glade/bcm.glade:1223
+#: ../glade/pin.glade:591
+msgid "label"
+msgstr "label"
+
+#: ../glade/bcm.glade:858 ../glade/bcm.glade:968 ../glade/bcm.glade:1253
+msgid "3G:"
+msgstr "3G"
+
+#: ../glade/bcm.glade:873 ../glade/bcm.glade:942
+msgid "Total:"
+msgstr "Gesamt:"
+
+#: ../glade/bcm.glade:888 ../glade/bcm.glade:955 ../glade/bcm.glade:1267
+msgid "GPRS:"
+msgstr "GPRS"
+
+#: ../glade/bcm.glade:904 ../glade/bcm.glade:1283
+msgid "<b>Transferred Data</b>"
+msgstr "<b>Übertragene Daten</b>"
+
+#: ../glade/bcm.glade:1031
+msgid "<b>Current session</b>"
+msgstr "<b>Laufende Session</b>"
+
+#: ../glade/bcm.glade:1069 ../glade/bcm.glade:1319
+msgid "Total Traffic"
+msgstr ""
+
+#: ../glade/bcm.glade:1112
+msgid "Current month"
+msgstr "Laufender Monat"
+
+#: ../glade/bcm.glade:1239
+msgid "<b>Total:</b>"
+msgstr "<b>Gesamt:</b>"
+
+#: ../glade/bcm.glade:1365
+msgid "Last month"
+msgstr "Letzter Monat"
+
+#: ../glade/bcm.glade:1379
+msgid "<b>Usage</b> - Remember that this information is only orientative."
+msgstr ""
+"<b>Usage</b> - Bedenken Sie, dass diese Information nur zur Orientierung "
+"dient"
+
+#: ../glade/bcm.glade:1423
+msgid "Help menu"
+msgstr "Hilfe-Menue"
+
+#: ../glade/bcm.glade:1460
+msgid "Support center"
+msgstr "Support Center"
+
+#: ../glade/bcm.glade:1498
+msgid "Customer support"
+msgstr "Customer Support"
 
 #: ../glade/config.glade:8
 msgid "Device setup"
@@ -488,149 +296,6 @@ msgstr "Aktiviere HW-Fluß-Steuerung"
 msgid "Enable software flow control"
 msgstr "Aktiviere SW-Fluß-Steuerung"
 
-#: ../glade/config2.glade:9
-msgid "New Profile"
-msgstr "Neues Profil"
-
-#: ../glade/config2.glade:23
-msgid "New Profile Window"
-msgstr "Fenster für neues Profil"
-
-#: ../glade/config2.glade:64
-msgid ""
-"<b>Create a new profile for your device.</b>\n"
-"\n"
-"If you are not sure about what should you fill in, contact your customer "
-"support center and they should provide\n"
-"you with the relevant information."
-msgstr ""
-"<b>Generiere ein neues Profil für das Gerät.</b>\n"
-"\n"
-"Wenn Sie nicht sicher sind was Sie eingeben müssen, kontaktieren Sie bitte "
-"den Technischen SupportIhres Netzwerkoperators. \n"
-"Dort sollten Sie die entsprechenden Informationen erhalten."
-
-#: ../glade/config2.glade:115
-msgid "<b>Connection preferences</b>"
-msgstr "<b>Verbindungspräferenzen</b>"
-
-#: ../glade/config2.glade:152
-msgid "Username:"
-msgstr "Benutzername"
-
-#: ../glade/config2.glade:177
-msgid "Password:"
-msgstr "Passwort"
-
-#: ../glade/config2.glade:202
-msgid "Preferred connection:"
-msgstr "Bevorzugte Verbindung"
-
-#: ../glade/config2.glade:227
-msgid "Authentication mode:"
-msgstr "Authentifizierungsmodus"
-
-#: ../glade/config2.glade:252
-msgid "APN host:"
-msgstr "APN Host"
-
-#: ../glade/config2.glade:410
-msgid "<b>DNS settings</b>"
-msgstr "<b>DNS Einstellungen</b>"
-
-#: ../glade/config2.glade:448
-msgid "Use static DNS"
-msgstr "Statischen DNS benutzen"
-
-#: ../glade/config2.glade:481
-msgid "Primary DNS:"
-msgstr "Primärer DNS"
-
-#: ../glade/config2.glade:506
-msgid "Secondary DNS:"
-msgstr "Sekundärer DNS"
-
-#: ../glade/config2.glade:645
-msgid "<b>Profile settings</b>"
-msgstr "<b>Profileinstellungen</b>"
-
-#: ../glade/config2.glade:682
-msgid "Profile name:"
-msgstr "Profilname"
-
-#: ../glade/config2.glade:707
-msgid "Device model:"
-msgstr "Gerätemodell"
-
-#: ../glade/config2.glade:782 ../../wader/bcm/controllers/preferences.py:280
-#: ../../wader/bcm/controllers/preferences.py:295
-msgid "Unknown"
-msgstr "unbekannt"
-
-#: ../glade/config2.glade:859
-msgid "Device selection"
-msgstr "Geräteauswahl"
-
-#: ../glade/config2.glade:873
-msgid "Device Selection Window"
-msgstr "Fenster für Geräteauswahl"
-
-#: ../glade/config2.glade:921
-msgid ""
-"<b>Select a device for your connection.</b>\n"
-"\n"
-"You can choose a known device or insert the needed information to set up a "
-"custom one.\n"
-msgstr ""
-"<b>Wählen Sie ein Gerät für Ihre Verbindung.</b>\n"
-"\n"
-"Sie können ein bekanntes Gerät auswählen oder die für ein spezielles Gerät "
-"notwendigen Informationen eingeben.\n"
-
-#: ../glade/config2.glade:1020
-msgid "Known devices"
-msgstr "bekanntes Gerät"
-
-#: ../glade/config2.glade:1028
-msgid "Known Devices Radio"
-msgstr "Funkeinstellungen des bekannten Gerätes"
-
-#: ../glade/config2.glade:1079
-msgid "Device type:"
-msgstr "Gerätetyp"
-
-#: ../glade/config2.glade:1104
-msgid "Serial"
-msgstr "Seriennummer"
-
-#: ../glade/config2.glade:1181
-msgid "115200"
-msgstr "115200"
-
-#: ../glade/config2.glade:1197
-msgid "Data port device:"
-msgstr "Daten Port des Gerätes"
-
-#: ../glade/config2.glade:1225
-msgid "Control port device:"
-msgstr "Control Port des Gerätes"
-
-#: ../glade/config2.glade:1253
-msgid "Speed connection:"
-msgstr "Geschwindigkeit der Verbindung"
-
-#: ../glade/config2.glade:1293
-msgid "Custom device settings"
-msgstr "Einstellungen für das spezielle Gerät"
-
-#: ../glade/config2.glade:1302
-msgid "Custom Device Settings Radio"
-msgstr "Funkeinstellungen des spezifischen Gerätes"
-
-#: ../glade/config2.glade:1368
-msgid "<b>Device Settings</b>"
-msgstr "<b>Einstellungen des Gerätes</b>"
-
 #: ../glade/contacts.glade:7
 msgid "Contact search"
 msgstr "Kontakt Suche"
@@ -639,105 +304,221 @@ msgstr "Kontakt Suche"
 msgid " Name:"
 msgstr "Name"
 
-#: ../glade/contacts.glade:94
+#: ../glade/contacts.glade:93
 msgid "Contacts List"
 msgstr "Kontakt Liste"
 
-#: ../glade/contacts.glade:179
+#: ../glade/contacts.glade:178
 msgid "Name:"
 msgstr "Name:"
 
-#: ../glade/contacts.glade:222
+#: ../glade/contacts.glade:221
 msgid "Number:"
 msgstr "Nummer:"
 
-#: ../glade/contacts.glade:258
+#: ../glade/contacts.glade:257
 msgid "<b>Save in:</b>"
 msgstr "<b>Abspeichern in:</b>"
 
-#: ../glade/contacts.glade:341
+#: ../glade/contacts.glade:300 ../../wader/bcm/contacts/contact_sim.py:152
+msgid "Mobile"
+msgstr "Mobile"
+
+#: ../glade/contacts.glade:340
 msgid "Computer"
 msgstr "Computer"
 
-#: ../glade/diagnostics.glade:33
-msgid "<b>GSM device</b>"
-msgstr "<b>GSM Gerät</b>"
+#: ../glade/diagnostics.glade:7 ../glade/diagnostics2.glade:7
+msgid "Diagnostics"
+msgstr "Diagnose"
 
-#: ../glade/diagnostics.glade:51
+#: ../glade/diagnostics.glade:43
+#, fuzzy
+msgid "<b>Datacard details</b>"
+msgstr "<b>Einstellungen des Gerätes</b>"
+
+#: ../glade/diagnostics.glade:81 ../glade/diagnostics2.glade:85
+msgid "Manufacturer:"
+msgstr ""
+
+#: ../glade/diagnostics.glade:92 ../glade/diagnostics2.glade:96
 msgid "Model:"
 msgstr "Modell:"
 
-#: ../glade/diagnostics.glade:59
+#: ../glade/diagnostics.glade:103 ../glade/diagnostics2.glade:107
 msgid "Firmware: "
 msgstr "Firmware:"
 
-#: ../glade/diagnostics.glade:70
+#: ../glade/diagnostics.glade:114 ../glade/diagnostics2.glade:118
 msgid "IMEI: "
 msgstr "IMEI:"
 
-#: ../glade/diagnostics.glade:81
-msgid "IMSI: "
-msgstr "IMSI:"
+#: ../glade/diagnostics.glade:138 ../glade/diagnostics2.glade:141
+msgid "Card manufacturer"
+msgstr ""
 
-#: ../glade/diagnostics.glade:92
-msgid "BCM number:"
-msgstr "BCM nummer:"
-
-#: ../glade/diagnostics.glade:115
+#: ../glade/diagnostics.glade:149 ../glade/diagnostics2.glade:152
 msgid "Card model"
 msgstr "Kartenmodell"
 
-#: ../glade/diagnostics.glade:123
+#: ../glade/diagnostics.glade:160 ../glade/diagnostics2.glade:163
 msgid "Firmware"
 msgstr "Firmware"
 
-#: ../glade/diagnostics.glade:135
+#: ../glade/diagnostics.glade:172 ../glade/diagnostics2.glade:175
 msgid "IMEI"
 msgstr "IMEI"
 
-#: ../glade/diagnostics.glade:146
+#: ../glade/diagnostics.glade:196
+#, fuzzy
+msgid "Modem"
+msgstr "Modell:"
+
+#: ../glade/diagnostics.glade:227
+msgid "<b>Network details from SIM</b>"
+msgstr ""
+
+#: ../glade/diagnostics.glade:265 ../glade/diagnostics2.glade:257
+#, fuzzy
+msgid "IMSI:"
+msgstr "IMSI:"
+
+#: ../glade/diagnostics.glade:276
+#, fuzzy
+msgid "Network:"
+msgstr "Unbekanntes Netzwerk"
+
+#: ../glade/diagnostics.glade:287
+#, fuzzy
+msgid "Country:"
+msgstr "Land"
+
+#: ../glade/diagnostics.glade:298
+#, fuzzy
+msgid "Mobile Number:"
+msgstr "Nummer:"
+
+#: ../glade/diagnostics.glade:321 ../glade/diagnostics2.glade:279
 msgid "IMSI"
 msgstr "IMSI"
 
-#: ../glade/diagnostics.glade:157
-msgid "Not supported"
-msgstr "Nicht unterstützt"
+#: ../glade/diagnostics.glade:331 ../glade/diagnostics.glade:342
+#: ../glade/diagnostics.glade:352 ../glade/payt.glade:125
+#: ../glade/payt.glade:135 ../glade/payt.glade:145
+#: ../../wader/bcm/models/main.py:78 ../../wader/bcm/models/main.py:293
+#: ../../wader/bcm/views/payt_view.py:58 ../../wader/bcm/views/payt_view.py:70
+#: ../../wader/bcm/controllers/preferences.py:78
+#: ../../wader/bcm/controllers/preferences.py:433
+#: ../../wader/bcm/controllers/preferences.py:448
+msgid "Unknown"
+msgstr "unbekannt"
 
-#: ../glade/diagnostics.glade:188
-msgid "<b>Computer</b>"
-msgstr "<b>Computer</b>"
+#: ../glade/diagnostics.glade:377
+#, fuzzy
+msgid "SIM"
+msgstr "SMS"
 
-#: ../glade/diagnostics.glade:208
+#: ../glade/diagnostics.glade:409
+#, fuzzy
+msgid "<b>Device information</b>"
+msgstr "<b>Einstellungen des Gerätes</b>"
+
+#: ../glade/diagnostics.glade:446 ../glade/diagnostics2.glade:442
 msgid "Operating System:"
 msgstr "Betriebssystem"
 
-#: ../glade/diagnostics.glade:216
+#: ../glade/diagnostics.glade:457 ../glade/diagnostics2.glade:453
 msgid "Version:"
 msgstr "Version"
 
-#: ../glade/diagnostics.glade:227
+#: ../glade/diagnostics.glade:468 ../glade/diagnostics2.glade:464
 msgid "Uptime:"
 msgstr "Einschaltdauer"
 
-#: ../glade/diagnostics.glade:248
+#: ../glade/diagnostics.glade:491 ../glade/diagnostics2.glade:487
 msgid "label26"
 msgstr "label26"
 
-#: ../glade/diagnostics.glade:256
+#: ../glade/diagnostics.glade:501 ../glade/diagnostics2.glade:498
 msgid "label27"
 msgstr "label27"
 
-#: ../glade/diagnostics.glade:267
+#: ../glade/diagnostics.glade:511 ../glade/diagnostics2.glade:509
 msgid "label28"
 msgstr "label28"
 
+#: ../glade/diagnostics.glade:537
+#, fuzzy
+msgid "Device"
+msgstr "Geräteliste"
+
+#: ../glade/diagnostics.glade:565
+#, fuzzy
+msgid "<b>Betavine Connection Manager</b>"
+msgstr "<b>Verbindungseinstellungen</b>"
+
+#: ../glade/diagnostics.glade:602 ../glade/diagnostics2.glade:339
+#, fuzzy
+msgid "Software Version:"
+msgstr "Version"
+
+#: ../glade/diagnostics.glade:624 ../glade/diagnostics2.glade:360
+msgid "Not supported"
+msgstr "Nicht unterstützt"
+
+#: ../glade/diagnostics.glade:652
+msgid "Modem Manager"
+msgstr ""
+
+#: ../glade/diagnostics.glade:668
+#, fuzzy
+msgid "<b>USSD Test Message Diagnostics</b>"
+msgstr "<b>Nachrichten Optionen</b>"
+
+#: ../glade/diagnostics.glade:697
+msgid "Add your USSD string:"
+msgstr ""
+
+#: ../glade/diagnostics.glade:745
+#, fuzzy
+msgid "USSD reply message:"
+msgstr "Antwortnachricht"
+
+#: ../glade/diagnostics.glade:789
+#, fuzzy
+msgid "Send"
+msgstr "Sender"
+
+#: ../glade/diagnostics.glade:822
+msgid "USSD"
+msgstr ""
+
+#: ../glade/diagnostics2.glade:37
+#, fuzzy
+msgid "<b>Modem</b>"
+msgstr "<b>Monat</b>"
+
+#: ../glade/diagnostics2.glade:209
+#, fuzzy
+msgid "<b>SIM</b>"
+msgstr "<b>Monat</b>"
+
+#: ../glade/diagnostics2.glade:310
+#, fuzzy
+msgid "<b>Mobile Connect</b>"
+msgstr "<b>Monat</b>"
+
+#: ../glade/diagnostics2.glade:394
+msgid "<b>Computer</b>"
+msgstr "<b>Computer</b>"
+
 #: ../glade/dialogs.glade:38 ../glade/dialogs.glade:239
-#: ../glade/dialogs.glade:450
+#: ../glade/dialogs.glade:451
 msgid "<big><b>Big title!</b></big>"
 msgstr "<big><b>Haupttitel!</b></big>"
 
 #: ../glade/dialogs.glade:51 ../glade/dialogs.glade:252
-#: ../glade/dialogs.glade:347 ../glade/dialogs.glade:463
+#: ../glade/dialogs.glade:348 ../glade/dialogs.glade:464
 msgid "A detailed message"
 msgstr "Eine detailierte Nachricht"
 
@@ -753,13 +534,105 @@ msgstr "Detailierte Nachricht"
 msgid "Action"
 msgstr "Aktion"
 
-#: ../glade/dialogs.glade:325
+#: ../glade/dialogs.glade:326
 msgid "<b>title</b>"
 msgstr "<b>Titel</b>"
 
-#: ../glade/dialogs.glade:362
+#: ../glade/dialogs.glade:363
 msgid "Remember my choice"
 msgstr "Merke meine Auswahl"
+
+#: ../glade/keyring.glade:35
+msgid "<span size='large' weight='bold'>Creating a new keyring</span>"
+msgstr ""
+
+#: ../glade/keyring.glade:48
+msgid ""
+"Please, insert a code to encrypt your sensible\n"
+"information."
+msgstr ""
+
+#: ../glade/keyring.glade:81 ../glade/keyring.glade:191
+#: ../glade/profiles.glade:177
+msgid "Password:"
+msgstr "Passwort"
+
+#: ../glade/keyring.glade:100
+#, fuzzy
+msgid "Confirm password:"
+msgstr "Bestätigen Sie den PIN-Code"
+
+#: ../glade/keyring.glade:131
+msgid "Unlock Keyring"
+msgstr ""
+
+#: ../glade/keyring.glade:157
+#, fuzzy
+msgid "Please, enter your keyring password"
+msgstr "Bitte geben Sie Ihren PIN-Code ein"
+
+#: ../glade/misc.glade:54
+msgid "Wader log"
+msgstr ""
+
+#: ../glade/misc.glade:67 ../glade/preferences.glade:473
+msgid "\n"
+msgstr "\n"
+
+#: ../glade/payt.glade:6
+msgid "Topup Credit"
+msgstr ""
+
+#: ../glade/payt.glade:44
+#, fuzzy
+msgid "<b>SIM Details</b>"
+msgstr "<b>DNS Einstellungen</b>"
+
+#: ../glade/payt.glade:83
+#, fuzzy
+msgid "<b>Number</b>"
+msgstr "<b>Computer</b>"
+
+#: ../glade/payt.glade:94
+#, fuzzy
+msgid "<b>Date</b>"
+msgstr "<b>Nutzung</b>"
+
+#: ../glade/payt.glade:105
+#, fuzzy
+msgid "<b>Credit</b>"
+msgstr "<b>Titel</b>"
+
+#: ../glade/payt.glade:167
+msgid "Recheck my credit:"
+msgstr ""
+
+#: ../glade/payt.glade:182
+msgid "Check Credit"
+msgstr ""
+
+#: ../glade/payt.glade:237
+#, fuzzy
+msgid "<b>Voucher Code</b>"
+msgstr "<b>Computer</b>"
+
+#: ../glade/payt.glade:267
+msgid "Enter Code:"
+msgstr ""
+
+#: ../glade/payt.glade:289
+#, fuzzy
+msgid "send"
+msgstr "Sender"
+
+#: ../glade/payt.glade:341
+#, fuzzy
+msgid "<b>Credit Card</b>"
+msgstr "<b>Serieller Port</b>"
+
+#: ../glade/payt.glade:371
+msgid "Pay by credit card"
+msgstr ""
 
 #: ../glade/pin.glade:8
 msgid "Insert your PIN code"
@@ -773,39 +646,39 @@ msgstr "Fenster für PIN-Eingabe"
 msgid "Please insert your PIN code"
 msgstr "Bitte geben Sie Ihren PIN-Code ein"
 
-#: ../glade/pin.glade:105
+#: ../glade/pin.glade:104
 msgid "Insert PIN Entry"
 msgstr "Eintrag für PIN-Eingabe"
 
-#: ../glade/pin.glade:150
+#: ../glade/pin.glade:149
 msgid "Manage my PIN through gnome-keyring"
 msgstr "Verwalte meine PIN mit gnome-keyring"
 
-#: ../glade/pin.glade:179
+#: ../glade/pin.glade:178
 msgid "<b>Advanced Options</b>"
 msgstr "<b>Erweiterte Optionen</b>"
 
-#: ../glade/pin.glade:258
+#: ../glade/pin.glade:257
 msgid "Modify PIN code"
 msgstr "Pin-Code verändern"
 
-#: ../glade/pin.glade:373 ../glade/pin.glade:763
+#: ../glade/pin.glade:369 ../glade/pin.glade:758
 msgid "Confirm PIN code: "
 msgstr "Bestätigen Sie den PIN-Code"
 
-#: ../glade/pin.glade:401 ../glade/pin.glade:738
+#: ../glade/pin.glade:397 ../glade/pin.glade:733
 msgid "New PIN code: "
 msgstr "Neuer PIN-Code"
 
-#: ../glade/pin.glade:429
+#: ../glade/pin.glade:425
 msgid "Current PIN code: "
 msgstr "Derzeitiger PIN-Code"
 
-#: ../glade/pin.glade:517
+#: ../glade/pin.glade:513
 msgid "Please enter PUK"
 msgstr "PUK-Code eingeben"
 
-#: ../glade/pin.glade:654
+#: ../glade/pin.glade:650
 msgid "PUK:"
 msgstr "PUK:"
 
@@ -813,101 +686,253 @@ msgstr "PUK:"
 msgid "Preferences"
 msgstr "Präferenzen"
 
-#: ../glade/preferences.glade:50
-msgid ""
-"<b>Change the dialer profile if your provider requires you to authenticate "
-"with PAP/CHAP</b>"
-msgstr ""
-"<b>Ändern Sie Ihr Dialer-Profil falls Ihr Provider verlangt dass Sie sich "
-"mit PAP/CHAP authentifizieren</b>"
+#: ../glade/preferences.glade:55
+#, fuzzy
+msgid "<b>Change to global SMS settings </b>"
+msgstr "<b>Verbindungseinstellungen</b>"
 
-#: ../glade/preferences.glade:67
-msgid "Use an alternative dialer profile"
+#: ../glade/preferences.glade:71
+#, fuzzy
+msgid "Allow SMS confirmation"
+msgstr "Bluetooth Konfiguration"
+
+#: ../glade/preferences.glade:75
+msgid ""
+"Allows SMS confirmation reports. This lets you see when someone has received "
+"your text message."
+msgstr ""
+
+#: ../glade/preferences.glade:86
+#, fuzzy
+msgid "Use an alternative SMS Service centre address"
 msgstr "Benützen Sie ein alternatives Dialer-Profil"
 
-#: ../glade/preferences.glade:94 ../glade/sms-preferences.glade:46
-msgid "Profile:"
-msgstr "Profil:"
+#: ../glade/preferences.glade:90
+msgid ""
+"Lets you configure a different service centre address if you are not a "
+"Vodafone customer or the default one is incorrect."
+msgstr ""
 
-#: ../glade/preferences.glade:127
-msgid "Dialer profile"
-msgstr "Dialer-Profil"
-
-#: ../glade/preferences.glade:145
-msgid "<b>User options</b>"
-msgstr "<b>Nutzer Optionen</b>"
-
-#: ../glade/preferences.glade:167
-msgid "Exit without confirmation"
-msgstr "Beenden Sie ohne Bestätigung"
-
-#: ../glade/preferences.glade:181
-msgid "Show icon on tray"
-msgstr "Zeige als Icon auf der Leiste"
-
-#: ../glade/preferences.glade:196
-msgid "Close window minimizes app to tray"
-msgstr "Schließen des Fensters verkleinert die Applikation auf die Leiste"
-
-#: ../glade/preferences.glade:211
-msgid "Manage my PIN through gnomekeyring"
-msgstr "Verwalte meine PIN mit gnome-keyring"
-
-#: ../glade/preferences.glade:242
-msgid "User Preferences"
-msgstr "Nutzer Präferenzen"
-
-#: ../glade/preferences.glade:261
-msgid "<b>Web Browser</b>"
-msgstr "<b>Web Browser</b>"
-
-#: ../glade/preferences.glade:300
-msgid "\n"
-msgstr "\n"
-
-#: ../glade/preferences.glade:317 ../glade/preferences.glade:400
-msgid "Command:"
-msgstr "Befehl:"
-
-#: ../glade/preferences.glade:350
-msgid "<b>Email client</b>"
-msgstr "<b>Email-Client</b>"
-
-#: ../glade/preferences.glade:446
-msgid "Applications"
-msgstr "Applikationen"
-
-#: ../glade/preferences.glade:465
-msgid "<b>Usage Options</b>"
-msgstr "<b>Nutzungsoptionen</b>"
-
-#: ../glade/preferences.glade:491
-msgid "Maximum traffic (MB):"
-msgstr "Maximaler Verkehr (MB)"
-
-#: ../glade/preferences.glade:521
-msgid "Notify when a given threshold is exceeded."
-msgstr "Melde, sobald eine vorgegebene Schwelle überschritten ist."
-
-#: ../glade/preferences.glade:545
-msgid "Notification threshold (MB):"
-msgstr "Meldeschwelle (MB)"
-
-#: ../glade/sms-preferences.glade:28
+#: ../glade/preferences.glade:118 ../glade/sms-preferences.glade:28
 msgid "<b>SMSC preferences</b>"
 msgstr "<b>SMSC Präferenzen</b>"
 
-#: ../glade/sms-preferences.glade:54
+#: ../glade/preferences.glade:140 ../glade/sms-preferences.glade:46
+msgid "Profile:"
+msgstr "Profil:"
+
+#: ../glade/preferences.glade:151 ../glade/sms-preferences.glade:54
 msgid "SMSC number:"
 msgstr "SMSC Nummer"
 
-#: ../glade/sms-preferences.glade:115
+#: ../glade/preferences.glade:219 ../glade/sms-preferences.glade:115
 msgid "<b>Message options</b>"
 msgstr "<b>Nachrichten Optionen</b>"
 
-#: ../glade/sms-preferences.glade:132
+#: ../glade/preferences.glade:240 ../glade/sms-preferences.glade:132
 msgid "Validity:"
 msgstr "Gültigkeit"
+
+#: ../glade/preferences.glade:289
+#, fuzzy
+msgid "SMS Profile"
+msgstr "Profile"
+
+#: ../glade/preferences.glade:308
+msgid "<b>User options</b>"
+msgstr "<b>Nutzer Optionen</b>"
+
+#: ../glade/preferences.glade:329
+msgid "Exit without confirmation"
+msgstr "Beenden Sie ohne Bestätigung"
+
+#: ../glade/preferences.glade:344
+msgid "Show icon on tray"
+msgstr "Zeige als Icon auf der Leiste"
+
+#: ../glade/preferences.glade:359
+msgid "Close window minimizes app to tray"
+msgstr "Schließen des Fensters verkleinert die Applikation auf die Leiste"
+
+#: ../glade/preferences.glade:374
+msgid "Manage my PIN through gnomekeyring"
+msgstr "Verwalte meine PIN mit gnome-keyring"
+
+#: ../glade/preferences.glade:409
+msgid "User Preferences"
+msgstr "Nutzer Präferenzen"
+
+#: ../glade/preferences.glade:429
+msgid "<b>Web Browser</b>"
+msgstr "<b>Web Browser</b>"
+
+#: ../glade/preferences.glade:491 ../glade/preferences.glade:584
+msgid "Command:"
+msgstr "Befehl:"
+
+#: ../glade/preferences.glade:528
+msgid "<b>Email client</b>"
+msgstr "<b>Email-Client</b>"
+
+#: ../glade/preferences.glade:631
+msgid "Applications"
+msgstr "Applikationen"
+
+#: ../glade/preferences.glade:651
+msgid "<b>Usage Options</b>"
+msgstr "<b>Nutzungsoptionen</b>"
+
+#: ../glade/preferences.glade:679
+msgid "Maximum traffic (MB):"
+msgstr "Maximaler Verkehr (MB)"
+
+#: ../glade/preferences.glade:708
+msgid "Notify when a given threshold is exceeded."
+msgstr "Melde, sobald eine vorgegebene Schwelle überschritten ist."
+
+#: ../glade/preferences.glade:735
+msgid "Notification threshold (MB):"
+msgstr "Meldeschwelle (MB)"
+
+#: ../glade/profiles.glade:9
+msgid "New Profile"
+msgstr "Neues Profil"
+
+#: ../glade/profiles.glade:23
+msgid "New Profile Window"
+msgstr "Fenster für neues Profil"
+
+#: ../glade/profiles.glade:64
+msgid ""
+"<b>Create a new profile for your device.</b>\n"
+"\n"
+"If you are not sure about what should you fill in, contact your customer "
+"support center and they should provide\n"
+"you with the relevant information."
+msgstr ""
+"<b>Generiere ein neues Profil für das Gerät.</b>\n"
+"\n"
+"Wenn Sie nicht sicher sind was Sie eingeben müssen, kontaktieren Sie bitte "
+"den Technischen SupportIhres Netzwerkoperators. \n"
+"Dort sollten Sie die entsprechenden Informationen erhalten."
+
+#: ../glade/profiles.glade:115
+msgid "<b>Connection preferences</b>"
+msgstr "<b>Verbindungspräferenzen</b>"
+
+#: ../glade/profiles.glade:152
+msgid "Username:"
+msgstr "Benutzername"
+
+#: ../glade/profiles.glade:202
+#, fuzzy
+msgid "Authentication method:"
+msgstr "Authentifizierungsmodus"
+
+#: ../glade/profiles.glade:227
+msgid "Preferred connection:"
+msgstr "Bevorzugte Verbindung"
+
+#: ../glade/profiles.glade:252
+#, fuzzy
+msgid "Preferred band:"
+msgstr "Bevorzugte Verbindung"
+
+#: ../glade/profiles.glade:277
+msgid "APN host:"
+msgstr "APN Host"
+
+#: ../glade/profiles.glade:447
+msgid "<b>DNS settings</b>"
+msgstr "<b>DNS Einstellungen</b>"
+
+#: ../glade/profiles.glade:485
+msgid "Use static DNS"
+msgstr "Statischen DNS benutzen"
+
+#: ../glade/profiles.glade:518
+msgid "Primary DNS:"
+msgstr "Primärer DNS"
+
+#: ../glade/profiles.glade:543
+msgid "Secondary DNS:"
+msgstr "Sekundärer DNS"
+
+#: ../glade/profiles.glade:715
+msgid "<b>Profile settings</b>"
+msgstr "<b>Profileinstellungen</b>"
+
+#: ../glade/profiles.glade:752
+msgid "Profile name:"
+msgstr "Profilname"
+
+#: ../glade/profiles.glade:863
+msgid "Device selection"
+msgstr "Geräteauswahl"
+
+#: ../glade/profiles.glade:877
+msgid "Device Selection Window"
+msgstr "Fenster für Geräteauswahl"
+
+#: ../glade/profiles.glade:925
+msgid ""
+"<b>Select a device for your connection.</b>\n"
+"\n"
+"You can choose a known device or insert the needed information to set up a "
+"custom one.\n"
+msgstr ""
+"<b>Wählen Sie ein Gerät für Ihre Verbindung.</b>\n"
+"\n"
+"Sie können ein bekanntes Gerät auswählen oder die für ein spezielles Gerät "
+"notwendigen Informationen eingeben.\n"
+
+#: ../glade/profiles.glade:1024
+msgid "Known devices"
+msgstr "bekanntes Gerät"
+
+#: ../glade/profiles.glade:1032
+msgid "Known Devices Radio"
+msgstr "Funkeinstellungen des bekannten Gerätes"
+
+#: ../glade/profiles.glade:1083
+msgid "Device type:"
+msgstr "Gerätetyp"
+
+#: ../glade/profiles.glade:1108
+msgid "Serial"
+msgstr "Seriennummer"
+
+#: ../glade/profiles.glade:1183
+msgid "115200"
+msgstr "115200"
+
+#: ../glade/profiles.glade:1198
+msgid "Data port device:"
+msgstr "Daten Port des Gerätes"
+
+#: ../glade/profiles.glade:1226
+msgid "Control port device:"
+msgstr "Control Port des Gerätes"
+
+#: ../glade/profiles.glade:1254
+msgid "Speed connection:"
+msgstr "Geschwindigkeit der Verbindung"
+
+#: ../glade/profiles.glade:1294
+msgid "Custom device settings"
+msgstr "Einstellungen für das spezielle Gerät"
+
+#: ../glade/profiles.glade:1303
+msgid "Custom Device Settings Radio"
+msgstr "Funkeinstellungen des spezifischen Gerätes"
+
+#: ../glade/profiles.glade:1369
+msgid "<b>Device Settings</b>"
+msgstr "<b>Einstellungen des Gerätes</b>"
+
+#: ../glade/sms-preferences.glade:7
+msgid "SMS preferences"
+msgstr "SMS Präferenzen"
 
 #: ../glade/sms-preferences.glade:139
 msgid "Class:"
@@ -933,367 +958,349 @@ msgstr "An:"
 msgid "3G Devices Manager"
 msgstr "3G Geräte Manager"
 
-#: ../../wader/bcm/startup.py:151
-msgid "Initial setup..."
-msgstr "Erstinstallation..."
+#: ../../wader/bcm/keyring_dialogs.py:103
+msgid "Create default keyring"
+msgstr ""
 
-#: ../../wader/bcm/startup.py:191 ../../wader/bcm/startup.py:210
-#: ../../wader/bcm/controllers/initialconf.py:402
-msgid "Device setup not completed"
-msgstr "Geräteeinrichtung nicht abgeschlossen"
-
-#: ../../wader/bcm/startup.py:192
+#: ../../wader/bcm/keyring_dialogs.py:104
 #, python-format
 msgid ""
-"\n"
-"Your device has been detected but it has been impossible to connect to it.\n"
-"\n"
-"%s"
+"The application '%s' wants to store a password, but there is no default "
+"keyring. To create one, you need to choose a password you wish to use for it."
 msgstr ""
-"\n"
-"Ihr Gerät wurde erkannt aber es ist nicht möglich, sich mit ihm zu "
-"verbinden.\n"
-"\n"
-"%s"
 
-#: ../../wader/bcm/startup.py:211
+#: ../../wader/bcm/keyring_dialogs.py:138
+msgid "Unlock keyring"
+msgstr ""
+
+#: ../../wader/bcm/keyring_dialogs.py:139
 #, python-format
 msgid ""
-"\n"
-"Your device \"%(name)s\" is not properly registered with the kernel. %(bcm)"
-"s\n"
-"needs at least two serial ports to communicate with your %(name)s.\n"
-"The program includes a set of udev rules plus some binaries that make sure\n"
-"that your device is always recognised properly. If you've installed from\n"
-"source, then make sure to copy the relevant files in the contrib dir\n"
-msgstr ""
-"\n"
-"Ihr Gerät \"%(name)s\" ist nicht richtig mit dem Kern registriert. %(bcm)s\n"
-"Man benötigt mindestens zwei serielle Schnittstellen um mit Ihrem %(name)s "
-"zu kommunizieren.\n"
-"Das Programm enthält einen Satz von udev Regeln sowie einige Binaries die "
-"sicherstellen\n"
-"dass Ihr Gerät immer richtig erkannt wird. Falls Sie von der Source "
-"installiert haben\n"
-"stellen Sie bitte sicher, dass Sie die relevanten Dateien in das contrib dir "
-"kopiert haben.\n"
-
-#: ../../wader/bcm/startup.py:227
-msgid "Device not responding"
-msgstr "Gerät antwortet nicht"
-
-#: ../../wader/bcm/startup.py:228
-msgid ""
-"\n"
-"Your device took more than 15 seconds to reply to my last command. Unplug "
-"it,\n"
-"plug it again, and try in a moment."
-msgstr ""
-"\n"
-"Ihr Gerät brauchte mehr als 15 Sekunden um auf meinen letzten Befehl zu "
-"antworten. Bitte abstecken,\n"
-"dann wieder einstecken, und versuchen Sie es in Kürze wieder."
-
-#: ../../wader/bcm/startup.py:303
-msgid "Authenticated!"
-msgstr "Authentifiziert!"
-
-#: ../../wader/bcm/startup.py:306
-msgid "Authenticating..."
-msgstr "Authentifizierung läuft..."
-
-#: ../../wader/bcm/consts.py:82
-msgid "Any band"
+"The application '%s' wants access to the default keyring, but is locked."
 msgstr ""
 
-#: ../../wader/bcm/consts.py:83
-msgid "EGSM 900"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:84
-#, fuzzy
-msgid "GSM DCS"
-msgstr "SMS"
-
-#: ../../wader/bcm/consts.py:85
-#, fuzzy
-msgid "GSM PCS"
-msgstr "SMS"
-
-#: ../../wader/bcm/consts.py:86
-msgid "GSM 850"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:87
-msgid "WCDMA 2100"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:88
-msgid "WCDMA 1700"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:89
-msgid "WCDMA 17IV"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:90
-msgid "WCDMA 800"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:91
-msgid "WCDMA 850"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:92
-msgid "WCDMA 900"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:93
-msgid "WCDMA 17IX"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:94
-msgid "WCDMA 1900"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:100
-msgid "Any"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:102
-#: ../../wader/bcm/controllers/application.py:1295
-msgid "EDGE"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:103
-msgid "UMTS"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:104
-msgid "HSDPA"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:105
-msgid "HSUPA"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:106
-msgid "HSPA"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:107
-#, fuzzy
-msgid "2G preferred"
-msgstr "3G bevorzugt"
-
-#: ../../wader/bcm/consts.py:108
-#: ../../wader/common.orig/hardware/__init__.py:32
-#: ../../wader/common.orig/hardware/__init__.py:39
-msgid "3G preferred"
-msgstr "3G bevorzugt"
-
-#: ../../wader/bcm/consts.py:109
-#, fuzzy
-msgid "2G only"
-msgstr "ausschließlich 3G"
-
-#: ../../wader/bcm/consts.py:110
-#: ../../wader/common.orig/hardware/__init__.py:30
-#: ../../wader/common.orig/hardware/__init__.py:37
-msgid "3G only"
-msgstr "ausschließlich 3G"
-
-#: ../../wader/bcm/views/pin.py:65
-msgid ""
-"\n"
-"In order to unlock your SIM, we need your\n"
-"PIN and PUK codes"
-msgstr ""
-"\n"
-"Um Ihre SIM zu entsperren benötigen wir Ihre\n"
-"PIN and PUK codes"
-
-#: ../../wader/bcm/views/pin.py:73
-msgid ""
-"\n"
-"In order to unlock your SIM, we need your\n"
-"PIN and PUK2 codes"
-msgstr ""
-"\n"
-"Um Ihre SIM zu entsperren benötigen wir Ihre\n"
-"PIN and PUK2 codes"
-
-#: ../../wader/bcm/views/preferences.py:107
-#: ../../wader/bcm/views/preferences.py:120
-#: ../../wader/bcm/controllers/preferences.py:287
-msgid "Custom"
-msgstr "Kundenspezifisch"
-
-#: ../../wader/bcm/views/application.py:55
-msgid "B"
-msgstr "B"
-
-#: ../../wader/bcm/views/application.py:56
-msgid "KB"
-msgstr "KB"
-
-#: ../../wader/bcm/views/application.py:57
-msgid "MB"
-msgstr "MB"
-
-#: ../../wader/bcm/views/application.py:58
-msgid "GB"
-msgstr "GB"
-
-#: ../../wader/bcm/views/application.py:334
-#: ../../wader/bcm/controllers/application.py:951
-msgid "Not connected"
-msgstr "Nicht verbunden"
-
-#: ../../wader/bcm/views/application.py:342
-#: ../../wader/bcm/controllers/application.py:1068
-msgid "Disconnect"
-msgstr "Abtrennen"
-
-#: ../../wader/bcm/views/application.py:354
-msgid "No device present"
-msgstr "Kein Gerät vorhanden"
-
-#: ../../wader/bcm/views/application.py:356
-#: ../../wader/bcm/views/application.py:357
-#: ../../wader/bcm/controllers/application.py:1293
-#: ../../wader/bcm/controllers/application.py:1327
-msgid "N/A"
-msgstr "N/A - nicht zutreffend"
-
-#: ../../wader/bcm/views/application.py:384
-#: ../../wader/bcm/views/application.py:421
-#: ../../wader/bcm/views/initialconf.py:104
-#: ../../wader/bcm/controllers/contacts.py:143
-msgid "Type"
-msgstr "Typ"
-
-#: ../../wader/bcm/views/application.py:390
-#: ../../wader/bcm/views/initialconf.py:98
-#: ../../wader/bcm/views/initialconf.py:312
-#: ../../wader/bcm/controllers/contacts.py:149
-msgid "Name"
-msgstr "Name"
-
-#: ../../wader/bcm/views/application.py:399
-#: ../../wader/bcm/controllers/contacts.py:156
-msgid "Number"
-msgstr "Nummer"
-
-#: ../../wader/bcm/views/application.py:428
-msgid "Text"
-msgstr "Text"
-
-#: ../../wader/bcm/views/application.py:439
-msgid "Recipient"
-msgstr "Empfänger"
-
-#: ../../wader/bcm/views/application.py:439
-msgid "Sender"
-msgstr "Sender"
-
-#: ../../wader/bcm/views/application.py:447
-msgid "Date"
-msgstr "Datum"
-
-#: ../../wader/bcm/views/initialconf.py:101
-msgid "Country"
-msgstr "Land"
-
-#: ../../wader/bcm/views/initialconf.py:226
-msgid "No known devices found"
-msgstr "Keine bekannten Geräte gefunden"
-
-#: ../../wader/bcm/views/initialconf.py:319
-msgid "Address"
-msgstr "Adresse"
-
-#: ../../wader/bcm/models/preferences.py:34
+#: ../../wader/bcm/models/preferences.py:38
 msgid "Maximum time"
 msgstr "Maximaldauer"
 
-#: ../../wader/bcm/models/preferences.py:35
+#: ../../wader/bcm/models/preferences.py:39
 msgid "1 week"
 msgstr "1 Woche"
 
-#: ../../wader/bcm/models/preferences.py:36
+#: ../../wader/bcm/models/preferences.py:40
 msgid "3 days"
 msgstr "3 Tage"
 
-#: ../../wader/bcm/models/preferences.py:37
+#: ../../wader/bcm/models/preferences.py:41
 msgid "1 day"
 msgstr "1 Tag"
 
-#: ../../wader/bcm/models/application.py:232
-msgid "%B, %Y"
-msgstr "%B, %Y"
+#: ../../wader/bcm/models/profile.py:151
+#: ../../wader/bcm/controllers/preferences.py:148
+#: ../../wader/bcm/controllers/preferences.py:164
+#: ../../wader/bcm/controllers/preferences.py:440
+msgid "Custom"
+msgstr "Kundenspezifisch"
 
-#: ../../wader/bcm/controllers/sms.py:45
-msgid "You can send the SMS to several recipients separating them by commas"
+#: ../../wader/bcm/models/profile.py:350
+msgid "Trying to remove an unsaved profile"
 msgstr ""
-"Sie können die SMS zu mehreren Empfängern schicken, Empfänger getrennt durch "
-"Komma."
 
-#: ../../wader/bcm/controllers/sms.py:65
+#: ../../wader/bcm/models/main.py:76 ../../wader/bcm/models/main.py:172
+#: ../../wader/bcm/views/main.py:218 ../../wader/bcm/controllers/main.py:322
+#: ../../wader/bcm/controllers/main.py:337
+#, fuzzy
+msgid "No device"
+msgstr "bekanntes Gerät"
+
+#: ../../wader/bcm/models/main.py:99
+#: ../../wader/bcm/controllers/payt_controller.py:173
+#: ../../wader/bcm/controllers/payt_controller.py:210
+msgid "Not available"
+msgstr ""
+
+#: ../../wader/bcm/models/main.py:139
+msgid "Error while starting wader"
+msgstr ""
+
+#: ../../wader/bcm/models/main.py:140
 #, python-format
-msgid "Text message: 0/%d chars"
-msgstr "Textnachricht: 0/%d chars"
+msgid ""
+"Check that your installation is correct and your  OS/distro is supported: %s"
+msgstr ""
 
-#: ../../wader/bcm/controllers/sms.py:88
-msgid "Send empty message"
-msgstr "Senden Sie eine leere Nachricht"
+#: ../../wader/bcm/models/main.py:315 ../../wader/bcm/views/main.py:226
+#: ../../wader/bcm/controllers/main.py:315
+#: ../../wader/bcm/controllers/main.py:339
+#, fuzzy
+msgid "Device found"
+msgstr "Gerätemodell"
 
-#: ../../wader/bcm/controllers/sms.py:89
-msgid "Are you sure you want to send an empty message?"
-msgstr "Sind Sie sicher, dass Sie eine leere Nachricht senden wollen?"
+#: ../../wader/bcm/models/main.py:432
+#: ../../wader/bcm/controllers/payt_controller.py:214
+#: ../../wader/bcm/controllers/main.py:349
+msgid "Registered"
+msgstr ""
 
-#: ../../wader/bcm/controllers/sms.py:107
+#: ../../wader/bcm/models/main.py:434 ../../wader/bcm/controllers/main.py:345
+#: ../../wader/bcm/controllers/main.py:527
+msgid "Scanning"
+msgstr ""
+
+#: ../../wader/bcm/models/main.py:436
+msgid "Reg. rejected"
+msgstr ""
+
+#: ../../wader/bcm/models/main.py:438
 msgid "Unknown Error"
 msgstr "Unbekannter Fehler"
 
-#: ../../wader/bcm/controllers/sms.py:108
-msgid ""
-"Your message cannot be sent to some of its recipients. Unsent messages have "
-"been saved in drafts. Please, check that you have typed the number correctly."
+#: ../../wader/bcm/models/main.py:440
+#: ../../wader/bcm/controllers/payt_controller.py:214
+#: ../../wader/bcm/controllers/main.py:349
+msgid "Roaming"
 msgstr ""
-"Ihre Nachricht konnte an einige der Empfänger nicht geliefert werden. Nicht "
-"versandte Nachrichten wurden in \"Entwürfe\" gespeichert. Bitte überprüfen "
-"Sie, ob die Nummern richtig eingegeben wurden."
 
-#: ../../wader/bcm/controllers/sms.py:174
-#, python-format
-msgid "Text message: %(chrcnt)d/%(maxchr)d chars"
-msgstr "Textnachricht: %(chrcnt)d/%(maxchr)d chars"
-
-#: ../../wader/bcm/controllers/sms.py:216
-msgid "No SMSC number"
-msgstr "Keine SMSC Nummer"
-
-#: ../../wader/bcm/controllers/sms.py:218
-#, python-format
+#: ../../wader/bcm/views/pin.py:85
 msgid ""
 "\n"
-"In order to send a SMS, %s needs to know the number of your provider's "
-"SMSC.\n"
-"If you do not know the SMSC number, contact your customer service.\n"
+"In order to unlock your SIM, we need your\n"
+"PIN and PUK codes"
 msgstr ""
 "\n"
-"Um eine SMS zu versenden, muß %s die Nummer des SMSC Ihres Provider's "
-"kennen\n"
-"Wenn Sie die SMSC Nummer nicht kennen, kontaktieren Sie bitte customer "
-"service.\n"
+"Um Ihre SIM zu entsperren benötigen wir Ihre\n"
+"PIN and PUK codes"
+
+#: ../../wader/bcm/views/pin.py:92
+msgid ""
+"\n"
+"In order to unlock your SIM, we need your\n"
+"PIN and PUK2 codes"
+msgstr ""
+"\n"
+"Um Ihre SIM zu entsperren benötigen wir Ihre\n"
+"PIN and PUK2 codes"
+
+#: ../../wader/bcm/views/profile.py:127 ../../wader/bcm/views/main.py:301
+#: ../../wader/bcm/controllers/contacts.py:152
+msgid "Name"
+msgstr "Name"
+
+#: ../../wader/bcm/views/profile.py:132
+msgid "Country"
+msgstr "Land"
+
+#: ../../wader/bcm/views/profile.py:137 ../../wader/bcm/views/main.py:295
+#: ../../wader/bcm/views/main.py:333
+#: ../../wader/bcm/controllers/contacts.py:146
+msgid "Type"
+msgstr "Typ"
+
+#: ../../wader/bcm/views/main.py:119
+#, fuzzy, python-format
+msgid ""
+"In most cases you can find the answer to your questions about the program in "
+"the help menu. This menu can be accessed if you click on the \"Help\" label "
+"on the menu bar located in the top side of the window, and selecting the "
+"\"Help topics\" option.\n"
+"\n"
+"You can also find help, updates and tips in %(name)s's web:\n"
+"\n"
+"%(url)s.\n"
+"\n"
+"If you use the mail and browser buttons to access other programs in your "
+"system, you might need to ask your Systems Administrator any doubt that you "
+"might have."
+msgstr ""
+"In den meisten Fällen können Sie die Antwort auf Ihre Fragen über das "
+"Programm im Hilfe-Menue finden.\n"
+"Auf dieses Menue kann zugegriffen werden, wenn Sie auf das \"Hilfe\" Symbol "
+"auf der Menue-Leiste klicken- befindet sich am oberen Rand des Fensters - "
+"und die Option \"Hilfethemen auswählen\".\n"
+"\n"
+"Sie können auch Hilfe, Updates Und Tips finden in Vodafone Mobile Connect's "
+"web:\n"
+"https://forge.betavine.net/projects/vodafonemobilec\n"
+"\n"
+"Wenn Sie die Mail und Browser Buttons benutzen, um auf andere Programme in "
+"Ihrem System zuzugreifen, sollten Sie im Zweifel Ihren System Administrator "
+"fragen. "
+
+#: ../../wader/bcm/views/main.py:134
+#, fuzzy
+msgid ""
+"If you are using this program in a corporate environment, your company "
+"probably has a support center to solve the questions that you might have "
+"about the program.\n"
+"\n"
+"If your company does not have a support center, you will have to contact "
+"your company's System Administrator."
+msgstr ""
+"Wenn Sie dieses Programm in einem \"Corporate Environment\" benutzen, wird "
+"Ihre Firma\n"
+"warscheinlich ein Support Center haben um Ihre möglichen Fragen über dieses "
+"Programm\n"
+"zu beantworten\n"
+"\n"
+"Falls Ihre Firma kein Support Center hat, sollten Sie\n"
+"den System Administrator Ihrer Firma ansprechen."
+
+#: ../../wader/bcm/views/main.py:143
+#, fuzzy, python-format
+msgid ""
+"You can easily find answers to the most common questions in the help menu, "
+"in your company's support center and in the support area at:\n"
+"\n"
+"%s.\n"
+"\n"
+"If you still have difficulties you can call to Vodafone's Customer Support "
+"Center, the numbers are:\n"
+"\n"
+"123, if you are using Vodafone's network, or\n"
+"\n"
+"+34 607 123 00 if you are calling from other network."
+msgstr ""
+"Sie finden Antworten zu den üblichen Fragen im\n"
+"Hilfe-Menue, im Support Center Ihrer Firma sowie im Support\n"
+"Area at https://forge.betavine.net/projects/vodafonemobilec .\n"
+"\n"
+"Falls Sie dennoch Schwierigkeiten haben, können Sie beim Vodafone's Customer "
+"Support Center anrufen.\n"
+"Die Nummer ist:\n"
+"\n"
+"1212, wenn Sie vom Vodafone Netzwerk aus anrufen, oder\n"
+"\n"
+"+49 172 1212 wenn Sie von anderen Netzwerken anrufen."
+
+#: ../../wader/bcm/views/main.py:208 ../../wader/bcm/controllers/main.py:618
+msgid "Connect"
+msgstr "Verbinde"
+
+#: ../../wader/bcm/views/main.py:234 ../../wader/bcm/controllers/main.py:194
+#: ../../wader/bcm/controllers/main.py:200
+#: ../../wader/bcm/controllers/main.py:207
+#: ../../wader/bcm/controllers/main.py:341
+msgid "SIM locked"
+msgstr ""
+
+#: ../../wader/bcm/views/main.py:242 ../../wader/bcm/controllers/pin.py:290
+#: ../../wader/bcm/controllers/pin.py:352
+#: ../../wader/bcm/controllers/main.py:343
+#, fuzzy
+msgid "Authenticating"
+msgstr "Authentifizierung läuft..."
+
+#: ../../wader/bcm/views/main.py:250
+#, fuzzy
+msgid "Searching"
+msgstr "_Suche"
+
+#: ../../wader/bcm/views/main.py:258
+#: ../../wader/bcm/controllers/payt_controller.py:214
+#: ../../wader/bcm/controllers/main.py:349
+#: ../../wader/bcm/controllers/main.py:545
+#: ../../wader/bcm/controllers/main.py:571
+#: ../../wader/bcm/controllers/main.py:768
+#: ../../wader/bcm/controllers/main.py:970
+msgid "Not connected"
+msgstr "Nicht verbunden"
+
+#: ../../wader/bcm/views/main.py:267 ../../wader/bcm/controllers/main.py:613
+msgid "Disconnect"
+msgstr "Abtrennen"
+
+#: ../../wader/bcm/views/main.py:275 ../../wader/bcm/controllers/main.py:351
+#: ../../wader/bcm/controllers/main.py:533
+msgid "Connected"
+msgstr "Verbunden"
+
+#: ../../wader/bcm/views/main.py:310
+#: ../../wader/bcm/controllers/contacts.py:159
+msgid "Number"
+msgstr "Nummer"
+
+#: ../../wader/bcm/views/main.py:344
+msgid "Text"
+msgstr "Text"
+
+#: ../../wader/bcm/views/main.py:355
+msgid "Recipient"
+msgstr "Empfänger"
+
+#: ../../wader/bcm/views/main.py:355
+msgid "Sender"
+msgstr "Sender"
+
+#: ../../wader/bcm/views/main.py:363
+msgid "Date"
+msgstr "Datum"
+
+#: ../../wader/bcm/views/main.py:424 ../../wader/bcm/controllers/main.py:425
+msgid "N/A"
+msgstr "N/A - nicht zutreffend"
+
+#: ../../wader/bcm/views/main.py:424
+msgid "Radio Disabled"
+msgstr "Funk abgeschaltet"
+
+#: ../../wader/bcm/views/main.py:426 ../../wader/bcm/consts.py:107
+#: ../../wader/bcm/signals.py:24
+msgid "GPRS"
+msgstr "GPRS"
+
+#: ../../wader/bcm/views/main.py:426 ../../wader/bcm/consts.py:108
+#: ../../wader/bcm/signals.py:25
+msgid "EDGE"
+msgstr ""
+
+#: ../../wader/bcm/uptime.py:83
+#, python-format
+msgid "%(day)d days, %(msg)s"
+msgstr "%(day)d Tage, %(msg)s"
+
+#: ../../wader/bcm/uptime.py:85
+#, python-format
+msgid "%(day)d day, %(msg)s"
+msgstr "%(day)d Tag, %(msg)s"
+
+#: ../../wader/bcm/controllers/payt_controller.py:95
+#: ../../wader/bcm/controllers/payt_controller.py:111
+#: ../../wader/bcm/controllers/payt_controller.py:121
+msgid "PAYT submit voucher"
+msgstr ""
+
+#: ../../wader/bcm/controllers/payt_controller.py:96
+#: ../../wader/bcm/controllers/payt_controller.py:157
+msgid "SIM is not on a PAYT plan"
+msgstr ""
+
+#: ../../wader/bcm/controllers/payt_controller.py:112
+#, python-format
+msgid ""
+"PAYT submit voucher failed\n"
+"'%s'"
+msgstr ""
+
+#: ../../wader/bcm/controllers/payt_controller.py:122
+msgid "No PAYT submit voucher method available"
+msgstr ""
+
+#: ../../wader/bcm/controllers/payt_controller.py:156
+#: ../../wader/bcm/controllers/payt_controller.py:191
+msgid "PAYT credit check"
+msgstr ""
+
+#: ../../wader/bcm/controllers/payt_controller.py:192
+msgid "No PAYT credit check method available"
+msgstr ""
 
 #: ../../wader/bcm/controllers/pin.py:109
-#: ../../wader/bcm/controllers/pin.py:300
+#: ../../wader/bcm/controllers/pin.py:190
 msgid "Incorrect PIN"
 msgstr "Falsche PIN"
 
 #: ../../wader/bcm/controllers/pin.py:110
+#: ../../wader/bcm/controllers/pin.py:191
 msgid ""
 "\n"
 "<small>The PIN you've just entered is\n"
@@ -1307,53 +1314,18 @@ msgstr ""
 "drei falschen PIN-Eingaben den\n"
 "PUK-Code benötigen</small>\n"
 
-#: ../../wader/bcm/controllers/pin.py:216
-msgid "Incorrect PUK"
-msgstr "Falscher PUK"
-
-#: ../../wader/bcm/controllers/pin.py:217
-msgid ""
-"\n"
-"<small>The PUK you've just entered is\n"
-"incorrect. Bear in mind that after\n"
-"three failed PUKs you'll be asked\n"
-"for the PUK2 code. Your PIN code\n"
-"should be your last PIN.</small>\n"
-msgstr ""
-"\n"
-"<small>Die gerade eingegebene PUK ist falsch.\n"
-"Bitte beachten Sie, dass Sie nach\n"
-"drei falschen PUK-Eingaben den\n"
-"PUK2-Code benötigen. Ihr PIN Code\n"
-"sollte die zuletzt genutzte PIN sein.</small>\n"
-
-#: ../../wader/bcm/controllers/pin.py:301
-msgid ""
-"\n"
-"The PIN you've just entered is\n"
-"incorrect. Bear in mind that after\n"
-"three failed PINs you'll be asked\n"
-"for the PUK code\n"
-msgstr ""
-"\n"
-"Die gerade eingegebene PIN ist\n"
-"falsch. Bitte beachten Sie, dass Sie nach\n"
-"drei falschen PIN-Eingaben den\n"
-"PUK-Code benötigen\n"
-
-#: ../../wader/bcm/controllers/pin.py:403
-#: ../../wader/bcm/controllers/preferences.py:68
-#: ../../wader/bcm/controllers/preferences.py:87
-#: ../../wader/bcm/controllers/application.py:582
+#: ../../wader/bcm/controllers/pin.py:270
+#: ../../wader/bcm/controllers/preferences.py:200
+#: ../../wader/bcm/controllers/preferences.py:219
 msgid "Missing dependency"
 msgstr "Fehlende Abhängigkeit"
 
-#: ../../wader/bcm/controllers/pin.py:405
-#: ../../wader/bcm/controllers/preferences.py:70
+#: ../../wader/bcm/controllers/pin.py:271
+#: ../../wader/bcm/controllers/preferences.py:202
 msgid "To use this feature you need the gnomekeyring module"
 msgstr "Für dieses Feature benötigen Sie das gnomekeyring module"
 
-#: ../../wader/bcm/controllers/preferences.py:88
+#: ../../wader/bcm/controllers/preferences.py:220
 msgid ""
 "\n"
 "To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
@@ -1363,99 +1335,114 @@ msgstr ""
 "Für dieses Feature benötigen Sie entweder pygtk >= 2.10 oder das egg."
 "trayicon module\n"
 
-#: ../../wader/bcm/controllers/application.py:115
-#: ../../wader/bcm/controllers/initialconf.py:576
-msgid "Shutting down"
-msgstr "Schaltet ab"
+#: ../../wader/bcm/controllers/profile.py:64
+msgid "Error while getting connection password"
+msgstr ""
 
-#: ../../wader/bcm/controllers/application.py:133
-msgid "Connected to Internet"
-msgstr "Mit dem Internet verbunden"
+#: ../../wader/bcm/controllers/profile.py:65
+msgid ""
+"NoMatchError: No password was retrieved from connection, please set one again"
+msgstr ""
 
-#: ../../wader/bcm/controllers/application.py:134
+#: ../../wader/bcm/controllers/profile.py:113
+msgid "Error creating profile"
+msgstr ""
+
+#: ../../wader/bcm/controllers/contacts.py:98
+msgid "No contact found"
+msgstr "Kein Kontakt gefunden"
+
+#: ../../wader/bcm/controllers/contacts.py:99
 #, python-format
-msgid ""
-"\n"
-"You need to disconnect from Internet before shutting\n"
-"down %s,\n"
-"if you want to do so, press the OK button.\n"
-msgstr ""
-"\n"
-"Sie müssen die Verbindung zum Internet trennen bevor Sie\n"
-"abschalten können %s,\n"
-"wenn Sie jetzt abschalten wollen, drücken Sie den OK button.\n"
+msgid "No contact with the name %s found"
+msgstr "Kein Kontakt mit dem Namen %s gefunden"
 
-#: ../../wader/bcm/controllers/application.py:253
-msgid "Reading contacts..."
-msgstr "Liest Kontakte..."
-
-#: ../../wader/bcm/controllers/application.py:280
-msgid "Reading messages..."
-msgstr "Liest Nachrichten..."
-
-#: ../../wader/bcm/controllers/application.py:334
-msgid "User Limit"
-msgstr "Limit für Benutzer"
-
-#: ../../wader/bcm/controllers/application.py:335
-msgid "You have reached your limit of maximum usage"
-msgstr "Sie haben Ihr Limit für maximale Nutzung erreicht"
-
-#: ../../wader/bcm/controllers/application.py:357
-msgid "New mobile profile available"
-msgstr "Neues Mobil-Profil verfügbar"
-
-#: ../../wader/bcm/controllers/application.py:358
-msgid ""
-"\n"
-"New profile available, do you want to load it?"
-msgstr ""
-"\n"
-"Neues Profil verfügbar, wollen Sie es jetzt laden?"
-
-#: ../../wader/bcm/controllers/application.py:360
-msgid "Load"
-msgstr "Lade"
-
-#: ../../wader/bcm/controllers/application.py:395
-#: ../../wader/bcm/controllers/application.py:1293
-msgid "Radio Disabled"
-msgstr "Funk abgeschaltet"
-
-#: ../../wader/bcm/controllers/application.py:423
+#: ../../wader/bcm/controllers/main.py:163
 #, python-format
 msgid "Quit %s"
 msgstr "Abbrechen %s"
 
-#: ../../wader/bcm/controllers/application.py:424
+#: ../../wader/bcm/controllers/main.py:164
 msgid "Are you sure you want to exit?"
 msgstr "Sind Sie sicher, dass Sie das Programm verlassen wollen?"
 
-#: ../../wader/bcm/controllers/application.py:481
-msgid "_New Profile"
-msgstr "_Neues Profil"
+#: ../../wader/bcm/controllers/main.py:176
+msgid "Can not close application"
+msgstr ""
 
-#: ../../wader/bcm/controllers/application.py:490
-msgid "Load Profile"
-msgstr "Lade Profil"
+#: ../../wader/bcm/controllers/main.py:177
+msgid "Can not close while a connection is active"
+msgstr ""
 
-#: ../../wader/bcm/controllers/application.py:495
-msgid "Edit Profile"
-msgstr "Editiere Profil"
+#: ../../wader/bcm/controllers/main.py:280
+msgid "Invalid password"
+msgstr ""
 
-#: ../../wader/bcm/controllers/application.py:500
-msgid "Delete Profile"
-msgstr "Entferne Profil"
+#: ../../wader/bcm/controllers/main.py:281
+msgid "The supplied password is incorrect"
+msgstr ""
 
-#: ../../wader/bcm/controllers/application.py:583
-msgid "To use this widget you need python-vte installed"
-msgstr "Um dieses Widget nutzen zu können muß python-vte installiert sein"
+#: ../../wader/bcm/controllers/main.py:291
+msgid "Unknown Network"
+msgstr "Unbekanntes Netzwerk"
 
-#: ../../wader/bcm/controllers/application.py:630
+#: ../../wader/bcm/controllers/main.py:358
+msgid "SIM error"
+msgstr ""
+
+#: ../../wader/bcm/controllers/main.py:359
+msgid "Perhaps your SIM is not inserted correctly?"
+msgstr ""
+
+#: ../../wader/bcm/controllers/main.py:361
+#, fuzzy
+msgid "Unknown error"
+msgstr "Unbekannter Fehler"
+
+#: ../../wader/bcm/controllers/main.py:367
+msgid "Error while registering to home network"
+msgstr ""
+
+#: ../../wader/bcm/controllers/main.py:440
+msgid "Transfer limit exceeded"
+msgstr ""
+
+#: ../../wader/bcm/controllers/main.py:441
+msgid "You have exceeded your transfer limit"
+msgstr ""
+
+#: ../../wader/bcm/controllers/main.py:516
+#, fuzzy, python-format
+msgid "SMS received from %s"
+msgstr "<small>SMS empfangen von %s</small>"
+
+#: ../../wader/bcm/controllers/main.py:566
+#, fuzzy
+msgid "Failed connection attempt"
+msgstr "Geschwindigkeit der Verbindung"
+
+#: ../../wader/bcm/controllers/main.py:632
+#: ../../wader/bcm/controllers/main.py:667
+msgid "Send SMS"
+msgstr "Send SMS"
+
+#: ../../wader/bcm/controllers/main.py:645
+msgid "Quit"
+msgstr "Verlassen"
+
+#: ../../wader/bcm/controllers/main.py:678
+msgid "_Delete"
+msgstr "_Löschen"
+
+#: ../../wader/bcm/controllers/main.py:689
+msgid "Edit"
+msgstr "Edieren"
+
+#: ../../wader/bcm/controllers/main.py:709
 msgid "Invalid CSV format"
 msgstr "Ungültiges CSV Format"
 
-#: ../../wader/bcm/controllers/application.py:631
+#: ../../wader/bcm/controllers/main.py:710
 msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
@@ -1463,258 +1450,145 @@ msgstr ""
 "\n"
 "Die csv Datei, die Sie versuchen zu importieren hat ein ungültiges Format."
 
-#: ../../wader/bcm/controllers/application.py:662
-#: ../../wader/bcm/controllers/application.py:684
-msgid "Connecting..."
+#: ../../wader/bcm/controllers/main.py:742
+#, fuzzy
+msgid "No device found"
+msgstr "Keine bekannten Geräte gefunden"
+
+#: ../../wader/bcm/controllers/main.py:743
+msgid "No device has been found. Insert one and try again."
+msgstr ""
+
+#: ../../wader/bcm/controllers/main.py:750
+#, fuzzy
+msgid "Profile needed"
+msgstr "Profilname"
+
+#: ../../wader/bcm/controllers/main.py:751
+msgid "You need to create a profile for connecting."
+msgstr ""
+
+#: ../../wader/bcm/controllers/main.py:777
+#, fuzzy
+msgid "Connecting"
 msgstr "Verbindungsaufbau..."
 
-#: ../../wader/bcm/controllers/application.py:679
-#: ../../wader/bcm/controllers/application.py:1302
-#, python-format
-msgid "Connected to %s"
-msgstr "Verbunden mit %s"
+#: ../../wader/bcm/controllers/main.py:786
+#, fuzzy
+msgid "Disconnecting"
+msgstr "Abtrennen"
 
-#: ../../wader/bcm/controllers/application.py:681
-msgid "Connected"
-msgstr "Verbunden"
+#: ../../wader/bcm/controllers/main.py:919
+msgid "_New Profile"
+msgstr "_Neues Profil"
 
-#: ../../wader/bcm/controllers/application.py:952
+#: ../../wader/bcm/controllers/main.py:928
+msgid "Load Profile"
+msgstr "Lade Profil"
+
+#: ../../wader/bcm/controllers/main.py:933
+msgid "Edit Profile"
+msgstr "Editiere Profil"
+
+#: ../../wader/bcm/controllers/main.py:938
+msgid "Delete Profile"
+msgstr "Entferne Profil"
+
+#: ../../wader/bcm/controllers/main.py:971
 msgid "No mobile connection. Do you want to continue?"
 msgstr "Keine mobile Verbindung.Wollen Sie dennoch weiterfahren"
 
-#: ../../wader/bcm/controllers/application.py:1090
-msgid "Send SMS"
-msgstr "Send SMS"
+#: ../../wader/bcm/controllers/main.py:1411
+msgid "Editor not available"
+msgstr ""
 
-#: ../../wader/bcm/controllers/application.py:1104
-msgid "Quit"
-msgstr "Verlassen"
+#: ../../wader/bcm/controllers/main.py:1412
+#, python-format
+msgid "Can not start external contact editor \"%s\""
+msgstr ""
 
-#: ../../wader/bcm/controllers/application.py:1122
-msgid "_Send SMS"
-msgstr "_Send SMS"
-
-#: ../../wader/bcm/controllers/application.py:1142
-msgid "Edit"
-msgstr "Edieren"
-
-#: ../../wader/bcm/controllers/application.py:1157
+#: ../../wader/bcm/controllers/main.py:1418
 msgid "_Add to contacts"
 msgstr "_Füge den Kontakten hinzu"
 
-#: ../../wader/bcm/controllers/application.py:1166
+#: ../../wader/bcm/controllers/main.py:1429
+msgid "Migrate to DB"
+msgstr ""
+
+#: ../../wader/bcm/controllers/main.py:1438
 msgid "Save to draft"
 msgstr "Speichere in Entwurf"
 
-#: ../../wader/bcm/controllers/application.py:1177
+#: ../../wader/bcm/controllers/main.py:1449
 msgid "Delete"
 msgstr "Lösche"
 
-#: ../../wader/bcm/controllers/application.py:1318
-msgid "Illegal Operation!"
-msgstr "Illegale Funktion"
-
-#: ../../wader/bcm/controllers/application.py:1319
-msgid ""
-"\n"
-"Your device only has one port and you are currently connected\n"
-"to Internet, you cannot perform any operation while connected"
+#: ../../wader/bcm/controllers/sms.py:52
+msgid "You can send the SMS to several recipients separating them by commas"
 msgstr ""
-"\n"
-"Ihr Gerät hat nur einen Port und Sie sind derzeit mit dem Internet\n"
-"verbunden. Sie können keine Funktionen ausführen während Sie verbunden sind"
+"Sie können die SMS zu mehreren Empfängern schicken, Empfänger getrennt durch "
+"Komma."
 
-#: ../../wader/bcm/controllers/application.py:1348
+#: ../../wader/bcm/controllers/sms.py:85
+#: ../../wader/bcm/controllers/sms.py:179
 #, python-format
-msgid "<small>SMS received from %s</small>"
-msgstr "<small>SMS empfangen von %s</small>"
+msgid "Text message: 0/%d chars"
+msgstr "Textnachricht: 0/%d chars"
 
-#: ../../wader/bcm/controllers/application.py:1351
-#, python-format
-msgid ""
-"<small>Received at %(date)s</small>\n"
-"<b>%(text)s</b>"
+#: ../../wader/bcm/controllers/sms.py:114
+msgid "Send empty message"
+msgstr "Senden Sie eine leere Nachricht"
+
+#: ../../wader/bcm/controllers/sms.py:115
+msgid "Are you sure you want to send an empty message?"
+msgstr "Sind Sie sicher, dass Sie eine leere Nachricht senden wollen?"
+
+#: ../../wader/bcm/controllers/sms.py:136
+msgid "Error while sending SMS"
 msgstr ""
-"<small>Empfangen von %(date)s</small>\n"
-"<b>%(text)s</b>"
 
-#: ../../wader/bcm/controllers/application.py:1363
-msgid "Invalid DNS received from Network"
-msgstr "Ungültige DNS vom Netzwerk erhalten"
+#: ../../wader/bcm/controllers/sms.py:187
+#, fuzzy, python-format
+msgid "Text message: %(num)d/%(tot)d chars"
+msgstr "Textnachricht: %(chrcnt)d/%(maxchr)d chars"
 
-#: ../../wader/bcm/controllers/application.py:1365
-msgid ""
-"\n"
-"<small>The DNS settings received from the mobile network are invalid. You "
-"will\n"
-"probably want to restart the connection, or if the problem persists, you\n"
-"can specify a static DNS entry in the connection preferences</small>\n"
+#: ../../wader/bcm/controllers/sms.py:192
+#, fuzzy, python-format
+msgid "Text message: %(num)d/%(tot)d chars (%(msgs)d SMS)"
+msgstr "Textnachricht: %(chrcnt)d/%(maxchr)d chars"
+
+#: ../../wader/bcm/dialogs.py:64
+msgid "translator-credits"
 msgstr ""
-"\n"
-"<small>Die DNS Einstellungen, die vom Mobilnetz empfangen wurden, sind "
-"ungültig. Sie müssen\n"
-"vormutlich die Verbindung neu starten, oder, falls das Problem weiterhin "
-"besteht, können\n"
-"Sie einen statischen DNS Eintrag in Verbindungspräferenzen spezifizieren.</"
-"small>\n"
 
-#: ../../wader/bcm/controllers/application.py:1380
-msgid "Disconnected from Internet"
-msgstr "Verbindung zum Internet trennen"
+#: ../../wader/bcm/dialogs.py:219
+#, fuzzy
+msgid "Password required"
+msgstr "Passwort"
 
-#: ../../wader/bcm/controllers/application.py:1381
-#, python-format
-msgid ""
-"\n"
-"<small>%s has given\n"
-"up after trying to connect three times to Internet. This might\n"
-"be provoked by a problem in the configuration or just the fact\n"
-"that there's no carrier.</small>"
-msgstr ""
-"\n"
-"<small>%s hat aufgegeben\n"
-"nach dreimaligem Versuch sich mit dem Internet zu verbinden. Dies könnte\n"
-"hervorgerufen sein durch ein Problem in der Konfiguration oder einfach die "
-"Tatsache dass kein Netz vorhanden ist.</small>"
+#: ../../wader/bcm/dialogs.py:220
+#, fuzzy
+msgid "Please, insert the password of your connection"
+msgstr "Bitte geben Sie Ihren PIN-Code ein"
 
-#: ../../wader/bcm/controllers/application.py:1393
-msgid "Device in use removed"
-msgstr "Das gerade benutzte Gerät wurde entfernt"
-
-#: ../../wader/bcm/controllers/application.py:1395
-#, python-format
-msgid ""
-"\n"
-"The 3G device in use has been removed. Now\n"
-"%s\n"
-"is going to shutdown. In order to continue,\n"
-"plug in the 3G device and start again."
-msgstr ""
-"\n"
-"Das gerade benutzte 3G Gerät wurde entfernt. Jetzt\n"
-"schaltet %s\n"
-"ab. Um weiterzufahren,\n"
-"stecken Sie das 3G Gerät ein und starten erneut."
-
-#: ../../wader/bcm/controllers/application.py:1431
-msgid "3G Device added"
-msgstr "3G Gerät hinzugefügt"
-
-#: ../../wader/bcm/controllers/application.py:1432
-#, python-format
-msgid ""
-"\n"
-"A new 3G device (%(device_name)s)\n"
-"has been added, in around 15 seconds\n"
-"(%(app_name)s) will resume its functioning"
-msgstr ""
-"\n"
-"Ein neues 3G Gerät (%(device_name)s)\n"
-"wurde hinzugefügt, in ca. 15 Sekunden\n"
-"wird (%(app_name)s) seinen Betrieb aufnehmen"
-
-#: ../../wader/bcm/controllers/application.py:1440
-msgid "Setting up device..."
-msgstr "Einrichten des Gerätes..."
-
-#: ../../wader/bcm/controllers/contacts.py:92
-msgid "No contact found"
-msgstr "Kein Kontakt gefunden"
-
-#: ../../wader/bcm/controllers/contacts.py:93
-#, python-format
-msgid "No contact with the name %s found"
-msgstr "Kein Kontakt mit dem Namen %s gefunden"
-
-#: ../../wader/bcm/controllers/initialconf.py:239
-#, python-format
-msgid "The following characters are not allowed in a profile name: %s"
-msgstr "Die folgenden Zeichen sind in einem Profil-Namen nicht erlaubt: %s"
-
-#: ../../wader/bcm/controllers/initialconf.py:242
-msgid "Invalid value in profile"
-msgstr "Ungültiger Wert im Profil"
-
-#: ../../wader/bcm/controllers/initialconf.py:403
-#, python-format
-msgid ""
-"\n"
-"An unknown error occur when setting up the device:\n"
-"%s"
-msgstr ""
-"\n"
-"Ein unbekannter Fehler trat beim Einrichten des Gerätes auf:\n"
-"%s"
-
-#: ../../wader/bcm/controllers/initialconf.py:468
-#, python-format
-msgid "Authentication Error from %s !"
-msgstr "Authentifizierungsfehler von %s !"
-
-#: ../../wader/bcm/controllers/initialconf.py:472
-#, python-format
-msgid "Connecting to %s ..."
-msgstr "Verbinden mit %s ..."
-
-#: ../../wader/bcm/controllers/initialconf.py:520
-msgid "Discovery started..."
-msgstr "Ermittlung gestartet..."
-
-#: ../../wader/bcm/controllers/initialconf.py:524
-msgid "Discovery finished!"
-msgstr "Ermittlung beendet!"
-
-#: ../../wader/bcm/controllers/initialconf.py:548
-msgid "No control port"
-msgstr "Kein Control Port"
-
-#: ../../wader/bcm/controllers/initialconf.py:554
-msgid "Connecting to device..."
-msgstr "Mit Gerät verbinden..."
-
-#: ../../wader/bcm/controllers/initialconf.py:562
-#, python-format
-msgid "Exception received connecting to %s"
-msgstr "Ausnahmebedingung erhalten während der Verbindung zu %s"
-
-#: ../../wader/bcm/controllers/initialconf.py:563
-#, python-format
-msgid ""
-"\n"
-"The following error was received while trying to establish a connection:\n"
-"%s"
-msgstr ""
-"\n"
-"Die folgende Fehlermeldung wurde während des Verbindungsaufbaus empfangen:\n"
-"%s"
-
-#: ../../wader/bcm/dialogs.py:94
-msgid "Import contacts from..."
-msgstr "Importiere Kontakte von..."
-
-#: ../../wader/bcm/dialogs.py:102 ../../wader/bcm/dialogs.py:164
-msgid "Csv files"
-msgstr "CSV Dateien"
-
-#: ../../wader/bcm/dialogs.py:107 ../../wader/bcm/dialogs.py:132
-#: ../../wader/bcm/dialogs.py:170
-msgid "All files"
-msgstr "Alle Dateien"
-
-#: ../../wader/bcm/dialogs.py:123 ../../wader/bcm/dialogs.py:156
+#: ../../wader/bcm/dialogs.py:254
 msgid "Save as ..."
 msgstr "Speichern als..."
 
-#: ../../wader/bcm/dialogs.py:142 ../../wader/bcm/dialogs.py:180
-msgid "Overwrite"
-msgstr "Überschreibe"
+#: ../../wader/bcm/dialogs.py:262 ../../wader/bcm/dialogs.py:301
+msgid "Csv files"
+msgstr "CSV Dateien"
 
-#: ../../wader/bcm/dialogs.py:143 ../../wader/bcm/dialogs.py:181
+#: ../../wader/bcm/dialogs.py:268 ../../wader/bcm/dialogs.py:306
+msgid "All files"
+msgstr "Alle Dateien"
+
+#: ../../wader/bcm/dialogs.py:279
 #, python-format
 msgid "Overwrite \"%s\"?"
 msgstr "Überschreibe \"%s\"?"
 
-#: ../../wader/bcm/dialogs.py:144 ../../wader/bcm/dialogs.py:182
+#: ../../wader/bcm/dialogs.py:280
 msgid ""
 "A file with this name already exists.\n"
 "If you choose to overwrite this file, the contents will be lost."
@@ -1722,105 +1596,564 @@ msgstr ""
 "Eine Datei mit diesem Namen existiert bereits.\n"
 "Wenn Sie diese Datei überschreiben geht der Inhalt verloren."
 
-#: ../../wader/bcm/dialogs.py:196
-msgid "Device List"
-msgstr "Geräteliste"
+#: ../../wader/bcm/dialogs.py:293
+msgid "Import contacts from..."
+msgstr "Importiere Kontakte von..."
 
-#: ../../wader/bcm/dialogs.py:229
-msgid "Vodafone Spain S.A."
-msgstr "Vodafone Spain S.A."
+#: ../../wader/bcm/consts.py:88 ../../wader/bcm/consts.py:106
+#: ../../wader/bcm/consts.py:132
+msgid "Any"
+msgstr ""
 
-#: ../../wader/bcm/dialogs.py:236
-msgid "translated to $LANG by $translater"
-msgstr "Übersetzt nach $LANG von $translater"
+#: ../../wader/bcm/consts.py:89
+msgid "EGSM 900"
+msgstr ""
 
-#: ../../wader/common.orig/dialers/__init__.py:31
-#: ../../wader/common.orig/dialers/__init__.py:37
-msgid "Default"
-msgstr "Grundeinstellung"
+#: ../../wader/bcm/consts.py:90
+#, fuzzy
+msgid "GSM DCS"
+msgstr "SMS"
 
-#: ../../wader/common.orig/dialers/__init__.py:32
-#: ../../wader/common.orig/dialers/__init__.py:38
+#: ../../wader/bcm/consts.py:91
+#, fuzzy
+msgid "GSM PCS"
+msgstr "SMS"
+
+#: ../../wader/bcm/consts.py:92
+msgid "GSM 850"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:93
+msgid "WCDMA 2100"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:94
+msgid "WCDMA 1700"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:95
+msgid "WCDMA 17IV"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:96
+msgid "WCDMA 800"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:97
+msgid "WCDMA 850"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:98
+msgid "WCDMA 900"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:99
+msgid "WCDMA 17IX"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:100
+msgid "WCDMA 1900"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:109 ../../wader/bcm/signals.py:26
+msgid "UMTS"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:110 ../../wader/bcm/signals.py:31
+msgid "HSDPA"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:111 ../../wader/bcm/signals.py:32
+msgid "HSUPA"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:112 ../../wader/bcm/signals.py:33
+msgid "HSPA"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:113 ../../wader/bcm/signals.py:27
+#, fuzzy
+msgid "2G preferred"
+msgstr "3G bevorzugt"
+
+#: ../../wader/bcm/consts.py:114 ../../wader/bcm/signals.py:28
+msgid "3G preferred"
+msgstr "3G bevorzugt"
+
+#: ../../wader/bcm/consts.py:115 ../../wader/bcm/signals.py:29
+#, fuzzy
+msgid "2G only"
+msgstr "ausschließlich 3G"
+
+#: ../../wader/bcm/consts.py:116 ../../wader/bcm/signals.py:30
+msgid "3G only"
+msgstr "ausschließlich 3G"
+
+#: ../../wader/bcm/consts.py:133
 msgid "PAP"
 msgstr "PAP"
 
-#: ../../wader/common.orig/dialers/__init__.py:33
-#: ../../wader/common.orig/dialers/__init__.py:39
+#: ../../wader/bcm/consts.py:134
+#, fuzzy
+msgid "EAP"
+msgstr "PAP"
+
+#: ../../wader/bcm/consts.py:135
 msgid "CHAP"
 msgstr "CHAP"
 
-#: ../../wader/common.orig/dialers/wvdial.py:224
-msgid "WVDial directive error"
-msgstr "Fehler: WVDial Anweisung"
+#: ../../wader/bcm/consts.py:136
+#, fuzzy
+msgid "MSCHAP"
+msgstr "CHAP"
 
-#: ../../wader/common.orig/dialers/wvdial.py:225
-#, python-format
-msgid ""
-"\n"
-"Since version 0.9.7 %s manages pppd's /etc/ppp/{p,ch}ap-secrets, the\n"
-"'plugin passwordfd.so' directive should not appear on the\n"
-"current wvdial profile, please remove it manually. Go to\n"
-"Tools -> Preferences, select the wvdial profiles tab, and\n"
-"remove from the current wvdial profile the\n"
-"'plugin passwordfd.so' line."
+#: ../../wader/bcm/consts.py:137
+#, fuzzy
+msgid "MSCHAPv2"
+msgstr "CHAP"
+
+#: ../../wader/bcm/signals.py:23
+msgid "No signal"
 msgstr ""
-"\n"
-"Ab Version 0.9.7, %s verwaltet pppd's /etc/ppp/{p,ch}ap-secrets. Die\n"
-"'Plugin Passwordfd.so' Anweisung sollte daher nicht in dem\n"
-"aktuellen wvdial Profil erscheinen. Bitte entfernen Sie sie manuell. Gehen "
-"Sie dazu zu\n"
-"Werkzeuge -> Präferenzen, wählen Sie den wvdial Profile Reiter, und\n"
-"entfernen Sie vom aktuellen wvdial Profil die Zeile\n"
-"'plugin passwordfd.so'."
 
-#: ../../wader/common.orig/hardware/__init__.py:29
-#: ../../wader/common.orig/hardware/__init__.py:36
-msgid "GPRS only"
-msgstr "ausschließlich GPRS"
-
-#: ../../wader/common.orig/hardware/__init__.py:31
-#: ../../wader/common.orig/hardware/__init__.py:38
-msgid "GPRS preferred"
-msgstr "GPRS bevorzugt"
-
-#: ../../wader/common.orig/uptime.py:83
-#, python-format
-msgid "%(day)d days, %(msg)s"
-msgstr "%(day)d Tage, %(msg)s"
-
-#: ../../wader/common.orig/uptime.py:85
-#, python-format
-msgid "%(day)d day, %(msg)s"
-msgstr "%(day)d Tag, %(msg)s"
-
-#: ../../wader/common.orig/shutdown.py:52
-msgid "Shutting down..."
-msgstr "Fährt runter..."
-
-#: ../../wader/common.orig/middleware.py:489
-msgid "Unknown Network"
-msgstr "Unbekanntes Netzwerk"
-
-#: ../../gtk-tap.py:57
-msgid "Missing dependencies"
-msgstr "Fehlende Bedingungen"
-
-#: ../../gtk-tap.py:59
-#, python-format
-msgid ""
-"The following dependencies are not satisfied:\n"
-"%s"
+#: ../../wader/bcm/contacts/contact_kdepim.py:132
+msgid "KDE PIM"
 msgstr ""
-"Die folgenden Bedingungens sind nicht erfüllt:\n"
-"%s"
 
-#: ../../gtk-tap.py:68
-msgid "OS/Distro not registered"
-msgstr "Distribution des Betriebssystens nicht registriert"
+#: ../../wader/bcm/contacts/contact_evolution.py:136
+msgid "Evolution"
+msgstr ""
 
-#: ../../gtk-tap.py:80
-msgid "Permissions problems"
-msgstr "Zulassungsprobleme"
+#~ msgid "SMS Toggle Button"
+#~ msgstr "SMS Umschalt-Button"
+
+#~ msgid "Usage Toggle Button"
+#~ msgstr "Nutzung Umschalt-Button"
+
+#~ msgid "Support Toggle Button"
+#~ msgstr "Support Umschalt-Button"
+
+#~ msgid "Inspect"
+#~ msgstr "Überprüfe"
+
+#~ msgid "_About"
+#~ msgstr "_Über"
+
+#~ msgid "_New"
+#~ msgstr "_Neu"
+
+#~ msgid "_SMS"
+#~ msgstr "_SMS"
+
+#~ msgid "_Contact"
+#~ msgstr "_Kontakt"
+
+#~ msgid "_Reply"
+#~ msgstr "_Antwort"
+
+#~ msgid "_Forward"
+#~ msgstr "_Weiterleitung"
+
+#~ msgid "_Contacts"
+#~ msgstr "_Kontakte"
+
+#~ msgid "3G"
+#~ msgstr "3G"
+
+#~ msgid "Remember that this information is only orientative."
+#~ msgstr "Bedenken Sie, dass diese Information nur zur Orientierung dient"
+
+#~ msgid "<b>GSM device</b>"
+#~ msgstr "<b>GSM Gerät</b>"
+
+#~ msgid "BCM number:"
+#~ msgstr "BCM nummer:"
+
+#~ msgid ""
+#~ "<b>Change the dialer profile if your provider requires you to "
+#~ "authenticate with PAP/CHAP</b>"
+#~ msgstr ""
+#~ "<b>Ändern Sie Ihr Dialer-Profil falls Ihr Provider verlangt dass Sie sich "
+#~ "mit PAP/CHAP authentifizieren</b>"
+
+#~ msgid "Dialer profile"
+#~ msgstr "Dialer-Profil"
+
+#~ msgid "Initial setup..."
+#~ msgstr "Erstinstallation..."
+
+#~ msgid "Device setup not completed"
+#~ msgstr "Geräteeinrichtung nicht abgeschlossen"
+
+#~ msgid ""
+#~ "\n"
+#~ "Your device has been detected but it has been impossible to connect to "
+#~ "it.\n"
+#~ "\n"
+#~ "%s"
+#~ msgstr ""
+#~ "\n"
+#~ "Ihr Gerät wurde erkannt aber es ist nicht möglich, sich mit ihm zu "
+#~ "verbinden.\n"
+#~ "\n"
+#~ "%s"
+
+#~ msgid ""
+#~ "\n"
+#~ "Your device \"%(name)s\" is not properly registered with the kernel. %"
+#~ "(bcm)s\n"
+#~ "needs at least two serial ports to communicate with your %(name)s.\n"
+#~ "The program includes a set of udev rules plus some binaries that make "
+#~ "sure\n"
+#~ "that your device is always recognised properly. If you've installed from\n"
+#~ "source, then make sure to copy the relevant files in the contrib dir\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Ihr Gerät \"%(name)s\" ist nicht richtig mit dem Kern registriert. %(bcm)"
+#~ "s\n"
+#~ "Man benötigt mindestens zwei serielle Schnittstellen um mit Ihrem %(name)"
+#~ "s zu kommunizieren.\n"
+#~ "Das Programm enthält einen Satz von udev Regeln sowie einige Binaries die "
+#~ "sicherstellen\n"
+#~ "dass Ihr Gerät immer richtig erkannt wird. Falls Sie von der Source "
+#~ "installiert haben\n"
+#~ "stellen Sie bitte sicher, dass Sie die relevanten Dateien in das contrib "
+#~ "dir kopiert haben.\n"
+
+#~ msgid "Device not responding"
+#~ msgstr "Gerät antwortet nicht"
+
+#~ msgid ""
+#~ "\n"
+#~ "Your device took more than 15 seconds to reply to my last command. Unplug "
+#~ "it,\n"
+#~ "plug it again, and try in a moment."
+#~ msgstr ""
+#~ "\n"
+#~ "Ihr Gerät brauchte mehr als 15 Sekunden um auf meinen letzten Befehl zu "
+#~ "antworten. Bitte abstecken,\n"
+#~ "dann wieder einstecken, und versuchen Sie es in Kürze wieder."
+
+#~ msgid "Authenticated!"
+#~ msgstr "Authentifiziert!"
+
+#~ msgid "B"
+#~ msgstr "B"
+
+#~ msgid "KB"
+#~ msgstr "KB"
+
+#~ msgid "MB"
+#~ msgstr "MB"
+
+#~ msgid "GB"
+#~ msgstr "GB"
+
+#~ msgid "No device present"
+#~ msgstr "Kein Gerät vorhanden"
+
+#~ msgid "Address"
+#~ msgstr "Adresse"
+
+#~ msgid "%B, %Y"
+#~ msgstr "%B, %Y"
+
+#~ msgid ""
+#~ "Your message cannot be sent to some of its recipients. Unsent messages "
+#~ "have been saved in drafts. Please, check that you have typed the number "
+#~ "correctly."
+#~ msgstr ""
+#~ "Ihre Nachricht konnte an einige der Empfänger nicht geliefert werden. "
+#~ "Nicht versandte Nachrichten wurden in \"Entwürfe\" gespeichert. Bitte "
+#~ "überprüfen Sie, ob die Nummern richtig eingegeben wurden."
+
+#~ msgid "No SMSC number"
+#~ msgstr "Keine SMSC Nummer"
+
+#~ msgid ""
+#~ "\n"
+#~ "In order to send a SMS, %s needs to know the number of your provider's "
+#~ "SMSC.\n"
+#~ "If you do not know the SMSC number, contact your customer service.\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Um eine SMS zu versenden, muß %s die Nummer des SMSC Ihres Provider's "
+#~ "kennen\n"
+#~ "Wenn Sie die SMSC Nummer nicht kennen, kontaktieren Sie bitte customer "
+#~ "service.\n"
+
+#~ msgid "Incorrect PUK"
+#~ msgstr "Falscher PUK"
+
+#~ msgid ""
+#~ "\n"
+#~ "<small>The PUK you've just entered is\n"
+#~ "incorrect. Bear in mind that after\n"
+#~ "three failed PUKs you'll be asked\n"
+#~ "for the PUK2 code. Your PIN code\n"
+#~ "should be your last PIN.</small>\n"
+#~ msgstr ""
+#~ "\n"
+#~ "<small>Die gerade eingegebene PUK ist falsch.\n"
+#~ "Bitte beachten Sie, dass Sie nach\n"
+#~ "drei falschen PUK-Eingaben den\n"
+#~ "PUK2-Code benötigen. Ihr PIN Code\n"
+#~ "sollte die zuletzt genutzte PIN sein.</small>\n"
+
+#~ msgid ""
+#~ "\n"
+#~ "The PIN you've just entered is\n"
+#~ "incorrect. Bear in mind that after\n"
+#~ "three failed PINs you'll be asked\n"
+#~ "for the PUK code\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Die gerade eingegebene PIN ist\n"
+#~ "falsch. Bitte beachten Sie, dass Sie nach\n"
+#~ "drei falschen PIN-Eingaben den\n"
+#~ "PUK-Code benötigen\n"
+
+#~ msgid "Shutting down"
+#~ msgstr "Schaltet ab"
+
+#~ msgid "Connected to Internet"
+#~ msgstr "Mit dem Internet verbunden"
+
+#~ msgid ""
+#~ "\n"
+#~ "You need to disconnect from Internet before shutting\n"
+#~ "down %s,\n"
+#~ "if you want to do so, press the OK button.\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Sie müssen die Verbindung zum Internet trennen bevor Sie\n"
+#~ "abschalten können %s,\n"
+#~ "wenn Sie jetzt abschalten wollen, drücken Sie den OK button.\n"
+
+#~ msgid "Reading contacts..."
+#~ msgstr "Liest Kontakte..."
+
+#~ msgid "Reading messages..."
+#~ msgstr "Liest Nachrichten..."
+
+#~ msgid "User Limit"
+#~ msgstr "Limit für Benutzer"
+
+#~ msgid "You have reached your limit of maximum usage"
+#~ msgstr "Sie haben Ihr Limit für maximale Nutzung erreicht"
+
+#~ msgid "New mobile profile available"
+#~ msgstr "Neues Mobil-Profil verfügbar"
+
+#~ msgid ""
+#~ "\n"
+#~ "New profile available, do you want to load it?"
+#~ msgstr ""
+#~ "\n"
+#~ "Neues Profil verfügbar, wollen Sie es jetzt laden?"
+
+#~ msgid "Load"
+#~ msgstr "Lade"
+
+#~ msgid "To use this widget you need python-vte installed"
+#~ msgstr "Um dieses Widget nutzen zu können muß python-vte installiert sein"
+
+#~ msgid "Connected to %s"
+#~ msgstr "Verbunden mit %s"
+
+#~ msgid "_Send SMS"
+#~ msgstr "_Send SMS"
+
+#~ msgid "Illegal Operation!"
+#~ msgstr "Illegale Funktion"
+
+#~ msgid ""
+#~ "\n"
+#~ "Your device only has one port and you are currently connected\n"
+#~ "to Internet, you cannot perform any operation while connected"
+#~ msgstr ""
+#~ "\n"
+#~ "Ihr Gerät hat nur einen Port und Sie sind derzeit mit dem Internet\n"
+#~ "verbunden. Sie können keine Funktionen ausführen während Sie verbunden "
+#~ "sind"
+
+#~ msgid ""
+#~ "<small>Received at %(date)s</small>\n"
+#~ "<b>%(text)s</b>"
+#~ msgstr ""
+#~ "<small>Empfangen von %(date)s</small>\n"
+#~ "<b>%(text)s</b>"
+
+#~ msgid "Invalid DNS received from Network"
+#~ msgstr "Ungültige DNS vom Netzwerk erhalten"
+
+#~ msgid ""
+#~ "\n"
+#~ "<small>The DNS settings received from the mobile network are invalid. You "
+#~ "will\n"
+#~ "probably want to restart the connection, or if the problem persists, you\n"
+#~ "can specify a static DNS entry in the connection preferences</small>\n"
+#~ msgstr ""
+#~ "\n"
+#~ "<small>Die DNS Einstellungen, die vom Mobilnetz empfangen wurden, sind "
+#~ "ungültig. Sie müssen\n"
+#~ "vormutlich die Verbindung neu starten, oder, falls das Problem weiterhin "
+#~ "besteht, können\n"
+#~ "Sie einen statischen DNS Eintrag in Verbindungspräferenzen spezifizieren."
+#~ "</small>\n"
+
+#~ msgid "Disconnected from Internet"
+#~ msgstr "Verbindung zum Internet trennen"
+
+#~ msgid ""
+#~ "\n"
+#~ "<small>%s has given\n"
+#~ "up after trying to connect three times to Internet. This might\n"
+#~ "be provoked by a problem in the configuration or just the fact\n"
+#~ "that there's no carrier.</small>"
+#~ msgstr ""
+#~ "\n"
+#~ "<small>%s hat aufgegeben\n"
+#~ "nach dreimaligem Versuch sich mit dem Internet zu verbinden. Dies könnte\n"
+#~ "hervorgerufen sein durch ein Problem in der Konfiguration oder einfach "
+#~ "die Tatsache dass kein Netz vorhanden ist.</small>"
+
+#~ msgid "Device in use removed"
+#~ msgstr "Das gerade benutzte Gerät wurde entfernt"
+
+#~ msgid ""
+#~ "\n"
+#~ "The 3G device in use has been removed. Now\n"
+#~ "%s\n"
+#~ "is going to shutdown. In order to continue,\n"
+#~ "plug in the 3G device and start again."
+#~ msgstr ""
+#~ "\n"
+#~ "Das gerade benutzte 3G Gerät wurde entfernt. Jetzt\n"
+#~ "schaltet %s\n"
+#~ "ab. Um weiterzufahren,\n"
+#~ "stecken Sie das 3G Gerät ein und starten erneut."
+
+#~ msgid "3G Device added"
+#~ msgstr "3G Gerät hinzugefügt"
+
+#~ msgid ""
+#~ "\n"
+#~ "A new 3G device (%(device_name)s)\n"
+#~ "has been added, in around 15 seconds\n"
+#~ "(%(app_name)s) will resume its functioning"
+#~ msgstr ""
+#~ "\n"
+#~ "Ein neues 3G Gerät (%(device_name)s)\n"
+#~ "wurde hinzugefügt, in ca. 15 Sekunden\n"
+#~ "wird (%(app_name)s) seinen Betrieb aufnehmen"
+
+#~ msgid "Setting up device..."
+#~ msgstr "Einrichten des Gerätes..."
+
+#~ msgid "The following characters are not allowed in a profile name: %s"
+#~ msgstr "Die folgenden Zeichen sind in einem Profil-Namen nicht erlaubt: %s"
+
+#~ msgid "Invalid value in profile"
+#~ msgstr "Ungültiger Wert im Profil"
+
+#~ msgid ""
+#~ "\n"
+#~ "An unknown error occur when setting up the device:\n"
+#~ "%s"
+#~ msgstr ""
+#~ "\n"
+#~ "Ein unbekannter Fehler trat beim Einrichten des Gerätes auf:\n"
+#~ "%s"
+
+#~ msgid "Authentication Error from %s !"
+#~ msgstr "Authentifizierungsfehler von %s !"
+
+#~ msgid "Connecting to %s ..."
+#~ msgstr "Verbinden mit %s ..."
+
+#~ msgid "Discovery started..."
+#~ msgstr "Ermittlung gestartet..."
+
+#~ msgid "Discovery finished!"
+#~ msgstr "Ermittlung beendet!"
+
+#~ msgid "No control port"
+#~ msgstr "Kein Control Port"
+
+#~ msgid "Connecting to device..."
+#~ msgstr "Mit Gerät verbinden..."
+
+#~ msgid "Exception received connecting to %s"
+#~ msgstr "Ausnahmebedingung erhalten während der Verbindung zu %s"
+
+#~ msgid ""
+#~ "\n"
+#~ "The following error was received while trying to establish a connection:\n"
+#~ "%s"
+#~ msgstr ""
+#~ "\n"
+#~ "Die folgende Fehlermeldung wurde während des Verbindungsaufbaus "
+#~ "empfangen:\n"
+#~ "%s"
+
+#~ msgid "Overwrite"
+#~ msgstr "Überschreibe"
+
+#~ msgid "Vodafone Spain S.A."
+#~ msgstr "Vodafone Spain S.A."
+
+#~ msgid "translated to $LANG by $translater"
+#~ msgstr "Übersetzt nach $LANG von $translater"
+
+#~ msgid "Default"
+#~ msgstr "Grundeinstellung"
+
+#~ msgid "WVDial directive error"
+#~ msgstr "Fehler: WVDial Anweisung"
+
+#~ msgid ""
+#~ "\n"
+#~ "Since version 0.9.7 %s manages pppd's /etc/ppp/{p,ch}ap-secrets, the\n"
+#~ "'plugin passwordfd.so' directive should not appear on the\n"
+#~ "current wvdial profile, please remove it manually. Go to\n"
+#~ "Tools -> Preferences, select the wvdial profiles tab, and\n"
+#~ "remove from the current wvdial profile the\n"
+#~ "'plugin passwordfd.so' line."
+#~ msgstr ""
+#~ "\n"
+#~ "Ab Version 0.9.7, %s verwaltet pppd's /etc/ppp/{p,ch}ap-secrets. Die\n"
+#~ "'Plugin Passwordfd.so' Anweisung sollte daher nicht in dem\n"
+#~ "aktuellen wvdial Profil erscheinen. Bitte entfernen Sie sie manuell. "
+#~ "Gehen Sie dazu zu\n"
+#~ "Werkzeuge -> Präferenzen, wählen Sie den wvdial Profile Reiter, und\n"
+#~ "entfernen Sie vom aktuellen wvdial Profil die Zeile\n"
+#~ "'plugin passwordfd.so'."
+
+#~ msgid "GPRS only"
+#~ msgstr "ausschließlich GPRS"
+
+#~ msgid "GPRS preferred"
+#~ msgstr "GPRS bevorzugt"
+
+#~ msgid "Shutting down..."
+#~ msgstr "Fährt runter..."
+
+#~ msgid "Missing dependencies"
+#~ msgstr "Fehlende Bedingungen"
+
+#~ msgid ""
+#~ "The following dependencies are not satisfied:\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Die folgenden Bedingungens sind nicht erfüllt:\n"
+#~ "%s"
+
+#~ msgid "OS/Distro not registered"
+#~ msgstr "Distribution des Betriebssystens nicht registriert"
+
+#~ msgid "Permissions problems"
+#~ msgstr "Zulassungsprobleme"
 
 #~ msgid "PIN1..."
 #~ msgstr "PIN1..."

@@ -6,7 +6,6 @@ build: build-stamp
 build-stamp:
 	dh_testdir
 	python setup.py build
-	make -C resources/po mo
 	touch build-stamp
 
 clean:
@@ -15,7 +14,6 @@ clean:
 	rm -f build-stamp
 	rm -rf build
 	-find . -name '*.py[co]' | xargs rm -f
-	make -C resources/po clean
 	dh_clean
 
 install: build
@@ -25,7 +23,7 @@ install: build
 	dh_installdirs
 	python setup.py install --root $(CURDIR)/debian/bcm
 	DH_PYCENTRAL=nomove dh_pycentral
-	dh_install resources/po/locale usr/share
+	dh_install build/locale usr/share
 	dh_install
 
 # Build architecture-independent files here.

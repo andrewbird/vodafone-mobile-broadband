@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-20 15:42+0100\n"
+"POT-Creation-Date: 2010-05-20 21:24+0100\n"
 "PO-Revision-Date: 2007-08-09 09:44+0200\n"
 "Last-Translator: Øystein Gulliksen <oystein@gulliksen.org>\n"
 "Language-Team: Norwegian <nb@li.org>\n"
@@ -16,363 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-
-#: ../glade/VMC-reduced.glade:46 ../glade/VMC.glade:20
-#: ../glade/helpbrowser.glade:21
-msgid "_File"
-msgstr "_Fil"
-
-#: ../glade/VMC-reduced.glade:55 ../glade/VMC.glade:27
-#: ../../wader/bcm/views/application.py:328
-#: ../../wader/bcm/controllers/application.py:1074
-msgid "Connect"
-msgstr "Koble til"
-
-#: ../glade/VMC-reduced.glade:64 ../glade/VMC.glade:34
-#: ../glade/contacts.glade:301
-msgid "Mobile"
-msgstr "Mobil"
-
-#: ../glade/VMC-reduced.glade:83 ../glade/VMC.glade:51
-msgid "Import contacts..."
-msgstr "Importere kontakter..."
-
-#: ../glade/VMC-reduced.glade:92 ../glade/VMC.glade:59
-msgid "Export contacts..."
-msgstr "Eksportere kontakter..."
-
-#: ../glade/VMC-reduced.glade:120 ../glade/VMC.glade:85
-msgid "_View"
-msgstr "_Vis"
-
-#: ../glade/VMC-reduced.glade:130 ../glade/VMC.glade:93
-msgid "SMS"
-msgstr "SMS"
-
-#: ../glade/VMC-reduced.glade:146 ../glade/VMC.glade:107
-#: ../glade/preferences.glade:590
-msgid "Usage"
-msgstr "Bruk"
-
-#: ../glade/VMC-reduced.glade:162 ../glade/VMC.glade:121
-msgid "Support"
-msgstr "Support"
-
-#: ../glade/VMC-reduced.glade:187 ../glade/VMC.glade:140
-msgid "_Tools"
-msgstr "_Verktøy"
-
-#: ../glade/VMC-reduced.glade:197 ../glade/VMC.glade:148
-msgid "Change PIN"
-msgstr "Endre PIN"
-
-#: ../glade/VMC-reduced.glade:206 ../glade/VMC.glade:156
-msgid "Request PIN"
-msgstr "Spør om PIN"
-
-#: ../glade/VMC-reduced.glade:222 ../glade/VMC.glade:170
-#: ../glade/sms-preferences.glade:7
-msgid "SMS preferences"
-msgstr "SMS innstillinger"
-
-#: ../glade/VMC-reduced.glade:243 ../glade/VMC.glade:189
-#: ../glade/diagnostics.glade:7
-msgid "Diagnostics"
-msgstr "Diagnose"
-
-#: ../glade/VMC-reduced.glade:269 ../glade/VMC.glade:210
-msgid "Profiles"
-msgstr "Profiler"
-
-#: ../glade/VMC-reduced.glade:309 ../glade/VMC.glade:243
-msgid "Inspect"
-msgstr "Inspisere"
-
-#: ../glade/VMC-reduced.glade:334 ../glade/VMC.glade:263
-msgid "_Help"
-msgstr "_Hjelp"
-
-#: ../glade/VMC-reduced.glade:353 ../glade/VMC.glade:281
-msgid "_About"
-msgstr "_Om"
-
-#: ../glade/VMC-reduced.glade:401 ../glade/VMC.glade:313
-#, fuzzy
-msgid "Connect Button"
-msgstr "Tilkobling"
-
-#: ../glade/VMC-reduced.glade:435 ../glade/VMC.glade:337
-msgid "SMS Toggle Button"
-msgstr ""
-
-#: ../glade/VMC-reduced.glade:456 ../glade/VMC.glade:353
-msgid "Usage Toggle Button"
-msgstr ""
-
-#: ../glade/VMC-reduced.glade:477 ../glade/VMC.glade:368
-msgid "Support Toggle Button"
-msgstr ""
-
-#: ../glade/VMC-reduced.glade:567 ../glade/VMC-reduced.glade:734
-#: ../glade/VMC.glade:429 ../glade/VMC.glade:557
-msgid "Contacts menu"
-msgstr "Kontakt meny"
-
-#: ../glade/VMC-reduced.glade:568 ../glade/VMC-reduced.glade:756
-#: ../glade/VMC.glade:430 ../glade/VMC.glade:566
-msgid "_New"
-msgstr "_Ny"
-
-#: ../glade/VMC-reduced.glade:589 ../glade/VMC.glade:437
-msgid "Create new sms"
-msgstr "Lag ny sms"
-
-#: ../glade/VMC-reduced.glade:590 ../glade/VMC.glade:438
-msgid "_SMS"
-msgstr "_SMS"
-
-#: ../glade/VMC-reduced.glade:607 ../glade/VMC.glade:453
-msgid "_Contact"
-msgstr "_Kontakt"
-
-#: ../glade/VMC-reduced.glade:637 ../glade/VMC.glade:483
-msgid "Reply message"
-msgstr "Svar på melding"
-
-#: ../glade/VMC-reduced.glade:638 ../glade/VMC.glade:484
-msgid "_Reply"
-msgstr "_Svar"
-
-#: ../glade/VMC-reduced.glade:658 ../glade/VMC.glade:491
-msgid "Reply without quoting original text"
-msgstr "Svar uten original tekst"
-
-#: ../glade/VMC-reduced.glade:659 ../glade/VMC.glade:492
-msgid "Send new"
-msgstr "Send ny"
-
-#: ../glade/VMC-reduced.glade:668 ../glade/VMC.glade:500
-msgid "Reply quoting original message"
-msgstr "Svar uten original tekst"
-
-#: ../glade/VMC-reduced.glade:669 ../glade/VMC.glade:501
-msgid "Reply quoting"
-msgstr "Svar melding"
-
-#: ../glade/VMC-reduced.glade:682 ../glade/VMC.glade:519
-msgid "Forward sms to another contact"
-msgstr "Videresend sms til annen kontakt"
-
-#: ../glade/VMC-reduced.glade:683 ../glade/VMC.glade:520
-msgid "_Forward"
-msgstr "_Videresend"
-
-#: ../glade/VMC-reduced.glade:703 ../glade/VMC-reduced.glade:808
-#: ../glade/VMC.glade:534 ../glade/VMC.glade:611
-#: ../../wader/bcm/controllers/application.py:1132
-msgid "_Delete"
-msgstr "_Slett"
-
-#: ../glade/VMC-reduced.glade:735 ../glade/VMC.glade:558
-msgid "_Contacts"
-msgstr "_Kontakter"
-
-#: ../glade/VMC-reduced.glade:755 ../glade/VMC.glade:565
-#: ../glade/contacts.glade:159
-msgid "Add a contact"
-msgstr "Legg til kontakt"
-
-#: ../glade/VMC-reduced.glade:776 ../glade/VMC.glade:580
-msgid "Search contacts"
-msgstr "Søk kontakter"
-
-#: ../glade/VMC-reduced.glade:777 ../glade/VMC.glade:581
-msgid "_Search"
-msgstr "_Søk"
-
-#: ../glade/VMC-reduced.glade:880 ../glade/VMC.glade:658
-msgid "Inbox"
-msgstr "Innboks"
-
-#: ../glade/VMC-reduced.glade:934 ../glade/VMC.glade:688
-msgid "Draft"
-msgstr "Kladd"
-
-#: ../glade/VMC-reduced.glade:988 ../glade/VMC.glade:718
-msgid "Sent"
-msgstr "Sendt"
-
-#: ../glade/VMC-reduced.glade:1041 ../glade/VMC.glade:747
-#: ../glade/sms.glade:34
-msgid "Contacts"
-msgstr "Kontakter"
-
-#: ../glade/VMC-reduced.glade:1198 ../glade/VMC-reduced.glade:1898
-#: ../glade/VMC.glade:854 ../glade/VMC.glade:1268
-#, fuzzy
-msgid "<b>Month</b>"
-msgstr "<b>Datamaskin</b>"
-
-#: ../glade/VMC-reduced.glade:1223 ../glade/VMC-reduced.glade:1923
-#: ../glade/VMC.glade:844 ../glade/VMC.glade:1258
-#, fuzzy
-msgid "month_label"
-msgstr "label"
-
-#: ../glade/VMC-reduced.glade:1283 ../glade/VMC-reduced.glade:1311
-#: ../glade/VMC-reduced.glade:1395 ../glade/VMC-reduced.glade:1511
-#: ../glade/VMC-reduced.glade:1539 ../glade/VMC-reduced.glade:1649
-#: ../glade/VMC-reduced.glade:1983 ../glade/VMC-reduced.glade:2011
-#: ../glade/VMC-reduced.glade:2121 ../glade/VMC.glade:897
-#: ../glade/VMC.glade:914 ../glade/VMC.glade:970 ../glade/VMC.glade:1025
-#: ../glade/VMC.glade:1042 ../glade/VMC.glade:1098 ../glade/VMC.glade:1311
-#: ../glade/VMC.glade:1328 ../glade/VMC.glade:1384 ../glade/pin.glade:595
-msgid "label"
-msgstr "label"
-
-#: ../glade/VMC-reduced.glade:1339 ../glade/VMC-reduced.glade:1567
-#: ../glade/VMC-reduced.glade:2039 ../glade/VMC.glade:929
-#: ../glade/VMC.glade:1057 ../glade/VMC.glade:1343
-msgid "3G:"
-msgstr ""
-
-#: ../glade/VMC-reduced.glade:1367 ../glade/VMC-reduced.glade:1595
-#: ../glade/VMC-reduced.glade:2067 ../glade/VMC.glade:944
-#: ../glade/VMC.glade:1072 ../glade/VMC.glade:1358
-msgid "GPRS:"
-msgstr ""
-
-#: ../glade/VMC-reduced.glade:1422 ../glade/VMC-reduced.glade:1623
-#: ../glade/VMC.glade:1085
-msgid "Total:"
-msgstr ""
-
-#: ../glade/VMC-reduced.glade:1453 ../glade/VMC-reduced.glade:2151
-#: ../glade/VMC.glade:988 ../glade/VMC.glade:1402
-#, fuzzy
-msgid "<b>Transferred Data</b>"
-msgstr "<b>Overført</b>"
-
-#: ../glade/VMC-reduced.glade:1679 ../glade/VMC.glade:1116
-#, fuzzy
-msgid "<b>Current session</b>"
-msgstr "<b>SMSC innstillinger</b>"
-
-#: ../glade/VMC-reduced.glade:1739 ../glade/VMC-reduced.glade:2211
-#: ../glade/VMC.glade:1156 ../glade/VMC.glade:1441
-#: ../../wader/bcm/consts.py:101
-#: ../../wader/bcm/controllers/application.py:1295
-#: ../../wader/bcm/controllers/application.py:1329
-#, fuzzy
-msgid "GPRS"
-msgstr "Kun GPRS"
-
-#: ../glade/VMC-reduced.glade:1764 ../glade/VMC-reduced.glade:2236
-#: ../glade/VMC.glade:1163 ../glade/VMC.glade:1448
-#: ../../wader/bcm/controllers/application.py:1331
-msgid "3G"
-msgstr ""
-
-#: ../glade/VMC-reduced.glade:1837 ../glade/VMC.glade:1215
-#, fuzzy
-msgid "Current month"
-msgstr "Gjeldende måned"
-
-#: ../glade/VMC-reduced.glade:2095 ../glade/VMC.glade:957
-#: ../glade/VMC.glade:1371
-msgid "<b>Total:</b>"
-msgstr "<b>Tittel:</b>"
-
-#: ../glade/VMC-reduced.glade:2309 ../glade/VMC.glade:1503
-#, fuzzy
-msgid "Last month"
-msgstr "Sist måned"
-
-#: ../glade/VMC-reduced.glade:2334
-msgid "<b>Usage</b> - Remember that this information is only orientative."
-msgstr ""
-
-#: ../glade/VMC-reduced.glade:2397 ../glade/VMC.glade:1546
-msgid ""
-"In most cases you can find the answer to your questions about the program in "
-"the help menu.\n"
-"This menu can be accesed if you click on the \"Help\" label on the menu bar "
-"located in the top side of the window, and selecting the \"Help topics\" "
-"option.\n"
-"\n"
-"You can also find help, updates and tips in Vodafone Mobile Connect's web:\n"
-"https://forge.betavine.net/projects/vodafonemobilec.\n"
-"\n"
-"If you use the mail and browser buttons to access other programs in your "
-"system, you might need to ask your Systems Administrator any doubt that you "
-"might have."
-msgstr ""
-"I de fleste tilfeller kan du finne svaret på dine spørsmål om programmet i "
-"hjelpe menyen Denne menyen kan du finne dersom du trykker på \"Hjelp\" "
-"knappen på menylinjen øverst til høyre og velger \"Hjelpe sider\" Du kan "
-"også finne hjelp, oppdateringer og tips på Vodafone Mobile Connect's web: "
-"https://forge.betavine.net/projects/vodafonemobilec Dersom du bruker epost "
-"og nettleser knappene for å åpne programmer i ditt system, bør du kanskje "
-"snakke med din System Administrator dersom du er i tvil"
-
-#: ../glade/VMC-reduced.glade:2416 ../glade/VMC.glade:1560
-msgid "Help menu"
-msgstr "Hjelpe meny"
-
-#: ../glade/VMC-reduced.glade:2480 ../glade/VMC.glade:1585
-msgid ""
-"If you are using this program in a corporate environment, your company\n"
-"probably has a support center to solve the questions that you might have\n"
-"about the program.\n"
-"\n"
-"If your company does not have a support center, you will have to contact\n"
-"your company's System Administrator."
-msgstr ""
-"Dersom du bruker dette programmet i din bedrift, så har sikkert din\n"
-"bedrift et eget support senter, som kan svare på spørsmål du har om\n"
-"programmet\n"
-"\n"
-"Dersom din bedrift ikke har noe support senter, så må du ta kontakt med\n"
-"din bedrifts System Administrator"
-
-#: ../glade/VMC-reduced.glade:2502 ../glade/VMC.glade:1605
-msgid "Support center"
-msgstr "Support senter"
-
-#: ../glade/VMC-reduced.glade:2547 ../glade/VMC.glade:1622
-msgid ""
-"You can easily find answers to the most common questions in the\n"
-"help menu, in your company's support center and in the support\n"
-"area at https://forge.betavine.net/projects/vodafonemobilec .\n"
-"\n"
-"If you still have difficulties you can call to Vodafone's Customer Support "
-"Center,\n"
-"the numbers are:\n"
-"\n"
-"123, if you are using Vodafone's network, or\n"
-"\n"
-"+34 607 123 00 if you are calling from other network."
-msgstr ""
-"Du kan lett finne svar på de vanligste spørsmålene i hjelpe menyen\n"
-"hos ditt support senter eller i support område på:\n"
-"https://forge.betavine.net/projects/vodafonemobilec .\n"
-"Dersom du fremdeles har problemer, kan du ringe Vodafone's Kunde Support "
-"Senter på:\n"
-"123, hvis du bruker Vodafone's nettverk, eller\n"
-"\n"
-"+34 607 123 00 dersom du ringer fra et annet nettverk. "
-
-#: ../glade/VMC-reduced.glade:2569 ../glade/VMC.glade:1642
-msgid "Customer support"
-msgstr "Kunde support"
-
-#: ../glade/VMC.glade:1200 ../glade/VMC.glade:1485
-msgid "Remember that this information is only orientative."
-msgstr ""
-
-#: ../glade/VMC.glade:1517
-msgid "<b>Usage</b>"
-msgstr "<b>Bruk</b>"
 
 #: ../glade/apnsel.glade:8
 #, fuzzy
@@ -391,14 +34,14 @@ msgid ""
 "to set up a custom one.\n"
 msgstr ""
 
-#: ../glade/apnsel.glade:193 ../glade/config2.glade:1333
-#: ../glade/pin.glade:223
+#: ../glade/apnsel.glade:193 ../glade/pin.glade:222
+#: ../glade/profiles.glade:1334
 #, fuzzy
 msgid "Cancel"
 msgstr "gtk-cancel"
 
-#: ../glade/apnsel.glade:208 ../glade/config2.glade:1348
-#: ../glade/pin.glade:240
+#: ../glade/apnsel.glade:208 ../glade/pin.glade:239
+#: ../glade/profiles.glade:1349
 msgid "OK"
 msgstr "OK"
 
@@ -406,6 +49,181 @@ msgstr "OK"
 #, fuzzy
 msgid "<b>APN Settings</b>"
 msgstr "<b>Bruker valg</b>"
+
+#: ../glade/bcm.glade:21 ../glade/helpbrowser.glade:21
+msgid "_File"
+msgstr "_Fil"
+
+#: ../glade/bcm.glade:28
+msgid "Import contacts..."
+msgstr "Importere kontakter..."
+
+#: ../glade/bcm.glade:36
+msgid "Export contacts..."
+msgstr "Eksportere kontakter..."
+
+#: ../glade/bcm.glade:62
+msgid "_View"
+msgstr "_Vis"
+
+#: ../glade/bcm.glade:83 ../glade/bcm.glade:299 ../glade/preferences.glade:781
+msgid "Usage"
+msgstr "Bruk"
+
+#: ../glade/bcm.glade:121
+msgid "_Tools"
+msgstr "_Verktøy"
+
+#: ../glade/bcm.glade:129
+msgid "Change PIN"
+msgstr "Endre PIN"
+
+#: ../glade/bcm.glade:137
+msgid "Request PIN"
+msgstr "Spør om PIN"
+
+#: ../glade/bcm.glade:210
+msgid "_Help"
+msgstr "_Hjelp"
+
+#: ../glade/bcm.glade:263
+#, fuzzy
+msgid "Connect Button"
+msgstr "Tilkobling"
+
+#: ../glade/bcm.glade:337
+msgid "Support"
+msgstr "Support"
+
+#: ../glade/bcm.glade:372
+#, fuzzy
+msgid "Create new SMS"
+msgstr "Lag ny sms"
+
+#: ../glade/bcm.glade:389
+msgid "Reply message"
+msgstr "Svar på melding"
+
+#: ../glade/bcm.glade:398
+msgid "Reply without quoting original text"
+msgstr "Svar uten original tekst"
+
+#: ../glade/bcm.glade:399
+msgid "Send new"
+msgstr "Send ny"
+
+#: ../glade/bcm.glade:407
+msgid "Reply quoting original message"
+msgstr "Svar uten original tekst"
+
+#: ../glade/bcm.glade:408
+msgid "Reply quoting"
+msgstr "Svar melding"
+
+#: ../glade/bcm.glade:427
+msgid "Forward sms to another contact"
+msgstr "Videresend sms til annen kontakt"
+
+#: ../glade/bcm.glade:469
+msgid "Contacts menu"
+msgstr "Kontakt meny"
+
+#: ../glade/bcm.glade:487 ../glade/contacts.glade:158
+msgid "Add a contact"
+msgstr "Legg til kontakt"
+
+#: ../glade/bcm.glade:506
+msgid "Search contacts"
+msgstr "Søk kontakter"
+
+#: ../glade/bcm.glade:585
+msgid "Inbox"
+msgstr "Innboks"
+
+#: ../glade/bcm.glade:615
+msgid "Draft"
+msgstr "Kladd"
+
+#: ../glade/bcm.glade:645
+msgid "Sent"
+msgstr "Sendt"
+
+#: ../glade/bcm.glade:674 ../glade/sms.glade:34
+msgid "Contacts"
+msgstr "Kontakter"
+
+#: ../glade/bcm.glade:762 ../glade/bcm.glade:1144
+#, fuzzy
+msgid "<b>Month</b>"
+msgstr "<b>Datamaskin</b>"
+
+#: ../glade/bcm.glade:772 ../glade/bcm.glade:1156
+#, fuzzy
+msgid "month_label"
+msgstr "label"
+
+#: ../glade/bcm.glade:811 ../glade/bcm.glade:827 ../glade/bcm.glade:841
+#: ../glade/bcm.glade:982 ../glade/bcm.glade:997 ../glade/bcm.glade:1012
+#: ../glade/bcm.glade:1193 ../glade/bcm.glade:1209 ../glade/bcm.glade:1223
+#: ../glade/pin.glade:591
+msgid "label"
+msgstr "label"
+
+#: ../glade/bcm.glade:858 ../glade/bcm.glade:968 ../glade/bcm.glade:1253
+msgid "3G:"
+msgstr ""
+
+#: ../glade/bcm.glade:873 ../glade/bcm.glade:942
+msgid "Total:"
+msgstr ""
+
+#: ../glade/bcm.glade:888 ../glade/bcm.glade:955 ../glade/bcm.glade:1267
+msgid "GPRS:"
+msgstr ""
+
+#: ../glade/bcm.glade:904 ../glade/bcm.glade:1283
+#, fuzzy
+msgid "<b>Transferred Data</b>"
+msgstr "<b>Overført</b>"
+
+#: ../glade/bcm.glade:1031
+#, fuzzy
+msgid "<b>Current session</b>"
+msgstr "<b>SMSC innstillinger</b>"
+
+#: ../glade/bcm.glade:1069 ../glade/bcm.glade:1319
+msgid "Total Traffic"
+msgstr ""
+
+#: ../glade/bcm.glade:1112
+#, fuzzy
+msgid "Current month"
+msgstr "Gjeldende måned"
+
+#: ../glade/bcm.glade:1239
+msgid "<b>Total:</b>"
+msgstr "<b>Tittel:</b>"
+
+#: ../glade/bcm.glade:1365
+#, fuzzy
+msgid "Last month"
+msgstr "Sist måned"
+
+#: ../glade/bcm.glade:1379
+msgid "<b>Usage</b> - Remember that this information is only orientative."
+msgstr ""
+
+#: ../glade/bcm.glade:1423
+msgid "Help menu"
+msgstr "Hjelpe meny"
+
+#: ../glade/bcm.glade:1460
+msgid "Support center"
+msgstr "Support senter"
+
+#: ../glade/bcm.glade:1498
+msgid "Customer support"
+msgstr "Kunde support"
 
 #: ../glade/config.glade:8
 #, fuzzy
@@ -481,160 +299,6 @@ msgstr ""
 msgid "Enable software flow control"
 msgstr ""
 
-#: ../glade/config2.glade:9
-#, fuzzy
-msgid "New Profile"
-msgstr "Ny profil"
-
-#: ../glade/config2.glade:23
-#, fuzzy
-msgid "New Profile Window"
-msgstr "Ny profil"
-
-#: ../glade/config2.glade:64
-msgid ""
-"<b>Create a new profile for your device.</b>\n"
-"\n"
-"If you are not sure about what should you fill in, contact your customer "
-"support center and they should provide\n"
-"you with the relevant information."
-msgstr ""
-
-#: ../glade/config2.glade:115
-msgid "<b>Connection preferences</b>"
-msgstr "<b>Tilkoblings innstillinger</b>"
-
-#: ../glade/config2.glade:152
-#, fuzzy
-msgid "Username:"
-msgstr "Brukernavn"
-
-#: ../glade/config2.glade:177
-#, fuzzy
-msgid "Password:"
-msgstr "Passord"
-
-#: ../glade/config2.glade:202
-#, fuzzy
-msgid "Preferred connection:"
-msgstr "Foretrukket tilkobling   "
-
-#: ../glade/config2.glade:227
-#, fuzzy
-msgid "Authentication mode:"
-msgstr "Autentisering ferdig!"
-
-#: ../glade/config2.glade:252
-#, fuzzy
-msgid "APN host:"
-msgstr "APN vert"
-
-#: ../glade/config2.glade:410
-#, fuzzy
-msgid "<b>DNS settings</b>"
-msgstr "<b>Bruker valg</b>"
-
-#: ../glade/config2.glade:448
-#, fuzzy
-msgid "Use static DNS"
-msgstr "Bruk statiske navntjenere"
-
-#: ../glade/config2.glade:481
-#, fuzzy
-msgid "Primary DNS:"
-msgstr "Primær DNS"
-
-#: ../glade/config2.glade:506
-#, fuzzy
-msgid "Secondary DNS:"
-msgstr "Sekundær DNS        "
-
-#: ../glade/config2.glade:645
-#, fuzzy
-msgid "<b>Profile settings</b>"
-msgstr "<b>Meldings valg</b>"
-
-#: ../glade/config2.glade:682
-#, fuzzy
-msgid "Profile name:"
-msgstr "Profiler"
-
-#: ../glade/config2.glade:707
-#, fuzzy
-msgid "Device model:"
-msgstr "3G enhet lagt til"
-
-#: ../glade/config2.glade:782 ../../wader/bcm/controllers/preferences.py:280
-#: ../../wader/bcm/controllers/preferences.py:295
-msgid "Unknown"
-msgstr ""
-
-#: ../glade/config2.glade:859
-msgid "Device selection"
-msgstr ""
-
-#: ../glade/config2.glade:873
-msgid "Device Selection Window"
-msgstr ""
-
-#: ../glade/config2.glade:921
-msgid ""
-"<b>Select a device for your connection.</b>\n"
-"\n"
-"You can choose a known device or insert the needed information to set up a "
-"custom one.\n"
-msgstr ""
-
-#: ../glade/config2.glade:1020
-#, fuzzy
-msgid "Known devices"
-msgstr "Ingen enhet funnet"
-
-#: ../glade/config2.glade:1028
-#, fuzzy
-msgid "Known Devices Radio"
-msgstr "Ingen enhet funnet"
-
-#: ../glade/config2.glade:1079
-msgid "Device type:"
-msgstr ""
-
-#: ../glade/config2.glade:1104
-msgid "Serial"
-msgstr ""
-
-#: ../glade/config2.glade:1181
-msgid "115200"
-msgstr ""
-
-#: ../glade/config2.glade:1197
-msgid "Data port device:"
-msgstr ""
-
-#: ../glade/config2.glade:1225
-msgid "Control port device:"
-msgstr ""
-
-#: ../glade/config2.glade:1253
-#, fuzzy
-msgid "Speed connection:"
-msgstr "Foretrukket tilkobling   "
-
-#: ../glade/config2.glade:1293
-#, fuzzy
-msgid "Custom device settings"
-msgstr "Ingen enhet funnet"
-
-#: ../glade/config2.glade:1302
-#, fuzzy
-msgid "Custom Device Settings Radio"
-msgstr "Ingen enhet funnet"
-
-#: ../glade/config2.glade:1368
-#, fuzzy
-msgid "<b>Device Settings</b>"
-msgstr "<b>Meldings valg</b>"
-
 #: ../glade/contacts.glade:7
 msgid "Contact search"
 msgstr "Kontakt søk"
@@ -644,116 +308,230 @@ msgstr "Kontakt søk"
 msgid " Name:"
 msgstr " Navn : "
 
-#: ../glade/contacts.glade:94
+#: ../glade/contacts.glade:93
 msgid "Contacts List"
 msgstr "Kontakt liste"
 
-#: ../glade/contacts.glade:179
+#: ../glade/contacts.glade:178
 #, fuzzy
 msgid "Name:"
 msgstr "Navn"
 
-#: ../glade/contacts.glade:222
+#: ../glade/contacts.glade:221
 #, fuzzy
 msgid "Number:"
 msgstr "Nummer"
 
-#: ../glade/contacts.glade:258
+#: ../glade/contacts.glade:257
 #, fuzzy
 msgid "<b>Save in:</b>"
 msgstr "<b>Navn: </b>"
 
-#: ../glade/contacts.glade:341
+#: ../glade/contacts.glade:300 ../../wader/bcm/contacts/contact_sim.py:152
+msgid "Mobile"
+msgstr "Mobil"
+
+#: ../glade/contacts.glade:340
 msgid "Computer"
 msgstr "Datamaskin"
 
-#: ../glade/diagnostics.glade:33
-msgid "<b>GSM device</b>"
-msgstr "<b>GSM enhet</b>"
+#: ../glade/diagnostics.glade:7 ../glade/diagnostics2.glade:7
+msgid "Diagnostics"
+msgstr "Diagnose"
 
-#: ../glade/diagnostics.glade:51
+#: ../glade/diagnostics.glade:43
+#, fuzzy
+msgid "<b>Datacard details</b>"
+msgstr "<b>En detaljert melding</b>"
+
+#: ../glade/diagnostics.glade:81 ../glade/diagnostics2.glade:85
+msgid "Manufacturer:"
+msgstr ""
+
+#: ../glade/diagnostics.glade:92 ../glade/diagnostics2.glade:96
 #, fuzzy
 msgid "Model:"
 msgstr "Modell:"
 
-#: ../glade/diagnostics.glade:59
+#: ../glade/diagnostics.glade:103 ../glade/diagnostics2.glade:107
 #, fuzzy
 msgid "Firmware: "
 msgstr "Firmware :"
 
-#: ../glade/diagnostics.glade:70
+#: ../glade/diagnostics.glade:114 ../glade/diagnostics2.glade:118
 #, fuzzy
 msgid "IMEI: "
 msgstr "IMEI :"
 
-#: ../glade/diagnostics.glade:81
-#, fuzzy
-msgid "IMSI: "
-msgstr "IMSI:"
+#: ../glade/diagnostics.glade:138 ../glade/diagnostics2.glade:141
+msgid "Card manufacturer"
+msgstr ""
 
-#: ../glade/diagnostics.glade:92
-#, fuzzy
-msgid "BCM number:"
-msgstr "BCM nummer :"
-
-#: ../glade/diagnostics.glade:115
+#: ../glade/diagnostics.glade:149 ../glade/diagnostics2.glade:152
 msgid "Card model"
 msgstr "Kortmodell"
 
-#: ../glade/diagnostics.glade:123
+#: ../glade/diagnostics.glade:160 ../glade/diagnostics2.glade:163
 msgid "Firmware"
 msgstr "Firmware"
 
-#: ../glade/diagnostics.glade:135
+#: ../glade/diagnostics.glade:172 ../glade/diagnostics2.glade:175
 msgid "IMEI"
 msgstr "IMEI"
 
-#: ../glade/diagnostics.glade:146
+#: ../glade/diagnostics.glade:196
+#, fuzzy
+msgid "Modem"
+msgstr "Modell:"
+
+#: ../glade/diagnostics.glade:227
+msgid "<b>Network details from SIM</b>"
+msgstr ""
+
+#: ../glade/diagnostics.glade:265 ../glade/diagnostics2.glade:257
+#, fuzzy
+msgid "IMSI:"
+msgstr "IMSI:"
+
+#: ../glade/diagnostics.glade:276
+#, fuzzy
+msgid "Network:"
+msgstr "Nettverk"
+
+#: ../glade/diagnostics.glade:287
+#, fuzzy
+msgid "Country:"
+msgstr "Datamaskin"
+
+#: ../glade/diagnostics.glade:298
+#, fuzzy
+msgid "Mobile Number:"
+msgstr "Nummer"
+
+#: ../glade/diagnostics.glade:321 ../glade/diagnostics2.glade:279
 msgid "IMSI"
 msgstr "IMSI"
 
-#: ../glade/diagnostics.glade:157
-msgid "Not supported"
-msgstr "Ikke støttet"
+#: ../glade/diagnostics.glade:331 ../glade/diagnostics.glade:342
+#: ../glade/diagnostics.glade:352 ../glade/payt.glade:125
+#: ../glade/payt.glade:135 ../glade/payt.glade:145
+#: ../../wader/bcm/models/main.py:78 ../../wader/bcm/models/main.py:293
+#: ../../wader/bcm/views/payt_view.py:58 ../../wader/bcm/views/payt_view.py:70
+#: ../../wader/bcm/controllers/preferences.py:78
+#: ../../wader/bcm/controllers/preferences.py:433
+#: ../../wader/bcm/controllers/preferences.py:448
+msgid "Unknown"
+msgstr ""
 
-#: ../glade/diagnostics.glade:188
-msgid "<b>Computer</b>"
-msgstr "<b>Datamaskin</b>"
+#: ../glade/diagnostics.glade:377
+#, fuzzy
+msgid "SIM"
+msgstr "SMS"
 
-#: ../glade/diagnostics.glade:208
+#: ../glade/diagnostics.glade:409
+#, fuzzy
+msgid "<b>Device information</b>"
+msgstr "<b>Meldings valg</b>"
+
+#: ../glade/diagnostics.glade:446 ../glade/diagnostics2.glade:442
 #, fuzzy
 msgid "Operating System:"
 msgstr "Operativ System :"
 
-#: ../glade/diagnostics.glade:216
+#: ../glade/diagnostics.glade:457 ../glade/diagnostics2.glade:453
 #, fuzzy
 msgid "Version:"
 msgstr "Versjon :"
 
-#: ../glade/diagnostics.glade:227
+#: ../glade/diagnostics.glade:468 ../glade/diagnostics2.glade:464
 #, fuzzy
 msgid "Uptime:"
 msgstr "Oppetid :"
 
-#: ../glade/diagnostics.glade:248
+#: ../glade/diagnostics.glade:491 ../glade/diagnostics2.glade:487
 msgid "label26"
 msgstr "larbel26"
 
-#: ../glade/diagnostics.glade:256
+#: ../glade/diagnostics.glade:501 ../glade/diagnostics2.glade:498
 msgid "label27"
 msgstr "label27"
 
-#: ../glade/diagnostics.glade:267
+#: ../glade/diagnostics.glade:511 ../glade/diagnostics2.glade:509
 msgid "label28"
 msgstr "label28"
 
+#: ../glade/diagnostics.glade:537
+#, fuzzy
+msgid "Device"
+msgstr "Ingen enhet funnet"
+
+#: ../glade/diagnostics.glade:565
+#, fuzzy
+msgid "<b>Betavine Connection Manager</b>"
+msgstr "<b>Tilkoblings innstillinger</b>"
+
+#: ../glade/diagnostics.glade:602 ../glade/diagnostics2.glade:339
+#, fuzzy
+msgid "Software Version:"
+msgstr "Versjon :"
+
+#: ../glade/diagnostics.glade:624 ../glade/diagnostics2.glade:360
+msgid "Not supported"
+msgstr "Ikke støttet"
+
+#: ../glade/diagnostics.glade:652
+msgid "Modem Manager"
+msgstr ""
+
+#: ../glade/diagnostics.glade:668
+#, fuzzy
+msgid "<b>USSD Test Message Diagnostics</b>"
+msgstr "<b>Meldings valg</b>"
+
+#: ../glade/diagnostics.glade:697
+msgid "Add your USSD string:"
+msgstr ""
+
+#: ../glade/diagnostics.glade:745
+#, fuzzy
+msgid "USSD reply message:"
+msgstr "Svar på melding"
+
+#: ../glade/diagnostics.glade:789
+#, fuzzy
+msgid "Send"
+msgstr "Avsender"
+
+#: ../glade/diagnostics.glade:822
+msgid "USSD"
+msgstr ""
+
+#: ../glade/diagnostics2.glade:37
+#, fuzzy
+msgid "<b>Modem</b>"
+msgstr "<b>Datamaskin</b>"
+
+#: ../glade/diagnostics2.glade:209
+#, fuzzy
+msgid "<b>SIM</b>"
+msgstr "<b>Datamaskin</b>"
+
+#: ../glade/diagnostics2.glade:310
+#, fuzzy
+msgid "<b>Mobile Connect</b>"
+msgstr "<b>Datamaskin</b>"
+
+#: ../glade/diagnostics2.glade:394
+msgid "<b>Computer</b>"
+msgstr "<b>Datamaskin</b>"
+
 #: ../glade/dialogs.glade:38 ../glade/dialogs.glade:239
-#: ../glade/dialogs.glade:450
+#: ../glade/dialogs.glade:451
 msgid "<big><b>Big title!</b></big>"
 msgstr "<big><b>Stor tittel!</b></big>"
 
 #: ../glade/dialogs.glade:51 ../glade/dialogs.glade:252
-#: ../glade/dialogs.glade:347 ../glade/dialogs.glade:463
+#: ../glade/dialogs.glade:348 ../glade/dialogs.glade:464
 msgid "A detailed message"
 msgstr "En detaljert melding"
 
@@ -769,13 +547,106 @@ msgstr "Detaljert melding"
 msgid "Action"
 msgstr "Action"
 
-#: ../glade/dialogs.glade:325
+#: ../glade/dialogs.glade:326
 msgid "<b>title</b>"
 msgstr "<b>tittel</b>"
 
-#: ../glade/dialogs.glade:362
+#: ../glade/dialogs.glade:363
 msgid "Remember my choice"
 msgstr "Husk mitt valg"
+
+#: ../glade/keyring.glade:35
+msgid "<span size='large' weight='bold'>Creating a new keyring</span>"
+msgstr ""
+
+#: ../glade/keyring.glade:48
+msgid ""
+"Please, insert a code to encrypt your sensible\n"
+"information."
+msgstr ""
+
+#: ../glade/keyring.glade:81 ../glade/keyring.glade:191
+#: ../glade/profiles.glade:177
+#, fuzzy
+msgid "Password:"
+msgstr "Passord"
+
+#: ../glade/keyring.glade:100
+#, fuzzy
+msgid "Confirm password:"
+msgstr "Bekreft PIN kode: "
+
+#: ../glade/keyring.glade:131
+msgid "Unlock Keyring"
+msgstr ""
+
+#: ../glade/keyring.glade:157
+#, fuzzy
+msgid "Please, enter your keyring password"
+msgstr "Vennligst tast inn din PIN kode :"
+
+#: ../glade/misc.glade:54
+msgid "Wader log"
+msgstr ""
+
+#: ../glade/misc.glade:67 ../glade/preferences.glade:473
+msgid "\n"
+msgstr ""
+
+#: ../glade/payt.glade:6
+msgid "Topup Credit"
+msgstr ""
+
+#: ../glade/payt.glade:44
+#, fuzzy
+msgid "<b>SIM Details</b>"
+msgstr "<b>Bruker valg</b>"
+
+#: ../glade/payt.glade:83
+#, fuzzy
+msgid "<b>Number</b>"
+msgstr "<b>Nummer: </b>"
+
+#: ../glade/payt.glade:94
+#, fuzzy
+msgid "<b>Date</b>"
+msgstr "<b>Bruk</b>"
+
+#: ../glade/payt.glade:105
+#, fuzzy
+msgid "<b>Credit</b>"
+msgstr "<b>tittel</b>"
+
+#: ../glade/payt.glade:167
+msgid "Recheck my credit:"
+msgstr ""
+
+#: ../glade/payt.glade:182
+msgid "Check Credit"
+msgstr ""
+
+#: ../glade/payt.glade:237
+#, fuzzy
+msgid "<b>Voucher Code</b>"
+msgstr "<b>Datamaskin</b>"
+
+#: ../glade/payt.glade:267
+msgid "Enter Code:"
+msgstr ""
+
+#: ../glade/payt.glade:289
+#, fuzzy
+msgid "send"
+msgstr "Avsender"
+
+#: ../glade/payt.glade:341
+#, fuzzy
+msgid "<b>Credit Card</b>"
+msgstr "<b>Periode</b>"
+
+#: ../glade/payt.glade:371
+msgid "Pay by credit card"
+msgstr ""
 
 #: ../glade/pin.glade:8
 msgid "Insert your PIN code"
@@ -791,41 +662,41 @@ msgstr "Tast inn din PIN kode"
 msgid "Please insert your PIN code"
 msgstr "Vennligst tast inn din PIN kode :"
 
-#: ../glade/pin.glade:105
+#: ../glade/pin.glade:104
 #, fuzzy
 msgid "Insert PIN Entry"
 msgstr "Tast inn din PIN kode"
 
-#: ../glade/pin.glade:150
+#: ../glade/pin.glade:149
 msgid "Manage my PIN through gnome-keyring"
 msgstr ""
 
-#: ../glade/pin.glade:179
+#: ../glade/pin.glade:178
 #, fuzzy
 msgid "<b>Advanced Options</b>"
 msgstr "<b>Bruker valg</b>"
 
-#: ../glade/pin.glade:258
+#: ../glade/pin.glade:257
 msgid "Modify PIN code"
 msgstr "Rediger PIN kode"
 
-#: ../glade/pin.glade:373 ../glade/pin.glade:763
+#: ../glade/pin.glade:369 ../glade/pin.glade:758
 msgid "Confirm PIN code: "
 msgstr "Bekreft PIN kode: "
 
-#: ../glade/pin.glade:401 ../glade/pin.glade:738
+#: ../glade/pin.glade:397 ../glade/pin.glade:733
 msgid "New PIN code: "
 msgstr "Ny PIN kode: "
 
-#: ../glade/pin.glade:429
+#: ../glade/pin.glade:425
 msgid "Current PIN code: "
 msgstr "Nåværende PIN kode"
 
-#: ../glade/pin.glade:517
+#: ../glade/pin.glade:513
 msgid "Please enter PUK"
 msgstr "Oppgi PUK-koden"
 
-#: ../glade/pin.glade:654
+#: ../glade/pin.glade:650
 #, fuzzy
 msgid "PUK:"
 msgstr "PUK"
@@ -834,110 +705,270 @@ msgstr "PUK"
 msgid "Preferences"
 msgstr "Innstillinger"
 
-#: ../glade/preferences.glade:50
+#: ../glade/preferences.glade:55
+#, fuzzy
+msgid "<b>Change to global SMS settings </b>"
+msgstr "<b>Tilkoblings innstillinger</b>"
+
+#: ../glade/preferences.glade:71
+#, fuzzy
+msgid "Allow SMS confirmation"
+msgstr "Avslutt uten advarsel"
+
+#: ../glade/preferences.glade:75
 msgid ""
-"<b>Change the dialer profile if your provider requires you to authenticate "
-"with PAP/CHAP</b>"
+"Allows SMS confirmation reports. This lets you see when someone has received "
+"your text message."
 msgstr ""
 
-#: ../glade/preferences.glade:67
+#: ../glade/preferences.glade:86
 #, fuzzy
-msgid "Use an alternative dialer profile"
+msgid "Use an alternative SMS Service centre address"
 msgstr "Klarte ikke å slette profil"
 
-#: ../glade/preferences.glade:94 ../glade/sms-preferences.glade:46
+#: ../glade/preferences.glade:90
+msgid ""
+"Lets you configure a different service centre address if you are not a "
+"Vodafone customer or the default one is incorrect."
+msgstr ""
+
+#: ../glade/preferences.glade:118 ../glade/sms-preferences.glade:28
+msgid "<b>SMSC preferences</b>"
+msgstr "<b>SMSC innstillinger</b>"
+
+#: ../glade/preferences.glade:140 ../glade/sms-preferences.glade:46
 #, fuzzy
 msgid "Profile:"
 msgstr "Profiler"
 
-#: ../glade/preferences.glade:127
-#, fuzzy
-msgid "Dialer profile"
-msgstr "Slet profil"
-
-#: ../glade/preferences.glade:145
-msgid "<b>User options</b>"
-msgstr "<b>Bruker valg</b>"
-
-#: ../glade/preferences.glade:167
-msgid "Exit without confirmation"
-msgstr "Avslutt uten advarsel"
-
-#: ../glade/preferences.glade:181
-msgid "Show icon on tray"
-msgstr ""
-
-#: ../glade/preferences.glade:196
-msgid "Close window minimizes app to tray"
-msgstr "Lukk vindu, minimerer applikasjon til panelet"
-
-#: ../glade/preferences.glade:211
-msgid "Manage my PIN through gnomekeyring"
-msgstr ""
-
-#: ../glade/preferences.glade:242
-#, fuzzy
-msgid "User Preferences"
-msgstr "Innstillinger"
-
-#: ../glade/preferences.glade:261
-#, fuzzy
-msgid "<b>Web Browser</b>"
-msgstr "<b>Periode</b>"
-
-#: ../glade/preferences.glade:300
-msgid "\n"
-msgstr ""
-
-#: ../glade/preferences.glade:317 ../glade/preferences.glade:400
-msgid "Command:"
-msgstr ""
-
-#: ../glade/preferences.glade:350
-#, fuzzy
-msgid "<b>Email client</b>"
-msgstr "<b>tittel</b>"
-
-#: ../glade/preferences.glade:446
-#, fuzzy
-msgid "Applications"
-msgstr "Action"
-
-#: ../glade/preferences.glade:465
-#, fuzzy
-msgid "<b>Usage Options</b>"
-msgstr "<b>Bruker valg</b>"
-
-#: ../glade/preferences.glade:491
-#, fuzzy
-msgid "Maximum traffic (MB):"
-msgstr "Makstid"
-
-#: ../glade/preferences.glade:521
-msgid "Notify when a given threshold is exceeded."
-msgstr ""
-
-#: ../glade/preferences.glade:545
-msgid "Notification threshold (MB):"
-msgstr ""
-
-#: ../glade/sms-preferences.glade:28
-msgid "<b>SMSC preferences</b>"
-msgstr "<b>SMSC innstillinger</b>"
-
-#: ../glade/sms-preferences.glade:54
+#: ../glade/preferences.glade:151 ../glade/sms-preferences.glade:54
 #, fuzzy
 msgid "SMSC number:"
 msgstr "SMSC nummer"
 
-#: ../glade/sms-preferences.glade:115
+#: ../glade/preferences.glade:219 ../glade/sms-preferences.glade:115
 msgid "<b>Message options</b>"
 msgstr "<b>Meldings valg</b>"
 
-#: ../glade/sms-preferences.glade:132
+#: ../glade/preferences.glade:240 ../glade/sms-preferences.glade:132
 #, fuzzy
 msgid "Validity:"
 msgstr "Gyldighet"
+
+#: ../glade/preferences.glade:289
+#, fuzzy
+msgid "SMS Profile"
+msgstr "Profiler"
+
+#: ../glade/preferences.glade:308
+msgid "<b>User options</b>"
+msgstr "<b>Bruker valg</b>"
+
+#: ../glade/preferences.glade:329
+msgid "Exit without confirmation"
+msgstr "Avslutt uten advarsel"
+
+#: ../glade/preferences.glade:344
+msgid "Show icon on tray"
+msgstr ""
+
+#: ../glade/preferences.glade:359
+msgid "Close window minimizes app to tray"
+msgstr "Lukk vindu, minimerer applikasjon til panelet"
+
+#: ../glade/preferences.glade:374
+msgid "Manage my PIN through gnomekeyring"
+msgstr ""
+
+#: ../glade/preferences.glade:409
+#, fuzzy
+msgid "User Preferences"
+msgstr "Innstillinger"
+
+#: ../glade/preferences.glade:429
+#, fuzzy
+msgid "<b>Web Browser</b>"
+msgstr "<b>Periode</b>"
+
+#: ../glade/preferences.glade:491 ../glade/preferences.glade:584
+msgid "Command:"
+msgstr ""
+
+#: ../glade/preferences.glade:528
+#, fuzzy
+msgid "<b>Email client</b>"
+msgstr "<b>tittel</b>"
+
+#: ../glade/preferences.glade:631
+#, fuzzy
+msgid "Applications"
+msgstr "Action"
+
+#: ../glade/preferences.glade:651
+#, fuzzy
+msgid "<b>Usage Options</b>"
+msgstr "<b>Bruker valg</b>"
+
+#: ../glade/preferences.glade:679
+#, fuzzy
+msgid "Maximum traffic (MB):"
+msgstr "Makstid"
+
+#: ../glade/preferences.glade:708
+msgid "Notify when a given threshold is exceeded."
+msgstr ""
+
+#: ../glade/preferences.glade:735
+msgid "Notification threshold (MB):"
+msgstr ""
+
+#: ../glade/profiles.glade:9
+#, fuzzy
+msgid "New Profile"
+msgstr "Ny profil"
+
+#: ../glade/profiles.glade:23
+#, fuzzy
+msgid "New Profile Window"
+msgstr "Ny profil"
+
+#: ../glade/profiles.glade:64
+msgid ""
+"<b>Create a new profile for your device.</b>\n"
+"\n"
+"If you are not sure about what should you fill in, contact your customer "
+"support center and they should provide\n"
+"you with the relevant information."
+msgstr ""
+
+#: ../glade/profiles.glade:115
+msgid "<b>Connection preferences</b>"
+msgstr "<b>Tilkoblings innstillinger</b>"
+
+#: ../glade/profiles.glade:152
+#, fuzzy
+msgid "Username:"
+msgstr "Brukernavn"
+
+#: ../glade/profiles.glade:202
+#, fuzzy
+msgid "Authentication method:"
+msgstr "Autentisering ferdig!"
+
+#: ../glade/profiles.glade:227
+#, fuzzy
+msgid "Preferred connection:"
+msgstr "Foretrukket tilkobling   "
+
+#: ../glade/profiles.glade:252
+#, fuzzy
+msgid "Preferred band:"
+msgstr "Foretrukket tilkobling   "
+
+#: ../glade/profiles.glade:277
+#, fuzzy
+msgid "APN host:"
+msgstr "APN vert"
+
+#: ../glade/profiles.glade:447
+#, fuzzy
+msgid "<b>DNS settings</b>"
+msgstr "<b>Bruker valg</b>"
+
+#: ../glade/profiles.glade:485
+#, fuzzy
+msgid "Use static DNS"
+msgstr "Bruk statiske navntjenere"
+
+#: ../glade/profiles.glade:518
+#, fuzzy
+msgid "Primary DNS:"
+msgstr "Primær DNS"
+
+#: ../glade/profiles.glade:543
+#, fuzzy
+msgid "Secondary DNS:"
+msgstr "Sekundær DNS        "
+
+#: ../glade/profiles.glade:715
+#, fuzzy
+msgid "<b>Profile settings</b>"
+msgstr "<b>Meldings valg</b>"
+
+#: ../glade/profiles.glade:752
+#, fuzzy
+msgid "Profile name:"
+msgstr "Profiler"
+
+#: ../glade/profiles.glade:863
+msgid "Device selection"
+msgstr ""
+
+#: ../glade/profiles.glade:877
+msgid "Device Selection Window"
+msgstr ""
+
+#: ../glade/profiles.glade:925
+msgid ""
+"<b>Select a device for your connection.</b>\n"
+"\n"
+"You can choose a known device or insert the needed information to set up a "
+"custom one.\n"
+msgstr ""
+
+#: ../glade/profiles.glade:1024
+#, fuzzy
+msgid "Known devices"
+msgstr "Ingen enhet funnet"
+
+#: ../glade/profiles.glade:1032
+#, fuzzy
+msgid "Known Devices Radio"
+msgstr "Ingen enhet funnet"
+
+#: ../glade/profiles.glade:1083
+msgid "Device type:"
+msgstr ""
+
+#: ../glade/profiles.glade:1108
+msgid "Serial"
+msgstr ""
+
+#: ../glade/profiles.glade:1183
+msgid "115200"
+msgstr ""
+
+#: ../glade/profiles.glade:1198
+msgid "Data port device:"
+msgstr ""
+
+#: ../glade/profiles.glade:1226
+msgid "Control port device:"
+msgstr ""
+
+#: ../glade/profiles.glade:1254
+#, fuzzy
+msgid "Speed connection:"
+msgstr "Foretrukket tilkobling   "
+
+#: ../glade/profiles.glade:1294
+#, fuzzy
+msgid "Custom device settings"
+msgstr "Ingen enhet funnet"
+
+#: ../glade/profiles.glade:1303
+#, fuzzy
+msgid "Custom Device Settings Radio"
+msgstr "Ingen enhet funnet"
+
+#: ../glade/profiles.glade:1369
+#, fuzzy
+msgid "<b>Device Settings</b>"
+msgstr "<b>Meldings valg</b>"
+
+#: ../glade/sms-preferences.glade:7
+msgid "SMS preferences"
+msgstr "SMS innstillinger"
 
 #: ../glade/sms-preferences.glade:139
 #, fuzzy
@@ -964,161 +995,112 @@ msgstr "Til : "
 msgid "3G Devices Manager"
 msgstr "3g enhets behandler"
 
-#: ../../wader/bcm/startup.py:151
-msgid "Initial setup..."
-msgstr "Førstegangs oppsett..."
+#: ../../wader/bcm/keyring_dialogs.py:103
+msgid "Create default keyring"
+msgstr ""
 
-#: ../../wader/bcm/startup.py:191 ../../wader/bcm/startup.py:210
-#: ../../wader/bcm/controllers/initialconf.py:402
+#: ../../wader/bcm/keyring_dialogs.py:104
+#, python-format
+msgid ""
+"The application '%s' wants to store a password, but there is no default "
+"keyring. To create one, you need to choose a password you wish to use for it."
+msgstr ""
+
+#: ../../wader/bcm/keyring_dialogs.py:138
+msgid "Unlock keyring"
+msgstr ""
+
+#: ../../wader/bcm/keyring_dialogs.py:139
+#, python-format
+msgid ""
+"The application '%s' wants access to the default keyring, but is locked."
+msgstr ""
+
+#: ../../wader/bcm/models/preferences.py:38
+msgid "Maximum time"
+msgstr "Makstid"
+
+#: ../../wader/bcm/models/preferences.py:39
+msgid "1 week"
+msgstr "1 uke"
+
+#: ../../wader/bcm/models/preferences.py:40
+msgid "3 days"
+msgstr "3 dager"
+
+#: ../../wader/bcm/models/preferences.py:41
+msgid "1 day"
+msgstr "1 dag"
+
+#: ../../wader/bcm/models/profile.py:151
+#: ../../wader/bcm/controllers/preferences.py:148
+#: ../../wader/bcm/controllers/preferences.py:164
+#: ../../wader/bcm/controllers/preferences.py:440
+msgid "Custom"
+msgstr "Egen definert"
+
+#: ../../wader/bcm/models/profile.py:350
+msgid "Trying to remove an unsaved profile"
+msgstr ""
+
+#: ../../wader/bcm/models/main.py:76 ../../wader/bcm/models/main.py:172
+#: ../../wader/bcm/views/main.py:218 ../../wader/bcm/controllers/main.py:322
+#: ../../wader/bcm/controllers/main.py:337
 #, fuzzy
-msgid "Device setup not completed"
+msgid "No device"
 msgstr "Ingen enhet funnet"
 
-#: ../../wader/bcm/startup.py:192
+#: ../../wader/bcm/models/main.py:99
+#: ../../wader/bcm/controllers/payt_controller.py:173
+#: ../../wader/bcm/controllers/payt_controller.py:210
+msgid "Not available"
+msgstr ""
+
+#: ../../wader/bcm/models/main.py:139
+#, fuzzy
+msgid "Error while starting wader"
+msgstr "Feil ved sletting av profil"
+
+#: ../../wader/bcm/models/main.py:140
 #, python-format
 msgid ""
-"\n"
-"Your device has been detected but it has been impossible to connect to it.\n"
-"\n"
-"%s"
+"Check that your installation is correct and your  OS/distro is supported: %s"
 msgstr ""
 
-#: ../../wader/bcm/startup.py:211
-#, python-format
-msgid ""
-"\n"
-"Your device \"%(name)s\" is not properly registered with the kernel. %(bcm)"
-"s\n"
-"needs at least two serial ports to communicate with your %(name)s.\n"
-"The program includes a set of udev rules plus some binaries that make sure\n"
-"that your device is always recognised properly. If you've installed from\n"
-"source, then make sure to copy the relevant files in the contrib dir\n"
-msgstr ""
-
-#: ../../wader/bcm/startup.py:227
+#: ../../wader/bcm/models/main.py:315 ../../wader/bcm/views/main.py:226
+#: ../../wader/bcm/controllers/main.py:315
+#: ../../wader/bcm/controllers/main.py:339
 #, fuzzy
-msgid "Device not responding"
-msgstr "Enhet i bruk fjernet"
+msgid "Device found"
+msgstr "3G enhet lagt til"
 
-#: ../../wader/bcm/startup.py:228
-msgid ""
-"\n"
-"Your device took more than 15 seconds to reply to my last command. Unplug "
-"it,\n"
-"plug it again, and try in a moment."
+#: ../../wader/bcm/models/main.py:432
+#: ../../wader/bcm/controllers/payt_controller.py:214
+#: ../../wader/bcm/controllers/main.py:349
+msgid "Registered"
 msgstr ""
 
-#: ../../wader/bcm/startup.py:303
+#: ../../wader/bcm/models/main.py:434 ../../wader/bcm/controllers/main.py:345
+#: ../../wader/bcm/controllers/main.py:527
+msgid "Scanning"
+msgstr ""
+
+#: ../../wader/bcm/models/main.py:436
+msgid "Reg. rejected"
+msgstr ""
+
+#: ../../wader/bcm/models/main.py:438
 #, fuzzy
-msgid "Authenticated!"
-msgstr "Autentisering ferdig!"
+msgid "Unknown Error"
+msgstr "Nettverk"
 
-#: ../../wader/bcm/startup.py:306
-msgid "Authenticating..."
-msgstr "Autentiserer..."
-
-#: ../../wader/bcm/consts.py:82
-msgid "Any band"
+#: ../../wader/bcm/models/main.py:440
+#: ../../wader/bcm/controllers/payt_controller.py:214
+#: ../../wader/bcm/controllers/main.py:349
+msgid "Roaming"
 msgstr ""
 
-#: ../../wader/bcm/consts.py:83
-msgid "EGSM 900"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:84
-#, fuzzy
-msgid "GSM DCS"
-msgstr "SMS"
-
-#: ../../wader/bcm/consts.py:85
-#, fuzzy
-msgid "GSM PCS"
-msgstr "SMS"
-
-#: ../../wader/bcm/consts.py:86
-msgid "GSM 850"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:87
-msgid "WCDMA 2100"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:88
-msgid "WCDMA 1700"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:89
-msgid "WCDMA 17IV"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:90
-msgid "WCDMA 800"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:91
-msgid "WCDMA 850"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:92
-msgid "WCDMA 900"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:93
-msgid "WCDMA 17IX"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:94
-msgid "WCDMA 1900"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:100
-msgid "Any"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:102
-#: ../../wader/bcm/controllers/application.py:1295
-msgid "EDGE"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:103
-msgid "UMTS"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:104
-msgid "HSDPA"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:105
-msgid "HSUPA"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:106
-msgid "HSPA"
-msgstr ""
-
-#: ../../wader/bcm/consts.py:107
-#, fuzzy
-msgid "2G preferred"
-msgstr "3G foretrukket"
-
-#: ../../wader/bcm/consts.py:108
-#: ../../wader/common.orig/hardware/__init__.py:32
-#: ../../wader/common.orig/hardware/__init__.py:39
-msgid "3G preferred"
-msgstr "3G foretrukket"
-
-#: ../../wader/bcm/consts.py:109
-#, fuzzy
-msgid "2G only"
-msgstr "Kun 3G"
-
-#: ../../wader/bcm/consts.py:110
-#: ../../wader/common.orig/hardware/__init__.py:30
-#: ../../wader/common.orig/hardware/__init__.py:37
-msgid "3G only"
-msgstr "Kun 3G"
-
-#: ../../wader/bcm/views/pin.py:65
+#: ../../wader/bcm/views/pin.py:85
 msgid ""
 "\n"
 "In order to unlock your SIM, we need your\n"
@@ -1128,7 +1110,7 @@ msgstr ""
 "For å låse opp ditt simkort, trenger vi\n"
 "din PIN og PUK kode"
 
-#: ../../wader/bcm/views/pin.py:73
+#: ../../wader/bcm/views/pin.py:92
 msgid ""
 "\n"
 "In order to unlock your SIM, we need your\n"
@@ -1138,171 +1120,218 @@ msgstr ""
 "For å låse opp simkortet, trenger vi\n"
 "din PIN og PUK2 kode"
 
-#: ../../wader/bcm/views/preferences.py:107
-#: ../../wader/bcm/views/preferences.py:120
-#: ../../wader/bcm/controllers/preferences.py:287
-msgid "Custom"
-msgstr "Egen definert"
-
-#: ../../wader/bcm/views/application.py:55
-msgid "B"
-msgstr ""
-
-#: ../../wader/bcm/views/application.py:56
-msgid "KB"
-msgstr ""
-
-#: ../../wader/bcm/views/application.py:57
-msgid "MB"
-msgstr ""
-
-#: ../../wader/bcm/views/application.py:58
-msgid "GB"
-msgstr ""
-
-#: ../../wader/bcm/views/application.py:334
-#: ../../wader/bcm/controllers/application.py:951
-msgid "Not connected"
-msgstr "Ikke tilkoblet"
-
-#: ../../wader/bcm/views/application.py:342
-#: ../../wader/bcm/controllers/application.py:1068
-msgid "Disconnect"
-msgstr "Koble fra"
-
-#: ../../wader/bcm/views/application.py:354
-msgid "No device present"
-msgstr "Ingen enhet funnet"
-
-#: ../../wader/bcm/views/application.py:356
-#: ../../wader/bcm/views/application.py:357
-#: ../../wader/bcm/controllers/application.py:1293
-#: ../../wader/bcm/controllers/application.py:1327
-msgid "N/A"
-msgstr "N/A"
-
-#: ../../wader/bcm/views/application.py:384
-#: ../../wader/bcm/views/application.py:421
-#: ../../wader/bcm/views/initialconf.py:104
-#: ../../wader/bcm/controllers/contacts.py:143
-msgid "Type"
-msgstr "Type"
-
-#: ../../wader/bcm/views/application.py:390
-#: ../../wader/bcm/views/initialconf.py:98
-#: ../../wader/bcm/views/initialconf.py:312
-#: ../../wader/bcm/controllers/contacts.py:149
+#: ../../wader/bcm/views/profile.py:127 ../../wader/bcm/views/main.py:301
+#: ../../wader/bcm/controllers/contacts.py:152
 msgid "Name"
 msgstr "Navn"
 
-#: ../../wader/bcm/views/application.py:399
-#: ../../wader/bcm/controllers/contacts.py:156
-msgid "Number"
-msgstr "Nummer"
-
-#: ../../wader/bcm/views/application.py:428
-msgid "Text"
-msgstr "Tekst"
-
-#: ../../wader/bcm/views/application.py:439
-msgid "Recipient"
-msgstr "Mottaker"
-
-#: ../../wader/bcm/views/application.py:439
-msgid "Sender"
-msgstr "Avsender"
-
-#: ../../wader/bcm/views/application.py:447
-msgid "Date"
-msgstr "Dato"
-
-#: ../../wader/bcm/views/initialconf.py:101
+#: ../../wader/bcm/views/profile.py:132
 #, fuzzy
 msgid "Country"
 msgstr "Datamaskin"
 
-#: ../../wader/bcm/views/initialconf.py:226
-#, fuzzy
-msgid "No known devices found"
-msgstr "Ingen kontakter funnet"
+#: ../../wader/bcm/views/profile.py:137 ../../wader/bcm/views/main.py:295
+#: ../../wader/bcm/views/main.py:333
+#: ../../wader/bcm/controllers/contacts.py:146
+msgid "Type"
+msgstr "Type"
 
-#: ../../wader/bcm/views/initialconf.py:319
-msgid "Address"
-msgstr ""
-
-#: ../../wader/bcm/models/preferences.py:34
-msgid "Maximum time"
-msgstr "Makstid"
-
-#: ../../wader/bcm/models/preferences.py:35
-msgid "1 week"
-msgstr "1 uke"
-
-#: ../../wader/bcm/models/preferences.py:36
-msgid "3 days"
-msgstr "3 dager"
-
-#: ../../wader/bcm/models/preferences.py:37
-msgid "1 day"
-msgstr "1 dag"
-
-#: ../../wader/bcm/models/application.py:232
-msgid "%B, %Y"
-msgstr ""
-
-#: ../../wader/bcm/controllers/sms.py:45
-msgid "You can send the SMS to several recipients separating them by commas"
-msgstr ""
-
-#: ../../wader/bcm/controllers/sms.py:65
+#: ../../wader/bcm/views/main.py:119
 #, fuzzy, python-format
-msgid "Text message: 0/%d chars"
-msgstr "Tekst melding: 0/%d"
-
-#: ../../wader/bcm/controllers/sms.py:88
-msgid "Send empty message"
-msgstr "Send tom melding"
-
-#: ../../wader/bcm/controllers/sms.py:89
-msgid "Are you sure you want to send an empty message?"
-msgstr "Er du sikker på at du vil sende en tom melding ?"
-
-#: ../../wader/bcm/controllers/sms.py:107
-#, fuzzy
-msgid "Unknown Error"
-msgstr "Nettverk"
-
-#: ../../wader/bcm/controllers/sms.py:108
 msgid ""
-"Your message cannot be sent to some of its recipients. Unsent messages have "
-"been saved in drafts. Please, check that you have typed the number correctly."
+"In most cases you can find the answer to your questions about the program in "
+"the help menu. This menu can be accessed if you click on the \"Help\" label "
+"on the menu bar located in the top side of the window, and selecting the "
+"\"Help topics\" option.\n"
+"\n"
+"You can also find help, updates and tips in %(name)s's web:\n"
+"\n"
+"%(url)s.\n"
+"\n"
+"If you use the mail and browser buttons to access other programs in your "
+"system, you might need to ask your Systems Administrator any doubt that you "
+"might have."
+msgstr ""
+"I de fleste tilfeller kan du finne svaret på dine spørsmål om programmet i "
+"hjelpe menyen Denne menyen kan du finne dersom du trykker på \"Hjelp\" "
+"knappen på menylinjen øverst til høyre og velger \"Hjelpe sider\" Du kan "
+"også finne hjelp, oppdateringer og tips på Vodafone Mobile Connect's web: "
+"https://forge.betavine.net/projects/vodafonemobilec Dersom du bruker epost "
+"og nettleser knappene for å åpne programmer i ditt system, bør du kanskje "
+"snakke med din System Administrator dersom du er i tvil"
+
+#: ../../wader/bcm/views/main.py:134
+#, fuzzy
+msgid ""
+"If you are using this program in a corporate environment, your company "
+"probably has a support center to solve the questions that you might have "
+"about the program.\n"
+"\n"
+"If your company does not have a support center, you will have to contact "
+"your company's System Administrator."
+msgstr ""
+"Dersom du bruker dette programmet i din bedrift, så har sikkert din\n"
+"bedrift et eget support senter, som kan svare på spørsmål du har om\n"
+"programmet\n"
+"\n"
+"Dersom din bedrift ikke har noe support senter, så må du ta kontakt med\n"
+"din bedrifts System Administrator"
+
+#: ../../wader/bcm/views/main.py:143
+#, fuzzy, python-format
+msgid ""
+"You can easily find answers to the most common questions in the help menu, "
+"in your company's support center and in the support area at:\n"
+"\n"
+"%s.\n"
+"\n"
+"If you still have difficulties you can call to Vodafone's Customer Support "
+"Center, the numbers are:\n"
+"\n"
+"123, if you are using Vodafone's network, or\n"
+"\n"
+"+34 607 123 00 if you are calling from other network."
+msgstr ""
+"Du kan lett finne svar på de vanligste spørsmålene i hjelpe menyen\n"
+"hos ditt support senter eller i support område på:\n"
+"https://forge.betavine.net/projects/vodafonemobilec .\n"
+"Dersom du fremdeles har problemer, kan du ringe Vodafone's Kunde Support "
+"Senter på:\n"
+"123, hvis du bruker Vodafone's nettverk, eller\n"
+"\n"
+"+34 607 123 00 dersom du ringer fra et annet nettverk. "
+
+#: ../../wader/bcm/views/main.py:208 ../../wader/bcm/controllers/main.py:618
+msgid "Connect"
+msgstr "Koble til"
+
+#: ../../wader/bcm/views/main.py:234 ../../wader/bcm/controllers/main.py:194
+#: ../../wader/bcm/controllers/main.py:200
+#: ../../wader/bcm/controllers/main.py:207
+#: ../../wader/bcm/controllers/main.py:341
+msgid "SIM locked"
 msgstr ""
 
-#: ../../wader/bcm/controllers/sms.py:174
-#, fuzzy, python-format
-msgid "Text message: %(chrcnt)d/%(maxchr)d chars"
-msgstr "%(chrcnt)d/%(maxchr)d tegn"
-
-#: ../../wader/bcm/controllers/sms.py:216
+#: ../../wader/bcm/views/main.py:242 ../../wader/bcm/controllers/pin.py:290
+#: ../../wader/bcm/controllers/pin.py:352
+#: ../../wader/bcm/controllers/main.py:343
 #, fuzzy
-msgid "No SMSC number"
-msgstr "SMSC nummer"
+msgid "Authenticating"
+msgstr "Autentiserer..."
 
-#: ../../wader/bcm/controllers/sms.py:218
+#: ../../wader/bcm/views/main.py:250
+#, fuzzy
+msgid "Searching"
+msgstr "_Søk"
+
+#: ../../wader/bcm/views/main.py:258
+#: ../../wader/bcm/controllers/payt_controller.py:214
+#: ../../wader/bcm/controllers/main.py:349
+#: ../../wader/bcm/controllers/main.py:545
+#: ../../wader/bcm/controllers/main.py:571
+#: ../../wader/bcm/controllers/main.py:768
+#: ../../wader/bcm/controllers/main.py:970
+msgid "Not connected"
+msgstr "Ikke tilkoblet"
+
+#: ../../wader/bcm/views/main.py:267 ../../wader/bcm/controllers/main.py:613
+msgid "Disconnect"
+msgstr "Koble fra"
+
+#: ../../wader/bcm/views/main.py:275 ../../wader/bcm/controllers/main.py:351
+#: ../../wader/bcm/controllers/main.py:533
+#, fuzzy
+msgid "Connected"
+msgstr "Koble til"
+
+#: ../../wader/bcm/views/main.py:310
+#: ../../wader/bcm/controllers/contacts.py:159
+msgid "Number"
+msgstr "Nummer"
+
+#: ../../wader/bcm/views/main.py:344
+msgid "Text"
+msgstr "Tekst"
+
+#: ../../wader/bcm/views/main.py:355
+msgid "Recipient"
+msgstr "Mottaker"
+
+#: ../../wader/bcm/views/main.py:355
+msgid "Sender"
+msgstr "Avsender"
+
+#: ../../wader/bcm/views/main.py:363
+msgid "Date"
+msgstr "Dato"
+
+#: ../../wader/bcm/views/main.py:424 ../../wader/bcm/controllers/main.py:425
+msgid "N/A"
+msgstr "N/A"
+
+#: ../../wader/bcm/views/main.py:424
+msgid "Radio Disabled"
+msgstr ""
+
+#: ../../wader/bcm/views/main.py:426 ../../wader/bcm/consts.py:107
+#: ../../wader/bcm/signals.py:24
+#, fuzzy
+msgid "GPRS"
+msgstr "Kun GPRS"
+
+#: ../../wader/bcm/views/main.py:426 ../../wader/bcm/consts.py:108
+#: ../../wader/bcm/signals.py:25
+msgid "EDGE"
+msgstr ""
+
+#: ../../wader/bcm/uptime.py:83
+#, python-format
+msgid "%(day)d days, %(msg)s"
+msgstr "%(day)d dager, %(msg)s"
+
+#: ../../wader/bcm/uptime.py:85
+#, python-format
+msgid "%(day)d day, %(msg)s"
+msgstr "%(day)d dag, %(msg)s"
+
+#: ../../wader/bcm/controllers/payt_controller.py:95
+#: ../../wader/bcm/controllers/payt_controller.py:111
+#: ../../wader/bcm/controllers/payt_controller.py:121
+msgid "PAYT submit voucher"
+msgstr ""
+
+#: ../../wader/bcm/controllers/payt_controller.py:96
+#: ../../wader/bcm/controllers/payt_controller.py:157
+msgid "SIM is not on a PAYT plan"
+msgstr ""
+
+#: ../../wader/bcm/controllers/payt_controller.py:112
 #, python-format
 msgid ""
-"\n"
-"In order to send a SMS, %s needs to know the number of your provider's "
-"SMSC.\n"
-"If you do not know the SMSC number, contact your customer service.\n"
+"PAYT submit voucher failed\n"
+"'%s'"
+msgstr ""
+
+#: ../../wader/bcm/controllers/payt_controller.py:122
+msgid "No PAYT submit voucher method available"
+msgstr ""
+
+#: ../../wader/bcm/controllers/payt_controller.py:156
+#: ../../wader/bcm/controllers/payt_controller.py:191
+msgid "PAYT credit check"
+msgstr ""
+
+#: ../../wader/bcm/controllers/payt_controller.py:192
+msgid "No PAYT credit check method available"
 msgstr ""
 
 #: ../../wader/bcm/controllers/pin.py:109
-#: ../../wader/bcm/controllers/pin.py:300
+#: ../../wader/bcm/controllers/pin.py:190
 msgid "Incorrect PIN"
 msgstr "Feil PIN"
 
 #: ../../wader/bcm/controllers/pin.py:110
+#: ../../wader/bcm/controllers/pin.py:191
 msgid ""
 "\n"
 "<small>The PIN you've just entered is\n"
@@ -1316,54 +1345,19 @@ msgstr ""
 "etter 3 forsøk vil du bli spurt\n"
 "om PUK koden</small>\n"
 
-#: ../../wader/bcm/controllers/pin.py:216
-msgid "Incorrect PUK"
-msgstr "Feil PUK"
-
-#: ../../wader/bcm/controllers/pin.py:217
-msgid ""
-"\n"
-"<small>The PUK you've just entered is\n"
-"incorrect. Bear in mind that after\n"
-"three failed PUKs you'll be asked\n"
-"for the PUK2 code. Your PIN code\n"
-"should be your last PIN.</small>\n"
-msgstr ""
-"\n"
-"<small>PUK koden du tastet inn\n"
-"er feil. Vær klar over at etter\n"
-"tre feil inntastinger av PUK koden, vil du blir spurt \n"
-"om PUK2 koden. Din PIN kode\n"
-"skal være din siste PIN.</small>\n"
-
-#: ../../wader/bcm/controllers/pin.py:301
-msgid ""
-"\n"
-"The PIN you've just entered is\n"
-"incorrect. Bear in mind that after\n"
-"three failed PINs you'll be asked\n"
-"for the PUK code\n"
-msgstr ""
-"\n"
-"PIN koden du tastet er\n"
-"feil. Vær klar over at etter\n"
-"tre feil forsøk, så vil du bli spurt om\n"
-"PUK koden\n"
-
-#: ../../wader/bcm/controllers/pin.py:403
-#: ../../wader/bcm/controllers/preferences.py:68
-#: ../../wader/bcm/controllers/preferences.py:87
-#: ../../wader/bcm/controllers/application.py:582
+#: ../../wader/bcm/controllers/pin.py:270
+#: ../../wader/bcm/controllers/preferences.py:200
+#: ../../wader/bcm/controllers/preferences.py:219
 msgid "Missing dependency"
 msgstr "Mangler avhengige pakker"
 
-#: ../../wader/bcm/controllers/pin.py:405
-#: ../../wader/bcm/controllers/preferences.py:70
+#: ../../wader/bcm/controllers/pin.py:271
+#: ../../wader/bcm/controllers/preferences.py:202
 #, fuzzy
 msgid "To use this feature you need the gnomekeyring module"
 msgstr "For å bruke denne widget trenger du python-vte installert"
 
-#: ../../wader/bcm/controllers/preferences.py:88
+#: ../../wader/bcm/controllers/preferences.py:220
 #, fuzzy
 msgid ""
 "\n"
@@ -1371,101 +1365,116 @@ msgid ""
 "module\n"
 msgstr "For å bruke denne widget trenger du python-vte installert"
 
-#: ../../wader/bcm/controllers/application.py:115
-#: ../../wader/bcm/controllers/initialconf.py:576
-msgid "Shutting down"
-msgstr "Slår av"
+#: ../../wader/bcm/controllers/profile.py:64
+msgid "Error while getting connection password"
+msgstr ""
 
-#: ../../wader/bcm/controllers/application.py:133
-msgid "Connected to Internet"
-msgstr "Tilkoblet Internet"
+#: ../../wader/bcm/controllers/profile.py:65
+msgid ""
+"NoMatchError: No password was retrieved from connection, please set one again"
+msgstr ""
 
-#: ../../wader/bcm/controllers/application.py:134
+#: ../../wader/bcm/controllers/profile.py:113
+#, fuzzy
+msgid "Error creating profile"
+msgstr "Feil ved sletting av profil"
+
+#: ../../wader/bcm/controllers/contacts.py:98
+msgid "No contact found"
+msgstr "Ingen kontakter funnet"
+
+#: ../../wader/bcm/controllers/contacts.py:99
 #, python-format
-msgid ""
-"\n"
-"You need to disconnect from Internet before shutting\n"
-"down %s,\n"
-"if you want to do so, press the OK button.\n"
-msgstr ""
-"\n"
-"Du må koble fra Internet før  du slår\n"
-" av.%s\n"
-"Dersom du vil de, press OK knappen.\n"
+msgid "No contact with the name %s found"
+msgstr "Ingen kontakter med navn %s funnet"
 
-#: ../../wader/bcm/controllers/application.py:253
-msgid "Reading contacts..."
-msgstr "Leser kontakter..."
-
-#: ../../wader/bcm/controllers/application.py:280
-msgid "Reading messages..."
-msgstr "Leser meldinger..."
-
-#: ../../wader/bcm/controllers/application.py:334
-msgid "User Limit"
-msgstr ""
-
-#: ../../wader/bcm/controllers/application.py:335
-msgid "You have reached your limit of maximum usage"
-msgstr ""
-
-#: ../../wader/bcm/controllers/application.py:357
-msgid "New mobile profile available"
-msgstr ""
-
-#: ../../wader/bcm/controllers/application.py:358
-msgid ""
-"\n"
-"New profile available, do you want to load it?"
-msgstr ""
-
-#: ../../wader/bcm/controllers/application.py:360
-msgid "Load"
-msgstr ""
-
-#: ../../wader/bcm/controllers/application.py:395
-#: ../../wader/bcm/controllers/application.py:1293
-msgid "Radio Disabled"
-msgstr ""
-
-#: ../../wader/bcm/controllers/application.py:423
+#: ../../wader/bcm/controllers/main.py:163
 #, python-format
 msgid "Quit %s"
 msgstr "Avslutt %s"
 
-#: ../../wader/bcm/controllers/application.py:424
+#: ../../wader/bcm/controllers/main.py:164
 msgid "Are you sure you want to exit?"
 msgstr "Er du sikker på at du vil avslutte ?"
 
-#: ../../wader/bcm/controllers/application.py:481
+#: ../../wader/bcm/controllers/main.py:176
+msgid "Can not close application"
+msgstr ""
+
+#: ../../wader/bcm/controllers/main.py:177
+msgid "Can not close while a connection is active"
+msgstr ""
+
+#: ../../wader/bcm/controllers/main.py:280
+msgid "Invalid password"
+msgstr ""
+
+#: ../../wader/bcm/controllers/main.py:281
+msgid "The supplied password is incorrect"
+msgstr ""
+
+#: ../../wader/bcm/controllers/main.py:291
 #, fuzzy
-msgid "_New Profile"
-msgstr "Ny profil"
+msgid "Unknown Network"
+msgstr "Nettverk"
 
-#: ../../wader/bcm/controllers/application.py:490
+#: ../../wader/bcm/controllers/main.py:358
+msgid "SIM error"
+msgstr ""
+
+#: ../../wader/bcm/controllers/main.py:359
+msgid "Perhaps your SIM is not inserted correctly?"
+msgstr ""
+
+#: ../../wader/bcm/controllers/main.py:361
 #, fuzzy
-msgid "Load Profile"
-msgstr "Profiler"
+msgid "Unknown error"
+msgstr "Nettverk"
 
-#: ../../wader/bcm/controllers/application.py:495
+#: ../../wader/bcm/controllers/main.py:367
+msgid "Error while registering to home network"
+msgstr ""
+
+#: ../../wader/bcm/controllers/main.py:440
+msgid "Transfer limit exceeded"
+msgstr ""
+
+#: ../../wader/bcm/controllers/main.py:441
+msgid "You have exceeded your transfer limit"
+msgstr ""
+
+#: ../../wader/bcm/controllers/main.py:516
+#, fuzzy, python-format
+msgid "SMS received from %s"
+msgstr "<small>SMS mottatt fra %s</small>"
+
+#: ../../wader/bcm/controllers/main.py:566
 #, fuzzy
-msgid "Edit Profile"
-msgstr "Rediger profil"
+msgid "Failed connection attempt"
+msgstr "Foretrukket tilkobling   "
 
-#: ../../wader/bcm/controllers/application.py:500
-#, fuzzy
-msgid "Delete Profile"
-msgstr "Slet profil"
+#: ../../wader/bcm/controllers/main.py:632
+#: ../../wader/bcm/controllers/main.py:667
+msgid "Send SMS"
+msgstr "Send SMS"
 
-#: ../../wader/bcm/controllers/application.py:583
-msgid "To use this widget you need python-vte installed"
-msgstr "For å bruke denne widget trenger du python-vte installert"
+#: ../../wader/bcm/controllers/main.py:645
+msgid "Quit"
+msgstr "Avslutt"
 
-#: ../../wader/bcm/controllers/application.py:630
+#: ../../wader/bcm/controllers/main.py:678
+msgid "_Delete"
+msgstr "_Slett"
+
+#: ../../wader/bcm/controllers/main.py:689
+msgid "Edit"
+msgstr "Rediger"
+
+#: ../../wader/bcm/controllers/main.py:709
 msgid "Invalid CSV format"
 msgstr "Ugyldig CSV format"
 
-#: ../../wader/bcm/controllers/application.py:631
+#: ../../wader/bcm/controllers/main.py:710
 #, fuzzy
 msgid ""
 "\n"
@@ -1474,252 +1483,148 @@ msgstr ""
 "\n"
 "    CSV filen du prøver å importere har ugyldig format."
 
-#: ../../wader/bcm/controllers/application.py:662
-#: ../../wader/bcm/controllers/application.py:684
-msgid "Connecting..."
+#: ../../wader/bcm/controllers/main.py:742
+#, fuzzy
+msgid "No device found"
+msgstr "Ingen kontakter funnet"
+
+#: ../../wader/bcm/controllers/main.py:743
+msgid "No device has been found. Insert one and try again."
+msgstr ""
+
+#: ../../wader/bcm/controllers/main.py:750
+#, fuzzy
+msgid "Profile needed"
+msgstr "Profiler"
+
+#: ../../wader/bcm/controllers/main.py:751
+msgid "You need to create a profile for connecting."
+msgstr ""
+
+#: ../../wader/bcm/controllers/main.py:777
+#, fuzzy
+msgid "Connecting"
 msgstr "Kobler til..."
 
-#: ../../wader/bcm/controllers/application.py:679
-#: ../../wader/bcm/controllers/application.py:1302
-#, python-format
-msgid "Connected to %s"
-msgstr "Tilkoblet %s"
-
-#: ../../wader/bcm/controllers/application.py:681
+#: ../../wader/bcm/controllers/main.py:786
 #, fuzzy
-msgid "Connected"
-msgstr "Koble til"
+msgid "Disconnecting"
+msgstr "Koble fra"
 
-#: ../../wader/bcm/controllers/application.py:952
+#: ../../wader/bcm/controllers/main.py:919
+#, fuzzy
+msgid "_New Profile"
+msgstr "Ny profil"
+
+#: ../../wader/bcm/controllers/main.py:928
+#, fuzzy
+msgid "Load Profile"
+msgstr "Profiler"
+
+#: ../../wader/bcm/controllers/main.py:933
+#, fuzzy
+msgid "Edit Profile"
+msgstr "Rediger profil"
+
+#: ../../wader/bcm/controllers/main.py:938
+#, fuzzy
+msgid "Delete Profile"
+msgstr "Slet profil"
+
+#: ../../wader/bcm/controllers/main.py:971
 msgid "No mobile connection. Do you want to continue?"
 msgstr "Ingen mobil tilkobling. Vil du fortsette ?"
 
-#: ../../wader/bcm/controllers/application.py:1090
-msgid "Send SMS"
-msgstr "Send SMS"
+#: ../../wader/bcm/controllers/main.py:1411
+msgid "Editor not available"
+msgstr ""
 
-#: ../../wader/bcm/controllers/application.py:1104
-msgid "Quit"
-msgstr "Avslutt"
+#: ../../wader/bcm/controllers/main.py:1412
+#, python-format
+msgid "Can not start external contact editor \"%s\""
+msgstr ""
 
-#: ../../wader/bcm/controllers/application.py:1122
-msgid "_Send SMS"
-msgstr "_Send SMS"
-
-#: ../../wader/bcm/controllers/application.py:1142
-msgid "Edit"
-msgstr "Rediger"
-
-#: ../../wader/bcm/controllers/application.py:1157
+#: ../../wader/bcm/controllers/main.py:1418
 msgid "_Add to contacts"
 msgstr "_Legg til kontakter"
 
-#: ../../wader/bcm/controllers/application.py:1166
+#: ../../wader/bcm/controllers/main.py:1429
+msgid "Migrate to DB"
+msgstr ""
+
+#: ../../wader/bcm/controllers/main.py:1438
 msgid "Save to draft"
 msgstr "Lagre til kladd"
 
-#: ../../wader/bcm/controllers/application.py:1177
+#: ../../wader/bcm/controllers/main.py:1449
 msgid "Delete"
 msgstr "Slett"
 
-#: ../../wader/bcm/controllers/application.py:1318
-msgid "Illegal Operation!"
+#: ../../wader/bcm/controllers/sms.py:52
+msgid "You can send the SMS to several recipients separating them by commas"
 msgstr ""
 
-#: ../../wader/bcm/controllers/application.py:1319
-msgid ""
-"\n"
-"Your device only has one port and you are currently connected\n"
-"to Internet, you cannot perform any operation while connected"
-msgstr ""
-
-#: ../../wader/bcm/controllers/application.py:1348
-#, python-format
-msgid "<small>SMS received from %s</small>"
-msgstr "<small>SMS mottatt fra %s</small>"
-
-#: ../../wader/bcm/controllers/application.py:1351
-#, python-format
-msgid ""
-"<small>Received at %(date)s</small>\n"
-"<b>%(text)s</b>"
-msgstr ""
-"<small>Mottatt den %(date)s</small>\n"
-"<b>%(text)s</b>"
-
-#: ../../wader/bcm/controllers/application.py:1363
-#, fuzzy
-msgid "Invalid DNS received from Network"
-msgstr "Ugyldig DNS fra APN"
-
-#: ../../wader/bcm/controllers/application.py:1365
-#, fuzzy
-msgid ""
-"\n"
-"<small>The DNS settings received from the mobile network are invalid. You "
-"will\n"
-"probably want to restart the connection, or if the problem persists, you\n"
-"can specify a static DNS entry in the connection preferences</small>\n"
-msgstr ""
-"\n"
-"<small>DNS fra APN er ugyldig. Du må startet\n"
-"tilkoblingen på nytt, dersom problemene vedvarer, kan du definere\n"
-"statiske DNS felter i tilkoblings innstillingene</small>\n"
-
-#: ../../wader/bcm/controllers/application.py:1380
-msgid "Disconnected from Internet"
-msgstr "Koble fra Internet"
-
-#: ../../wader/bcm/controllers/application.py:1381
-#, python-format
-msgid ""
-"\n"
-"<small>%s has given\n"
-"up after trying to connect three times to Internet. This might\n"
-"be provoked by a problem in the configuration or just the fact\n"
-"that there's no carrier.</small>"
-msgstr ""
-"\n"
-"<small>%s har gitt opp\n"
-"etter 3 tilkoblings forsøk til Internet. Dette kan\n"
-"ha oppstått ved konfigurasjons problemer i innstillingene eller\n"
-"nettverks problemer hos din operatør.</small>"
-
-#: ../../wader/bcm/controllers/application.py:1393
-msgid "Device in use removed"
-msgstr "Enhet i bruk fjernet"
-
-#: ../../wader/bcm/controllers/application.py:1395
-#, python-format
-msgid ""
-"\n"
-"The 3G device in use has been removed. Now\n"
-"%s\n"
-"is going to shutdown. In order to continue,\n"
-"plug in the 3G device and start again."
-msgstr ""
-"\n"
-"3G enheten i bruk er blitt fjernet.\n"
-"%s avsluttes.\n"
-"For å fortsette sett inn 3G enheten og start på nytt."
-
-#: ../../wader/bcm/controllers/application.py:1431
-msgid "3G Device added"
-msgstr "3G enhet lagt til"
-
-#: ../../wader/bcm/controllers/application.py:1432
-#, python-format
-msgid ""
-"\n"
-"A new 3G device (%(device_name)s)\n"
-"has been added, in around 15 seconds\n"
-"(%(app_name)s) will resume its functioning"
-msgstr ""
-"\n"
-"En ny 3G enhet (%(device_name)s)\n"
-"har blitt lagt til, i løpet av 15 sekunder\n"
-"vil (%(app_name)s) fortsette."
-
-#: ../../wader/bcm/controllers/application.py:1440
-msgid "Setting up device..."
-msgstr "Setter opp enhet"
-
-#: ../../wader/bcm/controllers/contacts.py:92
-msgid "No contact found"
-msgstr "Ingen kontakter funnet"
-
-#: ../../wader/bcm/controllers/contacts.py:93
-#, python-format
-msgid "No contact with the name %s found"
-msgstr "Ingen kontakter med navn %s funnet"
-
-#: ../../wader/bcm/controllers/initialconf.py:239
+#: ../../wader/bcm/controllers/sms.py:85
+#: ../../wader/bcm/controllers/sms.py:179
 #, fuzzy, python-format
-msgid "The following characters are not allowed in a profile name: %s"
-msgstr ""
-"Følgende avhengigheter er ikke oppfylt:\n"
-"%s"
+msgid "Text message: 0/%d chars"
+msgstr "Tekst melding: 0/%d"
 
-#: ../../wader/bcm/controllers/initialconf.py:242
+#: ../../wader/bcm/controllers/sms.py:114
+msgid "Send empty message"
+msgstr "Send tom melding"
+
+#: ../../wader/bcm/controllers/sms.py:115
+msgid "Are you sure you want to send an empty message?"
+msgstr "Er du sikker på at du vil sende en tom melding ?"
+
+#: ../../wader/bcm/controllers/sms.py:136
 #, fuzzy
-msgid "Invalid value in profile"
-msgstr "Slet profil"
+msgid "Error while sending SMS"
+msgstr "Feil ved sletting av profil"
 
-#: ../../wader/bcm/controllers/initialconf.py:403
-#, python-format
-msgid ""
-"\n"
-"An unknown error occur when setting up the device:\n"
-"%s"
-msgstr ""
-
-#: ../../wader/bcm/controllers/initialconf.py:468
+#: ../../wader/bcm/controllers/sms.py:187
 #, fuzzy, python-format
-msgid "Authentication Error from %s !"
-msgstr "Autentisering ferdig %s !"
+msgid "Text message: %(num)d/%(tot)d chars"
+msgstr "%(chrcnt)d/%(maxchr)d tegn"
 
-#: ../../wader/bcm/controllers/initialconf.py:472
+#: ../../wader/bcm/controllers/sms.py:192
 #, fuzzy, python-format
-msgid "Connecting to %s ..."
-msgstr "Kobler til %s ..."
+msgid "Text message: %(num)d/%(tot)d chars (%(msgs)d SMS)"
+msgstr "%(chrcnt)d/%(maxchr)d tegn"
 
-#: ../../wader/bcm/controllers/initialconf.py:520
-msgid "Discovery started..."
+#: ../../wader/bcm/dialogs.py:64
+msgid "translator-credits"
 msgstr ""
 
-#: ../../wader/bcm/controllers/initialconf.py:524
-msgid "Discovery finished!"
-msgstr ""
-
-#: ../../wader/bcm/controllers/initialconf.py:548
-msgid "No control port"
-msgstr ""
-
-#: ../../wader/bcm/controllers/initialconf.py:554
+#: ../../wader/bcm/dialogs.py:219
 #, fuzzy
-msgid "Connecting to device..."
-msgstr "Setter opp enhet"
+msgid "Password required"
+msgstr "Passord"
 
-#: ../../wader/bcm/controllers/initialconf.py:562
-#, python-format
-msgid "Exception received connecting to %s"
-msgstr ""
+#: ../../wader/bcm/dialogs.py:220
+#, fuzzy
+msgid "Please, insert the password of your connection"
+msgstr "Vennligst tast inn din PIN kode :"
 
-#: ../../wader/bcm/controllers/initialconf.py:563
-#, python-format
-msgid ""
-"\n"
-"The following error was received while trying to establish a connection:\n"
-"%s"
-msgstr ""
-
-#: ../../wader/bcm/dialogs.py:94
-msgid "Import contacts from..."
-msgstr "Importere kontakter fra..."
-
-#: ../../wader/bcm/dialogs.py:102 ../../wader/bcm/dialogs.py:164
-msgid "Csv files"
-msgstr "CSV filer"
-
-#: ../../wader/bcm/dialogs.py:107 ../../wader/bcm/dialogs.py:132
-#: ../../wader/bcm/dialogs.py:170
-msgid "All files"
-msgstr "Alle filer"
-
-#: ../../wader/bcm/dialogs.py:123 ../../wader/bcm/dialogs.py:156
+#: ../../wader/bcm/dialogs.py:254
 msgid "Save as ..."
 msgstr "Lagre som ..."
 
-#: ../../wader/bcm/dialogs.py:142 ../../wader/bcm/dialogs.py:180
-msgid "Overwrite"
-msgstr "Overskriv"
+#: ../../wader/bcm/dialogs.py:262 ../../wader/bcm/dialogs.py:301
+msgid "Csv files"
+msgstr "CSV filer"
 
-#: ../../wader/bcm/dialogs.py:143 ../../wader/bcm/dialogs.py:181
+#: ../../wader/bcm/dialogs.py:268 ../../wader/bcm/dialogs.py:306
+msgid "All files"
+msgstr "Alle filer"
+
+#: ../../wader/bcm/dialogs.py:279
 #, python-format
 msgid "Overwrite \"%s\"?"
 msgstr "Overskriv  \"%s\"?"
 
-#: ../../wader/bcm/dialogs.py:144 ../../wader/bcm/dialogs.py:182
+#: ../../wader/bcm/dialogs.py:280
 msgid ""
 "A file with this name already exists.\n"
 "If you choose to overwrite this file, the contents will be lost."
@@ -1727,107 +1632,402 @@ msgstr ""
 "En fil med dette navnet eksisterer allerede.\n"
 "Dersom du velger å overskrive denne filen, vil innholdet bli tapt"
 
-#: ../../wader/bcm/dialogs.py:196
+#: ../../wader/bcm/dialogs.py:293
+msgid "Import contacts from..."
+msgstr "Importere kontakter fra..."
+
+#: ../../wader/bcm/consts.py:88 ../../wader/bcm/consts.py:106
+#: ../../wader/bcm/consts.py:132
+msgid "Any"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:89
+msgid "EGSM 900"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:90
 #, fuzzy
-msgid "Device List"
-msgstr "Ingen enhet funnet"
+msgid "GSM DCS"
+msgstr "SMS"
 
-#: ../../wader/bcm/dialogs.py:229
-msgid "Vodafone Spain S.A."
-msgstr "Vodafone Spain S.A."
-
-#: ../../wader/bcm/dialogs.py:236
-msgid "translated to $LANG by $translater"
-msgstr "oversatt til norsk av Øystein Gulliksen"
-
-#: ../../wader/common.orig/dialers/__init__.py:31
-#: ../../wader/common.orig/dialers/__init__.py:37
+#: ../../wader/bcm/consts.py:91
 #, fuzzy
-msgid "Default"
-msgstr "standard"
+msgid "GSM PCS"
+msgstr "SMS"
 
-#: ../../wader/common.orig/dialers/__init__.py:32
-#: ../../wader/common.orig/dialers/__init__.py:38
+#: ../../wader/bcm/consts.py:92
+msgid "GSM 850"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:93
+msgid "WCDMA 2100"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:94
+msgid "WCDMA 1700"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:95
+msgid "WCDMA 17IV"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:96
+msgid "WCDMA 800"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:97
+msgid "WCDMA 850"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:98
+msgid "WCDMA 900"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:99
+msgid "WCDMA 17IX"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:100
+msgid "WCDMA 1900"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:109 ../../wader/bcm/signals.py:26
+msgid "UMTS"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:110 ../../wader/bcm/signals.py:31
+msgid "HSDPA"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:111 ../../wader/bcm/signals.py:32
+msgid "HSUPA"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:112 ../../wader/bcm/signals.py:33
+msgid "HSPA"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:113 ../../wader/bcm/signals.py:27
+#, fuzzy
+msgid "2G preferred"
+msgstr "3G foretrukket"
+
+#: ../../wader/bcm/consts.py:114 ../../wader/bcm/signals.py:28
+msgid "3G preferred"
+msgstr "3G foretrukket"
+
+#: ../../wader/bcm/consts.py:115 ../../wader/bcm/signals.py:29
+#, fuzzy
+msgid "2G only"
+msgstr "Kun 3G"
+
+#: ../../wader/bcm/consts.py:116 ../../wader/bcm/signals.py:30
+msgid "3G only"
+msgstr "Kun 3G"
+
+#: ../../wader/bcm/consts.py:133
 msgid "PAP"
 msgstr ""
 
-#: ../../wader/common.orig/dialers/__init__.py:33
-#: ../../wader/common.orig/dialers/__init__.py:39
+#: ../../wader/bcm/consts.py:134
+msgid "EAP"
+msgstr ""
+
+#: ../../wader/bcm/consts.py:135
 msgid "CHAP"
 msgstr ""
 
-#: ../../wader/common.orig/dialers/wvdial.py:224
-msgid "WVDial directive error"
-msgstr "WVDial direktiv feil"
-
-#: ../../wader/common.orig/dialers/wvdial.py:225
-#, python-format
-msgid ""
-"\n"
-"Since version 0.9.7 %s manages pppd's /etc/ppp/{p,ch}ap-secrets, the\n"
-"'plugin passwordfd.so' directive should not appear on the\n"
-"current wvdial profile, please remove it manually. Go to\n"
-"Tools -> Preferences, select the wvdial profiles tab, and\n"
-"remove from the current wvdial profile the\n"
-"'plugin passwordfd.so' line."
+#: ../../wader/bcm/consts.py:136
+msgid "MSCHAP"
 msgstr ""
-"\n"
-"Siden versjon 0.9.7 %s behandles pppd's /etc/ppp/{p,ch}ap-secrets, \n"
-"'plugin passwordfd.so' direktiv skal ikke vises på\n"
-"nåværende wvdial profil, vennligst fjern det manuelt. Gå til\n"
-"Verktøy -> Innstillinger, velg wvdial profiler fanen, og\n"
-"fjern det fra gjeldende wvdial profil\n"
-"'plugin passwordfd.so'."
 
-#: ../../wader/common.orig/hardware/__init__.py:29
-#: ../../wader/common.orig/hardware/__init__.py:36
-msgid "GPRS only"
-msgstr "Kun GPRS"
+#: ../../wader/bcm/consts.py:137
+msgid "MSCHAPv2"
+msgstr ""
 
-#: ../../wader/common.orig/hardware/__init__.py:31
-#: ../../wader/common.orig/hardware/__init__.py:38
-msgid "GPRS preferred"
-msgstr "GPRS foretrukket"
+#: ../../wader/bcm/signals.py:23
+msgid "No signal"
+msgstr ""
 
-#: ../../wader/common.orig/uptime.py:83
-#, python-format
-msgid "%(day)d days, %(msg)s"
-msgstr "%(day)d dager, %(msg)s"
+#: ../../wader/bcm/contacts/contact_kdepim.py:132
+msgid "KDE PIM"
+msgstr ""
 
-#: ../../wader/common.orig/uptime.py:85
-#, python-format
-msgid "%(day)d day, %(msg)s"
-msgstr "%(day)d dag, %(msg)s"
+#: ../../wader/bcm/contacts/contact_evolution.py:136
+msgid "Evolution"
+msgstr ""
 
-#: ../../wader/common.orig/shutdown.py:52
-msgid "Shutting down..."
-msgstr "Slår av..."
+#~ msgid "Inspect"
+#~ msgstr "Inspisere"
 
-#: ../../wader/common.orig/middleware.py:489
+#~ msgid "_About"
+#~ msgstr "_Om"
+
+#~ msgid "_New"
+#~ msgstr "_Ny"
+
+#~ msgid "_SMS"
+#~ msgstr "_SMS"
+
+#~ msgid "_Contact"
+#~ msgstr "_Kontakt"
+
+#~ msgid "_Reply"
+#~ msgstr "_Svar"
+
+#~ msgid "_Forward"
+#~ msgstr "_Videresend"
+
+#~ msgid "_Contacts"
+#~ msgstr "_Kontakter"
+
+#~ msgid "<b>GSM device</b>"
+#~ msgstr "<b>GSM enhet</b>"
+
 #, fuzzy
-msgid "Unknown Network"
-msgstr "Nettverk"
+#~ msgid "BCM number:"
+#~ msgstr "BCM nummer :"
 
-#: ../../gtk-tap.py:57
-msgid "Missing dependencies"
-msgstr "Manglende avhengigheter"
+#, fuzzy
+#~ msgid "Dialer profile"
+#~ msgstr "Slet profil"
 
-#: ../../gtk-tap.py:59
-#, python-format
-msgid ""
-"The following dependencies are not satisfied:\n"
-"%s"
-msgstr ""
-"Følgende avhengigheter er ikke oppfylt:\n"
-"%s"
+#~ msgid "Initial setup..."
+#~ msgstr "Førstegangs oppsett..."
 
-#: ../../gtk-tap.py:68
-msgid "OS/Distro not registered"
-msgstr "OS/Distro ikke registrert"
+#, fuzzy
+#~ msgid "Device setup not completed"
+#~ msgstr "Ingen enhet funnet"
 
-#: ../../gtk-tap.py:80
-msgid "Permissions problems"
-msgstr "Rettighets problemer"
+#, fuzzy
+#~ msgid "Device not responding"
+#~ msgstr "Enhet i bruk fjernet"
+
+#, fuzzy
+#~ msgid "Authenticated!"
+#~ msgstr "Autentisering ferdig!"
+
+#~ msgid "No device present"
+#~ msgstr "Ingen enhet funnet"
+
+#, fuzzy
+#~ msgid "No SMSC number"
+#~ msgstr "SMSC nummer"
+
+#~ msgid "Incorrect PUK"
+#~ msgstr "Feil PUK"
+
+#~ msgid ""
+#~ "\n"
+#~ "<small>The PUK you've just entered is\n"
+#~ "incorrect. Bear in mind that after\n"
+#~ "three failed PUKs you'll be asked\n"
+#~ "for the PUK2 code. Your PIN code\n"
+#~ "should be your last PIN.</small>\n"
+#~ msgstr ""
+#~ "\n"
+#~ "<small>PUK koden du tastet inn\n"
+#~ "er feil. Vær klar over at etter\n"
+#~ "tre feil inntastinger av PUK koden, vil du blir spurt \n"
+#~ "om PUK2 koden. Din PIN kode\n"
+#~ "skal være din siste PIN.</small>\n"
+
+#~ msgid ""
+#~ "\n"
+#~ "The PIN you've just entered is\n"
+#~ "incorrect. Bear in mind that after\n"
+#~ "three failed PINs you'll be asked\n"
+#~ "for the PUK code\n"
+#~ msgstr ""
+#~ "\n"
+#~ "PIN koden du tastet er\n"
+#~ "feil. Vær klar over at etter\n"
+#~ "tre feil forsøk, så vil du bli spurt om\n"
+#~ "PUK koden\n"
+
+#~ msgid "Shutting down"
+#~ msgstr "Slår av"
+
+#~ msgid "Connected to Internet"
+#~ msgstr "Tilkoblet Internet"
+
+#~ msgid ""
+#~ "\n"
+#~ "You need to disconnect from Internet before shutting\n"
+#~ "down %s,\n"
+#~ "if you want to do so, press the OK button.\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Du må koble fra Internet før  du slår\n"
+#~ " av.%s\n"
+#~ "Dersom du vil de, press OK knappen.\n"
+
+#~ msgid "Reading contacts..."
+#~ msgstr "Leser kontakter..."
+
+#~ msgid "Reading messages..."
+#~ msgstr "Leser meldinger..."
+
+#~ msgid "To use this widget you need python-vte installed"
+#~ msgstr "For å bruke denne widget trenger du python-vte installert"
+
+#~ msgid "Connected to %s"
+#~ msgstr "Tilkoblet %s"
+
+#~ msgid "_Send SMS"
+#~ msgstr "_Send SMS"
+
+#~ msgid ""
+#~ "<small>Received at %(date)s</small>\n"
+#~ "<b>%(text)s</b>"
+#~ msgstr ""
+#~ "<small>Mottatt den %(date)s</small>\n"
+#~ "<b>%(text)s</b>"
+
+#, fuzzy
+#~ msgid "Invalid DNS received from Network"
+#~ msgstr "Ugyldig DNS fra APN"
+
+#, fuzzy
+#~ msgid ""
+#~ "\n"
+#~ "<small>The DNS settings received from the mobile network are invalid. You "
+#~ "will\n"
+#~ "probably want to restart the connection, or if the problem persists, you\n"
+#~ "can specify a static DNS entry in the connection preferences</small>\n"
+#~ msgstr ""
+#~ "\n"
+#~ "<small>DNS fra APN er ugyldig. Du må startet\n"
+#~ "tilkoblingen på nytt, dersom problemene vedvarer, kan du definere\n"
+#~ "statiske DNS felter i tilkoblings innstillingene</small>\n"
+
+#~ msgid "Disconnected from Internet"
+#~ msgstr "Koble fra Internet"
+
+#~ msgid ""
+#~ "\n"
+#~ "<small>%s has given\n"
+#~ "up after trying to connect three times to Internet. This might\n"
+#~ "be provoked by a problem in the configuration or just the fact\n"
+#~ "that there's no carrier.</small>"
+#~ msgstr ""
+#~ "\n"
+#~ "<small>%s har gitt opp\n"
+#~ "etter 3 tilkoblings forsøk til Internet. Dette kan\n"
+#~ "ha oppstått ved konfigurasjons problemer i innstillingene eller\n"
+#~ "nettverks problemer hos din operatør.</small>"
+
+#~ msgid "Device in use removed"
+#~ msgstr "Enhet i bruk fjernet"
+
+#~ msgid ""
+#~ "\n"
+#~ "The 3G device in use has been removed. Now\n"
+#~ "%s\n"
+#~ "is going to shutdown. In order to continue,\n"
+#~ "plug in the 3G device and start again."
+#~ msgstr ""
+#~ "\n"
+#~ "3G enheten i bruk er blitt fjernet.\n"
+#~ "%s avsluttes.\n"
+#~ "For å fortsette sett inn 3G enheten og start på nytt."
+
+#~ msgid "3G Device added"
+#~ msgstr "3G enhet lagt til"
+
+#~ msgid ""
+#~ "\n"
+#~ "A new 3G device (%(device_name)s)\n"
+#~ "has been added, in around 15 seconds\n"
+#~ "(%(app_name)s) will resume its functioning"
+#~ msgstr ""
+#~ "\n"
+#~ "En ny 3G enhet (%(device_name)s)\n"
+#~ "har blitt lagt til, i løpet av 15 sekunder\n"
+#~ "vil (%(app_name)s) fortsette."
+
+#~ msgid "Setting up device..."
+#~ msgstr "Setter opp enhet"
+
+#, fuzzy
+#~ msgid "The following characters are not allowed in a profile name: %s"
+#~ msgstr ""
+#~ "Følgende avhengigheter er ikke oppfylt:\n"
+#~ "%s"
+
+#, fuzzy
+#~ msgid "Invalid value in profile"
+#~ msgstr "Slet profil"
+
+#, fuzzy
+#~ msgid "Authentication Error from %s !"
+#~ msgstr "Autentisering ferdig %s !"
+
+#, fuzzy
+#~ msgid "Connecting to %s ..."
+#~ msgstr "Kobler til %s ..."
+
+#, fuzzy
+#~ msgid "Connecting to device..."
+#~ msgstr "Setter opp enhet"
+
+#~ msgid "Overwrite"
+#~ msgstr "Overskriv"
+
+#~ msgid "Vodafone Spain S.A."
+#~ msgstr "Vodafone Spain S.A."
+
+#~ msgid "translated to $LANG by $translater"
+#~ msgstr "oversatt til norsk av Øystein Gulliksen"
+
+#, fuzzy
+#~ msgid "Default"
+#~ msgstr "standard"
+
+#~ msgid "WVDial directive error"
+#~ msgstr "WVDial direktiv feil"
+
+#~ msgid ""
+#~ "\n"
+#~ "Since version 0.9.7 %s manages pppd's /etc/ppp/{p,ch}ap-secrets, the\n"
+#~ "'plugin passwordfd.so' directive should not appear on the\n"
+#~ "current wvdial profile, please remove it manually. Go to\n"
+#~ "Tools -> Preferences, select the wvdial profiles tab, and\n"
+#~ "remove from the current wvdial profile the\n"
+#~ "'plugin passwordfd.so' line."
+#~ msgstr ""
+#~ "\n"
+#~ "Siden versjon 0.9.7 %s behandles pppd's /etc/ppp/{p,ch}ap-secrets, \n"
+#~ "'plugin passwordfd.so' direktiv skal ikke vises på\n"
+#~ "nåværende wvdial profil, vennligst fjern det manuelt. Gå til\n"
+#~ "Verktøy -> Innstillinger, velg wvdial profiler fanen, og\n"
+#~ "fjern det fra gjeldende wvdial profil\n"
+#~ "'plugin passwordfd.so'."
+
+#~ msgid "GPRS only"
+#~ msgstr "Kun GPRS"
+
+#~ msgid "GPRS preferred"
+#~ msgstr "GPRS foretrukket"
+
+#~ msgid "Shutting down..."
+#~ msgstr "Slår av..."
+
+#~ msgid "Missing dependencies"
+#~ msgstr "Manglende avhengigheter"
+
+#~ msgid ""
+#~ "The following dependencies are not satisfied:\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Følgende avhengigheter er ikke oppfylt:\n"
+#~ "%s"
+
+#~ msgid "OS/Distro not registered"
+#~ msgstr "OS/Distro ikke registrert"
+
+#~ msgid "Permissions problems"
+#~ msgstr "Rettighets problemer"
 
 #~ msgid "PIN1..."
 #~ msgstr "PIN1..."
@@ -1935,9 +2135,6 @@ msgstr "Rettighets problemer"
 #~ msgid "Connection : "
 #~ msgstr "Oppkobling :"
 
-#~ msgid "<b>Number: </b>"
-#~ msgstr "<b>Nummer: </b>"
-
 #~ msgid "Save in:"
 #~ msgstr "Lagre i:"
 
@@ -1959,9 +2156,6 @@ msgstr "Rettighets problemer"
 
 #~ msgid "<b>frame14</b>"
 #~ msgstr "<b>ramme14</b>"
-
-#~ msgid "<b>A detailed message</b>"
-#~ msgstr "<b>En detaljert melding</b>"
 
 #~ msgid "Manage my /etc/ppp/{ch,p}ap-secrets"
 #~ msgstr "Behandle mine /etc/ppp/{ch,p}ap-secrets"
@@ -2034,9 +2228,6 @@ msgstr "Rettighets problemer"
 
 #~ msgid "Are you sure that you want to delete profile %s"
 #~ msgstr "Er du sikker på at du vil slette profil %s"
-
-#~ msgid "Error while deleting profile"
-#~ msgstr "Feil ved sletting av profil"
 
 #~ msgid "Profile %s does not exists"
 #~ msgstr "Profil %s eksisterer ikke"
