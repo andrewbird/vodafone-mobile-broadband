@@ -78,6 +78,8 @@ GTK_LOCK = join('/tmp', '.bcm-lock')
 USER_HOME = expanduser('~')
 WADER_HOME = join(USER_HOME, '.bcm')
 
+LOG_FILE = join(WADER_HOME, 'log')
+
 DB_DIR = join(WADER_HOME, 'db')
 MESSAGES_DB = join(DB_DIR, 'messages.db')
 USAGE_DB = join(DB_DIR, 'usage.db')
