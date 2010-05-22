@@ -130,6 +130,28 @@ class Messages(object):
 
         return ret
 
+    def get_messages_async(self, cb, eb):
+
+        def _cb(slist):
+            ret = []
+
+            # from sim storage
+            for dct in slist:
+                sms = SMMessage.from_dict(dct, self.tz)
+                ret.append(sms)
+
+            # return messages in db storage too
+            lst = self.smanager.get_messages()
+            for msg in lst:
+                msg.datetime = msg.datetime.astimezone(self.tz)
+                ret.append(msg)
+
+            cb(ret)
+
+        self.device.List(dbus_interface=SMS_INTFACE,
+                         reply_handler=_cb,
+                         error_handler=eb)
+
     def get_message(self, index):
         dct = self.device.Get(index, dbus_interface=SMS_INTFACE)
         sms = SMMessage.from_dict(dct, self.tz)

@@ -1085,19 +1085,22 @@ The csv file that you have tried to import has an invalid format.""")
         Fills the treeviews with SMS and contacts
         """
 
-        # Get messages and refresh display
-        def refresh(contacts):
-            # messages from all backends(inc SIM) XXX: sync for now :-(
-            messages_obj = get_messages_obj(self.model.device)
-            messages = messages_obj.get_messages()
-
+        def messages_cb(contacts, messages):
+            # refresh display
             self._empty_treeviews(list(set(TV_DICT.values())))
             self._fill_contacts(contacts)
             self._fill_messages(messages)
 
-        # contacts from all backends(inc SIM)
+        def contacts_cb(contacts):
+            # get messages from all backends(inc SIM)
+            messages_obj = get_messages_obj(self.model.device)
+            messages_obj.get_messages_async(
+                            lambda messages: messages_cb(contacts, messages),
+                            logger.error)
+
+        # get contacts from all backends(inc SIM)
         phonebook = get_phonebook(device=self.model.device)
-        phonebook.get_contacts_async(refresh, logger.error)
+        phonebook.get_contacts_async(contacts_cb, logger.error)
 
     def _get_treeview_contacts(self):
         treeview = self.view['contacts_treeview']
