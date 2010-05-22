@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2006-2009  Vodafone España, S.A.
+# Copyright (C) 2006-2010  Vodafone España, S.A.
 # Author:  Pablo Martí
 #
 # This program is free software; you can redistribute it and/or modify
@@ -29,6 +29,7 @@ from wader.common.provider import (SmsProvider,
                                    inbox_folder, outbox_folder, drafts_folder)
 
 from wader.bcm.consts import MESSAGES_DB
+from wader.bcm.logger import logger
 
 KNOWN_FOLDERS = [inbox_folder, drafts_folder, outbox_folder]
 
@@ -160,7 +161,9 @@ class Messages(object):
     def delete_messages(self, smslist):
         for sms in smslist:
             if is_sim_message(sms):
-                self.device.Delete(sms.index, dbus_interface=SMS_INTFACE)
+                self.device.Delete(sms.index, dbus_interface=SMS_INTFACE,
+                                   reply_handler=lambda: True,
+                                   error_handler=logger.error)
             else:
                 self.smanager.delete_message(sms)
 
