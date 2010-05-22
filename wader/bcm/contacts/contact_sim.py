@@ -137,6 +137,24 @@ class SIMContactsManager(object):
 
         return ret
 
+    def get_contacts_async(self, cb, eb):
+        """
+        Fetches contacts from the SIM
+            callback cb has a list of SIMContacts as arg
+            errorback eb has a dbus error as arg
+        """
+
+        def _cb(clist):
+            ret = []
+            for c in clist:
+                (index, name, number) = c
+                ret.append(SIMContact(name, number, index, self.device))
+            cb(ret)
+
+        self.device.List(dbus_interface=CTS_INTFACE,
+                            reply_handler=_cb,
+                            error_handler=eb)
+
     def get_contact_by_id(self, index):
         c = self.device.Get(index, dbus_interface=CTS_INTFACE)
         if c:

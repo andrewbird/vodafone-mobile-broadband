@@ -103,6 +103,22 @@ class PhoneBook(object):
             ret.extend(manager.get_contacts())
         return ret
 
+    def get_contacts_async(self, cb, eb):
+        sim_manager = SIMContactsManager()
+        sim_manager.set_device(self.device)
+
+        def _cb(scontacts):
+            ret = scontacts
+
+            for cclass, mclass in supported_types:
+                manager = mclass()
+                if manager.device_reqd(): # SIM
+                    continue
+                ret.extend(manager.get_contacts())
+            cb(ret)
+
+        sim_manager.get_contacts_async(_cb, eb)
+
     def delete_objs(self, objs):
         return self.delete_contacts(objs)
 
