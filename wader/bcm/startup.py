@@ -32,5 +32,5 @@ def create_skeleton_and_return():
             except OSError:
                 raise RuntimeError("Cannot create %s" % path)
 
-    for path in [consts.WADER_HOME, consts.DB_DIR]:
+    for path in [consts.BCM_HOME, consts.DB_DIR]:
         mkdir(path)

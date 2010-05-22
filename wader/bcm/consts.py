@@ -76,11 +76,11 @@ GUIDE_DIR = join('/usr/share/doc', APP_SLUG_NAME)
 GTK_LOCK = join('/tmp', '.bcm-lock')
 
 USER_HOME = expanduser('~')
-WADER_HOME = join(USER_HOME, '.bcm')
+BCM_HOME = join(USER_HOME, '.bcm')
 
-LOG_FILE = join(WADER_HOME, 'log')
+LOG_FILE = join(BCM_HOME, 'log')
 
-DB_DIR = join(WADER_HOME, 'db')
+DB_DIR = join(BCM_HOME, 'db')
 MESSAGES_DB = join(DB_DIR, 'messages.db')
 USAGE_DB = join(DB_DIR, 'usage.db')
 
