@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Betavine Mobile Connect
+Name=Betavine Connection Manager
 Exec=bcm
 Terminal=false
 X-MultipleArgs=false
