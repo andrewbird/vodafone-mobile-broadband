@@ -23,6 +23,7 @@ import gtk
 from wader.bcm.contrib.gtkmvc import View
 
 from wader.bcm.consts import GLADE_DIR, IMAGES_DIR
+from wader.bcm.translate import _
 
 
 class DiagnosticsView(View):
@@ -58,13 +59,20 @@ class DiagnosticsView(View):
         self['ussd_textview'].set_buffer(buffer)
 
     def set_msisdn_info(self, msisdn):
+        if msisdn is None:
+            msisdn = _('Unknown')
         self['msisdn_name_label'].set_text(msisdn)
 
     def set_imsi_info(self, imsi):
         self['imsi_number_label'].set_text(imsi)
 
-    def set_network_info(self, network="Unknown", country="Unknown"):
+    def set_network_info(self, network=None, country=None):
+        if network is None:
+            network = _('Unknown')
         self['network_name_label'].set_text(network)
+
+        if country is None:
+            country = _('Unknown')
         self['country_name_label'].set_text(country)
 
     def set_imei_info(self, imei):
