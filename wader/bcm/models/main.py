@@ -125,6 +125,9 @@ class MainModel(Model):
         # Per SIM stuff
         self.imsi = None
         self.msisdn = None
+        # PIN in keyring stuff
+        self.manage_pin = False
+        self.keyring_available = self.is_keyring_available()
 
     def get_device(self):
         return self.device
@@ -486,21 +489,65 @@ class MainModel(Model):
                           reply_handler=lambda: True,
                           error_handler=_check_pin_status_eb)
 
-    def _send_pin_eb(self, e):
-        logger.error("SendPin failed %s" % get_error_msg(e))
-        self._check_pin_status()
+    def send_pin(self, pin, cb):
+        logger.info("Trying authentication with PIN %s" % pin)
+
+        def _send_pin_cb(*args):
+            logger.info("Authentication success")
+            if self.manage_pin:
+                self.store_pin_in_keyring(pin)
+            cb()
+
+        def _send_pin_eb(e):
+            logger.error("SendPin failed %s" % get_error_msg(e))
+            if self.manage_pin:
+                self.delete_pin_from_keyring()
+            self._check_pin_status()
+
+        self.device.SendPin(pin,
+                            timeout=AUTH_TIMEOUT,
+                            dbus_interface=CRD_INTFACE,
+                            reply_handler=_send_pin_cb,
+                            error_handler=_send_pin_eb)
+
+    def is_keyring_available(self):
+        # XXX: this needs to work with keyring backend abstraction
+        try:
+            # XXX: until we get the keyring working
+            #import gnomekeyring
+            raise ImportError
+        except ImportError:
+            return False
+
+        return True
+
+    def store_pin_in_keyring(self, pin):
+        # XXX: In the future is would be good enhance this to fetch/store in
+        #      different keyring paths according to the following preference:
+        #      1/ ICC-ID identifies the SIM uniquely and is available before
+        #         PIN auth, but only the latest datacards support its
+        #         retrieval.
+        #      2/ IMEI identifies the datacard uniquely, but if the user swaps
+        #         SIM to another device it won't be found, or worse it finds
+        #         the PIN associated with another SIM
+        #      3/ Store in application specific location, this is effectively a
+        #         single PIN for all SIMs used within BCM
+        if not self.keyring_available:
+            return
+        logger.info("Storing PIN in keyring")
+
+    def fetch_pin_from_keyring(self):
+        # XXX: until we get the keyring working
+        return None
+
+    def delete_pin_from_keyring(self):
+        if not self.keyring_available:
+            return
+        logger.info("Deleting PIN from keyring")
 
     def _send_puk_eb(self, e):
         logger.error("SendPuk failed: %s" % get_error_msg(e))
         self._check_pin_status()
-
-    def send_pin(self, pin, cb):
-        logger.info("Trying authentication with PIN %s" % pin)
-        self.device.SendPin(pin,
-                            timeout=AUTH_TIMEOUT,
-                            dbus_interface=CRD_INTFACE,
-                            reply_handler=lambda *args: cb(),
-                            error_handler=self._send_pin_eb)
 
     def send_puk(self, puk, pin, cb):
         logger.info("Trying authentication with PUK %s, PIN %s" % (puk, pin))

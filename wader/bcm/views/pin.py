@@ -23,7 +23,6 @@ import os.path
 #from gtkmvc import View
 from wader.bcm.contrib.gtkmvc import View
 
-from wader.bcm.config import config
 from wader.bcm.consts import GLADE_DIR, IMAGES_DIR
 from wader.bcm.translate import _
 
@@ -61,12 +60,19 @@ class AskPINView(View):
     def __init__(self, ctrl):
         super(AskPINView, self).__init__(ctrl, self.GLADE_FILE,
             'ask_pin_window', register=False, domain='bcm')
-        self.setup_view()
         ctrl.register_view(self)
 
-    def setup_view(self):
-        active = config.get('preferences', 'manage_pin_by_keyring', False)
+    def get_keyring_checkbox_active(self):
+        return self['gnomekeyring_checkbutton'].get_active()
+
+    def set_keyring_checkbox_active(self, active):
         self['gnomekeyring_checkbutton'].set_active(active)
+
+    def set_keyring_checkbox_sensitive(self, sensitive):
+        self['gnomekeyring_checkbutton'].set_sensitive(sensitive)
+        if not sensitive:
+            details = _("To use this feature you need the gnomekeyring module")
+            self['gnomekeyring_checkbutton'].set_tooltip_text(details)
 
 
 class AskPUKView(View):

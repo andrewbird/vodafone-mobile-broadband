@@ -215,8 +215,6 @@ class AskPINController(Controller):
 
     def __init__(self, model):
         super(AskPINController, self).__init__(model)
-        # handler id of self.view['gnomekeyring_checkbutton']::toggled
-        self._hid = None
         self.pin_activate_id = -1
 
     def validate(self, widget=None):
@@ -245,48 +243,37 @@ class AskPINController(Controller):
                 self.pin_activate_id = -1
 
     def register_view(self, view):
-        super(AskPINController, self).register_view(view)
-#        self.view['ask_pin_window'].connect('delete-event',
-#                                            self.close_application)
+        pin = self.model.fetch_pin_from_keyring()
+        if pin is not None:
+            self.send_pin(pin)
+        else:
+            super(AskPINController, self).register_view(view)
 
-        def toggled_cb(checkbutton):
-            """
-            Callback for the gnomekeyring_checkbutton::toggled signal
+            if not self.model.keyring_available:
+                self.view.set_keyring_checkbox_active(False)
+                self.view.set_keyring_checkbox_sensitive(False)
+            else:
+                active = self.model.conf.get('preferences',
+                                             'manage_pin_by_keyring', False)
+                self.view.set_keyring_checkbox_active(active)
+                self.view.set_keyring_checkbox_sensitive(True)
 
-            we are gonna try to import gnomekeyring beforehand, if we
-            get an ImportError we will inform the user about what she
-            should do
-            """
-            if checkbutton.get_active():
-                try:
-                    import gnomekeyring
-                except ImportError:
-                    # block the handler so the set_active method doesnt
-                    # executes this callback again
-                    checkbutton.handler_block(self._hid)
-                    checkbutton.set_active(False)
-                    # restore handler
-                    checkbutton.handler_unblock(self._hid)
-                    message = _("Missing dependency")
-                    details = _("To use this feature you need the "
-                                "gnomekeyring module")
-                    show_warning_dialog(message, details)
-                    return True
+            self.view['pin_entry'].connect('changed', self.validate)
+            self.validate() # Initial validation
 
-        self._hid = self.view['gnomekeyring_checkbutton'].connect('toggled',
-                                                                 toggled_cb)
-        self.view['pin_entry'].connect('changed', self.validate)
-        self.validate() # Initial validation
+    def send_pin(self, pin):
+        self.model.status = _('Authenticating')
+        self.model.send_pin(pin, self.model.enable_device)
 
     def on_ok_button_clicked(self, widget):
         pin = self.view['pin_entry'].get_text()
         if pin:
             # save keyring preferences
-            active = self.view['gnomekeyring_checkbutton'].get_active()
-            self.model.conf.set('preferences', 'manage_pin_by_keyring', active)
+            self.model.manage_pin = self.view.get_keyring_checkbox_active()
+            self.model.conf.set('preferences', 'manage_pin_by_keyring',
+                                self.model.manage_pin)
+            self.send_pin(pin)
 
-            self.model.status = _('Authenticating')
-            self.model.send_pin(pin, self.model.enable_device)
             self.view.hide()
             self.model.unregister_observer(self)
 
