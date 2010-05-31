@@ -131,7 +131,7 @@ class PreferencesController(Controller):
         self.view.setup_user_show_icon_on_tray(self.model.show_icon)
         self.view.setup_user_close_window_minimize(self.model.close_minimizes)
         self.view.setup_user_close_window_minimize_enable(sensitive)
-        self.view.setup_manage_my_pin(self.model.manage_my_keyring)
+        self.view.setup_manage_my_pin(self.model.manage_pin)
 
     def setup_usage_tab(self):
         # setup the usage tab to reflect what's in our model on startup
@@ -290,13 +290,13 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
               self.view['exit_without_confirmation_checkbutton'].get_active()
         close_minimizes = self.view['close_window_checkbutton'].get_active()
         show_icon = self.view['show_icon_checkbutton'].get_active()
-        manage_keyring = self.view['gnomekeyring_checkbutton'].get_active()
+        manage_pin = self.view['gnomekeyring_checkbutton'].get_active()
 
         # set the model with those values.
         self.model.exit_without_confirmation = exit_without_confirmation
         self.model.close_minimizes = close_minimizes
         self.model.show_icon = show_icon
-        self.model.manage_my_keyring = manage_keyring
+        self.model.manage_pin = manage_pin
 
         # make the change in the parent
         if self.model.show_icon:

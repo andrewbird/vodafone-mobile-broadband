@@ -59,7 +59,7 @@ class PreferencesModel(BaseWrapperModel):
         'exit_without_confirmation': CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION,
         'show_icon': CFG_PREFS_DEFAULT_TRAY_ICON,
         'close_minimizes': CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
-        'manage_my_keyring': False,
+        'manage_pin': False,
         'max_traffic': 10,
         'traffic_threshold': 100,
         'usage_notification': False,
@@ -105,8 +105,8 @@ class PreferencesModel(BaseWrapperModel):
         self.close_minimizes = config.get('preferences', 'close_minimizes',
                                     CFG_PREFS_DEFAULT_CLOSE_MINIMIZES)
 
-        self.manage_my_keyring = config.get('preferences', 'manage_pin_by_keyring',
-                                            False)
+        self.manage_pin = config.get('preferences', 'manage_pin_by_keyring',
+                                     False)
 
         # ok lets load the application values from configuration file
         self.browser = config.get('preferences', 'browser',
@@ -135,7 +135,7 @@ class PreferencesModel(BaseWrapperModel):
                    self.exit_without_confirmation)
         config.set('preferences', 'show_icon', self.show_icon)
         config.set('preferences', 'close_minimizes', self.close_minimizes)
-        config.set('preferences', 'manage_pin_by_keyring', self.manage_my_keyring)
+        config.set('preferences', 'manage_pin_by_keyring', self.manage_pin)
 
         # Save all the attributes on the applications tab
         config.set('preferences', 'browser', self.browser)
