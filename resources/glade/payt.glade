@@ -179,7 +179,7 @@
                         <property name="left_padding">55</property>
                         <child>
                           <widget class="GtkButton" id="credit_button">
-                            <property name="label" translatable="yes">Check Credit</property>
+                            <property name="label" translatable="yes">Check credit</property>
                             <property name="visible">True</property>
                             <property name="sensitive">False</property>
                             <property name="can_focus">True</property>
@@ -264,7 +264,7 @@
                 <child>
                   <widget class="GtkLabel" id="label11">
                     <property name="visible">True</property>
-                    <property name="label" translatable="yes">Enter Code:</property>
+                    <property name="label" translatable="yes">Enter code:</property>
                     <property name="use_markup">True</property>
                   </widget>
                   <packing>
@@ -286,7 +286,7 @@
                 </child>
                 <child>
                   <widget class="GtkButton" id="voucher_button">
-                    <property name="label" translatable="yes">send</property>
+                    <property name="label" translatable="yes">Send</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
