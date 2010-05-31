@@ -105,7 +105,7 @@ class PreferencesModel(BaseWrapperModel):
         self.close_minimizes = config.get('preferences', 'close_minimizes',
                                     CFG_PREFS_DEFAULT_CLOSE_MINIMIZES)
 
-        self.manage_my_keyring = config.get('preferences', 'manage_my_keyring',
+        self.manage_my_keyring = config.get('preferences', 'manage_pin_by_keyring',
                                             False)
 
         # ok lets load the application values from configuration file
@@ -135,7 +135,7 @@ class PreferencesModel(BaseWrapperModel):
                    self.exit_without_confirmation)
         config.set('preferences', 'show_icon', self.show_icon)
         config.set('preferences', 'close_minimizes', self.close_minimizes)
-        config.set('preferences', 'manage_my_keyring', self.manage_my_keyring)
+        config.set('preferences', 'manage_pin_by_keyring', self.manage_my_keyring)
 
         # Save all the attributes on the applications tab
         config.set('preferences', 'browser', self.browser)

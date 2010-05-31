@@ -281,11 +281,9 @@ class AskPINController(Controller):
     def on_ok_button_clicked(self, widget):
         pin = self.view['pin_entry'].get_text()
         if pin:
-            ## save keyring preferences
-            #from wader.bcm.config import config
-            #active = self.view['gnomekeyring_checkbutton'].get_active()
-            #config.setboolean('preferences', 'manage_keyring', active)
-            #config.write()
+            # save keyring preferences
+            active = self.view['gnomekeyring_checkbutton'].get_active()
+            self.model.conf.set('preferences', 'manage_pin_by_keyring', active)
 
             self.model.status = _('Authenticating')
             self.model.send_pin(pin, self.model.enable_device)
@@ -295,7 +293,6 @@ class AskPINController(Controller):
     def on_cancel_button_clicked(self, widget):
         self.view.hide()
         self.model.unregister_observer(self)
-#        self.close_application()
 
 
 class AskPUKController(Controller):

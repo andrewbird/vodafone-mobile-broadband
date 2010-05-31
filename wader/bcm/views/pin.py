@@ -23,6 +23,7 @@ import os.path
 #from gtkmvc import View
 from wader.bcm.contrib.gtkmvc import View
 
+from wader.bcm.config import config
 from wader.bcm.consts import GLADE_DIR, IMAGES_DIR
 from wader.bcm.translate import _
 
@@ -64,10 +65,7 @@ class AskPINView(View):
         ctrl.register_view(self)
 
     def setup_view(self):
-        # XXX: fix when we know what we're doing with preferences
-#        from wader.bcm.config import config
-#        active = config.getboolean('preferences', 'manage_keyring')
-        active = False
+        active = config.get('preferences', 'manage_pin_by_keyring', False)
         self['gnomekeyring_checkbutton'].set_active(active)
 
 
