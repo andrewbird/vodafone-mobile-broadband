@@ -64,7 +64,6 @@ from wader.bcm.messages import get_messages_obj, is_sim_message
 from wader.bcm.views.diagnostics_view import DiagnosticsView
 from wader.bcm.controllers.diagnostics_controller import DiagnosticsController
 
-from wader.bcm.models.sms import NewSmsModel
 from wader.bcm.views.sms import NewSmsView, ForwardSmsView
 from wader.bcm.controllers.sms import NewSmsController, ForwardSmsController
 
@@ -802,8 +801,7 @@ The csv file that you have tried to import has an invalid format.""")
         view.run()
 
     def on_new_sms_activate(self, widget):
-        model = NewSmsModel(self.model.device)
-        ctrl = NewSmsController(model, self,
+        ctrl = NewSmsController(self.model, self,
                                 self._get_treeview_contacts())
         view = NewSmsView(ctrl)
         view.set_parent_view(self.view)
@@ -1140,8 +1138,7 @@ The csv file that you have tried to import has an invalid format.""")
     def on_reply_sms_no_quoting_menu_item_activate(self, widget):
         message = self.get_obj_from_selected_row()
         if message:
-            model = NewSmsModel(self.model.device)
-            ctrl = ForwardSmsController(model, self,
+            ctrl = ForwardSmsController(self.model, self,
                                         self._get_treeview_contacts())
             view = ForwardSmsView(ctrl)
             view.set_parent_view(self.view)
@@ -1152,8 +1149,7 @@ The csv file that you have tried to import has an invalid format.""")
     def on_reply_sms_quoting_menu_item_activate(self, widget):
         message = self.get_obj_from_selected_row()
         if message:
-            model = NewSmsModel(self.model.device)
-            ctrl = ForwardSmsController(model, self,
+            ctrl = ForwardSmsController(self.model, self,
                                         self._get_treeview_contacts())
             view = ForwardSmsView(ctrl)
             view.set_parent_view(self.view)
@@ -1165,9 +1161,7 @@ The csv file that you have tried to import has an invalid format.""")
     def on_forward_sms_menu_item_activate(self, widget):
         message = self.get_obj_from_selected_row()
         if message:
-
-            model = NewSmsModel(self.model.device)
-            ctrl = ForwardSmsController(model, self,
+            ctrl = ForwardSmsController(self.model, self,
                                         self._get_treeview_contacts())
             view = ForwardSmsView(ctrl)
             ctrl.numbers_entry.grab_focus()
@@ -1289,8 +1283,7 @@ The csv file that you have tried to import has an invalid format.""")
         # get selected row
         message = self.get_obj_from_selected_row()
         if message:
-            model = NewSmsModel(self.model.device)
-            ctrl = ForwardSmsController(model, self,
+            ctrl = ForwardSmsController(self.model, self,
                                         self._get_treeview_contacts())
             view = ForwardSmsView(ctrl)
             view.set_parent_view(self.view)
@@ -1391,8 +1384,7 @@ The csv file that you have tried to import has an invalid format.""")
         iters = [model.get_iter(path) for path in selected]
         numbers = [model.get_value(_iter, 2) for _iter in iters]
 
-        model = NewSmsModel(self.model.device)
-        ctrl = NewSmsController(model, self,
+        ctrl = NewSmsController(self.model, self,
                                 self._get_treeview_contacts())
         view = NewSmsView(ctrl)
         view.set_parent_view(self.view)

@@ -19,9 +19,8 @@
 
 import gtk
 from gobject import TYPE_PYOBJECT, TYPE_STRING
-#from gtkmvc import Model, ListStoreModel
-from wader.bcm.contrib.gtkmvc import Model, ListStoreModel
 
+from wader.bcm.contrib.gtkmvc import ListStoreModel
 from wader.bcm.images import MOBILE_IMG, COMPUTER_IMG
 from wader.bcm.messages import is_sim_message
 
@@ -99,14 +98,3 @@ class SMSStoreModel(ListStoreModel):
         entry = self._make_entry(message, contacts)
         for column in range(len(entry)):
             self.set_value(_iter, column, entry[column])
-
-
-class NewSmsModel(Model):
-    """
-    Model for the send SMS controller
-    """
-
-    def __init__(self, device):
-        super(NewSmsModel, self).__init__()
-
-        self.device = device
