@@ -30,7 +30,10 @@ from wader.bcm.contrib.gtkmvc import View
 from wader.bcm.config import config
 from wader.bcm.translate import _
 from wader.bcm.consts import (GLADE_DIR, IMAGES_DIR, THEMES_DIR,
-                              APP_LONG_NAME, APP_URL)
+                              APP_LONG_NAME, APP_URL,
+                              NO_DEVICE, HAVE_DEVICE, SIM_LOCKED,
+                              AUTHENTICATING, SEARCHING, DISCONNECTED, CONNECTED)
+
 from wader.bcm.utils import repr_usage, UNIT_KB, UNIT_MB, units_to_bytes
 from wader.bcm.views.stats import StatsBar
 from wader.bcm.controllers.base import TV_DICT
@@ -90,8 +93,8 @@ class MainView(View):
         ret = super(MainView, self).show()
 
         # XXX: AJB - for some reason these items hidden before
-        self['usage_frame'].hide()
         # in ctrl.register_view() are reshown by parent.show()
+        self['usage_frame'].hide()
         self['support_notebook'].hide()
         self['contacts_menubar'].hide()
         self['sms_message_pane'].hide()
@@ -107,7 +110,7 @@ class MainView(View):
         window.set_size_request(width=WIN_WIDTH, height=height)
         self._setup_support_tabs()
         self._setup_usage_view()
-        self.set_no_device()
+        self.set_view_state(NO_DEVICE)
 
     def theme_ui(self):
         theme = os.path.join(THEMES_DIR, "default.gtkrc")
@@ -192,87 +195,97 @@ class MainView(View):
     def set_name(self, name=APP_LONG_NAME):
         self.get_top_widget().set_title(name)
 
-    def _set_disconnected(self):
-        """
-        States (no device, have device, disconnected are similar except for:
-            status bar
-            signal image
-            button enablement
-        """
-        obj = self['connect_button']
-        if obj:
-            image = gtk.Image()
-            image.set_from_file(os.path.join(IMAGES_DIR, 'connect.png'))
-            image.show()
-            obj.set_icon_widget(image)
-            obj.set_label(_("Connect"))
-            obj.set_active(False)
+    def set_view_state(self, state):
 
-        self['upload_alignment'].hide()
-        self['download_alignment'].hide()
+        def set_button(s):
+            if s == DISCONNECTED:
+                ifile = 'connect.png'
+                label = _("Connect")
+                active = False
+            else:
+                ifile = 'disconnect.png'
+                label = _("Disconnect")
+                active = True
 
-    def set_no_device(self):
-        self._set_disconnected()
-        self['connect_button'].set_sensitive(False)
-        self['topup_tool_button'].set_sensitive(False)
-        self['net_statusbar'].push(1, _('No device'))
-        self['signal_image'].set_from_file(os.path.join(IMAGES_DIR,
-                                                        'nodevice.png'))
+            obj = self['connect_button']
+            if obj:
+                image = gtk.Image()
+                image.set_from_file(os.path.join(IMAGES_DIR, ifile))
+                image.show()
+                obj.set_icon_widget(image)
+                obj.set_label(label)
+                obj.set_active(active)
 
-    def set_have_device(self):
-        self._set_disconnected()
-        self['connect_button'].set_sensitive(False)
-        self['topup_tool_button'].set_sensitive(False)
-        self['net_statusbar'].push(1, _('Device found'))
-        self['signal_image'].set_from_file(os.path.join(IMAGES_DIR,
-                                                        'device.png'))
+            if not active:
+                self['upload_alignment'].hide()
+                self['download_alignment'].hide()
+            else:
+                self['upload_alignment'].show()
+                self['download_alignment'].show()
 
-    def set_sim_locked(self):
-        self._set_disconnected()
-        self['connect_button'].set_sensitive(False)
-        self['topup_tool_button'].set_sensitive(False)
-        self['net_statusbar'].push(1, _('SIM locked'))
-        self['signal_image'].set_from_file(os.path.join(IMAGES_DIR,
-                                                        'simlocked.png'))
+        def set_disabled():
+            self['change_pin1'].set_sensitive(False)
+            self['request_pin1'].set_sensitive(False)
+            self['import_contacts1'].set_sensitive(False)
+            self['topup_tool_button'].set_sensitive(False)
+            self['profiles_menu_item'].set_sensitive(False)
+            self['connect_button'].set_sensitive(False)
 
-    def set_authenticating(self):
-        self._set_disconnected()
-        self['connect_button'].set_sensitive(False)
-        self['topup_tool_button'].set_sensitive(False)
-        self['net_statusbar'].push(1, _('Authenticating'))
-        self['signal_image'].set_from_file(os.path.join(IMAGES_DIR,
-                                                        'throbber.gif'))
+        def set_authenticated():
+            self['change_pin1'].set_sensitive(True)
+            self['request_pin1'].set_sensitive(True)
+            self['import_contacts1'].set_sensitive(True)
+            self['profiles_menu_item'].set_sensitive(True)
+            self['topup_tool_button'].set_sensitive(True)
 
-    def set_searching(self):
-        self._set_disconnected()
-        self['connect_button'].set_sensitive(False)
-        self['topup_tool_button'].set_sensitive(True)
-        self['net_statusbar'].push(1, _('Searching'))
-        self['signal_image'].set_from_file(os.path.join(IMAGES_DIR,
-                                                        'throbber.gif'))
+        def set_registered():
+            self['connect_button'].set_sensitive(True)
 
-    def set_disconnected(self):
-        self._set_disconnected()
-        self['connect_button'].set_sensitive(True)
-        self['topup_tool_button'].set_sensitive(True)
-        self['net_statusbar'].push(1, _('Not connected'))
+        def set_bar_text_image(text, image=None):
+            self['net_statusbar'].push(1, text)
+            if image is not None:
+                self['signal_image'].set_from_file(
+                                        os.path.join(IMAGES_DIR, image))
 
-    def set_connected(self):
-        obj = self['connect_button']
-        if obj:
-            image = gtk.Image()
-            image.set_from_file(os.path.join(IMAGES_DIR, 'disconnect.png'))
-            image.show()
-            obj.set_icon_widget(image)
-            obj.set_label(_("Disconnect"))
-            obj.set_active(True)
+        if state == NO_DEVICE:
+            set_button(DISCONNECTED)
+            set_disabled()
+            set_bar_text_image(_('No device'), 'nodevice.png')
 
-        self['upload_alignment'].show()
-        self['download_alignment'].show()
+        elif state == HAVE_DEVICE:
+            set_button(DISCONNECTED)
+            set_disabled()
+            set_bar_text_image(_('Device found'), 'device.png')
 
-        self['connect_button'].set_sensitive(True)
-        self['topup_tool_button'].set_sensitive(True)
-        self['net_statusbar'].push(1, _('Connected'))
+        elif state == SIM_LOCKED:
+            set_button(DISCONNECTED)
+            set_disabled()
+            set_bar_text_image(_('SIM locked'), 'simlocked.png')
+
+        elif state == AUTHENTICATING:
+            set_button(DISCONNECTED)
+            set_disabled()
+            set_bar_text_image(_('Authenticating'), 'throbber.gif')
+
+        elif state == SEARCHING:
+            set_button(DISCONNECTED)
+            set_disabled()
+            set_authenticated()
+            set_bar_text_image(_('Searching'), 'throbber.gif')
+
+        elif state == DISCONNECTED: # AKA Registered / Roaming
+            set_button(DISCONNECTED)
+            set_disabled()
+            set_authenticated()
+            set_registered()
+            set_bar_text_image(_('Not connected'))
+
+        elif state == CONNECTED:
+            set_button(CONNECTED)
+            set_disabled()
+            set_authenticated()
+            set_registered()
+            set_bar_text_image(_('Connected'))
 
     def setup_treeview(self, ctrl):
         """Sets up the treeviews"""

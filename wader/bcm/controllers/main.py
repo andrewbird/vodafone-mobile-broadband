@@ -53,7 +53,9 @@ from wader.bcm.consts import (GTK_LOCK, GUIDE_DIR, IMAGES_DIR,
                               CFG_PREFS_DEFAULT_EMAIL,
                               CFG_PREFS_DEFAULT_TRAY_ICON,
                               CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
-                              CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION)
+                              CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION,
+                              NO_DEVICE, HAVE_DEVICE, SIM_LOCKED,
+                              AUTHENTICATING, SEARCHING, DISCONNECTED, CONNECTED)
 
 from wader.bcm.contacts import SIMContact
 from wader.bcm.phonebook import (get_phonebook,
@@ -117,7 +119,7 @@ class MainController(WidgetController):
         self.start()
 
     def start(self):
-        self.view.set_no_device()
+        self.view.set_view_state(NO_DEVICE)
 
         # we're on SMS mode
         self.on_sms_button_toggled(get_fake_toggle_button())
@@ -326,20 +328,20 @@ class MainController(WidgetController):
 
     def property_status_value_change(self, model, old, new):
         if new == _('No device'):
-            self.view.set_no_device()
+            self.view.set_view_state(NO_DEVICE)
         elif new == _('Device found'):
-            self.view.set_have_device()
+            self.view.set_view_state(HAVE_DEVICE)
         elif new == _('SIM locked'):
-            self.view.set_sim_locked()
+            self.view.set_view_state(SIM_LOCKED)
         elif new == _('Authenticating'):
-            self.view.set_authenticating()
+            self.view.set_view_state(AUTHENTICATING)
         elif new == _('Scanning'):
-            self.view.set_searching()
+            self.view.set_view_state(SEARCHING)
             self._fill_treeviews()
         elif new in [_('Registered'), _('Roaming'), _('Not connected')]:
-            self.view.set_disconnected()
+            self.view.set_view_state(DISCONNECTED)
         elif new == _('Connected'):
-            self.view.set_connected()
+            self.view.set_view_state(CONNECTED)
 
     def property_sim_error_value_change(self, model, old, new):
         if not new:
