@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-30 14:07+0100\n"
+"POT-Creation-Date: 2010-06-01 19:55+0100\n"
 "PO-Revision-Date: 2010-05-21 10:54+0100\n"
 "Last-Translator: m1r0 <h15m1r0@gmail.com>\n"
 "Language-Team: Croatian <HR@li.org>\n"
@@ -160,7 +160,7 @@ msgid "Forward SMS to another contact"
 msgstr "Preusmjeri SMS na drugi kontakt"
 
 #: ../glade/bcm.glade:472 ../glade/bcm.glade:563
-#: ../../wader/bcm/controllers/main.py:669
+#: ../../wader/bcm/controllers/main.py:668
 msgid "_Delete"
 msgstr "_Obriši"
 
@@ -1010,8 +1010,8 @@ msgid "Trying to remove an unsaved profile"
 msgstr ""
 
 #: ../../wader/bcm/models/main.py:76 ../../wader/bcm/models/main.py:175
-#: ../../wader/bcm/views/main.py:218 ../../wader/bcm/controllers/main.py:322
-#: ../../wader/bcm/controllers/main.py:329
+#: ../../wader/bcm/views/main.py:218 ../../wader/bcm/controllers/main.py:321
+#: ../../wader/bcm/controllers/main.py:328
 #, fuzzy
 msgid "No device"
 msgstr "Poznati uređaji"
@@ -1033,20 +1033,20 @@ msgid ""
 msgstr ""
 
 #: ../../wader/bcm/models/main.py:318 ../../wader/bcm/views/main.py:226
-#: ../../wader/bcm/controllers/main.py:315
-#: ../../wader/bcm/controllers/main.py:331
+#: ../../wader/bcm/controllers/main.py:314
+#: ../../wader/bcm/controllers/main.py:330
 #, fuzzy
 msgid "Device found"
 msgstr "Model uređaja:"
 
 #: ../../wader/bcm/models/main.py:435
 #: ../../wader/bcm/controllers/payt_controller.py:214
-#: ../../wader/bcm/controllers/main.py:340
+#: ../../wader/bcm/controllers/main.py:339
 msgid "Registered"
 msgstr ""
 
-#: ../../wader/bcm/models/main.py:437 ../../wader/bcm/controllers/main.py:337
-#: ../../wader/bcm/controllers/main.py:518
+#: ../../wader/bcm/models/main.py:437 ../../wader/bcm/controllers/main.py:336
+#: ../../wader/bcm/controllers/main.py:517
 msgid "Scanning"
 msgstr ""
 
@@ -1060,7 +1060,7 @@ msgstr "Nepoznata greška"
 
 #: ../../wader/bcm/models/main.py:443
 #: ../../wader/bcm/controllers/payt_controller.py:214
-#: ../../wader/bcm/controllers/main.py:340
+#: ../../wader/bcm/controllers/main.py:339
 msgid "Roaming"
 msgstr ""
 
@@ -1162,20 +1162,20 @@ msgstr ""
 "\n"
 "%s."
 
-#: ../../wader/bcm/views/main.py:208 ../../wader/bcm/controllers/main.py:609
+#: ../../wader/bcm/views/main.py:208 ../../wader/bcm/controllers/main.py:608
 msgid "Connect"
 msgstr "Povezivanje"
 
-#: ../../wader/bcm/views/main.py:234 ../../wader/bcm/controllers/main.py:194
-#: ../../wader/bcm/controllers/main.py:200
-#: ../../wader/bcm/controllers/main.py:207
-#: ../../wader/bcm/controllers/main.py:333
+#: ../../wader/bcm/views/main.py:234 ../../wader/bcm/controllers/main.py:193
+#: ../../wader/bcm/controllers/main.py:199
+#: ../../wader/bcm/controllers/main.py:206
+#: ../../wader/bcm/controllers/main.py:332
 msgid "SIM locked"
 msgstr ""
 
 #: ../../wader/bcm/views/main.py:242 ../../wader/bcm/controllers/pin.py:265
 #: ../../wader/bcm/controllers/pin.py:336
-#: ../../wader/bcm/controllers/main.py:335
+#: ../../wader/bcm/controllers/main.py:334
 #, fuzzy
 msgid "Authenticating"
 msgstr "Autorizacija..."
@@ -1187,20 +1187,20 @@ msgstr "_Petraga"
 
 #: ../../wader/bcm/views/main.py:258
 #: ../../wader/bcm/controllers/payt_controller.py:214
-#: ../../wader/bcm/controllers/main.py:340
-#: ../../wader/bcm/controllers/main.py:536
-#: ../../wader/bcm/controllers/main.py:562
-#: ../../wader/bcm/controllers/main.py:755
-#: ../../wader/bcm/controllers/main.py:957
+#: ../../wader/bcm/controllers/main.py:339
+#: ../../wader/bcm/controllers/main.py:535
+#: ../../wader/bcm/controllers/main.py:561
+#: ../../wader/bcm/controllers/main.py:754
+#: ../../wader/bcm/controllers/main.py:955
 msgid "Not connected"
 msgstr "Nije spojeno"
 
-#: ../../wader/bcm/views/main.py:267 ../../wader/bcm/controllers/main.py:604
+#: ../../wader/bcm/views/main.py:267 ../../wader/bcm/controllers/main.py:603
 msgid "Disconnect"
 msgstr "Prekini vezu"
 
-#: ../../wader/bcm/views/main.py:275 ../../wader/bcm/controllers/main.py:342
-#: ../../wader/bcm/controllers/main.py:524
+#: ../../wader/bcm/views/main.py:275 ../../wader/bcm/controllers/main.py:341
+#: ../../wader/bcm/controllers/main.py:523
 msgid "Connected"
 msgstr "Spojeno"
 
@@ -1225,7 +1225,7 @@ msgstr "Pošiljatelj"
 msgid "Date"
 msgstr "Datum"
 
-#: ../../wader/bcm/views/main.py:424 ../../wader/bcm/controllers/main.py:416
+#: ../../wader/bcm/views/main.py:424 ../../wader/bcm/controllers/main.py:415
 msgid "N/A"
 msgstr "N/A"
 
@@ -1341,88 +1341,88 @@ msgstr "Nema pronađenih kontakata"
 msgid "No contact with the name %s found"
 msgstr "Kontakt sa imenom %s nije pronađen"
 
-#: ../../wader/bcm/controllers/main.py:163
+#: ../../wader/bcm/controllers/main.py:162
 #, python-format
 msgid "Quit %s"
 msgstr "Ugasi %s"
 
-#: ../../wader/bcm/controllers/main.py:164
+#: ../../wader/bcm/controllers/main.py:163
 msgid "Are you sure you want to exit?"
 msgstr "Dali ste sigurni da želite ugasiti?"
 
-#: ../../wader/bcm/controllers/main.py:176
+#: ../../wader/bcm/controllers/main.py:175
 msgid "Can not close application"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:177
+#: ../../wader/bcm/controllers/main.py:176
 msgid "Can not close while a connection is active"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:280
+#: ../../wader/bcm/controllers/main.py:279
 msgid "Invalid password"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:281
+#: ../../wader/bcm/controllers/main.py:280
 msgid "The supplied password is incorrect"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:291
+#: ../../wader/bcm/controllers/main.py:290
 msgid "Unknown Network"
 msgstr "Nepoznata Mreža"
 
-#: ../../wader/bcm/controllers/main.py:349
+#: ../../wader/bcm/controllers/main.py:348
 msgid "SIM error"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:350
+#: ../../wader/bcm/controllers/main.py:349
 msgid "Perhaps your SIM is not inserted correctly?"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:352
+#: ../../wader/bcm/controllers/main.py:351
 #, fuzzy
 msgid "Unknown error"
 msgstr "Nepoznata greška"
 
-#: ../../wader/bcm/controllers/main.py:358
+#: ../../wader/bcm/controllers/main.py:357
 msgid "Error while registering to home network"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:431
+#: ../../wader/bcm/controllers/main.py:430
 msgid "Transfer limit exceeded"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:432
+#: ../../wader/bcm/controllers/main.py:431
 msgid "You have exceeded your transfer limit"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:507
+#: ../../wader/bcm/controllers/main.py:506
 #, python-format
 msgid "SMS received from %s"
 msgstr "SMS primljen od %s"
 
-#: ../../wader/bcm/controllers/main.py:557
+#: ../../wader/bcm/controllers/main.py:556
 #, fuzzy
 msgid "Failed connection attempt"
 msgstr "Brzina veze:"
 
-#: ../../wader/bcm/controllers/main.py:623
-#: ../../wader/bcm/controllers/main.py:658
+#: ../../wader/bcm/controllers/main.py:622
+#: ../../wader/bcm/controllers/main.py:657
 msgid "Send SMS"
 msgstr "Pošalji SMS"
 
-#: ../../wader/bcm/controllers/main.py:636
+#: ../../wader/bcm/controllers/main.py:635
 msgid "Quit"
 msgstr "Završi"
 
-#: ../../wader/bcm/controllers/main.py:680
+#: ../../wader/bcm/controllers/main.py:679
 msgid "Edit"
 msgstr "Uredi"
 
-#: ../../wader/bcm/controllers/main.py:700
+#: ../../wader/bcm/controllers/main.py:699
 msgid "Invalid CSV format"
 msgstr "Nevaljan CSV format"
 
-#: ../../wader/bcm/controllers/main.py:701
+#: ../../wader/bcm/controllers/main.py:700
 msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
@@ -1430,109 +1430,122 @@ msgstr ""
 "\n"
 "CSV datoteka koju ste pokušali uvesti je nevaljanog formata."
 
-#: ../../wader/bcm/controllers/main.py:729
+#: ../../wader/bcm/controllers/main.py:728
 #, fuzzy
 msgid "No device found"
 msgstr "Nisu pronađeni nikakvi poznati uređaji"
 
-#: ../../wader/bcm/controllers/main.py:730
+#: ../../wader/bcm/controllers/main.py:729
 msgid "No device has been found. Insert one and try again."
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:737
+#: ../../wader/bcm/controllers/main.py:736
 #, fuzzy
 msgid "Profile needed"
 msgstr "Ime profila:"
 
-#: ../../wader/bcm/controllers/main.py:738
+#: ../../wader/bcm/controllers/main.py:737
 msgid "You need to create a profile for connecting."
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:764
+#: ../../wader/bcm/controllers/main.py:763
 #, fuzzy
 msgid "Connecting"
 msgstr "Spajanje..."
 
-#: ../../wader/bcm/controllers/main.py:773
+#: ../../wader/bcm/controllers/main.py:772
 #, fuzzy
 msgid "Disconnecting"
 msgstr "Prekini vezu"
 
-#: ../../wader/bcm/controllers/main.py:906
+#: ../../wader/bcm/controllers/main.py:904
 msgid "_New Profile"
 msgstr "_Novi Profil"
 
-#: ../../wader/bcm/controllers/main.py:915
+#: ../../wader/bcm/controllers/main.py:913
 msgid "Load Profile"
 msgstr "Učitaj profil"
 
-#: ../../wader/bcm/controllers/main.py:920
+#: ../../wader/bcm/controllers/main.py:918
 #, fuzzy
 msgid "Edit Profile"
 msgstr "Uredi profil"
 
-#: ../../wader/bcm/controllers/main.py:925
+#: ../../wader/bcm/controllers/main.py:923
 #, fuzzy
 msgid "Delete Profile"
 msgstr "Obriši profil"
 
-#: ../../wader/bcm/controllers/main.py:958
+#: ../../wader/bcm/controllers/main.py:956
 msgid "No mobile connection. Do you want to continue?"
 msgstr "Nema mobilne veze. Da li želite nastaviti?"
 
-#: ../../wader/bcm/controllers/main.py:1410
+#: ../../wader/bcm/controllers/main.py:1402
 msgid "Editor not available"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:1411
+#: ../../wader/bcm/controllers/main.py:1403
 #, python-format
 msgid "Can not start external contact editor \"%s\""
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:1417
+#: ../../wader/bcm/controllers/main.py:1409
 msgid "_Add to contacts"
 msgstr "_Dodaj u kontakte"
 
-#: ../../wader/bcm/controllers/main.py:1428
+#: ../../wader/bcm/controllers/main.py:1420
 msgid "Migrate to DB"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:1437
+#: ../../wader/bcm/controllers/main.py:1429
 msgid "Save to draft"
 msgstr "Spremi u Nedovršeno"
 
-#: ../../wader/bcm/controllers/main.py:1448
+#: ../../wader/bcm/controllers/main.py:1440
 msgid "Delete"
 msgstr "Obriši"
 
-#: ../../wader/bcm/controllers/sms.py:52
+#: ../../wader/bcm/controllers/sms.py:51
 msgid "You can send the SMS to several recipients separating them by commas"
 msgstr "Možete poslati SMS nekoliko primatelja odvajajući ih zarezima"
 
-#: ../../wader/bcm/controllers/sms.py:85
-#: ../../wader/bcm/controllers/sms.py:179
+#: ../../wader/bcm/controllers/sms.py:84
+#: ../../wader/bcm/controllers/sms.py:230
 #, python-format
 msgid "Text message: 0/%d chars"
 msgstr "Tekstualna poruka: 0/%d chars"
 
-#: ../../wader/bcm/controllers/sms.py:114
+#: ../../wader/bcm/controllers/sms.py:113
 msgid "Send empty message"
 msgstr "Šalji praznu poruku"
 
-#: ../../wader/bcm/controllers/sms.py:115
+#: ../../wader/bcm/controllers/sms.py:114
 msgid "Are you sure you want to send an empty message?"
 msgstr "Da li ste sigurni da želite poslati praznu poruku?"
 
-#: ../../wader/bcm/controllers/sms.py:136
+#: ../../wader/bcm/controllers/sms.py:135
 msgid "Error while sending SMS"
 msgstr "Error while sending SMS"
 
-#: ../../wader/bcm/controllers/sms.py:187
+#: ../../wader/bcm/controllers/sms.py:155
+msgid "No SMSC number"
+msgstr "Nema SMSC broja"
+
+#: ../../wader/bcm/controllers/sms.py:156
+#, python-format
+msgid ""
+"In order to send a SMS, %s needs to know the number of your provider's SMSC. "
+"If you do not know the SMSC number, contact your customer service."
+msgstr ""
+"Pri slanju SMS poruke, %s treba prepoznati SMSC broj vašeg davatelja usluga. "
+"Ako neznate SMSC broj, kontaktirajte tehničku podršku davatelja usluga."
+
+#: ../../wader/bcm/controllers/sms.py:238
 #, python-format
 msgid "Text message: %(num)d/%(tot)d chars"
 msgstr "Tekstualna Poruka: %(num)d/%(tot)d chars"
 
-#: ../../wader/bcm/controllers/sms.py:192
+#: ../../wader/bcm/controllers/sms.py:243
 #, python-format
 msgid "Text message: %(num)d/%(tot)d chars (%(msgs)d SMS)"
 msgstr "Tekstualna Poruka: %(num)d/%(tot)d chars (%(msgs)d SMS)"
@@ -1825,20 +1838,6 @@ msgstr ""
 #~ "Vaša poruka ne može biti poslana nekim primateljima.Poruke koje nisu "
 #~ "poslane nalaze se u mapi nedovršeno.Molimo provjerite ako ste upisali "
 #~ "valjani broj."
-
-#~ msgid "No SMSC number"
-#~ msgstr "Nema SMSC broja"
-
-#~ msgid ""
-#~ "\n"
-#~ "In order to send a SMS, %s needs to know the number of your provider's "
-#~ "SMSC.\n"
-#~ "If you do not know the SMSC number, contact your customer service.\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Pri slanju SMS poruke, %s treba prepoznati SMSC broj vašeg davatelja "
-#~ "usluga .\n"
-#~ "Ako neznate SMSC broj, kontaktirajte tehničku podršku davatelja usluga.\n"
 
 #~ msgid "Incorrect PUK"
 #~ msgstr "Nevaljan PUK"

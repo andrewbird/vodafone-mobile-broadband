@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-30 14:07+0100\n"
+"POT-Creation-Date: 2010-06-01 19:55+0100\n"
 "PO-Revision-Date: 2010-05-21 11:32+0100\n"
 "Last-Translator: Dimitrios Psychogios <dpsychogios@gmail.com>\n"
 "Language-Team: Greek <EL@li.org>\n"
@@ -158,7 +158,7 @@ msgid "Forward SMS to another contact"
 msgstr "Προώθηση SMS σε άλλη επαφή"
 
 #: ../glade/bcm.glade:472 ../glade/bcm.glade:563
-#: ../../wader/bcm/controllers/main.py:669
+#: ../../wader/bcm/controllers/main.py:668
 msgid "_Delete"
 msgstr "_Διαγραφή"
 
@@ -1011,8 +1011,8 @@ msgid "Trying to remove an unsaved profile"
 msgstr ""
 
 #: ../../wader/bcm/models/main.py:76 ../../wader/bcm/models/main.py:175
-#: ../../wader/bcm/views/main.py:218 ../../wader/bcm/controllers/main.py:322
-#: ../../wader/bcm/controllers/main.py:329
+#: ../../wader/bcm/views/main.py:218 ../../wader/bcm/controllers/main.py:321
+#: ../../wader/bcm/controllers/main.py:328
 #, fuzzy
 msgid "No device"
 msgstr "Δεν βρέθηκαν συσκευές"
@@ -1035,20 +1035,20 @@ msgid ""
 msgstr ""
 
 #: ../../wader/bcm/models/main.py:318 ../../wader/bcm/views/main.py:226
-#: ../../wader/bcm/controllers/main.py:315
-#: ../../wader/bcm/controllers/main.py:331
+#: ../../wader/bcm/controllers/main.py:314
+#: ../../wader/bcm/controllers/main.py:330
 #, fuzzy
 msgid "Device found"
 msgstr "Τύπος Συσκευής: "
 
 #: ../../wader/bcm/models/main.py:435
 #: ../../wader/bcm/controllers/payt_controller.py:214
-#: ../../wader/bcm/controllers/main.py:340
+#: ../../wader/bcm/controllers/main.py:339
 msgid "Registered"
 msgstr ""
 
-#: ../../wader/bcm/models/main.py:437 ../../wader/bcm/controllers/main.py:337
-#: ../../wader/bcm/controllers/main.py:518
+#: ../../wader/bcm/models/main.py:437 ../../wader/bcm/controllers/main.py:336
+#: ../../wader/bcm/controllers/main.py:517
 msgid "Scanning"
 msgstr ""
 
@@ -1063,7 +1063,7 @@ msgstr "Άγνωστο"
 
 #: ../../wader/bcm/models/main.py:443
 #: ../../wader/bcm/controllers/payt_controller.py:214
-#: ../../wader/bcm/controllers/main.py:340
+#: ../../wader/bcm/controllers/main.py:339
 msgid "Roaming"
 msgstr ""
 
@@ -1173,20 +1173,20 @@ msgid ""
 "+34 607 123 00 if you are calling from other network."
 msgstr ""
 
-#: ../../wader/bcm/views/main.py:208 ../../wader/bcm/controllers/main.py:609
+#: ../../wader/bcm/views/main.py:208 ../../wader/bcm/controllers/main.py:608
 msgid "Connect"
 msgstr "Σύνδεση"
 
-#: ../../wader/bcm/views/main.py:234 ../../wader/bcm/controllers/main.py:194
-#: ../../wader/bcm/controllers/main.py:200
-#: ../../wader/bcm/controllers/main.py:207
-#: ../../wader/bcm/controllers/main.py:333
+#: ../../wader/bcm/views/main.py:234 ../../wader/bcm/controllers/main.py:193
+#: ../../wader/bcm/controllers/main.py:199
+#: ../../wader/bcm/controllers/main.py:206
+#: ../../wader/bcm/controllers/main.py:332
 msgid "SIM locked"
 msgstr ""
 
 #: ../../wader/bcm/views/main.py:242 ../../wader/bcm/controllers/pin.py:265
 #: ../../wader/bcm/controllers/pin.py:336
-#: ../../wader/bcm/controllers/main.py:335
+#: ../../wader/bcm/controllers/main.py:334
 #, fuzzy
 msgid "Authenticating"
 msgstr "Σύνδεση..."
@@ -1198,20 +1198,20 @@ msgstr "_Αναζήτηση"
 
 #: ../../wader/bcm/views/main.py:258
 #: ../../wader/bcm/controllers/payt_controller.py:214
-#: ../../wader/bcm/controllers/main.py:340
-#: ../../wader/bcm/controllers/main.py:536
-#: ../../wader/bcm/controllers/main.py:562
-#: ../../wader/bcm/controllers/main.py:755
-#: ../../wader/bcm/controllers/main.py:957
+#: ../../wader/bcm/controllers/main.py:339
+#: ../../wader/bcm/controllers/main.py:535
+#: ../../wader/bcm/controllers/main.py:561
+#: ../../wader/bcm/controllers/main.py:754
+#: ../../wader/bcm/controllers/main.py:955
 msgid "Not connected"
 msgstr "Αποσυνδεμένο"
 
-#: ../../wader/bcm/views/main.py:267 ../../wader/bcm/controllers/main.py:604
+#: ../../wader/bcm/views/main.py:267 ../../wader/bcm/controllers/main.py:603
 msgid "Disconnect"
 msgstr "Αποσύνδεση"
 
-#: ../../wader/bcm/views/main.py:275 ../../wader/bcm/controllers/main.py:342
-#: ../../wader/bcm/controllers/main.py:524
+#: ../../wader/bcm/views/main.py:275 ../../wader/bcm/controllers/main.py:341
+#: ../../wader/bcm/controllers/main.py:523
 msgid "Connected"
 msgstr "Συνδεδεμένο"
 
@@ -1236,7 +1236,7 @@ msgstr "Αποστολέας"
 msgid "Date"
 msgstr "Ημερομηνία"
 
-#: ../../wader/bcm/views/main.py:424 ../../wader/bcm/controllers/main.py:416
+#: ../../wader/bcm/views/main.py:424 ../../wader/bcm/controllers/main.py:415
 msgid "N/A"
 msgstr "N/A"
 
@@ -1353,89 +1353,89 @@ msgstr "Δεν βρέθηκε επαφή"
 msgid "No contact with the name %s found"
 msgstr "Δεν βρέθηκε επαφή με το όνομα %s"
 
-#: ../../wader/bcm/controllers/main.py:163
+#: ../../wader/bcm/controllers/main.py:162
 #, python-format
 msgid "Quit %s"
 msgstr "Έξοδος από %s"
 
-#: ../../wader/bcm/controllers/main.py:164
+#: ../../wader/bcm/controllers/main.py:163
 msgid "Are you sure you want to exit?"
 msgstr "Είστε σίγουροι οτι θέλετε να βγείτε;"
 
-#: ../../wader/bcm/controllers/main.py:176
+#: ../../wader/bcm/controllers/main.py:175
 msgid "Can not close application"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:177
+#: ../../wader/bcm/controllers/main.py:176
 msgid "Can not close while a connection is active"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:280
+#: ../../wader/bcm/controllers/main.py:279
 msgid "Invalid password"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:281
+#: ../../wader/bcm/controllers/main.py:280
 msgid "The supplied password is incorrect"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:291
+#: ../../wader/bcm/controllers/main.py:290
 #, fuzzy
 msgid "Unknown Network"
 msgstr "Άγνωστο"
 
-#: ../../wader/bcm/controllers/main.py:349
+#: ../../wader/bcm/controllers/main.py:348
 msgid "SIM error"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:350
+#: ../../wader/bcm/controllers/main.py:349
 msgid "Perhaps your SIM is not inserted correctly?"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:352
+#: ../../wader/bcm/controllers/main.py:351
 #, fuzzy
 msgid "Unknown error"
 msgstr "Άγνωστο"
 
-#: ../../wader/bcm/controllers/main.py:358
+#: ../../wader/bcm/controllers/main.py:357
 msgid "Error while registering to home network"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:431
+#: ../../wader/bcm/controllers/main.py:430
 msgid "Transfer limit exceeded"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:432
+#: ../../wader/bcm/controllers/main.py:431
 msgid "You have exceeded your transfer limit"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:507
+#: ../../wader/bcm/controllers/main.py:506
 #, python-format
 msgid "SMS received from %s"
 msgstr "Ελήφθη SMS από %s"
 
-#: ../../wader/bcm/controllers/main.py:557
+#: ../../wader/bcm/controllers/main.py:556
 #, fuzzy
 msgid "Failed connection attempt"
 msgstr "Προτιμώμενη σύνδεση:"
 
-#: ../../wader/bcm/controllers/main.py:623
-#: ../../wader/bcm/controllers/main.py:658
+#: ../../wader/bcm/controllers/main.py:622
+#: ../../wader/bcm/controllers/main.py:657
 msgid "Send SMS"
 msgstr "Αποστολή SMS"
 
-#: ../../wader/bcm/controllers/main.py:636
+#: ../../wader/bcm/controllers/main.py:635
 msgid "Quit"
 msgstr "Έξοδος"
 
-#: ../../wader/bcm/controllers/main.py:680
+#: ../../wader/bcm/controllers/main.py:679
 msgid "Edit"
 msgstr "Επεξεργασία"
 
-#: ../../wader/bcm/controllers/main.py:700
+#: ../../wader/bcm/controllers/main.py:699
 msgid "Invalid CSV format"
 msgstr "Άκυρη διαμόρφωση CSV"
 
-#: ../../wader/bcm/controllers/main.py:701
+#: ../../wader/bcm/controllers/main.py:700
 msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
@@ -1443,112 +1443,126 @@ msgstr ""
 "\n"
 "Το αρχείο csv που προσπαθήσατε να εισάγετε έχει άκυρη διαμόρφωση."
 
-#: ../../wader/bcm/controllers/main.py:729
+#: ../../wader/bcm/controllers/main.py:728
 #, fuzzy
 msgid "No device found"
 msgstr "Δεν βρέθηκαν συσκευές"
 
-#: ../../wader/bcm/controllers/main.py:730
+#: ../../wader/bcm/controllers/main.py:729
 msgid "No device has been found. Insert one and try again."
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:737
+#: ../../wader/bcm/controllers/main.py:736
 #, fuzzy
 msgid "Profile needed"
 msgstr "Προφίλ:"
 
-#: ../../wader/bcm/controllers/main.py:738
+#: ../../wader/bcm/controllers/main.py:737
 msgid "You need to create a profile for connecting."
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:764
+#: ../../wader/bcm/controllers/main.py:763
 #, fuzzy
 msgid "Connecting"
 msgstr "Σύνδεση..."
 
-#: ../../wader/bcm/controllers/main.py:773
+#: ../../wader/bcm/controllers/main.py:772
 #, fuzzy
 msgid "Disconnecting"
 msgstr "Αποσύνδεση"
 
-#: ../../wader/bcm/controllers/main.py:906
+#: ../../wader/bcm/controllers/main.py:904
 #, fuzzy
 msgid "_New Profile"
 msgstr "Νέο προφίλ"
 
-#: ../../wader/bcm/controllers/main.py:915
+#: ../../wader/bcm/controllers/main.py:913
 #, fuzzy
 msgid "Load Profile"
 msgstr "Προφίλ"
 
-#: ../../wader/bcm/controllers/main.py:920
+#: ../../wader/bcm/controllers/main.py:918
 #, fuzzy
 msgid "Edit Profile"
 msgstr "Επεξεργασία προφίλ"
 
-#: ../../wader/bcm/controllers/main.py:925
+#: ../../wader/bcm/controllers/main.py:923
 #, fuzzy
 msgid "Delete Profile"
 msgstr "Διαγραφή προφίλ"
 
-#: ../../wader/bcm/controllers/main.py:958
+#: ../../wader/bcm/controllers/main.py:956
 msgid "No mobile connection. Do you want to continue?"
 msgstr "Δεν υπάρχει σύνδεση.  Θέλετε να συνεχίσετε;"
 
-#: ../../wader/bcm/controllers/main.py:1410
+#: ../../wader/bcm/controllers/main.py:1402
 msgid "Editor not available"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:1411
+#: ../../wader/bcm/controllers/main.py:1403
 #, python-format
 msgid "Can not start external contact editor \"%s\""
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:1417
+#: ../../wader/bcm/controllers/main.py:1409
 msgid "_Add to contacts"
 msgstr "_Προσθήκη στις επαφές"
 
-#: ../../wader/bcm/controllers/main.py:1428
+#: ../../wader/bcm/controllers/main.py:1420
 msgid "Migrate to DB"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:1437
+#: ../../wader/bcm/controllers/main.py:1429
 msgid "Save to draft"
 msgstr "Αποθήκευση στα πρόχειρα"
 
-#: ../../wader/bcm/controllers/main.py:1448
+#: ../../wader/bcm/controllers/main.py:1440
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: ../../wader/bcm/controllers/sms.py:52
+#: ../../wader/bcm/controllers/sms.py:51
 msgid "You can send the SMS to several recipients separating them by commas"
 msgstr ""
 
-#: ../../wader/bcm/controllers/sms.py:85
-#: ../../wader/bcm/controllers/sms.py:179
+#: ../../wader/bcm/controllers/sms.py:84
+#: ../../wader/bcm/controllers/sms.py:230
 #, python-format
 msgid "Text message: 0/%d chars"
 msgstr "Μήνυμα κειμένου: 0/%d"
 
-#: ../../wader/bcm/controllers/sms.py:114
+#: ../../wader/bcm/controllers/sms.py:113
 msgid "Send empty message"
 msgstr "Αποστολή κενού μηνύματος"
 
-#: ../../wader/bcm/controllers/sms.py:115
+#: ../../wader/bcm/controllers/sms.py:114
 msgid "Are you sure you want to send an empty message?"
 msgstr "Ειστε βέβαιοι οτι θέλετε να στείλετε ένα κενό μήνυμα;"
 
-#: ../../wader/bcm/controllers/sms.py:136
+#: ../../wader/bcm/controllers/sms.py:135
 #, fuzzy
 msgid "Error while sending SMS"
 msgstr "Σφάλμα κατά τη διαγραφή του προφίλ"
 
-#: ../../wader/bcm/controllers/sms.py:187
+#: ../../wader/bcm/controllers/sms.py:155
+msgid "No SMSC number"
+msgstr "Χωρίς αριθμό SMSC"
+
+#: ../../wader/bcm/controllers/sms.py:156
+#, python-format
+msgid ""
+"In order to send a SMS, %s needs to know the number of your provider's SMSC. "
+"If you do not know the SMSC number, contact your customer service."
+msgstr ""
+"Προκειμένου να στείλετε ένα SMS, το %s πρέπει να γνωρίζει τον αριθμό SMSC "
+"του παρόχου σας. Αν δεν γνωρίζετε τον αριθμό αυτό, καλέστε την Εξυπηρέτηση "
+"Πελατών."
+
+#: ../../wader/bcm/controllers/sms.py:238
 #, python-format
 msgid "Text message: %(num)d/%(tot)d chars"
 msgstr "%(num)d/%(tot)d χαρακτήρες"
 
-#: ../../wader/bcm/controllers/sms.py:192
+#: ../../wader/bcm/controllers/sms.py:243
 #, python-format
 msgid "Text message: %(num)d/%(tot)d chars (%(msgs)d SMS)"
 msgstr "%(num)d/%(tot)d χαρακτήρες (%(msgs)d SMS)"
@@ -1779,20 +1793,6 @@ msgstr ""
 
 #~ msgid "Address"
 #~ msgstr "Διεύθυνση"
-
-#~ msgid "No SMSC number"
-#~ msgstr "Χωρίς αριθμό SMSC"
-
-#~ msgid ""
-#~ "\n"
-#~ "In order to send a SMS, %s needs to know the number of your provider's "
-#~ "SMSC.\n"
-#~ "If you do not know the SMSC number, contact your customer service.\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Προκειμένου να στείλετε ένα SMS, το %s πρέπει να γνωρίζει τον αριθμό SMSC "
-#~ "του παρόχου σας.\n"
-#~ "Αν δεν γνωρίζετε τον αριθμό αυτό, καλέστε την Εξυπηρέτηση Πελατών.\n"
 
 #~ msgid "Incorrect PUK"
 #~ msgstr "Εσφαλμένο PUK"

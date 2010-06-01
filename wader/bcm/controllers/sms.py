@@ -20,11 +20,8 @@
 from datetime import datetime
 #from gtkmvc import Controller, Model
 from wader.bcm.contrib.gtkmvc import Controller, Model
-from twisted.internet.defer import succeed
 
-#from wader.bcm.config import config as config
 #import wader.common.exceptions as ex
-#from wader.common.sms import (MAX_LENGTH_7BIT, MAX_LENGTH_UCS2)
 from messaging import (PDU,
                        SEVENBIT_SIZE, UCS2_SIZE,
                        SEVENBIT_MP_SIZE, UCS2_MP_SIZE,
@@ -32,13 +29,15 @@ from messaging import (PDU,
 
 from wader.common.consts import SMS_INTFACE
 from wader.common.oal import get_os_object
+from wader.common.provider import NetworkProvider
 from wader.common.sms import Message
 
 from wader.bcm import dialogs
 from wader.bcm.translate import _
+from wader.bcm.logger import logger
 from wader.bcm.messages import get_messages_obj
 from wader.bcm.utils import get_error_msg
-from wader.bcm.config import config
+from wader.bcm.consts import APP_LONG_NAME
 
 from wader.bcm.controllers.base import TV_DICT, TV_DICT_REV
 
@@ -138,14 +137,66 @@ class NewSmsController(Controller):
 
         self.state = SENDING
 
-        numbers = self.get_numbers_list()
-        for number in numbers:
-            msg = Message(number, text, _datetime=datetime.now(self.tz))
-            self.model.device.Send(dict(number=number, text=text),
-                                   dbus_interface=SMS_INTFACE,
-                                   reply_handler=lambda indexes: on_sms_sent_cb(msg),
-                                   error_handler=on_sms_sent_eb)
-        self.state = IDLE
+        def smsc_cb(smsc):
+            logger.info("SMSC: %s" % smsc)
+
+            numbers = self.get_numbers_list()
+            for number in numbers:
+                msg = Message(number, text, _datetime=datetime.now(self.tz))
+                self.model.device.Send(dict(number=number, text=text,
+                                            smsc=smsc),
+                    dbus_interface=SMS_INTFACE,
+                    reply_handler=lambda indexes: on_sms_sent_cb(msg),
+                    error_handler=on_sms_sent_eb)
+
+            self.state = IDLE
+
+        def smsc_eb(*arg):
+            title = _('No SMSC number')
+            details = _("In order to send a SMS, %s needs to know the number "
+                        "of your provider's SMSC. If you do not know the SMSC "
+                        "number, contact your customer "
+                        "service.") % APP_LONG_NAME
+            dialogs.show_error_dialog(title, details)
+
+            self.state = IDLE
+
+        self.get_smsc(smsc_cb, smsc_eb)
+
+    def get_smsc(self, cb, eb):
+        """Get SMSC from preferences, networks DB or device, then callback"""
+
+        # try to get from preferences
+        if self.model.conf.get('preferences', 'use_alternate_smsc', False):
+            alternate_smsc = self.model.conf.get('preferences',
+                                                 'smsc_number', None)
+        else:
+            alternate_smsc = None
+
+        # try to get from networks DB
+        if self.model.imsi:
+            provider = NetworkProvider()
+            attrs = provider.get_network_by_id(self.model.imsi)
+            if attrs:
+                provider_smsc = attrs[0].smsc
+            else:
+                provider_smsc = None
+            provider.close()
+        else:
+            provider_smsc = None
+
+        # use the one from the best source
+        if alternate_smsc is not None:
+            logger.info("SMSC used from preferences")
+            cb(alternate_smsc)
+        elif provider_smsc is not None:
+            logger.info("SMSC used from networks DB")
+            cb(provider_smsc)
+        else:
+            logger.info("SMSC used from SIM")
+            self.model.device.GetSmsc(dbus_interface=SMS_INTFACE,
+                                      reply_handler=cb,
+                                      error_handler=eb)
 
     def on_save_button_clicked(self, widget):
         """This will save the selected SMS to the drafts tv and the DB"""
@@ -207,55 +258,6 @@ class NewSmsController(Controller):
         if numbers[0] == '':
             return []
         return numbers
-
-    def get_messages_list(self):
-        """Returns a list with all the messages to send/sav"""
-        # get number list and text
-        numbers = self.get_numbers_list()
-        if not numbers:
-            return succeed([])
-
-        message_text = self.get_message_text()
-        message_text = unicode(message_text, 'utf8')
-
-        validity = config.get('sms', 'validity')
-        #validity = transform_validity[validity]
-
-#        d = self.parent_ctrl.model.get_smsc()
-#        def get_smsc_cb(smsc):
-#            if not smsc or smsc == '':
-#                raise ex.CMEErrorNotFound()
-#
-#            return [ShortMessageSubmit(number, message_text,
-#                    _datetime=datetime.now(), smsc=smsc,
-#                    validity=validity) for number in numbers]
-#
-#        def get_smsc_eb(failure):
-#            failure.trap(ex.CMEErrorNotFound)
-#            # handle #179
-#            message = _('No SMSC number')
-#            details = _(
-#"""
-#In order to send a SMS, %s needs to know the number of your provider's SMSC.
-#If you do not know the SMSC number, contact your customer service.
-#""") % APP_LONG_NAME
-#            dialogs.open_warning_dialog(message, details)
-#
-#            # prepare the dialog
-#            model = PreferencesModel(self.parent_ctrl.model.wrapper)
-#            ctrl = SMSPreferencesController(model)
-#            view = SMSPreferencesView(ctrl, self)
-#            view.set_parent_view(self.view)
-#
-#            # hide ourselves
-#            self.model.unregister_observer(self)
-#            self.view.hide()
-#            # show the dialog
-#            view.show()
-#
-#        d.addCallback(get_smsc_cb)
-#        d.addErrback(get_smsc_eb)
-#        return d
 
     def set_entry_text(self, text):
         self.numbers_entry.set_text(text)
