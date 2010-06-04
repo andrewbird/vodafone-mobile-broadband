@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-01 19:55+0100\n"
+"POT-Creation-Date: 2010-06-04 19:07+0100\n"
 "PO-Revision-Date: 2010-05-21 10:43+0100\n"
 "Last-Translator: Andrew Bird (Sphere Systems) <ajb@spheresystems.co.uk>\n"
 "Language-Team:  <en@li.org>\n"
@@ -157,7 +157,7 @@ msgid "Forward SMS to another contact"
 msgstr "Leite die SMS an einen anderen Kontakt weiter"
 
 #: ../glade/bcm.glade:472 ../glade/bcm.glade:563
-#: ../../wader/bcm/controllers/main.py:668
+#: ../../wader/bcm/controllers/main.py:700
 msgid "_Delete"
 msgstr "_Löschen"
 
@@ -445,10 +445,9 @@ msgstr "IMSI"
 #: ../../wader/bcm/views/diagnostics_view.py:63
 #: ../../wader/bcm/views/diagnostics_view.py:71
 #: ../../wader/bcm/views/diagnostics_view.py:75
-#: ../../wader/bcm/views/payt_view.py:58 ../../wader/bcm/views/payt_view.py:70
-#: ../../wader/bcm/controllers/preferences.py:78
-#: ../../wader/bcm/controllers/preferences.py:433
-#: ../../wader/bcm/controllers/preferences.py:448
+#: ../../wader/bcm/views/payt_view.py:57 ../../wader/bcm/views/payt_view.py:69
+#: ../../wader/bcm/controllers/preferences.py:85
+#: ../../wader/bcm/controllers/main.py:509
 msgid "Unknown"
 msgstr "unbekannt"
 
@@ -698,23 +697,23 @@ msgid ""
 "Vodafone customer or the default one is incorrect."
 msgstr ""
 
-#: ../glade/preferences.glade:118 ../glade/sms-preferences.glade:28
+#: ../glade/preferences.glade:118
 msgid "<b>SMSC preferences</b>"
 msgstr "<b>SMSC Präferenzen</b>"
 
-#: ../glade/preferences.glade:140 ../glade/sms-preferences.glade:46
+#: ../glade/preferences.glade:140
 msgid "Profile:"
 msgstr "Profil:"
 
-#: ../glade/preferences.glade:151 ../glade/sms-preferences.glade:54
+#: ../glade/preferences.glade:151
 msgid "SMSC number:"
 msgstr "SMSC Nummer"
 
-#: ../glade/preferences.glade:219 ../glade/sms-preferences.glade:115
+#: ../glade/preferences.glade:219
 msgid "<b>Message options</b>"
 msgstr "<b>Nachrichten Optionen</b>"
 
-#: ../glade/preferences.glade:240 ../glade/sms-preferences.glade:132
+#: ../glade/preferences.glade:240
 msgid "Validity:"
 msgstr "Gültigkeit"
 
@@ -914,26 +913,6 @@ msgstr "Funkeinstellungen des spezifischen Gerätes"
 msgid "<b>Device Settings</b>"
 msgstr "<b>Einstellungen des Gerätes</b>"
 
-#: ../glade/sms-preferences.glade:7
-msgid "SMS preferences"
-msgstr "SMS Präferenzen"
-
-#: ../glade/sms-preferences.glade:139
-msgid "Class:"
-msgstr "Klasse:"
-
-#: ../glade/sms-preferences.glade:159
-msgid ""
-"Maximum time\n"
-"1 week\n"
-"3 days\n"
-"1 day"
-msgstr ""
-"Maximaldauer\n"
-"1 Woche\n"
-"3 Tage\n"
-"1 Tag"
-
 #: ../glade/sms.glade:50
 msgid "TO : "
 msgstr "An:"
@@ -963,36 +942,19 @@ msgid ""
 "The application '%s' wants access to the default keyring, but is locked."
 msgstr ""
 
-#: ../../wader/bcm/models/preferences.py:38
-msgid "Maximum time"
-msgstr "Maximaldauer"
-
-#: ../../wader/bcm/models/preferences.py:39
-msgid "1 week"
-msgstr "1 Woche"
-
-#: ../../wader/bcm/models/preferences.py:40
-msgid "3 days"
-msgstr "3 Tage"
-
-#: ../../wader/bcm/models/preferences.py:41
-msgid "1 day"
-msgstr "1 Tag"
-
 #: ../../wader/bcm/models/profile.py:151
-#: ../../wader/bcm/controllers/preferences.py:148
-#: ../../wader/bcm/controllers/preferences.py:164
-#: ../../wader/bcm/controllers/preferences.py:440
+#: ../../wader/bcm/controllers/preferences.py:155
+#: ../../wader/bcm/controllers/preferences.py:171
 msgid "Custom"
 msgstr "Kundenspezifisch"
 
-#: ../../wader/bcm/models/profile.py:350
+#: ../../wader/bcm/models/profile.py:351
 msgid "Trying to remove an unsaved profile"
 msgstr ""
 
 #: ../../wader/bcm/models/main.py:76 ../../wader/bcm/models/main.py:175
-#: ../../wader/bcm/views/main.py:218 ../../wader/bcm/controllers/main.py:321
-#: ../../wader/bcm/controllers/main.py:328
+#: ../../wader/bcm/views/main.py:253 ../../wader/bcm/controllers/main.py:327
+#: ../../wader/bcm/controllers/main.py:334
 #, fuzzy
 msgid "No device"
 msgstr "bekanntes Gerät"
@@ -1013,21 +975,21 @@ msgid ""
 "Check that your installation is correct and your  OS/distro is supported: %s"
 msgstr ""
 
-#: ../../wader/bcm/models/main.py:318 ../../wader/bcm/views/main.py:226
-#: ../../wader/bcm/controllers/main.py:314
-#: ../../wader/bcm/controllers/main.py:330
+#: ../../wader/bcm/models/main.py:318 ../../wader/bcm/views/main.py:258
+#: ../../wader/bcm/controllers/main.py:320
+#: ../../wader/bcm/controllers/main.py:336
 #, fuzzy
 msgid "Device found"
 msgstr "Gerätemodell"
 
 #: ../../wader/bcm/models/main.py:435
 #: ../../wader/bcm/controllers/payt_controller.py:214
-#: ../../wader/bcm/controllers/main.py:339
+#: ../../wader/bcm/controllers/main.py:345
 msgid "Registered"
 msgstr ""
 
-#: ../../wader/bcm/models/main.py:437 ../../wader/bcm/controllers/main.py:336
-#: ../../wader/bcm/controllers/main.py:517
+#: ../../wader/bcm/models/main.py:437 ../../wader/bcm/controllers/main.py:342
+#: ../../wader/bcm/controllers/main.py:549
 msgid "Scanning"
 msgstr ""
 
@@ -1041,12 +1003,12 @@ msgstr "Unbekannter Fehler"
 
 #: ../../wader/bcm/models/main.py:443
 #: ../../wader/bcm/controllers/payt_controller.py:214
-#: ../../wader/bcm/controllers/main.py:339
+#: ../../wader/bcm/controllers/main.py:345
 msgid "Roaming"
 msgstr ""
 
 #: ../../wader/bcm/views/pin.py:74
-#: ../../wader/bcm/controllers/preferences.py:202
+#: ../../wader/bcm/controllers/preferences.py:209
 msgid "To use this feature you need the gnomekeyring module"
 msgstr "Für dieses Feature benötigen Sie das gnomekeyring module"
 
@@ -1070,7 +1032,7 @@ msgstr ""
 "Um Ihre SIM zu entsperren benötigen wir Ihre\n"
 "PIN and PUK2 codes"
 
-#: ../../wader/bcm/views/profile.py:127 ../../wader/bcm/views/main.py:301
+#: ../../wader/bcm/views/profile.py:127 ../../wader/bcm/views/main.py:314
 #: ../../wader/bcm/controllers/contacts.py:152
 msgid "Name"
 msgstr "Name"
@@ -1079,13 +1041,13 @@ msgstr "Name"
 msgid "Country"
 msgstr "Land"
 
-#: ../../wader/bcm/views/profile.py:137 ../../wader/bcm/views/main.py:295
-#: ../../wader/bcm/views/main.py:333
+#: ../../wader/bcm/views/profile.py:137 ../../wader/bcm/views/main.py:308
+#: ../../wader/bcm/views/main.py:346
 #: ../../wader/bcm/controllers/contacts.py:146
 msgid "Type"
 msgstr "Typ"
 
-#: ../../wader/bcm/views/main.py:119
+#: ../../wader/bcm/views/main.py:122
 #, python-format
 msgid ""
 "In most cases you can find the answer to your questions about the program in "
@@ -1114,7 +1076,7 @@ msgstr ""
 "Ihrem System zuzugreifen, sollten Sie im Zweifel Ihren System Administrator "
 "fragen. "
 
-#: ../../wader/bcm/views/main.py:134
+#: ../../wader/bcm/views/main.py:137
 msgid ""
 "If you are using this program in a corporate environment, your company "
 "probably has a support center to solve the questions that you might have "
@@ -1130,7 +1092,7 @@ msgstr ""
 "Falls Ihre Firma kein Support Center hat, sollten Sie den System "
 "Administrator Ihrer Firma ansprechen."
 
-#: ../../wader/bcm/views/main.py:143
+#: ../../wader/bcm/views/main.py:146
 #, python-format
 msgid ""
 "You can easily find answers to the most common questions in the help menu, "
@@ -1157,82 +1119,82 @@ msgstr ""
 "\n"
 "+49 172 1212 wenn Sie von anderen Netzwerken anrufen."
 
-#: ../../wader/bcm/views/main.py:208 ../../wader/bcm/controllers/main.py:608
+#: ../../wader/bcm/views/main.py:203 ../../wader/bcm/controllers/main.py:640
 msgid "Connect"
 msgstr "Verbinde"
 
-#: ../../wader/bcm/views/main.py:234 ../../wader/bcm/controllers/main.py:193
-#: ../../wader/bcm/controllers/main.py:199
-#: ../../wader/bcm/controllers/main.py:206
-#: ../../wader/bcm/controllers/main.py:332
+#: ../../wader/bcm/views/main.py:207 ../../wader/bcm/controllers/main.py:635
+msgid "Disconnect"
+msgstr "Abtrennen"
+
+#: ../../wader/bcm/views/main.py:263 ../../wader/bcm/controllers/main.py:196
+#: ../../wader/bcm/controllers/main.py:202
+#: ../../wader/bcm/controllers/main.py:209
+#: ../../wader/bcm/controllers/main.py:338
 msgid "SIM locked"
 msgstr ""
 
-#: ../../wader/bcm/views/main.py:242 ../../wader/bcm/controllers/pin.py:265
+#: ../../wader/bcm/views/main.py:268 ../../wader/bcm/controllers/pin.py:265
 #: ../../wader/bcm/controllers/pin.py:336
-#: ../../wader/bcm/controllers/main.py:334
+#: ../../wader/bcm/controllers/main.py:340
 #, fuzzy
 msgid "Authenticating"
 msgstr "Authentifizierung läuft..."
 
-#: ../../wader/bcm/views/main.py:250
+#: ../../wader/bcm/views/main.py:274
 msgid "Searching"
 msgstr "Searching"
 
-#: ../../wader/bcm/views/main.py:258
+#: ../../wader/bcm/views/main.py:281
 #: ../../wader/bcm/controllers/payt_controller.py:214
-#: ../../wader/bcm/controllers/main.py:339
-#: ../../wader/bcm/controllers/main.py:535
-#: ../../wader/bcm/controllers/main.py:561
-#: ../../wader/bcm/controllers/main.py:754
-#: ../../wader/bcm/controllers/main.py:955
+#: ../../wader/bcm/controllers/main.py:345
+#: ../../wader/bcm/controllers/main.py:567
+#: ../../wader/bcm/controllers/main.py:593
+#: ../../wader/bcm/controllers/main.py:786
+#: ../../wader/bcm/controllers/main.py:987
 msgid "Not connected"
 msgstr "Nicht verbunden"
 
-#: ../../wader/bcm/views/main.py:267 ../../wader/bcm/controllers/main.py:603
-msgid "Disconnect"
-msgstr "Abtrennen"
-
-#: ../../wader/bcm/views/main.py:275 ../../wader/bcm/controllers/main.py:341
-#: ../../wader/bcm/controllers/main.py:523
+#: ../../wader/bcm/views/main.py:288 ../../wader/bcm/controllers/main.py:347
+#: ../../wader/bcm/controllers/main.py:555
 msgid "Connected"
 msgstr "Verbunden"
 
-#: ../../wader/bcm/views/main.py:310
+#: ../../wader/bcm/views/main.py:323
 #: ../../wader/bcm/controllers/contacts.py:159
 msgid "Number"
 msgstr "Nummer"
 
-#: ../../wader/bcm/views/main.py:344
+#: ../../wader/bcm/views/main.py:357
 msgid "Text"
 msgstr "Text"
 
-#: ../../wader/bcm/views/main.py:355
+#: ../../wader/bcm/views/main.py:368
 msgid "Recipient"
 msgstr "Empfänger"
 
-#: ../../wader/bcm/views/main.py:355
+#: ../../wader/bcm/views/main.py:368
 msgid "Sender"
 msgstr "Sender"
 
-#: ../../wader/bcm/views/main.py:363
+#: ../../wader/bcm/views/main.py:376
 msgid "Date"
 msgstr "Datum"
 
-#: ../../wader/bcm/views/main.py:424 ../../wader/bcm/controllers/main.py:415
+#: ../../wader/bcm/views/main.py:437 ../../wader/bcm/controllers/main.py:421
 msgid "N/A"
 msgstr "N/A - nicht zutreffend"
 
-#: ../../wader/bcm/views/main.py:424
+#: ../../wader/bcm/views/main.py:437
 msgid "Radio Disabled"
 msgstr "Funk abgeschaltet"
 
-#: ../../wader/bcm/views/main.py:426 ../../wader/bcm/consts.py:109
+#: ../../wader/bcm/views/main.py:439 ../../wader/bcm/consts.py:109
 #: ../../wader/bcm/signals.py:24
 msgid "GPRS"
 msgstr "GPRS"
 
-#: ../../wader/bcm/views/main.py:426 ../../wader/bcm/consts.py:110
+#: ../../wader/bcm/views/main.py:439 ../../wader/bcm/consts.py:110
 #: ../../wader/bcm/signals.py:25
 msgid "EDGE"
 msgstr "EDGE"
@@ -1298,12 +1260,28 @@ msgstr ""
 "drei falschen PIN-Eingaben den\n"
 "PUK-Code benötigen</small>\n"
 
-#: ../../wader/bcm/controllers/preferences.py:200
-#: ../../wader/bcm/controllers/preferences.py:219
+#: ../../wader/bcm/controllers/preferences.py:40
+msgid "Maximum time"
+msgstr "Maximaldauer"
+
+#: ../../wader/bcm/controllers/preferences.py:41
+msgid "1 week"
+msgstr "1 Woche"
+
+#: ../../wader/bcm/controllers/preferences.py:42
+msgid "3 days"
+msgstr "3 Tage"
+
+#: ../../wader/bcm/controllers/preferences.py:43
+msgid "1 day"
+msgstr "1 Tag"
+
+#: ../../wader/bcm/controllers/preferences.py:207
+#: ../../wader/bcm/controllers/preferences.py:226
 msgid "Missing dependency"
 msgstr "Fehlende Abhängigkeit"
 
-#: ../../wader/bcm/controllers/preferences.py:220
+#: ../../wader/bcm/controllers/preferences.py:227
 msgid ""
 "\n"
 "To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
@@ -1335,88 +1313,93 @@ msgstr "Kein Kontakt gefunden"
 msgid "No contact with the name %s found"
 msgstr "Kein Kontakt mit dem Namen %s gefunden"
 
-#: ../../wader/bcm/controllers/main.py:162
+#: ../../wader/bcm/controllers/main.py:165
 #, python-format
 msgid "Quit %s"
 msgstr "Abbrechen %s"
 
-#: ../../wader/bcm/controllers/main.py:163
+#: ../../wader/bcm/controllers/main.py:166
 msgid "Are you sure you want to exit?"
 msgstr "Sind Sie sicher, dass Sie das Programm verlassen wollen?"
 
-#: ../../wader/bcm/controllers/main.py:175
+#: ../../wader/bcm/controllers/main.py:178
 msgid "Can not close application"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:176
+#: ../../wader/bcm/controllers/main.py:179
 msgid "Can not close while a connection is active"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:279
+#: ../../wader/bcm/controllers/main.py:282
 msgid "Invalid password"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:280
+#: ../../wader/bcm/controllers/main.py:283
 msgid "The supplied password is incorrect"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:290
+#: ../../wader/bcm/controllers/main.py:293
 msgid "Unknown Network"
 msgstr "Unbekanntes Netzwerk"
 
-#: ../../wader/bcm/controllers/main.py:348
+#: ../../wader/bcm/controllers/main.py:354
 msgid "SIM error"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:349
+#: ../../wader/bcm/controllers/main.py:355
 msgid "Perhaps your SIM is not inserted correctly?"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:351
+#: ../../wader/bcm/controllers/main.py:357
 #, fuzzy
 msgid "Unknown error"
 msgstr "Unbekannter Fehler"
 
-#: ../../wader/bcm/controllers/main.py:357
+#: ../../wader/bcm/controllers/main.py:363
 msgid "Error while registering to home network"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:430
+#: ../../wader/bcm/controllers/main.py:436
 msgid "Transfer limit exceeded"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:431
+#: ../../wader/bcm/controllers/main.py:437
 msgid "You have exceeded your transfer limit"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:506
+#: ../../wader/bcm/controllers/main.py:510
+#, fuzzy, python-format
+msgid "SMS receipt received for %s"
+msgstr "SMS empfangen von %s"
+
+#: ../../wader/bcm/controllers/main.py:538
 #, python-format
 msgid "SMS received from %s"
 msgstr "SMS empfangen von %s"
 
-#: ../../wader/bcm/controllers/main.py:556
+#: ../../wader/bcm/controllers/main.py:588
 #, fuzzy
 msgid "Failed connection attempt"
 msgstr "Geschwindigkeit der Verbindung"
 
-#: ../../wader/bcm/controllers/main.py:622
-#: ../../wader/bcm/controllers/main.py:657
+#: ../../wader/bcm/controllers/main.py:654
+#: ../../wader/bcm/controllers/main.py:689
 msgid "Send SMS"
 msgstr "Send SMS"
 
-#: ../../wader/bcm/controllers/main.py:635
+#: ../../wader/bcm/controllers/main.py:667
 msgid "Quit"
 msgstr "Verlassen"
 
-#: ../../wader/bcm/controllers/main.py:679
+#: ../../wader/bcm/controllers/main.py:711
 msgid "Edit"
 msgstr "Edieren"
 
-#: ../../wader/bcm/controllers/main.py:699
+#: ../../wader/bcm/controllers/main.py:731
 msgid "Invalid CSV format"
 msgstr "Ungültiges CSV Format"
 
-#: ../../wader/bcm/controllers/main.py:700
+#: ../../wader/bcm/controllers/main.py:732
 msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
@@ -1424,107 +1407,107 @@ msgstr ""
 "\n"
 "Die csv Datei, die Sie versuchen zu importieren hat ein ungültiges Format."
 
-#: ../../wader/bcm/controllers/main.py:728
+#: ../../wader/bcm/controllers/main.py:760
 #, fuzzy
 msgid "No device found"
 msgstr "Keine bekannten Geräte gefunden"
 
-#: ../../wader/bcm/controllers/main.py:729
+#: ../../wader/bcm/controllers/main.py:761
 msgid "No device has been found. Insert one and try again."
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:736
+#: ../../wader/bcm/controllers/main.py:768
 msgid "Profile needed"
 msgstr "Profile needed"
 
-#: ../../wader/bcm/controllers/main.py:737
+#: ../../wader/bcm/controllers/main.py:769
 msgid "You need to create a profile for connecting."
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:763
+#: ../../wader/bcm/controllers/main.py:795
 #, fuzzy
 msgid "Connecting"
 msgstr "Verbindungsaufbau..."
 
-#: ../../wader/bcm/controllers/main.py:772
+#: ../../wader/bcm/controllers/main.py:804
 #, fuzzy
 msgid "Disconnecting"
 msgstr "Abtrennen"
 
-#: ../../wader/bcm/controllers/main.py:904
+#: ../../wader/bcm/controllers/main.py:936
 msgid "_New Profile"
 msgstr "_Neues Profil"
 
-#: ../../wader/bcm/controllers/main.py:913
+#: ../../wader/bcm/controllers/main.py:945
 msgid "Load Profile"
 msgstr "Lade Profil"
 
-#: ../../wader/bcm/controllers/main.py:918
+#: ../../wader/bcm/controllers/main.py:950
 msgid "Edit Profile"
 msgstr "Editiere Profil"
 
-#: ../../wader/bcm/controllers/main.py:923
+#: ../../wader/bcm/controllers/main.py:955
 msgid "Delete Profile"
 msgstr "Entferne Profil"
 
-#: ../../wader/bcm/controllers/main.py:956
+#: ../../wader/bcm/controllers/main.py:988
 msgid "No mobile connection. Do you want to continue?"
 msgstr "Keine mobile Verbindung.Wollen Sie dennoch weiterfahren"
 
-#: ../../wader/bcm/controllers/main.py:1402
+#: ../../wader/bcm/controllers/main.py:1434
 msgid "Editor not available"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:1403
+#: ../../wader/bcm/controllers/main.py:1435
 #, python-format
 msgid "Can not start external contact editor \"%s\""
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:1409
+#: ../../wader/bcm/controllers/main.py:1441
 msgid "_Add to contacts"
 msgstr "_Füge den Kontakten hinzu"
 
-#: ../../wader/bcm/controllers/main.py:1420
+#: ../../wader/bcm/controllers/main.py:1452
 msgid "Migrate to DB"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:1429
+#: ../../wader/bcm/controllers/main.py:1461
 msgid "Save to draft"
 msgstr "Speichere in Entwurf"
 
-#: ../../wader/bcm/controllers/main.py:1440
+#: ../../wader/bcm/controllers/main.py:1472
 msgid "Delete"
 msgstr "Lösche"
 
-#: ../../wader/bcm/controllers/sms.py:51
+#: ../../wader/bcm/controllers/sms.py:53
 msgid "You can send the SMS to several recipients separating them by commas"
 msgstr ""
 "Sie können die SMS zu mehreren Empfängern schicken, Empfänger getrennt durch "
 "Komma."
 
-#: ../../wader/bcm/controllers/sms.py:84
-#: ../../wader/bcm/controllers/sms.py:230
+#: ../../wader/bcm/controllers/sms.py:86
+#: ../../wader/bcm/controllers/sms.py:261
 #, python-format
 msgid "Text message: 0/%d chars"
 msgstr "Textnachricht: 0/%d chars"
 
-#: ../../wader/bcm/controllers/sms.py:113
+#: ../../wader/bcm/controllers/sms.py:115
 msgid "Send empty message"
 msgstr "Senden Sie eine leere Nachricht"
 
-#: ../../wader/bcm/controllers/sms.py:114
+#: ../../wader/bcm/controllers/sms.py:116
 msgid "Are you sure you want to send an empty message?"
 msgstr "Sind Sie sicher, dass Sie eine leere Nachricht senden wollen?"
 
-#: ../../wader/bcm/controllers/sms.py:135
+#: ../../wader/bcm/controllers/sms.py:140
 msgid "Error while sending SMS"
 msgstr ""
 
-#: ../../wader/bcm/controllers/sms.py:155
+#: ../../wader/bcm/controllers/sms.py:186
 msgid "No SMSC number"
 msgstr "Keine SMSC Nummer"
 
-#: ../../wader/bcm/controllers/sms.py:156
+#: ../../wader/bcm/controllers/sms.py:187
 #, fuzzy, python-format
 msgid ""
 "In order to send a SMS, %s needs to know the number of your provider's SMSC. "
@@ -1534,12 +1517,12 @@ msgstr ""
 "kennen. Wenn Sie die SMSC Nummer nicht kennen, kontaktieren Sie bitte "
 "customer service."
 
-#: ../../wader/bcm/controllers/sms.py:238
+#: ../../wader/bcm/controllers/sms.py:269
 #, python-format
 msgid "Text message: %(num)d/%(tot)d chars"
 msgstr "Textnachricht: %(num)d/%(tot)d chars"
 
-#: ../../wader/bcm/controllers/sms.py:243
+#: ../../wader/bcm/controllers/sms.py:274
 #, python-format
 msgid "Text message: %(num)d/%(tot)d chars (%(msgs)d SMS)"
 msgstr "Textnachricht: %(num)d/%(tot)d chars (%(msgs)d SMS)"
@@ -1703,6 +1686,23 @@ msgstr "KDE PIM"
 #: ../../wader/bcm/contacts/contact_evolution.py:136
 msgid "Evolution"
 msgstr "Evolution"
+
+#~ msgid "SMS preferences"
+#~ msgstr "SMS Präferenzen"
+
+#~ msgid "Class:"
+#~ msgstr "Klasse:"
+
+#~ msgid ""
+#~ "Maximum time\n"
+#~ "1 week\n"
+#~ "3 days\n"
+#~ "1 day"
+#~ msgstr ""
+#~ "Maximaldauer\n"
+#~ "1 Woche\n"
+#~ "3 Tage\n"
+#~ "1 Tag"
 
 #~ msgid "<b>Modem</b>"
 #~ msgstr "<b>Modem</b>"
