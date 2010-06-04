@@ -29,8 +29,8 @@ from wader.bcm.consts import (CFG_PREFS_DEFAULT_BROWSER,
                               CFG_PREFS_DEFAULT_TRAY_ICON,
                               CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
                               CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION,
-                              CFG_PREFS_DEFAULT_SMS_VALIDITY)
-
+                              CFG_PREFS_DEFAULT_SMS_VALIDITY,
+                              CFG_PREFS_DEFAULT_SMS_CONFIRMATION)
 
 PREF_TABS = ["PROFILES"]
 
@@ -81,8 +81,11 @@ class PreferencesModel(BaseWrapperModel):
         self.sms_validity = self.conf.get('preferences', 'sms_validity',
                                           CFG_PREFS_DEFAULT_SMS_VALIDITY)
 
-        # ok lets load the user preferences from configuration file into the
-        # model but take care! If the config file is absent set to false!
+        self.sms_confirmation = self.conf.get('preferences',
+                                              'sms_confirmation',
+                                            CFG_PREFS_DEFAULT_SMS_CONFIRMATION)
+
+        # load the user preferences
         self.exit_without_confirmation = config.get('preferences',
                                                   'exit_without_confirmation',
                                    CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION)
@@ -117,6 +120,7 @@ class PreferencesModel(BaseWrapperModel):
         config.set('preferences', 'smsc_profile', self.smsc_profile)
         config.set('preferences', 'smsc_number', self.smsc_number)
         config.set('preferences', 'sms_validity', self.sms_validity)
+        config.set('preferences', 'sms_confirmation', self.sms_confirmation)
 
         # Save all the attributes on the user preferences tab
         config.set('preferences', 'exit_without_confirmation',

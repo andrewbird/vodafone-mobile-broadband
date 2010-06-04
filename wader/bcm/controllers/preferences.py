@@ -116,7 +116,7 @@ class PreferencesController(Controller):
         self.view.setup_smsc_profile(smsc_profile_box, _iter,
                                      alternate_smsc_flag)
 
-        # finally the validity period
+        # validity period
         sms_validity_box = gtk.ListStore(gobject.TYPE_STRING)
         _iter = None
         for key, value in VALIDITY_DICT.items():
@@ -125,6 +125,9 @@ class PreferencesController(Controller):
             else:
                 sms_validity_box.append([key])
         self.view.setup_sms_message_validity(sms_validity_box, _iter)
+
+        # finally the sms confirmation checkbox
+        self.view.setup_sms_confirmation_checkbox(self.model.sms_confirmation)
 
     def setup_user_prefs_tab(self):
         # setup the user preferences to reflect what's in our model on startup
@@ -269,6 +272,10 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         if _iter is not None:
             validity_option = model.get_value(_iter, 0)
             self.model.sms_validity = VALIDITY_DICT[validity_option]
+
+        # SMS confirmation checkbox
+        sms_confirmation = self.view['sms_confirmation'].get_active()
+        self.model.sms_confirmation = sms_confirmation
 
         # get the 'use an alternative smsc address' and save to config.
         # If this is set 'true' then we should not bother saving details for

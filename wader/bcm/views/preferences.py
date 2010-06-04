@@ -56,6 +56,9 @@ class PreferencesView(View):
         if active_set:
             self['validity_combobox'].set_active_iter(active_set)
 
+    def setup_sms_confirmation_checkbox(self, val):
+        self['sms_confirmation'].set_active(val)
+
     def get_sms_combobox_model(self):
         print "get_sms_combobox_model"
         model = gtk.ListStore(gobject.TYPE_STRING)
