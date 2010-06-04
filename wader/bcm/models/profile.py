@@ -228,7 +228,8 @@ class ProfileModel(Model):
                 self.auth = VM_NETWORK_AUTH_ANY
 
             # the last one
-            self.password = settings['gsm']['password']
+            if settings['gsm'].get('password', None):
+                self.password = settings['gsm']['password']
 
         except KeyError, e:
             logger.error("Missing required key '%s' in %s" % (e, settings))
