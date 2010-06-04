@@ -98,3 +98,13 @@ class SMSStoreModel(ListStoreModel):
         entry = self._make_entry(message, contacts)
         for column in range(len(entry)):
             self.set_value(_iter, column, entry[column])
+
+    def get_messages(self):
+        ret = []
+        _iter = self.get_iter_first()
+        while _iter:
+            ret.append(self.get_value(_iter, 4))
+
+            _iter = self.iter_next(_iter)
+
+        return ret

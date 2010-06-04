@@ -116,7 +116,10 @@ class NewSmsController(Controller):
                 self.view.set_idle_view()
                 return
 
-        def on_sms_sent_cb(msg):
+        def on_sms_sent_cb(msg, ref):
+            if len(ref):
+                msg.status_reference = ref[0] # for delivery report
+
             where = TV_DICT_REV['sent_treeview']
             self.save_messages_to_db([msg], where)
 
@@ -135,18 +138,25 @@ class NewSmsController(Controller):
             title = _('Error while sending SMS')
             dialogs.show_error_dialog(title, get_error_msg(error))
 
+        def _get_sms_confirmation():
+            return self.model.conf.get('preferences',
+                                       'sms_confirmation', False)
+
         self.state = SENDING
 
         def smsc_cb(smsc):
             logger.info("SMSC: %s" % smsc)
 
+            status_request = _get_sms_confirmation()
+
             numbers = self.get_numbers_list()
             for number in numbers:
                 msg = Message(number, text, _datetime=datetime.now(self.tz))
                 self.model.device.Send(dict(number=number, text=text,
+                                            status_request=status_request,
                                             smsc=smsc),
                     dbus_interface=SMS_INTFACE,
-                    reply_handler=lambda indexes: on_sms_sent_cb(msg),
+                    reply_handler=lambda ref: on_sms_sent_cb(msg, ref),
                     error_handler=on_sms_sent_eb)
 
             self.state = IDLE
@@ -264,10 +274,13 @@ class NewSmsController(Controller):
 
     def save_messages_to_db(self, smslist, where):
         messages = get_messages_obj(self.parent_ctrl.model.get_device())
-        smslistback = messages.add_messages(smslist, where)
+        messages.add_messages(smslist, where)
+
+        # XXX: provider doesn't store the msg reference so we'll have to
+        #      display the message given rather than the one stored
         tv_name = TV_DICT[where]
         model = self.parent_ctrl.view[tv_name].get_model()
-        model.add_messages(smslistback)
+        model.add_messages(smslist)
 
     def delete_messages_from_db_and_tv(self, smslist):
         messages = get_messages_obj(self.parent_ctrl.model.get_device())

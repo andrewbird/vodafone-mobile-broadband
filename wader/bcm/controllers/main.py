@@ -33,7 +33,7 @@ from wader.bcm.controllers.contacts import (AddContactController,
 from wader.bcm.views.contacts import AddContactView, SearchContactView
 
 import wader.common.consts as consts
-from wader.common.signals import SIG_SMS_COMP
+from wader.common.signals import SIG_SMS_COMP, SIG_SMS_DELV
 from wader.common.keyring import KeyringInvalidPassword
 from wader.bcm.config import config
 from wader.bcm.logger import logger
@@ -55,7 +55,8 @@ from wader.bcm.consts import (GTK_LOCK, GUIDE_DIR, IMAGES_DIR,
                               CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
                               CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION,
                               NO_DEVICE, HAVE_DEVICE, SIM_LOCKED,
-                              AUTHENTICATING, SEARCHING, DISCONNECTED, CONNECTED)
+                              AUTHENTICATING, SEARCHING, DISCONNECTED,
+                              CONNECTED)
 
 from wader.bcm.contacts import SIMContact
 from wader.bcm.phonebook import (get_phonebook,
@@ -312,6 +313,9 @@ class MainController(WidgetController):
             # connect to SIG_SMS_COMP and display SMS
             sm = self.model.device.connect_to_signal(SIG_SMS_COMP,
                                                 self.on_sms_received_cb)
+            # connect to SIG_SMS_DELV and notify user
+            sm = self.model.device.connect_to_signal(SIG_SMS_DELV,
+                                                self.on_sms_delivery_cb)
             self.signal_matches.append(sm)
             self.model.status = _('Device found')
         else:
@@ -479,6 +483,32 @@ class MainController(WidgetController):
             binary = config.get('preferences', 'mail', CFG_PREFS_DEFAULT_EMAIL)
             if binary:
                 Popen([binary, 'REPLACE@ME.COM'])
+
+    def on_sms_delivery_cb(self, reference):
+        """
+        Executed whenever a SMS delivery receipt is received
+        """
+        # XXX: Will just notify user for now. If it's possible in the future,
+        #      it would be good to set flag against those messages in the sent
+        #      items to indicate delivery status, but that's probably going to
+        #      require changes in the on disk DB format to give persistence
+        sms = None
+
+        # Find the original message
+        treeview = self.view['sent_treeview']
+        for message in treeview.get_model().get_messages():
+            msgref = message.status_reference
+            if msgref is not None and msgref == reference:
+                sms = message
+                break
+
+        # Send notification - just display the first forty chars though
+        if sms:
+            number, text = sms.number, sms.text[:40]
+        else:
+            number, text = _('Unknown'), ''
+        title = _("SMS receipt received for %s") % number
+        self.tray.attach_notification(title, text, stock=gtk.STOCK_INFO)
 
     def on_sms_received_cb(self, index, complete):
         """
