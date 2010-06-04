@@ -214,10 +214,12 @@ class PayAsYouTalkController(Controller):
         if status in [_("Registered"), _("Roaming"), _("Not connected")]:
             self.view.enable_credit_button(True)
             self.view.enable_send_button(True)
+            self.view.enable_voucher_entry_view(True)
         else: # 'No device', 'SIM locked', 'Authenticating', 'Scanning',
-              # 'Connected'
+              # 'Connected', 'Topup busy'
             self.view.enable_credit_button(False)
             self.view.enable_send_button(False)
+            self.view.enable_voucher_entry_view(False)
 
     # ------------------------------------------------------------ #
     #                       Properties Changed                     #
@@ -230,30 +232,29 @@ class PayAsYouTalkController(Controller):
         self.view.set_credit_date(new)
 
     def property_payt_credit_busy_value_change(self, model, old, new):
+        # XXX: merge these two functions into one
         if new:
             # set the banner throbber to let Joe Public know we are busy
             self.view.set_banner_credit_check_animation()
+            # disable things whilst busy
+            self._set_form_state('Topup busy')
         else:
             # stop any animation in the view now we got a response.
-            self.view.clear_banner_credit_check_animation()
-
-        # disable things whilst busy
-        self.view.enable_credit_button(not new)
-        self.view.enable_send_button(not new)
-        self.view.enable_voucher_entry_view(not new)
+            self.view.clear_banner_animation()
+            # restore the current view
+            self._set_form_state(self.model.status)
 
     def property_payt_submit_busy_value_change(self, model, old, new):
         if new:
             # ok we are firing a ussd so lets set the animations off
             self.view.set_banner_voucher_animation()
+            # disable things whilst busy
+            self._set_form_state('Topup busy')
         else:
             # stop any animation in the view now we got a response.
-            self.view.clear_banner_credit_check_animation()
-
-        # disable stuff whilst busy
-        self.view.enable_credit_button(not new)
-        self.view.enable_send_button(not new)
-        self.view.enable_voucher_entry_view(not new)
+            self.view.clear_banner_animation()
+            # restore the current view
+            self._set_form_state(self.model.status)
 
     def property_msisdn_value_change(self, model, old, new):
         self.view.set_msisdn_value(new)

@@ -19,7 +19,6 @@
 from os.path import join
 
 import gtk
-import string
 
 from wader.bcm.contrib.gtkmvc import View
 from wader.bcm.logger import logger
@@ -102,14 +101,10 @@ class PayAsYouTalkView(View):
         logger.info("payt-view set_banner_voucher_annimation")
         self['paytbanner'].set_from_file(self.payt_banner_voucher)
 
-    def clear_banner_voucher_animation(self):
-        logger.info("payt-view clear_banner_voucher_annimation")
-        self['paytbanner'].set_from_file(self.payt_image)
-
     def set_banner_credit_check_animation(self):
         logger.info("payt-view set_banner_credit_check_animation")
         self['paytbanner'].set_from_file(self.payt_banner_credit_check)
 
-    def clear_banner_credit_check_animation(self):
-        logger.info("payt-view clear_banner_credit_check_animation")
+    def clear_banner_animation(self):
+        logger.info("payt-view clear_banner_animation")
         self['paytbanner'].set_from_file(self.payt_image)
