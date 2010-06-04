@@ -274,13 +274,16 @@ class NewSmsController(Controller):
 
     def save_messages_to_db(self, smslist, where):
         messages = get_messages_obj(self.parent_ctrl.model.get_device())
-        messages.add_messages(smslist, where)
+        dblist = messages.add_messages(smslist, where)
 
         # XXX: provider doesn't store the msg reference so we'll have to
-        #      display the message given rather than the one stored
+        #      hack the DB message returned from storage with the input value
+        if len(smslist) == 1 and len(dblist) == 1:
+            dblist[0].status_reference = smslist[0].status_reference
+
         tv_name = TV_DICT[where]
         model = self.parent_ctrl.view[tv_name].get_model()
-        model.add_messages(smslist)
+        model.add_messages(dblist)
 
     def delete_messages_from_db_and_tv(self, smslist):
         messages = get_messages_obj(self.parent_ctrl.model.get_device())
