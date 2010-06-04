@@ -21,8 +21,6 @@ import gobject
 #from gtkmvc import ListStoreModel
 from wader.bcm.contrib.gtkmvc import ListStoreModel
 
-from wader.common.utils import revert_dict
-from wader.bcm.translate import _
 from wader.bcm.config import config
 from wader.bcm.models.base import BaseWrapperModel
 
@@ -30,18 +28,11 @@ from wader.bcm.consts import (CFG_PREFS_DEFAULT_BROWSER,
                               CFG_PREFS_DEFAULT_EMAIL,
                               CFG_PREFS_DEFAULT_TRAY_ICON,
                               CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
-                              CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION)
+                              CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION,
+                              CFG_PREFS_DEFAULT_SMS_VALIDITY)
+
 
 PREF_TABS = ["PROFILES"]
-
-VALIDITY_DICT = {
-     _('Maximum time').encode('utf8'): 'maximum',
-     _('1 week').encode('utf8'): '1week',
-     _('3 days').encode('utf8'): '3days',
-     _('1 day').encode('utf8'): '1day',
-}
-
-VALIDITY_DICT_REV = revert_dict(VALIDITY_DICT)
 
 
 class PreferencesModel(BaseWrapperModel):
@@ -52,10 +43,8 @@ class PreferencesModel(BaseWrapperModel):
         'warn_limit': False,
         'transfer_limit': -1,
         'use_alternate_smsc': False,
-        'validities': VALIDITY_DICT,
         'smsc_profile': "default",
         'smsc_number': "+447785016005",
-        'smsc_validity': "maximum",
         'exit_without_confirmation': CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION,
         'show_icon': CFG_PREFS_DEFAULT_TRAY_ICON,
         'close_minimizes': CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
@@ -89,9 +78,8 @@ class PreferencesModel(BaseWrapperModel):
 
         self.smsc_number = self.conf.get('preferences', 'smsc_number', '')
 
-        self.smsc_validity = self.conf.get('preferences', 'smsc_validity',
-                                           'maximum')
-
+        self.sms_validity = self.conf.get('preferences', 'sms_validity',
+                                          CFG_PREFS_DEFAULT_SMS_VALIDITY)
 
         # ok lets load the user preferences from configuration file into the
         # model but take care! If the config file is absent set to false!
@@ -128,7 +116,7 @@ class PreferencesModel(BaseWrapperModel):
                    self.use_alternate_smsc)
         config.set('preferences', 'smsc_profile', self.smsc_profile)
         config.set('preferences', 'smsc_number', self.smsc_number)
-        config.set('preferences', 'smsc_validity', self.smsc_validity)
+        config.set('preferences', 'sms_validity', self.sms_validity)
 
         # Save all the attributes on the user preferences tab
         config.set('preferences', 'exit_without_confirmation',

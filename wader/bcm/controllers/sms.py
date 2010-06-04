@@ -37,7 +37,9 @@ from wader.bcm.translate import _
 from wader.bcm.logger import logger
 from wader.bcm.messages import get_messages_obj
 from wader.bcm.utils import get_error_msg
-from wader.bcm.consts import APP_LONG_NAME
+from wader.bcm.consts import (APP_LONG_NAME, CFG_PREFS_DEFAULT_SMS_VALIDITY,
+                              CFG_SMS_VALIDITY_R1D, CFG_SMS_VALIDITY_R3D,
+                              CFG_SMS_VALIDITY_R1W, CFG_SMS_VALIDITY_MAX)
 
 from wader.bcm.controllers.base import TV_DICT, TV_DICT_REV
 
@@ -142,19 +144,38 @@ class NewSmsController(Controller):
             return self.model.conf.get('preferences',
                                        'sms_confirmation', False)
 
+        def _get_sms_validity_period():
+            key = self.model.conf.get('preferences', 'sms_validity', None)
+
+            #   0(5 mins)     143(12 hours): (val+1) * 5 mins
+            # 144(12.5 hours) 167(24 hours): ((val-143) * 30 mins) + 12 hours
+            # 168(2 days)     196(30 days) : (val-166) * 1 day
+            # 197(1 week)     255(63 weeks): (val-192) * 1 week
+            relative_validity_dict = {
+                CFG_SMS_VALIDITY_R1D: 167,
+                CFG_SMS_VALIDITY_R3D: 169,
+                CFG_SMS_VALIDITY_R1W: 197,
+                CFG_SMS_VALIDITY_MAX: 254,
+            }
+            try:
+                return relative_validity_dict[key]
+            except KeyError:
+                return relative_validity_dict[CFG_PREFS_DEFAULT_SMS_VALIDITY]
+
         self.state = SENDING
 
         def smsc_cb(smsc):
             logger.info("SMSC: %s" % smsc)
 
             status_request = _get_sms_confirmation()
+            msgvp = _get_sms_validity_period()
 
             numbers = self.get_numbers_list()
             for number in numbers:
                 msg = Message(number, text, _datetime=datetime.now(self.tz))
                 self.model.device.Send(dict(number=number, text=text,
                                             status_request=status_request,
-                                            smsc=smsc),
+                                            smsc=smsc, msgvp=msgvp),
                     dbus_interface=SMS_INTFACE,
                     reply_handler=lambda ref: on_sms_sent_cb(msg, ref),
                     error_handler=on_sms_sent_eb)

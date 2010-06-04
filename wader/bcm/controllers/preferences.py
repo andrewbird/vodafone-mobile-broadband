@@ -25,16 +25,23 @@ from wader.bcm.contrib.gtkmvc import Controller
 from wader.common.provider import NetworkProvider
 from wader.common.consts import CRD_INTFACE
 
-from wader.bcm.config import config
 from wader.bcm.consts import (CFG_PREFS_DEFAULT_BROWSER,
-                              CFG_PREFS_DEFAULT_EMAIL)
+                              CFG_PREFS_DEFAULT_EMAIL,
+                              CFG_SMS_VALIDITY_R1W, CFG_SMS_VALIDITY_R1D,
+                              CFG_SMS_VALIDITY_R3D, CFG_SMS_VALIDITY_MAX)
+
 from wader.bcm.logger import logger
 from wader.bcm.translate import _
 from wader.bcm.dialogs import show_warning_dialog
-from wader.bcm.models.preferences import VALIDITY_DICT, SMSCItem
 from wader.bcm.tray import tray_available
 from wader.bcm.utils import get_error_msg
-from wader.bcm.contrib.ValidatedEntry import ValidatedEntry, v_phone
+
+VALIDITY_DICT = {
+     _('Maximum time').encode('utf8'): CFG_SMS_VALIDITY_MAX,
+     _('1 week').encode('utf8'): CFG_SMS_VALIDITY_R1W,
+     _('3 days').encode('utf8'): CFG_SMS_VALIDITY_R3D,
+     _('1 day').encode('utf8'): CFG_SMS_VALIDITY_R1D,
+}
 
 
 class PreferencesController(Controller):
@@ -110,14 +117,14 @@ class PreferencesController(Controller):
                                      alternate_smsc_flag)
 
         # finally the validity period
-        smsc_validity_box = gtk.ListStore(gobject.TYPE_STRING)
-
-        for key, value in self.model.validities.items():
-            if key == self.model.smsc_validity:
-                _iter = smsc_validity_box.append([key])
+        sms_validity_box = gtk.ListStore(gobject.TYPE_STRING)
+        _iter = None
+        for key, value in VALIDITY_DICT.items():
+            if value == self.model.sms_validity:
+                _iter = sms_validity_box.append([key])
             else:
-                smsc_validity_box.append([key])
-        self.view.setup_sms_message_validity(smsc_validity_box, _iter)
+                sms_validity_box.append([key])
+        self.view.setup_sms_message_validity(sms_validity_box, _iter)
 
     def setup_user_prefs_tab(self):
         # setup the user preferences to reflect what's in our model on startup
@@ -255,13 +262,13 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         # lets fetch all the values stored in the view for the first tab
         # and place them in the model.
 
-        # get the sms validity virst
-        #sms_validity_view = gtk.ListStore(gobject.TYPE_STRING)
-        sms_validity_view = self.view['validity_combobox'].get_model()
-        _iter = self.view['validity_combobox'].get_active_iter()
+        # get the sms validity first
+        sms_validity_view = self.view['validity_combobox']
+        model = sms_validity_view.get_model()
+        _iter = sms_validity_view.get_active_iter()
         if _iter is not None:
-            validity_option = sms_validity_view.get_value(_iter, 0)
-            self.model.smsc_validity = validity_option
+            validity_option = model.get_value(_iter, 0)
+            self.model.sms_validity = VALIDITY_DICT[validity_option]
 
         # get the 'use an alternative smsc address' and save to config.
         # If this is set 'true' then we should not bother saving details for
@@ -383,120 +390,3 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
             self.view['hbox7'].set_sensitive(False)
         else:
             self.view['hbox7'].set_sensitive(True)
-
-
-class SMSPreferencesController(Controller):
-    """
-    Controller for the SMS preferences window
-    """
-
-    def __init__(self, model):
-        Controller.__init__(self, model)
-        self.initial_smsc = None
-        self.smsc_entry = ValidatedEntry(v_phone)
-
-    def register_view(self, view):
-        Controller.register_view(self, view)
-        self._setup()
-
-    def _setup(self):
-        d = self.model.get_smsc()
-
-        def get_smsc_cb(smsc):
-            if not smsc:
-                # XXX:
-                return
-
-            self.smsc_entry.set_text(smsc)
-            self.initial_smsc = smsc
-            self._check_smsc(smsc)
-
-        d.addCallback(get_smsc_cb)
-        self._setup_message_options()
-
-    def _check_smsc(self, smsc):
-        d = self.model.get_imsi()
-
-        def get_imsi_cb(imsi):
-            # we will setup the combobox options here
-            items = []
-
-            netprovider = NetworkProvider()
-            # XXX: Defaulting to first network here
-            network = netprovider.get_network_by_id(imsi)[0]
-            netprovider.close()
-
-            if not network:
-                # we dont know anything about this network operator, we will
-                # just show 'Unknown' in the combobox, giving no options to
-                # the user
-                items.append(SMSCItem(_("Unknown")))
-            else:
-                if network.smsc:
-                    # we know the network and we have its SMSC
-                    if smsc != network.smsc:
-                        # as the SMSC is different that the stored one,
-                        # we are gonna append "Custom" too
-                        items.append(SMSCItem(_("Custom")))
-                        items.append(SMSCItem(network.get_full_name(),
-                                          network.smsc, active=False))
-                    else:
-                        items.append(SMSCItem(network.get_full_name(),
-                                          network.smsc))
-                else:
-                    # we dont know the SMSC of this network
-                    items.append(SMSCItem(_("Unknown")))
-
-            self.view.populate_smsc_combobox(items)
-
-        d.addCallback(get_imsi_cb)
-
-    def _setup_message_options(self):
-        validity = config.get('sms', 'validity', 'maximum')
-        config.set('sms', 'validity', validity)
-
-        combobox = self.view['validity_combobox']
-        model = combobox.get_model()
-
-        for i, row in enumerate(model):
-            option = row[0]
-            if validity == VALIDITY_DICT[option]:
-                combobox.set_active(i)
-                break
-
-    def _hide_myself(self):
-        self.view.hide()
-        self.model.unregister_observer(self)
-
-    def on_combobox1_changed(self, combobox):
-        smscobj = self._get_active_combobox_item('combobox1')
-        if smscobj and smscobj.number:
-            self.smsc_entry.set_text(smscobj.number)
-
-    def _get_active_combobox_item(self, comboname):
-        combobox = self.view[comboname]
-        model = combobox.get_model()
-        active = combobox.get_active()
-        if active < 0:
-            return None
-
-        return model[active][0]
-
-    def on_ok_button_clicked(self, widget):
-        # save message options
-        validity = self._get_active_combobox_item('validity_combobox')
-        if validity:
-            validity_key = VALIDITY_DICT[validity]
-            config.set('sms', 'validity', validity_key)
-
-        # check that we have changed the SMSC info
-        if self.smsc_entry.isvalid():
-            smscnumber = self.smsc_entry.get_text()
-            if self.initial_smsc != smscnumber:
-                d = self.model.set_smsc(smscnumber)
-                d.addCallback(lambda x: self._hide_myself())
-            else:
-                self._hide_myself()
-
-    def on_cancel_button_clicked(self, widget):
-        self._hide_myself()

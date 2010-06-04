@@ -53,7 +53,8 @@ class PreferencesView(View):
 
     def setup_sms_message_validity(self, val, active_set):
         self['validity_combobox'].set_model(val)
-        self['validity_combobox'].set_active_iter(active_set)
+        if active_set:
+            self['validity_combobox'].set_active_iter(active_set)
 
     def get_sms_combobox_model(self):
         print "get_sms_combobox_model"
