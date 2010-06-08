@@ -144,11 +144,13 @@ class ProfileModel(Model):
             self._load_profile(profile=profile)
         elif imsi:
             self._load_profile_from_imsi(imsi)
+            self.name = self.make_profilename_unique(self.name)
         elif network:
             self._load_profile_from_network(network)
+            self.name = self.make_profilename_unique(self.name)
         else:
             self.uuid = str(uuid1()) # blank profile
-            self.name = _('Custom')
+            self.name = self.make_profilename_unique(_('Custom'))
 
         self.state = DISCONNECTED
         self.sm = [] # signal matches list
@@ -249,6 +251,18 @@ class ProfileModel(Model):
             self._load_settings(props)
         except ProfileNotFoundError:
             self.uuid = str(uuid1())
+
+    def make_profilename_unique(self, base):
+        """Returns a unique name derived from base"""
+        profs = self.manager.get_profiles()
+        names = [ prof.get_settings()['connection']['id'] for prof in profs]
+
+        new, num = base, 1
+        while new in names:
+            new = '%s %02d' % (base, num)
+            num += 1
+
+        return new
 
     def save(self):
         props = {
