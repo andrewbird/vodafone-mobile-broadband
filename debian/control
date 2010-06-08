@@ -10,7 +10,7 @@ XS-Python-Version: current
 
 Package: bcm
 Architecture: all
-Depends: ${python:Depends}, wader-core (>= 0.5.0), python-gtk2, python-glade2, python-gnome2, python-gnomekeyring, python-notify, wmctrl, network-manager-gnome
+Depends: python (>= 2.5), ${python:Depends}, wader-core (>= 0.5.0), python-gtk2, python-glade2, python-gnome2, python-gnomekeyring, python-notify, wmctrl, network-manager-gnome
 Recommends: python-sexy
 XB-Python-Version: ${python:Versions}
 Description: Internet connection assistant for mobile devices.
@@ -19,4 +19,3 @@ Description: Internet connection assistant for mobile devices.
   Internet, sending SMS, managing contacts, and such. This package contains
   the GTK GUI.
   .
-
