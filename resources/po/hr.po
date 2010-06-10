@@ -2,7 +2,8 @@
 # This file is distributed under the same license as the Vodafone Mobile
 # Connect Card driver for Linux package.
 # 
-# m1r0 <h15m1r0@gmail.com>, 2007, 2010.
+# m1r0 <h15m1r0@gmail.com>, 2007
+, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
@@ -1115,9 +1116,9 @@ msgid ""
 "If you still have difficulties you can call to Vodafone's Customer Support "
 "Center, the numbers are:\n"
 "\n"
-"123, if you are using Vodafone's network, or\n"
+"191, if you are using Vodafone's network, or\n"
 "\n"
-"+34 607 123 00 if you are calling from other network."
+"+44 870 070 0191 if you are calling from other network."
 msgstr ""
 "Možete naći odgovore na česta pitanja u izborniku pomoć, u tehničkoj podršci "
 "vaše kompanije i na web korisničkoj podršci na\n"
