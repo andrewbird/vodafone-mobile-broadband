@@ -394,8 +394,9 @@ class MainModel(Model):
                 self.profile.activate()
                 self.profile_required = False # tell controller
             else:
-                logger.warn("No profile, creating one")
+                logger.warn("main.py: model - No profile, creating one")
                 self.profile_required = True # tell controller
+                logger.warn("main.py: model - profile_required being set to 'True' ")
 
     def _network_register_cb(self, ignored=None):
         self._get_regstatus(first_time=True)

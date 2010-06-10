@@ -213,6 +213,7 @@ class MainController(WidgetController):
         view.show()
 
     def ask_for_new_profile(self):
+        logger.info("main.py: model - ask_for_new_profile called")
 
         def apn_callback(network):
             main_model = self.model.profiles_model
@@ -377,6 +378,7 @@ class MainController(WidgetController):
 
     def property_profile_required_value_change(self, model, old, new):
         if new:
+            logger.info("main.py: controller - property_profile value changed")
             self.ask_for_new_profile()
 
     def property_threeg_transferred_value_change(self, model, old, new):

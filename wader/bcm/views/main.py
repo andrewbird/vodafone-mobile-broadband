@@ -149,8 +149,8 @@ class MainView(View):
             "\n\n%s."
             "\n\nIf you still have difficulties you can call to Vodafone's"
             " Customer Support Center, the numbers are:"
-            "\n\n123, if you are using Vodafone's network, or"
-            "\n\n+34 607 123 00 if you are calling from other network.")
+            "\n\n191, if you are using Vodafone's network, or"
+            "\n\n +44 870 070 0191 if you are calling from other network.")
              % APP_URL)
         self['support_notebook_customer_text'].set_buffer(tbuf)
 
