@@ -62,7 +62,7 @@ class MainView(View):
 
     def __init__(self, ctrl):
 
-        height = 420        # define the max height of the main window
+        height = 450        # define the max height of the main window
         GLADE_FILE = os.path.join(GLADE_DIR, "bcm.glade")
 
         super(MainView, self).__init__(ctrl, GLADE_FILE, 'main_window',
