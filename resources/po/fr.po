@@ -1,4 +1,4 @@
-# BCM Spanish translation file.
+# BCM French translation file.
 # Copyright (C) 2009
 # This file is distributed under the same license as the BCM package.
 # Vicente Hernando <vhernang@warp.es>, 2009.
