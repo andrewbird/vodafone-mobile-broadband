@@ -1,9 +1,8 @@
 # Copyright (C) 2007, Vodafone España S.A.
 # This file is distributed under the same license as the Vodafone Mobile
 # Connect Card driver for Linux package.
-# 
-# m1r0 <h15m1r0@gmail.com>, 2007
-, 2010.
+#
+# m1r0 <h15m1r0@gmail.com>, 2007 , 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
