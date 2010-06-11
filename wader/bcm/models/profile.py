@@ -24,9 +24,8 @@ from wader.bcm.contrib.gtkmvc import Model
 
 from wader.common.consts import (WADER_DIALUP_INTFACE,
                                  WADER_PROFILES_INTFACE, CRD_INTFACE,
-                                 MM_NETWORK_MODE_ANY, MM_NETWORK_BAND_ANY)
-from wader.common.utils import (convert_int_to_uint as convert,
-                                patch_list_signature)
+                                 MM_ALLOWED_MODE_ANY, MM_NETWORK_BAND_ANY)
+from wader.common.utils import get_allowed_modes
 from wader.common.exceptions import ProfileNotFoundError
 from wader.bcm.config import config
 from wader.bcm.logger import logger
@@ -115,7 +114,7 @@ class ProfileModel(Model):
         'username': "",
         'password': "",
         'band': MM_NETWORK_BAND_ANY,
-        'network_pref': MM_NETWORK_MODE_ANY,
+        'network_pref': MM_ALLOWED_MODE_ANY,
         'auth': VM_NETWORK_AUTH_ANY,
         'autoconnect': False,
         'apn': "",
@@ -255,7 +254,7 @@ class ProfileModel(Model):
     def make_profilename_unique(self, base):
         """Returns a unique name derived from base"""
         profs = self.manager.get_profiles()
-        names = [ prof.get_settings()['connection']['id'] for prof in profs]
+        names = [prof.get_settings()['connection']['id'] for prof in profs]
 
         new, num = base, 1
         while new in names:
@@ -266,25 +265,41 @@ class ProfileModel(Model):
 
     def save(self):
         props = {
-            'connection': {'id': self.name, 'type': 'gsm',
-                           'name': 'connection', 'uuid': self.uuid,
-                           'autoconnect': self.autoconnect},
-            'gsm': {'band': self.band, 'username': self.username,
-                    'number': '*99#', 'network-type': self.network_pref,
-                    'apn': self.apn, 'name': 'gsm'},
-            'ppp': {'name': 'ppp'},
-            'serial': {'baud': 115200, 'name': 'serial'},
-            'ipv4': {'addresses': [], 'method': 'auto',
-                     'ignore-auto-dns': self.static_dns,
-                     'name': 'ipv4', 'routes': []},
+            'connection': {
+                'name': 'connection',
+                'id': self.name,
+                'type': 'gsm',
+                'uuid': self.uuid,
+                'autoconnect': self.autoconnect},
+            'gsm': {
+                'name': 'gsm',
+                'band': self.band,
+                'username': self.username,
+                'number': '*99#',
+                'network-type': self.network_pref,
+                'apn': self.apn},
+            'ppp': {
+                'name': 'ppp',
+                'refuse-pap': True,
+                'refuse-chap': True,
+                'refuse-eap': True,
+                'refuse-mschap': True,
+                'refuse-mschapv2': True},
+            'serial': {
+                'name': 'serial',
+                'baud': 115200},
+            'ipv4': {
+                'name': 'ipv4',
+                'addresses': [],
+                'method': 'auto',
+                'ignore-auto-dns': self.static_dns,
+                'routes': []},
         }
 
         # Our GUI only cares about PAP/CHAP
         if self.auth == VM_NETWORK_AUTH_PAP:
             props['ppp']['refuse-pap'] = False
-            props['ppp']['refuse-chap'] = True
         elif self.auth == VM_NETWORK_AUTH_CHAP:
-            props['ppp']['refuse-pap'] = True
             props['ppp']['refuse-chap'] = False
         else:
             props['ppp']['refuse-pap'] = False
@@ -293,11 +308,10 @@ class ProfileModel(Model):
         if not props['ipv4']['ignore-auto-dns']:
             props['ipv4']['dns'] = []
         else:
-            dns = [i for i in [self.primary_dns, self.secondary_dns] if i]
-            props['ipv4']['dns'] = map(convert, dns)
+            props['ipv4']['dns'] = [i for i in [self.primary_dns,
+                                                self.secondary_dns] if i]
 
         # clean up None values just in case
-        props = patch_list_signature(props)
         if props['gsm']['band'] is None:
             del props['gsm']['band']
         if props['gsm']['network-type'] is None:
@@ -346,7 +360,7 @@ class ProfileModel(Model):
                                reply_handler=lambda: True,
                                error_handler=logger.error)
             if self.network_pref is not None:
-                device.SetNetworkMode(self.network_pref,
+                device.SetAllowedMode(self.network_pref,
                                       reply_handler=lambda: True,
                                       error_handler=logger.error)
 
@@ -375,7 +389,11 @@ class ProfileModel(Model):
     def get_supported_prefs(self, callback):
         device = self.device_callable()
 
+        def convert_cb(modes):
+            ret = get_allowed_modes(modes)
+            callback(ret)
+
         device.Get(CRD_INTFACE, 'SupportedModes',
                    dbus_interface=dbus.PROPERTIES_IFACE,
-                   reply_handler=callback,
+                   reply_handler=convert_cb,
                    error_handler=logger.warn)

@@ -24,8 +24,8 @@ from os.path import join
 import gtk
 import gobject
 
-from wader.common.consts import MM_NETWORK_BAND_ANY, MM_NETWORK_MODE_ANY
-from wader.common.utils import get_network_modes, get_bands
+from wader.common.consts import MM_NETWORK_BAND_ANY, MM_ALLOWED_MODE_ANY
+from wader.common.utils import get_bands
 
 from wader.bcm.contrib.gtkmvc import View
 from wader.bcm.consts import (GLADE_DIR, VM_NETWORK_AUTH_ANY,
@@ -51,7 +51,7 @@ class ProfileView(View):
 
     def _set_combo(self, combo, model, current):
         self[combo].set_model(model)
-        if current:
+        if current is not None:
             for i, row in enumerate(model):
                 if row[1] == current:
                     self[combo].set_active(i)
@@ -69,7 +69,7 @@ class ProfileView(View):
     def set_prefs(self, modes, current):
         model = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_INT)
 
-        for value in [MM_NETWORK_MODE_ANY] + get_network_modes(modes):
+        for value in [MM_ALLOWED_MODE_ANY] + modes:
             human_name = MODE_MAP[value]
             model.append([human_name, value])
 

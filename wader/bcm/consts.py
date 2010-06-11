@@ -18,13 +18,11 @@
 
 from os.path import join, expanduser
 
-from wader.common.consts import (MM_NETWORK_MODE_ANY, MM_NETWORK_MODE_GPRS,
-                                 MM_NETWORK_MODE_EDGE, MM_NETWORK_MODE_UMTS,
-                                 MM_NETWORK_MODE_HSDPA, MM_NETWORK_MODE_HSUPA,
-                                 MM_NETWORK_MODE_2G_PREFERRED,
-                                 MM_NETWORK_MODE_3G_PREFERRED,
-                                 MM_NETWORK_MODE_2G_ONLY, MM_NETWORK_MODE_HSPA,
-                                 MM_NETWORK_MODE_3G_ONLY,
+from wader.common.consts import (MM_ALLOWED_MODE_ANY,
+                                 MM_ALLOWED_MODE_2G_PREFERRED,
+                                 MM_ALLOWED_MODE_3G_PREFERRED,
+                                 MM_ALLOWED_MODE_2G_ONLY,
+                                 MM_ALLOWED_MODE_3G_ONLY,
                                  MM_NETWORK_BAND_ANY, MM_NETWORK_BAND_EGSM,
                                  MM_NETWORK_BAND_DCS, MM_NETWORK_BAND_PCS,
                                  MM_NETWORK_BAND_G850, MM_NETWORK_BAND_U2100,
@@ -105,17 +103,11 @@ BAND_MAP = {
 BAND_MAP_REV = revert_dict(BAND_MAP)
 
 MODE_MAP = {
-    MM_NETWORK_MODE_ANY: _('Any'),
-    MM_NETWORK_MODE_GPRS: _('GPRS'),
-    MM_NETWORK_MODE_EDGE: _('EDGE'),
-    MM_NETWORK_MODE_UMTS: _('UMTS'),
-    MM_NETWORK_MODE_HSDPA: _('HSDPA'),
-    MM_NETWORK_MODE_HSUPA: _('HSUPA'),
-    MM_NETWORK_MODE_HSPA: _('HSPA'),
-    MM_NETWORK_MODE_2G_PREFERRED: _('2G preferred'),
-    MM_NETWORK_MODE_3G_PREFERRED: _('3G preferred'),
-    MM_NETWORK_MODE_2G_ONLY: _('2G only'),
-    MM_NETWORK_MODE_3G_ONLY: _('3G only'),
+    MM_ALLOWED_MODE_ANY: _('Any'),
+    MM_ALLOWED_MODE_2G_PREFERRED: _('2G preferred'),
+    MM_ALLOWED_MODE_3G_PREFERRED: _('3G preferred'),
+    MM_ALLOWED_MODE_2G_ONLY: _('2G only'),
+    MM_ALLOWED_MODE_3G_ONLY: _('3G only'),
 }
 
 MODE_MAP_REV = revert_dict(MODE_MAP)
