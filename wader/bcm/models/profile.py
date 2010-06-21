@@ -184,7 +184,12 @@ class ProfileModel(Model):
         if self.profile:
             if self.profile.secrets.is_open():
                 secrets = self.profile.secrets.get(ask=True)
-                self.password = secrets['gsm']['passwd']
+                try:
+                    self.password = secrets['gsm']['passwd']
+                except KeyError:
+                    uuid = self.profile.secrets.uuid
+                    logger.error("Connection %s has no secrets" % uuid)
+                    self.password = ''
             else:
                 # keyring needs to be opened
                 parent_model = self.parent_model_callable()
