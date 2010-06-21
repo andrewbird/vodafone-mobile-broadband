@@ -98,12 +98,10 @@ class ProfilesModel(Model):
         ret = {}
         for profile in self.manager.get_profiles():
             settings = profile.get_settings()
-            # filter out wlan profiles
-            if 'ppp' in settings:
-                uuid = settings['connection']['uuid']
-                ret[uuid] = ProfileModel(self, profile=profile,
-                                         device_callable=self.device_callable,
-                                         parent_model_callable=self.parent_model_callable)
+            uuid = settings['connection']['uuid']
+            ret[uuid] = ProfileModel(self, profile=profile,
+                                     device_callable=self.device_callable,
+                                     parent_model_callable=self.parent_model_callable)
         return ret
 
 
@@ -161,9 +159,7 @@ class ProfileModel(Model):
         return self.uuid == other.uuid
 
     def __ne__(self, other):
-        if other is None:
-            return True
-        return self.uuid != other.uuid
+        return not self.__eq__(other)
 
     def __repr__(self):
         return "<ProfileModel %s>" % self.uuid
@@ -206,7 +202,7 @@ class ProfileModel(Model):
         try:
             self.uuid = settings['connection']['uuid']
             self.name = settings['connection']['id']
-            self.username = settings['gsm']['username']
+            self.username = settings['gsm'].get('username', '')
             self.apn = settings['gsm']['apn']
             self.autoconnect = settings['connection'].get('autoconnect', False)
             self.static_dns = settings['ipv4'].get('ignore-auto-dns')
@@ -229,7 +225,7 @@ class ProfileModel(Model):
                 self.auth = VM_NETWORK_AUTH_ANY
 
             # the last one
-            if settings['gsm'].get('password', None):
+            if settings['gsm'].get('password') is not None:
                 self.password = settings['gsm']['password']
 
         except KeyError, e:
@@ -273,10 +269,7 @@ class ProfileModel(Model):
                 'autoconnect': self.autoconnect},
             'gsm': {
                 'name': 'gsm',
-                'band': self.band,
-                'username': self.username,
                 'number': '*99#',
-                'network-type': self.network_pref,
                 'apn': self.apn},
             'ppp': {
                 'name': 'ppp',
@@ -296,6 +289,14 @@ class ProfileModel(Model):
                 'routes': []},
         }
 
+        # only set the following values if they are really set
+        if self.username is not None:
+            props['gsm']['username'] = self.username
+        if self.band is not None:
+            props['gsm']['band'] = self.band
+        if self.network_pref is not None:
+            props['gsm']['network-type'] = self.network_pref
+
         # Our GUI only cares about PAP/CHAP
         if self.auth == VM_NETWORK_AUTH_PAP:
             props['ppp']['refuse-pap'] = False
@@ -310,12 +311,6 @@ class ProfileModel(Model):
         else:
             props['ipv4']['dns'] = [i for i in [self.primary_dns,
                                                 self.secondary_dns] if i]
-
-        # clean up None values just in case
-        if props['gsm']['band'] is None:
-            del props['gsm']['band']
-        if props['gsm']['network-type'] is None:
-            del props['gsm']['network-type']
 
         if self.profile:
             self.manager.update_profile(self.profile, props)
