@@ -276,7 +276,7 @@ class MainModel(Model):
 
     def get_msisdn(self, cb):
         if self.msisdn:
-            logger.info("MSISDN from model cache %s: " % self.msisdn)
+            logger.info("MSISDN from model cache: %s" % self.msisdn)
             cb(self.msisdn)
             return
 
@@ -284,7 +284,7 @@ class MainModel(Model):
             if imsi:
                 msisdn = self.conf.get("sim/%s" % imsi, 'msisdn')
                 if msisdn:
-                    logger.info("MSISDN from gconf %s: " % msisdn)
+                    logger.info("MSISDN from gconf: %s" % msisdn)
                     self.msisdn = msisdn
                     cb(self.msisdn)
                     return
