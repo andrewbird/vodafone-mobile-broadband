@@ -212,7 +212,7 @@ class ProfileModel(Model):
             self.autoconnect = settings['connection'].get('autoconnect', False)
             self.static_dns = settings.get('ipv4', {}).get('ignore-auto-dns')
             dns = settings.get('ipv4', {}).get('dns')
-            if dns is not None:
+            if dns:
                 self.primary_dns = dns[0]
                 if len(dns) > 1:
                     self.secondary_dns = dns[1]
