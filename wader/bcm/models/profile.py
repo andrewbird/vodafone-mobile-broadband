@@ -207,20 +207,20 @@ class ProfileModel(Model):
         try:
             self.uuid = settings['connection']['uuid']
             self.name = settings['connection']['id']
+            self.apn = settings['gsm'].get('apn', '')
             self.username = settings['gsm'].get('username', '')
-            self.apn = settings['gsm']['apn']
             self.autoconnect = settings['connection'].get('autoconnect', False)
-            self.static_dns = settings['ipv4'].get('ignore-auto-dns')
-            if settings['ipv4'].get('dns', None):
-                dns = settings['ipv4'].get('dns')
+            self.static_dns = settings.get('ipv4', {}).get('ignore-auto-dns')
+            dns = settings.get('ipv4', {}).get('dns')
+            if dns is not None:
                 self.primary_dns = dns[0]
                 if len(dns) > 1:
                     self.secondary_dns = dns[1]
 
             self.network_pref = settings['gsm'].get('network-type')
             self.band = settings['gsm'].get('band')
-            self.refuse_chap = settings['ppp'].get('refuse-chap')
-            self.refuse_pap = settings['ppp'].get('refuse-pap')
+            self.refuse_chap = settings.get('ppp', {}).get('refuse-chap')
+            self.refuse_pap = settings.get('ppp', {}).get('refuse-pap')
 
             if not self.refuse_pap and self.refuse_chap:
                 self.auth = VM_NETWORK_AUTH_PAP
