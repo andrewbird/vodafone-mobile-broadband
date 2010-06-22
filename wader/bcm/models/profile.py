@@ -210,7 +210,8 @@ class ProfileModel(Model):
             self.apn = settings['gsm'].get('apn', '')
             self.username = settings['gsm'].get('username', '')
             self.autoconnect = settings['connection'].get('autoconnect', False)
-            self.static_dns = settings.get('ipv4', {}).get('ignore-auto-dns')
+            self.static_dns = settings.get('ipv4', {}).get('ignore-auto-dns',
+                                                           self.static_dns)
             dns = settings.get('ipv4', {}).get('dns')
             if dns:
                 self.primary_dns = dns[0]
