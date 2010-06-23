@@ -294,7 +294,7 @@ class ProfileModel(Model):
             'gsm': {
                 'name': 'gsm',
                 'number': '*99#',
-                'apn': self.apn},
+                'apn': self.apn.strip()},
             'ppp': {
                 'name': 'ppp',
                 'refuse-pap': True,
