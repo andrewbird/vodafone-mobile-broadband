@@ -48,8 +48,7 @@ class ProfilesModel(Model):
         self.conf = config
         self.manager = manager
 
-        uuid = self.conf.get('profile', 'uuid')
-        self.active_profile = self.get_profile_by_uuid(uuid)
+        self.active_profile = self.get_profile_by_uuid(self.get_active_uuid())
         self.activate_profile()
 
     def activate_profile(self):
@@ -67,15 +66,34 @@ class ProfilesModel(Model):
 
     def remove_profile(self, profile):
         if self.is_active_profile(profile):
-            self.active_profile = None
-            self.conf.set('profile', 'uuid', '')
-
+            self.unset_active_profile()
         profile.delete()
+
+    def get_active_uuid(self):
+        return self.conf.get('profile', 'uuid')
 
     def set_active_profile(self, profile, setconf=True):
         self.active_profile = profile
         if setconf:
             self.conf.set('profile', 'uuid', profile.uuid)
+
+    def unset_active_profile(self):
+        self.active_profile = None
+        self.conf.set('profile', 'uuid', None)
+
+    def active_profile_just_deleted(self):
+        if self.active_profile is None:
+            return False
+
+        uuid = self.get_active_uuid()
+        if uuid is None:
+            return False
+
+        if self.get_profile_by_uuid(uuid) is not None:
+            return False
+
+        self.unset_active_profile()
+        return True
 
     def get_profile_by_uuid(self, uuid, setactive=False):
         if uuid is None:
@@ -84,7 +102,7 @@ class ProfilesModel(Model):
         try:
             profile = self.manager.get_profile_by_uuid(uuid)
         except ProfileNotFoundError:
-            logger.error("No profile found with uuid %s" % uuid)
+            logger.info("No profile found with uuid %s" % uuid)
             return None
         else:
             profile = ProfileModel(self, profile=profile,

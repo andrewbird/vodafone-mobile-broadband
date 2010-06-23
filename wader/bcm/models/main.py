@@ -44,6 +44,7 @@ from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
                                  WADER_DIALUP_SERVICE, WADER_DIALUP_OBJECT,
                                  CRD_INTFACE, NET_INTFACE, MDM_INTFACE,
                                  WADER_DIALUP_INTFACE, WADER_KEYRING_INTFACE,
+                                 WADER_PROFILES_INTFACE,
                                  MM_NETWORK_MODE_GPRS, MM_NETWORK_MODE_EDGE,
                                  MM_NETWORK_MODE_2G_ONLY)
 import wader.common.aterrors as E
@@ -156,6 +157,21 @@ class MainModel(Model):
         self.bus.add_signal_receiver(self.on_keyring_key_needed_cb,
                                      "KeyNeeded",
                                      WADER_KEYRING_INTFACE)
+
+        # catch profiles removed just in case it's our active one
+        self.bus.add_signal_receiver(self._on_delete_profile,
+                                     "Removed",
+                                     WADER_PROFILES_INTFACE)
+
+    def _on_delete_profile(self):
+        # check if the active one still exists
+        # popup dialog if not
+        if self.profiles_model.active_profile_just_deleted():
+            logger.info("Active Profile removed")
+            self.profile_required = False # toggle to tell controller
+            self.profile_required = True
+        else:
+            logger.info("Profile removed")
 
     def _device_added_cb(self, opath):
         logger.info('Device with opath %s added' % opath)
