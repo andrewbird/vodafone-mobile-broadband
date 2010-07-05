@@ -311,13 +311,17 @@ class MainController(WidgetController):
             sm = self.model.device.connect_to_signal("DeviceEnabled",
                                             self.on_device_enabled_cb)
             self.signal_matches.append(sm)
+
             # connect to SIG_SMS_COMP and display SMS
             sm = self.model.device.connect_to_signal(SIG_SMS_COMP,
                                                 self.on_sms_received_cb)
+            self.signal_matches.append(sm)
+
             # connect to SIG_SMS_DELV and notify user
             sm = self.model.device.connect_to_signal(SIG_SMS_DELV,
                                                 self.on_sms_delivery_cb)
             self.signal_matches.append(sm)
+
             self.model.status = _('Device found')
         else:
             while self.signal_matches:
