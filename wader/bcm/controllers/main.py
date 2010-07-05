@@ -322,6 +322,11 @@ class MainController(WidgetController):
                                                 self.on_sms_delivery_cb)
             self.signal_matches.append(sm)
 
+            # react to any modem manager property changes
+            sm = self.model.device.connect_to_signal("MmPropertiesChanged",
+                                            self.on_mm_props_change_cb)
+            self.signal_matches.append(sm)
+
             self.model.status = _('Device found')
         else:
             while self.signal_matches:
@@ -489,6 +494,26 @@ class MainController(WidgetController):
             binary = config.get('preferences', 'mail', CFG_PREFS_DEFAULT_EMAIL)
             if binary:
                 Popen([binary, 'REPLACE@ME.COM'])
+
+    def on_mm_props_change_cb(self, ifname, ifprops):
+        if ifname == consts.NET_INTFACE and 'AccessTechnology' in ifprops:
+            self.model.tech = self._map_access_tech(ifprops['AccessTechnology'])
+            logger.info("TECH changed %s", self.model.tech)
+
+    def _map_access_tech(self, tech):
+        mapped = {
+            consts.MM_GSM_ACCESS_TECH_GPRS: _('GPRS'),
+            consts.MM_GSM_ACCESS_TECH_EDGE: _('EDGE'),
+            consts.MM_GSM_ACCESS_TECH_UMTS: _('UMTS'),
+            consts.MM_GSM_ACCESS_TECH_HSDPA: _('HSDPA'),
+            consts.MM_GSM_ACCESS_TECH_HSUPA: _('HSUPA'),
+            consts.MM_GSM_ACCESS_TECH_HSPA: _('HSPA'),
+        }
+
+        if tech in mapped:
+            return mapped[tech]
+        else:
+            return _('N/A')
 
     def on_sms_delivery_cb(self, reference):
         """
