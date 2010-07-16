@@ -37,7 +37,7 @@ APP_NAME = 'Betavine Connection Manager'
 APP_SLUG_NAME = 'bcm' # XXX: also defined in w.v.translate
 APP_LONG_NAME = 'Betavine Connection Manager'
 APP_SHORT_NAME = APP_SLUG_NAME
-APP_VERSION = '2.99.10'
+APP_VERSION = '2.99.11'
 
 # credits
 APP_AUTHORS = [
