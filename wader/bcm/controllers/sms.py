@@ -21,11 +21,9 @@ from datetime import datetime
 #from gtkmvc import Controller, Model
 from wader.bcm.contrib.gtkmvc import Controller, Model
 
-#import wader.common.exceptions as ex
-from messaging import (PDU,
-                       SEVENBIT_SIZE, UCS2_SIZE,
-                       SEVENBIT_MP_SIZE, UCS2_MP_SIZE,
-                       is_valid_gsm_text)
+from messaging.sms import SmsSubmit, is_gsm_text
+from messaging.sms.consts import (SEVENBIT_SIZE, UCS2_SIZE,
+                                 SEVENBIT_MP_SIZE, UCS2_MP_SIZE)
 
 from wader.common.consts import SMS_INTFACE
 from wader.common.oal import get_os_object
@@ -60,7 +58,6 @@ class NewSmsController(Controller):
 
     def __init__(self, model, parent_ctrl=None, contacts=None):
         super(NewSmsController, self).__init__(model)
-        self.pdu = PDU()
         self.state = IDLE
         self.parent_ctrl = parent_ctrl
         self.max_length = SEVENBIT_SIZE
@@ -262,17 +259,17 @@ class NewSmsController(Controller):
         else:
             # get the number of messages
             # we use a default number for encoding purposes
-            num_sms = len(self.pdu.encode_pdu('+342453435', text))
+            num_sms = len(SmsSubmit('+342453435', text).to_pdu())
             if num_sms == 1:
-                max_length = SEVENBIT_SIZE if is_valid_gsm_text(text) else UCS2_SIZE
-                args = dict(num=len(text), tot=max_length)
-                msg = _('Text message: %(num)d/%(tot)d chars') % args
+                max_length = SEVENBIT_SIZE if is_gsm_text(text) else UCS2_SIZE
+                args = dict(num=len(text), total=max_length)
+                msg = _('Text message: %(num)d/%(total)d chars') % args
             else:
-                max_length = SEVENBIT_MP_SIZE if is_valid_gsm_text(text) else UCS2_MP_SIZE
+                max_length = SEVENBIT_MP_SIZE if is_gsm_text(text) else UCS2_MP_SIZE
                 used = len(text) - (max_length * (num_sms - 1))
-                args = dict(num=used, tot=max_length, msgs=num_sms)
+                args = dict(num=used, total=max_length, msgs=num_sms)
                 msg = _('Text message: '
-                        '%(num)d/%(tot)d chars (%(msgs)d SMS)') % args
+                        '%(num)d/%(total)d chars (%(msgs)d SMS)') % args
 
         self.view.get_top_widget().set_title(msg)
 
