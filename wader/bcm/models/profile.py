@@ -314,7 +314,7 @@ class ProfileModel(Model):
         }
 
         # only set the following values if they are really set
-        if self.username is not None:
+        if self.username:
             props['gsm']['username'] = self.username
         if self.band is not None:
             props['gsm']['band'] = self.band
