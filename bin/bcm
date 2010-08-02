@@ -10,6 +10,7 @@ from twisted.python.procutils import which
 from wader.common.utils import save_file, get_file_data
 
 from wader.bcm.consts import GTK_LOCK, APP_LONG_NAME
+from wader.bcm.translate import _
 from wader.bcm.splash import SplashScreen
 from wader.bcm.startup import create_skeleton_and_return
 
@@ -48,6 +49,14 @@ def raise_window():
 
 
 def main():
+    # check that uid != 0
+    if not os.getuid():
+        from wader.bcm.dialogs import show_error_dialog
+        show_error_dialog(_("Do not run the application as root"),
+                          _("Otherwise some features, like profiles, "
+                            "might behave unpredictably."))
+        return
+
     create_skeleton_and_return()
 
     # delay import until we have the necessary skeleton

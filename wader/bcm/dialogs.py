@@ -24,7 +24,6 @@ import dbus
 #from gtkmvc import Controller, Model
 from wader.bcm.contrib.gtkmvc import Controller, Model
 
-from wader.bcm.logger import logger
 from wader.common.consts import WADER_DIALUP_INTFACE
 from wader.bcm.translate import _
 from wader.bcm.consts import (APP_ARTISTS, APP_AUTHORS, APP_DOCUMENTERS,
@@ -122,8 +121,6 @@ def make_basic_dialog(title, buttons, stock_image):
 
 
 def show_warning_dialog(title, message):
-    logger.debug("Warning dialog: %s" % message)
-
     buttons = (gtk.STOCK_OK, gtk.RESPONSE_OK)
     dialog, box = make_basic_dialog(title, buttons, gtk.STOCK_DIALOG_WARNING)
     box.add(gtk.Label(message))
@@ -136,8 +133,6 @@ def show_warning_dialog(title, message):
 
 
 def show_error_dialog(title, message):
-    logger.debug("Error dialog: %s" % message)
-
     buttons = (gtk.STOCK_OK, gtk.RESPONSE_OK)
     dialog, box = make_basic_dialog(title, buttons, gtk.STOCK_DIALOG_ERROR)
     label = gtk.Label(message)
@@ -154,8 +149,6 @@ def show_error_dialog(title, message):
 
 
 def show_warning_request_cancel_ok(title, message):
-    logger.debug("Warning request cancel/ok dialog: %s" % message)
-
     buttons = (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,
                gtk.STOCK_OK, gtk.RESPONSE_OK)
     dialog, box = make_basic_dialog(title, buttons, gtk.STOCK_DIALOG_WARNING)
@@ -214,7 +207,6 @@ def generic_auth_dialog(title, message, parent, regexp=None):
 
 
 def ask_password_dialog(parent):
-    logger.debug("Asking for password")
     return generic_auth_dialog(
             _("Password required"),
             _("Please, insert the password of your connection"),
@@ -388,7 +380,6 @@ class ActivityProgressBar(object):
         """
         org.freedesktop.ModemManager.Dial.Disconnect signal callback
         """
-        logger.info("Disconnected received")
         button = self.parent.view['connect_button']
         # block and unblock handler while toggling connect button
         button.handler_block(self.parent.cid)
