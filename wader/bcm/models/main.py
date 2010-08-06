@@ -228,8 +228,9 @@ class MainModel(Model):
             quit_cb()
 
     def get_imsi(self, cb):
-
+        logger.debug("INFO main.py: model - get_imsi called")
         if self.imsi:
+            logger.debug("INFO main.py: model - get_imsi imsi is: " + self.imsi)
             cb(self.imsi)
             return
 

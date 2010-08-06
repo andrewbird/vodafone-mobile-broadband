@@ -72,7 +72,7 @@ def main():
 
     # pass view to show after splash
     splash = SplashScreen(view)
-    splash.show_it(2)
+    splash.show_it(1)
 
     # save the pid
     try:

@@ -87,6 +87,13 @@ from wader.bcm.models.profile import ProfileModel
 from wader.bcm.views.profile import APNSelectionView
 from wader.bcm.controllers.profile import APNSelectionController
 
+BCM_FAST_LOG = "/tmp/fast-log.output"
+
+# functions
+def nick_debug(s):
+    if 1:
+        with open(BCM_FAST_LOG, 'a', 0) as f:
+            f.write("%s\n" % s)
 
 def get_fake_toggle_button():
     """Returns a toggled L{gtk.ToggleToolButton}"""
@@ -213,7 +220,9 @@ class MainController(WidgetController):
         view.show()
 
     def ask_for_new_profile(self):
-        logger.info("main.py: model - ask_for_new_profile called")
+        nick_debug("main.py: controller - ask_for_new_profile called")
+        logger.info("main.py: controller - ask_for_new_profile called")
+
 
         def apn_callback(network):
             main_model = self.model.profiles_model
@@ -386,8 +395,9 @@ class MainController(WidgetController):
             self.ask_for_puk2()
 
     def property_profile_required_value_change(self, model, old, new):
+        logger.info("main.py: controller - property_profile value changed - begining method")
         if new:
-            logger.info("main.py: controller - property_profile value changed")
+            logger.info("main.py: controller - property_profile value changed - calling 'ask_for_new_profile' ")
             self.ask_for_new_profile()
 
     def property_threeg_transferred_value_change(self, model, old, new):

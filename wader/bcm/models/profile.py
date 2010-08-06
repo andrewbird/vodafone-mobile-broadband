@@ -96,13 +96,15 @@ class ProfilesModel(Model):
         return True
 
     def get_profile_by_uuid(self, uuid, setactive=False):
+        logger.info("INFO profile.py: model - get_profile_by_uuid: uuid passed in = %s" %uuid + " the attribute 'setactive' = %s" %setactive)
         if uuid is None:
+            logger.info("WARNING profile.py: model - get_profile_by_uuid: UUID is NONE! Returning none.")
             return None
 
         try:
             profile = self.manager.get_profile_by_uuid(uuid)
         except ProfileNotFoundError:
-            logger.info("No profile found with uuid %s" % uuid)
+            logger.info("WARNING profile.py: model - get_profile_by_uuid: No profile found with uuid %s" % uuid)
             return None
         else:
             profile = ProfileModel(self, profile=profile,
@@ -117,6 +119,7 @@ class ProfilesModel(Model):
         for profile in self.manager.get_profiles():
             settings = profile.get_settings()
             uuid = settings['connection']['uuid']
+            logger.info("INFO profile.py: model - get_profiles: UUID from settings.connection.uuid is: %s" % uuid)
             ret[uuid] = ProfileModel(self, profile=profile,
                                      device_callable=self.device_callable,
                                      parent_model_callable=self.parent_model_callable)
@@ -284,6 +287,10 @@ class ProfileModel(Model):
         return new
 
     def save(self):
+
+        logger.info("INFO profile.py: model - save profile started")
+        logger.info("INFO profile.py: model - save __properties__ uuid is: ")
+
         props = {
             'connection': {
                 'name': 'connection',
@@ -313,6 +320,9 @@ class ProfileModel(Model):
                 'routes': []},
         }
 
+        logger.info("INFO profile.py: model - save properties dictionary is: %s"  %props )
+
+
         # only set the following values if they are really set
         if self.username:
             props['gsm']['username'] = self.username
@@ -337,20 +347,23 @@ class ProfileModel(Model):
                                                 self.secondary_dns] if i]
 
         if self.profile:
+            logger.info("INFO profile.py: model - save self.profile is true ")
             self.manager.update_profile(self.profile, props)
             # store password associated to this connection
             secrets = {'gsm': {'passwd': self.password}}
             self.profile.secrets.update(secrets, ask=True)
 
-            logger.debug("Profile modified: %s" % self.profile)
+            logger.debug("INFO profile.py: model - save Profile modified: %s" % self.profile)
         else:
+            logger.info("INFO profile.py: model - save self.profile is false - attempting to create new one. ")
             uuid = props['connection']['uuid']
+            logger.info("INFO profile.py: model - save self.profile is false - using UUID %s " %uuid)
             sm = None # SignalMatch object
 
             def new_profile_cb(path):
                 self.profile_path = path
-                logger.debug("Profile added: %s" % self.profile_path)
-
+                logger.debug("INFO profile.py: model - new_profile_cb : Profile added: %s" % self.profile_path)
+                logger.debug("INFO profile.py: model - new_profile_cb : Attempting get_profile_by_uuid UUDI is: %s" % uuid)
                 self.profile = self.manager.get_profile_by_uuid(uuid)
                 secrets = {'gsm': {'passwd': self.password}}
                 self.profile.secrets.update(secrets, ask=True)
