@@ -141,17 +141,10 @@ class MainView(View):
             " to contact your company's System Administrator."))
         self['support_notebook_support_text'].set_buffer(tbuf)
 
+    def set_customer_support_text(self, text):
         # populate Customer support tab
         tbuf = gtk.TextBuffer()
-        tbuf.set_text(_("You can easily find answers to the most common"
-            " questions in the help menu, in your company's support center and"
-            " in the support area at:"
-            "\n\n%s."
-            "\n\nIf you still have difficulties you can call to Vodafone's"
-            " Customer Support Center, the numbers are:"
-            "\n\n191, if you are using Vodafone's network, or"
-            "\n\n +44 870 070 0191 if you are calling from other network.")
-             % APP_URL)
+        tbuf.set_text(text);
         self['support_notebook_customer_text'].set_buffer(tbuf)
 
     def _setup_usage_view(self):

@@ -48,7 +48,7 @@ from wader.bcm.keyring_dialogs import NewKeyringDialog, KeyringPasswordDialog
 from wader.bcm.utils import get_error_msg
 from wader.bcm.translate import _
 from wader.bcm.tray import get_tray_icon
-from wader.bcm.consts import (GTK_LOCK, GUIDE_DIR, IMAGES_DIR,
+from wader.bcm.consts import (GTK_LOCK, GUIDE_DIR, IMAGES_DIR, APP_URL,
                               APP_LONG_NAME, CFG_PREFS_DEFAULT_BROWSER,
                               CFG_PREFS_DEFAULT_EMAIL,
                               CFG_PREFS_DEFAULT_TRAY_ICON,
@@ -63,6 +63,8 @@ from wader.bcm.phonebook import (get_phonebook,
                                 all_same_type, all_contacts_writable)
 from wader.bcm.csvutils import CSVUnicodeWriter, CSVContactsReader
 from wader.bcm.messages import get_messages_obj, is_sim_message
+
+from wader.bcm.network_codes import get_customer_support_info
 
 from wader.bcm.views.diagnostics_view import DiagnosticsView
 from wader.bcm.controllers.diagnostics_controller import DiagnosticsController
@@ -255,6 +257,27 @@ class MainController(WidgetController):
                                 "Disconnected",
                                 dbus_interface=consts.WADER_DIALUP_INTFACE)
 
+    def _generate_customer_support_text(self, imsi):
+        utxt = '"' + _('Unknown') + '"'
+        args = {'url':APP_URL, 'shortcode':utxt, 'international':utxt}
+
+        nums = get_customer_support_info(imsi)
+        if nums is not None:
+            if nums[0] is not None:
+                args['shortcode'] = nums[0]
+            if nums[1] is not None:
+                args['international'] = nums[1]
+
+        return _("You can easily find answers to the most common"
+            " questions in the help menu, in your company's support center and"
+            " in the support area at:"
+            "\n\n%(url)s."
+            "\n\nIf you still have difficulties you can call to Vodafone's"
+            " Customer Support Center, the numbers are:"
+            "\n\n%(shortcode)s, if you are using Vodafone's network, or"
+            "\n\n%(international)s if you are calling from other network."
+            ) % args
+
     # properties
     def property_rssi_value_change(self, model, old, new):
         self.view.rssi_changed(new)
@@ -359,6 +382,12 @@ class MainController(WidgetController):
         elif new == _('Authenticating'):
             self.view.set_view_state(AUTHENTICATING)
         elif new == _('Scanning'):
+
+            def imsi_cb(imsi):
+                self.view.set_customer_support_text(
+                    self._generate_customer_support_text(imsi))
+            self.model.get_imsi(imsi_cb)
+
             self.view.set_view_state(SEARCHING)
             self._fill_treeviews()
         elif new in [_('Registered'), _('Roaming'), _('Not connected')]:

@@ -61,3 +61,20 @@ def get_payt_credit_check_info(imsi):
 
 def get_payt_submit_voucher_info(imsi):
     return get_ussd_info(imsi, PAYT_SUBMIT_VOUCHER_USSD)
+
+
+CUSTOMER_SUPPORT_NUMBERS = [
+    # mccmnc, shortcode, international
+    ('20810', '4357', '+33 6 1000 4357'), # SFR
+    ('21401', '123', '+34 607 123 000'),  # VF-ES
+    ('22210', '190', None),               # VF-IT
+    ('23415', '191', '+44 870 070 0191'), # VF-UK
+    ('26202', '1212', '+49 172 1212'),    # VF-DE
+]
+
+
+def get_customer_support_info(imsi):
+    for net in CUSTOMER_SUPPORT_NUMBERS:
+        if imsi.startswith(net[0]):
+            return net[1:]
+    return None
