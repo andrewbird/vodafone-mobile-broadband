@@ -326,7 +326,7 @@ class MainModel(Model):
                 return
 
             self.device_opath = opaths[0]
-            logger.info("Setting up device %s" % self.device_opath)
+            logger.info("main.py: model - Setting up device %s" % self.device_opath)
             self.device = self.bus.get_object(WADER_SERVICE, self.device_opath)
 
             self.pin_required = self.puk_required = self.puk2_required = False
@@ -360,7 +360,7 @@ class MainModel(Model):
         self._get_regstatus_cb((-1, None, None))
 
     def _enable_device_cb(self):
-        logger.info("Device enabled")
+        logger.info("main.py: model - Device enabled")
 
         self.pin_required = self.puk_required = self.puk2_required = False
 

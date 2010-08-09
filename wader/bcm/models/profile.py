@@ -42,6 +42,7 @@ CONNECTED, DISCONNECTED = 0, 1
 class ProfilesModel(Model):
 
     def __init__(self, device_callable=None, parent_model_callable=None):
+        logger.info("INFO profile.py: model - ProfilesModel initialisation ")
         super(ProfilesModel, self).__init__()
         self.device_callable = device_callable
         self.parent_model_callable = parent_model_callable
@@ -52,8 +53,14 @@ class ProfilesModel(Model):
         self.activate_profile()
 
     def activate_profile(self):
+        logger.info("INFO profile.py: model - activate_profile ")
+        
         if self.active_profile:
+            logger.info("INFO profile.py: model - activate_profile - calling self.active_profile.activate() method -  ")
             self.active_profile.activate()
+        else:
+            logger.info("WARNING  profile.py: model - activate_profile - There is no active profile to 'activate'!   ")
+            
 
     def has_active_profile(self):
         return self.active_profile is not None
@@ -70,6 +77,7 @@ class ProfilesModel(Model):
         profile.delete()
 
     def get_active_uuid(self):
+        logger.info("INFO profile.py: model - get_active_uuid - self.conf.get('profile','uuid')  is: %s " % self.conf.get('profile', 'uuid') )
         return self.conf.get('profile', 'uuid')
 
     def set_active_profile(self, profile, setconf=True):
@@ -289,7 +297,7 @@ class ProfileModel(Model):
     def save(self):
 
         logger.info("INFO profile.py: model - save profile started")
-        logger.info("INFO profile.py: model - save __properties__ uuid is: ")
+        logger.info("INFO profile.py: model - save __properties__ uuid is: %s" %self.uuid )
 
         props = {
             'connection': {
