@@ -328,9 +328,6 @@ class ProfileModel(Model):
                 'routes': []},
         }
 
-        logger.info("INFO profile.py: model - save properties dictionary is: %s"  %props )
-
-
         # only set the following values if they are really set
         if self.username:
             props['gsm']['username'] = self.username
@@ -353,6 +350,8 @@ class ProfileModel(Model):
         else:
             props['ipv4']['dns'] = [i for i in [self.primary_dns,
                                                 self.secondary_dns] if i]
+
+        logger.info("INFO profile.py: model - save properties dictionary is: %s"  %props )
 
         if self.profile:
             logger.info("INFO profile.py: model - save self.profile is true ")
