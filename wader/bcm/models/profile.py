@@ -54,13 +54,12 @@ class ProfilesModel(Model):
 
     def activate_profile(self):
         logger.info("INFO profile.py: model - activate_profile ")
-        
+
         if self.active_profile:
             logger.info("INFO profile.py: model - activate_profile - calling self.active_profile.activate() method -  ")
             self.active_profile.activate()
         else:
             logger.info("WARNING  profile.py: model - activate_profile - There is no active profile to 'activate'!   ")
-            
 
     def has_active_profile(self):
         return self.active_profile is not None
@@ -394,10 +393,16 @@ class ProfileModel(Model):
             if not device:
                 return
 
+            if self.apn is not None:
+                device.SetApn(self.apn,
+                               reply_handler=lambda: True,
+                               error_handler=logger.error)
+
             if self.band is not None:
                 device.SetBand(self.band,
                                reply_handler=lambda: True,
                                error_handler=logger.error)
+
             if self.network_pref is not None:
                 device.SetAllowedMode(self.network_pref,
                                       reply_handler=lambda: True,
