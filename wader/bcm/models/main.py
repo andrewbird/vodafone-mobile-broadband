@@ -348,8 +348,6 @@ class MainModel(Model):
 
     def enable_device(self):
         # Enable is a potentially long operation
-        self.ctrl.view.start_throbber()
-
         self.device.Enable(True,
                            dbus_interface=MDM_INTFACE,
                            timeout=ENABLE_TIMEOUT,
@@ -426,9 +424,6 @@ class MainModel(Model):
                                      error_handler=lambda m:
                                      logger.warn("Cannot get RSSI %s" % m))
 
-        # once we are registered stop the throbber
-        self.ctrl.view.stop_throbber()
-
     def _network_register_eb(self, error):
         logger.error("Error while registering to home network %s" % error)
         try:
@@ -438,8 +433,6 @@ class MainModel(Model):
 
         # fake a +CREG: 0,3
         self._get_regstatus_cb((3, None, None))
-        # registration failed, stop the throbber
-        self.ctrl.view.stop_throbber()
 
     def _rssi_changed_cb(self, rssi):
         logger.info("RSSI changed %d" % rssi)
