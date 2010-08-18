@@ -359,7 +359,7 @@ class ProfileModel(Model):
             secrets = {'gsm': {'passwd': self.password}}
             self.profile.secrets.update(secrets, ask=True)
 
-            logger.debug("INFO profile.py: model - save Profile modified: %s" % self.profile)
+            logger.info("INFO profile.py: model - save Profile modified: %s" % self.profile)
         else:
             logger.info("INFO profile.py: model - save self.profile is false - attempting to create new one. ")
             uuid = props['connection']['uuid']
@@ -368,8 +368,8 @@ class ProfileModel(Model):
 
             def new_profile_cb(path):
                 self.profile_path = path
-                logger.debug("INFO profile.py: model - new_profile_cb : Profile added: %s" % self.profile_path)
-                logger.debug("INFO profile.py: model - new_profile_cb : Attempting get_profile_by_uuid UUDI is: %s" % uuid)
+                logger.info("INFO profile.py: model - new_profile_cb : Profile added: %s" % self.profile_path)
+                logger.info("INFO profile.py: model - new_profile_cb : Attempting get_profile_by_uuid UUDI is: %s" % uuid)
                 self.profile = self.manager.get_profile_by_uuid(uuid)
                 secrets = {'gsm': {'passwd': self.password}}
                 self.profile.secrets.update(secrets, ask=True)
