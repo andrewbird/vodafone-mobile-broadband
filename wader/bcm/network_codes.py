@@ -28,19 +28,19 @@ MSISDN_USSD = [
 PAYT_CREDIT_CHECK_USSD = [
     # mccmnc, balance request, extract value regex, display currency format
     ('20404', '*101#', '.*?(?P<value>\d+\.\d\d).*?', '€%s'),    # VF-NL
-    ('23415', '*#135#', '.*?(?P<value>\d+\.\d\d).*?', '£%s'),   # VF-UK
+    ('23415', '*#135#', '.*?(?P<value>\d+\.\d\d).*?', '£%s'),   # VF-UK(confirmed)
     ('28000', '*110#', '.*?(?P<value>\d+\.\d\d).*?', '€%s'),    # Cytamobile
-    ('65501', '*111*500#', '.*?(?P<value>\d+\.\d\d).*?', 'R%s'),# Vodacom SA
+    ('65501', '*100#', '.*?(?P<value>\d+\.\d\d).*?', 'R%s'),    # Vodacom SA(confirmed)
     ('73001', '*#1345#', '.*?(?P<value>\d+\.?\d\d).*?', '$%s'), # Chile
 ]
 
 PAYT_SUBMIT_VOUCHER_USSD = [
     # mccmnc, submit request, success regex
-    ('20404', '*#1345*%s#', '.*?(?P<success>geslaagd).*?'),         # VF-NL(guessed)
-    ('23415', '*#1345*%s#', '.*?(?P<success>TopUp successful).*?'), # VF-UK
-    ('28000', '*116*%s#', '.*?(?P<success>επιτυχής).*?'),           # Cytamobile(guessed)
-    ('65501', '*111*501#%s#', '.*?(?P<success>suksesvolle).*?'),    # Vodacom SA(guessed)
-    ('73001', '*#1345*%s#', '.*?(?P<success>exitoso).*?'),          # Chile(guessed)
+    ('20404', '*#1345*%s#', '.*?(?P<success>geslaagd).*?'),         # VF-NL
+    ('23415', '*#1345*%s#', '.*?(?P<success>TopUp successful).*?'), # VF-UK(confirmed)
+    ('28000', '*116*%s#', '.*?(?P<success>επιτυχής).*?'),           # Cytamobile
+    ('65501', '*100*01*%s#', '.*?(?P<success>success).*?'),         # Vodacom SA(confirmed)
+    ('73001', '*#1345*%s#', '.*?(?P<success>exitoso).*?'),          # Chile
 ]
 
 
