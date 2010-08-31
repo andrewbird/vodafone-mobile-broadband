@@ -27,20 +27,42 @@ MSISDN_USSD = [
 
 PAYT_CREDIT_CHECK_USSD = [
     # mccmnc, balance request, extract value regex, display currency format
-    ('20404', '*101#', '.*?(?P<value>\d+\.\d\d).*?', '€%s'),    # VF-NL
-    ('23415', '*#135#', '.*?(?P<value>\d+\.\d\d).*?', '£%s'),   # VF-UK(confirmed)
-    ('28000', '*110#', '.*?(?P<value>\d+\.\d\d).*?', '€%s'),    # Cytamobile
-    ('65501', '*100#', '.*?(?P<value>\d+\.\d\d).*?', 'R%s'),    # Vodacom SA(confirmed)
-    ('73001', '*#1345#', '.*?(?P<value>\d+\.?\d\d).*?', '$%s'), # Chile
+
+    # VF-NL
+    ('20404', '*101#', '.*?(?P<value>\d+\.\d\d).*?', '€%s'),
+
+    # VF-UK(confirmed)
+    ('23415', '*#135#', '.*?(?P<value>\d+\.\d\d).*?', '£%s'),
+
+    # Cytamobile
+    ('28000', '*110#', '.*?(?P<value>\d+\.\d\d).*?', '€%s'),
+
+    # Vodacom SA(confirmed)
+    ('65501', '*100#', '.*?(?P<value>\d+\.\d\d).*?', 'R%s'),
+
+    # Chile
+    ('73001', '*#1345#', '.*?(?P<value>\d+\.?\d\d).*?', '$%s'),
 ]
 
 PAYT_SUBMIT_VOUCHER_USSD = [
     # mccmnc, submit request, success regex
-    ('20404', '*#1345*%s#', '.*?(?P<success>geslaagd).*?'),         # VF-NL
-    ('23415', '*#1345*%s#', '.*?(?P<success>TopUp successful).*?'), # VF-UK(confirmed)
-    ('28000', '*116*%s#', '.*?(?P<success>επιτυχής).*?'),           # Cytamobile
-    ('65501', '*100*01*%s#', '.*?(?P<success>success).*?'),         # Vodacom SA(confirmed)
-    ('73001', '*#1345*%s#', '.*?(?P<success>exitoso).*?'),          # Chile
+
+    # VF-NL
+    ('20404', '*#1345*%s#', '.*?(?P<success>geslaagd).*?'),
+
+    # VF-UK(confirmed)
+    ('23415', '*#1345*%s#', '.*?(?P<success>TopUp successful).*?'),
+
+    # Cytamobile
+    ('28000', '*116*%s#', '.*?(?P<success>επιτυχής).*?'),
+
+    # Vodacom SA(confirmed)
+    # success == 'Recharged: 29.00 NewBalance: 29.00 Points earned: 3.'
+    ('65501', '*100*01*%s#',
+        '^[Rr]echarged:\s*(?P<success>(?:\d{2,}|[1-9])\.\d\d)'),
+
+    # Chile
+    ('73001', '*#1345*%s#', '.*?(?P<success>exitoso).*?'),
 ]
 
 
