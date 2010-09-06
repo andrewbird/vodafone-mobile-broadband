@@ -37,8 +37,17 @@ PAYT_CREDIT_CHECK_USSD = [
     # Cytamobile
     ('28000', '*110#', '.*?(?P<value>\d+\.\d\d).*?', '€%s'),
 
+    # Zain Kenya
+    ('63903', '*133#', '.*?(?P<value>\d+\.\d\d).*?', 'KES%s'),
+
     # Vodacom SA(confirmed)
     ('65501', '*100#', '.*?(?P<value>\d+\.\d\d).*?', 'R%s'),
+
+    # CellC SA
+    ('65507', '*101#', '.*?(?P<value>\d+\.\d\d).*?', 'R%s'),
+
+    # MTN SA
+    ('65510', '*141#', '.*?(?P<value>\d+\.\d\d).*?', 'R%s'),
 
     # Chile
     ('73001', '*#1345#', '.*?(?P<value>\d+\.?\d\d).*?', '$%s'),
@@ -56,10 +65,25 @@ PAYT_SUBMIT_VOUCHER_USSD = [
     # Cytamobile
     ('28000', '*116*%s#', '.*?(?P<success>επιτυχής).*?'),
 
+    # Zain Kenya(guessed)
+    ('63903', '*122*%s#',
+        '.*?(?P<success>please report this USSD string to betavine).*?'),
+
     # Vodacom SA(confirmed)
     # success == 'Recharged: 29.00 NewBalance: 29.00 Points earned: 3.'
     ('65501', '*100*01*%s#',
         '^[Rr]echarged:\s*(?P<success>(?:\d{2,}|[1-9])\.\d\d)'),
+
+    # CellC SA
+    # success == 'Recharged = R 25.00 . Balance = R 25.01'
+    ('65507', '*102*%s#',
+        '^Recharged\s*=\s*R\s*(?P<success>(?:\d{2,}|[1-9])\.\d\d)\s*'),
+
+    # MTN SA
+    # success == 'Your account has been recharged with R30.00 airtime
+    #             Brought to you by MTN.'
+    ('65510', '*141*%s#',
+        'recharged with R\s*(?P<success>(?:\d{2,}|[1-9])\.\d\d)\s*airtime'),
 
     # Chile
     ('73001', '*#1345*%s#', '.*?(?P<success>exitoso).*?'),
