@@ -1,10 +1,7 @@
 =======================================
-Wader-0.3.6
-
+Betavine Connection Manager
 =======================================
 
-This is a horrid import then slash and burn. List of changes:
+Releases are tagged in SVN. List of changes:
 
-* wader-vmc
-    * Initial import of vodafone-mobile-connect
-
+* Changes are detailed in SVN log
