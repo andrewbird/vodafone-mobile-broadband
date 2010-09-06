@@ -80,3 +80,6 @@ class DiagnosticsView(View):
 
     def set_appVersion_info(self, appVersion):
         self['bcm_version'].set_text(appVersion)
+
+    def set_coreVersion_info(self, coreVersion):
+        self['core_version'].set_text(coreVersion)

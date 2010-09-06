@@ -44,6 +44,7 @@ class DiagnosticsController(Controller):
         self.set_device_info()
 
         self.view.set_appVersion_info(self.model.get_app_version())
+        self.view.set_coreVersion_info(self.model.get_core_version())
         self.view['uptime_number_label'].set_text(self.model.get_uptime())
         self.view['os_name_label'].set_text(self.model.get_os_name())
         self.view['os_version_label'].set_text(self.model.get_os_version())

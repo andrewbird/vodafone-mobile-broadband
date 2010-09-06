@@ -46,7 +46,8 @@ from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
                                  WADER_DIALUP_INTFACE, WADER_KEYRING_INTFACE,
                                  WADER_PROFILES_INTFACE,
                                  MM_NETWORK_MODE_GPRS, MM_NETWORK_MODE_EDGE,
-                                 MM_NETWORK_MODE_2G_ONLY)
+                                 MM_NETWORK_MODE_2G_ONLY,
+                                 APP_VERSION as CORE_VERSION)
 import wader.common.aterrors as E
 import wader.common.signals as S
 from wader.common.provider import UsageProvider
@@ -766,3 +767,6 @@ class MainModel(Model):
 
     def get_app_version(self):
         return APP_VERSION
+
+    def get_core_version(self):
+        return CORE_VERSION
