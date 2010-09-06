@@ -105,6 +105,9 @@ class MainModel(Model):
     }
 
     def __init__(self):
+        logger.info("BCM %s starting, using %s core" % (
+            self.get_app_version(), self.get_core_version()))
+
         super(MainModel, self).__init__()
         self.bus = dbus.SystemBus()
         self.obj = None
@@ -229,9 +232,9 @@ class MainModel(Model):
             quit_cb()
 
     def get_imsi(self, cb):
-        logger.debug("INFO main.py: model - get_imsi called")
+        logger.info("main.py: model - get_imsi called")
         if self.imsi:
-            logger.debug("INFO main.py: model - get_imsi imsi is: " + self.imsi)
+            logger.info("main.py: model - get_imsi imsi is: " + self.imsi)
             cb(self.imsi)
             return
 
