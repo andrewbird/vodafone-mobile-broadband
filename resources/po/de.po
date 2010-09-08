@@ -469,12 +469,12 @@ msgstr "Geräteliste"
 
 #: ../glade/diagnostics.glade:602
 msgid "Software Version:"
-msgstr "Software Version:"
+msgstr "Software-Version"
 
 #: ../glade/diagnostics.glade:613
 #, fuzzy
 msgid "Core Version:"
-msgstr "Software Version:"
+msgstr "Core-Version"
 
 #: ../glade/diagnostics.glade:635 ../glade/diagnostics.glade:645
 msgid "Not supported"

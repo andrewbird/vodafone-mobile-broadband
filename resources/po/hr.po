@@ -474,14 +474,12 @@ msgid "Device"
 msgstr "Lista uređaja"
 
 #: ../glade/diagnostics.glade:602
-#, fuzzy
 msgid "Software Version:"
-msgstr "Verzija:"
+msgstr ""
 
 #: ../glade/diagnostics.glade:613
-#, fuzzy
 msgid "Core Version:"
-msgstr "Verzija:"
+msgstr ""
 
 #: ../glade/diagnostics.glade:635 ../glade/diagnostics.glade:645
 msgid "Not supported"

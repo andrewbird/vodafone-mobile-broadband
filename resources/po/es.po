@@ -467,12 +467,12 @@ msgstr "Lista de dispositivos"
 #: ../glade/diagnostics.glade:602
 #, fuzzy
 msgid "Software Version:"
-msgstr "Versión:"
+msgstr "Versión de software:"
 
 #: ../glade/diagnostics.glade:613
 #, fuzzy
 msgid "Core Version:"
-msgstr "Versión:"
+msgstr "Versión del núcleo de BCM:"
 
 #: ../glade/diagnostics.glade:635 ../glade/diagnostics.glade:645
 msgid "Not supported"

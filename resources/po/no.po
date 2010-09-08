@@ -472,14 +472,12 @@ msgid "Device"
 msgstr "Ingen enhet funnet"
 
 #: ../glade/diagnostics.glade:602
-#, fuzzy
 msgid "Software Version:"
-msgstr "Versjon :"
+msgstr "Programvareversjon:"
 
 #: ../glade/diagnostics.glade:613
-#, fuzzy
 msgid "Core Version:"
-msgstr "Versjon :"
+msgstr "Kjernen versjon:"
 
 #: ../glade/diagnostics.glade:635 ../glade/diagnostics.glade:645
 msgid "Not supported"

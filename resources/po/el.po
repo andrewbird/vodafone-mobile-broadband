@@ -467,14 +467,12 @@ msgid "Device"
 msgstr "Συσκευή"
 
 #: ../glade/diagnostics.glade:602
-#, fuzzy
 msgid "Software Version:"
-msgstr "Έκδοση:"
+msgstr ""
 
 #: ../glade/diagnostics.glade:613
-#, fuzzy
 msgid "Core Version:"
-msgstr "Έκδοση:"
+msgstr ""
 
 #: ../glade/diagnostics.glade:635 ../glade/diagnostics.glade:645
 msgid "Not supported"

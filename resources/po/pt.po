@@ -462,7 +462,7 @@ msgstr "Versã de software:"
 #: ../glade/diagnostics.glade:613
 #, fuzzy
 msgid "Core Version:"
-msgstr "Versã de software:"
+msgstr "Versão core:"
 
 #: ../glade/diagnostics.glade:635 ../glade/diagnostics.glade:645
 msgid "Not supported"
