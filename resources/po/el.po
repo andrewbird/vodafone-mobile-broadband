@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-08 18:21+0100\n"
+"POT-Creation-Date: 2010-09-08 17:49+0100\n"
 "PO-Revision-Date: 2010-05-21 11:32+0100\n"
 "Last-Translator: Dimitrios Psychogios <dpsychogios@gmail.com>\n"
 "Language-Team: Greek <EL@li.org>\n"
@@ -62,213 +62,201 @@ msgstr "Εξαγωγή επαφών..."
 msgid "_Quit"
 msgstr "Έξοδος"
 
-#: ../glade/bcm.glade:72
+#: ../glade/bcm.glade:73
 msgid "_View"
 msgstr "Εμ_φάνιση"
 
-#: ../glade/bcm.glade:93 ../glade/bcm.glade:329 ../glade/preferences.glade:781
+#: ../glade/bcm.glade:94 ../glade/bcm.glade:330 ../glade/preferences.glade:781
 msgid "Usage"
 msgstr "Χρήση"
 
-#: ../glade/bcm.glade:107 ../glade/bcm.glade:367
+#: ../glade/bcm.glade:108 ../glade/bcm.glade:368
 msgid "Support"
 msgstr "Υποστήριξη"
 
-#: ../glade/bcm.glade:131
+#: ../glade/bcm.glade:132
 msgid "_Tools"
 msgstr "Εργα_λεία"
 
-#: ../glade/bcm.glade:139
+#: ../glade/bcm.glade:140
 msgid "Change PIN"
 msgstr "Αλλαγή PIN"
 
-#: ../glade/bcm.glade:147
+#: ../glade/bcm.glade:148
 msgid "Request PIN"
 msgstr "Απαίτηση PIN"
 
-#: ../glade/bcm.glade:160 ../glade/diagnostics.glade:7
+#: ../glade/bcm.glade:161 ../glade/diagnostics.glade:7
 msgid "Diagnostics"
 msgstr "Διαγνωστικά"
 
-#: ../glade/bcm.glade:184
+#: ../glade/bcm.glade:185
 #, fuzzy
 msgid "Profiles"
 msgstr "Προφίλ:"
 
-#: ../glade/bcm.glade:206 ../glade/preferences.glade:7
+#: ../glade/bcm.glade:207 ../glade/preferences.glade:7
 msgid "Preferences"
 msgstr "Προτιμήσεις"
 
-#: ../glade/bcm.glade:230
+#: ../glade/bcm.glade:231
 msgid "_Help"
 msgstr "_Βοήθεια"
 
-#: ../glade/bcm.glade:236
+#: ../glade/bcm.glade:237
 #, fuzzy
 msgid "Help"
 msgstr "_Βοήθεια"
 
-#: ../glade/bcm.glade:255
+#: ../glade/bcm.glade:256
 msgid "_About"
 msgstr "Σ_χετικά"
 
-#: ../glade/bcm.glade:346
+#: ../glade/bcm.glade:347
 msgid "Topup"
 msgstr ""
 
-#: ../glade/bcm.glade:400 ../glade/bcm.glade:515
+#: ../glade/bcm.glade:401 ../glade/bcm.glade:517
 msgid "_New"
 msgstr "_Νέο"
 
-#: ../glade/bcm.glade:402
+#: ../glade/bcm.glade:403
 #, fuzzy
 msgid "Create new SMS"
 msgstr "Δημιουργία νέου SMS"
 
-#: ../glade/bcm.glade:417
+#: ../glade/bcm.glade:419
 msgid "_Reply"
 msgstr "_Απάντηση"
 
-#: ../glade/bcm.glade:419
+#: ../glade/bcm.glade:421
 msgid "Reply message"
 msgstr "Απάντηση σε μύνημα"
 
-#: ../glade/bcm.glade:428
+#: ../glade/bcm.glade:430
 msgid "Reply without quoting original text"
 msgstr "Απάντηση χωρίς προσθήκη του αρχικού"
 
-#: ../glade/bcm.glade:429
+#: ../glade/bcm.glade:431
 msgid "Send new"
 msgstr "Αποστολή νέου"
 
-#: ../glade/bcm.glade:437
+#: ../glade/bcm.glade:439
 msgid "Reply quoting original message"
 msgstr "Απάντηση με προσθήκη του αρχικού"
 
-#: ../glade/bcm.glade:438
+#: ../glade/bcm.glade:440
 msgid "Reply quoting"
 msgstr "Απάντηση με προσθήκη"
 
-#: ../glade/bcm.glade:455
+#: ../glade/bcm.glade:457
 msgid "_Forward"
 msgstr "_Προώθηση"
 
-#: ../glade/bcm.glade:457
+#: ../glade/bcm.glade:459
 msgid "Forward SMS to another contact"
 msgstr "Προώθηση SMS σε άλλη επαφή"
 
-#: ../glade/bcm.glade:472 ../glade/bcm.glade:563
+#: ../glade/bcm.glade:474 ../glade/bcm.glade:566
 #: ../../wader/bcm/controllers/main.py:770
 msgid "_Delete"
 msgstr "_Διαγραφή"
 
-#: ../glade/bcm.glade:497
+#: ../glade/bcm.glade:499
 msgid "_Contacts"
 msgstr "_Επαφές"
 
-#: ../glade/bcm.glade:499
+#: ../glade/bcm.glade:501
 msgid "Contacts menu"
 msgstr "Μενού επαφών"
 
-#: ../glade/bcm.glade:517 ../glade/contacts.glade:158
+#: ../glade/bcm.glade:519 ../glade/contacts.glade:158
 msgid "Add a contact"
 msgstr "Προσθήκη επαφής"
 
-#: ../glade/bcm.glade:534
+#: ../glade/bcm.glade:537
 #, fuzzy
 msgid "_Search"
 msgstr "_Αναζήτηση"
 
-#: ../glade/bcm.glade:536
+#: ../glade/bcm.glade:539
 msgid "Search contacts"
 msgstr "Αναζήτηση επαφών"
 
-#: ../glade/bcm.glade:615
+#: ../glade/bcm.glade:618
 msgid "Inbox"
 msgstr "Εισερχόμενα"
 
-#: ../glade/bcm.glade:645
+#: ../glade/bcm.glade:648
 msgid "Draft"
 msgstr "Πρόχειρα"
 
-#: ../glade/bcm.glade:675
+#: ../glade/bcm.glade:678
 msgid "Sent"
 msgstr "Απεσταλμένα"
 
-#: ../glade/bcm.glade:704 ../glade/sms.glade:34
+#: ../glade/bcm.glade:707 ../glade/sms.glade:34
 msgid "Contacts"
 msgstr "Επαφές"
 
-#: ../glade/bcm.glade:792 ../glade/bcm.glade:1174
+#: ../glade/bcm.glade:795 ../glade/bcm.glade:1177
 msgid "<b>Month</b>"
 msgstr "<b>Μήνας</b>"
 
-#: ../glade/bcm.glade:802 ../glade/bcm.glade:1186
-#, fuzzy
-msgid "month_label"
-msgstr "label"
-
-#: ../glade/bcm.glade:841 ../glade/bcm.glade:857 ../glade/bcm.glade:871
-#: ../glade/bcm.glade:1012 ../glade/bcm.glade:1027 ../glade/bcm.glade:1042
-#: ../glade/bcm.glade:1223 ../glade/bcm.glade:1239 ../glade/bcm.glade:1253
-#: ../glade/pin.glade:591
-msgid "label"
-msgstr "label"
-
-#: ../glade/bcm.glade:888 ../glade/bcm.glade:998 ../glade/bcm.glade:1283
+#: ../glade/bcm.glade:891 ../glade/bcm.glade:1001 ../glade/bcm.glade:1286
 msgid "3G:"
 msgstr "3G:"
 
-#: ../glade/bcm.glade:903 ../glade/bcm.glade:972
+#: ../glade/bcm.glade:906 ../glade/bcm.glade:975
 msgid "Total:"
 msgstr ""
 
-#: ../glade/bcm.glade:918 ../glade/bcm.glade:985 ../glade/bcm.glade:1297
+#: ../glade/bcm.glade:921 ../glade/bcm.glade:988 ../glade/bcm.glade:1300
 msgid "GPRS:"
 msgstr "GPRS:"
 
-#: ../glade/bcm.glade:934 ../glade/bcm.glade:1313
+#: ../glade/bcm.glade:937 ../glade/bcm.glade:1316
 #, fuzzy
 msgid "<b>Transferred Data</b>"
 msgstr "<b>Μεταδόθηκε</b>"
 
-#: ../glade/bcm.glade:1061
+#: ../glade/bcm.glade:1064
 #, fuzzy
 msgid "<b>Current session</b>"
 msgstr "<b>Ρυθμίσεις σύνδεσης</b>"
 
-#: ../glade/bcm.glade:1099 ../glade/bcm.glade:1349
+#: ../glade/bcm.glade:1102 ../glade/bcm.glade:1352
 msgid "Total Traffic"
 msgstr ""
 
-#: ../glade/bcm.glade:1142
+#: ../glade/bcm.glade:1145
 #, fuzzy
 msgid "Current month"
 msgstr "Τρέχων μήνας"
 
-#: ../glade/bcm.glade:1269
+#: ../glade/bcm.glade:1272
 #, fuzzy
 msgid "<b>Total:</b>"
 msgstr "<b>τίτλος</b>"
 
-#: ../glade/bcm.glade:1395
+#: ../glade/bcm.glade:1398
 #, fuzzy
 msgid "Last month"
 msgstr "Προηγούμενος μήνας"
 
-#: ../glade/bcm.glade:1409
+#: ../glade/bcm.glade:1412
 msgid "<b>Usage</b> - Remember that this information is only orientative."
 msgstr ""
 
-#: ../glade/bcm.glade:1453
+#: ../glade/bcm.glade:1456
 msgid "Help menu"
 msgstr "Μενού βοήθειας"
 
-#: ../glade/bcm.glade:1490
+#: ../glade/bcm.glade:1493
 msgid "Support center"
 msgstr "Κέντρο υποστήριξης"
 
-#: ../glade/bcm.glade:1528
+#: ../glade/bcm.glade:1531
 msgid "Customer support"
 msgstr "Υποστήριξη Πελατών"
 
@@ -443,7 +431,7 @@ msgstr "IMSI"
 #: ../glade/diagnostics.glade:331 ../glade/diagnostics.glade:342
 #: ../glade/diagnostics.glade:352 ../glade/payt.glade:125
 #: ../glade/payt.glade:135 ../glade/payt.glade:145
-#: ../../wader/bcm/models/main.py:79 ../../wader/bcm/models/main.py:313
+#: ../../wader/bcm/models/main.py:80 ../../wader/bcm/models/main.py:317
 #: ../../wader/bcm/views/diagnostics_view.py:63
 #: ../../wader/bcm/views/diagnostics_view.py:71
 #: ../../wader/bcm/views/diagnostics_view.py:75
@@ -478,41 +466,42 @@ msgstr "Uptime:"
 msgid "Device"
 msgstr "Συσκευή"
 
-#: ../glade/diagnostics.glade:565
-msgid "<b>Betavine Connection Manager</b>"
-msgstr "<b>Betavine Connection Manager</b>"
-
 #: ../glade/diagnostics.glade:602
 #, fuzzy
 msgid "Software Version:"
 msgstr "Έκδοση:"
 
-#: ../glade/diagnostics.glade:624
+#: ../glade/diagnostics.glade:613
+#, fuzzy
+msgid "Core Version:"
+msgstr "Έκδοση:"
+
+#: ../glade/diagnostics.glade:635 ../glade/diagnostics.glade:645
 msgid "Not supported"
 msgstr "Δεν υποστηρίζεται"
 
-#: ../glade/diagnostics.glade:652
+#: ../glade/diagnostics.glade:673
 msgid "Modem Manager"
 msgstr ""
 
-#: ../glade/diagnostics.glade:668
+#: ../glade/diagnostics.glade:689
 msgid "<b>USSD Test Message Diagnostics</b>"
 msgstr "<b>USSD Διαγνωστικά Μήνυμα Test</b>"
 
-#: ../glade/diagnostics.glade:697
+#: ../glade/diagnostics.glade:718
 msgid "Add your USSD string:"
 msgstr "Προσθέστε USSD string σας:"
 
-#: ../glade/diagnostics.glade:745
+#: ../glade/diagnostics.glade:766
 msgid "USSD reply message:"
 msgstr "USSD μήνυμα απάντησης"
 
-#: ../glade/diagnostics.glade:789 ../glade/payt.glade:289
+#: ../glade/diagnostics.glade:810 ../glade/payt.glade:289
 #, fuzzy
 msgid "Send"
 msgstr "Αποστολέας"
 
-#: ../glade/diagnostics.glade:822
+#: ../glade/diagnostics.glade:843
 msgid "USSD"
 msgstr ""
 
@@ -597,12 +586,12 @@ msgid "<b>Number</b>"
 msgstr "<b>Αριθμός</b>"
 
 #: ../glade/payt.glade:94
-msgid "<b>Date</b>"
-msgstr "<b>Ημερομηνία</b>"
-
-#: ../glade/payt.glade:105
 msgid "<b>Credit</b>"
 msgstr "<b>Πίστωση</b>"
+
+#: ../glade/payt.glade:105
+msgid "<b>Date</b>"
+msgstr "<b>Ημερομηνία</b>"
 
 #: ../glade/payt.glade:167
 msgid "Recheck my credit:"
@@ -963,68 +952,68 @@ msgid ""
 "The application '%s' wants access to the default keyring, but is locked."
 msgstr ""
 
-#: ../../wader/bcm/models/profile.py:171
+#: ../../wader/bcm/models/profile.py:178
 #: ../../wader/bcm/controllers/preferences.py:158
 #: ../../wader/bcm/controllers/preferences.py:174
 msgid "Custom"
 msgstr ""
 
-#: ../../wader/bcm/models/profile.py:411
+#: ../../wader/bcm/models/profile.py:423
 msgid "Trying to remove an unsaved profile"
 msgstr ""
 
-#: ../../wader/bcm/models/main.py:77 ../../wader/bcm/models/main.py:191
+#: ../../wader/bcm/models/main.py:78 ../../wader/bcm/models/main.py:195
 #: ../../wader/bcm/views/main.py:246 ../../wader/bcm/controllers/main.py:369
 #: ../../wader/bcm/controllers/main.py:376
 #, fuzzy
 msgid "No device"
 msgstr "Δεν βρέθηκαν συσκευές"
 
-#: ../../wader/bcm/models/main.py:100
+#: ../../wader/bcm/models/main.py:101
 #: ../../wader/bcm/controllers/payt_controller.py:173
 #: ../../wader/bcm/controllers/payt_controller.py:210
 msgid "Not available"
 msgstr ""
 
-#: ../../wader/bcm/models/main.py:143
+#: ../../wader/bcm/models/main.py:147
 #, fuzzy
 msgid "Error while starting wader"
 msgstr "Σφάλμα κατά τη διαγραφή του προφίλ"
 
-#: ../../wader/bcm/models/main.py:144
+#: ../../wader/bcm/models/main.py:148
 #, python-format
 msgid ""
 "Check that your installation is correct and your  OS/distro is supported: %s"
 msgstr ""
 
-#: ../../wader/bcm/models/main.py:335 ../../wader/bcm/views/main.py:251
+#: ../../wader/bcm/models/main.py:339 ../../wader/bcm/views/main.py:251
 #: ../../wader/bcm/controllers/main.py:362
 #: ../../wader/bcm/controllers/main.py:378
 #, fuzzy
 msgid "Device found"
 msgstr "Τύπος Συσκευής: "
 
-#: ../../wader/bcm/models/main.py:453
+#: ../../wader/bcm/models/main.py:452
 #: ../../wader/bcm/controllers/payt_controller.py:214
 #: ../../wader/bcm/controllers/main.py:393
 msgid "Registered"
 msgstr ""
 
-#: ../../wader/bcm/models/main.py:455 ../../wader/bcm/controllers/main.py:384
+#: ../../wader/bcm/models/main.py:454 ../../wader/bcm/controllers/main.py:384
 #: ../../wader/bcm/controllers/main.py:619
 msgid "Scanning"
 msgstr ""
 
-#: ../../wader/bcm/models/main.py:457
+#: ../../wader/bcm/models/main.py:456
 msgid "Reg. rejected"
 msgstr ""
 
-#: ../../wader/bcm/models/main.py:459
+#: ../../wader/bcm/models/main.py:458
 #, fuzzy
 msgid "Unknown Error"
 msgstr "Άγνωστο"
 
-#: ../../wader/bcm/models/main.py:461
+#: ../../wader/bcm/models/main.py:460
 #: ../../wader/bcm/controllers/payt_controller.py:214
 #: ../../wader/bcm/controllers/main.py:393
 msgid "Roaming"
@@ -1753,15 +1742,6 @@ msgstr ""
 #~ msgid "Connect Button"
 #~ msgstr "Σύνδεση"
 
-#~ msgid "label26"
-#~ msgstr "label26"
-
-#~ msgid "label27"
-#~ msgstr "label27"
-
-#~ msgid "label28"
-#~ msgstr "label28"
-
 #~ msgid "Inspect"
 #~ msgstr "Inspect"
 
@@ -2149,12 +2129,6 @@ msgstr ""
 
 #~ msgid "Help topics"
 #~ msgstr "Θέματα βοήθειας"
-
-#~ msgid "labelPeriodo1"
-#~ msgstr "labelPeriodo1"
-
-#~ msgid "<b>frame14</b>"
-#~ msgstr "<b>frame14</b>"
 
 #~ msgid "<b>Domain Name Servers</b>"
 #~ msgstr "<b>Domain Name Servers</b>"
