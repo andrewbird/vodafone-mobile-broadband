@@ -116,6 +116,9 @@ CUSTOMER_SUPPORT_NUMBERS = [
     ('22210', '190', None),               # VF-IT
     ('23415', '191', '+44 870 070 0191'), # VF-UK
     ('26202', '1212', '+49 172 1212'),    # VF-DE
+    ('65501', '100', None),               # Vodacom SA
+    ('65507', '140', None),               # Cell C SA
+    ('65510', '173', None),               # MTN SA
 ]
 
 
