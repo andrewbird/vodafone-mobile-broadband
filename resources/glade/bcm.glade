@@ -49,6 +49,7 @@
                             <property name="visible">True</property>
                             <property name="use_underline">True</property>
                             <signal name="activate" handler="on_quit_menu_item_activate"/>
+                            <accelerator key="q" modifiers="GDK_CONTROL_MASK" signal="activate"/>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image651">
                                 <property name="visible">True</property>
@@ -404,6 +405,7 @@
                             <property name="use_stock">False</property>
                             <property name="always_show_image">True</property>
                             <signal name="activate" handler="on_new_sms_activate"/>
+                            <accelerator key="n" modifiers="GDK_CONTROL_MASK" signal="activate"/>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image1">
                                 <property name="visible">True</property>
@@ -517,6 +519,7 @@
                                     <property name="tooltip" translatable="yes">Add a contact</property>
                                     <property name="use_underline">True</property>
                                     <signal name="activate" handler="on_new_contact_menu_item_activate"/>
+                                    <accelerator key="n" modifiers="GDK_CONTROL_MASK" signal="activate"/>
                                     <child internal-child="image">
                                       <widget class="GtkImage" id="image595">
                                         <property name="visible">True</property>
