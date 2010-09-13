@@ -20,9 +20,21 @@
 # as some len(mcc+mnc) != 5
 MSISDN_USSD = [
     # mccmnc, msisdn request, extract number regex
-    ('20404', '*#100#', '(?P<number>\+?\d+)'), # VF-NL
-    ('23415', '*#100#', '(?P<number>\+?\d+)'), # VF-UK
-    ('28000', '#109#', '(?P<number>\+?\d+)'),  # Cytamobile
+
+    # VF-NL
+    ('20404', '*#100#', '(?P<number>\+?\d+)'),
+
+    # VF-UK(confirmed)
+    ('23415', '*#100#', '(?P<number>\+?\d+)'),
+
+    # Cytamobile
+    ('28000', '#109#', '(?P<number>\+?\d+)'),
+
+    # MTN SA(confirmed)
+    # result == 'Yello! Your MSISDN is 073583xxxx'
+    #('65510', '*131*3#', '(?P<number>\+?\d+)'),    # national
+    # result == 'Yello! Your MSISDN is 2773583xxxx'
+    ('65510', '*123*888#', '(?P<number>\+?\d+)'),  # international
 ]
 
 PAYT_CREDIT_CHECK_USSD = [
@@ -46,7 +58,10 @@ PAYT_CREDIT_CHECK_USSD = [
     # CellC SA
     ('65507', '*101#', '.*?(?P<value>\d+\.\d\d).*?', 'R%s'),
 
-    # MTN SA
+    # MTN SA (confirmed)
+    # result == "Y'ello, you have\nR6.29 airtime \n0 SMS(s) and\n"
+    #           "4.20 MB data.\nYou are on MTN Zone. Please dial *141*1# "
+    #           "for detailed balances.\nBrought to you by MTN."
     ('65510', '*141#', '.*?(?P<value>\d+\.\d\d).*?', 'R%s'),
 
     # Chile
@@ -116,9 +131,9 @@ CUSTOMER_SUPPORT_NUMBERS = [
     ('22210', '190', None),               # VF-IT
     ('23415', '191', '+44 870 070 0191'), # VF-UK
     ('26202', '1212', '+49 172 1212'),    # VF-DE
-    ('65501', '100', None),               # Vodacom SA
-    ('65507', '140', None),               # Cell C SA
-    ('65510', '173', None),               # MTN SA
+    ('65501', '100', '+27 82 100'),       # Vodacom SA (very likely)
+    ('65507', '140', '+27 84 140'),       # Cell C SA (confirmed)
+    ('65510', '173', '+27 83 173'),       # MTN SA (confirmed)
 ]
 
 
