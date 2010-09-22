@@ -91,11 +91,12 @@ from wader.bcm.controllers.profile import APNSelectionController
 
 BCM_FAST_LOG = "/tmp/fast-log.output"
 
-# functions
+
 def nick_debug(s):
-    if 1:
+    if 0:
         with open(BCM_FAST_LOG, 'a', 0) as f:
             f.write("%s\n" % s)
+
 
 def get_fake_toggle_button():
     """Returns a toggled L{gtk.ToggleToolButton}"""
@@ -225,7 +226,6 @@ class MainController(WidgetController):
         nick_debug("main.py: controller - ask_for_new_profile called")
         logger.info("main.py: controller - ask_for_new_profile called")
 
-
         def apn_callback(network):
             main_model = self.model.profiles_model
             profile_model = ProfileModel(main_model, network=network,
@@ -259,7 +259,7 @@ class MainController(WidgetController):
 
     def _generate_customer_support_text(self, imsi):
         utxt = '"' + _('Unknown') + '"'
-        args = {'url':APP_URL, 'shortcode':utxt, 'international':utxt}
+        args = {'url': APP_URL, 'shortcode': utxt, 'international': utxt}
 
         nums = get_customer_support_info(imsi)
         if nums is not None:
@@ -424,9 +424,11 @@ class MainController(WidgetController):
             self.ask_for_puk2()
 
     def property_profile_required_value_change(self, model, old, new):
-        logger.info("main.py: controller - property_profile value changed - begining method")
+        logger.info("main.py: controller - property_profile value changed"
+                    " - begining method")
         if new:
-            logger.info("main.py: controller - property_profile value changed - calling 'ask_for_new_profile' ")
+            logger.info("main.py: controller - property_profile value "
+                        "changed - calling 'ask_for_new_profile' ")
             self.ask_for_new_profile()
 
     def property_threeg_transferred_value_change(self, model, old, new):
@@ -536,7 +538,8 @@ class MainController(WidgetController):
 
     def on_mm_props_change_cb(self, ifname, ifprops):
         if ifname == consts.NET_INTFACE and 'AccessTechnology' in ifprops:
-            self.model.tech = self._map_access_tech(ifprops['AccessTechnology'])
+            self.model.tech = self._map_access_tech(
+                                    ifprops['AccessTechnology'])
             logger.info("TECH changed %s", self.model.tech)
 
     def _map_access_tech(self, tech):
@@ -618,7 +621,7 @@ class MainController(WidgetController):
     def on_device_enabled_cb(self, opath):
         self.model.status = _('Scanning')
         self.model.pin_is_enabled(self.on_is_pin_enabled_cb,
-                                  lambda *args: True)
+                                  lambda * args: True)
 
     def _on_connect_cb(self, dev_path):
         self.model.connected = True
