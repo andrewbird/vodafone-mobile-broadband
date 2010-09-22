@@ -50,9 +50,9 @@ class SMSStoreModel(ListStoreModel):
 
     def _make_entry(self, message, contacts):
         if is_sim_message(message):
-            entry = [MOBILE_IMG, message.text]
+            entry = [MOBILE_IMG, message.text.split('\n')[0]]
         else:
-            entry = [COMPUTER_IMG, message.text]
+            entry = [COMPUTER_IMG, message.text.split('\n')[0]]
 
         if contacts or contacts == []:
             # this is only used at startup received as the return value
