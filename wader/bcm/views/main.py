@@ -32,7 +32,8 @@ from wader.bcm.translate import _
 from wader.bcm.consts import (GLADE_DIR, IMAGES_DIR, THEMES_DIR,
                               APP_LONG_NAME, APP_URL,
                               NO_DEVICE, HAVE_DEVICE, SIM_LOCKED,
-                              AUTHENTICATING, SEARCHING, DISCONNECTED, CONNECTED)
+                              AUTHENTICATING, SEARCHING, DISCONNECTED,
+                              CONNECTED)
 
 from wader.bcm.utils import repr_usage, UNIT_KB, UNIT_MB, units_to_bytes
 from wader.bcm.views.stats import StatsBar
@@ -129,7 +130,7 @@ class MainView(View):
             "\n\nIf you use the mail and browser buttons to access other"
             " programs in your system, you might need to ask your Systems"
             " Administrator any doubt that you might have.")
-            % {'name':APP_LONG_NAME, 'url':APP_URL})
+            % {'name': APP_LONG_NAME, 'url': APP_URL})
         self['support_notebook_help_text'].set_buffer(tbuf)
 
         # populate Support center tab
@@ -144,7 +145,7 @@ class MainView(View):
     def set_customer_support_text(self, text):
         # populate Customer support tab
         tbuf = gtk.TextBuffer()
-        tbuf.set_text(text);
+        tbuf.set_text(text)
         self['support_notebook_customer_text'].set_buffer(tbuf)
 
     def _setup_usage_view(self):
@@ -401,6 +402,14 @@ class MainView(View):
                 column.set_visible(False)
                 column.set_sort_column_id(col_smsid)
                 treeview.append_column(column)
+
+    def set_message_preview(self, content):
+        if content is None:
+            self['smsbody_textview'].get_buffer().set_text('')
+            self['sms_message_pane'].hide()
+        else:
+            self['smsbody_textview'].get_buffer().set_text(content)
+            self['sms_message_pane'].show()
 
     def _get_signal_icon(self, rssi):
         if rssi < 10 or rssi > 100:

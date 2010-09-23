@@ -1295,13 +1295,16 @@ The csv file that you have tried to import has an invalid format.""")
                 menu.popup(None, None, None, event.button, event.time)
                 return True # selection is not lost
 
-    def on_cursor_changed_treeview_event(self, treeview):
-        col = treeview.get_cursor()[0]
+    def _get_current_message_text(self, treeview):
+        path = treeview.get_cursor()[0]
+        if path is None:
+            return None
         model = treeview.get_model()
-        text = model[col][1]
-        _buffer = self.view['smsbody_textview'].get_buffer()
-        _buffer.set_text(text)
-        self.view['sms_message_pane'].show()
+        return model[path][4].text
+
+    def on_cursor_changed_treeview_event(self, treeview):
+        text = self._get_current_message_text(treeview)
+        self.view.set_message_preview(text)
 
     def on_main_notebook_switch_page(self, notebook, ptr, pagenum):
         """
@@ -1310,14 +1313,16 @@ The csv file that you have tried to import has an invalid format.""")
         Basically takes care of showing and hiding the appropiate menubars
         depending on the page the user is viewing
         """
-        if int(pagenum) == 3:
+        page = int(pagenum)
+        if page == 3:
             self.view['contacts_menubar'].show()
             self.view['sms_menubar'].hide()
+            self.view.set_message_preview(None)
         else:
             self.view['contacts_menubar'].hide()
             self.view['sms_menubar'].show()
-
-        self.view['sms_message_pane'].hide()
+            text = self._get_current_message_text(self.view[TV_DICT[page + 1]])
+            self.view.set_message_preview(text)
 
     #----------------------------------------------#
     # MISC FUNCTIONALITY                           #
@@ -1410,6 +1415,7 @@ The csv file that you have tried to import has an invalid format.""")
 
         if keyval_name(event.keyval) in 'F5':
             self.refresh_treeviews()
+            self.view.set_message_preview(None)
 
         if keyval_name(event.keyval) in 'Delete':
             # get current treeview
@@ -1475,12 +1481,9 @@ The csv file that you have tried to import has an invalid format.""")
         if treeview.get_name() != 'contacts_treeview':
             _obj = self.get_obj_from_selected_row()
             if _obj:
-                self.view['smsbody_textview'].get_buffer().set_text(_obj.text)
-                self.view['sms_message_pane'].show()
+                self.view.set_message_preview(_obj.text)
             else:
-                self.view['smsbody_textview'].get_buffer().set_text('')
-                self.view['sms_message_pane'].hide()
-
+                self.view.set_message_preview(None)
         # if we deleted a contact then we need to update all message views
         else:
             self.update_message_contact_info()
