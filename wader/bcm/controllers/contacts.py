@@ -20,8 +20,6 @@
 import gtk
 
 from wader.bcm.models.contacts import ContactsStoreModel
-
-from wader.bcm.phonebook import get_phonebook, Contact
 from wader.bcm.translate import _
 
 #from gtkmvc import Controller
@@ -35,11 +33,17 @@ from wader.bcm.contrib.ValidatedEntry import (ValidatedEntry, v_phone,
 class AddContactController(Controller):
     """Controller for the add contact dialog"""
 
-    def __init__(self, model, parent_ctrl):
+    def __init__(self, model, callback, defname=None, defnumber=None):
         super(AddContactController, self).__init__(model)
-        self.parent_ctrl = parent_ctrl
+        self.callback = callback
+
         self.name_entry = ValidatedEntry(v_ucs2_name)
+        if defname:
+            self.name_entry.set_text(defname)
+
         self.number_entry = ValidatedEntry(v_phone)
+        if defnumber:
+            self.number_entry.set_text(defnumber)
 
     def register_view(self, view):
         super(AddContactController, self).register_view(view)
@@ -49,27 +53,18 @@ class AddContactController(Controller):
 
     def on_add_contact_ok_button_clicked(self, widget):
         if not self.name_entry.isvalid() or not self.number_entry.isvalid():
+            # XXX: perhaps we should only enable the OK when input is valid
             return
 
         name = self.name_entry.get_text()
         number = self.number_entry.get_text()
         save_in_sim = self.view['mobile_radio_button'].get_active()
 
-        phonebook = get_phonebook(self.parent_ctrl.model.device)
-        contact = Contact(name, number)
-
-        def add_callback(contact):
-            # add it to the treeview model
-            model = self.parent_ctrl.view['contacts_treeview'].get_model()
-            model.add_contact(contact)
-            self._hide_me()
-
-        #d = phonebook.add_contact(contact, sim=save_in_sim)
-        #d.addCallback(add_callback)
-        new_contact = phonebook.add_contact(contact, sim=save_in_sim)
-        add_callback(new_contact)
+        self.callback((name, number, save_in_sim))
+        self._hide_me()
 
     def on_add_contact_cancel_button_clicked(self, widget):
+        self.callback(None)
         self._hide_me()
 
     def _hide_me(self):

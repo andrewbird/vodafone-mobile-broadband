@@ -59,7 +59,7 @@ from wader.bcm.consts import (GTK_LOCK, GUIDE_DIR, IMAGES_DIR, APP_URL,
                               CONNECTED)
 
 from wader.bcm.contacts import SIMContact
-from wader.bcm.phonebook import (get_phonebook,
+from wader.bcm.phonebook import (get_phonebook, Contact,
                                 all_same_type, all_contacts_writable)
 from wader.bcm.csvutils import CSVUnicodeWriter, CSVContactsReader
 from wader.bcm.messages import get_messages_obj, is_sim_message
@@ -389,7 +389,7 @@ class MainController(WidgetController):
             self.model.get_imsi(imsi_cb)
 
             self.view.set_view_state(SEARCHING)
-            self._fill_treeviews()
+            self.refresh_treeviews()
         elif new in [_('Registered'), _('Roaming'), _('Not connected')]:
             self.view.set_view_state(DISCONNECTED)
         elif new == _('Connected'):
@@ -806,11 +806,11 @@ class MainController(WidgetController):
 The csv file that you have tried to import has an invalid format.""")
                 show_warning_dialog(message, details)
             else:
-                contacts = list(reader)
-                phonebook.add_contacts(contacts, True)
+                phonebook.add_contacts(list(reader), True)
+
                 # Flip the notebook to contacts
                 self.view['main_notebook'].set_current_page(3)
-                self.refresh_treeview_contacts(phonebook)
+                self.refresh_treeviews()
 
     def on_export_contacts1_activate(self, widget):
         filepath = save_csv_file()
@@ -893,7 +893,7 @@ The csv file that you have tried to import has an invalid format.""")
 
     def on_new_contact_menu_item_activate(self, widget):
         self.view['main_notebook'].set_current_page(3) # contacts_tv
-        ctrl = AddContactController(self.model, self)
+        ctrl = AddContactController(self.model, self._add_new_contact_cb)
         view = AddContactView(ctrl)
         view.set_parent_view(self.view)
         view.show()
@@ -1102,15 +1102,6 @@ The csv file that you have tried to import has an invalid format.""")
         self.view['new_menu_item'].connect("button_press_event",
                                            fake_new_sms_event)
 
-    def refresh_treeview_contacts(self, phonebook):
-
-        def refresh(contacts):
-            self._empty_treeviews(['contacts_treeview'])
-            self._fill_contacts(contacts)
-
-        # contacts from all backends(inc SIM)
-        phonebook.get_contacts_async(refresh, logger.error)
-
     def _empty_treeviews(self, treeviews):
         for treeview_name in treeviews:
             model = self.view[treeview_name].get_model()
@@ -1183,7 +1174,18 @@ The csv file that you have tried to import has an invalid format.""")
             treeview = self.view[active_tv]        # get treeview object
             treeview.get_model().add_message(sms, contacts) # append to tv
 
-    def _fill_treeviews(self):
+    def update_message_contact_info(self):
+        """
+        Iterates through each SMS treeview, updating contact info
+        """
+
+        contacts = self._get_treeview_contacts()
+
+        for tv in ['inbox_treeview', 'drafts_treeview', 'sent_treeview']:
+            treeview = self.view[tv]
+            treeview.get_model().update_contacts(contacts)
+
+    def refresh_treeviews(self):
         """
         Fills the treeviews with SMS and contacts
         """
@@ -1329,6 +1331,7 @@ The csv file that you have tried to import has an invalid format.""")
             contact = model[path][3]
             if contact.set_name(unicode(newname, 'utf8')):
                 model[path][1] = newname
+                self.update_message_contact_info()
 
     def _number_contact_cell_edited(self, widget, path, newnumber):
         """Handler for the cell-edited signal of the number column"""
@@ -1344,6 +1347,7 @@ The csv file that you have tried to import has an invalid format.""")
             contact = model[path][3]
             if contact.set_number(unicode(number, 'utf8')):
                 model[path][2] = number
+                self.update_message_contact_info()
 
     def _setup_trayicon(self, ignoreconf=False):
         """Attaches BCM's trayicon to the systray"""
@@ -1405,13 +1409,7 @@ The csv file that you have tried to import has an invalid format.""")
 #        print keyval_name(event.keyval)
 
         if keyval_name(event.keyval) in 'F5':
-            # get current treeview
-            num = self.view['main_notebook'].get_current_page() + 1
-            treeview_name = TV_DICT[num]
-            # now do the refresh
-            if treeview_name in 'contacts_treeview':
-                phonebook = get_phonebook(device=self.model.device)
-                self.refresh_treeview_contacts(phonebook)
+            self.refresh_treeviews()
 
         if keyval_name(event.keyval) in 'Delete':
             # get current treeview
@@ -1482,6 +1480,10 @@ The csv file that you have tried to import has an invalid format.""")
             else:
                 self.view['smsbody_textview'].get_buffer().set_text('')
                 self.view['sms_message_pane'].hide()
+
+        # if we deleted a contact then we need to update all message views
+        else:
+            self.update_message_contact_info()
 
     def _send_sms_to_contact(self, menuitem, treeview):
         selection = treeview.get_selection()
@@ -1583,14 +1585,28 @@ The csv file that you have tried to import has an invalid format.""")
             tv = self.view['drafts_treeview']
             tv.get_model().add_message(new)
 
+    def _add_new_contact_cb(self, contact):
+        if contact is None:
+            return
+
+        name, number, save_in_sim = contact
+
+        if not save_in_sim:
+            show_warning_dialog(_("Can not handle DB contacts"),
+                                _("Only SIM based contacts supported"))
+        else:
+            phonebook = get_phonebook(self.model.device)
+            phonebook.add_contact(Contact(name, number), sim=save_in_sim)
+            self.refresh_treeviews()
+
     def _use_detail_add_contact(self, widget):
         """Handler for the use detail menu"""
         message = self.get_obj_from_selected_row()
         if message:
-            ctrl = AddContactController(self.model, self)
+            ctrl = AddContactController(self.model, self._add_new_contact_cb,
+                                        defnumber=message.number)
             view = AddContactView(ctrl)
             view.set_parent_view(self.view)
-            ctrl.number_entry.set_text(message.number)
             view.show()
 
     def get_obj_from_selected_row(self):

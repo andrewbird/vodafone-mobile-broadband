@@ -99,6 +99,27 @@ class SMSStoreModel(ListStoreModel):
         for column in range(len(entry)):
             self.set_value(_iter, column, entry[column])
 
+    def update_contacts(self, contacts):
+        """
+        Iterates through the liststore updating the contacts
+        """
+
+        if not contacts:
+            return
+
+        _iter = self.get_iter_first()
+        while _iter:
+            message = self.get_value(_iter, 4)
+
+            match = [contact.name for contact in contacts
+                            if message.number == contact.get_number()]
+            if match:
+                self.set_value(_iter, 2, match[0])
+            else:
+                self.set_value(_iter, 2, message.number)
+
+            _iter = self.iter_next(_iter)
+
     def get_messages(self):
         ret = []
         _iter = self.get_iter_first()
