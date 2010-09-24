@@ -503,11 +503,7 @@
                             <child internal-child="image">
                               <widget class="GtkImage" id="image594">
                                 <property name="visible">True</property>
-                                <property name="pixbuf">contacts.png</property>
-                                <property name="xalign">0.5</property>
-                                <property name="yalign">0.5</property>
-                                <property name="xpad">0</property>
-                                <property name="ypad">0</property>
+                                <property name="pixbuf">contacts-9.png</property>
                               </widget>
                             </child>
                             <child>
@@ -570,12 +566,7 @@
                             <child internal-child="image">
                               <widget class="GtkImage" id="image597">
                                 <property name="visible">True</property>
-                                <property name="stock">gtk-delete</property>
-                                <property name="icon_size">4</property>
-                                <property name="xalign">0.5</property>
-                                <property name="yalign">0.5</property>
-                                <property name="xpad">0</property>
-                                <property name="ypad">0</property>
+                                <property name="pixbuf">contacts-delete-4.png</property>
                               </widget>
                             </child>
                           </widget>
