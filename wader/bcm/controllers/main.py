@@ -25,7 +25,6 @@ import re
 from subprocess import Popen
 
 import gtk
-from gobject import timeout_add_seconds, source_remove
 
 from wader.bcm.controllers.base import WidgetController, TV_DICT, TV_DICT_REV
 from wader.bcm.controllers.contacts import (AddContactController,
@@ -121,7 +120,6 @@ class MainController(WidgetController):
         self.tray = None
         # ignore cancelled connection attempts errors
         self._ignore_no_reply = False
-        self.usage_updater = None
 
     def register_view(self, view):
         super(MainController, self).register_view(view)
@@ -131,6 +129,9 @@ class MainController(WidgetController):
 
     def start(self):
         self.view.set_view_state(NO_DEVICE)
+
+        self.model.populate_last_month()
+        self.model.populate_curr_month()
 
         # we're on SMS mode
         self.on_sms_button_toggled(get_fake_toggle_button())
@@ -426,38 +427,40 @@ class MainController(WidgetController):
                         "changed - calling 'ask_for_new_profile' ")
             self.ask_for_new_profile()
 
-    def property_threeg_transferred_value_change(self, model, old, new):
-        if new != old:
-#            self.view.set_usage_value('transferred_3g_current_label', new)
-            pass
+    def property_txfr_to_date_name_value_change(self, model, old, new):
+        self.view.set_usage_value('month_current_label', new)
 
-    def property_twog_transferred_value_change(self, model, old, new):
-        if new != old:
-#            self.view.set_usage_value('transferred_gprs_current_label', new)
-            pass
+    def property_txfr_to_date_3g_value_change(self, model, old, new):
+        self.view.set_usage_value('transferred_3g_current_label', new)
 
-    def property_total_transferred_value_change(self, model, old, new):
-        if new != old:
-#            self.view.set_usage_value('transferred_total_current_label', new)
-            pass
+    def property_txfr_to_date_2g_value_change(self, model, old, new):
+        self.view.set_usage_value('transferred_gprs_current_label', new)
 
-    def property_total_month_value_change(self, model, old, new):
-        pass
+    def property_txfr_to_date_total_value_change(self, model, old, new):
+        self.view.set_usage_value('transferred_total_current_label', new)
+        self.view.set_usage_bar_value('current-total', new)
 
-    def property_threeg_session_value_change(self, model, old, new):
-        if new != old:
-#            self.view.set_usage_value('transferred_3g_session_label', new)
-            pass
+    def property_curr_session_3g_value_change(self, model, old, new):
+        self.view.set_usage_value('transferred_3g_session_label', new)
 
-    def property_twog_session_value_change(self, model, old, new):
-        if new != old:
-#            self.view.set_usage_value('transferred_gprs_session_label', new)
-            pass
+    def property_curr_session_2g_value_change(self, model, old, new):
+        self.view.set_usage_value('transferred_gprs_session_label', new)
 
-    def property_total_session_value_change(self, model, old, new):
-        if new != old:
-#            self.view.set_usage_value('transferred_total_session_label', new)
-            pass
+    def property_curr_session_total_value_change(self, model, old, new):
+        self.view.set_usage_value('transferred_total_session_label', new)
+
+    def property_last_month_name_value_change(self, model, old, new):
+        self.view.set_usage_value('month_last_label', new)
+
+    def property_last_month_3g_value_change(self, model, old, new):
+        self.view.set_usage_value('transferred_3g_last_label', new)
+
+    def property_last_month_2g_value_change(self, model, old, new):
+        self.view.set_usage_value('transferred_gprs_last_label', new)
+
+    def property_last_month_total_value_change(self, model, old, new):
+        self.view.set_usage_value('transferred_total_last_label', new)
+        self.view.set_usage_bar_value('last-total', new)
 
     def bits_to_human(self, bits):
         f = float(bits)
@@ -509,6 +512,7 @@ class MainController(WidgetController):
             self.view['support_tool_button'].set_active(False)
             self.view['usage_frame'].show()
             self.view['usage_tool_button'].set_active(True)
+        self.update_usage_view()
 
     def on_support_button_toggled(self, widget):
         if widget.get_active():
@@ -601,7 +605,6 @@ class MainController(WidgetController):
         self.model.connected = True
         self.model.status = _('Connected')
         self.model.start_stats_tracking()
-        self.usage_updater = timeout_add_seconds(5, self.update_usage_view)
 
         if self.apb:
             self.apb.close()
@@ -617,11 +620,6 @@ class MainController(WidgetController):
         if self.apb:
             self.apb.close()
             self.apb = None
-
-        if self.usage_updater is not None:
-            # just in case
-            source_remove(self.usage_updater)
-            self.usage_updater = None
 
         if 'NoReply' in get_error_msg(e) and self._ignore_no_reply:
             # do not show NoReply exception as we were expecting it
@@ -640,12 +638,6 @@ class MainController(WidgetController):
         self.model.status = _('Not connected')
         logger.info("Disconnected")
         self.model.stop_stats_tracking()
-        self.update_usage_view()
-
-        # stop updating usage
-        if self.usage_updater is not None:
-            source_remove(self.usage_updater)
-            self.usage_updater = None
 
         if self.apb:
             self.apb.close()
@@ -664,11 +656,6 @@ class MainController(WidgetController):
         # XXX: If it failed are we connected or not?
         self.model.connected = False
         self.model.stop_stats_tracking()
-
-        # stop updating usage
-        if self.usage_updater is not None:
-            source_remove(self.usage_updater)
-            self.usage_updater = None
 
         if self.apb:
             self.apb.close()
@@ -862,8 +849,6 @@ The csv file that you have tried to import has an invalid format.""")
         ctrl = PreferencesController(model, self)
         view = PreferencesView(ctrl)
         view.show()
-
-    ####### copied in from application.py #######
 
     def on_new_contact_menu_item_activate(self, widget):
         self.view['main_notebook'].set_current_page(3) # contacts_tv
@@ -1185,36 +1170,8 @@ The csv file that you have tried to import has an invalid format.""")
         treeview = self.view['contacts_treeview']
         return treeview.get_model().get_contacts()
 
-    def _update_usage_panel(self, name, offset):
-        m = self.model
-
-        values = ['month', 'transferred_gprs', 'transferred_3g',
-                  'transferred_total']
-
-        for value_name in values:
-            widget = (value_name + '_%s_label') % name
-            value = getattr(m, 'get_%s' % value_name)(offset)
-            self.view.set_usage_value(widget, value)
-
-        self.view.set_usage_bar_value('%s-total' % name,
-                                      m.get_transferred_total(offset))
-
-    def _update_usage_session(self):
-        set_value = self.view.set_usage_value
-        m = self.model
-        set_value('transferred_3g_session_label', m.get_session_3g())
-        set_value('transferred_gprs_session_label', m.get_session_gprs())
-        set_value('transferred_total_session_label', m.get_session_total())
-
     def update_usage_view(self):
-        # make sure we ask the view if its set as connected.
-        # If it is then update our graph bits.
-        self._update_usage_panel('current', 0)
-        self._update_usage_panel('last', -1)
-        self._update_usage_session()
         self.view.update_bars_user_limit()
-        # if we are connected we want to keep on updating the usage view
-        return self.model.is_connected()
 
     def on_reply_sms_no_quoting_menu_item_activate(self, widget):
         message = self.get_obj_from_selected_row()
