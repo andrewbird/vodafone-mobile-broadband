@@ -115,7 +115,7 @@ class MainModel(Model):
         # we have to break MVC here :P
         self.ctrl = None
         # stats stuff
-        self.bearer_type = True # we assume 3G
+        self.is_3g_bearer = True # we assume 3G
         self.previous_bytes = 0
         self.start_time = None
         self.stop_time = None
@@ -482,9 +482,9 @@ class MainModel(Model):
         self.add_traffic_to_stats()
 
         # True if 3G bearer, False otherwise
-        old_bearer_type = self.bearer_type
-        self.bearer_type = net_mode not in TWOG_SIGNALS
-        if old_bearer_type != self.bearer_type:
+        old_bearer_type = self.is_3g_bearer
+        self.is_3g_bearer = net_mode not in TWOG_SIGNALS
+        if old_bearer_type != self.is_3g_bearer:
             self.reset_session_data()
 
     def _check_pin_status(self):
@@ -634,7 +634,7 @@ class MainModel(Model):
         self.previous_bytes = total
 
         # 3G traffic
-        if self.bearer_type:
+        if self.is_3g_bearer:
             self.threeg_session += delta_bytes
         # GPRS traffic
         else:
@@ -651,7 +651,7 @@ class MainModel(Model):
             self.end_time = datetime.datetime.utcnow()
             self.provider.add_usage_item(self.start_time,
                                          self.end_time, self.rx_bytes,
-                                         self.tx_bytes, self.bearer_type)
+                                         self.tx_bytes, self.is_3g_bearer)
             # add session to transferred
             self.threeg_transferred += self.threeg_session
             self.twog_transferred += self.twog_session
