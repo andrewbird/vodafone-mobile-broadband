@@ -47,6 +47,14 @@ from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
                                  WADER_PROFILES_INTFACE,
                                  MM_NETWORK_MODE_GPRS, MM_NETWORK_MODE_EDGE,
                                  MM_NETWORK_MODE_2G_ONLY,
+                                 MM_GSM_ACCESS_TECH_GSM,
+                                 MM_GSM_ACCESS_TECH_GSM_COMPAT,
+                                 MM_GSM_ACCESS_TECH_GPRS,
+                                 MM_GSM_ACCESS_TECH_EDGE,
+                                 MM_GSM_ACCESS_TECH_UMTS,
+                                 MM_GSM_ACCESS_TECH_HSDPA,
+                                 MM_GSM_ACCESS_TECH_HSUPA,
+                                 MM_GSM_ACCESS_TECH_HSPA,
                                  APP_VERSION as CORE_VERSION)
 import wader.common.aterrors as E
 import wader.common.signals as S
@@ -54,6 +62,9 @@ from wader.common.provider import UsageProvider
 
 TWOG_SIGNALS = [MM_NETWORK_MODE_GPRS, MM_NETWORK_MODE_EDGE,
                 MM_NETWORK_MODE_2G_ONLY]
+
+TWOG_TECH = [MM_GSM_ACCESS_TECH_GSM, MM_GSM_ACCESS_TECH_GSM_COMPAT,
+             MM_GSM_ACCESS_TECH_GPRS, MM_GSM_ACCESS_TECH_EDGE]
 
 UPDATE_INTERVAL = CONFIG_INTERVAL = 2 * 1000 # 2ms
 NETREG_INTERVAL = 5 * 1000 # 5ms
@@ -370,6 +381,10 @@ class MainModel(Model):
         self.device.connect_to_signal(S.SIG_NETWORK_MODE,
                                       self._network_mode_changed_cb)
 
+        # react to any modem manager property changes
+        self.device.connect_to_signal("MmPropertiesChanged",
+                                      self.on_mm_props_change_cb)
+
         self._start_network_registration()
         # delay the profile creation till the device is completely enabled
         self.profile_required = False
@@ -474,6 +489,26 @@ class MainModel(Model):
         # ask in three seconds for more registration info
         gobject.timeout_add_seconds(3, obtain_registration_info)
         return True
+
+    def on_mm_props_change_cb(self, ifname, ifprops):
+        mapped = {
+            MM_GSM_ACCESS_TECH_GPRS: _('GPRS'),
+            MM_GSM_ACCESS_TECH_EDGE: _('EDGE'),
+            MM_GSM_ACCESS_TECH_UMTS: _('UMTS'),
+            MM_GSM_ACCESS_TECH_HSDPA: _('HSDPA'),
+            MM_GSM_ACCESS_TECH_HSUPA: _('HSUPA'),
+            MM_GSM_ACCESS_TECH_HSPA: _('HSPA'),
+        }
+
+        if ifname == NET_INTFACE and 'AccessTechnology' in ifprops:
+            self.tech = mapped.get(ifprops['AccessTechnology'], _('N/A'))
+            logger.info("TECH changed %s", self.tech)
+
+            # True if 3G bearer, False otherwise
+            old_bearer_type = self.is_3g_bearer
+            self.is_3g_bearer = ifprops['AccessTechnology'] not in TWOG_TECH
+            if old_bearer_type != self.is_3g_bearer:
+                self.reset_session_data()
 
     def _network_mode_changed_cb(self, net_mode):
         logger.info("Network mode changed %s" % net_mode)
