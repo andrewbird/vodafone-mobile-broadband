@@ -165,6 +165,17 @@ class MainView(View):
         self['sms_message_pane'].hide()
         self['contacts_menubar'].hide()
 
+    def show_current_session(self, show):
+        items = ['usage_label7', 'transferred_gprs_session_label',
+                 'usage_label8', 'transferred_3g_session_label',
+                 'usage_label9', 'transferred_total_session_label', 'label8']
+        if show:
+            for item in items:
+                self[item].show()
+        else:
+            for item in items:
+                self[item].hide()
+
     def set_usage_value(self, widget, value):
         if isinstance(value, (int, long)):
             self[widget].set_text(repr_usage(value))

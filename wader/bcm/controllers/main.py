@@ -512,7 +512,9 @@ class MainController(WidgetController):
             self.view['support_tool_button'].set_active(False)
             self.view['usage_frame'].show()
             self.view['usage_tool_button'].set_active(True)
-        self.update_usage_view()
+
+            self.update_usage_view()
+            self.view.show_current_session(self.model.connected)
 
     def on_support_button_toggled(self, widget):
         if widget.get_active():
@@ -605,6 +607,7 @@ class MainController(WidgetController):
         self.model.connected = True
         self.model.status = _('Connected')
         self.model.start_stats_tracking()
+        self.view.show_current_session(True)
 
         if self.apb:
             self.apb.close()
@@ -638,6 +641,7 @@ class MainController(WidgetController):
         self.model.status = _('Not connected')
         logger.info("Disconnected")
         self.model.stop_stats_tracking()
+        self.view.show_current_session(False)
 
         if self.apb:
             self.apb.close()
@@ -656,6 +660,7 @@ class MainController(WidgetController):
         # XXX: If it failed are we connected or not?
         self.model.connected = False
         self.model.stop_stats_tracking()
+        self.view.show_current_session(False)
 
         if self.apb:
             self.apb.close()
