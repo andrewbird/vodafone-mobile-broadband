@@ -462,23 +462,14 @@ class MainController(WidgetController):
         self.view.set_usage_value('last_summed_total_label', new)
         self.view.set_usage_bar_value('last-total', new)
 
-    def bits_to_human(self, bits):
-        f = float(bits)
-        for m in ['b/s', 'kb/s', 'mb/s', 'gb/s']:
-            if f < 1000:
-                return "%3.2f %s" % (f, m)
-            f /= 1000
-        return _("N/A")
-
     def property_rx_rate_value_change(self, model, old, new):
         if old != new:
-            self.view['download_statusbar'].push(1,
-                                                 self.bits_to_human(new * 8))
+            self.view.set_transfer_rate(new, upload=False)
             logger.info("Rate rx: %d" % new)
 
     def property_tx_rate_value_change(self, model, old, new):
         if old != new:
-            self.view['upload_statusbar'].push(1, self.bits_to_human(new * 8))
+            self.view.set_transfer_rate(new, upload=True)
             logger.info("Rate tx: %d" % new)
 
     def property_transfer_limit_exceeded_value_change(self, model, old, new):

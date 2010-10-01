@@ -35,7 +35,7 @@ from wader.bcm.consts import (GLADE_DIR, IMAGES_DIR, THEMES_DIR,
                               AUTHENTICATING, SEARCHING, DISCONNECTED,
                               CONNECTED)
 
-from wader.bcm.utils import repr_usage, UNIT_KB, UNIT_MB, units_to_bytes
+from wader.bcm.utils import UNIT_KB, UNIT_MB, units_to_bytes
 from wader.bcm.views.stats import StatsBar
 from wader.bcm.controllers.base import TV_DICT
 from wader.bcm.models.sms import SMSStoreModel
@@ -176,9 +176,36 @@ class MainView(View):
             for item in items:
                 self[item].hide()
 
+    def set_transfer_rate(self, rate, upload=False):
+
+        def bps_to_human(bps):
+            f = float(bps)
+            for m in ['b/s ', 'kb/s', 'mb/s', 'gb/s']:
+                if f < 1000:
+                    return "%3.2f %s" % (f, m)
+                f /= 1000
+            return _("N/A")
+
+        if upload:
+            self['upload_statusbar'].push(1, bps_to_human(rate * 8))
+        else:
+            self['download_statusbar'].push(1, bps_to_human(rate * 8))
+
     def set_usage_value(self, widget, value):
+
+        def bytes_to_human(_bytes):
+            f = float(_bytes)
+            for m in ['B', 'KiB', 'MiB', 'GiB']:
+                if f < 1000:
+                    if _bytes < 1000: #  don't show fraction of bytes
+                        return "%3.0f %s" % (f, m)
+                    else:
+                        return "%3.2f %s" % (f, m)
+                f /= 1024
+            return _("N/A")
+
         if isinstance(value, (int, long)):
-            self[widget].set_text(repr_usage(value))
+            self[widget].set_text(bytes_to_human(value))
         else:
             self[widget].set_text(str(value))
 
