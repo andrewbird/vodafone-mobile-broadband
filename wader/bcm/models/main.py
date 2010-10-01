@@ -771,6 +771,9 @@ class MainModel(Model):
 
         self.zero_current_session()
 
+    def get_connection_time(self):
+        return datetime.datetime.utcnow() - self.start_time
+
     def _get_month_date(self, offset):
         today = datetime.date.today()
         if offset:

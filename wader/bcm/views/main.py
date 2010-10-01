@@ -23,10 +23,8 @@ import os
 
 import gtk
 from pango import ELLIPSIZE_END
-#from gtkmvc import View
+
 from wader.bcm.contrib.gtkmvc import View
-
-
 from wader.bcm.config import config
 from wader.bcm.translate import _
 from wader.bcm.consts import (GLADE_DIR, IMAGES_DIR, THEMES_DIR,
@@ -99,6 +97,7 @@ class MainView(View):
         self['support_notebook'].hide()
         self['contacts_menubar'].hide()
         self['sms_message_pane'].hide()
+        self['time_alignment'].hide()
         self['upload_alignment'].hide()
         self['download_alignment'].hide()
 
@@ -176,6 +175,12 @@ class MainView(View):
             for item in items:
                 self[item].hide()
 
+    def set_connection_time(self, td):
+        # XXX: timedelta string representation does not respect localization,
+        #      but this will only become a problem if the connection is up for
+        #      more than one day as the day field will be displayed in English
+        self['time_statusbar'].push(1, str(td).split('.')[0])
+
     def set_transfer_rate(self, rate, upload=False):
 
         def bps_to_human(bps):
@@ -249,9 +254,11 @@ class MainView(View):
                 obj.set_active(active)
 
             if not active:
+                self['time_alignment'].hide()
                 self['upload_alignment'].hide()
                 self['download_alignment'].hide()
             else:
+                self['time_alignment'].show()
                 self['upload_alignment'].show()
                 self['download_alignment'].show()
 

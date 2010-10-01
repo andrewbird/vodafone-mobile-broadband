@@ -25,6 +25,7 @@ import re
 from subprocess import Popen
 
 import gtk
+from gobject import timeout_add_seconds
 
 from wader.bcm.controllers.base import WidgetController, TV_DICT, TV_DICT_REV
 from wader.bcm.controllers.contacts import (AddContactController,
@@ -116,6 +117,7 @@ class MainController(WidgetController):
 
         self.signal_matches = []
 
+        self.connection_time_updater = None
         self.apb = None # activity progress bar
         self.tray = None
         # ignore cancelled connection attempts errors
@@ -278,6 +280,13 @@ class MainController(WidgetController):
             "\n\n%(shortcode)s, if you are using Vodafone's network, or"
             "\n\n%(international)s if you are calling from other network."
             ) % args
+
+    def update_connection_time(self):
+        if not self.model.connected:
+            return False #  don't want to be called again
+
+        self.view.set_connection_time(self.model.get_connection_time())
+        return True
 
     # properties
     def property_rssi_value_change(self, model, old, new):
@@ -599,6 +608,8 @@ class MainController(WidgetController):
         self.model.status = _('Connected')
         self.model.start_stats_tracking()
         self.view.show_current_session(True)
+        self.view.set_connection_time("0:00:00")
+        self.connection_time_updater = timeout_add_seconds(1, self.update_connection_time)
 
         if self.apb:
             self.apb.close()
