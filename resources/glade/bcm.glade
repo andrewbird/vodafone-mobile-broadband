@@ -791,7 +791,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <widget class="GtkLabel" id="month_current_label">
+                                          <widget class="GtkLabel" id="current_month_label">
                                             <property name="visible">True</property>
                                             <property name="label">month_label</property>
                                             <property name="justify">right</property>
@@ -871,7 +871,7 @@
                                                   </packing>
                                                 </child>
                                                 <child>
-                                                  <widget class="GtkLabel" id="transferred_gprs_current_label">
+                                                  <widget class="GtkLabel" id="current_summed_2g_label">
                                                     <property name="visible">True</property>
                                                     <property name="xalign">1</property>
                                                     <property name="label">label</property>
@@ -886,7 +886,7 @@
                                                   </packing>
                                                 </child>
                                                 <child>
-                                                  <widget class="GtkLabel" id="transferred_3g_current_label">
+                                                  <widget class="GtkLabel" id="current_summed_3g_label">
                                                     <property name="visible">True</property>
                                                     <property name="xalign">1</property>
                                                     <property name="label">label</property>
@@ -903,7 +903,7 @@
                                                   </packing>
                                                 </child>
                                                 <child>
-                                                  <widget class="GtkLabel" id="transferred_total_current_label">
+                                                  <widget class="GtkLabel" id="current_summed_total_label">
                                                     <property name="visible">True</property>
                                                     <property name="xalign">1</property>
                                                     <property name="label">label</property>
@@ -1000,7 +1000,7 @@
                                                   </packing>
                                                 </child>
                                                 <child>
-                                                  <widget class="GtkLabel" id="transferred_gprs_session_label">
+                                                  <widget class="GtkLabel" id="current_session_2g_label">
                                                     <property name="visible">True</property>
                                                     <property name="xalign">1</property>
                                                     <property name="label">label</property>
@@ -1014,7 +1014,7 @@
                                                   </packing>
                                                 </child>
                                                 <child>
-                                                  <widget class="GtkLabel" id="transferred_3g_session_label">
+                                                  <widget class="GtkLabel" id="current_session_3g_label">
                                                     <property name="visible">True</property>
                                                     <property name="xalign">1</property>
                                                     <property name="label">label</property>
@@ -1030,7 +1030,7 @@
                                                   </packing>
                                                 </child>
                                                 <child>
-                                                  <widget class="GtkLabel" id="transferred_total_session_label">
+                                                  <widget class="GtkLabel" id="current_session_total_label">
                                                     <property name="visible">True</property>
                                                     <property name="xalign">1</property>
                                                     <property name="label">label</property>
@@ -1174,7 +1174,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <widget class="GtkLabel" id="month_last_label">
+                                          <widget class="GtkLabel" id="last_month_label">
                                             <property name="visible">True</property>
                                             <property name="label">month_label</property>
                                             <property name="justify">right</property>
@@ -1211,7 +1211,7 @@
                                                 <property name="row_spacing">4</property>
                                                 <property name="homogeneous">True</property>
                                                 <child>
-                                                  <widget class="GtkLabel" id="transferred_gprs_last_label">
+                                                  <widget class="GtkLabel" id="last_summed_2g_label">
                                                     <property name="visible">True</property>
                                                     <property name="xalign">1</property>
                                                     <property name="label">label</property>
@@ -1226,7 +1226,7 @@
                                                   </packing>
                                                 </child>
                                                 <child>
-                                                  <widget class="GtkLabel" id="transferred_3g_last_label">
+                                                  <widget class="GtkLabel" id="last_summed_3g_label">
                                                     <property name="visible">True</property>
                                                     <property name="xalign">1</property>
                                                     <property name="label">label</property>
@@ -1243,7 +1243,7 @@
                                                   </packing>
                                                 </child>
                                                 <child>
-                                                  <widget class="GtkLabel" id="transferred_total_last_label">
+                                                  <widget class="GtkLabel" id="last_summed_total_label">
                                                     <property name="visible">True</property>
                                                     <property name="xalign">1</property>
                                                     <property name="label">label</property>

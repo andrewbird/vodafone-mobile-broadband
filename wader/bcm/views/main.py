@@ -166,9 +166,9 @@ class MainView(View):
         self['contacts_menubar'].hide()
 
     def show_current_session(self, show):
-        items = ['usage_label7', 'transferred_gprs_session_label',
-                 'usage_label8', 'transferred_3g_session_label',
-                 'usage_label9', 'transferred_total_session_label', 'label8']
+        items = ['usage_label7', 'current_session_2g_label',
+                 'usage_label8', 'current_session_3g_label',
+                 'usage_label9', 'current_session_total_label', 'label8']
         if show:
             for item in items:
                 self[item].show()

@@ -427,39 +427,39 @@ class MainController(WidgetController):
                         "changed - calling 'ask_for_new_profile' ")
             self.ask_for_new_profile()
 
-    def property_txfr_to_date_name_value_change(self, model, old, new):
-        self.view.set_usage_value('month_current_label', new)
+    def property_current_month_name_value_change(self, model, old, new):
+        self.view.set_usage_value('current_month_label', new)
 
-    def property_txfr_to_date_3g_value_change(self, model, old, new):
-        self.view.set_usage_value('transferred_3g_current_label', new)
+    def property_current_summed_2g_value_change(self, model, old, new):
+        self.view.set_usage_value('current_summed_2g_label', new)
 
-    def property_txfr_to_date_2g_value_change(self, model, old, new):
-        self.view.set_usage_value('transferred_gprs_current_label', new)
+    def property_current_summed_3g_value_change(self, model, old, new):
+        self.view.set_usage_value('current_summed_3g_label', new)
 
-    def property_txfr_to_date_total_value_change(self, model, old, new):
-        self.view.set_usage_value('transferred_total_current_label', new)
+    def property_current_summed_total_value_change(self, model, old, new):
+        self.view.set_usage_value('current_summed_total_label', new)
         self.view.set_usage_bar_value('current-total', new)
 
-    def property_curr_session_3g_value_change(self, model, old, new):
-        self.view.set_usage_value('transferred_3g_session_label', new)
+    def property_current_session_2g_value_change(self, model, old, new):
+        self.view.set_usage_value('current_session_2g_label', new)
 
-    def property_curr_session_2g_value_change(self, model, old, new):
-        self.view.set_usage_value('transferred_gprs_session_label', new)
+    def property_current_session_3g_value_change(self, model, old, new):
+        self.view.set_usage_value('current_session_3g_label', new)
 
-    def property_curr_session_total_value_change(self, model, old, new):
-        self.view.set_usage_value('transferred_total_session_label', new)
+    def property_current_session_total_value_change(self, model, old, new):
+        self.view.set_usage_value('current_session_total_label', new)
 
     def property_last_month_name_value_change(self, model, old, new):
-        self.view.set_usage_value('month_last_label', new)
-
-    def property_last_month_3g_value_change(self, model, old, new):
-        self.view.set_usage_value('transferred_3g_last_label', new)
+        self.view.set_usage_value('last_month_label', new)
 
     def property_last_month_2g_value_change(self, model, old, new):
-        self.view.set_usage_value('transferred_gprs_last_label', new)
+        self.view.set_usage_value('last_summed_2g_label', new)
+
+    def property_last_month_3g_value_change(self, model, old, new):
+        self.view.set_usage_value('last_summed_3g_label', new)
 
     def property_last_month_total_value_change(self, model, old, new):
-        self.view.set_usage_value('transferred_total_last_label', new)
+        self.view.set_usage_value('last_summed_total_label', new)
         self.view.set_usage_bar_value('last-total', new)
 
     def bits_to_human(self, bits):

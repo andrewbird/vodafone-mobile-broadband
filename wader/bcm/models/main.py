@@ -97,18 +97,18 @@ class MainModel(Model):
         'net_error': '',
         'key_needed': False,
         # usage properties
-        'curr_session_3g': -1,
-        'curr_session_2g': -1,
-        'curr_session_total': -1,
-        'curr_session_time': 0,
+        'current_session_3g': -1,
+        'current_session_2g': -1,
+        'current_session_total': -1,
+        'current_session_time': 0,
         'last_month_3g': -1,
         'last_month_2g': -1,
         'last_month_total': -1,
         'last_month_name': '',
-        'txfr_to_date_3g': -1,
-        'txfr_to_date_2g': -1,
-        'txfr_to_date_total': -1,
-        'txfr_to_date_name': '',
+        'current_summed_3g': -1,
+        'current_summed_2g': -1,
+        'current_summed_total': -1,
+        'current_month_name': '',
         'rx_rate': -1,
         'tx_rate': -1,
         'transfer_limit_exceeded': False,
@@ -659,7 +659,7 @@ class MainModel(Model):
                                                  'traffic_threshold', 0.0))
             transfer_limit = transfer_limit * ONE_MB
             self.transfer_limit_exceeded = (
-                                self.txfr_to_date_total > transfer_limit > 0)
+                                self.current_summed_total > transfer_limit > 0)
         else:
             self.transfer_limit_exceeded = False
 
@@ -674,15 +674,15 @@ class MainModel(Model):
 
         return (v_3g, v_2g)
 
-    def calc_txfr_to_date(self):
-        self.txfr_to_date_3g = self._month_to_date_3g + self.curr_session_3g
-        self.txfr_to_date_2g = self._month_to_date_2g + self.curr_session_2g
-        self.txfr_to_date_total = self.txfr_to_date_3g + self.txfr_to_date_2g
+    def calc_current_summed(self):
+        self.current_summed_3g = self._month_to_date_3g + self.current_session_3g
+        self.current_summed_2g = self._month_to_date_2g + self.current_session_2g
+        self.current_summed_total = self.current_summed_3g + self.current_summed_2g
 
-    def zero_curr_session(self):
-        self.curr_session_3g = 0
-        self.curr_session_2g = 0
-        self.curr_session_total = 0
+    def zero_current_session(self):
+        self.current_session_3g = 0
+        self.current_session_2g = 0
+        self.current_session_total = 0
 
     def populate_last_month(self):
         self.last_month_name = self.get_month(-1)
@@ -690,10 +690,10 @@ class MainModel(Model):
         self.last_month_total = self.last_month_3g + self.last_month_2g
 
     def populate_curr_month(self):
-        self.txfr_to_date_name = self.get_month(0)
+        self.current_month_name = self.get_month(0)
         self._month_to_date_3g, self._month_to_date_2g = self.calc_month(0)
-        self.zero_curr_session()
-        self.calc_txfr_to_date()
+        self.zero_current_session()
+        self.calc_current_summed()
 
     def init_dial_stats(self):
         self.rx_bytes = self.tx_bytes = self.rx_rate = self.tx_rate = 0
@@ -740,13 +740,13 @@ class MainModel(Model):
 
         # calc current session
         if self.is_3g_bearer:
-            self.curr_session_3g += dx_bytes
+            self.current_session_3g += dx_bytes
         else:
-            self.curr_session_2g += dx_bytes
-        self.curr_session_total = self.curr_session_3g + self.curr_session_2g
+            self.current_session_2g += dx_bytes
+        self.current_session_total = self.current_session_3g + self.current_session_2g
 
         # calc transferred to date
-        self.calc_txfr_to_date()
+        self.calc_current_summed()
 
         # Check for transfer limit if it has not already been reached.
         if not self.transfer_limit_exceeded:
@@ -769,7 +769,7 @@ class MainModel(Model):
 
         self.write_dial_stats()
 
-        self.zero_curr_session()
+        self.zero_current_session()
 
     def _get_month_date(self, offset):
         today = datetime.date.today()
