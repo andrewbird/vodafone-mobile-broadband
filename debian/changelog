@@ -1,3 +1,9 @@
+bcm (2.99.13-1) lucid; urgency=low
+
+  * Fourth beta release
+
+ -- Andrew Bird <ajb@spheresystems.co.uk>  Wed, 02 Mar 2011 17:18:19 +0000
+
 bcm (2.99.12-1) lucid; urgency=low
 
   * Third beta release
