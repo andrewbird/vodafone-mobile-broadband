@@ -27,8 +27,9 @@ MSISDN_USSD = [
     # VF-UK(confirmed)
     ('23415', '*#100#', '(?P<number>\+?\d+)'),
 
-    # Cytamobile
-    ('28000', '#109#', '(?P<number>\+?\d+)'),
+    # Cytamobile(confirmed)
+    # '+35797732112'
+    ('28001', '#109#', '(?P<number>\+?\d+)'),
 
     # MTN SA(confirmed)
     # result == 'Yello! Your MSISDN is 073583xxxx'
@@ -46,8 +47,9 @@ PAYT_CREDIT_CHECK_USSD = [
     # VF-UK(confirmed)
     ('23415', '*#135#', '.*?(?P<value>\d+\.\d\d).*?', '£%s'),
 
-    # Cytamobile
-    ('28000', '*110#', '.*?(?P<value>\d+\.\d\d).*?', '€%s'),
+    # Cytamobile(confirmed)
+    # 'Your balance is 5.00 EUR and your top-up validity period expires on 26 Jun 2011.'
+    ('28001', '*110#', '.*?(?P<value>\d+\.\d\d).*?', '€%s'),
 
     # Zain Kenya
     ('63903', '*133#', '.*?(?P<value>\d+\.\d\d).*?', 'KES%s'),
@@ -77,8 +79,8 @@ PAYT_SUBMIT_VOUCHER_USSD = [
     # VF-UK(confirmed)
     ('23415', '*#1345*%s#', '.*?(?P<success>TopUp successful).*?'),
 
-    # Cytamobile
-    ('28000', '*116*%s#', '.*?(?P<success>επιτυχής).*?'),
+    # Cytamobile(not tested yet, but according to leaflet they are 16 digits)
+    ('28001', '*116*%s#', '.*?(?P<success>επιτυχής).*?'),
 
     # Zain Kenya(guessed)
     ('63903', '*122*%s#',
@@ -131,6 +133,7 @@ CUSTOMER_SUPPORT_NUMBERS = [
     ('22210', '190', None),               # VF-IT
     ('23415', '191', '+44 870 070 0191'), # VF-UK
     ('26202', '1212', '+49 172 1212'),    # VF-DE
+    ('28001', '132', None),               # Cytamobile-Vodafone
     ('65501', '100', '+27 82 100'),       # Vodacom SA (very likely)
     ('65507', '140', '+27 84 140'),       # Cell C SA (confirmed)
     ('65510', '173', '+27 83 173'),       # MTN SA (confirmed)
