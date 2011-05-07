@@ -500,6 +500,8 @@
                             <property name="visible">True</property>
                             <property name="tooltip" translatable="yes">Contacts menu</property>
                             <property name="use_underline">True</property>
+                            <property name="use_stock">False</property>
+                            <property name="always_show_image">True</property>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image594">
                                 <property name="visible">True</property>
@@ -562,6 +564,8 @@
                             <property name="label" translatable="yes">_Delete</property>
                             <property name="visible">True</property>
                             <property name="use_underline">True</property>
+                            <property name="use_stock">False</property>
+                            <property name="always_show_image">True</property>
                             <signal name="activate" handler="on_delete_menu_item_activate"/>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image597">
