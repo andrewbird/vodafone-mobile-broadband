@@ -292,6 +292,9 @@ class MainController(WidgetController):
     def property_rssi_value_change(self, model, old, new):
         self.view.rssi_changed(new)
 
+    def property_registration_value_change(self, model, old, new):
+        self.view.registration_changed(new)
+
     def on_net_password_required(self, opath, tag):
         password = ask_password_dialog(self.view)
 

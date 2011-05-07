@@ -100,6 +100,7 @@ class MainView(View):
         self['time_alignment'].hide()
         self['upload_alignment'].hide()
         self['download_alignment'].hide()
+        self['roaming_image'].hide()
 
         return ret
 
@@ -503,6 +504,12 @@ class MainView(View):
 
     def rssi_changed(self, new_rssi):
         self.update_signal_bearer(newsignal=new_rssi)
+
+    def registration_changed(self, reg):
+        if reg == 5:
+            self['roaming_image'].show()
+        else:
+            self['roaming_image'].hide()
 
     def tech_changed(self, new_tech):
         self.update_signal_bearer(newmode=new_tech)

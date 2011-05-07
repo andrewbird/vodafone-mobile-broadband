@@ -86,6 +86,7 @@ class MainModel(Model):
         'dial_path': None,
         'connected': False,
         'operator': None,
+        'registration': 0,
         'status': _('No device'),
         'tech': None,
         'msisdn': _('Unknown'),
@@ -380,6 +381,7 @@ class MainModel(Model):
         self.device.connect_to_signal(S.SIG_RSSI, self._rssi_changed_cb)
         self.device.connect_to_signal(S.SIG_NETWORK_MODE,
                                       self._network_mode_changed_cb)
+        self.device.connect_to_signal(S.SIG_CREG, self._creg_received_cb)
 
         # react to any modem manager property changes
         self.device.connect_to_signal("MmPropertiesChanged",
@@ -456,6 +458,11 @@ class MainModel(Model):
     def _rssi_changed_cb(self, rssi):
         logger.info("RSSI changed %d" % rssi)
         self.rssi = rssi
+
+    def _creg_received_cb(self, value):
+        if self.registration != value:
+            logger.info('Registration changed %d' % value);
+        self.registration = value
 
     def _get_regstatus_cb(self, (status, operator_code, operator_name)):
         if status == -1:

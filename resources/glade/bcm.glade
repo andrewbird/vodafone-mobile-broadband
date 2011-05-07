@@ -1726,7 +1726,6 @@
                             <child>
                               <widget class="GtkAlignment" id="alignment32">
                                 <property name="visible">True</property>
-                                <property name="top_padding">5</property>
                                 <property name="left_padding">7</property>
                                 <child>
                                   <widget class="GtkLabel" id="cell_type_label">
@@ -1745,7 +1744,6 @@
                             <child>
                               <widget class="GtkAlignment" id="alignment33">
                                 <property name="visible">True</property>
-                                <property name="top_padding">5</property>
                                 <property name="left_padding">20</property>
                                 <child>
                                   <widget class="GtkLabel" id="network_name_label">
@@ -1758,6 +1756,23 @@
                                 <property name="expand">False</property>
                                 <property name="fill">False</property>
                                 <property name="position">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkAlignment" id="alignment34">
+                                <property name="visible">True</property>
+                                <property name="left_padding">5</property>
+                                <child>
+                                  <widget class="GtkImage" id="roaming_image">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">roaming.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">False</property>
+                                <property name="position">3</property>
                               </packing>
                             </child>
                           </widget>
