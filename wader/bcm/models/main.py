@@ -456,7 +456,8 @@ class MainModel(Model):
         self._get_regstatus_cb((3, None, None))
 
     def _rssi_changed_cb(self, rssi):
-        logger.info("RSSI changed %d" % rssi)
+        if self.rssi != rssi:
+            logger.info("RSSI changed %d" % rssi)
         self.rssi = rssi
 
     def _creg_received_cb(self, value):
