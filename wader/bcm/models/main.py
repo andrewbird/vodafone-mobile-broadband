@@ -509,8 +509,10 @@ class MainModel(Model):
         }
 
         if ifname == NET_INTFACE and 'AccessTechnology' in ifprops:
-            self.tech = mapped.get(ifprops['AccessTechnology'], _('N/A'))
-            logger.info("AccessTechnology changed %s", self.tech)
+            tech = mapped.get(ifprops['AccessTechnology'], _('N/A'))
+            if self.tech != tech:
+                logger.info("AccessTechnology changed %s", tech)
+            self.tech = tech
 
             is_3g_bearer = ifprops['AccessTechnology'] not in TWOG_TECH
 
