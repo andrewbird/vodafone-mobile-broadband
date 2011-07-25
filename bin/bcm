@@ -42,8 +42,10 @@ def check_if_running():
 def raise_window():
     try:
         wmctrl_path = which('wmctrl')[0]
-    except KeyError:
-        raise RuntimeError("Cannot find wmctrl binary")
+    except (KeyError, IndexError):
+        from wader.bcm.dialogs import show_error_dialog
+        show_error_dialog(_("%s is already running") % APP_LONG_NAME,
+            _("Only one instance of %s may be run at a time") % APP_LONG_NAME)
     else:
         call(["%s" % wmctrl_path, "-a", "%s" % APP_LONG_NAME])
 
