@@ -213,6 +213,7 @@ class MainModel(Model):
             self.operator = None
             self.tech = None
             self.rssi = None
+            self.registration = 0
             self.imsi = None
             self.msisdn = None
 
@@ -381,7 +382,7 @@ class MainModel(Model):
         self.device.connect_to_signal(S.SIG_RSSI, self._rssi_changed_cb)
         self.device.connect_to_signal(S.SIG_NETWORK_MODE,
                                       self._network_mode_changed_cb)
-        self.device.connect_to_signal(S.SIG_CREG, self._creg_received_cb)
+        self.device.connect_to_signal(S.SIG_REG_INFO, self._registration_info_cb)
 
         # react to any modem manager property changes
         self.device.connect_to_signal("MmPropertiesChanged",
@@ -460,10 +461,28 @@ class MainModel(Model):
             logger.info("RSSI changed %d" % rssi)
         self.rssi = rssi
 
-    def _creg_received_cb(self, value):
-        if self.registration != value:
-            logger.info('Registration changed %d' % value);
-        self.registration = value
+    def _map_status(self, status):
+        if status == 1:
+            return _("Registered")
+        elif status == 2:
+            return _("Scanning")
+        elif status == 3:
+            return _("Reg. rejected")
+        elif status == 4:
+            return _("Unknown Error")
+        elif status == 5:
+            return _("Roaming")
+
+    def _registration_info_cb(self, status, operator_code, operator_name):
+        if self.registration != status:
+            logger.info('Registration changed %d' % status);
+        self.registration = status
+
+        if self.operator != operator_name:
+            logger.info('Operator changed %s' % str(operator_name))
+        self.operator = operator_name
+
+        self.status = self._map_status(status)
 
     def _get_regstatus_cb(self, (status, operator_code, operator_name)):
         if status == -1:
@@ -471,21 +490,12 @@ class MainModel(Model):
             # that aren't included in registration values
             # self.status = _('No device')
             return
-        if status == 1:
-            self.status = _("Registered")
-        elif status == 2:
-            self.status = _("Scanning")
-        elif status == 3:
-            self.status = _("Reg. rejected")
-        elif status == 4:
-            self.status = _("Unknown Error")
-        elif status == 5:
-            self.status = _("Roaming")
 
-        if operator_name is not None:
-            self.operator = operator_name
+        self.operator = operator_name
 
-        if status in [1, 5]:
+        self.status = self._map_status(status)
+
+        if status in [1, 5] and operator_name:
             # only stop asking for reg status when we are in our home
             # network or roaming
             return False
