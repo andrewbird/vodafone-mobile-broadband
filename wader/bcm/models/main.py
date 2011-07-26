@@ -66,12 +66,12 @@ TWOG_SIGNALS = [MM_NETWORK_MODE_GPRS, MM_NETWORK_MODE_EDGE,
 TWOG_TECH = [MM_GSM_ACCESS_TECH_GSM, MM_GSM_ACCESS_TECH_GSM_COMPAT,
              MM_GSM_ACCESS_TECH_GPRS, MM_GSM_ACCESS_TECH_EDGE]
 
-UPDATE_INTERVAL = CONFIG_INTERVAL = 2 * 1000 # 2ms
-NETREG_INTERVAL = 5 * 1000 # 5ms
+UPDATE_INTERVAL = CONFIG_INTERVAL = 2 * 1000  # 2ms
+NETREG_INTERVAL = 5 * 1000  # 5ms
 
-AUTH_TIMEOUT = 150        # 2.5m
-ENABLE_TIMEOUT = 2 * 60   # 2m
-REGISTER_TIMEOUT = 3 * 60 # 3m
+AUTH_TIMEOUT = 150          # 2.5m
+ENABLE_TIMEOUT = 2 * 60     # 2m
+REGISTER_TIMEOUT = 3 * 60   # 3m
 
 ONE_MB = 2 ** 20
 
@@ -132,7 +132,7 @@ class MainModel(Model):
         # we have to break MVC here :P
         self.ctrl = None
         # stats stuff
-        self.is_3g_bearer = True # we assume 3G
+        self.is_3g_bearer = True  # we assume 3G
         self.previous_bytes = 0
         self.start_time = None
         self.stop_time = None
@@ -189,7 +189,7 @@ class MainModel(Model):
         # popup dialog if not
         if self.profiles_model.active_profile_just_deleted():
             logger.info("Active Profile removed")
-            self.profile_required = False # toggle to tell controller
+            self.profile_required = False  # toggle to tell controller
             self.profile_required = True
         else:
             logger.info("Profile removed")
@@ -348,7 +348,8 @@ class MainModel(Model):
                 return
 
             self.device_opath = opaths[0]
-            logger.info("main.py: model - Setting up device %s" % self.device_opath)
+            logger.info(
+                "main.py: model - Setting up device %s" % self.device_opath)
             self.device = self.bus.get_object(WADER_SERVICE, self.device_opath)
 
             self.pin_required = self.puk_required = self.puk2_required = False
@@ -382,7 +383,8 @@ class MainModel(Model):
         self.device.connect_to_signal(S.SIG_RSSI, self._rssi_changed_cb)
         self.device.connect_to_signal(S.SIG_NETWORK_MODE,
                                       self._network_mode_changed_cb)
-        self.device.connect_to_signal(S.SIG_REG_INFO, self._registration_info_cb)
+        self.device.connect_to_signal(S.SIG_REG_INFO,
+                                        self._registration_info_cb)
 
         # react to any modem manager property changes
         self.device.connect_to_signal("MmPropertiesChanged",
@@ -429,11 +431,12 @@ class MainModel(Model):
             self.profile = self.profiles_model.get_active_profile()
             if self.profile:
                 self.profile.activate()
-                self.profile_required = False # tell controller
+                self.profile_required = False  # tell controller
             else:
                 logger.warn("main.py: model - No profile, creating one")
-                self.profile_required = True # tell controller
-                logger.warn("main.py: model - profile_required being set to 'True' ")
+                self.profile_required = True  # tell controller
+                logger.warn(
+                    "main.py: model - profile_required being set to 'True' ")
         else:
             self.profile.activate()
 
@@ -475,7 +478,7 @@ class MainModel(Model):
 
     def _registration_info_cb(self, status, operator_code, operator_name):
         if self.registration != status:
-            logger.info('Registration changed %d' % status);
+            logger.info('Registration changed %d' % status)
         self.registration = status
 
         if self.operator != operator_name:
@@ -695,9 +698,12 @@ class MainModel(Model):
         return (v_3g, v_2g)
 
     def calc_current_summed(self):
-        self.current_summed_3g = self._month_to_date_3g + self.current_session_3g
-        self.current_summed_2g = self._month_to_date_2g + self.current_session_2g
-        self.current_summed_total = self.current_summed_3g + self.current_summed_2g
+        self.current_summed_3g = \
+            self._month_to_date_3g + self.current_session_3g
+        self.current_summed_2g = \
+            self._month_to_date_2g + self.current_session_2g
+        self.current_summed_total = \
+            self.current_summed_3g + self.current_summed_2g
 
     def zero_current_session(self):
         self.current_session_3g = 0
@@ -763,7 +769,8 @@ class MainModel(Model):
             self.current_session_3g += dx_bytes
         else:
             self.current_session_2g += dx_bytes
-        self.current_session_total = self.current_session_3g + self.current_session_2g
+        self.current_session_total = \
+            self.current_session_3g + self.current_session_2g
 
         # calc transferred to date
         self.calc_current_summed()
