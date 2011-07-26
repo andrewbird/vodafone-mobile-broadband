@@ -34,7 +34,6 @@ from wader.bcm.models.profile import ProfilesModel
 from wader.bcm.models.preferences import PreferencesModel
 from wader.bcm.translate import _
 from wader.bcm.utils import dbus_error_is, get_error_msg
-from wader.bcm.signals import NET_MODE_SIGNALS
 from wader.bcm.consts import USAGE_DB, APP_VERSION
 from wader.bcm.config import config
 from wader.bcm.uptime import get_uptime
@@ -45,8 +44,6 @@ from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
                                  CRD_INTFACE, NET_INTFACE, MDM_INTFACE,
                                  WADER_DIALUP_INTFACE, WADER_KEYRING_INTFACE,
                                  WADER_PROFILES_INTFACE,
-                                 MM_NETWORK_MODE_GPRS, MM_NETWORK_MODE_EDGE,
-                                 MM_NETWORK_MODE_2G_ONLY,
                                  MM_GSM_ACCESS_TECH_GSM,
                                  MM_GSM_ACCESS_TECH_GSM_COMPAT,
                                  MM_GSM_ACCESS_TECH_GPRS,
@@ -59,9 +56,6 @@ from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
 import wader.common.aterrors as E
 import wader.common.signals as S
 from wader.common.provider import UsageProvider
-
-TWOG_SIGNALS = [MM_NETWORK_MODE_GPRS, MM_NETWORK_MODE_EDGE,
-                MM_NETWORK_MODE_2G_ONLY]
 
 TWOG_TECH = [MM_GSM_ACCESS_TECH_GSM, MM_GSM_ACCESS_TECH_GSM_COMPAT,
              MM_GSM_ACCESS_TECH_GPRS, MM_GSM_ACCESS_TECH_EDGE]
@@ -381,8 +375,6 @@ class MainModel(Model):
         self.init_dial_stats()
 
         self.device.connect_to_signal(S.SIG_RSSI, self._rssi_changed_cb)
-        self.device.connect_to_signal(S.SIG_NETWORK_MODE,
-                                      self._network_mode_changed_cb)
         self.device.connect_to_signal(S.SIG_REG_INFO,
                                         self._registration_info_cb)
 
@@ -534,18 +526,6 @@ class MainModel(Model):
                 self.write_dial_stats(is_3g_bearer)
 
             self.is_3g_bearer = is_3g_bearer
-
-    def _network_mode_changed_cb(self, net_mode):
-        self.tech = NET_MODE_SIGNALS[net_mode]
-        logger.info("Network mode changed %s" % self.tech)
-
-        is_3g_bearer = net_mode not in TWOG_SIGNALS
-
-        # maybe write a Usage DB segment
-        if self.connected:
-            self.write_dial_stats(is_3g_bearer)
-
-        self.is_3g_bearer = is_3g_bearer
 
     def _check_pin_status(self):
 
