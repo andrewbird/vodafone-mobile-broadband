@@ -637,6 +637,9 @@ class MainController(WidgetController):
             # as ActivateConnection returns None instead of an object
             # path.
             self._ignore_no_reply = False
+        elif 'RuntimeError' in get_error_msg(e):
+            title = _('Failed connection attempt')
+            show_warning_dialog(title, _('Unable to connect'))
         else:
             title = _('Failed connection attempt')
             show_error_dialog(title, get_error_msg(e))
