@@ -54,8 +54,11 @@ def show_about_dialog():
     else:
         abt.set_name(APP_NAME)
     abt.set_version(APP_VERSION)
-    abt.set_copyright("Copyright (C) 2006-2010 Vodafone España S.A.\n" +
-                      "Copyright (C) 2008-2009 Wader contributors")
+    _copyright = """\
+Copyright (C) 2006-2011 Vodafone España S.A.
+Copyright (C) 2008-2010 Warp Networks, S.L.
+Copyright (C) 2008-2009 Wader contributors"""
+    abt.set_copyright(_copyright)
     abt.set_authors(APP_AUTHORS)
     abt.set_documenters(APP_DOCUMENTERS)
     abt.set_artists(APP_ARTISTS)
@@ -63,10 +66,10 @@ def show_about_dialog():
     abt.set_translator_credits(_('translator-credits'))
 
     abt.set_website_label(APP_URL)
-    _license = """
+    _license = """\
 Betavine Connection Manager
-Copyright (C) 2006-2010 Vodafone España S.A.
-Copyright (C) 2008-2010 Warp Networks, S.L.
+
+%s
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -80,8 +83,9 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
-51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA"""
-    abt.set_license(_license)
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+"""
+    abt.set_license(_license % _copyright)
     return abt
 
 
