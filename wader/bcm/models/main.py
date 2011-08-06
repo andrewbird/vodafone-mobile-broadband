@@ -52,6 +52,8 @@ from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
                                  MM_GSM_ACCESS_TECH_HSDPA,
                                  MM_GSM_ACCESS_TECH_HSUPA,
                                  MM_GSM_ACCESS_TECH_HSPA,
+                                 MM_GSM_ACCESS_TECH_HSPA_PLUS,
+                                 MM_GSM_ACCESS_TECH_LTE,
                                  APP_VERSION as CORE_VERSION)
 import wader.common.aterrors as E
 import wader.common.signals as S
@@ -511,6 +513,8 @@ class MainModel(Model):
             MM_GSM_ACCESS_TECH_HSDPA: _('HSDPA'),
             MM_GSM_ACCESS_TECH_HSUPA: _('HSUPA'),
             MM_GSM_ACCESS_TECH_HSPA: _('HSPA'),
+            MM_GSM_ACCESS_TECH_HSPA_PLUS: _('HSPA+'),
+            MM_GSM_ACCESS_TECH_LTE: _('LTE'),
         }
 
         if ifname == NET_INTFACE and 'AccessTechnology' in ifprops:
