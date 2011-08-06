@@ -531,6 +531,17 @@ class MainModel(Model):
 
             self.is_3g_bearer = is_3g_bearer
 
+        if ifname == MDM_INTFACE and 'UnlockRequired' in ifprops:
+            if not ifprops['UnlockRequired']:
+                if self.pin_required:
+                    self.pin_required = False
+                if self.puk_required:
+                    self.puk_required = False
+                if self.puk2_required:
+                    self.puk2_required = False
+
+                self.enable_device()
+
     def _check_pin_status(self):
 
         def _check_pin_status_eb(e):
@@ -550,14 +561,15 @@ class MainModel(Model):
                           reply_handler=lambda: True,
                           error_handler=_check_pin_status_eb)
 
-    def send_pin(self, pin, cb):
+    def send_pin(self, pin, cb=None):
         logger.info("Trying authentication with PIN %s" % pin)
 
         def _send_pin_cb(*args):
             logger.info("Authentication success")
             if self.manage_pin:
                 self.store_pin_in_keyring(pin)
-            cb()
+            if cb is not None:
+                cb()
 
         def _send_pin_eb(e):
             logger.error("SendPin failed %s" % get_error_msg(e))
@@ -606,16 +618,21 @@ class MainModel(Model):
             return
         logger.info("Deleting PIN from keyring")
 
-    def _send_puk_eb(self, e):
-        logger.error("SendPuk failed: %s" % get_error_msg(e))
-        self._check_pin_status()
+    def send_puk(self, puk, pin, cb=None):
 
-    def send_puk(self, puk, pin, cb):
+        def _send_puk_cb(*args):
+            if cb is not None:
+                cb()
+
+        def _send_puk_eb(e):
+            logger.error("SendPuk failed: %s" % get_error_msg(e))
+            self._check_pin_status()
+
         logger.info("Trying authentication with PUK %s, PIN %s" % (puk, pin))
         self.device.SendPuk(puk, pin,
                             dbus_interface=CRD_INTFACE,
-                            reply_handler=lambda * args: cb(),
-                            error_handler=self._send_puk_eb)
+                            reply_handler=_send_puk_cb,
+                            error_handler=_send_puk_eb)
 
     def pin_is_enabled(self, is_enabled_cb, is_enabled_eb):
         logger.info("Checking if PIN request is enabled")

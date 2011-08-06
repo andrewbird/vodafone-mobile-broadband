@@ -263,7 +263,7 @@ class AskPINController(Controller):
 
     def send_pin(self, pin):
         self.model.status = _('Authenticating')
-        self.model.send_pin(pin, self.model.enable_device)
+        self.model.send_pin(pin)
 
     def on_ok_button_clicked(self, widget):
         pin = self.view['pin_entry'].get_text()
@@ -334,7 +334,7 @@ class AskPUKController(Controller):
 
         if pin and puk:
             self.model.status = _('Authenticating')
-            self.model.send_puk(puk, pin, self.model.enable_device)
+            self.model.send_puk(puk, pin)
             self.view.hide()
             self.model.unregister_observer(self)
 
