@@ -32,7 +32,6 @@ from wader.bcm.controllers.contacts import (AddContactController,
                                           SearchContactController)
 from wader.bcm.views.contacts import AddContactView, SearchContactView
 
-import wader.common.consts as consts
 from wader.common.signals import SIG_SMS_COMP, SIG_SMS_DELV
 from wader.common.keyring import KeyringInvalidPassword
 from wader.bcm.config import config
@@ -54,9 +53,11 @@ from wader.bcm.consts import (GTK_LOCK, GUIDE_DIR, IMAGES_DIR, APP_URL,
                               CFG_PREFS_DEFAULT_TRAY_ICON,
                               CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
                               CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION,
-                              NO_DEVICE, HAVE_DEVICE, SIM_LOCKED,
-                              AUTHENTICATING, SEARCHING, DISCONNECTED,
-                              CONNECTED)
+                              BCM_MODEM_STATE_NODEVICE,
+                              BCM_MODEM_STATE_HAVEDEVICE,
+                              BCM_MODEM_STATE_ENABLED,
+                              BCM_MODEM_STATE_REGISTERED,
+                              BCM_MODEM_STATE_CONNECTED)
 
 from wader.bcm.contacts import SIMContact
 from wader.bcm.phonebook import (get_phonebook, Contact,
@@ -117,7 +118,6 @@ class MainController(WidgetController):
 
         self.signal_matches = []
 
-        self.connection_time_updater = None
         self.apb = None # activity progress bar
         self.tray = None
         # ignore cancelled connection attempts errors
@@ -130,7 +130,7 @@ class MainController(WidgetController):
         self.start()
 
     def start(self):
-        self.view.set_view_state(NO_DEVICE)
+        self.view.set_view_state(BCM_MODEM_STATE_NODEVICE)
 
         self.model.populate_last_month()
         self.model.populate_curr_month()
@@ -206,20 +206,17 @@ class MainController(WidgetController):
             return False
 
     def ask_for_pin(self):
-        self.model.status = _('SIM locked')
         ctrl = AskPINController(self.model)
         view = AskPINView(ctrl)
         view.show()
 
     def ask_for_puk(self):
-        self.model.status = _('SIM locked')
         ctrl = AskPUKController(self.model)
         view = AskPUKView(ctrl)
         view.set_puk_view()
         view.show()
 
     def ask_for_puk2(self):
-        self.model.status = _('SIM locked')
         ctrl = AskPUKController(self.model)
         view = AskPUKView(ctrl)
         view.set_puk2_view()
@@ -255,10 +252,11 @@ class MainController(WidgetController):
         gtk.main_quit()
 
     def _setup_connection_signals(self):
-        self.model.bus.add_signal_receiver(
-                                self._on_disconnect_cb,
-                                "Disconnected",
-                                dbus_interface=consts.WADER_DIALUP_INTFACE)
+        pass
+        #self.model.bus.add_signal_receiver(
+        #                        self._on_disconnect_cb,
+        #                        "Disconnected",
+        #                        dbus_interface=consts.WADER_DIALUP_INTFACE)
 
     def _generate_customer_support_text(self, imsi):
         utxt = '"' + _('Unknown') + '"'
@@ -282,8 +280,8 @@ class MainController(WidgetController):
             ) % args
 
     def update_connection_time(self):
-        if not self.model.connected:
-            return False #  don't want to be called again
+        if not self.model.is_connected():
+            return False  # don't want to be called again
 
         self.view.set_connection_time(self.model.get_connection_time())
         return True
@@ -367,41 +365,42 @@ class MainController(WidgetController):
                                                 self.on_sms_delivery_cb)
             self.signal_matches.append(sm)
 
-            self.model.status = _('Device found')
+            self.model.status = BCM_MODEM_STATE_HAVEDEVICE
         else:
             while self.signal_matches:
                 sm = self.signal_matches.pop()
                 sm.remove()
             self._hide_sim_contacts()
             self._hide_sim_messages()
-            self.model.status = _('No device')
+            self.model.status = BCM_MODEM_STATE_NODEVICE
             logger.info("main-controller: property_device_value_change")
 
     def property_profile_value_change(self, model, old, new):
         logger.info("A profile has been set for current model %s" % new)
 
     def property_status_value_change(self, model, old, new):
-        if new == _('No device'):
-            self.view.set_view_state(NO_DEVICE)
-        elif new == _('Device found'):
-            self.view.set_view_state(HAVE_DEVICE)
-        elif new == _('SIM locked'):
-            self.view.set_view_state(SIM_LOCKED)
-        elif new == _('Authenticating'):
-            self.view.set_view_state(AUTHENTICATING)
-        elif new == _('Scanning'):
+        logger.info("main-controller: property_status_value_change %s" % new)
+        self.view.set_view_state(new)
+
+        if old < BCM_MODEM_STATE_ENABLED and new >= BCM_MODEM_STATE_ENABLED:
+            self.refresh_treeviews()
 
             def imsi_cb(imsi):
                 self.view.set_customer_support_text(
                     self._generate_customer_support_text(imsi))
+
             self.model.get_imsi(imsi_cb)
 
-            self.view.set_view_state(SEARCHING)
-            self.refresh_treeviews()
-        elif new in [_('Registered'), _('Roaming'), _('Not connected')]:
-            self.view.set_view_state(DISCONNECTED)
-        elif new == _('Connected'):
-            self.view.set_view_state(CONNECTED)
+        if old < BCM_MODEM_STATE_CONNECTED and \
+                new >= BCM_MODEM_STATE_CONNECTED:
+            self.model.start_stats_tracking()
+            self.view.set_connection_time("0:00:00")
+            timeout_add_seconds(1, self.update_connection_time)
+
+        if old > BCM_MODEM_STATE_REGISTERED and \
+                new <= BCM_MODEM_STATE_REGISTERED:
+            self.model.stop_stats_tracking()
+            self.model.dial_path = None
 
     def property_sim_error_value_change(self, model, old, new):
         if not new:
@@ -517,7 +516,7 @@ class MainController(WidgetController):
             self.view['usage_tool_button'].set_active(True)
 
             self.update_usage_view()
-            self.view.show_current_session(self.model.connected)
+            self.view.show_current_session(self.model.is_connected())
 
     def on_support_button_toggled(self, widget):
         if widget.get_active():
@@ -602,27 +601,21 @@ class MainController(WidgetController):
             checkmenuitem.set_active(enabled)
 
     def on_device_enabled_cb(self, opath):
-        self.model.status = _('Scanning')
         self.model.pin_is_enabled(self.on_is_pin_enabled_cb,
                                   lambda * args: True)
 
     def _on_connect_cb(self, dev_path):
-        self.model.connected = True
-        self.model.status = _('Connected')
-        self.model.start_stats_tracking()
-        self.view.show_current_session(True)
-        self.view.set_connection_time("0:00:00")
-        self.connection_time_updater = timeout_add_seconds(1, self.update_connection_time)
+        logger.info("Connected")
 
         if self.apb:
             self.apb.close()
             self.apb = None
 
         self.model.dial_path = dev_path
+        self.model.status = BCM_MODEM_STATE_CONNECTED
+        self.model.set_our_dial_attempt(None)
 
     def _on_connect_eb(self, e):
-        self.model.connected = False
-        self.model.status = _('Not connected')
         logger.error("_on_connect_eb: %s" % e)
 
         if self.apb:
@@ -644,12 +637,10 @@ class MainController(WidgetController):
             title = _('Failed connection attempt')
             show_error_dialog(title, get_error_msg(e))
 
+        self.model.set_our_dial_attempt(None)
+
     def _on_disconnect_cb(self, *args):
-        self.model.connected = False
-        self.model.status = _('Not connected')
         logger.info("Disconnected")
-        self.model.stop_stats_tracking()
-        self.view.show_current_session(False)
 
         if self.apb:
             self.apb.close()
@@ -665,10 +656,6 @@ class MainController(WidgetController):
 
     def _on_disconnect_eb(self, e):
         logger.error("_on_disconnect_eb: %s" % e)
-        # XXX: If it failed are we connected or not?
-        self.model.connected = False
-        self.model.stop_stats_tracking()
-        self.view.show_current_session(False)
 
         if self.apb:
             self.apb.close()
@@ -799,10 +786,11 @@ The csv file that you have tried to import has an invalid format.""")
     def on_connect_button_toggled(self, widget):
         dialmanager = self.model.get_dialer_manager()
 
-        if widget.get_active():
+        # Note: Only do something if status REGISTERED or CONNECTED
+
+        if self.model.status == BCM_MODEM_STATE_REGISTERED:
             # user wants to connect
             if not self.model.device:
-                widget.set_active(False)
                 show_warning_dialog(
                     _("No device found"),
                     _("No device has been found. Insert one and try again."))
@@ -810,7 +798,6 @@ The csv file that you have tried to import has an invalid format.""")
 
             profiles_model = self.model.profiles_model
             if not profiles_model.has_active_profile():
-                widget.set_active(False)
                 show_warning_dialog(
                     _("Profile needed"),
                     _("You need to create a profile for connecting."))
@@ -821,6 +808,10 @@ The csv file that you have tried to import has an invalid format.""")
             if not active_profile.password:
                 active_profile.load_password()
 
+            logger.info("Connecting...")
+
+            self.model.set_our_dial_attempt(True)
+
             dialmanager.ActivateConnection(active_profile.profile_path,
                                            self.model.device_opath,
                                            timeout=40,
@@ -830,7 +821,8 @@ The csv file that you have tried to import has an invalid format.""")
             self._setup_connection_signals()
 
             def cancel_cb():
-                self.model.status = _('Not connected')
+                # XXX: should not need this
+                # self.model.status = _('Not connected')
                 self.model.dial_path = None
 
             def stop_connection_attempt():
@@ -842,20 +834,33 @@ The csv file that you have tried to import has an invalid format.""")
             self.apb = ActivityProgressBar(_("Connecting"), self)
             self.apb.set_cancel_cb(stop_connection_attempt)
             self.apb.init()
-            logger.info("Connecting...")
-        else:
-            # user wants to disconnect
-            if not self.model.dial_path:
-                return
 
-            self.apb = ActivityProgressBar(_("Disconnecting"), self,
-                                           disable_cancel=True)
-            dialmanager.DeactivateConnection(self.model.dial_path,
+        elif self.model.status == BCM_MODEM_STATE_CONNECTED:
+            # user wants to disconnect
+            logger.info("Disconnecting...")
+
+            if self.model.dial_path:  # created by us
+                self.apb = ActivityProgressBar(_("Disconnecting"), self,
+                                                         disable_cancel=True)
+                dialmanager.DeactivateConnection(self.model.dial_path,
                                         reply_handler=self._on_disconnect_cb,
                                         error_handler=self._on_disconnect_eb)
-
-            self.apb.init()
-            self.model.dial_path = None
+                self.apb.init()
+                self.model.dial_path = None
+            else:
+                title = _("Invalid Connection")
+                details = _("It's likely that this connection was made by the "
+                            "Network Manager Applet, please use that to "
+                            "deactivate")
+                show_error_dialog(title, details)
+                logger.warn("Can't deactivate a connection we didn't create")
+                # XXX: This brute force approach doesn't work with NM for some
+                #      reason, ideally we'd need a new way of asking the wader
+                #      dialup service to remove a connection for which we have
+                #      no dial_path
+                # self.model.device.Disconnect(dbus_interface=MDM_INTFACE,
+                #                        reply_handler=self._on_disconnect_cb,
+                #                        error_handler=self._on_disconnect_eb)
 
     def on_preferences_menu_item_activate(self, widget):
         model = PreferencesModel(self.model.device)

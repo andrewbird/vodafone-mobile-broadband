@@ -22,6 +22,7 @@ import re
 from datetime import datetime
 from time import time
 
+from wader.bcm.consts import BCM_MODEM_STATE_REGISTERED
 from wader.bcm.contrib.gtkmvc import Controller
 from wader.bcm.dialogs import show_warning_dialog
 from wader.bcm.logger import logger
@@ -30,6 +31,9 @@ from wader.bcm.network_codes import (get_payt_credit_check_info,
 from wader.bcm.translate import _
 
 from wader.common.oal import get_os_object
+
+# XXX: needs to be something other than any BCM_MODEM_STATE_* value
+TOPUP_BUSY = 9999
 
 
 class PayAsYouTalkController(Controller):
@@ -211,7 +215,7 @@ class PayAsYouTalkController(Controller):
         self.model.payt_credit_date = None
 
     def _set_form_state(self, status):
-        if status in [_("Registered"), _("Roaming"), _("Not connected")]:
+        if status == BCM_MODEM_STATE_REGISTERED:
             self.view.enable_credit_button(True)
             self.view.enable_send_button(True)
             self.view.enable_voucher_entry_view(True)
@@ -237,7 +241,7 @@ class PayAsYouTalkController(Controller):
             # set the banner throbber to let Joe Public know we are busy
             self.view.set_banner_credit_check_animation()
             # disable things whilst busy
-            self._set_form_state('Topup busy')
+            self._set_form_state(TOPUP_BUSY)
         else:
             # stop any animation in the view now we got a response.
             self.view.clear_banner_animation()
@@ -249,7 +253,7 @@ class PayAsYouTalkController(Controller):
             # ok we are firing a ussd so lets set the animations off
             self.view.set_banner_voucher_animation()
             # disable things whilst busy
-            self._set_form_state('Topup busy')
+            self._set_form_state(TOPUP_BUSY)
         else:
             # stop any animation in the view now we got a response.
             self.view.clear_banner_animation()

@@ -24,7 +24,8 @@ import dbus
 import dbus.mainloop.glib
 dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
 
-import gobject
+from gobject import timeout_add_seconds
+
 #from gtkmvc import Model
 from wader.bcm.contrib.gtkmvc import Model
 
@@ -34,7 +35,12 @@ from wader.bcm.models.profile import ProfilesModel
 from wader.bcm.models.preferences import PreferencesModel
 from wader.bcm.translate import _
 from wader.bcm.utils import dbus_error_is, get_error_msg
-from wader.bcm.consts import USAGE_DB, APP_VERSION
+from wader.bcm.consts import (USAGE_DB, APP_VERSION,
+                                BCM_MODEM_STATE_UNKNOWN,
+                                BCM_MODEM_STATE_NODEVICE,
+                                BCM_MODEM_STATE_HAVEDEVICE,
+                                BCM_MODEM_STATE_CONNECTED)
+
 from wader.bcm.config import config
 from wader.bcm.uptime import get_uptime
 from wader.bcm.network_codes import get_msisdn_ussd_info
@@ -78,12 +84,9 @@ class MainModel(Model):
         'rssi': None,
         'profile': None,
         'device': None,
-        'device_opath': None,
-        'dial_path': None,
-        'connected': False,
-        'operator': None,
-        'registration': 0,
-        'status': _('No device'),
+        'operator': '',
+        'registration': -1,
+        'status': BCM_MODEM_STATE_UNKNOWN,
         'tech': None,
         'msisdn': _('Unknown'),
         'pin_required': False,
@@ -136,6 +139,9 @@ class MainModel(Model):
         # DialStats SignalMatch
         self.stats_sm = None
         self.dialer_manager = None
+        self.dial_path = None
+        self.device_opath = None
+        self._we_dialed = None
         self.preferences_model = PreferencesModel(lambda: self.device)
         self.profiles_model = ProfilesModel(lambda: self.device, lambda: self)
         self.provider = UsageProvider(USAGE_DB)
@@ -150,8 +156,14 @@ class MainModel(Model):
     def get_device(self):
         return self.device
 
+    def is_our_dial_attempt(self):
+        return self._we_dialed
+
+    def set_our_dial_attempt(self, flag):
+        self._we_dialed = flag
+
     def is_connected(self):
-        return self.connected
+        return self.status == BCM_MODEM_STATE_CONNECTED
 
     def _init_wader_object(self):
         try:
@@ -205,11 +217,11 @@ class MainModel(Model):
             self.device = None
             self.device_opath = None
             self.dial_path = None
-            self.status = _('No device')
-            self.operator = None
+            self.status = BCM_MODEM_STATE_NODEVICE
+            self.operator = ''
             self.tech = None
             self.rssi = None
-            self.registration = 0
+            self.registration = -1
             self.imsi = None
             self.msisdn = None
 
@@ -350,7 +362,16 @@ class MainModel(Model):
 
             self.pin_required = self.puk_required = self.puk2_required = False
             self.sim_error = False
-            self.status = _('Device found')
+            self.status = BCM_MODEM_STATE_HAVEDEVICE
+
+            # Get status of device, NM may have already connected it
+            props = self.device.GetAll(MDM_INTFACE)
+            if props.get('State') is not None:
+                self.status = props.get('State')
+
+            # react to any modem manager property changes
+            self.device.connect_to_signal("MmPropertiesChanged",
+                                            self.on_mm_props_change_cb)
             self.enable_device()
         else:
             logger.warn("No devices found")
@@ -367,7 +388,7 @@ class MainModel(Model):
                            error_handler=self._enable_device_eb)
 
         # -1 == special value for Initialising
-        self._get_regstatus_cb((-1, None, None))
+        self._get_registration_info_cb((-1, '', ''))
 
     def _enable_device_cb(self):
         logger.info("main.py: model - Device enabled")
@@ -376,13 +397,9 @@ class MainModel(Model):
 
         self.init_dial_stats()
 
-        self.device.connect_to_signal(S.SIG_RSSI, self._rssi_changed_cb)
+        self.device.connect_to_signal(S.SIG_RSSI, self.on_rssi_changed_cb)
         self.device.connect_to_signal(S.SIG_REG_INFO,
-                                        self._registration_info_cb)
-
-        # react to any modem manager property changes
-        self.device.connect_to_signal("MmPropertiesChanged",
-                                      self.on_mm_props_change_cb)
+                                        self.on_registration_info_cb)
 
         self._start_network_registration()
         # delay the profile creation till the device is completely enabled
@@ -391,10 +408,13 @@ class MainModel(Model):
 
     def _enable_device_eb(self, e):
         if dbus_error_is(e, E.SimPinRequired):
+#            self.status = _('SIM locked')
             self.pin_required = True
         elif dbus_error_is(e, E.SimPukRequired):
+#            self.status = _('SIM locked')
             self.puk_required = True
         elif dbus_error_is(e, E.SimPuk2Required):
+#            self.status = _('SIM locked')
             self.puk2_required = True
         else:
             self.sim_error = get_error_msg(e)
@@ -402,22 +422,11 @@ class MainModel(Model):
         logger.debug("Error enabling device:\n%s" % get_error_msg(e))
 
     def _start_network_registration(self):
-        self._get_regstatus_cb((2, None, None))
         self.device.Register("",
                              dbus_interface=NET_INTFACE,
                              timeout=REGISTER_TIMEOUT,
                              reply_handler=self._network_register_cb,
                              error_handler=self._network_register_eb)
-
-    def _get_regstatus(self, first_time=False):
-        self.device.GetRegistrationInfo(dbus_interface=NET_INTFACE,
-                            reply_handler=self._get_regstatus_cb,
-                            error_handler=lambda e:
-                                logger.warn("Error getting registration "
-                                            "status: %s " % get_error_msg(e)))
-
-        if not first_time and self.status != "Scanning":
-            return False
 
     # Get Configuration
     def _get_config(self):
@@ -435,11 +444,14 @@ class MainModel(Model):
             self.profile.activate()
 
     def _network_register_cb(self, ignored=None):
-        self._get_regstatus(first_time=True)
+        self.device.GetRegistrationInfo(dbus_interface=NET_INTFACE,
+                                reply_handler=self._get_registration_info_cb,
+                                error_handler=logger.warn)
+
         self.get_msisdn(lambda x: True)
 
         self.device.GetSignalQuality(dbus_interface=NET_INTFACE,
-                                     reply_handler=self._rssi_changed_cb,
+                                     reply_handler=self.on_rssi_changed_cb,
                                      error_handler=lambda m:
                                      logger.warn("Cannot get RSSI %s" % m))
 
@@ -451,26 +463,13 @@ class MainModel(Model):
             self.net_error = error
 
         # fake a +CREG: 0,3
-        self._get_regstatus_cb((3, None, None))
+        self._get_registration_info_cb((3, '', ''))
 
-    def _rssi_changed_cb(self, rssi):
-        if self.rssi != rssi:
-            logger.info("RSSI changed %d" % rssi)
-        self.rssi = rssi
+    def _get_registration_info_cb(self, args):
+        # The args are in a tuple, else we could use a single function
+        self.on_registration_info_cb(*args)
 
-    def _map_status(self, status):
-        if status == 1:
-            return _("Registered")
-        elif status == 2:
-            return _("Scanning")
-        elif status == 3:
-            return _("Reg. rejected")
-        elif status == 4:
-            return _("Unknown Error")
-        elif status == 5:
-            return _("Roaming")
-
-    def _registration_info_cb(self, status, operator_code, operator_name):
+    def on_registration_info_cb(self, status, operator_code, operator_name):
         if self.registration != status:
             logger.info('Registration changed %d' % status)
         self.registration = status
@@ -479,31 +478,10 @@ class MainModel(Model):
             logger.info('Operator changed %s' % str(operator_name))
         self.operator = operator_name
 
-        self.status = self._map_status(status)
-
-    def _get_regstatus_cb(self, (status, operator_code, operator_name)):
-        if status == -1:
-            # Don't set status here, as it stamps on 'Device found' and others
-            # that aren't included in registration values
-            # self.status = _('No device')
-            return
-
-        self.operator = operator_name
-
-        self.status = self._map_status(status)
-
-        if status in [1, 5] and operator_name:
-            # only stop asking for reg status when we are in our home
-            # network or roaming
-            return False
-
-        def obtain_registration_info():
-            self.device.GetRegistrationInfo(dbus_interface=NET_INTFACE,
-                                        reply_handler=self._get_regstatus_cb,
-                                        error_handler=logger.warn)
-        # ask in three seconds for more registration info
-        gobject.timeout_add_seconds(3, obtain_registration_info)
-        return True
+    def on_rssi_changed_cb(self, rssi):
+        if self.rssi != rssi:
+            logger.info("RSSI changed %d" % rssi)
+        self.rssi = rssi
 
     def on_mm_props_change_cb(self, ifname, ifprops):
         mapped = {
@@ -526,7 +504,7 @@ class MainModel(Model):
             is_3g_bearer = ifprops['AccessTechnology'] not in TWOG_TECH
 
             # maybe write a Usage DB segment
-            if self.connected:
+            if self.is_connected():
                 self.write_dial_stats(is_3g_bearer)
 
             self.is_3g_bearer = is_3g_bearer
@@ -541,6 +519,25 @@ class MainModel(Model):
                     self.puk2_required = False
 
                 self.enable_device()
+
+        if ifname == MDM_INTFACE and 'State' in ifprops:
+            # XXX: With any MM implementation when using the PPP IP_METHOD,
+            #      the Connected state change comes at dial time which is too
+            #      early to properly represent success. If we initiated the
+            #      connection ourselves we can wait for the callback from
+            #      Wader's dialer instead.
+
+            def lazy_update(state):
+                self.status = state
+                return False
+
+            if ifprops['State'] == BCM_MODEM_STATE_CONNECTED:
+                if self.is_our_dial_attempt():
+                    pass  # let our controller's Connect callback set it
+                else:  # NM applet probably made it, delay
+                    timeout_add_seconds(2, lazy_update, ifprops['State'])
+            else:
+                self.status = ifprops['State']
 
     def _check_pin_status(self):
 

@@ -262,7 +262,8 @@ class AskPINController(Controller):
             self.validate() # Initial validation
 
     def send_pin(self, pin):
-        self.model.status = _('Authenticating')
+        # XXX: should not need this if we can get it from the core somehow
+        # self.model.status = _('Authenticating')
         self.model.send_pin(pin)
 
     def on_ok_button_clicked(self, widget):
@@ -333,7 +334,8 @@ class AskPUKController(Controller):
         puk = self.view['puk_entry'].get_text()
 
         if pin and puk:
-            self.model.status = _('Authenticating')
+            # XXX: should not need this if we can get it from the core somehow
+            # self.model.status = _('Authenticating')
             self.model.send_puk(puk, pin)
             self.view.hide()
             self.model.unregister_observer(self)

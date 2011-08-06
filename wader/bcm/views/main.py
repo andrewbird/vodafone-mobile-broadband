@@ -29,9 +29,19 @@ from wader.bcm.config import config
 from wader.bcm.translate import _
 from wader.bcm.consts import (GLADE_DIR, IMAGES_DIR, THEMES_DIR,
                               APP_LONG_NAME, APP_URL,
-                              NO_DEVICE, HAVE_DEVICE, SIM_LOCKED,
-                              AUTHENTICATING, SEARCHING, DISCONNECTED,
-                              CONNECTED)
+                              BCM_MODEM_STATE_NODEVICE,
+                              BCM_MODEM_STATE_HAVEDEVICE,
+                              BCM_MODEM_STATE_DISABLED,
+                              BCM_MODEM_STATE_LOCKED,
+                              BCM_MODEM_STATE_UNLOCKING,
+                              BCM_MODEM_STATE_UNLOCKED,
+                              BCM_MODEM_STATE_ENABLING,
+                              BCM_MODEM_STATE_ENABLED,
+                              BCM_MODEM_STATE_SEARCHING,
+                              BCM_MODEM_STATE_REGISTERED,
+                              BCM_MODEM_STATE_DISCONNECTING,
+                              BCM_MODEM_STATE_CONNECTING,
+                              BCM_MODEM_STATE_CONNECTED)
 
 from wader.bcm.utils import UNIT_KB, UNIT_MB, units_to_bytes
 from wader.bcm.views.stats import StatsBar
@@ -111,7 +121,7 @@ class MainView(View):
         window.set_size_request(width=WIN_WIDTH, height=height)
         self._setup_support_tabs()
         self._setup_usage_view()
-        self.set_view_state(NO_DEVICE)
+        self.set_view_state(BCM_MODEM_STATE_NODEVICE)
 
     def theme_ui(self):
         theme = os.path.join(THEMES_DIR, "default.gtkrc")
@@ -230,20 +240,45 @@ class MainView(View):
             bar.set_user_limit(units_to_bytes(self.usage_user_limit, UNIT_MB))
             bar.set_max_value(units_to_bytes(self.usage_max_value, UNIT_MB))
 
+    def show_statistics(self, visible):
+        if not visible:
+            self['time_alignment'].hide()
+            self['upload_alignment'].hide()
+            self['download_alignment'].hide()
+        else:
+            self['time_alignment'].show()
+            self['upload_alignment'].show()
+            self['download_alignment'].show()
+
     def set_name(self, name=APP_LONG_NAME):
         self.get_top_widget().set_title(name)
 
     def set_view_state(self, state):
+        # XXX: Currently doesn't handle
+        #      BCM_MODEM_STATE_UNKNOWN,
+        #      BCM_MODEM_STATE_DISABLING,
 
-        def set_button(s):
-            if s == DISCONNECTED:
+        def set_button():
+            if state < BCM_MODEM_STATE_REGISTERED:
                 ifile = 'connect.png'
                 label = _("Connect")
-                active = False
-            else:
+                enabled = False
+            elif state == BCM_MODEM_STATE_REGISTERED:
+                ifile = 'connect.png'
+                label = _("Connect")
+                enabled = True
+            elif state == BCM_MODEM_STATE_DISCONNECTING:
+                ifile = 'disconnect.png'
+                label = _("Disconnecting")
+                enabled = False
+            elif state == BCM_MODEM_STATE_CONNECTING:
+                ifile = 'connect.png'
+                label = _("Connecting")
+                enabled = False
+            elif state == BCM_MODEM_STATE_CONNECTED:
                 ifile = 'disconnect.png'
                 label = _("Disconnect")
-                active = True
+                enabled = True
 
             obj = self['connect_button']
             if obj:
@@ -252,16 +287,7 @@ class MainView(View):
                 image.show()
                 obj.set_icon_widget(image)
                 obj.set_label(label)
-                obj.set_active(active)
-
-            if not active:
-                self['time_alignment'].hide()
-                self['upload_alignment'].hide()
-                self['download_alignment'].hide()
-            else:
-                self['time_alignment'].show()
-                self['upload_alignment'].show()
-                self['download_alignment'].show()
+                obj.set_sensitive(enabled)
 
         def set_disabled():
             self['change_pin1'].set_sensitive(False)
@@ -269,7 +295,6 @@ class MainView(View):
             self['import_contacts1'].set_sensitive(False)
             self['topup_tool_button'].set_sensitive(False)
             self['profiles_menu_item'].set_sensitive(False)
-            self['connect_button'].set_sensitive(False)
 
         def set_authenticated():
             self['change_pin1'].set_sensitive(True)
@@ -279,7 +304,7 @@ class MainView(View):
             self['topup_tool_button'].set_sensitive(True)
 
         def set_registered():
-            self['connect_button'].set_sensitive(True)
+            pass
 
         def set_bar_text_image(text, image=None):
             self['net_statusbar'].push(1, text)
@@ -287,45 +312,89 @@ class MainView(View):
                 self['signal_image'].set_from_file(
                                         os.path.join(IMAGES_DIR, image))
 
-        if state == NO_DEVICE:
-            set_button(DISCONNECTED)
+        is_connected = False
+
+        if state == BCM_MODEM_STATE_NODEVICE:
+            set_button()
             set_disabled()
             set_bar_text_image(_('No device'), 'nodevice.png')
 
-        elif state == HAVE_DEVICE:
-            set_button(DISCONNECTED)
+        elif state == BCM_MODEM_STATE_HAVEDEVICE:
+            set_button()
             set_disabled()
             set_bar_text_image(_('Device found'), 'device.png')
 
-        elif state == SIM_LOCKED:
-            set_button(DISCONNECTED)
+        elif state == BCM_MODEM_STATE_DISABLED:
+            set_button()
+            set_disabled()
+            set_bar_text_image(_('Disabled'), 'device.png')
+
+        elif state == BCM_MODEM_STATE_LOCKED:
+            set_button()
             set_disabled()
             set_bar_text_image(_('SIM locked'), 'simlocked.png')
 
-        elif state == AUTHENTICATING:
-            set_button(DISCONNECTED)
+        elif state == BCM_MODEM_STATE_UNLOCKING:
+            set_button()
             set_disabled()
             set_bar_text_image(_('Authenticating'), 'throbber.gif')
 
-        elif state == SEARCHING:
-            set_button(DISCONNECTED)
+        elif state == BCM_MODEM_STATE_UNLOCKED:
+            set_button()
+            set_disabled()
+            set_bar_text_image(_('Authenticated'), 'device.gif')
+
+        elif state == BCM_MODEM_STATE_ENABLING:
+            set_button()
+            set_disabled()
+            set_bar_text_image(_('Enabling'), 'throbber.gif')
+
+        elif state == BCM_MODEM_STATE_ENABLED:
+            set_button()
+            set_disabled()
+            set_authenticated()
+            set_bar_text_image(_('Enabled'), 'device.gif')
+
+        elif state == BCM_MODEM_STATE_SEARCHING:
+            set_button()
             set_disabled()
             set_authenticated()
             set_bar_text_image(_('Searching'), 'throbber.gif')
 
-        elif state == DISCONNECTED: # AKA Registered / Roaming
-            set_button(DISCONNECTED)
+        elif state == BCM_MODEM_STATE_REGISTERED:  # AKA Disconnected
+            set_button()
             set_disabled()
             set_authenticated()
             set_registered()
             set_bar_text_image(_('Not connected'))
 
-        elif state == CONNECTED:
-            set_button(CONNECTED)
+        elif state == BCM_MODEM_STATE_DISCONNECTING:
+            set_button()
+            set_disabled()
+            set_authenticated()
+            set_registered()
+            set_bar_text_image(_('Disconnecting'))
+
+        elif state == BCM_MODEM_STATE_CONNECTING:
+            set_button()
+            set_disabled()
+            set_authenticated()
+            set_registered()
+            set_bar_text_image(_('Connecting'))
+
+        elif state == BCM_MODEM_STATE_CONNECTED:
+            set_button()
             set_disabled()
             set_authenticated()
             set_registered()
             set_bar_text_image(_('Connected'))
+            is_connected = True
+
+        else:
+            set_bar_text_image(str(state))
+
+        self.show_statistics(is_connected)
+        self.show_current_session(is_connected)
 
     def setup_treeview(self, ctrl):
         """Sets up the treeviews"""
