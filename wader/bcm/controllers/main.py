@@ -1110,6 +1110,12 @@ The csv file that you have tried to import has an invalid format.""")
                 model.remove(iter)
             iter = _iter
 
+        # Maybe the current message was removed
+        page = self.view['main_notebook'].get_current_page() + 1
+        if page == TV_DICT_REV['inbox_treeview']:
+            text = self._get_current_message_text(treeview)
+            self.view.set_message_preview(text)
+
     def _find_contact_by_number(self, number):
         treeview = self.view['contacts_treeview']
         model = treeview.get_model()
