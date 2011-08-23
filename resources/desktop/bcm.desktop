@@ -7,4 +7,4 @@ X-MultipleArgs=false
 Type=Application
 Icon=bcm
 Categories=Application;Network;
-StartupNotify=true
+StartupNotify=false
