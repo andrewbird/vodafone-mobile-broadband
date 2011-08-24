@@ -20,11 +20,11 @@ BuildRequires:  python-setuptools
 %if 0%{?suse_version}
 BuildRequires:  dbus-1-python, python-tz
 Requires:       dbus-1-python, python-tz, python-zopeinterface
-Requires:       python-gnome2, python-gnomekeyring, python-gtk2, python-gconf, python-glade2, wmctrl
+Requires:       python-gnome2, python-gnomekeyring, python-gtk2, python-gconf, python-glade2, python-wnck
 %else
 BuildRequires:  dbus-python, pytz
 Requires:       dbus-python, pytz, python-zope-interface
-Requires:       gnome-python2-gnome, gnome-python2-gnomekeyring, gnome-python2-gconf, pygtk2, pygtk2-libglade
+Requires:       gnome-python2-gnome, gnome-python2-gnomekeyring, gnome-python2-gconf, pygtk2, pygtk2-libglade, gnome-python2-libwnck
 %endif
 
 BuildRequires:  wader-core >= 0.5.6, python-imaging, gettext
