@@ -16,6 +16,10 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
+import re
+import wnck
+import gtk
+
 UNIT_B, UNIT_KB, UNIT_MB, UNIT_GB = xrange(4)
 UNIT_REPR = {
     UNIT_B: "B",
@@ -59,7 +63,7 @@ def repr_usage(_bytes, units=None, _round=None):
             for u in [UNIT_B, UNIT_KB, UNIT_MB, UNIT_GB]:
                 btu = bytes_to_units(_bytes, u)
                 if btu >= 1 and btu < 10:
-                    units = u -1
+                    units = u - 1
                     break
                 elif btu >= 10 and btu < 1024:
                     units = u
@@ -71,3 +75,50 @@ def repr_usage(_bytes, units=None, _round=None):
 
 def bytes_repr(_bytes):
     return repr_usage(_bytes)
+
+
+def find_windows(app_regex, win_regex):
+    """
+    Returns a list with all windows matching application name and
+    windows name regular expressions.
+    """
+    if app_regex is None and win_regex is None:
+        return
+
+    screen = wnck.screen_get_default()
+    screen.force_update()  # updates the window list
+    wins = screen.get_windows()
+
+    rapp = re.compile(app_regex) if app_regex is not None else None
+    rwin = re.compile(win_regex) if win_regex is not None else None
+
+    result = []
+    for win in wins:
+        app = win.get_application()
+        win_name = win.get_name() or ''
+        app_name = app and app.get_name() or ''
+
+        if rapp is not None:
+            m_app = rapp.search(app_name)
+            if m_app is None:
+                continue
+
+        if rwin is not None:
+            m_win = rwin.search(win_name)
+            if m_win is None:
+                continue
+
+        result.append(win)
+
+    return result
+
+
+def raise_window(win):
+    """
+    Switches to right workspace and raises win window.
+    """
+    rw = gtk.gdk.get_default_root_window()
+    wspc = win.get_workspace()
+    if wspc is not None:
+        wspc.activate(gtk.gdk.x11_get_server_time(rw))
+    win.activate(gtk.gdk.x11_get_server_time(rw))

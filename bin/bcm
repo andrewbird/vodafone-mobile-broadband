@@ -1,18 +1,34 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# Copyright (C) 2010-2011  Vodafone España, S.A.
+# Author:  Various
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import os
-from subprocess import Popen, PIPE, call
+from subprocess import Popen, PIPE
 
-import dbus
 import gtk
-from twisted.python.procutils import which
 
 from wader.common.utils import save_file, get_file_data
 
-from wader.bcm.consts import GTK_LOCK, APP_LONG_NAME
+from wader.bcm.consts import GTK_LOCK, APP_LONG_NAME, APP_SLUG_NAME
 from wader.bcm.translate import _
 from wader.bcm.splash import SplashScreen
 from wader.bcm.startup import create_skeleton_and_return
+from wader.bcm.utils import find_windows, raise_window
 
 
 def check_if_running():
@@ -37,17 +53,6 @@ def check_if_running():
         return True
 
     return int(pid) == int(saved_pid)
-
-
-def raise_window():
-    try:
-        wmctrl_path = which('wmctrl')[0]
-    except (KeyError, IndexError):
-        from wader.bcm.dialogs import show_error_dialog
-        show_error_dialog(_("%s is already running") % APP_LONG_NAME,
-            _("Only one instance of %s may be run at a time") % APP_LONG_NAME)
-    else:
-        call(["%s" % wmctrl_path, "-a", "%s" % APP_LONG_NAME])
 
 
 def main():
@@ -93,6 +98,8 @@ def main():
 
 if __name__ == '__main__':
     if check_if_running():
-        raise_window()
+        win_list = find_windows(APP_SLUG_NAME, APP_LONG_NAME)
+        if len(win_list) > 0:
+            raise_window(win_list[0])
     else:
         main()
