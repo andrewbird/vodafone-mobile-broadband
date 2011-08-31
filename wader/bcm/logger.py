@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # Copyright (C) 2008-2009  Warp Networks, S.L.
+# Copyright (C) 2011       Vodafone España, S.A.
 # Author:  Jaime Soriano and Nicholas Herriot
 #
 # This program is free software; you can redistribute it and/or modify
@@ -17,18 +18,20 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import logging
+import logging.handlers
 
 from wader.bcm.consts import APP_SLUG_NAME, LOG_FILE
 
 logger = logging.getLogger(APP_SLUG_NAME)
 
-hdlr = logging.FileHandler(LOG_FILE)
+hdlr = logging.handlers.TimedRotatingFileHandler(LOG_FILE, when='D',
+                                                    interval=1, backupCount=6)
 FORMAT = '%(asctime)s %(levelname)s %(message)s'
 formatter = logging.Formatter(FORMAT)
 
 # OK let's just send all this to stdout if Mr User has been using CLI to start
 # us off!
-logging.basicConfig(format=FORMAT) # log sur console
+logging.basicConfig(format=FORMAT)  # log sur console
 
 # as usual we set our proper log handler which will normally go to ~/.bcm/log
 hdlr.setFormatter(formatter)
