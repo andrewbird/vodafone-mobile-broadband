@@ -53,6 +53,8 @@ from wader.bcm.consts import (GTK_LOCK, GUIDE_DIR, IMAGES_DIR, APP_URL,
                               CFG_PREFS_DEFAULT_TRAY_ICON,
                               CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
                               CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION,
+                              BCM_SIM_AUTH_NONE, BCM_SIM_AUTH_PIN,
+                              BCM_SIM_AUTH_PUK, BCM_SIM_AUTH_PUK2,
                               BCM_MODEM_STATE_NODEVICE,
                               BCM_MODEM_STATE_HAVEDEVICE,
                               BCM_MODEM_STATE_ENABLED,
@@ -89,14 +91,6 @@ from wader.bcm.views.preferences import PreferencesView
 from wader.bcm.models.profile import ProfileModel
 from wader.bcm.views.profile import APNSelectionView
 from wader.bcm.controllers.profile import APNSelectionController
-
-BCM_FAST_LOG = "/tmp/fast-log.output"
-
-
-def nick_debug(s):
-    if 0:
-        with open(BCM_FAST_LOG, 'a', 0) as f:
-            f.write("%s\n" % s)
 
 
 def get_fake_toggle_button():
@@ -223,7 +217,6 @@ class MainController(WidgetController):
         view.show()
 
     def ask_for_new_profile(self):
-        nick_debug("main.py: controller - ask_for_new_profile called")
         logger.info("main.py: controller - ask_for_new_profile called")
 
         def apn_callback(network):
@@ -418,16 +411,15 @@ class MainController(WidgetController):
         title = _("Error while registering to home network")
         show_error_dialog(title, new)
 
-    def property_pin_required_value_change(self, model, old, new):
-        if new:
+    def property_sim_auth_required_value_change(self, model, old, new):
+        if new == BCM_SIM_AUTH_NONE:
+            # XXX: we should check for any of our existing popups and hide them
+            pass
+        elif new == BCM_SIM_AUTH_PIN:
             self.ask_for_pin()
-
-    def property_puk_required_value_change(self, model, old, new):
-        if new:
+        elif new == BCM_SIM_AUTH_PUK:
             self.ask_for_puk()
-
-    def property_puk2_required_value_change(self, model, old, new):
-        if new:
+        elif new == BCM_SIM_AUTH_PUK2:
             self.ask_for_puk2()
 
     def property_profile_required_value_change(self, model, old, new):

@@ -36,6 +36,8 @@ from wader.bcm.models.preferences import PreferencesModel
 from wader.bcm.translate import _
 from wader.bcm.utils import dbus_error_is, get_error_msg
 from wader.bcm.consts import (USAGE_DB, APP_VERSION,
+                                BCM_SIM_AUTH_NONE, BCM_SIM_AUTH_PIN,
+                                BCM_SIM_AUTH_PUK, BCM_SIM_AUTH_PUK2,
                                 BCM_MODEM_STATE_UNKNOWN,
                                 BCM_MODEM_STATE_NODEVICE,
                                 BCM_MODEM_STATE_HAVEDEVICE,
@@ -89,9 +91,7 @@ class MainModel(Model):
         'status': BCM_MODEM_STATE_UNKNOWN,
         'tech': None,
         'msisdn': _('Unknown'),
-        'pin_required': False,
-        'puk_required': False,
-        'puk2_required': False,
+        'sim_auth_required': BCM_SIM_AUTH_NONE,
         'profile_required': False,
         'sim_error': False,
         'net_error': '',
@@ -360,7 +360,7 @@ class MainModel(Model):
                 "main.py: model - Setting up device %s" % self.device_opath)
             self.device = self.bus.get_object(WADER_SERVICE, self.device_opath)
 
-            self.pin_required = self.puk_required = self.puk2_required = False
+            self.sim_auth_required = BCM_SIM_AUTH_NONE
             self.sim_error = False
             self.status = BCM_MODEM_STATE_HAVEDEVICE
 
@@ -393,7 +393,7 @@ class MainModel(Model):
     def _enable_device_cb(self):
         logger.info("main.py: model - Device enabled")
 
-        self.pin_required = self.puk_required = self.puk2_required = False
+        self.sim_auth_required = BCM_SIM_AUTH_NONE
 
         self.init_dial_stats()
 
@@ -408,14 +408,11 @@ class MainModel(Model):
 
     def _enable_device_eb(self, e):
         if dbus_error_is(e, E.SimPinRequired):
-#            self.status = _('SIM locked')
-            self.pin_required = True
+            self.sim_auth_required = BCM_SIM_AUTH_PIN
         elif dbus_error_is(e, E.SimPukRequired):
-#            self.status = _('SIM locked')
-            self.puk_required = True
+            self.sim_auth_required = BCM_SIM_AUTH_PUK
         elif dbus_error_is(e, E.SimPuk2Required):
-#            self.status = _('SIM locked')
-            self.puk2_required = True
+            self.sim_auth_required = BCM_SIM_AUTH_PUK2
         else:
             self.sim_error = get_error_msg(e)
 
@@ -511,12 +508,8 @@ class MainModel(Model):
 
         if ifname == MDM_INTFACE and 'UnlockRequired' in ifprops:
             if not ifprops['UnlockRequired']:
-                if self.pin_required:
-                    self.pin_required = False
-                if self.puk_required:
-                    self.puk_required = False
-                if self.puk2_required:
-                    self.puk2_required = False
+                if self.sim_auth_required != BCM_SIM_AUTH_NONE:
+                    self.sim_auth_required = BCM_SIM_AUTH_NONE
 
                 self.enable_device()
 
@@ -543,14 +536,14 @@ class MainModel(Model):
 
         def _check_pin_status_eb(e):
             if dbus_error_is(e, E.SimPinRequired):
-                self.pin_required = False
-                self.pin_required = True
+                self.sim_auth_required = BCM_SIM_AUTH_NONE
+                self.sim_auth_required = BCM_SIM_AUTH_PIN
             elif dbus_error_is(e, E.SimPukRequired):
-                self.puk_required = False
-                self.puk_required = True
+                self.sim_auth_required = BCM_SIM_AUTH_NONE
+                self.sim_auth_required = BCM_SIM_AUTH_PUK
             elif dbus_error_is(e, E.SimPuk2Required):
-                self.puk2_required = False
-                self.puk2_required = True
+                self.sim_auth_required = BCM_SIM_AUTH_NONE
+                self.sim_auth_required = BCM_SIM_AUTH_PUK2
             else:
                 self.sim_error = get_error_msg(e)
 
@@ -647,10 +640,10 @@ class MainModel(Model):
             eb(enable)
 
             if 'SimPukRequired' in get_error_msg(e):
-                self.puk_required = True
+                self.sim_auth_required = BCM_SIM_AUTH_PUK
 
             if 'SimPuk2Required' in get_error_msg(e):
-                self.puk2_required = True
+                self.sim_auth_required = BCM_SIM_AUTH_PUK2
 
         self.device.EnablePin(pin, enable, dbus_interface=CRD_INTFACE,
                               reply_handler=enable_pin_cb,
@@ -664,10 +657,10 @@ class MainModel(Model):
             eb()
 
             if 'SimPukRequired' in get_error_msg(e):
-                self.puk_required = True
+                self.sim_auth_required = BCM_SIM_AUTH_PUK
 
             if 'SimPuk2Required' in get_error_msg(e):
-                self.puk2_required = True
+                self.sim_auth_required = BCM_SIM_AUTH_PUK2
 
         self.device.ChangePin(oldpin, newpin, dbus_interface=CRD_INTFACE,
                               reply_handler=change_pin_cb,
