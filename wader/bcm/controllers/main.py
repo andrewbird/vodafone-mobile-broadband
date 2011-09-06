@@ -579,7 +579,13 @@ class MainController(WidgetController):
 
         # Populate treeview
         treeview = self.view['inbox_treeview']
-        treeview.get_model().add_message(sms, contacts_list)
+        model = treeview.get_model()
+        model.add_message(sms, contacts_list)
+
+        # Get the path of the new message and scroll to it
+        paths = [str(i) for i, row in enumerate(model) if row[4] is sms]
+        if len(paths):
+            treeview.scroll_to_cell(paths[0])
 
         # Send notification
         title = _("SMS received from %s") % who
