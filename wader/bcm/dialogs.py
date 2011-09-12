@@ -30,6 +30,9 @@ from wader.bcm.consts import (APP_ARTISTS, APP_AUTHORS, APP_DOCUMENTERS,
                              GLADE_DIR, APP_VERSION, APP_NAME, APP_URL)
 from wader.bcm.views.dialogs import QuestionCheckboxOkCancel
 
+DIALOG_WIDTH = 40
+DIALOG_ICON = os.path.join(GLADE_DIR, 'VF_logo.png')
+
 
 def show_uri(uri):
     if not hasattr(gtk, 'show_uri'):
@@ -41,14 +44,11 @@ def show_uri(uri):
 
 def show_about_dialog():
     abt = gtk.AboutDialog()
-    icon = abt.render_icon(gtk.STOCK_ABOUT, gtk.ICON_SIZE_MENU)
-    abt.set_icon(icon)
+    abt.set_icon(gtk.gdk.pixbuf_new_from_file(DIALOG_ICON))
 
     gtk.about_dialog_set_url_hook(lambda abt, url: show_uri(url))
     gtk.about_dialog_set_email_hook(lambda d, e: show_uri("mailto:%s" % e))
 
-    icon = gtk.gdk.pixbuf_new_from_file(os.path.join(GLADE_DIR, 'VF_logo.png'))
-    abt.set_icon(icon)
     if gtk.pygtk_version >= (2, 11, 0):
         abt.set_program_name(APP_NAME)
     else:
@@ -126,8 +126,22 @@ def make_basic_dialog(title, buttons, stock_image):
 
 def show_warning_dialog(title, message):
     buttons = (gtk.STOCK_OK, gtk.RESPONSE_OK)
-    dialog, box = make_basic_dialog(title, buttons, gtk.STOCK_DIALOG_WARNING)
-    box.add(gtk.Label(message))
+    dialog, box = make_basic_dialog("%s - %s" % (APP_NAME, _('Warning')),
+                                    buttons, gtk.STOCK_DIALOG_WARNING)
+    dialog.set_icon(gtk.gdk.pixbuf_new_from_file(DIALOG_ICON))
+
+    titlelable = gtk.Label("<b>%s</b>" % title)
+    titlelable.set_use_markup(True)
+    titlelable.set_line_wrap(False)
+    titlelable.set_justify(gtk.JUSTIFY_LEFT)
+
+    label = gtk.Label(message)
+    label.set_width_chars(max(len(title), DIALOG_WIDTH))
+    label.set_line_wrap(True)
+    label.set_justify(gtk.JUSTIFY_LEFT)
+
+    box.add(titlelable)
+    box.add(label)
     dialog.set_default_response(gtk.RESPONSE_OK)
 
     dialog.show_all()
@@ -138,11 +152,21 @@ def show_warning_dialog(title, message):
 
 def show_error_dialog(title, message):
     buttons = (gtk.STOCK_OK, gtk.RESPONSE_OK)
-    dialog, box = make_basic_dialog(title, buttons, gtk.STOCK_DIALOG_ERROR)
+    dialog, box = make_basic_dialog("%s - %s" % (APP_NAME, _('Error')),
+                                    buttons, gtk.STOCK_DIALOG_ERROR)
+    dialog.set_icon(gtk.gdk.pixbuf_new_from_file(DIALOG_ICON))
+
+    titlelable = gtk.Label("<b>%s</b>" % title)
+    titlelable.set_use_markup(True)
+    titlelable.set_line_wrap(False)
+    titlelable.set_justify(gtk.JUSTIFY_LEFT)
+
     label = gtk.Label(message)
-    label.set_width_chars(80)
+    label.set_width_chars(max(len(title), DIALOG_WIDTH))
     label.set_line_wrap(True)
-    label.set_justify(gtk.JUSTIFY_FILL)
+    label.set_justify(gtk.JUSTIFY_LEFT)
+
+    box.add(titlelable)
     box.add(label)
     dialog.set_default_response(gtk.RESPONSE_OK)
 
