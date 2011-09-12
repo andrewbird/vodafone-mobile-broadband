@@ -37,10 +37,12 @@ class ProfileController(Controller):
         super(ProfileController, self).register_view(view)
 
     def setup_view(self, view):
-        self.view['profile_name_entry'].set_text(self.model.name)
-        self.view['username_entry'].set_text(self.model.username)
-        self.view['apn_entry'].set_text(self.model.apn)
-        self.view['static_dns_check'].set_active(self.model.static_dns)
+        if self.model.name:
+            self.view['profile_name_entry'].set_text(self.model.name)
+        if self.model.username:
+            self.view['username_entry'].set_text(self.model.username)
+        if self.model.apn:
+            self.view['apn_entry'].set_text(self.model.apn)
         if self.model.primary_dns:
             dns1 = convert_int_to_ip(self.model.primary_dns)
             self.view['primary_dns_entry'].set_text(dns1)
@@ -49,12 +51,15 @@ class ProfileController(Controller):
             self.view['secondary_dns_entry'].set_text(dns2)
 
         if self.model.static_dns:
+            self.view['static_dns_check'].set_active(self.model.static_dns)
             self.view.enable_static_dns()
+        else:
+            self.view['static_dns_check'].set_active(False)
 
         if not self.model.password:
 
             def load_secrets(secrets):
-                self.model.password = secrets['gsm']['passwd']
+                self.model.password = secrets['gsm'].get('passwd', '')
                 self.view['password_entry'].set_text(self.model.password)
 
             try:
@@ -69,7 +74,8 @@ class ProfileController(Controller):
 
         self.view['password_entry'].set_text(self.model.password)
 
-        self.view.set_auths(self.model.auth)
+        if self.model.auth is not None:
+            self.view.set_auths(self.model.auth)
 
         def bands_callback(bands):
             self.view.set_bands(bands, self.model.band)
