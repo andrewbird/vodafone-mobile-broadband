@@ -58,12 +58,6 @@ from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
                                  MM_GSM_ACCESS_TECH_GSM_COMPAT,
                                  MM_GSM_ACCESS_TECH_GPRS,
                                  MM_GSM_ACCESS_TECH_EDGE,
-                                 MM_GSM_ACCESS_TECH_UMTS,
-                                 MM_GSM_ACCESS_TECH_HSDPA,
-                                 MM_GSM_ACCESS_TECH_HSUPA,
-                                 MM_GSM_ACCESS_TECH_HSPA,
-                                 MM_GSM_ACCESS_TECH_HSPA_PLUS,
-                                 MM_GSM_ACCESS_TECH_LTE,
                                  APP_VERSION as CORE_VERSION)
 import wader.common.aterrors as E
 import wader.common.signals as S
@@ -516,24 +510,13 @@ class MainModel(Model):
         self.rssi = rssi
 
     def on_mm_props_change_cb(self, ifname, ifprops):
-        mapped = {
-            MM_GSM_ACCESS_TECH_GPRS: _('GPRS'),
-            MM_GSM_ACCESS_TECH_EDGE: _('EDGE'),
-            MM_GSM_ACCESS_TECH_UMTS: _('UMTS'),
-            MM_GSM_ACCESS_TECH_HSDPA: _('HSDPA'),
-            MM_GSM_ACCESS_TECH_HSUPA: _('HSUPA'),
-            MM_GSM_ACCESS_TECH_HSPA: _('HSPA'),
-            MM_GSM_ACCESS_TECH_HSPA_PLUS: _('HSPA+'),
-            MM_GSM_ACCESS_TECH_LTE: _('LTE'),
-        }
-
         if ifname == NET_INTFACE and 'AccessTechnology' in ifprops:
-            tech = mapped.get(ifprops['AccessTechnology'], _('N/A'))
+            tech = ifprops['AccessTechnology']
             if self.tech != tech:
                 logger.info("AccessTechnology changed %s", tech)
             self.tech = tech
 
-            is_3g_bearer = ifprops['AccessTechnology'] not in TWOG_TECH
+            is_3g_bearer = self.tech not in TWOG_TECH
 
             # maybe write a Usage DB segment
             if self.is_connected():

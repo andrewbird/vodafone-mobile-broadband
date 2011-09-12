@@ -112,7 +112,7 @@ class MainController(WidgetController):
 
         self.signal_matches = []
 
-        self.apb = None # activity progress bar
+        self.apb = None  # activity progress bar
         self.tray = None
         # ignore cancelled connection attempts errors
         self._ignore_no_reply = False
@@ -280,11 +280,63 @@ class MainController(WidgetController):
         return True
 
     # properties
-    def property_rssi_value_change(self, model, old, new):
-        self.view.rssi_changed(new)
+    def property_status_value_change(self, model, old, new):
+        logger.info("main-controller: property_status_value_change %s" % new)
+        self.view.set_status_line(self.model.status,
+                                     self.model.registration,
+                                     self.model.tech,
+                                     self.model.operator,
+                                     self.model.rssi)
+
+        self.view.set_view_state(new)
+
+        if old < BCM_MODEM_STATE_ENABLED and new >= BCM_MODEM_STATE_ENABLED:
+            self.refresh_treeviews()
+
+            def imsi_cb(imsi):
+                self.view.set_customer_support_text(
+                    self._generate_customer_support_text(imsi))
+
+            self.model.get_imsi(imsi_cb)
+
+        if old < BCM_MODEM_STATE_CONNECTED and \
+                new >= BCM_MODEM_STATE_CONNECTED:
+            self.model.start_stats_tracking()
+            self.view.set_connection_time("0:00:00")
+            timeout_add_seconds(1, self.update_connection_time)
+
+        if old > BCM_MODEM_STATE_REGISTERED and \
+                new <= BCM_MODEM_STATE_REGISTERED:
+            self.model.stop_stats_tracking()
+            self.model.dial_path = None
 
     def property_registration_value_change(self, model, old, new):
-        self.view.registration_changed(new)
+        self.view.set_status_line(self.model.status,
+                                     self.model.registration,
+                                     self.model.tech,
+                                     self.model.operator,
+                                     self.model.rssi)
+
+    def property_tech_value_change(self, model, old, new):
+        self.view.set_status_line(self.model.status,
+                                     self.model.registration,
+                                     self.model.tech,
+                                     self.model.operator,
+                                     self.model.rssi)
+
+    def property_operator_value_change(self, model, old, new):
+        self.view.set_status_line(self.model.status,
+                                     self.model.registration,
+                                     self.model.tech,
+                                     self.model.operator,
+                                     self.model.rssi)
+
+    def property_rssi_value_change(self, model, old, new):
+        self.view.set_status_line(self.model.status,
+                                     self.model.registration,
+                                     self.model.tech,
+                                     self.model.operator,
+                                     self.model.rssi)
 
     def on_net_password_required(self, opath, tag):
         password = ask_password_dialog(self.view)
@@ -326,22 +378,6 @@ class MainController(WidgetController):
                     uuid = profile.get_settings()['connection']['uuid']
                     callback(profile.secrets.manager.get_secrets(uuid))
 
-    def property_operator_value_change(self, model, old, new):
-        if new == _('Unknown Network'):
-            logger.error("Unknown operator received, using profile name...")
-            profiles_model = self.model.profiles_model
-            try:
-                profile = profiles_model.get_active_profile()
-            except RuntimeError:
-                self.view.operator_changed(new)
-            else:
-                self.view.operator_changed(profile.name)
-        else:
-            self.view.operator_changed(new)
-
-    def property_tech_value_change(self, model, old, new):
-        self.view.tech_changed(new)
-
     def property_device_value_change(self, model, old, new):
         if self.model.device is not None:
             sm = self.model.device.connect_to_signal("DeviceEnabled",
@@ -370,30 +406,6 @@ class MainController(WidgetController):
 
     def property_profile_value_change(self, model, old, new):
         logger.info("A profile has been set for current model %s" % new)
-
-    def property_status_value_change(self, model, old, new):
-        logger.info("main-controller: property_status_value_change %s" % new)
-        self.view.set_view_state(new)
-
-        if old < BCM_MODEM_STATE_ENABLED and new >= BCM_MODEM_STATE_ENABLED:
-            self.refresh_treeviews()
-
-            def imsi_cb(imsi):
-                self.view.set_customer_support_text(
-                    self._generate_customer_support_text(imsi))
-
-            self.model.get_imsi(imsi_cb)
-
-        if old < BCM_MODEM_STATE_CONNECTED and \
-                new >= BCM_MODEM_STATE_CONNECTED:
-            self.model.start_stats_tracking()
-            self.view.set_connection_time("0:00:00")
-            timeout_add_seconds(1, self.update_connection_time)
-
-        if old > BCM_MODEM_STATE_REGISTERED and \
-                new <= BCM_MODEM_STATE_REGISTERED:
-            self.model.stop_stats_tracking()
-            self.model.dial_path = None
 
     def property_sim_error_value_change(self, model, old, new):
         if not new:
@@ -864,14 +876,14 @@ The csv file that you have tried to import has an invalid format.""")
         view.show()
 
     def on_new_contact_menu_item_activate(self, widget):
-        self.view['main_notebook'].set_current_page(3) # contacts_tv
+        self.view['main_notebook'].set_current_page(3)  # contacts_tv
         ctrl = AddContactController(self.model, self._add_new_contact_cb)
         view = AddContactView(ctrl)
         view.set_parent_view(self.view)
         view.show()
 
     def on_search_contact_menu_item_activate(self, widget):
-        self.view['main_notebook'].set_current_page(3) # contacts_tv
+        self.view['main_notebook'].set_current_page(3)  # contacts_tv
         ctrl = SearchContactController(self.model, self)
         view = SearchContactView(ctrl)
         view.set_parent_view(self.view)
@@ -1157,7 +1169,7 @@ The csv file that you have tried to import has an invalid format.""")
         for sms in messages:
             active_tv = TV_DICT[sms.where]         # get treeview name
             treeview = self.view[active_tv]        # get treeview object
-            treeview.get_model().add_message(sms, contacts) # append to tv
+            treeview.get_model().add_message(sms, contacts)  # append to tv
 
     def update_message_contact_info(self):
         """
@@ -1250,7 +1262,7 @@ The csv file that you have tried to import has an invalid format.""")
                     get_contacts = self.get_generic_popup_menu
                 menu = get_contacts(pathlist, treeview)
                 menu.popup(None, None, None, event.button, event.time)
-                return True # selection is not lost
+                return True  # selection is not lost
 
     def _get_current_message_text(self, treeview):
         path = treeview.get_cursor()[0]
@@ -1342,12 +1354,12 @@ The csv file that you have tried to import has an invalid format.""")
                 win.present()
         else:
             eventbox, event = args
-            if event.button == 1: # left click
+            if event.button == 1:  # left click
                 if win.get_property('visible'):
                     win.hide()
                 else:
                     win.present()
-            elif event.button == 3: # right click
+            elif event.button == 3:  # right click
                 self.on_icon_popup_menu(None, event.button, event.time)
 
     def _row_activated_tv(self, treeview, path, col):
@@ -1409,7 +1421,7 @@ The csv file that you have tried to import has an invalid format.""")
             pos = 4
             objs = [model.get_value(_iter, pos) for _iter in iters]
 
-        if not (len(objs) and iters): # maybe we filtered out everything
+        if not (len(objs) and iters):  # maybe we filtered out everything
             return
 
         if treeview.name == 'contacts_treeview':
@@ -1425,11 +1437,11 @@ The csv file that you have tried to import has an invalid format.""")
         _inxt = None
         for _iter in iters:
             _inxt = model.iter_next(_iter)
-            model.remove(_iter) # delete from treeview
+            model.remove(_iter)  # delete from treeview
         if _inxt:
-            treeview.get_selection().select_iter(_inxt) # select next item
+            treeview.get_selection().select_iter(_inxt)  # select next item
         else:
-            n_rows = len(model)                         # select last item
+            n_rows = len(model)                          # select last item
             if n_rows:
                 _inxt = model[n_rows - 1].iter
                 treeview.get_selection().select_iter(_inxt)
@@ -1471,7 +1483,7 @@ The csv file that you have tried to import has an invalid format.""")
 
     def get_generic_popup_menu(self, pathinfo, treeview):
         """Returns a popup menu for the rest of treeviews"""
-        menu = gtk.Menu() # main menu
+        menu = gtk.Menu()  # main menu
 
         item = gtk.ImageMenuItem(_("_Add to contacts"))
         img = gtk.image_new_from_stock(gtk.STOCK_ADD, gtk.ICON_SIZE_MENU)

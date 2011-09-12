@@ -53,6 +53,17 @@ from wader.bcm.models.contacts import ContactsStoreModel
 from wader.bcm.consts import (CFG_PREFS_DEFAULT_USAGE_USER_LIMIT,
                               CFG_PREFS_DEFAULT_USAGE_MAX_VALUE)
 
+from wader.common.consts import (MM_GSM_ACCESS_TECH_UNKNOWN,
+                                 MM_GSM_ACCESS_TECH_GSM,
+                                 MM_GSM_ACCESS_TECH_GSM_COMPAT,
+                                 MM_GSM_ACCESS_TECH_GPRS,
+                                 MM_GSM_ACCESS_TECH_EDGE,
+                                 MM_GSM_ACCESS_TECH_UMTS,
+                                 MM_GSM_ACCESS_TECH_HSDPA,
+                                 MM_GSM_ACCESS_TECH_HSUPA,
+                                 MM_GSM_ACCESS_TECH_HSPA,
+                                 MM_GSM_ACCESS_TECH_HSPA_PLUS,
+                                 MM_GSM_ACCESS_TECH_LTE)
 
 WIDGETS_TO_SHOW = ['change_pin1', 'request_pin1',
                    'import_contacts1', 'export_contacts1', 'new_menu_item',
@@ -122,6 +133,7 @@ class MainView(View):
         window.set_size_request(width=WIN_WIDTH, height=height)
         self._setup_support_tabs()
         self._setup_usage_view()
+        self.set_status_line(BCM_MODEM_STATE_NODEVICE, None, None, None, None)
         self.set_view_state(BCM_MODEM_STATE_NODEVICE)
 
     def theme_ui(self):
@@ -214,7 +226,7 @@ class MainView(View):
             f = float(_bytes)
             for m in ['B', 'KiB', 'MiB', 'GiB']:
                 if f < 1000:
-                    if _bytes < 1000: #  don't show fraction of bytes
+                    if _bytes < 1000:  # don't show fraction of bytes
                         return "%3.0f %s" % (f, m)
                     else:
                         return "%3.2f %s" % (f, m)
@@ -254,9 +266,117 @@ class MainView(View):
     def set_name(self, name=APP_LONG_NAME):
         self.get_top_widget().set_title(name)
 
+    def set_status_line(self, state, registration, tech, operator, rssi):
+
+        def set_image(filename):
+            try:
+                self['signal_image'].set_from_file(
+                                        os.path.join(IMAGES_DIR, filename))
+            except AttributeError:
+                pass  # Probably we are being destroyed
+
+        def set_cell_type(name=None):
+            try:
+                if name:
+                    self['cell_type_label'].set_text(name)
+                    self['cell_type_label'].show()
+                else:
+                    self['cell_type_label'].hide()
+            except AttributeError:
+                pass
+
+        def set_network_name(name=None):
+            try:
+                if name:
+                    self['network_name_label'].set_text(name)
+                    self['network_name_label'].show()
+                else:
+                    self['network_name_label'].hide()
+            except AttributeError:
+                pass
+
+        def set_roaming_indicator(show=False):
+            try:
+                if show:
+                    self['roaming_image'].show()
+                else:
+                    self['roaming_image'].hide()
+            except AttributeError:
+                pass
+
+        def get_signal_image_name(_type, rssi):
+            if rssi < 10 or rssi > 100:
+                value = 0
+            elif rssi < 25:
+                value = 25
+            elif rssi < 50:
+                value = 50
+            elif rssi < 75:
+                value = 75
+            elif rssi <= 100:
+                value = 100
+            return 'signal-%s-%d.png' % (_type, value)
+
+        if state >= BCM_MODEM_STATE_REGISTERED:
+            # construct the signal image, bearer, network, roaming state
+
+            # Image
+            if tech == MM_GSM_ACCESS_TECH_UNKNOWN:
+                set_image('radio-off.png')
+            elif tech <= MM_GSM_ACCESS_TECH_EDGE:
+                set_image(get_signal_image_name('gprs', rssi))
+            elif tech <= MM_GSM_ACCESS_TECH_HSPA_PLUS:
+                set_image(get_signal_image_name('umts', rssi))
+            else:
+                set_image(get_signal_image_name('lte', rssi))
+
+            # Bearer
+            tech_names = {
+                MM_GSM_ACCESS_TECH_GSM: _('GSM'),
+                MM_GSM_ACCESS_TECH_GSM_COMPAT: _('GSM_COMPAT'),
+                MM_GSM_ACCESS_TECH_GPRS: _('GPRS'),
+                MM_GSM_ACCESS_TECH_EDGE: _('EDGE'),
+                MM_GSM_ACCESS_TECH_UMTS: _('UMTS'),
+                MM_GSM_ACCESS_TECH_HSDPA: _('HSDPA'),
+                MM_GSM_ACCESS_TECH_HSUPA: _('HSUPA'),
+                MM_GSM_ACCESS_TECH_HSPA: _('HSPA'),
+                MM_GSM_ACCESS_TECH_HSPA_PLUS: _('HSPA+'),
+                MM_GSM_ACCESS_TECH_LTE: _('LTE'),
+            }
+            set_cell_type(tech_names.get(tech, _('Unknown')))
+
+            # Operator
+            set_network_name(operator)
+
+            # Roaming
+            set_roaming_indicator(registration == 5)
+        else:
+            # Image
+            if state <= BCM_MODEM_STATE_NODEVICE:
+                set_image('nodevice.png')
+            elif state in [BCM_MODEM_STATE_HAVEDEVICE,
+                           BCM_MODEM_STATE_DISABLED,
+                           BCM_MODEM_STATE_UNLOCKED,
+                           BCM_MODEM_STATE_ENABLED]:
+                set_image('device.png')
+            elif state == BCM_MODEM_STATE_LOCKED:
+                set_image('simlocked.png')
+            elif state in [BCM_MODEM_STATE_UNLOCKING,
+                           BCM_MODEM_STATE_ENABLING,
+                           BCM_MODEM_STATE_DISABLING,
+                           BCM_MODEM_STATE_SEARCHING]:
+                set_image('throbber.gif')
+
+            # Bearer
+            set_cell_type(None)
+
+            # Operator
+            set_network_name(None)
+
+            # Roaming
+            set_roaming_indicator(False)
+
     def set_view_state(self, state):
-        # XXX: Currently doesn't handle
-        #      BCM_MODEM_STATE_UNKNOWN,
 
         def set_button():
             if state < BCM_MODEM_STATE_REGISTERED:
@@ -289,32 +409,27 @@ class MainView(View):
                 obj.set_label(label)
                 obj.set_sensitive(enabled)
 
-        def set_disabled():
-            self['change_pin1'].set_sensitive(False)
-            self['request_pin1'].set_sensitive(False)
-            self['import_contacts1'].set_sensitive(False)
-            self['topup_tool_button'].set_sensitive(False)
-            self['profiles_menu_item'].set_sensitive(False)
-
-        def set_authenticated():
-            self['change_pin1'].set_sensitive(True)
-            self['request_pin1'].set_sensitive(True)
-            self['import_contacts1'].set_sensitive(True)
-            self['profiles_menu_item'].set_sensitive(True)
-            self['topup_tool_button'].set_sensitive(True)
-
-        def set_registered():
-            pass
-
-        def set_bar_text_image(text, image=None):
-            self['net_statusbar'].push(1, text)
-            if image is not None:
-                self['signal_image'].set_from_file(
-                                        os.path.join(IMAGES_DIR, image))
-
-        is_connected = False
+        def set_status_bar():
+            state_names = {
+                BCM_MODEM_STATE_HAVEDEVICE: _('Device found'),
+                BCM_MODEM_STATE_DISABLED: _('Disabled'),
+                BCM_MODEM_STATE_LOCKED: _('SIM locked'),
+                BCM_MODEM_STATE_UNLOCKING: _('Authenticating'),
+                BCM_MODEM_STATE_UNLOCKED: _('Authenticated'),
+                BCM_MODEM_STATE_ENABLING: _('Enabling'),
+                BCM_MODEM_STATE_DISABLING: _('Disabling'),
+                BCM_MODEM_STATE_ENABLED: _('Enabled'),
+                BCM_MODEM_STATE_SEARCHING: _('Searching'),
+                BCM_MODEM_STATE_REGISTERED: _('Not connected'),
+                BCM_MODEM_STATE_CONNECTING: _('Connecting'),
+                BCM_MODEM_STATE_DISCONNECTING: _('Disconnecting'),
+                BCM_MODEM_STATE_CONNECTED: _('Connected'),
+            }
+            self['net_statusbar'].push(1,
+                                    state_names.get(state, _('No device')))
 
         try:
+            # Enable checkitem
             if state < BCM_MODEM_STATE_HAVEDEVICE:
                 self['enable_modem'].set_active(False)
                 self['enable_modem'].set_sensitive(False)
@@ -325,92 +440,26 @@ class MainView(View):
                 self['enable_modem'].set_active(True)
                 self['enable_modem'].set_sensitive(True)
 
-            if state == BCM_MODEM_STATE_NODEVICE:
-                set_button()
-                set_disabled()
-                set_bar_text_image(_('No device'), 'nodevice.png')
-
-            elif state == BCM_MODEM_STATE_HAVEDEVICE:
-                set_button()
-                set_disabled()
-                set_bar_text_image(_('Device found'), 'device.png')
-
-            elif state == BCM_MODEM_STATE_DISABLED:
-                set_button()
-                set_disabled()
-                set_bar_text_image(_('Disabled'), 'device.png')
-
-            elif state == BCM_MODEM_STATE_LOCKED:
-                set_button()
-                set_disabled()
-                set_bar_text_image(_('SIM locked'), 'simlocked.png')
-
-            elif state == BCM_MODEM_STATE_UNLOCKING:
-                set_button()
-                set_disabled()
-                set_bar_text_image(_('Authenticating'), 'throbber.gif')
-
-            elif state == BCM_MODEM_STATE_UNLOCKED:
-                set_button()
-                set_disabled()
-                set_bar_text_image(_('Authenticated'), 'device.gif')
-
-            elif state == BCM_MODEM_STATE_ENABLING:
-                set_button()
-                set_disabled()
-                set_bar_text_image(_('Enabling'), 'throbber.gif')
-
-            elif state == BCM_MODEM_STATE_DISABLING:
-                set_button()
-                set_disabled()
-                set_bar_text_image(_('Disabling'), 'throbber.gif')
-
-            elif state == BCM_MODEM_STATE_ENABLED:
-                set_button()
-                set_disabled()
-                set_authenticated()
-                set_bar_text_image(_('Enabled'), 'device.gif')
-
-            elif state == BCM_MODEM_STATE_SEARCHING:
-                set_button()
-                set_disabled()
-                set_authenticated()
-                set_bar_text_image(_('Searching'), 'throbber.gif')
-
-            elif state == BCM_MODEM_STATE_REGISTERED:  # AKA Disconnected
-                set_button()
-                set_disabled()
-                set_authenticated()
-                set_registered()
-                set_bar_text_image(_('Not connected'))
-
-            elif state == BCM_MODEM_STATE_DISCONNECTING:
-                set_button()
-                set_disabled()
-                set_authenticated()
-                set_registered()
-                set_bar_text_image(_('Disconnecting'))
-
-            elif state == BCM_MODEM_STATE_CONNECTING:
-                set_button()
-                set_disabled()
-                set_authenticated()
-                set_registered()
-                set_bar_text_image(_('Connecting'))
-
-            elif state == BCM_MODEM_STATE_CONNECTED:
-                set_button()
-                set_disabled()
-                set_authenticated()
-                set_registered()
-                set_bar_text_image(_('Connected'))
-                is_connected = True
-
+            # Most items that need to switch on once device is enabled
+            if state < BCM_MODEM_STATE_ENABLED:
+                self['change_pin1'].set_sensitive(False)
+                self['request_pin1'].set_sensitive(False)
+                self['import_contacts1'].set_sensitive(False)
+                self['topup_tool_button'].set_sensitive(False)
+                self['profiles_menu_item'].set_sensitive(False)
             else:
-                set_bar_text_image(str(state))
+                self['change_pin1'].set_sensitive(True)
+                self['request_pin1'].set_sensitive(True)
+                self['import_contacts1'].set_sensitive(True)
+                self['topup_tool_button'].set_sensitive(True)
+                self['profiles_menu_item'].set_sensitive(True)
 
-            self.show_statistics(is_connected)
-            self.show_current_session(is_connected)
+            set_button()
+
+            set_status_bar()
+
+            self.show_statistics(state == BCM_MODEM_STATE_CONNECTED)
+            self.show_current_session(state == BCM_MODEM_STATE_CONNECTED)
 
         except AttributeError:
             pass  # Probably we are being destroyed
@@ -469,7 +518,7 @@ class MainView(View):
                 column.set_sort_column_id(col_editable)
                 treeview.append_column(column)
 
-            else: # inbox_tv sent_tv drafts_tv sent_tv
+            else:  # inbox_tv sent_tv drafts_tv sent_tv
                 cell = gtk.CellRendererPixbuf()
                 column = gtk.TreeViewColumn(_("Type"))
                 column.pack_start(cell)
@@ -544,67 +593,6 @@ class MainView(View):
         else:
             self['smsbody_textview'].get_buffer().set_text(content)
             self['sms_message_pane'].show()
-
-    def _get_signal_icon(self, rssi):
-        if rssi < 10 or rssi > 100:
-            return 0
-
-        elif rssi < 25:
-            return 25
-
-        elif rssi < 50:
-            return 50
-
-        elif rssi < 75:
-            return 75
-
-        elif rssi <= 100:
-            return 100
-
-    def update_signal_bearer(self, newsignal=None, newmode=None):
-        if newsignal is None and newmode is None:
-            self['cell_type_label'].set_text('')
-            return
-
-        if newsignal:
-            self.signal = self._get_signal_icon(newsignal)
-
-        if newmode:
-            if newmode in [_('N/A'), _('Radio Disabled')]:
-                pass
-            elif newmode in [_('GPRS'), _('EDGE')]:
-                self.bearer = 'gprs'
-            else:
-                self.bearer = 'umts'
-
-            obj = self['cell_type_label']
-            if obj:
-                obj.set_text(newmode)
-
-        if self.signal == -1:
-            image = 'radio-off.png'
-        else:
-            image = 'signal-%s-%d.png' % (self.bearer, self.signal)
-
-        obj = self['signal_image']
-        if obj:
-            obj.set_from_file(os.path.join(IMAGES_DIR, image))
-
-    def rssi_changed(self, new_rssi):
-        self.update_signal_bearer(newsignal=new_rssi)
-
-    def registration_changed(self, reg):
-        if reg == 5:
-            self['roaming_image'].show()
-        else:
-            self['roaming_image'].hide()
-
-    def tech_changed(self, new_tech):
-        self.update_signal_bearer(newmode=new_tech)
-
-    def operator_changed(self, new_operator):
-        what = '' if new_operator in ['0', None] else new_operator
-        self['network_name_label'].set_text(what)
 
     def start_throbber(self):
         pass
