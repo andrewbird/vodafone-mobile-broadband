@@ -33,6 +33,8 @@ from wader.bcm.consts import (GLADE_DIR, VM_NETWORK_AUTH_ANY,
                               BAND_MAP, MODE_MAP, AUTH_MAP)
 from wader.bcm.translate import _
 
+DIALOG_ICON = gtk.gdk.pixbuf_new_from_file(join(GLADE_DIR, 'VF_logo.png'))
+
 
 class ProfileView(View):
 
@@ -42,12 +44,11 @@ class ProfileView(View):
     def __init__(self, ctrl):
         super(ProfileView, self).__init__(ctrl, self.GLADE_FILE,
                                           'new_profile_window', domain='bcm')
+        self.get_top_widget().set_icon(DIALOG_ICON)
 
         ctrl.setup_view(self)
         self['PROimage'].set_from_file(self.IMAGE_FILE)
         self['static_dns_check'].connect('toggled', self.on_static_dns_toggled)
-        icon = gtk.gdk.pixbuf_new_from_file(join(GLADE_DIR, 'VF_logo.png'))
-        self.get_top_widget().set_icon(icon)
 
     def _set_combo(self, combo, model, current):
         self[combo].set_model(model)
@@ -113,6 +114,8 @@ class APNSelectionView(View):
         super(APNSelectionView, self).__init__(ctrl, self.GLADE_FILE,
                                                'apn_selection_window',
                                                register=False, domain='bcm')
+        self.get_top_widget().set_icon(DIALOG_ICON)
+
         self.store = None
         self._view = None
         self.setup_view()
