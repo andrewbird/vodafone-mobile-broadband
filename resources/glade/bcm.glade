@@ -601,6 +601,7 @@
                           <widget class="GtkScrolledWindow" id="scrolledwindow1">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
+                            <property name="hscrollbar_policy">automatic</property>
                             <property name="shadow_type">in</property>
                             <child>
                               <widget class="GtkTreeView" id="inbox_treeview">
@@ -631,6 +632,7 @@
                           <widget class="GtkScrolledWindow" id="scrolledwindow2">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
+                            <property name="hscrollbar_policy">automatic</property>
                             <property name="shadow_type">in</property>
                             <child>
                               <widget class="GtkTreeView" id="drafts_treeview">
@@ -661,6 +663,7 @@
                           <widget class="GtkScrolledWindow" id="scrolledwindow4">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
+                            <property name="hscrollbar_policy">automatic</property>
                             <property name="shadow_type">in</property>
                             <child>
                               <widget class="GtkTreeView" id="sent_treeview">
@@ -691,6 +694,7 @@
                           <widget class="GtkScrolledWindow" id="scrolledwindow5">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
+                            <property name="hscrollbar_policy">automatic</property>
                             <property name="shadow_type">in</property>
                             <child>
                               <widget class="GtkTreeView" id="contacts_treeview">
@@ -732,6 +736,7 @@
                               <widget class="GtkScrolledWindow" id="scrolledwindow8">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
+                                <property name="hscrollbar_policy">automatic</property>
                                 <property name="shadow_type">in</property>
                                 <child>
                                   <widget class="GtkTextView" id="smsbody_textview">

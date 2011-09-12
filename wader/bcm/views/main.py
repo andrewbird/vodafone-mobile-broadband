@@ -72,7 +72,7 @@ WIDGETS_TO_SHOW = ['change_pin1', 'request_pin1',
                    'imagemenuitem3', 'preferences_menu_item']
 WIDGETS_TO_HIDE = WIDGETS_TO_SHOW + ['connect_button']
 
-WIN_WIDTH = 600
+WIN_WIDTH = 625
 WIN_HEIGHT = 500
 
 SMS_TEXT_TV_WIDTH = 220
