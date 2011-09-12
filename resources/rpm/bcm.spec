@@ -27,8 +27,8 @@ Requires:       dbus-python, pytz, python-zope-interface
 Requires:       gnome-python2-gnome, gnome-python2-gnomekeyring, gnome-python2-gconf, pygtk2, pygtk2-libglade, gnome-python2-libwnck
 %endif
 
-BuildRequires:  wader-core >= 0.5.6, python-imaging, gettext
-Requires:       python >= 2.5, wader-core >= 0.5.6, python-messaging >= 0.5.10
+BuildRequires:  wader-core >= 0.5.7, python-imaging, gettext
+Requires:       python >= 2.5, wader-core >= 0.5.7, python-messaging >= 0.5.10
 
 %description
 Betavine Connection Manager is a tool that manages 3G devices and mobile phones,
@@ -99,5 +99,7 @@ ln -s %{python_sitelib}/wader/common wader/.
 %doc README
 
 %changelog
+* Sun Sep 11 2011 Andrew Bird <ajb@spheresystems.co.uk> 2.99.14
+- 0.5.6 New Release
 * Tue Jun 07 2011 Andrew Bird <ajb@spheresystems.co.uk> 2.99.13
 - 0.5.6 Create Spec file
