@@ -838,12 +838,9 @@ The csv file that you have tried to import has an invalid format.""")
             logger.info("Disconnecting...")
 
             if self.model.dial_path:  # created by us
-                self.apb = ActivityProgressBar(_("Disconnecting"), self,
-                                                         disable_cancel=True)
                 dialmanager.DeactivateConnection(self.model.dial_path,
                                         reply_handler=self._on_disconnect_cb,
                                         error_handler=self._on_disconnect_eb)
-                self.apb.init()
                 self.model.dial_path = None
             else:
                 title = _("Invalid Connection")
