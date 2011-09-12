@@ -556,6 +556,7 @@ class MainView(View):
                 treeview.append_column(column)
 
                 cell = gtk.CellRendererText()
+                cell.set_property('xalign', 1.0)
                 column = gtk.TreeViewColumn(_("Date"), cell, text=col_smsdate)
                 column.set_resizable(True)
                 column.set_sort_column_id(col_smsdate)
