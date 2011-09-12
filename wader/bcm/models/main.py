@@ -128,7 +128,8 @@ class MainModel(Model):
         self.ctrl = None
         # stats stuff
         self.is_3g_bearer = True  # we assume 3G
-        self.previous_bytes = 0
+        self.prev_rx_bytes = 0
+        self.prev_tx_bytes = 0
         self.start_time = None
         self.stop_time = None
         self.rx_bytes = self.tx_bytes = 0
@@ -719,6 +720,12 @@ class MainModel(Model):
         self.current_session_2g = 0
         self.current_session_total = 0
 
+    def txfr_current_summed_to_month_to_date(self):
+        self._month_to_date_3g = self.current_summed_3g
+        self._month_to_date_2g = self.current_summed_2g
+        self.zero_current_session()
+        self.calc_current_summed()
+
     def populate_last_month(self):
         self.last_month_name = self.get_month(-1)
         self.last_month_3g, self.last_month_2g = self.calc_month(-1)
@@ -733,8 +740,8 @@ class MainModel(Model):
     def init_dial_stats(self):
         self.rx_bytes = self.tx_bytes = self.rx_rate = self.tx_rate = 0
 
-        # to calc the delta
-        self.previous_bytes = 0
+        # to calc the delta (keep both just in case we need them)
+        self.prev_rx_bytes = self.prev_tx_bytes = 0
 
         # the last values written to DB
         self._last_time = self.start_time
@@ -765,13 +772,23 @@ class MainModel(Model):
         self._last_tx = self.tx_bytes
 
     def on_dial_stats(self, stats):
-        self.rx_bytes, self.tx_bytes = stats[:2]
+        rx_bytes, tx_bytes = stats[:2]
         self.rx_rate, self.tx_rate = stats[2:]
 
-        # calc the delta and update for next time
-        total_bytes = self.rx_bytes + self.tx_bytes
-        dx_bytes = total_bytes - self.previous_bytes
-        self.previous_bytes = total_bytes
+        # sanitise txfr values - they have been known to go backwards :-)
+        if rx_bytes > self.rx_bytes:
+            self.rx_bytes = rx_bytes
+        if tx_bytes > self.tx_bytes:
+            self.tx_bytes = tx_bytes
+
+        # calc the deltas and update for next time
+        dx_rx_bytes = self.rx_bytes - self.prev_rx_bytes
+        self.prev_rx_bytes = self.rx_bytes
+        dx_tx_bytes = self.tx_bytes - self.prev_tx_bytes
+        self.prev_tx_bytes = self.tx_bytes
+
+        # total traffic
+        dx_bytes = dx_rx_bytes + dx_tx_bytes
 
         # calc current session
         if self.is_3g_bearer:
@@ -814,8 +831,7 @@ class MainModel(Model):
             self.stats_sm = None
 
         self.write_dial_stats()
-
-        self.zero_current_session()
+        self.txfr_current_summed_to_month_to_date()
 
     def get_connection_time(self):
         return datetime.datetime.utcnow() - self.start_time
