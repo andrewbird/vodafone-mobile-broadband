@@ -446,12 +446,18 @@ class MainView(View):
                 self['request_pin1'].set_sensitive(False)
                 self['import_contacts1'].set_sensitive(False)
                 self['topup_tool_button'].set_sensitive(False)
-                self['profiles_menu_item'].set_sensitive(False)
             else:
                 self['change_pin1'].set_sensitive(True)
                 self['request_pin1'].set_sensitive(True)
                 self['import_contacts1'].set_sensitive(True)
                 self['topup_tool_button'].set_sensitive(True)
+
+            # But we also don't want to tempt the user to try changing
+            # profile whilst connected
+            if state < BCM_MODEM_STATE_ENABLED or \
+                    state > BCM_MODEM_STATE_REGISTERED:
+                self['profiles_menu_item'].set_sensitive(False)
+            else:
                 self['profiles_menu_item'].set_sensitive(True)
 
             set_button()
