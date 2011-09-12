@@ -24,6 +24,8 @@ from wader.bcm.contrib.gtkmvc import Controller
 from wader.common.consts import CRD_INTFACE, MDM_INTFACE
 from wader.common.provider import NetworkProvider
 from wader.bcm.logger import logger
+from wader.bcm.consts import (BCM_VIEW_DISABLED, BCM_VIEW_IDLE, BCM_VIEW_BUSY,
+                              BCM_MODEM_STATE_REGISTERED)
 
 
 class DiagnosticsController(Controller):
@@ -32,6 +34,7 @@ class DiagnosticsController(Controller):
     def __init__(self, model, parent_ctrl):
         super(DiagnosticsController, self).__init__(model)
         self.parent_ctrl = parent_ctrl
+        self.ussd_busy = False
 
     def register_view(self, view):
         """
@@ -48,6 +51,11 @@ class DiagnosticsController(Controller):
         self.view['uptime_number_label'].set_text(self.model.get_uptime())
         self.view['os_name_label'].set_text(self.model.get_os_name())
         self.view['os_version_label'].set_text(self.model.get_os_version())
+
+        # USSD
+        self.ussd_busy = False
+        self.property_status_value_change(
+                self.model, None, self.model.status)
 
     def set_device_info(self):
         device = self.model.get_device()
@@ -96,7 +104,7 @@ class DiagnosticsController(Controller):
             logger.info("diagnostics mdm_info - model: " + model)
             logger.info("diagnostics mdm_info - firmware:  " + firmware)
 
-            self.view.set_datacard__info(manufacturer, model, firmware)
+            self.view.set_datacard_info(manufacturer, model, firmware)
 
         device.GetInfo(dbus_interface=MDM_INTFACE,
                        error_handler=logger.error, reply_handler=mdm_info)
@@ -109,18 +117,37 @@ class DiagnosticsController(Controller):
         self._hide_myself()
 
     def on_send_ussd_button_clicked(self, widget):
+        self.ussd_busy = True
+        self.property_status_value_change(
+                self.model, None, self.model.status)
+
+        ussd_message = self.view.get_ussd_request().strip()
+#        self.view['ussd_entry'].set_text('')
+
+        def reply_cb(reply):
+            self.view.set_ussd_reply(reply)
+            self.ussd_busy = False
+            self.property_status_value_change(
+                    self.model, None, self.model.status)
+
         device = self.model.get_device()
-
-        # ok when the USSD message button is clicked grab the value from the
-        # ussd_message box and save in the model for now.
-        ussd_message = self.view['ussd_entry'].get_text().strip()
-        self.view['ussd_entry'].set_text('')
-        logger.info("diagnostics on_send_ussd_button clicked " + ussd_message)
-
         device.Initiate(ussd_message,
-                        reply_handler=self.view.set_ussd_reply,
+                        reply_handler=reply_cb,
                         error_handler=logger.error)
 
     def _hide_myself(self):
         self.model.unregister_observer(self)
         self.view.hide()
+
+    # ------------------------------------------------------------ #
+    #                       Property Changes                       #
+    # ------------------------------------------------------------ #
+
+    def property_status_value_change(self, model, old, new):
+        if new < BCM_MODEM_STATE_REGISTERED:
+            self.view.set_ussd_state(BCM_VIEW_DISABLED)
+        else:
+            if not self.ussd_busy:
+                self.view.set_ussd_state(BCM_VIEW_IDLE)
+            else:
+                self.view.set_ussd_state(BCM_VIEW_BUSY)

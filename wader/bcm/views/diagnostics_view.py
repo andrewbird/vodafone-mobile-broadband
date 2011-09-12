@@ -22,7 +22,9 @@ import gtk
 #from gtkmvc import View
 from wader.bcm.contrib.gtkmvc import View
 
-from wader.bcm.consts import GLADE_DIR, IMAGES_DIR
+from wader.bcm.consts import (BCM_VIEW_DISABLED, BCM_VIEW_IDLE, BCM_VIEW_BUSY,
+                              GLADE_DIR, IMAGES_DIR)
+
 from wader.bcm.translate import _
 
 
@@ -48,15 +50,34 @@ class DiagnosticsView(View):
         self['ModemImage'].set_from_file(self.Modem_Image)
         self['BetavineImage'].set_from_file(self.Betavine_Image)
 
-    def set_datacard__info(self, manufacturer, model, firmware):
+        self['ussd_entry'].set_text('')
+        self.set_ussd_reply('')
+        self['ussd_textview'].set_editable(False)
+
+    def set_datacard_info(self, manufacturer, model, firmware):
         self['card_manufacturer_label'].set_text(manufacturer)
         self['card_model_label'].set_text(model)
         self['firmware_label'].set_text(firmware)
 
+    def get_ussd_request(self):
+        return self['ussd_entry'].get_text()
+
     def set_ussd_reply(self, ussd_reply):
-        buffer = self['ussd_textview'].get_buffer()
-        buffer.set_text(ussd_reply)
-        self['ussd_textview'].set_buffer(buffer)
+        _buffer = self['ussd_textview'].get_buffer()
+        _buffer.set_text(ussd_reply)
+        self['ussd_textview'].set_buffer(_buffer)
+
+    def set_ussd_state(self, state):
+        if state is BCM_VIEW_DISABLED:
+            self['send_ussd_button'].set_sensitive(False)
+            self['ussd_entry'].set_sensitive(False)
+        elif state is BCM_VIEW_IDLE:
+            self['send_ussd_button'].set_sensitive(True)
+            self['ussd_entry'].set_sensitive(True)
+        elif state is BCM_VIEW_BUSY:
+            self['send_ussd_button'].set_sensitive(False)
+            self['ussd_entry'].set_sensitive(False)
+            self.set_ussd_reply('')
 
     def set_msisdn_info(self, msisdn):
         if msisdn is None:
