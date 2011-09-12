@@ -358,6 +358,11 @@ class MainController(WidgetController):
         elif not profile.secrets.manager.is_open():
             dialog = KeyringPasswordDialog(self.view.get_top_widget())
             response = dialog.run()
+        else:
+            if callback is not None:
+                uuid = profile.get_settings()['connection']['uuid']
+                callback(profile.secrets.manager.get_secrets(uuid))
+            return
 
         if response == gtk.RESPONSE_OK:
             password = dialog.password_entry.get_text()
@@ -372,7 +377,7 @@ class MainController(WidgetController):
                 details = _("The supplied password is incorrect")
                 show_error_dialog(title, details)
                 # call ourselves again
-                self.on_keyring_password_required(opath)
+                self.on_keyring_password_required(opath, callback=callback)
             else:
                 if callback is not None:
                     uuid = profile.get_settings()['connection']['uuid']
