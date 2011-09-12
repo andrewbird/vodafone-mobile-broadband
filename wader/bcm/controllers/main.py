@@ -1382,7 +1382,8 @@ The csv file that you have tried to import has an invalid format.""")
         from gtk.gdk import keyval_name
 #        print keyval_name(event.keyval)
 
-        if keyval_name(event.keyval) in 'F5':
+        if keyval_name(event.keyval) in 'F5' and \
+                self.model.status >= BCM_MODEM_STATE_ENABLED:
             self.refresh_treeviews()
             self.view.set_message_preview(None)
 
