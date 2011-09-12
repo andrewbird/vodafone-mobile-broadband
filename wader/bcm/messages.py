@@ -21,6 +21,7 @@ messages presents a uniform layer to deal with messages from both SIM and DB
 
 from os.path import exists
 
+from wader.common.encoding import unpack_dbus_safe_string
 from wader.common.oal import get_os_object
 from wader.common.consts import SMS_INTFACE
 from wader.common.sms import Message as SMMessage
@@ -30,8 +31,11 @@ from wader.common.provider import (SmsProvider,
 
 from wader.bcm.consts import MESSAGES_DB
 from wader.bcm.logger import logger
+from wader.bcm.translate import _
 
 KNOWN_FOLDERS = [inbox_folder, drafts_folder, outbox_folder]
+
+WAP_REPLACEMENT = _('WAP Push (Binary content)')
 
 
 def is_sim_message(sms):
@@ -61,7 +65,7 @@ class DBSMSManager(object):
         if not where:
             folder = KNOWN_FOLDERS[0]
         else:
-            folder = KNOWN_FOLDERS[where-1]
+            folder = KNOWN_FOLDERS[where - 1]
 
         msg = DBMessage(sms.number, sms.text, _datetime=sms.datetime)
         self.provider.add_sms(msg, folder=folder)
@@ -121,6 +125,14 @@ class Messages(object):
         lst = self.device.List(dbus_interface=SMS_INTFACE)
         for dct in lst:
             sms = SMMessage.from_dict(dct, self.tz)
+            try:
+                text = unpack_dbus_safe_string(sms.text)
+                if text[1] == '\x06':  # WAP Push
+                    dct['text'] = '%s\n%s' % \
+                        (WAP_REPLACEMENT, text.encode('string_escape'))
+                    sms = SMMessage.from_dict(dct, self.tz)
+            except ValueError:
+                pass
             ret.append(sms)
 
         # return messages in db storage too
@@ -139,6 +151,15 @@ class Messages(object):
             # from sim storage
             for dct in slist:
                 sms = SMMessage.from_dict(dct, self.tz)
+                try:
+                    text = unpack_dbus_safe_string(sms.text)
+                    if text[1] == '\x06':  # WAP Push
+                        dct['text'] = '%s\n%s' % \
+                            (WAP_REPLACEMENT, text.encode('string_escape'))
+                        sms = SMMessage.from_dict(dct, self.tz)
+                except ValueError:
+                    pass
+
                 ret.append(sms)
 
             # return messages in db storage too
