@@ -36,6 +36,7 @@ from wader.bcm.consts import (GLADE_DIR, IMAGES_DIR, THEMES_DIR,
                               BCM_MODEM_STATE_UNLOCKING,
                               BCM_MODEM_STATE_UNLOCKED,
                               BCM_MODEM_STATE_ENABLING,
+                              BCM_MODEM_STATE_DISABLING,
                               BCM_MODEM_STATE_ENABLED,
                               BCM_MODEM_STATE_SEARCHING,
                               BCM_MODEM_STATE_REGISTERED,
@@ -256,7 +257,6 @@ class MainView(View):
     def set_view_state(self, state):
         # XXX: Currently doesn't handle
         #      BCM_MODEM_STATE_UNKNOWN,
-        #      BCM_MODEM_STATE_DISABLING,
 
         def set_button():
             if state < BCM_MODEM_STATE_REGISTERED:
@@ -314,87 +314,106 @@ class MainView(View):
 
         is_connected = False
 
-        if state == BCM_MODEM_STATE_NODEVICE:
-            set_button()
-            set_disabled()
-            set_bar_text_image(_('No device'), 'nodevice.png')
+        try:
+            if state < BCM_MODEM_STATE_HAVEDEVICE:
+                self['enable_modem'].set_active(False)
+                self['enable_modem'].set_sensitive(False)
+            elif state < BCM_MODEM_STATE_ENABLED:
+                self['enable_modem'].set_active(False)
+                self['enable_modem'].set_sensitive(True)
+            else:
+                self['enable_modem'].set_active(True)
+                self['enable_modem'].set_sensitive(True)
 
-        elif state == BCM_MODEM_STATE_HAVEDEVICE:
-            set_button()
-            set_disabled()
-            set_bar_text_image(_('Device found'), 'device.png')
+            if state == BCM_MODEM_STATE_NODEVICE:
+                set_button()
+                set_disabled()
+                set_bar_text_image(_('No device'), 'nodevice.png')
 
-        elif state == BCM_MODEM_STATE_DISABLED:
-            set_button()
-            set_disabled()
-            set_bar_text_image(_('Disabled'), 'device.png')
+            elif state == BCM_MODEM_STATE_HAVEDEVICE:
+                set_button()
+                set_disabled()
+                set_bar_text_image(_('Device found'), 'device.png')
 
-        elif state == BCM_MODEM_STATE_LOCKED:
-            set_button()
-            set_disabled()
-            set_bar_text_image(_('SIM locked'), 'simlocked.png')
+            elif state == BCM_MODEM_STATE_DISABLED:
+                set_button()
+                set_disabled()
+                set_bar_text_image(_('Disabled'), 'device.png')
 
-        elif state == BCM_MODEM_STATE_UNLOCKING:
-            set_button()
-            set_disabled()
-            set_bar_text_image(_('Authenticating'), 'throbber.gif')
+            elif state == BCM_MODEM_STATE_LOCKED:
+                set_button()
+                set_disabled()
+                set_bar_text_image(_('SIM locked'), 'simlocked.png')
 
-        elif state == BCM_MODEM_STATE_UNLOCKED:
-            set_button()
-            set_disabled()
-            set_bar_text_image(_('Authenticated'), 'device.gif')
+            elif state == BCM_MODEM_STATE_UNLOCKING:
+                set_button()
+                set_disabled()
+                set_bar_text_image(_('Authenticating'), 'throbber.gif')
 
-        elif state == BCM_MODEM_STATE_ENABLING:
-            set_button()
-            set_disabled()
-            set_bar_text_image(_('Enabling'), 'throbber.gif')
+            elif state == BCM_MODEM_STATE_UNLOCKED:
+                set_button()
+                set_disabled()
+                set_bar_text_image(_('Authenticated'), 'device.gif')
 
-        elif state == BCM_MODEM_STATE_ENABLED:
-            set_button()
-            set_disabled()
-            set_authenticated()
-            set_bar_text_image(_('Enabled'), 'device.gif')
+            elif state == BCM_MODEM_STATE_ENABLING:
+                set_button()
+                set_disabled()
+                set_bar_text_image(_('Enabling'), 'throbber.gif')
 
-        elif state == BCM_MODEM_STATE_SEARCHING:
-            set_button()
-            set_disabled()
-            set_authenticated()
-            set_bar_text_image(_('Searching'), 'throbber.gif')
+            elif state == BCM_MODEM_STATE_DISABLING:
+                set_button()
+                set_disabled()
+                set_bar_text_image(_('Disabling'), 'throbber.gif')
 
-        elif state == BCM_MODEM_STATE_REGISTERED:  # AKA Disconnected
-            set_button()
-            set_disabled()
-            set_authenticated()
-            set_registered()
-            set_bar_text_image(_('Not connected'))
+            elif state == BCM_MODEM_STATE_ENABLED:
+                set_button()
+                set_disabled()
+                set_authenticated()
+                set_bar_text_image(_('Enabled'), 'device.gif')
 
-        elif state == BCM_MODEM_STATE_DISCONNECTING:
-            set_button()
-            set_disabled()
-            set_authenticated()
-            set_registered()
-            set_bar_text_image(_('Disconnecting'))
+            elif state == BCM_MODEM_STATE_SEARCHING:
+                set_button()
+                set_disabled()
+                set_authenticated()
+                set_bar_text_image(_('Searching'), 'throbber.gif')
 
-        elif state == BCM_MODEM_STATE_CONNECTING:
-            set_button()
-            set_disabled()
-            set_authenticated()
-            set_registered()
-            set_bar_text_image(_('Connecting'))
+            elif state == BCM_MODEM_STATE_REGISTERED:  # AKA Disconnected
+                set_button()
+                set_disabled()
+                set_authenticated()
+                set_registered()
+                set_bar_text_image(_('Not connected'))
 
-        elif state == BCM_MODEM_STATE_CONNECTED:
-            set_button()
-            set_disabled()
-            set_authenticated()
-            set_registered()
-            set_bar_text_image(_('Connected'))
-            is_connected = True
+            elif state == BCM_MODEM_STATE_DISCONNECTING:
+                set_button()
+                set_disabled()
+                set_authenticated()
+                set_registered()
+                set_bar_text_image(_('Disconnecting'))
 
-        else:
-            set_bar_text_image(str(state))
+            elif state == BCM_MODEM_STATE_CONNECTING:
+                set_button()
+                set_disabled()
+                set_authenticated()
+                set_registered()
+                set_bar_text_image(_('Connecting'))
 
-        self.show_statistics(is_connected)
-        self.show_current_session(is_connected)
+            elif state == BCM_MODEM_STATE_CONNECTED:
+                set_button()
+                set_disabled()
+                set_authenticated()
+                set_registered()
+                set_bar_text_image(_('Connected'))
+                is_connected = True
+
+            else:
+                set_bar_text_image(str(state))
+
+            self.show_statistics(is_connected)
+            self.show_current_session(is_connected)
+
+        except AttributeError:
+            pass  # Probably we are being destroyed
 
     def setup_treeview(self, ctrl):
         """Sets up the treeviews"""

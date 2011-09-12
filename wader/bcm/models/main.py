@@ -41,6 +41,8 @@ from wader.bcm.consts import (USAGE_DB, APP_VERSION,
                                 BCM_MODEM_STATE_UNKNOWN,
                                 BCM_MODEM_STATE_NODEVICE,
                                 BCM_MODEM_STATE_HAVEDEVICE,
+                                BCM_MODEM_STATE_DISABLING,
+                                BCM_MODEM_STATE_ENABLED,
                                 BCM_MODEM_STATE_CONNECTED)
 
 from wader.bcm.config import config
@@ -138,6 +140,8 @@ class MainModel(Model):
         self.rx_bytes = self.tx_bytes = 0
         # DialStats SignalMatch
         self.stats_sm = None
+        self.rssi_sm = None
+        self.reginfo_sm = None
         self.dialer_manager = None
         self.dial_path = None
         self.device_opath = None
@@ -161,6 +165,9 @@ class MainModel(Model):
 
     def set_our_dial_attempt(self, flag):
         self._we_dialed = flag
+
+    def is_enabled(self):
+        return self.status >= BCM_MODEM_STATE_ENABLED
 
     def is_connected(self):
         return self.status == BCM_MODEM_STATE_CONNECTED
@@ -224,6 +231,9 @@ class MainModel(Model):
             self.registration = -1
             self.imsi = None
             self.msisdn = None
+
+            self.stop_reginfo_tracking()
+            self.stop_rssi_tracking()
 
     def _on_network_key_needed_cb(self, opath, tag):
         logger.info("KeyNeeded received, opath: %s tag: %s" % (opath, tag))
@@ -379,16 +389,36 @@ class MainModel(Model):
         # connecting to signals is safe now
         self._connect_to_signals()
 
-    def enable_device(self):
-        # Enable is a potentially long operation
-        self.device.Enable(True,
-                           dbus_interface=MDM_INTFACE,
-                           timeout=ENABLE_TIMEOUT,
-                           reply_handler=self._enable_device_cb,
-                           error_handler=self._enable_device_eb)
+    def enable_device(self, enable=True):
+        if enable:
+            logger.info("main.py: model - Enabling device")
 
-        # -1 == special value for Initialising
-        self._get_registration_info_cb((-1, '', ''))
+            # Enable is a potentially long operation
+            self.device.Enable(True,
+                                dbus_interface=MDM_INTFACE,
+                                timeout=ENABLE_TIMEOUT,
+                                reply_handler=self._enable_device_cb,
+                                error_handler=self._enable_device_eb)
+
+            # -1 == special value for Initialising
+            self._get_registration_info_cb((-1, '', ''))
+        else:
+            logger.info("main.py: model - Disabling device")
+            self.status = BCM_MODEM_STATE_DISABLING
+
+            def disable_cb():
+                logger.info("main.py: model - Device disabled")
+                self.stop_reginfo_tracking()
+                self.stop_rssi_tracking()
+
+            def disable_eb(e):
+                logger.warn("main.py: model - Device disable failed\n%s"
+                                % get_error_msg(e))
+
+            self.device.Enable(False,
+                                dbus_interface=MDM_INTFACE,
+                                reply_handler=disable_cb,
+                                error_handler=disable_eb)
 
     def _enable_device_cb(self):
         logger.info("main.py: model - Device enabled")
@@ -397,9 +427,12 @@ class MainModel(Model):
 
         self.init_dial_stats()
 
-        self.device.connect_to_signal(S.SIG_RSSI, self.on_rssi_changed_cb)
-        self.device.connect_to_signal(S.SIG_REG_INFO,
-                                        self.on_registration_info_cb)
+        if self.rssi_sm is None:
+            self.rssi_sm = self.device.connect_to_signal(S.SIG_RSSI,
+                                                    self.on_rssi_changed_cb)
+        if self.reginfo_sm is None:
+            self.reginfo_sm = self.device.connect_to_signal(S.SIG_REG_INFO,
+                                                self.on_registration_info_cb)
 
         self._start_network_registration()
         # delay the profile creation till the device is completely enabled
@@ -408,15 +441,17 @@ class MainModel(Model):
 
     def _enable_device_eb(self, e):
         if dbus_error_is(e, E.SimPinRequired):
+            self.sim_auth_required = BCM_SIM_AUTH_NONE
             self.sim_auth_required = BCM_SIM_AUTH_PIN
         elif dbus_error_is(e, E.SimPukRequired):
+            self.sim_auth_required = BCM_SIM_AUTH_NONE
             self.sim_auth_required = BCM_SIM_AUTH_PUK
         elif dbus_error_is(e, E.SimPuk2Required):
+            self.sim_auth_required = BCM_SIM_AUTH_NONE
             self.sim_auth_required = BCM_SIM_AUTH_PUK2
         else:
             self.sim_error = get_error_msg(e)
-
-        logger.debug("Error enabling device:\n%s" % get_error_msg(e))
+            logger.warn("Error enabling device:\n%s" % self.sim_error)
 
     def _start_network_registration(self):
         self.device.Register("",
@@ -779,6 +814,16 @@ class MainModel(Model):
                                                      S.SIG_DIAL_STATS,
                                                      MDM_INTFACE)
         self.init_dial_stats()
+
+    def stop_reginfo_tracking(self):
+        if self.reginfo_sm is not None:
+            self.reginfo_sm.remove()
+            self.reginfo_sm = None
+
+    def stop_rssi_tracking(self):
+        if self.rssi_sm is not None:
+            self.rssi_sm.remove()
+            self.rssi_sm = None
 
     def stop_stats_tracking(self):
         if self.stats_sm is not None:

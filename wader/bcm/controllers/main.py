@@ -887,6 +887,13 @@ The csv file that you have tried to import has an invalid format.""")
     def on_quit_menu_item_activate(self, widget):
         self._quit_confirm_exit()
 
+    def on_enable_modem_activate(self, checkmenuitem):
+        curval = self.model.is_enabled()
+        reqval = checkmenuitem.get_active()
+
+        if reqval != curval:
+            self.model.enable_device(reqval)
+
     def on_change_pin1_activate(self, widget):
         ctrl = PinModifyController(self.model)
         view = PinModifyView(ctrl)

@@ -135,6 +135,15 @@
                     <child>
                       <widget class="GtkMenu" id="tools_menu_item_menu">
                         <child>
+                          <widget class="GtkCheckMenuItem" id="enable_modem">
+                            <property name="visible">True</property>
+                            <property name="label" translatable="yes">Enabled</property>
+                            <property name="use_underline">True</property>
+                            <property name="active">False</property>
+                            <signal name="activate" handler="on_enable_modem_activate"/>
+                          </widget>
+                        </child>
+                        <child>
                           <widget class="GtkMenuItem" id="change_pin1">
                             <property name="visible">True</property>
                             <property name="label" translatable="yes">Change PIN</property>
