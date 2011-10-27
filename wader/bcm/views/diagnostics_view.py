@@ -22,9 +22,8 @@ import gtk
 #from gtkmvc import View
 from wader.bcm.contrib.gtkmvc import View
 
-from wader.bcm.consts import (BCM_VIEW_DISABLED, BCM_VIEW_IDLE, BCM_VIEW_BUSY,
-                              GLADE_DIR, IMAGES_DIR)
-
+from wader.bcm.consts import GLADE_DIR, IMAGES_DIR
+from wader.bcm.constx import BCM_VIEW_DISABLED, BCM_VIEW_IDLE, BCM_VIEW_BUSY
 from wader.bcm.translate import _
 
 

@@ -32,7 +32,7 @@ from wader.bcm.logger import logger
 from wader.bcm.profiles import manager
 from wader.bcm.translate import _
 
-from wader.bcm.consts import (VM_NETWORK_AUTH_ANY,
+from wader.bcm.constx import (VM_NETWORK_AUTH_ANY,
                               VM_NETWORK_AUTH_PAP,
                               VM_NETWORK_AUTH_CHAP)
 

@@ -35,15 +35,15 @@ from wader.bcm.models.profile import ProfilesModel
 from wader.bcm.models.preferences import PreferencesModel
 from wader.bcm.translate import _
 from wader.bcm.utils import dbus_error_is, get_error_msg
-from wader.bcm.consts import (USAGE_DB, APP_VERSION,
-                                BCM_SIM_AUTH_NONE, BCM_SIM_AUTH_PIN,
-                                BCM_SIM_AUTH_PUK, BCM_SIM_AUTH_PUK2,
-                                BCM_MODEM_STATE_UNKNOWN,
-                                BCM_MODEM_STATE_NODEVICE,
-                                BCM_MODEM_STATE_HAVEDEVICE,
-                                BCM_MODEM_STATE_DISABLING,
-                                BCM_MODEM_STATE_ENABLED,
-                                BCM_MODEM_STATE_CONNECTED)
+from wader.bcm.consts import USAGE_DB, APP_VERSION
+from wader.bcm.constx import (BCM_SIM_AUTH_NONE, BCM_SIM_AUTH_PIN,
+                              BCM_SIM_AUTH_PUK, BCM_SIM_AUTH_PUK2,
+                              BCM_MODEM_STATE_UNKNOWN,
+                              BCM_MODEM_STATE_NODEVICE,
+                              BCM_MODEM_STATE_HAVEDEVICE,
+                              BCM_MODEM_STATE_DISABLING,
+                              BCM_MODEM_STATE_ENABLED,
+                              BCM_MODEM_STATE_CONNECTED)
 
 from wader.bcm.config import config
 from wader.bcm.uptime import get_uptime

@@ -20,7 +20,7 @@ from wader.common.provider import NetworkProvider
 from wader.common.utils import convert_int_to_ip, convert_ip_to_int
 from wader.common.keyring import KeyringNoMatchError
 
-from wader.bcm.consts import BAND_MAP_REV, MODE_MAP_REV, AUTH_MAP_REV
+from wader.bcm.constx import BAND_MAP_REV, MODE_MAP_REV, AUTH_MAP_REV
 from wader.bcm.controllers import Controller
 from wader.bcm.dialogs import show_error_dialog
 from wader.bcm.logger import logger

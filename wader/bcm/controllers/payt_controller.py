@@ -22,7 +22,7 @@ import re
 from datetime import datetime
 from time import time
 
-from wader.bcm.consts import BCM_MODEM_STATE_REGISTERED
+from wader.bcm.constx import BCM_MODEM_STATE_REGISTERED
 from wader.bcm.contrib.gtkmvc import Controller
 from wader.bcm.dialogs import show_warning_dialog
 from wader.bcm.logger import logger

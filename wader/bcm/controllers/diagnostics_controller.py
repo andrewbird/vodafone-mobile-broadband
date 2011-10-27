@@ -24,7 +24,7 @@ from wader.bcm.contrib.gtkmvc import Controller
 from wader.common.consts import CRD_INTFACE, MDM_INTFACE
 from wader.common.provider import NetworkProvider
 from wader.bcm.logger import logger
-from wader.bcm.consts import (BCM_VIEW_DISABLED, BCM_VIEW_IDLE, BCM_VIEW_BUSY,
+from wader.bcm.constx import (BCM_VIEW_DISABLED, BCM_VIEW_IDLE, BCM_VIEW_BUSY,
                               BCM_MODEM_STATE_REGISTERED)
 
 

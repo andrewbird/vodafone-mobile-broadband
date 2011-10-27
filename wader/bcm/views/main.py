@@ -28,8 +28,8 @@ from wader.bcm.contrib.gtkmvc import View
 from wader.bcm.config import config
 from wader.bcm.translate import _
 from wader.bcm.consts import (GLADE_DIR, IMAGES_DIR, THEMES_DIR,
-                              APP_LONG_NAME, APP_URL,
-                              BCM_MODEM_STATE_NODEVICE,
+                              APP_LONG_NAME, APP_URL)
+from wader.bcm.constx import (BCM_MODEM_STATE_NODEVICE,
                               BCM_MODEM_STATE_HAVEDEVICE,
                               BCM_MODEM_STATE_DISABLED,
                               BCM_MODEM_STATE_LOCKED,

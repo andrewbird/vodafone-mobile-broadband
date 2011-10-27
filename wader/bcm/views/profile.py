@@ -28,7 +28,8 @@ from wader.common.consts import MM_NETWORK_BAND_ANY, MM_ALLOWED_MODE_ANY
 from wader.common.utils import get_bands
 
 from wader.bcm.contrib.gtkmvc import View
-from wader.bcm.consts import (GLADE_DIR, VM_NETWORK_AUTH_ANY,
+from wader.bcm.consts import GLADE_DIR
+from wader.bcm.constx import (VM_NETWORK_AUTH_ANY,
                               VM_NETWORK_AUTH_PAP, VM_NETWORK_AUTH_CHAP,
                               BAND_MAP, MODE_MAP, AUTH_MAP)
 from wader.bcm.translate import _
