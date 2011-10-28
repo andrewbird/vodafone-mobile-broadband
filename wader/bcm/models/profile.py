@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # Copyright (C) 2008-2009  Warp Networks, S.L.
+# Copyright (C) 2009-2011  Vodafone España, S.A.
 # Author:  Jaime Soriano
 #
 # This program is free software; you can redistribute it and/or modify
@@ -41,7 +42,6 @@ from wader.bcm.constx import (VM_NETWORK_AUTH_ANY,
 class ProfilesModel(Model):
 
     def __init__(self, device_callable=None, main_model_callable=None):
-        logger.info("profile.py: model - ProfilesModel initialisation ")
         super(ProfilesModel, self).__init__()
         self.device_callable = device_callable
         self.main_model_callable = main_model_callable
@@ -52,13 +52,8 @@ class ProfilesModel(Model):
         self.activate_profile()
 
     def activate_profile(self):
-        logger.info("profile.py: model - activate_profile ")
-
         if self.active_profile:
-            logger.info("profile.py: model - activate_profile - calling self.active_profile.activate() method -  ")
             self.active_profile.activate()
-        else:
-            logger.info("WARNING  profile.py: model - activate_profile - There is no active profile to 'activate'!   ")
 
     def has_active_profile(self):
         return self.active_profile is not None
@@ -75,7 +70,6 @@ class ProfilesModel(Model):
         profile.delete()
 
     def get_active_uuid(self):
-        logger.info("profile.py: model - get_active_uuid - self.conf.get('profile','uuid')  is: %s " % self.conf.get('profile', 'uuid') )
         return self.conf.get('profile', 'uuid')
 
     def set_active_profile(self, profile, setconf=True):
@@ -102,20 +96,17 @@ class ProfilesModel(Model):
         return True
 
     def get_profile_by_uuid(self, uuid, setactive=False):
-        logger.info("profile.py: model - get_profile_by_uuid: uuid passed in = %s" %uuid + " the attribute 'setactive' = %s" %setactive)
         if uuid is None:
-            logger.info("WARNING profile.py: model - get_profile_by_uuid: UUID is NONE! Returning none.")
             return None
 
         try:
             profile = self.manager.get_profile_by_uuid(uuid)
         except ProfileNotFoundError:
-            logger.info("WARNING profile.py: model - get_profile_by_uuid: No profile found with uuid %s" % uuid)
             return None
         else:
             profile = ProfileModel(self, profile=profile,
-                                   device_callable=self.device_callable,
-                                   main_model_callable=self.main_model_callable)
+                                device_callable=self.device_callable,
+                                main_model_callable=self.main_model_callable)
             if setactive:
                 self.active_profile = profile
             return profile
@@ -125,10 +116,9 @@ class ProfilesModel(Model):
         for profile in self.manager.get_profiles():
             settings = profile.get_settings()
             uuid = settings['connection']['uuid']
-            logger.info("profile.py: model - get_profiles: UUID from settings.connection.uuid is: %s" % uuid)
             ret[uuid] = ProfileModel(self, profile=profile,
-                                     device_callable=self.device_callable,
-                                     main_model_callable=self.main_model_callable)
+                                 device_callable=self.device_callable,
+                                 main_model_callable=self.main_model_callable)
         return ret
 
 
@@ -173,10 +163,10 @@ class ProfileModel(Model):
             self._load_profile_from_network(network)
             self.name = self.make_profilename_unique(self.name)
         else:
-            self.uuid = str(uuid1()) # blank profile
+            self.uuid = str(uuid1())  # blank profile
             self.name = self.make_profilename_unique(_('Custom'))
 
-        self.sm = [] # signal matches list
+        self.sm = []  # signal matches list
 
     def __eq__(self, other):
         if other is None:
@@ -247,7 +237,6 @@ class ProfileModel(Model):
             logger.error("Missing required key '%s' in %s" % (e, settings))
 
     def _load_profile_from_imsi(self, imsi):
-        logger.info("Loading profile for imsi %s" % str(imsi))
         try:
             props = self.manager.get_profile_options_from_imsi(imsi)
             self._load_settings(props)
@@ -255,7 +244,6 @@ class ProfileModel(Model):
             self.uuid = str(uuid1())
 
     def _load_profile_from_network(self, network):
-        logger.info("Loading profile for network %s" % str(network))
         try:
             props = self.manager.get_profile_options_from_network(network)
             self._load_settings(props)
@@ -275,10 +263,6 @@ class ProfileModel(Model):
         return new
 
     def save(self):
-
-        logger.info("profile.py: model - save profile started")
-        logger.info("profile.py: model - save __properties__ uuid is: %s" %self.uuid )
-
         props = {
             'connection': {
                 'name': 'connection',
@@ -331,33 +315,24 @@ class ProfileModel(Model):
             props['ipv4']['dns'] = [i for i in [self.primary_dns,
                                                 self.secondary_dns] if i]
 
-        logger.info("profile.py: model - save properties dictionary is: %s"  %props )
-
         if self.profile:
-            logger.info("profile.py: model - save self.profile is true ")
             self.manager.update_profile(self.profile, props)
             # store password associated to this connection
             secrets = {'gsm': {'passwd': self.password}}
             self.profile.secrets.update(secrets, ask=True)
-
-            logger.info("profile.py: model - save Profile modified: %s" % self.profile)
         else:
-            logger.info("profile.py: model - save self.profile is false - attempting to create new one. ")
             uuid = props['connection']['uuid']
-            logger.info("profile.py: model - save self.profile is false - using UUID %s " %uuid)
-            sm = None # SignalMatch object
+            sm = None  # SignalMatch object
 
             def new_profile_cb(path):
                 self.profile_path = path
-                logger.info("profile.py: model - new_profile_cb : Profile added: %s" % self.profile_path)
-                logger.info("profile.py: model - new_profile_cb : Attempting get_profile_by_uuid UUDI is: %s" % uuid)
                 self.profile = self.manager.get_profile_by_uuid(uuid)
                 secrets = {'gsm': {'passwd': self.password}}
                 self.profile.secrets.update(secrets, ask=True)
 
                 self.parent_model.set_active_profile(self)
 
-                sm.remove() # remove SignalMatch handler
+                sm.remove()  # remove SignalMatch handler
 
             sm = self.bus.add_signal_receiver(new_profile_cb,
                                               "NewConnection",
