@@ -22,9 +22,9 @@ import dbus
 #from gtkmvc import Model
 from wader.bcm.contrib.gtkmvc import Model
 
-from wader.common.consts import (WADER_DIALUP_INTFACE,
-                                 WADER_PROFILES_INTFACE, CRD_INTFACE,
+from wader.common.consts import (WADER_PROFILES_INTFACE, CRD_INTFACE,
                                  MM_ALLOWED_MODE_ANY, MM_NETWORK_BAND_ANY)
+
 from wader.common.utils import get_allowed_modes
 from wader.common.exceptions import ProfileNotFoundError
 from wader.bcm.config import config
@@ -34,18 +34,17 @@ from wader.bcm.translate import _
 
 from wader.bcm.constx import (VM_NETWORK_AUTH_ANY,
                               VM_NETWORK_AUTH_PAP,
-                              VM_NETWORK_AUTH_CHAP)
-
-CONNECTED, DISCONNECTED = 0, 1
+                              VM_NETWORK_AUTH_CHAP,
+                              BCM_MODEM_STATE_CONNECTING)
 
 
 class ProfilesModel(Model):
 
-    def __init__(self, device_callable=None, parent_model_callable=None):
+    def __init__(self, device_callable=None, main_model_callable=None):
         logger.info("profile.py: model - ProfilesModel initialisation ")
         super(ProfilesModel, self).__init__()
         self.device_callable = device_callable
-        self.parent_model_callable = parent_model_callable
+        self.main_model_callable = main_model_callable
         self.conf = config
         self.manager = manager
 
@@ -116,7 +115,7 @@ class ProfilesModel(Model):
         else:
             profile = ProfileModel(self, profile=profile,
                                    device_callable=self.device_callable,
-                                   parent_model_callable=self.parent_model_callable)
+                                   main_model_callable=self.main_model_callable)
             if setactive:
                 self.active_profile = profile
             return profile
@@ -129,7 +128,7 @@ class ProfilesModel(Model):
             logger.info("profile.py: model - get_profiles: UUID from settings.connection.uuid is: %s" % uuid)
             ret[uuid] = ProfileModel(self, profile=profile,
                                      device_callable=self.device_callable,
-                                     parent_model_callable=self.parent_model_callable)
+                                     main_model_callable=self.main_model_callable)
         return ret
 
 
@@ -151,7 +150,7 @@ class ProfileModel(Model):
     }
 
     def __init__(self, parent_model, profile=None, imsi=None, network=None,
-                 device_callable=None, parent_model_callable=None):
+                 device_callable=None, main_model_callable=None):
         super(ProfileModel, self).__init__()
 
         self.bus = dbus.SystemBus()
@@ -160,7 +159,7 @@ class ProfileModel(Model):
 
         self.parent_model = parent_model
         self.device_callable = device_callable
-        self.parent_model_callable = parent_model_callable
+        self.main_model_callable = main_model_callable
 
         if self.profile and hasattr(self.profile, '__dbus_object_path__'):
             self.profile_path = self.profile.__dbus_object_path__
@@ -177,9 +176,7 @@ class ProfileModel(Model):
             self.uuid = str(uuid1()) # blank profile
             self.name = self.make_profilename_unique(_('Custom'))
 
-        self.state = DISCONNECTED
         self.sm = [] # signal matches list
-        self.connect_to_signals()
 
     def __eq__(self, other):
         if other is None:
@@ -191,22 +188,6 @@ class ProfileModel(Model):
 
     def __repr__(self):
         return "<ProfileModel %s>" % self.uuid
-
-    def connect_to_signals(self):
-        self.sm.append(self.bus.add_signal_receiver(
-                                            self._on_disconnected_cb,
-                                            "Disconnected",
-                                            WADER_DIALUP_INTFACE))
-        self.sm.append(self.bus.add_signal_receiver(
-                                            self._on_connected_cb,
-                                            "Connected",
-                                            WADER_DIALUP_INTFACE))
-
-    def _on_disconnected_cb(self):
-        self.state = DISCONNECTED
-
-    def _on_connected_cb(self):
-        self.state = CONNECTED
 
     def load_password(self, callback=None):
         if self.profile:
@@ -220,8 +201,8 @@ class ProfileModel(Model):
                     self.password = ''
             else:
                 # keyring needs to be opened
-                parent_model = self.parent_model_callable()
-                parent_model.on_keyring_key_needed_cb(self.profile.opath,
+                main_model = self.main_model_callable()
+                main_model.on_keyring_key_needed_cb(self.profile.opath,
                                                       callback=callback)
 
     def _load_profile(self, profile):
@@ -386,7 +367,11 @@ class ProfileModel(Model):
             self.activate()
 
     def activate(self):
-        if self.state == DISCONNECTED and self.device_callable:
+        if self.main_model_callable is None or self.device_callable is None:
+            return
+
+        main_model = self.main_model_callable()
+        if main_model and main_model.status < BCM_MODEM_STATE_CONNECTING:
             # only perform this operations if we are disconnected and
             # a device is available
             device = self.device_callable()
