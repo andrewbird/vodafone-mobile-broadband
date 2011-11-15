@@ -1,3 +1,9 @@
+vodafone-mobile-broadband (2.99.15-1) lucid; urgency=low
+
+  * Rename to vodafone-mobile-broadband
+
+ -- Andrew Bird <ajb@spheresystems.co.uk>  Tue, 15 Nov 2011 16:01:56 +0000
+
 bcm (2.99.14-1) lucid; urgency=low
 
   * Fifth beta release
@@ -51,4 +57,3 @@ wader-vmc (2.99.01-1) jaunty; urgency=low
   * Initial import of vmc
 
  -- Andrew Bird <ajb@spheresystems.co.uk>  Fri, 11 Sep 2009 12:47:31 +0100
-

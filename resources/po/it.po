@@ -1,6 +1,6 @@
-# Italian translation file for Vodafone Mobile Connect Card driver for Linux
+# Italian translation file for Vodafone Mobile Broadband.
 # Copyright (C) 2007
-# This file is distributed under the same license as the BCM package.
+# This file is distributed under the same license as the Vodafone Mobile Broadband package.
 # Paola <paola@insulainformatica.it>, 2007.
 # Emanuele Fanton <emanuele.fanton@gmail.com>, 2007, 2010.
 msgid ""
@@ -47,213 +47,213 @@ msgstr ""
 msgid "<b>APN Settings</b>"
 msgstr "<b>Impostazioni APN</b>"
 
-#: ../glade/bcm.glade:21 ../glade/helpbrowser.glade:21
+#: ../glade/vmb.glade:21 ../glade/helpbrowser.glade:21
 msgid "_File"
 msgstr "_File"
 
-#: ../glade/bcm.glade:28
+#: ../glade/vmb.glade:28
 msgid "Import contacts..."
 msgstr "Importa contatti..."
 
-#: ../glade/bcm.glade:36
+#: ../glade/vmb.glade:36
 msgid "Export contacts..."
 msgstr "Esporta contatti..."
 
-#: ../glade/bcm.glade:48
+#: ../glade/vmb.glade:48
 #, fuzzy
 msgid "_Quit"
 msgstr "Chiudi"
 
-#: ../glade/bcm.glade:73
+#: ../glade/vmb.glade:73
 msgid "_View"
 msgstr "_Mostra"
 
-#: ../glade/bcm.glade:94 ../glade/bcm.glade:330 ../glade/preferences.glade:781
+#: ../glade/vmb.glade:94 ../glade/vmb.glade:330 ../glade/preferences.glade:781
 msgid "Usage"
 msgstr "Utilizzo"
 
-#: ../glade/bcm.glade:108 ../glade/bcm.glade:368
+#: ../glade/vmb.glade:108 ../glade/vmb.glade:368
 msgid "Support"
 msgstr "Supporto"
 
-#: ../glade/bcm.glade:132
+#: ../glade/vmb.glade:132
 msgid "_Tools"
 msgstr "_Strumenti"
 
-#: ../glade/bcm.glade:140
+#: ../glade/vmb.glade:140
 msgid "Change PIN"
 msgstr "Cambia PIN"
 
-#: ../glade/bcm.glade:148
+#: ../glade/vmb.glade:148
 msgid "Request PIN"
 msgstr "Richiedi PIN"
 
-#: ../glade/bcm.glade:161 ../glade/diagnostics.glade:7
+#: ../glade/vmb.glade:161 ../glade/diagnostics.glade:7
 msgid "Diagnostics"
 msgstr "Diagnostica"
 
-#: ../glade/bcm.glade:185
+#: ../glade/vmb.glade:185
 #, fuzzy
 msgid "Profiles"
 msgstr "Profilo:"
 
-#: ../glade/bcm.glade:207 ../glade/preferences.glade:7
+#: ../glade/vmb.glade:207 ../glade/preferences.glade:7
 msgid "Preferences"
 msgstr "Impostazioni"
 
-#: ../glade/bcm.glade:231
+#: ../glade/vmb.glade:231
 msgid "_Help"
 msgstr "_Aiuto"
 
-#: ../glade/bcm.glade:237
+#: ../glade/vmb.glade:237
 #, fuzzy
 msgid "Help"
 msgstr "_Aiuto"
 
-#: ../glade/bcm.glade:256
+#: ../glade/vmb.glade:256
 msgid "_About"
 msgstr "_Informazioni"
 
-#: ../glade/bcm.glade:347
+#: ../glade/vmb.glade:347
 msgid "Topup"
 msgstr ""
 
-#: ../glade/bcm.glade:401 ../glade/bcm.glade:517
+#: ../glade/vmb.glade:401 ../glade/vmb.glade:517
 msgid "_New"
 msgstr "_Nuovo"
 
-#: ../glade/bcm.glade:403
+#: ../glade/vmb.glade:403
 msgid "Create new SMS"
 msgstr "Crea nuovo SMS"
 
-#: ../glade/bcm.glade:419
+#: ../glade/vmb.glade:419
 msgid "_Reply"
 msgstr "_Rispondi"
 
-#: ../glade/bcm.glade:421
+#: ../glade/vmb.glade:421
 msgid "Reply message"
 msgstr "Rispondi al messaggio"
 
-#: ../glade/bcm.glade:430
+#: ../glade/vmb.glade:430
 msgid "Reply without quoting original text"
 msgstr "_Rispondi senza riportare il testo originale"
 
-#: ../glade/bcm.glade:431
+#: ../glade/vmb.glade:431
 msgid "Send new"
 msgstr "Spedisci nuovo"
 
-#: ../glade/bcm.glade:439
+#: ../glade/vmb.glade:439
 msgid "Reply quoting original message"
 msgstr "Rispondi riportando il messaggio originale"
 
-#: ../glade/bcm.glade:440
+#: ../glade/vmb.glade:440
 msgid "Reply quoting"
 msgstr "Rispondi riportando"
 
-#: ../glade/bcm.glade:457
+#: ../glade/vmb.glade:457
 msgid "_Forward"
 msgstr "_Inoltra"
 
-#: ../glade/bcm.glade:459
+#: ../glade/vmb.glade:459
 msgid "Forward SMS to another contact"
 msgstr "Inoltra SMS ad un altro contatto"
 
-#: ../glade/bcm.glade:474 ../glade/bcm.glade:566
-#: ../../wader/bcm/controllers/main.py:770
+#: ../glade/vmb.glade:474 ../glade/vmb.glade:566
+#: ../../wader/vmb/controllers/main.py:770
 msgid "_Delete"
 msgstr "_Cancella"
 
-#: ../glade/bcm.glade:499
+#: ../glade/vmb.glade:499
 msgid "_Contacts"
 msgstr "_Contatti"
 
-#: ../glade/bcm.glade:501
+#: ../glade/vmb.glade:501
 msgid "Contacts menu"
 msgstr "Menu contatti"
 
-#: ../glade/bcm.glade:519 ../glade/contacts.glade:158
+#: ../glade/vmb.glade:519 ../glade/contacts.glade:158
 msgid "Add a contact"
 msgstr "Aggiungi un contatto"
 
-#: ../glade/bcm.glade:537
+#: ../glade/vmb.glade:537
 #, fuzzy
 msgid "_Search"
 msgstr "Searching"
 
-#: ../glade/bcm.glade:539
+#: ../glade/vmb.glade:539
 msgid "Search contacts"
 msgstr "Cerca contatti"
 
-#: ../glade/bcm.glade:618
+#: ../glade/vmb.glade:618
 msgid "Inbox"
 msgstr "Posta in Arrivo"
 
-#: ../glade/bcm.glade:648
+#: ../glade/vmb.glade:648
 msgid "Draft"
 msgstr "Bozza"
 
-#: ../glade/bcm.glade:678
+#: ../glade/vmb.glade:678
 msgid "Sent"
 msgstr "Spediti"
 
-#: ../glade/bcm.glade:707 ../glade/sms.glade:34
+#: ../glade/vmb.glade:707 ../glade/sms.glade:34
 msgid "Contacts"
 msgstr "Contatti"
 
-#: ../glade/bcm.glade:795 ../glade/bcm.glade:1177
+#: ../glade/vmb.glade:795 ../glade/vmb.glade:1177
 msgid "<b>Month</b>"
 msgstr "<b>Mese</b>"
 
-#: ../glade/bcm.glade:891 ../glade/bcm.glade:1001 ../glade/bcm.glade:1286
+#: ../glade/vmb.glade:891 ../glade/vmb.glade:1001 ../glade/vmb.glade:1286
 msgid "3G:"
 msgstr ""
 
-#: ../glade/bcm.glade:906 ../glade/bcm.glade:975
+#: ../glade/vmb.glade:906 ../glade/vmb.glade:975
 msgid "Total:"
 msgstr "Totale:"
 
-#: ../glade/bcm.glade:921 ../glade/bcm.glade:988 ../glade/bcm.glade:1300
+#: ../glade/vmb.glade:921 ../glade/vmb.glade:988 ../glade/vmb.glade:1300
 msgid "GPRS:"
 msgstr ""
 
-#: ../glade/bcm.glade:937 ../glade/bcm.glade:1316
+#: ../glade/vmb.glade:937 ../glade/vmb.glade:1316
 msgid "<b>Transferred Data</b>"
 msgstr "<b>Dati trasferiti</b>"
 
-#: ../glade/bcm.glade:1064
+#: ../glade/vmb.glade:1064
 msgid "<b>Current session</b>"
 msgstr "<b>Sessione corrente</b>"
 
-#: ../glade/bcm.glade:1102 ../glade/bcm.glade:1352
+#: ../glade/vmb.glade:1102 ../glade/vmb.glade:1352
 msgid "Total Traffic"
 msgstr ""
 
-#: ../glade/bcm.glade:1145
+#: ../glade/vmb.glade:1145
 msgid "Current month"
 msgstr "Mese corrente"
 
-#: ../glade/bcm.glade:1272
+#: ../glade/vmb.glade:1272
 msgid "<b>Total:</b>"
 msgstr "<b>Totale:</b>"
 
-#: ../glade/bcm.glade:1398
+#: ../glade/vmb.glade:1398
 msgid "Last month"
 msgstr "Ultimo mese"
 
-#: ../glade/bcm.glade:1412
+#: ../glade/vmb.glade:1412
 #, fuzzy
 msgid "<b>Usage</b> - Remember that this information is only orientative."
 msgstr "Ricorda che questa informazione e solo indicativa"
 
-#: ../glade/bcm.glade:1456
+#: ../glade/vmb.glade:1456
 msgid "Help menu"
 msgstr "Menu Aiuto"
 
-#: ../glade/bcm.glade:1493
+#: ../glade/vmb.glade:1493
 msgid "Support center"
 msgstr "Centro supporto"
 
-#: ../glade/bcm.glade:1531
+#: ../glade/vmb.glade:1531
 msgid "Customer support"
 msgstr "Supporto Clienti"
 
@@ -352,7 +352,7 @@ msgstr "Numero:"
 msgid "<b>Save in:</b>"
 msgstr "<b>Salva in:</b>"
 
-#: ../glade/contacts.glade:300 ../../wader/bcm/contacts/contact_sim.py:170
+#: ../glade/contacts.glade:300 ../../wader/vmb/contacts/contact_sim.py:170
 msgid "Mobile"
 msgstr "Cellulare"
 
@@ -429,14 +429,14 @@ msgstr "IMSI"
 #: ../glade/diagnostics.glade:331 ../glade/diagnostics.glade:342
 #: ../glade/diagnostics.glade:352 ../glade/payt.glade:125
 #: ../glade/payt.glade:135 ../glade/payt.glade:145
-#: ../../wader/bcm/models/main.py:80 ../../wader/bcm/models/main.py:317
-#: ../../wader/bcm/views/diagnostics_view.py:63
-#: ../../wader/bcm/views/diagnostics_view.py:71
-#: ../../wader/bcm/views/diagnostics_view.py:75
-#: ../../wader/bcm/views/payt_view.py:57 ../../wader/bcm/views/payt_view.py:69
-#: ../../wader/bcm/controllers/preferences.py:85
-#: ../../wader/bcm/controllers/main.py:261
-#: ../../wader/bcm/controllers/main.py:579
+#: ../../wader/vmb/models/main.py:80 ../../wader/vmb/models/main.py:317
+#: ../../wader/vmb/views/diagnostics_view.py:63
+#: ../../wader/vmb/views/diagnostics_view.py:71
+#: ../../wader/vmb/views/diagnostics_view.py:75
+#: ../../wader/vmb/views/payt_view.py:57 ../../wader/vmb/views/payt_view.py:69
+#: ../../wader/vmb/controllers/preferences.py:85
+#: ../../wader/vmb/controllers/main.py:261
+#: ../../wader/vmb/controllers/main.py:579
 msgid "Unknown"
 msgstr "Sconosciuto"
 
@@ -918,100 +918,100 @@ msgstr "A :"
 msgid "3G Devices Manager"
 msgstr "Gestione periferiche 3G "
 
-#: ../../wader/bcm/keyring_dialogs.py:103
+#: ../../wader/vmb/keyring_dialogs.py:103
 msgid "Create default keyring"
 msgstr ""
 
-#: ../../wader/bcm/keyring_dialogs.py:104
+#: ../../wader/vmb/keyring_dialogs.py:104
 #, python-format
 msgid ""
 "The application '%s' wants to store a password, but there is no default "
 "keyring. To create one, you need to choose a password you wish to use for it."
 msgstr ""
 
-#: ../../wader/bcm/keyring_dialogs.py:138
+#: ../../wader/vmb/keyring_dialogs.py:138
 msgid "Unlock keyring"
 msgstr ""
 
-#: ../../wader/bcm/keyring_dialogs.py:139
+#: ../../wader/vmb/keyring_dialogs.py:139
 #, python-format
 msgid ""
 "The application '%s' wants access to the default keyring, but is locked."
 msgstr ""
 
-#: ../../wader/bcm/models/profile.py:178
-#: ../../wader/bcm/controllers/preferences.py:158
-#: ../../wader/bcm/controllers/preferences.py:174
+#: ../../wader/vmb/models/profile.py:178
+#: ../../wader/vmb/controllers/preferences.py:158
+#: ../../wader/vmb/controllers/preferences.py:174
 msgid "Custom"
 msgstr "Personalizzato"
 
-#: ../../wader/bcm/models/profile.py:423
+#: ../../wader/vmb/models/profile.py:423
 msgid "Trying to remove an unsaved profile"
 msgstr ""
 
-#: ../../wader/bcm/models/main.py:78 ../../wader/bcm/models/main.py:195
-#: ../../wader/bcm/views/main.py:246 ../../wader/bcm/controllers/main.py:369
-#: ../../wader/bcm/controllers/main.py:376
+#: ../../wader/vmb/models/main.py:78 ../../wader/vmb/models/main.py:195
+#: ../../wader/vmb/views/main.py:246 ../../wader/vmb/controllers/main.py:369
+#: ../../wader/vmb/controllers/main.py:376
 #, fuzzy
 msgid "No device"
 msgstr "Periferiche conosciute"
 
-#: ../../wader/bcm/models/main.py:101
-#: ../../wader/bcm/controllers/payt_controller.py:173
-#: ../../wader/bcm/controllers/payt_controller.py:210
+#: ../../wader/vmb/models/main.py:101
+#: ../../wader/vmb/controllers/payt_controller.py:173
+#: ../../wader/vmb/controllers/payt_controller.py:210
 msgid "Not available"
 msgstr ""
 
-#: ../../wader/bcm/models/main.py:147
+#: ../../wader/vmb/models/main.py:147
 msgid "Error while starting wader"
 msgstr ""
 
-#: ../../wader/bcm/models/main.py:148
+#: ../../wader/vmb/models/main.py:148
 #, python-format
 msgid ""
 "Check that your installation is correct and your  OS/distro is supported: %s"
 msgstr ""
 
-#: ../../wader/bcm/models/main.py:339 ../../wader/bcm/views/main.py:251
-#: ../../wader/bcm/controllers/main.py:362
-#: ../../wader/bcm/controllers/main.py:378
+#: ../../wader/vmb/models/main.py:339 ../../wader/vmb/views/main.py:251
+#: ../../wader/vmb/controllers/main.py:362
+#: ../../wader/vmb/controllers/main.py:378
 #, fuzzy
 msgid "Device found"
 msgstr "Dispositivo modello:"
 
-#: ../../wader/bcm/models/main.py:452
-#: ../../wader/bcm/controllers/payt_controller.py:214
-#: ../../wader/bcm/controllers/main.py:393
+#: ../../wader/vmb/models/main.py:452
+#: ../../wader/vmb/controllers/payt_controller.py:214
+#: ../../wader/vmb/controllers/main.py:393
 msgid "Registered"
 msgstr ""
 
-#: ../../wader/bcm/models/main.py:454 ../../wader/bcm/controllers/main.py:384
-#: ../../wader/bcm/controllers/main.py:619
+#: ../../wader/vmb/models/main.py:454 ../../wader/vmb/controllers/main.py:384
+#: ../../wader/vmb/controllers/main.py:619
 msgid "Scanning"
 msgstr ""
 
-#: ../../wader/bcm/models/main.py:456
+#: ../../wader/vmb/models/main.py:456
 msgid "Reg. rejected"
 msgstr ""
 
-#: ../../wader/bcm/models/main.py:458
+#: ../../wader/vmb/models/main.py:458
 #, fuzzy
 msgid "Unknown Error"
 msgstr "Rete sconosciuta"
 
-#: ../../wader/bcm/models/main.py:460
-#: ../../wader/bcm/controllers/payt_controller.py:214
-#: ../../wader/bcm/controllers/main.py:393
+#: ../../wader/vmb/models/main.py:460
+#: ../../wader/vmb/controllers/payt_controller.py:214
+#: ../../wader/vmb/controllers/main.py:393
 msgid "Roaming"
 msgstr ""
 
-#: ../../wader/bcm/views/pin.py:74
-#: ../../wader/bcm/controllers/preferences.py:212
+#: ../../wader/vmb/views/pin.py:74
+#: ../../wader/vmb/controllers/preferences.py:212
 msgid "To use this feature you need the gnomekeyring module"
 msgstr ""
 "Per usare questo caratteristica hai bisogno di avere gnomekeyring installato"
 
-#: ../../wader/bcm/views/pin.py:89
+#: ../../wader/vmb/views/pin.py:89
 msgid ""
 "\n"
 "In order to unlock your SIM, we need your\n"
@@ -1021,7 +1021,7 @@ msgstr ""
 "Per sbloccare la SIM, abbiamo bisogno dei \n"
 "codici PIN e PUK "
 
-#: ../../wader/bcm/views/pin.py:96
+#: ../../wader/vmb/views/pin.py:96
 msgid ""
 "\n"
 "In order to unlock your SIM, we need your\n"
@@ -1031,23 +1031,23 @@ msgstr ""
 "Per sbloccare la SIM, abbiamo bisogno dei \n"
 "codici PIN e PUK2 "
 
-#: ../../wader/bcm/views/profile.py:127 ../../wader/bcm/views/main.py:307
-#: ../../wader/bcm/controllers/contacts.py:152
+#: ../../wader/vmb/views/profile.py:127 ../../wader/vmb/views/main.py:307
+#: ../../wader/vmb/controllers/contacts.py:152
 msgid "Name"
 msgstr "Nome"
 
-#: ../../wader/bcm/views/profile.py:132
+#: ../../wader/vmb/views/profile.py:132
 #, fuzzy
 msgid "Country"
 msgstr "Paese"
 
-#: ../../wader/bcm/views/profile.py:137 ../../wader/bcm/views/main.py:301
-#: ../../wader/bcm/views/main.py:339
-#: ../../wader/bcm/controllers/contacts.py:146
+#: ../../wader/vmb/views/profile.py:137 ../../wader/vmb/views/main.py:301
+#: ../../wader/vmb/views/main.py:339
+#: ../../wader/vmb/controllers/contacts.py:146
 msgid "Type"
 msgstr "Tipo"
 
-#: ../../wader/bcm/views/main.py:122
+#: ../../wader/vmb/views/main.py:122
 #, python-format
 msgid ""
 "In most cases you can find the answer to your questions about the program in "
@@ -1077,7 +1077,7 @@ msgstr ""
 "programmi del tuo sistema,  potresti aver bisogno di chiedere al tuo "
 "Responsabile di Sistema per ogni dubbio che potresti avere."
 
-#: ../../wader/bcm/views/main.py:137
+#: ../../wader/vmb/views/main.py:137
 msgid ""
 "If you are using this program in a corporate environment, your company "
 "probably has a support center to solve the questions that you might have "
@@ -1093,135 +1093,135 @@ msgstr ""
 "Se la tua compagnia non ha un centro di supporto, dovresti contattare "
 "l'Amministratore di sistema della tua compagnia."
 
-#: ../../wader/bcm/views/main.py:196 ../../wader/bcm/controllers/main.py:710
+#: ../../wader/vmb/views/main.py:196 ../../wader/vmb/controllers/main.py:710
 msgid "Connect"
 msgstr "Connetti"
 
-#: ../../wader/bcm/views/main.py:200 ../../wader/bcm/controllers/main.py:705
+#: ../../wader/vmb/views/main.py:200 ../../wader/vmb/controllers/main.py:705
 msgid "Disconnect"
 msgstr "Disconnetti"
 
-#: ../../wader/bcm/views/main.py:256 ../../wader/bcm/controllers/main.py:205
-#: ../../wader/bcm/controllers/main.py:211
-#: ../../wader/bcm/controllers/main.py:218
-#: ../../wader/bcm/controllers/main.py:380
+#: ../../wader/vmb/views/main.py:256 ../../wader/vmb/controllers/main.py:205
+#: ../../wader/vmb/controllers/main.py:211
+#: ../../wader/vmb/controllers/main.py:218
+#: ../../wader/vmb/controllers/main.py:380
 msgid "SIM locked"
 msgstr ""
 
-#: ../../wader/bcm/views/main.py:261 ../../wader/bcm/controllers/pin.py:265
-#: ../../wader/bcm/controllers/pin.py:336
-#: ../../wader/bcm/controllers/main.py:382
+#: ../../wader/vmb/views/main.py:261 ../../wader/vmb/controllers/pin.py:265
+#: ../../wader/vmb/controllers/pin.py:336
+#: ../../wader/vmb/controllers/main.py:382
 #, fuzzy
 msgid "Authenticating"
 msgstr "Autentificazione..."
 
-#: ../../wader/bcm/views/main.py:267
+#: ../../wader/vmb/views/main.py:267
 msgid "Searching"
 msgstr "Searching"
 
-#: ../../wader/bcm/views/main.py:274
-#: ../../wader/bcm/controllers/payt_controller.py:214
-#: ../../wader/bcm/controllers/main.py:393
-#: ../../wader/bcm/controllers/main.py:637
-#: ../../wader/bcm/controllers/main.py:663
-#: ../../wader/bcm/controllers/main.py:856
-#: ../../wader/bcm/controllers/main.py:1057
+#: ../../wader/vmb/views/main.py:274
+#: ../../wader/vmb/controllers/payt_controller.py:214
+#: ../../wader/vmb/controllers/main.py:393
+#: ../../wader/vmb/controllers/main.py:637
+#: ../../wader/vmb/controllers/main.py:663
+#: ../../wader/vmb/controllers/main.py:856
+#: ../../wader/vmb/controllers/main.py:1057
 msgid "Not connected"
 msgstr "Non connesso"
 
-#: ../../wader/bcm/views/main.py:281 ../../wader/bcm/controllers/main.py:395
-#: ../../wader/bcm/controllers/main.py:625
+#: ../../wader/vmb/views/main.py:281 ../../wader/vmb/controllers/main.py:395
+#: ../../wader/vmb/controllers/main.py:625
 msgid "Connected"
 msgstr "Connesso"
 
-#: ../../wader/bcm/views/main.py:316
-#: ../../wader/bcm/controllers/contacts.py:159
+#: ../../wader/vmb/views/main.py:316
+#: ../../wader/vmb/controllers/contacts.py:159
 msgid "Number"
 msgstr "Numero"
 
-#: ../../wader/bcm/views/main.py:350
+#: ../../wader/vmb/views/main.py:350
 msgid "Text"
 msgstr "Testo"
 
-#: ../../wader/bcm/views/main.py:361
+#: ../../wader/vmb/views/main.py:361
 msgid "Recipient"
 msgstr "Destinatario"
 
-#: ../../wader/bcm/views/main.py:361
+#: ../../wader/vmb/views/main.py:361
 msgid "Sender"
 msgstr "Inviato da"
 
-#: ../../wader/bcm/views/main.py:369
+#: ../../wader/vmb/views/main.py:369
 msgid "Date"
 msgstr "Dattero"
 
-#: ../../wader/bcm/views/main.py:430 ../../wader/bcm/controllers/main.py:471
-#: ../../wader/bcm/controllers/main.py:555
+#: ../../wader/vmb/views/main.py:430 ../../wader/vmb/controllers/main.py:471
+#: ../../wader/vmb/controllers/main.py:555
 msgid "N/A"
 msgstr "N/A"
 
-#: ../../wader/bcm/views/main.py:430
+#: ../../wader/vmb/views/main.py:430
 msgid "Radio Disabled"
 msgstr ""
 
-#: ../../wader/bcm/views/main.py:432 ../../wader/bcm/controllers/main.py:544
-#: ../../wader/bcm/signals.py:24
+#: ../../wader/vmb/views/main.py:432 ../../wader/vmb/controllers/main.py:544
+#: ../../wader/vmb/signals.py:24
 msgid "GPRS"
 msgstr "GPRS"
 
-#: ../../wader/bcm/views/main.py:432 ../../wader/bcm/controllers/main.py:545
-#: ../../wader/bcm/signals.py:25
+#: ../../wader/vmb/views/main.py:432 ../../wader/vmb/controllers/main.py:545
+#: ../../wader/vmb/signals.py:25
 msgid "EDGE"
 msgstr ""
 
-#: ../../wader/bcm/uptime.py:83
+#: ../../wader/vmb/uptime.py:83
 #, python-format
 msgid "%(day)d days, %(msg)s"
 msgstr "%(day)d giorni, %(msg)s"
 
-#: ../../wader/bcm/uptime.py:85
+#: ../../wader/vmb/uptime.py:85
 #, python-format
 msgid "%(day)d day, %(msg)s"
 msgstr "%(day)d giorno, %(msg)s"
 
-#: ../../wader/bcm/controllers/payt_controller.py:95
-#: ../../wader/bcm/controllers/payt_controller.py:111
-#: ../../wader/bcm/controllers/payt_controller.py:121
+#: ../../wader/vmb/controllers/payt_controller.py:95
+#: ../../wader/vmb/controllers/payt_controller.py:111
+#: ../../wader/vmb/controllers/payt_controller.py:121
 msgid "PAYT submit voucher"
 msgstr ""
 
-#: ../../wader/bcm/controllers/payt_controller.py:96
-#: ../../wader/bcm/controllers/payt_controller.py:157
+#: ../../wader/vmb/controllers/payt_controller.py:96
+#: ../../wader/vmb/controllers/payt_controller.py:157
 msgid "SIM is not on a PAYT plan"
 msgstr ""
 
-#: ../../wader/bcm/controllers/payt_controller.py:112
+#: ../../wader/vmb/controllers/payt_controller.py:112
 #, python-format
 msgid ""
 "PAYT submit voucher failed\n"
 "'%s'"
 msgstr ""
 
-#: ../../wader/bcm/controllers/payt_controller.py:122
+#: ../../wader/vmb/controllers/payt_controller.py:122
 msgid "No PAYT submit voucher method available"
 msgstr ""
 
-#: ../../wader/bcm/controllers/payt_controller.py:156
-#: ../../wader/bcm/controllers/payt_controller.py:191
+#: ../../wader/vmb/controllers/payt_controller.py:156
+#: ../../wader/vmb/controllers/payt_controller.py:191
 msgid "PAYT credit check"
 msgstr ""
 
-#: ../../wader/bcm/controllers/payt_controller.py:192
+#: ../../wader/vmb/controllers/payt_controller.py:192
 msgid "No PAYT credit check method available"
 msgstr ""
 
-#: ../../wader/bcm/controllers/pin.py:109
-#: ../../wader/bcm/controllers/pin.py:190
+#: ../../wader/vmb/controllers/pin.py:109
+#: ../../wader/vmb/controllers/pin.py:190
 msgid "Incorrect PIN"
 msgstr "PIN sbagliato"
 
-#: ../../wader/bcm/controllers/pin.py:110
-#: ../../wader/bcm/controllers/pin.py:191
+#: ../../wader/vmb/controllers/pin.py:110
+#: ../../wader/vmb/controllers/pin.py:191
 msgid ""
 "\n"
 "<small>The PIN you've just entered is\n"
@@ -1235,28 +1235,28 @@ msgstr ""
 "tentativi falliti del PIN ti verrà\n"
 "richiesto il codice PUK</small>\n"
 
-#: ../../wader/bcm/controllers/preferences.py:40
+#: ../../wader/vmb/controllers/preferences.py:40
 msgid "Maximum time"
 msgstr "Tempo massimo"
 
-#: ../../wader/bcm/controllers/preferences.py:41
+#: ../../wader/vmb/controllers/preferences.py:41
 msgid "1 week"
 msgstr "1 settimana"
 
-#: ../../wader/bcm/controllers/preferences.py:42
+#: ../../wader/vmb/controllers/preferences.py:42
 msgid "3 days"
 msgstr "3 giorni"
 
-#: ../../wader/bcm/controllers/preferences.py:43
+#: ../../wader/vmb/controllers/preferences.py:43
 msgid "1 day"
 msgstr "1 giorno"
 
-#: ../../wader/bcm/controllers/preferences.py:210
-#: ../../wader/bcm/controllers/preferences.py:229
+#: ../../wader/vmb/controllers/preferences.py:210
+#: ../../wader/vmb/controllers/preferences.py:229
 msgid "Missing dependency"
 msgstr "Dipendenze mancanti"
 
-#: ../../wader/bcm/controllers/preferences.py:230
+#: ../../wader/vmb/controllers/preferences.py:230
 msgid ""
 "\n"
 "To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
@@ -1266,46 +1266,46 @@ msgstr ""
 "Per usare questa caratteristica hai bisogno dei moduli pygtk >= 2.10 o di "
 "egg.trayicon\n"
 
-#: ../../wader/bcm/controllers/profile.py:64
+#: ../../wader/vmb/controllers/profile.py:64
 msgid "Error while getting connection password"
 msgstr ""
 
-#: ../../wader/bcm/controllers/profile.py:65
+#: ../../wader/vmb/controllers/profile.py:65
 msgid ""
 "NoMatchError: No password was retrieved from connection, please set one again"
 msgstr ""
 
-#: ../../wader/bcm/controllers/profile.py:113
+#: ../../wader/vmb/controllers/profile.py:113
 msgid "Error creating profile"
 msgstr ""
 
-#: ../../wader/bcm/controllers/contacts.py:98
+#: ../../wader/vmb/controllers/contacts.py:98
 msgid "No contact found"
 msgstr "Nessun contatto trovato"
 
-#: ../../wader/bcm/controllers/contacts.py:99
+#: ../../wader/vmb/controllers/contacts.py:99
 #, python-format
 msgid "No contact with the name %s found"
 msgstr "Nessun contatto con il nome %s è stato trovato"
 
-#: ../../wader/bcm/controllers/main.py:174
+#: ../../wader/vmb/controllers/main.py:174
 #, python-format
 msgid "Quit %s"
 msgstr "Chiudi %s"
 
-#: ../../wader/bcm/controllers/main.py:175
+#: ../../wader/vmb/controllers/main.py:175
 msgid "Are you sure you want to exit?"
 msgstr "Sei sicuro di voler uscire?"
 
-#: ../../wader/bcm/controllers/main.py:187
+#: ../../wader/vmb/controllers/main.py:187
 msgid "Can not close application"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:188
+#: ../../wader/vmb/controllers/main.py:188
 msgid "Can not close while a connection is active"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:271
+#: ../../wader/vmb/controllers/main.py:271
 #, python-format
 msgid ""
 "You can easily find answers to the most common questions in the help menu, "
@@ -1333,92 +1333,92 @@ msgstr ""
 "\n"
 "%(international)s se stai chiamando da altre reti."
 
-#: ../../wader/bcm/controllers/main.py:315
+#: ../../wader/vmb/controllers/main.py:315
 msgid "Invalid password"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:316
+#: ../../wader/vmb/controllers/main.py:316
 msgid "The supplied password is incorrect"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:326
+#: ../../wader/vmb/controllers/main.py:326
 msgid "Unknown Network"
 msgstr "Rete sconosciuta"
 
-#: ../../wader/bcm/controllers/main.py:402
+#: ../../wader/vmb/controllers/main.py:402
 msgid "SIM error"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:403
+#: ../../wader/vmb/controllers/main.py:403
 msgid "Perhaps your SIM is not inserted correctly?"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:405
+#: ../../wader/vmb/controllers/main.py:405
 #, fuzzy
 msgid "Unknown error"
 msgstr "Rete sconosciuta"
 
-#: ../../wader/bcm/controllers/main.py:411
+#: ../../wader/vmb/controllers/main.py:411
 msgid "Error while registering to home network"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:486
+#: ../../wader/vmb/controllers/main.py:486
 msgid "Transfer limit exceeded"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:487
+#: ../../wader/vmb/controllers/main.py:487
 msgid "You have exceeded your transfer limit"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:546 ../../wader/bcm/signals.py:26
+#: ../../wader/vmb/controllers/main.py:546 ../../wader/vmb/signals.py:26
 msgid "UMTS"
 msgstr "UMTS"
 
-#: ../../wader/bcm/controllers/main.py:547 ../../wader/bcm/signals.py:31
+#: ../../wader/vmb/controllers/main.py:547 ../../wader/vmb/signals.py:31
 msgid "HSDPA"
 msgstr "HSDPA"
 
-#: ../../wader/bcm/controllers/main.py:548 ../../wader/bcm/signals.py:32
+#: ../../wader/vmb/controllers/main.py:548 ../../wader/vmb/signals.py:32
 msgid "HSUPA"
 msgstr "HSUPA"
 
-#: ../../wader/bcm/controllers/main.py:549 ../../wader/bcm/signals.py:33
+#: ../../wader/vmb/controllers/main.py:549 ../../wader/vmb/signals.py:33
 msgid "HSPA"
 msgstr "HSPA"
 
-#: ../../wader/bcm/controllers/main.py:580
+#: ../../wader/vmb/controllers/main.py:580
 #, fuzzy, python-format
 msgid "SMS receipt received for %s"
 msgstr "SMS ricevuto da %s"
 
-#: ../../wader/bcm/controllers/main.py:608
+#: ../../wader/vmb/controllers/main.py:608
 #, python-format
 msgid "SMS received from %s"
 msgstr "SMS ricevuto da %s"
 
-#: ../../wader/bcm/controllers/main.py:658
+#: ../../wader/vmb/controllers/main.py:658
 #, fuzzy
 msgid "Failed connection attempt"
 msgstr "Velocità di connessione:"
 
-#: ../../wader/bcm/controllers/main.py:724
-#: ../../wader/bcm/controllers/main.py:759
+#: ../../wader/vmb/controllers/main.py:724
+#: ../../wader/vmb/controllers/main.py:759
 msgid "Send SMS"
 msgstr "Spedisci un SMS"
 
-#: ../../wader/bcm/controllers/main.py:737
+#: ../../wader/vmb/controllers/main.py:737
 msgid "Quit"
 msgstr "Chiudi"
 
-#: ../../wader/bcm/controllers/main.py:781
+#: ../../wader/vmb/controllers/main.py:781
 msgid "Edit"
 msgstr "Modifica"
 
-#: ../../wader/bcm/controllers/main.py:801
+#: ../../wader/vmb/controllers/main.py:801
 msgid "Invalid CSV format"
 msgstr "Formato CSV non valido"
 
-#: ../../wader/bcm/controllers/main.py:802
+#: ../../wader/vmb/controllers/main.py:802
 msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
@@ -1426,107 +1426,107 @@ msgstr ""
 "\n"
 "Il file csv che hai provato ad importare ha un formato non valido."
 
-#: ../../wader/bcm/controllers/main.py:830
+#: ../../wader/vmb/controllers/main.py:830
 #, fuzzy
 msgid "No device found"
 msgstr "Nessun periferica trovata"
 
-#: ../../wader/bcm/controllers/main.py:831
+#: ../../wader/vmb/controllers/main.py:831
 msgid "No device has been found. Insert one and try again."
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:838
+#: ../../wader/vmb/controllers/main.py:838
 #, fuzzy
 msgid "Profile needed"
 msgstr "Nome Profilo:"
 
-#: ../../wader/bcm/controllers/main.py:839
+#: ../../wader/vmb/controllers/main.py:839
 msgid "You need to create a profile for connecting."
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:865
+#: ../../wader/vmb/controllers/main.py:865
 #, fuzzy
 msgid "Connecting"
 msgstr "In connessione..."
 
-#: ../../wader/bcm/controllers/main.py:874
+#: ../../wader/vmb/controllers/main.py:874
 #, fuzzy
 msgid "Disconnecting"
 msgstr "Disconnetti"
 
-#: ../../wader/bcm/controllers/main.py:1006
+#: ../../wader/vmb/controllers/main.py:1006
 msgid "_New Profile"
 msgstr "_Nuovo profilo"
 
-#: ../../wader/bcm/controllers/main.py:1015
+#: ../../wader/vmb/controllers/main.py:1015
 msgid "Load Profile"
 msgstr "Carica profilo"
 
-#: ../../wader/bcm/controllers/main.py:1020
+#: ../../wader/vmb/controllers/main.py:1020
 msgid "Edit Profile"
 msgstr "Modifica Profilo"
 
-#: ../../wader/bcm/controllers/main.py:1025
+#: ../../wader/vmb/controllers/main.py:1025
 msgid "Delete Profile"
 msgstr "Cancella Profilo"
 
-#: ../../wader/bcm/controllers/main.py:1058
+#: ../../wader/vmb/controllers/main.py:1058
 msgid "No mobile connection. Do you want to continue?"
 msgstr "Nessuna connessione attiva. Vuoi continuare?"
 
-#: ../../wader/bcm/controllers/main.py:1504
+#: ../../wader/vmb/controllers/main.py:1504
 msgid "Editor not available"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:1505
+#: ../../wader/vmb/controllers/main.py:1505
 #, python-format
 msgid "Can not start external contact editor \"%s\""
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:1511
+#: ../../wader/vmb/controllers/main.py:1511
 msgid "_Add to contacts"
 msgstr "_Aggiungi ai contatti"
 
-#: ../../wader/bcm/controllers/main.py:1522
+#: ../../wader/vmb/controllers/main.py:1522
 msgid "Migrate to DB"
 msgstr ""
 
-#: ../../wader/bcm/controllers/main.py:1531
+#: ../../wader/vmb/controllers/main.py:1531
 msgid "Save to draft"
 msgstr "Salva brutta copia"
 
-#: ../../wader/bcm/controllers/main.py:1542
+#: ../../wader/vmb/controllers/main.py:1542
 msgid "Delete"
 msgstr "Cancella"
 
-#: ../../wader/bcm/controllers/sms.py:51
+#: ../../wader/vmb/controllers/sms.py:51
 msgid "You can send the SMS to several recipients separating them by commas"
 msgstr ""
 "Tu puoi spedire gli SMS a diversi destinatari separandoli con delle virgole"
 
-#: ../../wader/bcm/controllers/sms.py:83
-#: ../../wader/bcm/controllers/sms.py:258
+#: ../../wader/vmb/controllers/sms.py:83
+#: ../../wader/vmb/controllers/sms.py:258
 #, python-format
 msgid "Text message: 0/%d chars"
 msgstr "Messagio di testo: 0/%d caratteri"
 
-#: ../../wader/bcm/controllers/sms.py:112
+#: ../../wader/vmb/controllers/sms.py:112
 msgid "Send empty message"
 msgstr "Spedisci un messaggio vuoto"
 
-#: ../../wader/bcm/controllers/sms.py:113
+#: ../../wader/vmb/controllers/sms.py:113
 msgid "Are you sure you want to send an empty message?"
 msgstr "Sei sicuro di voler spedire un messaggio vuoto?"
 
-#: ../../wader/bcm/controllers/sms.py:137
+#: ../../wader/vmb/controllers/sms.py:137
 msgid "Error while sending SMS"
 msgstr ""
 
-#: ../../wader/bcm/controllers/sms.py:183
+#: ../../wader/vmb/controllers/sms.py:183
 msgid "No SMSC number"
 msgstr "Nessun numero SMSC"
 
-#: ../../wader/bcm/controllers/sms.py:184
+#: ../../wader/vmb/controllers/sms.py:184
 #, python-format
 msgid ""
 "In order to send a SMS, %s needs to know the number of your provider's SMSC. "
@@ -1535,48 +1535,48 @@ msgstr ""
 "Per spedire SMS, %s necessita di sapere il numero SMSC del tuo provider. Se "
 "non conosci il numero SMSC, contatta il servizio clienti."
 
-#: ../../wader/bcm/controllers/sms.py:266
+#: ../../wader/vmb/controllers/sms.py:266
 #, python-format
 msgid "Text message: %(num)d/%(total)d chars"
 msgstr "Messagio di testo: %(num)d/%(total)d caratteri"
 
-#: ../../wader/bcm/controllers/sms.py:271
+#: ../../wader/vmb/controllers/sms.py:271
 #, python-format
 msgid "Text message: %(num)d/%(total)d chars (%(msgs)d SMS)"
 msgstr "Messagio di testo: %(num)d/%(total)d caratteri (%(msgs)d SMS)"
 
-#: ../../wader/bcm/dialogs.py:63
+#: ../../wader/vmb/dialogs.py:63
 msgid "translator-credits"
 msgstr ""
 
-#: ../../wader/bcm/dialogs.py:211
+#: ../../wader/vmb/dialogs.py:211
 #, fuzzy
 msgid "Password required"
 msgstr "Password:"
 
-#: ../../wader/bcm/dialogs.py:212
+#: ../../wader/vmb/dialogs.py:212
 #, fuzzy
 msgid "Please, insert the password of your connection"
 msgstr "Per cortesia introduci il codice PIN"
 
-#: ../../wader/bcm/dialogs.py:246
+#: ../../wader/vmb/dialogs.py:246
 msgid "Save as ..."
 msgstr "Salva con nome..."
 
-#: ../../wader/bcm/dialogs.py:254 ../../wader/bcm/dialogs.py:293
+#: ../../wader/vmb/dialogs.py:254 ../../wader/vmb/dialogs.py:293
 msgid "Csv files"
 msgstr "Documenti Csv"
 
-#: ../../wader/bcm/dialogs.py:260 ../../wader/bcm/dialogs.py:298
+#: ../../wader/vmb/dialogs.py:260 ../../wader/vmb/dialogs.py:298
 msgid "All files"
 msgstr "Tutti i documenti"
 
-#: ../../wader/bcm/dialogs.py:271
+#: ../../wader/vmb/dialogs.py:271
 #, python-format
 msgid "Overwrite \"%s\"?"
 msgstr "Sovrascrivi \"%s\"?"
 
-#: ../../wader/bcm/dialogs.py:272
+#: ../../wader/vmb/dialogs.py:272
 msgid ""
 "A file with this name already exists.\n"
 "If you choose to overwrite this file, the contents will be lost."
@@ -1584,116 +1584,116 @@ msgstr ""
 "Esiste già un documento con lo stesso nome.\n"
 "Se scegli di sovrascriverlo, il suo contenuto sarà perso."
 
-#: ../../wader/bcm/dialogs.py:285
+#: ../../wader/vmb/dialogs.py:285
 msgid "Import contacts from..."
 msgstr "Importa i contatti da..."
 
-#: ../../wader/bcm/consts.py:88 ../../wader/bcm/consts.py:106
-#: ../../wader/bcm/consts.py:126
+#: ../../wader/vmb/consts.py:88 ../../wader/vmb/consts.py:106
+#: ../../wader/vmb/consts.py:126
 msgid "Any"
 msgstr "Qualsiasi"
 
-#: ../../wader/bcm/consts.py:89
+#: ../../wader/vmb/consts.py:89
 msgid "EGSM 900"
 msgstr "EGSM 900"
 
-#: ../../wader/bcm/consts.py:90
+#: ../../wader/vmb/consts.py:90
 msgid "GSM DCS"
 msgstr "GSM DCS"
 
-#: ../../wader/bcm/consts.py:91
+#: ../../wader/vmb/consts.py:91
 msgid "GSM PCS"
 msgstr "GSM PCS"
 
-#: ../../wader/bcm/consts.py:92
+#: ../../wader/vmb/consts.py:92
 msgid "GSM 850"
 msgstr "GSM 850"
 
-#: ../../wader/bcm/consts.py:93
+#: ../../wader/vmb/consts.py:93
 msgid "WCDMA 2100"
 msgstr "WCDMA 2100"
 
-#: ../../wader/bcm/consts.py:94
+#: ../../wader/vmb/consts.py:94
 msgid "WCDMA 1700"
 msgstr "WCDMA 1700"
 
-#: ../../wader/bcm/consts.py:95
+#: ../../wader/vmb/consts.py:95
 msgid "WCDMA 17IV"
 msgstr "WCDMA 17IV"
 
-#: ../../wader/bcm/consts.py:96
+#: ../../wader/vmb/consts.py:96
 msgid "WCDMA 800"
 msgstr "WCDMA 800"
 
-#: ../../wader/bcm/consts.py:97
+#: ../../wader/vmb/consts.py:97
 msgid "WCDMA 850"
 msgstr "WCDMA 850"
 
-#: ../../wader/bcm/consts.py:98
+#: ../../wader/vmb/consts.py:98
 msgid "WCDMA 900"
 msgstr "WCDMA 900"
 
-#: ../../wader/bcm/consts.py:99
+#: ../../wader/vmb/consts.py:99
 msgid "WCDMA 17IX"
 msgstr "WCDMA 17IX"
 
-#: ../../wader/bcm/consts.py:100
+#: ../../wader/vmb/consts.py:100
 msgid "WCDMA 1900"
 msgstr "WCDMA 1900"
 
-#: ../../wader/bcm/consts.py:107 ../../wader/bcm/signals.py:27
+#: ../../wader/vmb/consts.py:107 ../../wader/vmb/signals.py:27
 msgid "2G preferred"
 msgstr "Prediligi 2G"
 
-#: ../../wader/bcm/consts.py:108 ../../wader/bcm/signals.py:28
+#: ../../wader/vmb/consts.py:108 ../../wader/vmb/signals.py:28
 msgid "3G preferred"
 msgstr "Prediligi 3G"
 
-#: ../../wader/bcm/consts.py:109 ../../wader/bcm/signals.py:29
+#: ../../wader/vmb/consts.py:109 ../../wader/vmb/signals.py:29
 msgid "2G only"
 msgstr "Solo 2G"
 
-#: ../../wader/bcm/consts.py:110 ../../wader/bcm/signals.py:30
+#: ../../wader/vmb/consts.py:110 ../../wader/vmb/signals.py:30
 msgid "3G only"
 msgstr "Solo 3G"
 
-#: ../../wader/bcm/consts.py:127
+#: ../../wader/vmb/consts.py:127
 msgid "PAP"
 msgstr "PAP"
 
-#: ../../wader/bcm/consts.py:128
+#: ../../wader/vmb/consts.py:128
 msgid "EAP"
 msgstr "EAP"
 
-#: ../../wader/bcm/consts.py:129
+#: ../../wader/vmb/consts.py:129
 msgid "CHAP"
 msgstr "CHAP"
 
-#: ../../wader/bcm/consts.py:130
+#: ../../wader/vmb/consts.py:130
 msgid "MSCHAP"
 msgstr "MSCHAP"
 
-#: ../../wader/bcm/consts.py:131
+#: ../../wader/vmb/consts.py:131
 msgid "MSCHAPv2"
 msgstr "MSCHAPv2"
 
-#: ../../wader/bcm/signals.py:23
+#: ../../wader/vmb/signals.py:23
 msgid "No signal"
 msgstr ""
 
-#: ../../wader/bcm/contacts/contact_kdepim.py:132
+#: ../../wader/vmb/contacts/contact_kdepim.py:132
 msgid "KDE PIM"
 msgstr "KDE PIM"
 
-#: ../../wader/bcm/contacts/contact_evolution.py:136
+#: ../../wader/vmb/contacts/contact_evolution.py:136
 msgid "Evolution"
 msgstr "Evolution"
 
-#: ../../bin/bcm:55
+#: ../../bin/vodafone-mobile-broadband:55
 msgid "Do not run the application as root"
 msgstr ""
 
-#: ../../bin/bcm:56
+#: ../../bin/vodafone-mobile-broadband:56
 msgid "Otherwise some features, like profiles, might behave unpredictably."
 msgstr ""
 
@@ -1745,8 +1745,8 @@ msgstr ""
 #~ msgid "<b>GSM device</b>"
 #~ msgstr "<b>dispositivo GSM</b>"
 
-#~ msgid "BCM number:"
-#~ msgstr "Numero BCM:"
+#~ msgid "VMB number:"
+#~ msgstr "Numero VMB:"
 
 #~ msgid ""
 #~ "<b>Change the dialer profile if your provider requires you to "
@@ -1780,7 +1780,7 @@ msgstr ""
 #~ msgid ""
 #~ "\n"
 #~ "Your device \"%(name)s\" is not properly registered with the kernel. %"
-#~ "(bcm)s\n"
+#~ "(vmb)s\n"
 #~ "needs at least two serial ports to communicate with your %(name)s.\n"
 #~ "The program includes a set of udev rules plus some binaries that make "
 #~ "sure\n"
@@ -1789,7 +1789,7 @@ msgstr ""
 #~ msgstr ""
 #~ "\n"
 #~ "La periferica \"%(name)s\" non è stata registrata correttamente nel "
-#~ "kernel. %(bcm)s\n"
+#~ "kernel. %(vmb)s\n"
 #~ "ha bisogno di almeno due porte seriali per comunicare con %(name)s.\n"
 #~ "Il programma include un insieme di regole udev ed alcuni programmi per "
 #~ "essere sicuro\n"
@@ -2137,7 +2137,7 @@ msgstr ""
 
 #~ msgid ""
 #~ "\n"
-#~ "%(bcm)s cannot connect with the selected device (%(name)s).\n"
+#~ "%(vmb)s cannot connect with the selected device (%(name)s).\n"
 #~ msgstr ""
 #~ "\n"
-#~ "%(bcm)s non può connettersi con la periferica selezionata (%(name)s).\n"
+#~ "%(vmb)s non può connettersi con la periferica selezionata (%(name)s).\n"

@@ -1,0 +1,29 @@
+#!/bin/sh
+
+tweak_ambiance_theme()
+{
+    THEME='/usr/share/themes/Ambiance/gtk-2.0/gtkrc'
+
+    if [ -f $THEME ] ; then
+        if ! grep -q 'sms_menubar' $THEME ; then
+            {
+                echo
+                echo '# added by vodafone-mobile-broadband'
+                echo 'widget "*.sms_menubar" style "default"'
+                echo 'widget "*.sms_menubar.*" style "default"'
+                echo 'widget "*.contacts_menubar" style "default"'
+                echo 'widget "*.contacts_menubar.*" style "default"'
+            } >> $THEME
+        fi
+    fi
+}
+
+case "$1" in
+    configure)
+       tweak_ambiance_theme
+    ;;
+esac
+
+exit 0
+
+#DEBHELPER#

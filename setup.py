@@ -16,7 +16,7 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 """
-setuptools file for Wader bcm
+setuptools file for Vodafone Mobile Broadband.
 """
 
 import sys
@@ -32,7 +32,7 @@ from distutils.command.install_data import install_data as _install_data
 from distutils import cmd
 from distutils.command.build import build as _build
 
-from wader.bcm.consts import (APP_VERSION, APP_NAME,
+from wader.vmb.consts import (APP_VERSION, APP_NAME,
                               RESOURCES_DIR)
 
 BIN_DIR = '/usr/bin'
@@ -66,7 +66,7 @@ class build_trans(cmd.Command):
             if not exists(tdir):
                 makedirs(tdir)
 
-            tfil = join(tdir, 'bcm.mo')
+            tfil = join(tdir, 'vodafone-mobile-broadband.mo')
             call(['msgfmt', '-cf', '-o', tfil, filename])
 
 #        raise RuntimeError("Uncomment to stop and see translation errors easily")
@@ -84,7 +84,7 @@ class install_data(_install_data):
     def run(self):
         for lang in listdir('build/locale/'):
             lang_dir = join('share', 'locale', lang, 'LC_MESSAGES')
-            lang_file = join('build', 'locale', lang, 'LC_MESSAGES', 'bcm.mo')
+            lang_file = join('build', 'locale', lang, 'LC_MESSAGES', 'vodafone-mobile-broadband.mo')
             self.data_files.append((lang_dir, [lang_file]))
 
         _install_data.run(self)
@@ -116,28 +116,28 @@ data_files = [
    (join(RESOURCES_DIR, 'glade/animation'),
         list_files('resources/glade/animation')),
    (join(RESOURCES_DIR, 'themes'), list_files('resources/themes')),
-   (BIN_DIR, ['bin/bcm']),
+   (BIN_DIR, ['bin/vodafone-mobile-broadband']),
 ]
 
 if sys.platform == 'linux2':
     append = data_files.append
-    append((APPLICATIONS, ['resources/desktop/bcm.desktop']))
-    append((PIXMAPS, ['resources/desktop/bcm.png']))
-    append((DBUS_SYSTEMD, ['resources/dbus/bcm.conf']))
+    append((APPLICATIONS, ['resources/desktop/vodafone-mobile-broadband.desktop']))
+    append((PIXMAPS, ['resources/desktop/vodafone-mobile-broadband.png']))
+    append((DBUS_SYSTEMD, ['resources/dbus/vodafone-mobile-broadband.conf']))
 
 
 packages = [
-    'wader.bcm',
-    'wader.bcm.models',
-    'wader.bcm.controllers',
-    'wader.bcm.views',
-    'wader.bcm.contacts',
-    'wader.bcm.contrib',
-    'wader.bcm.contrib.pycocuma',
-    'wader.bcm.contrib.gtkmvc',
-    'wader.bcm.contrib.gtkmvc.adapters',
-    'wader.bcm.contrib.gtkmvc.progen',
-    'wader.bcm.contrib.gtkmvc.support',
+    'wader.vmb',
+    'wader.vmb.models',
+    'wader.vmb.controllers',
+    'wader.vmb.views',
+    'wader.vmb.contacts',
+    'wader.vmb.contrib',
+    'wader.vmb.contrib.pycocuma',
+    'wader.vmb.contrib.gtkmvc',
+    'wader.vmb.contrib.gtkmvc.adapters',
+    'wader.vmb.contrib.gtkmvc.progen',
+    'wader.vmb.contrib.gtkmvc.support',
 ]
 
 cmdclass = {

@@ -1,0 +1,106 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# Copyright (C) 2010-2011  Vodafone España, S.A.
+# Author:  Various
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+import os
+from subprocess import Popen, PIPE
+
+import gtk
+
+from wader.common.utils import save_file, get_file_data
+
+from wader.vmb.consts import GTK_LOCK, APP_LONG_NAME, APP_SLUG_NAME
+from wader.vmb.translate import _
+from wader.vmb.splash import SplashScreen
+from wader.vmb.startup import create_skeleton_and_return
+from wader.vmb.utils import find_windows, raise_window
+
+
+def check_if_running():
+    if not os.path.exists(GTK_LOCK):
+        # if there's no lock we're cool
+        return False
+
+#    cmd = "ps aux | grep 'python.*[b]cm' | awk '{ print $2 }'
+    cmd = "ps aux | grep 'python.*%s' | grep -v grep | awk '{ print $2 }'"
+    pipe = Popen(cmd % APP_SLUG_NAME, shell=True, stdout=PIPE).stdout
+    pid = pipe.read().strip()
+    if not pid:
+        return False
+
+    saved_pid = get_file_data(GTK_LOCK).strip()
+    if not saved_pid:
+        # this shouldn't happen
+        return False
+
+    pids = pid.split('\n')
+    if len(pids) > 1:
+        # there's already a window running, plus us
+        return True
+
+    return int(pid) == int(saved_pid)
+
+
+def main():
+    # check that uid != 0
+    if not os.getuid():
+        from wader.vmb.dialogs import show_error_dialog
+        show_error_dialog(_("Do not run the application as root"),
+                          _("Otherwise some features, like profiles, "
+                            "might behave unpredictably."))
+        return
+
+    create_skeleton_and_return()
+
+    # delay import until we have the necessary skeleton
+    from wader.vmb.models.main import MainModel
+    from wader.vmb.controllers.main import MainController
+    from wader.vmb.views.main import MainView
+
+    model = MainModel()
+    ctrl = MainController(model)
+    # XXX: :P
+    model.ctrl = ctrl
+    view = MainView(ctrl)
+
+    # pass view to show after splash
+    splash = SplashScreen(view)
+    splash.show_it(1)
+
+    # save the pid
+    try:
+        os.unlink(GTK_LOCK)
+    except:
+        pass
+
+    save_file(GTK_LOCK, "%s" % str(os.getpid()))
+
+    try:
+        gtk.main()
+    except KeyboardInterrupt:
+        print "Removing gtk lock..."
+        os.unlink(GTK_LOCK)
+
+
+if __name__ == '__main__':
+    if check_if_running():
+        win_list = find_windows(APP_SLUG_NAME, APP_LONG_NAME)
+        if len(win_list) > 0:
+            raise_window(win_list[0])
+    else:
+        main()

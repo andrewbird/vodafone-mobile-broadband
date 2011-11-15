@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Vodafone Mobile Broadband
+Exec=vodafone-mobile-broadband
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=vodafone-mobile-broadband
+Categories=Application;Network;
+StartupNotify=false

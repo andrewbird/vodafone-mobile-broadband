@@ -1,6 +1,6 @@
 SHELL = /bin/bash
 
-VERSION := $(shell python -c 'from wader.bcm.consts import APP_VERSION; print APP_VERSION')
+VERSION := $(shell python -c 'from wader.vmb.consts import APP_VERSION; print APP_VERSION')
 SOURCES := $(shell rpmbuild --eval '%{_topdir}' 2>/dev/null)/SOURCES
 
 all:
@@ -13,8 +13,8 @@ rpm:
 		exit 1;\
 	fi
 
-	tar -jcvf $(SOURCES)/bcm-$(VERSION).tar.bz2 --exclude=.git --transform="s/^\./bcm-$(VERSION)/" .
-	rpmbuild -ba resources/rpm/bcm.spec
+	tar -jcvf $(SOURCES)/vodafone-mobile-broadband-$(VERSION).tar.bz2 --exclude=.git --transform="s/^\./vodafone-mobile-broadband-$(VERSION)/" .
+	rpmbuild -ba resources/rpm/vodafone-mobile-broadband.spec
 
 deb:
 	@if [ ! -d /var/lib/dpkg ] ;\
