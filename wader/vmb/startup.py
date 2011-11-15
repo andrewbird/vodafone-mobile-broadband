@@ -19,8 +19,26 @@
 """Startup helpers for GTK"""
 
 import os
+import shutil
 
 import wader.vmb.consts as consts
+
+
+def check_for_bcm_home_compatibility():
+
+    if os.path.isdir(consts.VMB_HOME):
+        return
+
+    old_home = os.path.join(consts.USER_HOME, '.bcm')
+
+    if not os.path.isdir(old_home):
+        return
+
+    try:
+        shutil.move(old_home, consts.VMB_HOME)
+    except (OSError, IOError):
+        raise RuntimeError("Conversion from %s to %s failed." %
+                           (old_home, consts.USER_HOME))
 
 
 def create_skeleton_and_return():

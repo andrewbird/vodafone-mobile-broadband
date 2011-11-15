@@ -27,7 +27,8 @@ from wader.common.utils import save_file, get_file_data
 from wader.vmb.consts import GTK_LOCK, APP_LONG_NAME, APP_SLUG_NAME
 from wader.vmb.translate import _
 from wader.vmb.splash import SplashScreen
-from wader.vmb.startup import create_skeleton_and_return
+from wader.vmb.startup import (create_skeleton_and_return,
+                               check_for_bcm_home_compatibility)
 from wader.vmb.utils import find_windows, raise_window
 
 
@@ -65,6 +66,7 @@ def main():
                             "might behave unpredictably."))
         return
 
+    check_for_bcm_home_compatibility()
     create_skeleton_and_return()
 
     # delay import until we have the necessary skeleton
