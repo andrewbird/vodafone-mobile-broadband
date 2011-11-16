@@ -172,7 +172,7 @@ class StatsBar(gtk.DrawingArea):
     def set_value(self, value):
         if value != self.value:
             if value >= self.max_value:
-                self.max_value = 1.25 * value
+                self.max_value = 1.25 * value + 1
 
             self.value = value
             self.update()
@@ -181,7 +181,7 @@ class StatsBar(gtk.DrawingArea):
         if max_value != self.max_value:
             self.max_value = max_value
             if self.value >= self.max_value:
-                self.max_value = 1.25 * self.value
+                self.max_value = 1.25 * self.value + 1
 
             self.update()
 
