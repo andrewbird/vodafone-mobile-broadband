@@ -30,6 +30,7 @@ from wader.vmb.splash import SplashScreen
 from wader.vmb.startup import (create_skeleton_and_return,
                                check_for_bcm_home_compatibility)
 from wader.vmb.utils import find_windows, raise_window
+from wader.vmb.config import CheckOldConfig
 
 
 def check_if_running():
@@ -66,8 +67,12 @@ def main():
                             "might behave unpredictably."))
         return
 
+
+    # Check for legacy files and initialization.
     check_for_bcm_home_compatibility()
     create_skeleton_and_return()
+    check_old_conf = CheckOldConfig()
+    check_old_conf.check()
 
     # delay import until we have the necessary skeleton
     from wader.vmb.models.main import MainModel
