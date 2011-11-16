@@ -61,10 +61,10 @@ ANIMATION_DIR = join(IMAGES_DIR, 'animation')
 THEMES_DIR = join(RESOURCES_DIR, 'themes')
 GUIDE_DIR = join('/usr/share/doc', APP_SLUG_NAME)
 
-GTK_LOCK = join('/tmp', '.vodafone-mobile-broadband-lock')
+GTK_LOCK = join('/tmp', '.%s-lock' % APP_SLUG_NAME)
 
 USER_HOME = expanduser('~')
-VMB_HOME = join(USER_HOME, '.vodafone-mobile-broadband')
+VMB_HOME = join(USER_HOME, '.%s' % APP_SLUG_NAME)
 
 LOG_FILE = join(VMB_HOME, 'log')
 
@@ -72,7 +72,7 @@ DB_DIR = join(VMB_HOME, 'db')
 MESSAGES_DB = join(DB_DIR, 'messages.db')
 USAGE_DB = join(DB_DIR, 'usage.db')
 
-GCONF_BASE_DIR = '/apps/vodafone-mobile-broadband'
+GCONF_BASE_DIR = '/apps/%s' % APP_SLUG_NAME
 
 CFG_PREFS_DEFAULT_BROWSER = 'xdg-open'
 CFG_PREFS_DEFAULT_EMAIL = 'xdg-email'
