@@ -1,7 +1,7 @@
 %{!?python_sitelib: %define python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
 
 Name:           vodafone-mobile-broadband
-Version:        %(%{__python} -c 'from wader.vmb.consts import APP_VERSION; print APP_VERSION')
+Version:        %(%{__python} -c 'from gui.consts import APP_VERSION; print APP_VERSION')
 Release:        1%{?dist}
 Summary:        A Mobile Connection Manager written in Python
 Source:         ftp://ftp.noexists.org/pub/wader/%{name}-%{version}.tar.bz2
@@ -37,16 +37,15 @@ statistics, prepay top up and suchlike.
 
 %prep
 %setup -q -n %{name}-%{version}
-# remove dangling link
-rm -f wader/common
-# replace it with the installed version
-ln -s %{python_sitelib}/wader/common wader/.
 
 %build
 %{__python} -c 'import setuptools; execfile("setup.py")' build
 
 %install
-%{__python} -c 'import setuptools; execfile("setup.py")' install -O1 --skip-build --root %{buildroot} --prefix=%{_prefix}
+%{__python} -c 'import setuptools; execfile("setup.py")' install -O1 --skip-build --root %{buildroot} --prefix=%{_prefix} --install-lib=/usr/share/vodafone-mobile-broadband
+(mkdir %{buildroot}/usr/bin && \
+	cd %{buildroot}/usr/bin && \
+	ln -s ../share/vodafone-mobile-broadband/vodafone-mobile-broadband .)
 
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
@@ -56,41 +55,42 @@ ln -s %{python_sitelib}/wader/common wader/.
 
 %files
 %defattr(-,root,root)
-%{python_sitelib}/Vodafone_Mobile_Broadband-*
-%dir %{python_sitelib}/wader/vmb/
-%dir %{python_sitelib}/wader/vmb/contacts/
-%dir %{python_sitelib}/wader/vmb/contrib/
-%dir %{python_sitelib}/wader/vmb/contrib/pycocuma/
-%dir %{python_sitelib}/wader/vmb/contrib/gtkmvc/
-%dir %{python_sitelib}/wader/vmb/contrib/gtkmvc/adapters/
-%dir %{python_sitelib}/wader/vmb/contrib/gtkmvc/progen/
-%dir %{python_sitelib}/wader/vmb/contrib/gtkmvc/support/
-%dir %{python_sitelib}/wader/vmb/controllers/
-%dir %{python_sitelib}/wader/vmb/models/
-%dir %{python_sitelib}/wader/vmb/views/
+/usr/share/vodafone-mobile-broadband/Vodafone_Mobile_Broadband-*
+%dir /usr/share/vodafone-mobile-broadband/gui/
+%dir /usr/share/vodafone-mobile-broadband/gui/contacts/
+%dir /usr/share/vodafone-mobile-broadband/gui/contrib/
+%dir /usr/share/vodafone-mobile-broadband/gui/contrib/pycocuma/
+%dir /usr/share/vodafone-mobile-broadband/gui/contrib/gtkmvc/
+%dir /usr/share/vodafone-mobile-broadband/gui/contrib/gtkmvc/adapters/
+%dir /usr/share/vodafone-mobile-broadband/gui/contrib/gtkmvc/progen/
+%dir /usr/share/vodafone-mobile-broadband/gui/contrib/gtkmvc/support/
+%dir /usr/share/vodafone-mobile-broadband/gui/controllers/
+%dir /usr/share/vodafone-mobile-broadband/gui/models/
+%dir /usr/share/vodafone-mobile-broadband/gui/views/
 %dir /usr/share/vodafone-mobile-broadband/resources/glade/
 
-%{python_sitelib}/wader/vmb/*.py
-%{python_sitelib}/wader/vmb/*.py[co]
-%{python_sitelib}/wader/vmb/contacts/*.py
-%{python_sitelib}/wader/vmb/contacts/*.py[co]
-%{python_sitelib}/wader/vmb/contrib/*.py
-%{python_sitelib}/wader/vmb/contrib/*.py[co]
-%{python_sitelib}/wader/vmb/contrib/gtkmvc/*.py
-%{python_sitelib}/wader/vmb/contrib/gtkmvc/*.py[co]
-%{python_sitelib}/wader/vmb/contrib/gtkmvc/*/*.py
-%{python_sitelib}/wader/vmb/contrib/gtkmvc/*/*.py[co]
-%{python_sitelib}/wader/vmb/contrib/pycocuma/*.py
-%{python_sitelib}/wader/vmb/contrib/pycocuma/*.py[co]
-%{python_sitelib}/wader/vmb/controllers/*.py
-%{python_sitelib}/wader/vmb/controllers/*.py[co]
-%{python_sitelib}/wader/vmb/models/*.py
-%{python_sitelib}/wader/vmb/models/*.py[co]
-%{python_sitelib}/wader/vmb/views/*.py
-%{python_sitelib}/wader/vmb/views/*.py[co]
+/usr/share/vodafone-mobile-broadband/gui/*.py
+/usr/share/vodafone-mobile-broadband/gui/*.py[co]
+/usr/share/vodafone-mobile-broadband/gui/contacts/*.py
+/usr/share/vodafone-mobile-broadband/gui/contacts/*.py[co]
+/usr/share/vodafone-mobile-broadband/gui/contrib/*.py
+/usr/share/vodafone-mobile-broadband/gui/contrib/*.py[co]
+/usr/share/vodafone-mobile-broadband/gui/contrib/gtkmvc/*.py
+/usr/share/vodafone-mobile-broadband/gui/contrib/gtkmvc/*.py[co]
+/usr/share/vodafone-mobile-broadband/gui/contrib/gtkmvc/*/*.py
+/usr/share/vodafone-mobile-broadband/gui/contrib/gtkmvc/*/*.py[co]
+/usr/share/vodafone-mobile-broadband/gui/contrib/pycocuma/*.py
+/usr/share/vodafone-mobile-broadband/gui/contrib/pycocuma/*.py[co]
+/usr/share/vodafone-mobile-broadband/gui/controllers/*.py
+/usr/share/vodafone-mobile-broadband/gui/controllers/*.py[co]
+/usr/share/vodafone-mobile-broadband/gui/models/*.py
+/usr/share/vodafone-mobile-broadband/gui/models/*.py[co]
+/usr/share/vodafone-mobile-broadband/gui/views/*.py
+/usr/share/vodafone-mobile-broadband/gui/views/*.py[co]
 /usr/share/vodafone-mobile-broadband/resources/glade/*
 
 %{_bindir}/vodafone-mobile-broadband
+/usr/share/vodafone-mobile-broadband/vodafone-mobile-broadband
 /usr/share/locale/*/LC_MESSAGES/vodafone-mobile-broadband.mo
 /usr/share/applications/vodafone-mobile-broadband.desktop
 /usr/share/pixmaps/vodafone-mobile-broadband.png
