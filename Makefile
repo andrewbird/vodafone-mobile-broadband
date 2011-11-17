@@ -1,6 +1,6 @@
 SHELL = /bin/bash
 
-VERSION := $(shell python -c 'from wader.vmb.consts import APP_VERSION; print APP_VERSION')
+VERSION := $(shell python -c 'from gui.consts import APP_VERSION; print APP_VERSION')
 SOURCES := $(shell rpmbuild --eval '%{_topdir}' 2>/dev/null)/SOURCES
 
 all:

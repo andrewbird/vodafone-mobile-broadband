@@ -31,10 +31,9 @@ from distutils.command.install_data import install_data as _install_data
 from distutils import cmd
 from distutils.command.build import build as _build
 
-from wader.vmb.consts import (APP_VERSION, APP_NAME,
-                              RESOURCES_DIR)
+from gui.consts import APP_VERSION, APP_NAME, RESOURCES_DIR
 
-BIN_DIR = '/usr/bin'
+INSTALL_DIR = '/usr/share/vodafone-mobile-broadband'
 APPLICATIONS = '/usr/share/applications'
 PIXMAPS = '/usr/share/pixmaps'
 DBUS_SYSTEMD = '/etc/dbus-1/system.d'
@@ -111,32 +110,31 @@ def list_files(path, exclude=None):
     return result
 
 data_files = [
-   (join(RESOURCES_DIR, 'glade'), list_files('resources/glade')),
-   (join(RESOURCES_DIR, 'glade/animation'),
+    (INSTALL_DIR, ['bin/vodafone-mobile-broadband']),
+    (join(RESOURCES_DIR, 'glade'), list_files('resources/glade')),
+    (join(RESOURCES_DIR, 'glade/animation'),
         list_files('resources/glade/animation')),
-   (join(RESOURCES_DIR, 'themes'), list_files('resources/themes')),
-   (BIN_DIR, ['bin/vodafone-mobile-broadband']),
+    (join(RESOURCES_DIR, 'themes'), list_files('resources/themes')),
 ]
 
-if sys.platform == 'linux2':
+if sys.platform.startswith('linux'):
     append = data_files.append
     append((APPLICATIONS, ['resources/desktop/vodafone-mobile-broadband.desktop']))
     append((PIXMAPS, ['resources/desktop/vodafone-mobile-broadband.png']))
     append((DBUS_SYSTEMD, ['resources/dbus/vodafone-mobile-broadband.conf']))
 
-
 packages = [
-    'wader.vmb',
-    'wader.vmb.models',
-    'wader.vmb.controllers',
-    'wader.vmb.views',
-    'wader.vmb.contacts',
-    'wader.vmb.contrib',
-    'wader.vmb.contrib.pycocuma',
-    'wader.vmb.contrib.gtkmvc',
-    'wader.vmb.contrib.gtkmvc.adapters',
-    'wader.vmb.contrib.gtkmvc.progen',
-    'wader.vmb.contrib.gtkmvc.support',
+    'gui',
+    'gui.models',
+    'gui.controllers',
+    'gui.views',
+    'gui.contacts',
+    'gui.contrib',
+    'gui.contrib.pycocuma',
+    'gui.contrib.gtkmvc',
+    'gui.contrib.gtkmvc.adapters',
+    'gui.contrib.gtkmvc.progen',
+    'gui.contrib.gtkmvc.support',
 ]
 
 cmdclass = {
@@ -156,7 +154,6 @@ setup(name=APP_NAME,
       data_files=data_files,
       cmdclass=cmdclass,
       zip_safe=False,
-      test_suite='wader.test',
       classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: X11 Applications :: GTK',
@@ -167,5 +164,6 @@ setup(name=APP_NAME,
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.5',
         'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
         'Topic :: Communications :: Telephony',
       ])
