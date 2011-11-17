@@ -20,12 +20,12 @@ from wader.common.provider import NetworkProvider
 from wader.common.utils import convert_int_to_ip, convert_ip_to_int
 from wader.common.keyring import KeyringNoMatchError
 
-from wader.vmb.constx import BAND_MAP_REV, MODE_MAP_REV, AUTH_MAP_REV
-from wader.vmb.controllers import Controller
-from wader.vmb.dialogs import show_error_dialog
-from wader.vmb.logger import logger
-from wader.vmb.utils import get_error_msg
-from wader.vmb.translate import _
+from gui.constx import BAND_MAP_REV, MODE_MAP_REV, AUTH_MAP_REV
+from gui.controllers import Controller
+from gui.dialogs import show_error_dialog
+from gui.logger import logger
+from gui.utils import get_error_msg
+from gui.translate import _
 
 
 class ProfileController(Controller):

@@ -25,8 +25,8 @@ import string
 
 import gtk
 
-from wader.vmb.translate import _
-from wader.vmb.consts import GLADE_DIR, APP_NAME
+from gui.translate import _
+from gui.consts import GLADE_DIR, APP_NAME
 
 GLADE_FILE = os.path.join(GLADE_DIR, 'keyring.glade')
 UI_FILE = os.path.join(GLADE_DIR, 'keyring.ui')

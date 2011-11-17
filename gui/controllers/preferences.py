@@ -20,21 +20,21 @@
 import gobject
 import gtk
 #from gtkmvc import Controller
-from wader.vmb.contrib.gtkmvc import Controller
+from gui.contrib.gtkmvc import Controller
 
 from wader.common.provider import NetworkProvider
 from wader.common.consts import CRD_INTFACE
 
-from wader.vmb.consts import (CFG_PREFS_DEFAULT_BROWSER,
+from gui.consts import (CFG_PREFS_DEFAULT_BROWSER,
                               CFG_PREFS_DEFAULT_EMAIL,
                               CFG_SMS_VALIDITY_R1W, CFG_SMS_VALIDITY_R1D,
                               CFG_SMS_VALIDITY_R3D, CFG_SMS_VALIDITY_MAX)
 
-from wader.vmb.logger import logger
-from wader.vmb.translate import _
-from wader.vmb.dialogs import show_warning_dialog
-from wader.vmb.tray import tray_available
-from wader.vmb.utils import get_error_msg
+from gui.logger import logger
+from gui.translate import _
+from gui.dialogs import show_warning_dialog
+from gui.tray import tray_available
+from gui.utils import get_error_msg
 
 VALIDITY_DICT = {
      _('Maximum time').encode('utf8'): CFG_SMS_VALIDITY_MAX,

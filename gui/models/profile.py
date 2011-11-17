@@ -21,19 +21,19 @@ from uuid import uuid1
 
 import dbus
 #from gtkmvc import Model
-from wader.vmb.contrib.gtkmvc import Model
+from gui.contrib.gtkmvc import Model
 
 from wader.common.consts import (WADER_PROFILES_INTFACE, CRD_INTFACE,
                                  MM_ALLOWED_MODE_ANY, MM_NETWORK_BAND_ANY)
 
 from wader.common.utils import get_allowed_modes
 from wader.common.exceptions import ProfileNotFoundError
-from wader.vmb.config import config
-from wader.vmb.logger import logger
-from wader.vmb.profiles import manager
-from wader.vmb.translate import _
+from gui.config import config
+from gui.logger import logger
+from gui.profiles import manager
+from gui.translate import _
 
-from wader.vmb.constx import (VM_NETWORK_AUTH_ANY,
+from gui.constx import (VM_NETWORK_AUTH_ANY,
                               VM_NETWORK_AUTH_PAP,
                               VM_NETWORK_AUTH_CHAP,
                               VMB_MODEM_STATE_CONNECTING)

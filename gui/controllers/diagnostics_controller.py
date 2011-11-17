@@ -19,12 +19,13 @@
 Controllers for diagnostics
 """
 #from gtkmvc import Controller
-from wader.vmb.contrib.gtkmvc import Controller
+from gui.contrib.gtkmvc import Controller
 
 from wader.common.consts import CRD_INTFACE, MDM_INTFACE
 from wader.common.provider import NetworkProvider
-from wader.vmb.logger import logger
-from wader.vmb.constx import (VMB_VIEW_DISABLED, VMB_VIEW_IDLE, VMB_VIEW_BUSY,
+
+from gui.logger import logger
+from gui.constx import (VMB_VIEW_DISABLED, VMB_VIEW_IDLE, VMB_VIEW_BUSY,
                               VMB_MODEM_STATE_REGISTERED)
 
 

@@ -20,7 +20,7 @@
 import logging
 import logging.handlers
 
-from wader.vmb.consts import APP_SLUG_NAME, LOG_FILE
+from gui.consts import APP_SLUG_NAME, LOG_FILE
 
 logger = logging.getLogger(APP_SLUG_NAME)
 

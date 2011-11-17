@@ -18,7 +18,8 @@
 import time
 from types import *
 import string
-from wader.vmb.contrib.pycocuma.vcore import *
+
+from gui.contrib.pycocuma.vcore import *
 
 FIELDNAMES = [
     "FormattedName",

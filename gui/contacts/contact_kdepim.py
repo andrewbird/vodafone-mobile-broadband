@@ -19,9 +19,9 @@
 from zope.interface import implements
 from os.path import join
 
-from wader.vmb.translate import _
-from wader.vmb.consts import IMAGES_DIR
-from wader.vmb.contacts.interface import IContact
+from gui.translate import _
+from gui.consts import IMAGES_DIR
+from gui.contacts.interface import IContact
 
 
 class KDEContact(object):
@@ -98,7 +98,7 @@ class KDEContactsManager(object):
 
         # XXX: maybe we should try to read a system version of the
         #      vcard library provided with pycocuma
-        from wader.vmb.contrib.pycocuma.vcard import vCardList
+        from gui.contrib.pycocuma.vcard import vCardList
 
         vl = vCardList()
 

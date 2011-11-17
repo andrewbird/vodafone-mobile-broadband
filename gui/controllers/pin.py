@@ -22,11 +22,11 @@ Controllers for PIN screens
 from gtk import STATE_NORMAL
 from gtk.gdk import color_parse
 #from gtkmvc import Controller
-from wader.vmb.contrib.gtkmvc import Controller
+from gui.contrib.gtkmvc import Controller
 
-from wader.vmb.translate import _
-from wader.vmb.dialogs import show_warning_dialog
-from wader.vmb.controllers.base import WidgetController
+from gui.translate import _
+from gui.dialogs import show_warning_dialog
+from gui.controllers.base import WidgetController
 
 
 def is_valid_puk(s):

@@ -17,7 +17,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 """Controllers for the main window and the about dialog"""
 
-from wader.vmb import View
+from gui import View
 
 
 class BaseDialogView(View):

@@ -27,12 +27,12 @@ import gobject
 from wader.common.consts import MM_NETWORK_BAND_ANY, MM_ALLOWED_MODE_ANY
 from wader.common.utils import get_bands
 
-from wader.vmb.contrib.gtkmvc import View
-from wader.vmb.consts import GLADE_DIR
-from wader.vmb.constx import (VM_NETWORK_AUTH_ANY,
+from gui.contrib.gtkmvc import View
+from gui.consts import GLADE_DIR
+from gui.constx import (VM_NETWORK_AUTH_ANY,
                               VM_NETWORK_AUTH_PAP, VM_NETWORK_AUTH_CHAP,
                               BAND_MAP, MODE_MAP, AUTH_MAP)
-from wader.vmb.translate import _
+from gui.translate import _
 
 DIALOG_ICON = gtk.gdk.pixbuf_new_from_file(join(GLADE_DIR, 'VF_logo.png'))
 

@@ -21,9 +21,9 @@ from os.path import join
 
 from wader.common.consts import CTS_INTFACE
 
-from wader.vmb.translate import _
-from wader.vmb.consts import IMAGES_DIR
-from wader.vmb.contacts.interface import IContact
+from gui.translate import _
+from gui.consts import IMAGES_DIR
+from gui.contacts.interface import IContact
 
 
 class SIMContact(object):

@@ -27,33 +27,33 @@ from subprocess import Popen
 import gtk
 from gobject import timeout_add_seconds
 
-from wader.vmb.controllers.base import WidgetController, TV_DICT, TV_DICT_REV
-from wader.vmb.controllers.contacts import (AddContactController,
-                                          SearchContactController)
-from wader.vmb.views.contacts import AddContactView, SearchContactView
-
 from wader.common.signals import SIG_SMS_COMP, SIG_SMS_DELV
 from wader.common.keyring import KeyringInvalidPassword
-from wader.vmb.config import config
-from wader.vmb.logger import logger
-from wader.vmb.dialogs import (show_profile_window,
+
+from gui.controllers.base import WidgetController, TV_DICT, TV_DICT_REV
+from gui.controllers.contacts import (AddContactController,
+                                          SearchContactController)
+from gui.views.contacts import AddContactView, SearchContactView
+from gui.config import config
+from gui.logger import logger
+from gui.dialogs import (show_profile_window,
                                show_warning_dialog, ActivityProgressBar,
                                show_warning_request_cancel_ok,
                                show_about_dialog, show_error_dialog,
                                ask_password_dialog,
                                open_dialog_question_checkbox_cancel_ok,
                                save_csv_file, open_import_csv_dialog)
-from wader.vmb.keyring_dialogs import NewKeyringDialog, KeyringPasswordDialog
-from wader.vmb.utils import get_error_msg
-from wader.vmb.translate import _
-from wader.vmb.tray import get_tray_icon
-from wader.vmb.consts import (GTK_LOCK, GUIDE_DIR, IMAGES_DIR, APP_URL,
+from gui.keyring_dialogs import NewKeyringDialog, KeyringPasswordDialog
+from gui.utils import get_error_msg
+from gui.translate import _
+from gui.tray import get_tray_icon
+from gui.consts import (GTK_LOCK, GUIDE_DIR, IMAGES_DIR, APP_URL,
                               APP_LONG_NAME, CFG_PREFS_DEFAULT_BROWSER,
                               CFG_PREFS_DEFAULT_EMAIL,
                               CFG_PREFS_DEFAULT_TRAY_ICON,
                               CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
                               CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION)
-from wader.vmb.constx import (VMB_SIM_AUTH_NONE, VMB_SIM_AUTH_PIN,
+from gui.constx import (VMB_SIM_AUTH_NONE, VMB_SIM_AUTH_PIN,
                               VMB_SIM_AUTH_PUK, VMB_SIM_AUTH_PUK2,
                               VMB_MODEM_STATE_NODEVICE,
                               VMB_MODEM_STATE_HAVEDEVICE,
@@ -61,36 +61,36 @@ from wader.vmb.constx import (VMB_SIM_AUTH_NONE, VMB_SIM_AUTH_PIN,
                               VMB_MODEM_STATE_REGISTERED,
                               VMB_MODEM_STATE_CONNECTED)
 
-from wader.vmb.contacts import SIMContact
-from wader.vmb.phonebook import (get_phonebook, Contact,
+from gui.contacts import SIMContact
+from gui.phonebook import (get_phonebook, Contact,
                                 all_same_type, all_contacts_writable)
-from wader.vmb.csvutils import CSVUnicodeWriter, CSVContactsReader
-from wader.vmb.messages import get_messages_obj, is_sim_message
+from gui.csvutils import CSVUnicodeWriter, CSVContactsReader
+from gui.messages import get_messages_obj, is_sim_message
 
-from wader.vmb.network_codes import get_customer_support_info
+from gui.network_codes import get_customer_support_info
 
-from wader.vmb.views.diagnostics_view import DiagnosticsView
-from wader.vmb.controllers.diagnostics_controller import DiagnosticsController
+from gui.views.diagnostics_view import DiagnosticsView
+from gui.controllers.diagnostics_controller import DiagnosticsController
 
-from wader.vmb.views.sms import NewSmsView, ForwardSmsView
-from wader.vmb.controllers.sms import NewSmsController, ForwardSmsController
+from gui.views.sms import NewSmsView, ForwardSmsView
+from gui.controllers.sms import NewSmsController, ForwardSmsController
 
-from wader.vmb.views.payt_view import PayAsYouTalkView
-from wader.vmb.controllers.payt_controller import PayAsYouTalkController
+from gui.views.payt_view import PayAsYouTalkView
+from gui.controllers.payt_controller import PayAsYouTalkController
 
-from wader.vmb.views.pin import (PinModifyView, PinEnableView,
+from gui.views.pin import (PinModifyView, PinEnableView,
                                  AskPUKView, AskPINView)
-from wader.vmb.controllers.pin import (PinModifyController,
+from gui.controllers.pin import (PinModifyController,
                                        PinEnableController,
                                        AskPUKController, AskPINController)
 
-from wader.vmb.models.preferences import PreferencesModel
-from wader.vmb.controllers.preferences import PreferencesController
-from wader.vmb.views.preferences import PreferencesView
+from gui.models.preferences import PreferencesModel
+from gui.controllers.preferences import PreferencesController
+from gui.views.preferences import PreferencesView
 
-from wader.vmb.models.profile import ProfileModel
-from wader.vmb.views.profile import APNSelectionView
-from wader.vmb.controllers.profile import APNSelectionController
+from gui.models.profile import ProfileModel
+from gui.views.profile import APNSelectionView
+from gui.controllers.profile import APNSelectionController
 
 
 def get_fake_toggle_button():
@@ -342,13 +342,13 @@ class MainController(WidgetController):
         password = ask_password_dialog(self.view)
 
         if password:
-            from wader.vmb.profiles import manager
+            from gui.profiles import manager
             profile = manager.get_profile_by_object_path(opath)
             secrets = {'gsm': {'passwd': password}}
             profile.set_secrets(tag, secrets)
 
     def on_keyring_password_required(self, opath, callback=None):
-        from wader.vmb.profiles import manager
+        from gui.profiles import manager
         profile = manager.get_profile_by_object_path(opath)
         password = None
 

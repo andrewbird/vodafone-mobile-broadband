@@ -29,9 +29,9 @@ from wader.common.provider import Message as DBMessage
 from wader.common.provider import (SmsProvider,
                                    inbox_folder, outbox_folder, drafts_folder)
 
-from wader.vmb.consts import MESSAGES_DB
-from wader.vmb.logger import logger
-from wader.vmb.translate import _
+from gui.consts import MESSAGES_DB
+from gui.logger import logger
+from gui.translate import _
 
 KNOWN_FOLDERS = [inbox_folder, drafts_folder, outbox_folder]
 

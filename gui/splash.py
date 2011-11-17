@@ -20,7 +20,7 @@ import gobject
 import gtk
 from gtk.gdk import WINDOW_TYPE_HINT_SPLASHSCREEN
 import os
-from wader.vmb.consts import GLADE_DIR
+from gui.consts import GLADE_DIR
 
 
 class SplashScreen(gtk.Window):

@@ -22,15 +22,18 @@ from subprocess import Popen, PIPE
 
 import gtk
 
+import sys
+sys.path.insert(0, '/usr/share/vodafone-mobile-broadband')
+
 from wader.common.utils import save_file, get_file_data
 
-from wader.vmb.consts import GTK_LOCK, APP_LONG_NAME, APP_SLUG_NAME
-from wader.vmb.translate import _
-from wader.vmb.splash import SplashScreen
-from wader.vmb.startup import (create_skeleton_and_return,
+from gui.consts import GTK_LOCK, APP_LONG_NAME, APP_SLUG_NAME
+from gui.translate import _
+from gui.splash import SplashScreen
+from gui.startup import (create_skeleton_and_return,
                                check_for_bcm_home_compatibility)
-from wader.vmb.utils import find_windows, raise_window
-from wader.vmb.config import CheckOldConfig
+from gui.utils import find_windows, raise_window
+from gui.config import CheckOldConfig
 
 
 def check_if_running():
@@ -61,7 +64,7 @@ def check_if_running():
 def main():
     # check that uid != 0
     if not os.getuid():
-        from wader.vmb.dialogs import show_error_dialog
+        from gui.dialogs import show_error_dialog
         show_error_dialog(_("Do not run the application as root"),
                           _("Otherwise some features, like profiles, "
                             "might behave unpredictably."))
@@ -75,9 +78,9 @@ def main():
     check_old_conf.check()
 
     # delay import until we have the necessary skeleton
-    from wader.vmb.models.main import MainModel
-    from wader.vmb.controllers.main import MainController
-    from wader.vmb.views.main import MainView
+    from gui.models.main import MainModel
+    from gui.controllers.main import MainController
+    from gui.views.main import MainView
 
     model = MainModel()
     ctrl = MainController(model)

@@ -22,13 +22,13 @@ import re
 from datetime import datetime
 from time import time
 
-from wader.vmb.constx import VMB_MODEM_STATE_REGISTERED
-from wader.vmb.contrib.gtkmvc import Controller
-from wader.vmb.dialogs import show_warning_dialog
-from wader.vmb.logger import logger
-from wader.vmb.network_codes import (get_payt_credit_check_info,
+from gui.constx import VMB_MODEM_STATE_REGISTERED
+from gui.contrib.gtkmvc import Controller
+from gui.dialogs import show_warning_dialog
+from gui.logger import logger
+from gui.network_codes import (get_payt_credit_check_info,
                                      get_payt_submit_voucher_info)
-from wader.vmb.translate import _
+from gui.translate import _
 
 from wader.common.oal import get_os_object
 

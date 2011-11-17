@@ -19,14 +19,14 @@
 
 import gtk
 
-from wader.vmb.models.contacts import ContactsStoreModel
-from wader.vmb.translate import _
+from gui.models.contacts import ContactsStoreModel
+from gui.translate import _
 
 #from gtkmvc import Controller
-from wader.vmb.contrib.gtkmvc import Controller
-from wader.vmb import dialogs
+from gui.contrib.gtkmvc import Controller
+from gui import dialogs
 
-from wader.vmb.contrib.ValidatedEntry import (ValidatedEntry, v_phone,
+from gui.contrib.ValidatedEntry import (ValidatedEntry, v_phone,
                                               v_ucs2_name)
 
 

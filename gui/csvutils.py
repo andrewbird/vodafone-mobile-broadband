@@ -23,7 +23,7 @@ import csv
 import codecs
 import cStringIO
 
-from wader.vmb.phonebook import Contact
+from gui.phonebook import Contact
 
 
 class CSVUnicodeWriter(object):

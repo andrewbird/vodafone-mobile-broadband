@@ -19,7 +19,7 @@
 import os
 import gettext
 
-from wader.vmb.consts import APP_SLUG_NAME as name
+from gui.consts import APP_SLUG_NAME as name
 
 gettext.bindtextdomain(name, os.getenv('TEXTDOMAINDIR', '/usr/share/locale'))
 gettext.textdomain(name)

@@ -29,7 +29,7 @@ import time
 #from gtkmvc.adapters.default import *
 from default import *
 #from gtkmvc.observer import Observer
-from wader.vmb.contrib.gtkmvc.observer import Observer
+from gui.contrib.gtkmvc.observer import Observer
 
 
 # ----------------------------------------------------------------------

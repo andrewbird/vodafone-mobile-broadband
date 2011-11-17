@@ -21,9 +21,9 @@ import os.path
 
 import gtk
 #from gtkmvc import View
-from wader.vmb.contrib.gtkmvc import View
+from gui.contrib.gtkmvc import View
 
-from wader.vmb.consts import GLADE_DIR
+from gui.consts import GLADE_DIR
 
 HEIGHT = 200
 WIDTH = 425

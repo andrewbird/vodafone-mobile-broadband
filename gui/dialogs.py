@@ -22,13 +22,13 @@ import gtk
 import gobject
 import dbus
 #from gtkmvc import Controller, Model
-from wader.vmb.contrib.gtkmvc import Controller, Model
+from gui.contrib.gtkmvc import Controller, Model
 
 from wader.common.consts import WADER_DIALUP_INTFACE
-from wader.vmb.translate import _
-from wader.vmb.consts import (APP_ARTISTS, APP_AUTHORS, APP_DOCUMENTERS,
+from gui.translate import _
+from gui.consts import (APP_ARTISTS, APP_AUTHORS, APP_DOCUMENTERS,
                              GLADE_DIR, APP_VERSION, APP_NAME, APP_URL)
-from wader.vmb.views.dialogs import QuestionCheckboxOkCancel
+from gui.views.dialogs import QuestionCheckboxOkCancel
 
 DIALOG_WIDTH = 40
 DIALOG_ICON = os.path.join(GLADE_DIR, 'VF_logo.png')
@@ -90,9 +90,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 
 def show_profile_window(main_model, profile=None, imsi=None):
-    from wader.vmb.models.profile import ProfileModel
-    from wader.vmb.controllers.profile import ProfileController
-    from wader.vmb.views.profile import ProfileView
+    from gui.models.profile import ProfileModel
+    from gui.controllers.profile import ProfileController
+    from gui.views.profile import ProfileView
 
     if profile is not None:
         model = profile

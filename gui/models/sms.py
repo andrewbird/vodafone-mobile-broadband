@@ -20,9 +20,9 @@
 import gtk
 from gobject import TYPE_PYOBJECT, TYPE_STRING
 
-from wader.vmb.contrib.gtkmvc import ListStoreModel
-from wader.vmb.images import MOBILE_IMG, COMPUTER_IMG
-from wader.vmb.messages import is_sim_message
+from gui.contrib.gtkmvc import ListStoreModel
+from gui.images import MOBILE_IMG, COMPUTER_IMG
+from gui.messages import is_sim_message
 
 
 class SMSStoreModel(ListStoreModel):

@@ -27,27 +27,7 @@ dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
 from gobject import timeout_add_seconds
 
 #from gtkmvc import Model
-from wader.vmb.contrib.gtkmvc import Model
-
-from wader.vmb.logger import logger
-from wader.vmb.dialogs import show_error_dialog
-from wader.vmb.models.profile import ProfilesModel
-from wader.vmb.models.preferences import PreferencesModel
-from wader.vmb.translate import _
-from wader.vmb.utils import dbus_error_is, get_error_msg
-from wader.vmb.consts import USAGE_DB, APP_VERSION
-from wader.vmb.constx import (VMB_SIM_AUTH_NONE, VMB_SIM_AUTH_PIN,
-                              VMB_SIM_AUTH_PUK, VMB_SIM_AUTH_PUK2,
-                              VMB_MODEM_STATE_UNKNOWN,
-                              VMB_MODEM_STATE_NODEVICE,
-                              VMB_MODEM_STATE_HAVEDEVICE,
-                              VMB_MODEM_STATE_DISABLING,
-                              VMB_MODEM_STATE_ENABLED,
-                              VMB_MODEM_STATE_CONNECTED)
-
-from wader.vmb.config import config
-from wader.vmb.uptime import get_uptime
-from wader.vmb.network_codes import get_msisdn_ussd_info
+from gui.contrib.gtkmvc import Model
 
 from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
                                  WADER_DIALUP_SERVICE, WADER_DIALUP_OBJECT,
@@ -62,6 +42,26 @@ from wader.common.consts import (WADER_SERVICE, WADER_OBJPATH, WADER_INTFACE,
 import wader.common.aterrors as E
 import wader.common.signals as S
 from wader.common.provider import UsageProvider
+
+from gui.logger import logger
+from gui.dialogs import show_error_dialog
+from gui.models.profile import ProfilesModel
+from gui.models.preferences import PreferencesModel
+from gui.translate import _
+from gui.utils import dbus_error_is, get_error_msg
+from gui.consts import USAGE_DB, APP_VERSION
+from gui.constx import (VMB_SIM_AUTH_NONE, VMB_SIM_AUTH_PIN,
+                              VMB_SIM_AUTH_PUK, VMB_SIM_AUTH_PUK2,
+                              VMB_MODEM_STATE_UNKNOWN,
+                              VMB_MODEM_STATE_NODEVICE,
+                              VMB_MODEM_STATE_HAVEDEVICE,
+                              VMB_MODEM_STATE_DISABLING,
+                              VMB_MODEM_STATE_ENABLED,
+                              VMB_MODEM_STATE_CONNECTED)
+from gui.config import config
+from gui.uptime import get_uptime
+from gui.network_codes import get_msisdn_ussd_info
+
 
 TWOG_TECH = [MM_GSM_ACCESS_TECH_GSM, MM_GSM_ACCESS_TECH_GSM_COMPAT,
              MM_GSM_ACCESS_TECH_GPRS, MM_GSM_ACCESS_TECH_EDGE]

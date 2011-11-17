@@ -20,11 +20,10 @@
 
 import gconf
 
-from wader.vmb.consts import GCONF_BASE_DIR
-
 from wader.common._gconf import GConfHelper
 from wader.common.config import WaderConfig
 
+from gui.consts import GCONF_BASE_DIR
 
 DEFAULT_KEYS = ['profile', 'preferences', 'sms']
 

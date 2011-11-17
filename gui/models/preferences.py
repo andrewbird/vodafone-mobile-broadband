@@ -19,12 +19,12 @@
 import dbus
 import gobject
 #from gtkmvc import ListStoreModel
-from wader.vmb.contrib.gtkmvc import ListStoreModel
+from gui.contrib.gtkmvc import ListStoreModel
 
-from wader.vmb.config import config
-from wader.vmb.models.base import BaseWrapperModel
+from gui.config import config
+from gui.models.base import BaseWrapperModel
 
-from wader.vmb.consts import (CFG_PREFS_DEFAULT_BROWSER,
+from gui.consts import (CFG_PREFS_DEFAULT_BROWSER,
                               CFG_PREFS_DEFAULT_EMAIL,
                               CFG_PREFS_DEFAULT_TRAY_ICON,
                               CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,

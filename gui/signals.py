@@ -17,7 +17,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 from wader.common import consts
-from wader.vmb.translate import _
+from gui.translate import _
 
 NET_MODE_SIGNALS = {
     consts.MM_NETWORK_MODE_UNKNOWN: _('No signal'),

@@ -20,7 +20,7 @@
 import gtk
 import cairo
 
-from wader.vmb.utils import repr_usage, units_to_bytes, bytes_to_units, UNIT_MB
+from gui.utils import repr_usage, units_to_bytes, bytes_to_units, UNIT_MB
 
 
 class StatsBar(gtk.DrawingArea):

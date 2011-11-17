@@ -20,9 +20,9 @@
 import os.path
 
 #from gtkmvc import View
-from wader.vmb.contrib.gtkmvc import View
+from gui.contrib.gtkmvc import View
 
-from wader.vmb.consts import APP_LONG_NAME, GLADE_DIR, IMAGES_DIR
+from gui.consts import APP_LONG_NAME, GLADE_DIR, IMAGES_DIR
 
 
 def clear_s(s):

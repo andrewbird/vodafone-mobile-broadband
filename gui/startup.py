@@ -21,7 +21,7 @@
 import os
 import shutil
 
-import wader.vmb.consts as consts
+import gui.consts as consts
 
 
 def check_for_bcm_home_compatibility():

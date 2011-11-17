@@ -40,7 +40,8 @@ from wader.common.consts import (MM_ALLOWED_MODE_ANY,
                                  MM_NETWORK_BAND_U900, MM_NETWORK_BAND_U17IX,
                                  MM_NETWORK_BAND_U1900)
 from wader.common.utils import revert_dict
-from wader.vmb.translate import _
+
+from gui.translate import _
 
 BAND_MAP = {
     MM_NETWORK_BAND_ANY: _('Any'),

@@ -1,7 +1,7 @@
 
-from wader.vmb.contacts.contact_evolution import EVContact, EVContactsManager
-from wader.vmb.contacts.contact_kdepim import KDEContact, KDEContactsManager
-from wader.vmb.contacts.contact_sim import SIMContact, SIMContactsManager
+from gui.contacts.contact_evolution import EVContact, EVContactsManager
+from gui.contacts.contact_kdepim import KDEContact, KDEContactsManager
+from gui.contacts.contact_sim import SIMContact, SIMContactsManager
 
 supported_types = [
     (EVContact, EVContactsManager),

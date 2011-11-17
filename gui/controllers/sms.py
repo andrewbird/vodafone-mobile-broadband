@@ -19,7 +19,7 @@
 
 from datetime import datetime
 #from gtkmvc import Controller, Model
-from wader.vmb.contrib.gtkmvc import Controller, Model
+from gui.contrib.gtkmvc import Controller, Model
 
 from messaging.sms import SmsSubmit, is_gsm_text
 from messaging.sms.consts import (SEVENBIT_SIZE, UCS2_SIZE,
@@ -30,21 +30,21 @@ from wader.common.oal import get_os_object
 from wader.common.provider import NetworkProvider
 from wader.common.sms import Message
 
-from wader.vmb import dialogs
-from wader.vmb.translate import _
-from wader.vmb.logger import logger
-from wader.vmb.messages import get_messages_obj
-from wader.vmb.utils import get_error_msg
-from wader.vmb.consts import (APP_LONG_NAME, CFG_PREFS_DEFAULT_SMS_VALIDITY,
+from gui import dialogs
+from gui.translate import _
+from gui.logger import logger
+from gui.messages import get_messages_obj
+from gui.utils import get_error_msg
+from gui.consts import (APP_LONG_NAME, CFG_PREFS_DEFAULT_SMS_VALIDITY,
                               CFG_SMS_VALIDITY_R1D, CFG_SMS_VALIDITY_R3D,
                               CFG_SMS_VALIDITY_R1W, CFG_SMS_VALIDITY_MAX)
 
-from wader.vmb.controllers.base import TV_DICT, TV_DICT_REV
+from gui.controllers.base import TV_DICT, TV_DICT_REV
 
-from wader.vmb.views.contacts import ContactsListView
-from wader.vmb.controllers.contacts import ContactsListController
+from gui.views.contacts import ContactsListView
+from gui.controllers.contacts import ContactsListController
 
-from wader.vmb.contrib.ValidatedEntry import ValidatedEntry, v_phone
+from gui.contrib.ValidatedEntry import ValidatedEntry, v_phone
 
 
 SMS_TOOLTIP = \

@@ -24,12 +24,12 @@ import os
 import gtk
 from pango import ELLIPSIZE_END
 
-from wader.vmb.contrib.gtkmvc import View
-from wader.vmb.config import config
-from wader.vmb.translate import _
-from wader.vmb.consts import (GLADE_DIR, IMAGES_DIR, THEMES_DIR,
+from gui.contrib.gtkmvc import View
+from gui.config import config
+from gui.translate import _
+from gui.consts import (GLADE_DIR, IMAGES_DIR, THEMES_DIR,
                               APP_LONG_NAME, APP_URL)
-from wader.vmb.constx import (VMB_MODEM_STATE_NODEVICE,
+from gui.constx import (VMB_MODEM_STATE_NODEVICE,
                               VMB_MODEM_STATE_HAVEDEVICE,
                               VMB_MODEM_STATE_DISABLED,
                               VMB_MODEM_STATE_LOCKED,
@@ -44,13 +44,13 @@ from wader.vmb.constx import (VMB_MODEM_STATE_NODEVICE,
                               VMB_MODEM_STATE_CONNECTING,
                               VMB_MODEM_STATE_CONNECTED)
 
-from wader.vmb.utils import UNIT_KB, UNIT_MB, units_to_bytes
-from wader.vmb.views.stats import StatsBar
-from wader.vmb.controllers.base import TV_DICT
-from wader.vmb.models.sms import SMSStoreModel
-from wader.vmb.models.contacts import ContactsStoreModel
+from gui.utils import UNIT_KB, UNIT_MB, units_to_bytes
+from gui.views.stats import StatsBar
+from gui.controllers.base import TV_DICT
+from gui.models.sms import SMSStoreModel
+from gui.models.contacts import ContactsStoreModel
 
-from wader.vmb.consts import (CFG_PREFS_DEFAULT_USAGE_USER_LIMIT,
+from gui.consts import (CFG_PREFS_DEFAULT_USAGE_USER_LIMIT,
                               CFG_PREFS_DEFAULT_USAGE_MAX_VALUE)
 
 from wader.common.consts import (MM_GSM_ACCESS_TECH_UNKNOWN,

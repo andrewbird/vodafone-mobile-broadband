@@ -1,5 +1,5 @@
 #from gtkmvc import Controller as _Controller
-from wader.vmb.contrib.gtkmvc import Controller as _Controller
+from gui.contrib.gtkmvc import Controller as _Controller
 
 
 class Controller(_Controller):
