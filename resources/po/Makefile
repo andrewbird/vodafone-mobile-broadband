@@ -4,7 +4,7 @@ all:
 
 create:
 	xgettext -d$(DOMAIN) -LGlade ../glade/*.glade -o $(DOMAIN).pot
-	xgettext --from-code=utf-8 -k_ -d$(DOMAIN) -LPython `find ../../wader -name "*.py"` ../../bin/vodafone-mobile-broadband -o $(DOMAIN).pot -j
+	xgettext --from-code=utf-8 -k_ -d$(DOMAIN) -LPython `find ../../gui -name "*.py"` ../../bin/vodafone-mobile-broadband -o $(DOMAIN).pot -j
 
 merge:
 	for po in *.po; do \
