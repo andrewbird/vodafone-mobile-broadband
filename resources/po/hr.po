@@ -7,10 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-08 17:49+0100\n"
+"POT-Creation-Date: 2011-11-18 10:05+0000\n"
 "PO-Revision-Date: 2010-05-21 10:54+0100\n"
 "Last-Translator: m1r0 <h15m1r0@gmail.com>\n"
 "Language-Team: Croatian <HR@li.org>\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,220 +47,6 @@ msgstr ""
 #, fuzzy
 msgid "<b>APN Settings</b>"
 msgstr "<b>APN postavke</b>"
-
-#: ../glade/vmb.glade:21 ../glade/helpbrowser.glade:21
-msgid "_File"
-msgstr "_Datoteka"
-
-#: ../glade/vmb.glade:28
-msgid "Import contacts..."
-msgstr "Uvedi kontakte..."
-
-#: ../glade/vmb.glade:36
-msgid "Export contacts..."
-msgstr "Izvedi kontakte..."
-
-#: ../glade/vmb.glade:48
-#, fuzzy
-msgid "_Quit"
-msgstr "Završi"
-
-#: ../glade/vmb.glade:73
-msgid "_View"
-msgstr "P_ogled"
-
-#: ../glade/vmb.glade:94 ../glade/vmb.glade:330 ../glade/preferences.glade:781
-msgid "Usage"
-msgstr "Upotreba"
-
-#: ../glade/vmb.glade:108 ../glade/vmb.glade:368
-msgid "Support"
-msgstr "Podrška"
-
-#: ../glade/vmb.glade:132
-msgid "_Tools"
-msgstr "_Alati"
-
-#: ../glade/vmb.glade:140
-msgid "Change PIN"
-msgstr "Promjeni PIN"
-
-#: ../glade/vmb.glade:148
-msgid "Request PIN"
-msgstr "Zatraži PIN"
-
-#: ../glade/vmb.glade:161 ../glade/diagnostics.glade:7
-msgid "Diagnostics"
-msgstr "Dijagnostika"
-
-#: ../glade/vmb.glade:185
-#, fuzzy
-msgid "Profiles"
-msgstr "Profil:"
-
-#: ../glade/vmb.glade:207 ../glade/preferences.glade:7
-msgid "Preferences"
-msgstr "Postavke"
-
-#: ../glade/vmb.glade:231
-msgid "_Help"
-msgstr "_Pomoć"
-
-#: ../glade/vmb.glade:237
-#, fuzzy
-msgid "Help"
-msgstr "_Pomoć"
-
-#: ../glade/vmb.glade:256
-msgid "_About"
-msgstr "_O programu"
-
-#: ../glade/vmb.glade:347
-msgid "Topup"
-msgstr ""
-
-#: ../glade/vmb.glade:401 ../glade/vmb.glade:517
-msgid "_New"
-msgstr "_Novi"
-
-#: ../glade/vmb.glade:403
-#, fuzzy
-msgid "Create new SMS"
-msgstr "Novi SMS"
-
-#: ../glade/vmb.glade:419
-msgid "_Reply"
-msgstr "_Odgovori"
-
-#: ../glade/vmb.glade:421
-msgid "Reply message"
-msgstr "Odgovori na poruku"
-
-#: ../glade/vmb.glade:430
-msgid "Reply without quoting original text"
-msgstr "Odgovori bez navođenja originalnog teksta"
-
-#: ../glade/vmb.glade:431
-msgid "Send new"
-msgstr "Pošalji novu"
-
-#: ../glade/vmb.glade:439
-msgid "Reply quoting original message"
-msgstr "Odgovori sa originalnom porukom"
-
-#: ../glade/vmb.glade:440
-msgid "Reply quoting"
-msgstr "Odgovori sa navođenjem"
-
-#: ../glade/vmb.glade:457
-msgid "_Forward"
-msgstr "_Preusmjeri"
-
-#: ../glade/vmb.glade:459
-msgid "Forward SMS to another contact"
-msgstr "Preusmjeri SMS na drugi kontakt"
-
-#: ../glade/vmb.glade:474 ../glade/vmb.glade:566
-#: ../../wader/vmb/controllers/main.py:770
-msgid "_Delete"
-msgstr "_Obriši"
-
-#: ../glade/vmb.glade:499
-msgid "_Contacts"
-msgstr "_Kontakti"
-
-#: ../glade/vmb.glade:501
-msgid "Contacts menu"
-msgstr "Izbornik kontaka"
-
-#: ../glade/vmb.glade:519 ../glade/contacts.glade:158
-msgid "Add a contact"
-msgstr "Dodaj kontakt"
-
-#: ../glade/vmb.glade:537
-#, fuzzy
-msgid "_Search"
-msgstr "_Petraga"
-
-#: ../glade/vmb.glade:539
-msgid "Search contacts"
-msgstr "Pretraži kontakte"
-
-#: ../glade/vmb.glade:618
-msgid "Inbox"
-msgstr "Dolazno"
-
-#: ../glade/vmb.glade:648
-msgid "Draft"
-msgstr "Nedovršeno"
-
-#: ../glade/vmb.glade:678
-msgid "Sent"
-msgstr "Poslano"
-
-#: ../glade/vmb.glade:707 ../glade/sms.glade:34
-msgid "Contacts"
-msgstr "Kontakti"
-
-#: ../glade/vmb.glade:795 ../glade/vmb.glade:1177
-msgid "<b>Month</b>"
-msgstr "<b>Mjesec</b>"
-
-#: ../glade/vmb.glade:891 ../glade/vmb.glade:1001 ../glade/vmb.glade:1286
-msgid "3G:"
-msgstr "3G:"
-
-#: ../glade/vmb.glade:906 ../glade/vmb.glade:975
-msgid "Total:"
-msgstr "Ukupno:"
-
-#: ../glade/vmb.glade:921 ../glade/vmb.glade:988 ../glade/vmb.glade:1300
-msgid "GPRS:"
-msgstr "GPRS:"
-
-#: ../glade/vmb.glade:937 ../glade/vmb.glade:1316
-#, fuzzy
-msgid "<b>Transferred Data</b>"
-msgstr "<b>Prebačeno</b>"
-
-#: ../glade/vmb.glade:1064
-msgid "<b>Current session</b>"
-msgstr "<b>Sadašnja sesija</b>"
-
-#: ../glade/vmb.glade:1102 ../glade/vmb.glade:1352
-msgid "Total Traffic"
-msgstr ""
-
-#: ../glade/vmb.glade:1145
-#, fuzzy
-msgid "Current month"
-msgstr "Tekući mjesec"
-
-#: ../glade/vmb.glade:1272
-msgid "<b>Total:</b>"
-msgstr "<b>Ukupno: </b>"
-
-#: ../glade/vmb.glade:1398
-#, fuzzy
-msgid "Last month"
-msgstr "Prošli mjesec"
-
-#: ../glade/vmb.glade:1412
-#, fuzzy
-msgid "<b>Usage</b> - Remember that this information is only orientative."
-msgstr "Zapamtite da su ove informacije samo za orijentiranje"
-
-#: ../glade/vmb.glade:1456
-msgid "Help menu"
-msgstr "Izbornik Pomoći"
-
-#: ../glade/vmb.glade:1493
-msgid "Support center"
-msgstr "Centar za Podršku"
-
-#: ../glade/vmb.glade:1531
-msgid "Customer support"
-msgstr "Korisnička podrška"
 
 #: ../glade/config.glade:8
 msgid "Device setup"
@@ -346,6 +133,10 @@ msgstr "Ime:"
 msgid "Contacts List"
 msgstr "Lista kontakata"
 
+#: ../glade/contacts.glade:158 ../glade/main.glade:526
+msgid "Add a contact"
+msgstr "Dodaj kontakt"
+
 #: ../glade/contacts.glade:221
 msgid "Number:"
 msgstr "Broj:"
@@ -354,13 +145,17 @@ msgstr "Broj:"
 msgid "<b>Save in:</b>"
 msgstr "<b>Spremi u: </b>"
 
-#: ../glade/contacts.glade:300 ../../wader/vmb/contacts/contact_sim.py:170
+#: ../glade/contacts.glade:300 ../../gui/contacts/contact_sim.py:170
 msgid "Mobile"
 msgstr "Prijenosno"
 
 #: ../glade/contacts.glade:340
 msgid "Computer"
 msgstr "Računalo"
+
+#: ../glade/diagnostics.glade:7 ../glade/main.glade:170
+msgid "Diagnostics"
+msgstr "Dijagnostika"
 
 #: ../glade/diagnostics.glade:43
 #, fuzzy
@@ -435,14 +230,13 @@ msgstr "IMSI"
 #: ../glade/diagnostics.glade:331 ../glade/diagnostics.glade:342
 #: ../glade/diagnostics.glade:352 ../glade/payt.glade:125
 #: ../glade/payt.glade:135 ../glade/payt.glade:145
-#: ../../wader/vmb/models/main.py:80 ../../wader/vmb/models/main.py:317
-#: ../../wader/vmb/views/diagnostics_view.py:63
-#: ../../wader/vmb/views/diagnostics_view.py:71
-#: ../../wader/vmb/views/diagnostics_view.py:75
-#: ../../wader/vmb/views/payt_view.py:57 ../../wader/vmb/views/payt_view.py:69
-#: ../../wader/vmb/controllers/preferences.py:85
-#: ../../wader/vmb/controllers/main.py:261
-#: ../../wader/vmb/controllers/main.py:579
+#: ../../gui/views/diagnostics_view.py:83
+#: ../../gui/views/diagnostics_view.py:91
+#: ../../gui/views/diagnostics_view.py:95 ../../gui/views/main.py:346
+#: ../../gui/views/payt_view.py:57 ../../gui/views/payt_view.py:69
+#: ../../gui/models/main.py:89 ../../gui/models/main.py:348
+#: ../../gui/controllers/main.py:255 ../../gui/controllers/main.py:573
+#: ../../gui/controllers/preferences.py:85
 msgid "Unknown"
 msgstr "Nepoznato"
 
@@ -540,6 +334,10 @@ msgstr ""
 msgid "Remember my choice"
 msgstr "Zapamti moj izbor"
 
+#: ../glade/helpbrowser.glade:21 ../glade/main.glade:21
+msgid "_File"
+msgstr "_Datoteka"
+
 #: ../glade/keyring.glade:35
 msgid "<span size='large' weight='bold'>Creating a new keyring</span>"
 msgstr ""
@@ -568,6 +366,209 @@ msgstr ""
 #, fuzzy
 msgid "Please, enter your keyring password"
 msgstr "Molimo upišite vaš PIN kod : "
+
+#: ../glade/main.glade:28
+msgid "Import contacts..."
+msgstr "Uvedi kontakte..."
+
+#: ../glade/main.glade:36
+msgid "Export contacts..."
+msgstr "Izvedi kontakte..."
+
+#: ../glade/main.glade:48
+#, fuzzy
+msgid "_Quit"
+msgstr "Završi"
+
+#: ../glade/main.glade:73
+msgid "_View"
+msgstr "P_ogled"
+
+#: ../glade/main.glade:94 ../glade/main.glade:339
+#: ../glade/preferences.glade:781
+msgid "Usage"
+msgstr "Upotreba"
+
+#: ../glade/main.glade:108 ../glade/main.glade:377
+msgid "Support"
+msgstr "Podrška"
+
+#: ../glade/main.glade:132
+msgid "_Tools"
+msgstr "_Alati"
+
+#: ../glade/main.glade:140 ../../gui/views/main.py:421
+msgid "Enabled"
+msgstr ""
+
+#: ../glade/main.glade:149
+msgid "Change PIN"
+msgstr "Promjeni PIN"
+
+#: ../glade/main.glade:157
+msgid "Request PIN"
+msgstr "Zatraži PIN"
+
+#: ../glade/main.glade:194
+#, fuzzy
+msgid "Profiles"
+msgstr "Profil:"
+
+#: ../glade/main.glade:216 ../glade/preferences.glade:7
+msgid "Preferences"
+msgstr "Postavke"
+
+#: ../glade/main.glade:240
+msgid "_Help"
+msgstr "_Pomoć"
+
+#: ../glade/main.glade:246
+#, fuzzy
+msgid "Help"
+msgstr "_Pomoć"
+
+#: ../glade/main.glade:265
+msgid "_About"
+msgstr "_O programu"
+
+#: ../glade/main.glade:356
+msgid "Topup"
+msgstr ""
+
+#: ../glade/main.glade:410 ../glade/main.glade:524
+msgid "_New"
+msgstr "_Novi"
+
+#: ../glade/main.glade:412
+#, fuzzy
+msgid "Create new SMS"
+msgstr "Novi SMS"
+
+#: ../glade/main.glade:428
+msgid "_Reply"
+msgstr "_Odgovori"
+
+#: ../glade/main.glade:430
+msgid "Reply message"
+msgstr "Odgovori na poruku"
+
+#: ../glade/main.glade:439
+msgid "Reply without quoting original text"
+msgstr "Odgovori bez navođenja originalnog teksta"
+
+#: ../glade/main.glade:440
+msgid "Send new"
+msgstr "Pošalji novu"
+
+#: ../glade/main.glade:448
+msgid "Reply quoting original message"
+msgstr "Odgovori sa originalnom porukom"
+
+#: ../glade/main.glade:449
+msgid "Reply quoting"
+msgstr "Odgovori sa navođenjem"
+
+#: ../glade/main.glade:466
+msgid "_Forward"
+msgstr "_Preusmjeri"
+
+#: ../glade/main.glade:468
+msgid "Forward SMS to another contact"
+msgstr "Preusmjeri SMS na drugi kontakt"
+
+#: ../glade/main.glade:483 ../glade/main.glade:573
+#: ../../gui/controllers/main.py:749
+msgid "_Delete"
+msgstr "_Obriši"
+
+#: ../glade/main.glade:508
+msgid "_Contacts"
+msgstr "_Kontakti"
+
+#: ../glade/main.glade:510
+msgid "Contacts menu"
+msgstr "Izbornik kontaka"
+
+#: ../glade/main.glade:544
+#, fuzzy
+msgid "_Search"
+msgstr "_Petraga"
+
+#: ../glade/main.glade:546
+msgid "Search contacts"
+msgstr "Pretraži kontakte"
+
+#: ../glade/main.glade:623
+msgid "Inbox"
+msgstr "Dolazno"
+
+#: ../glade/main.glade:654
+msgid "Draft"
+msgstr "Nedovršeno"
+
+#: ../glade/main.glade:685
+msgid "Sent"
+msgstr "Poslano"
+
+#: ../glade/main.glade:715 ../glade/sms.glade:34
+msgid "Contacts"
+msgstr "Kontakti"
+
+#: ../glade/main.glade:803 ../glade/main.glade:1186
+msgid "<b>Month</b>"
+msgstr "<b>Mjesec</b>"
+
+#: ../glade/main.glade:853 ../glade/main.glade:983 ../glade/main.glade:1285
+msgid "GPRS:"
+msgstr "GPRS:"
+
+#: ../glade/main.glade:865 ../glade/main.glade:997 ../glade/main.glade:1297
+msgid "3G:"
+msgstr "3G:"
+
+#: ../glade/main.glade:879 ../glade/main.glade:1011 ../glade/main.glade:1311
+msgid "Total:"
+msgstr "Ukupno:"
+
+#: ../glade/main.glade:945 ../glade/main.glade:1328
+#, fuzzy
+msgid "<b>Transferred Data</b>"
+msgstr "<b>Prebačeno</b>"
+
+#: ../glade/main.glade:1074
+msgid "<b>Current session</b>"
+msgstr "<b>Sadašnja sesija</b>"
+
+#: ../glade/main.glade:1112 ../glade/main.glade:1364
+msgid "Total Traffic"
+msgstr ""
+
+#: ../glade/main.glade:1155
+#, fuzzy
+msgid "Current month"
+msgstr "Tekući mjesec"
+
+#: ../glade/main.glade:1410
+#, fuzzy
+msgid "Last month"
+msgstr "Prošli mjesec"
+
+#: ../glade/main.glade:1424
+#, fuzzy
+msgid "<b>Usage</b> - Remember that this information is only orientative."
+msgstr "Zapamtite da su ove informacije samo za orijentiranje"
+
+#: ../glade/main.glade:1468
+msgid "Help menu"
+msgstr "Izbornik Pomoći"
+
+#: ../glade/main.glade:1505
+msgid "Support center"
+msgstr "Centar za Podršku"
+
+#: ../glade/main.glade:1543
+msgid "Customer support"
+msgstr "Korisnička podrška"
 
 #: ../glade/misc.glade:54
 msgid "Wader log"
@@ -928,98 +929,103 @@ msgstr "Za : "
 msgid "3G Devices Manager"
 msgstr "Uredi 3G uređaje"
 
-#: ../../wader/vmb/keyring_dialogs.py:103
-msgid "Create default keyring"
+#: ../../gui/constx.py:47 ../../gui/constx.py:65 ../../gui/constx.py:84
+msgid "Any"
 msgstr ""
 
-#: ../../wader/vmb/keyring_dialogs.py:104
-#, python-format
-msgid ""
-"The application '%s' wants to store a password, but there is no default "
-"keyring. To create one, you need to choose a password you wish to use for it."
+#: ../../gui/constx.py:48
+msgid "EGSM 900"
 msgstr ""
 
-#: ../../wader/vmb/keyring_dialogs.py:138
-msgid "Unlock keyring"
+#: ../../gui/constx.py:49
+msgid "GSM DCS"
+msgstr "GSM DCS"
+
+#: ../../gui/constx.py:50
+msgid "GSM PCS"
+msgstr "GSM PCS"
+
+#: ../../gui/constx.py:51
+msgid "GSM 850"
 msgstr ""
 
-#: ../../wader/vmb/keyring_dialogs.py:139
-#, python-format
-msgid ""
-"The application '%s' wants access to the default keyring, but is locked."
+#: ../../gui/constx.py:52
+msgid "WCDMA 2100"
 msgstr ""
 
-#: ../../wader/vmb/models/profile.py:178
-#: ../../wader/vmb/controllers/preferences.py:158
-#: ../../wader/vmb/controllers/preferences.py:174
-msgid "Custom"
-msgstr "Prilagoditi"
-
-#: ../../wader/vmb/models/profile.py:423
-msgid "Trying to remove an unsaved profile"
+#: ../../gui/constx.py:53
+msgid "WCDMA 1700"
 msgstr ""
 
-#: ../../wader/vmb/models/main.py:78 ../../wader/vmb/models/main.py:195
-#: ../../wader/vmb/views/main.py:246 ../../wader/vmb/controllers/main.py:369
-#: ../../wader/vmb/controllers/main.py:376
-#, fuzzy
-msgid "No device"
-msgstr "Poznati uređaji"
-
-#: ../../wader/vmb/models/main.py:101
-#: ../../wader/vmb/controllers/payt_controller.py:173
-#: ../../wader/vmb/controllers/payt_controller.py:210
-msgid "Not available"
+#: ../../gui/constx.py:54
+msgid "WCDMA 17IV"
 msgstr ""
 
-#: ../../wader/vmb/models/main.py:147
-msgid "Error while starting wader"
-msgstr "Error while starting wader"
-
-#: ../../wader/vmb/models/main.py:148
-#, python-format
-msgid ""
-"Check that your installation is correct and your  OS/distro is supported: %s"
+#: ../../gui/constx.py:55
+msgid "WCDMA 800"
 msgstr ""
 
-#: ../../wader/vmb/models/main.py:339 ../../wader/vmb/views/main.py:251
-#: ../../wader/vmb/controllers/main.py:362
-#: ../../wader/vmb/controllers/main.py:378
-#, fuzzy
-msgid "Device found"
-msgstr "Model uređaja:"
-
-#: ../../wader/vmb/models/main.py:452
-#: ../../wader/vmb/controllers/payt_controller.py:214
-#: ../../wader/vmb/controllers/main.py:393
-msgid "Registered"
+#: ../../gui/constx.py:56
+msgid "WCDMA 850"
 msgstr ""
 
-#: ../../wader/vmb/models/main.py:454 ../../wader/vmb/controllers/main.py:384
-#: ../../wader/vmb/controllers/main.py:619
-msgid "Scanning"
+#: ../../gui/constx.py:57
+msgid "WCDMA 900"
 msgstr ""
 
-#: ../../wader/vmb/models/main.py:456
-msgid "Reg. rejected"
+#: ../../gui/constx.py:58
+msgid "WCDMA 17IX"
 msgstr ""
 
-#: ../../wader/vmb/models/main.py:458
-msgid "Unknown Error"
-msgstr "Nepoznata greška"
-
-#: ../../wader/vmb/models/main.py:460
-#: ../../wader/vmb/controllers/payt_controller.py:214
-#: ../../wader/vmb/controllers/main.py:393
-msgid "Roaming"
+#: ../../gui/constx.py:59
+msgid "WCDMA 1900"
 msgstr ""
 
-#: ../../wader/vmb/views/pin.py:74
-#: ../../wader/vmb/controllers/preferences.py:212
+#: ../../gui/constx.py:66 ../../gui/signals.py:27
+msgid "2G preferred"
+msgstr "Preferiraj 2G"
+
+#: ../../gui/constx.py:67 ../../gui/signals.py:28
+msgid "3G preferred"
+msgstr "Preferiraj 3G"
+
+#: ../../gui/constx.py:68 ../../gui/signals.py:29
+msgid "2G only"
+msgstr "Samo 2G"
+
+#: ../../gui/constx.py:69 ../../gui/signals.py:30
+msgid "3G only"
+msgstr "Samo 3G"
+
+#: ../../gui/constx.py:85
+msgid "PAP"
+msgstr "PAP"
+
+#: ../../gui/constx.py:86
+msgid "EAP"
+msgstr "EAP"
+
+#: ../../gui/constx.py:87
+msgid "CHAP"
+msgstr "CHAP"
+
+#: ../../gui/constx.py:88
+msgid "MSCHAP"
+msgstr "MSCHAP"
+
+#: ../../gui/constx.py:89
+msgid "MSCHAPv2"
+msgstr "MSCHAPv2"
+
+#: ../../gui/messages.py:38
+msgid "WAP Push (Binary content)"
+msgstr ""
+
+#: ../../gui/views/pin.py:74 ../../gui/controllers/preferences.py:212
 msgid "To use this feature you need the gnomekeyring module"
 msgstr "Da bi koristili ovu opciju trebate gnomekeyring modul"
 
-#: ../../wader/vmb/views/pin.py:89
+#: ../../gui/views/pin.py:89
 msgid ""
 "\n"
 "In order to unlock your SIM, we need your\n"
@@ -1029,7 +1035,7 @@ msgstr ""
 "Da bi otključali vaš SIM, trebamo vaše\n"
 "PIN i PUK kodove"
 
-#: ../../wader/vmb/views/pin.py:96
+#: ../../gui/views/pin.py:96
 msgid ""
 "\n"
 "In order to unlock your SIM, we need your\n"
@@ -1039,23 +1045,7 @@ msgstr ""
 "Da bi otključali vaš SIM, trebamo vaše\n"
 "PIN i PUK2 kodove"
 
-#: ../../wader/vmb/views/profile.py:127 ../../wader/vmb/views/main.py:307
-#: ../../wader/vmb/controllers/contacts.py:152
-msgid "Name"
-msgstr "Ime"
-
-#: ../../wader/vmb/views/profile.py:132
-#, fuzzy
-msgid "Country"
-msgstr "Računalo"
-
-#: ../../wader/vmb/views/profile.py:137 ../../wader/vmb/views/main.py:301
-#: ../../wader/vmb/views/main.py:339
-#: ../../wader/vmb/controllers/contacts.py:146
-msgid "Type"
-msgstr "Tip"
-
-#: ../../wader/vmb/views/main.py:122
+#: ../../gui/views/main.py:146
 #, python-format
 msgid ""
 "In most cases you can find the answer to your questions about the program in "
@@ -1077,7 +1067,7 @@ msgstr ""
 "Isto tako pomoć , nadogradnje i upute možete potražiti na%(name)s's webu:\n"
 "%(url)s."
 
-#: ../../wader/vmb/views/main.py:137
+#: ../../gui/views/main.py:161
 msgid ""
 "If you are using this program in a corporate environment, your company "
 "probably has a support center to solve the questions that you might have "
@@ -1092,136 +1082,273 @@ msgstr ""
 "\n"
 "U suprotnom zatražite pomoć od sistemskog administrator vaše kompanije."
 
-#: ../../wader/vmb/views/main.py:196 ../../wader/vmb/controllers/main.py:710
+#: ../../gui/views/main.py:216 ../../gui/views/main.py:234
+msgid "N/A"
+msgstr "N/A"
+
+#: ../../gui/views/main.py:335
+#, fuzzy
+msgid "GSM"
+msgstr "SMS"
+
+#: ../../gui/views/main.py:336
+msgid "GSM_COMPAT"
+msgstr ""
+
+#: ../../gui/views/main.py:337 ../../gui/signals.py:24
+msgid "GPRS"
+msgstr "GPRS"
+
+#: ../../gui/views/main.py:338 ../../gui/signals.py:25
+msgid "EDGE"
+msgstr ""
+
+#: ../../gui/views/main.py:339 ../../gui/signals.py:26
+msgid "UMTS"
+msgstr ""
+
+#: ../../gui/views/main.py:340 ../../gui/signals.py:31
+msgid "HSDPA"
+msgstr ""
+
+#: ../../gui/views/main.py:341 ../../gui/signals.py:32
+msgid "HSUPA"
+msgstr ""
+
+#: ../../gui/views/main.py:342 ../../gui/signals.py:33
+msgid "HSPA"
+msgstr ""
+
+#: ../../gui/views/main.py:343
+msgid "HSPA+"
+msgstr ""
+
+#: ../../gui/views/main.py:344
+msgid "LTE"
+msgstr ""
+
+#: ../../gui/views/main.py:384 ../../gui/views/main.py:388
+#: ../../gui/controllers/main.py:689
 msgid "Connect"
 msgstr "Povezivanje"
 
-#: ../../wader/vmb/views/main.py:200 ../../wader/vmb/controllers/main.py:705
+#: ../../gui/views/main.py:392 ../../gui/views/main.py:425
+#, fuzzy
+msgid "Disconnecting"
+msgstr "Prekini vezu"
+
+#: ../../gui/views/main.py:396 ../../gui/views/main.py:424
+#: ../../gui/controllers/main.py:849
+#, fuzzy
+msgid "Connecting"
+msgstr "Spajanje..."
+
+#: ../../gui/views/main.py:400 ../../gui/controllers/main.py:684
 msgid "Disconnect"
 msgstr "Prekini vezu"
 
-#: ../../wader/vmb/views/main.py:256 ../../wader/vmb/controllers/main.py:205
-#: ../../wader/vmb/controllers/main.py:211
-#: ../../wader/vmb/controllers/main.py:218
-#: ../../wader/vmb/controllers/main.py:380
+#: ../../gui/views/main.py:414
+#, fuzzy
+msgid "Device found"
+msgstr "Model uređaja:"
+
+#: ../../gui/views/main.py:415
+msgid "Disabled"
+msgstr ""
+
+#: ../../gui/views/main.py:416
 msgid "SIM locked"
 msgstr ""
 
-#: ../../wader/vmb/views/main.py:261 ../../wader/vmb/controllers/pin.py:265
-#: ../../wader/vmb/controllers/pin.py:336
-#: ../../wader/vmb/controllers/main.py:382
+#: ../../gui/views/main.py:417
 #, fuzzy
 msgid "Authenticating"
 msgstr "Autorizacija..."
 
-#: ../../wader/vmb/views/main.py:267
+#: ../../gui/views/main.py:418
+#, fuzzy
+msgid "Authenticated"
+msgstr "Autorizacija uspješna!"
+
+#: ../../gui/views/main.py:419
+msgid "Enabling"
+msgstr ""
+
+#: ../../gui/views/main.py:420
+msgid "Disabling"
+msgstr ""
+
+#: ../../gui/views/main.py:422
 #, fuzzy
 msgid "Searching"
 msgstr "_Petraga"
 
-#: ../../wader/vmb/views/main.py:274
-#: ../../wader/vmb/controllers/payt_controller.py:214
-#: ../../wader/vmb/controllers/main.py:393
-#: ../../wader/vmb/controllers/main.py:637
-#: ../../wader/vmb/controllers/main.py:663
-#: ../../wader/vmb/controllers/main.py:856
-#: ../../wader/vmb/controllers/main.py:1057
+#: ../../gui/views/main.py:423 ../../gui/controllers/main.py:1056
 msgid "Not connected"
 msgstr "Nije spojeno"
 
-#: ../../wader/vmb/views/main.py:281 ../../wader/vmb/controllers/main.py:395
-#: ../../wader/vmb/controllers/main.py:625
+#: ../../gui/views/main.py:426
 msgid "Connected"
 msgstr "Spojeno"
 
-#: ../../wader/vmb/views/main.py:316
-#: ../../wader/vmb/controllers/contacts.py:159
+#: ../../gui/views/main.py:429
+#, fuzzy
+msgid "No device"
+msgstr "Poznati uređaji"
+
+#: ../../gui/views/main.py:491 ../../gui/views/main.py:529
+#: ../../gui/views/profile.py:141 ../../gui/controllers/contacts.py:141
+msgid "Type"
+msgstr "Tip"
+
+#: ../../gui/views/main.py:497 ../../gui/views/profile.py:131
+#: ../../gui/controllers/contacts.py:147
+msgid "Name"
+msgstr "Ime"
+
+#: ../../gui/views/main.py:506 ../../gui/controllers/contacts.py:154
 msgid "Number"
 msgstr "Broj"
 
-#: ../../wader/vmb/views/main.py:350
+#: ../../gui/views/main.py:540
 msgid "Text"
 msgstr "Tekst"
 
-#: ../../wader/vmb/views/main.py:361
+#: ../../gui/views/main.py:551
 msgid "Recipient"
 msgstr "Primatelj"
 
-#: ../../wader/vmb/views/main.py:361
+#: ../../gui/views/main.py:551
 msgid "Sender"
 msgstr "Pošiljatelj"
 
-#: ../../wader/vmb/views/main.py:369
+#: ../../gui/views/main.py:560
 msgid "Date"
 msgstr "Datum"
 
-#: ../../wader/vmb/views/main.py:430 ../../wader/vmb/controllers/main.py:471
-#: ../../wader/vmb/controllers/main.py:555
-msgid "N/A"
-msgstr "N/A"
+#: ../../gui/views/profile.py:136
+#, fuzzy
+msgid "Country"
+msgstr "Računalo"
 
-#: ../../wader/vmb/views/main.py:430
-msgid "Radio Disabled"
-msgstr ""
-
-#: ../../wader/vmb/views/main.py:432 ../../wader/vmb/controllers/main.py:544
-#: ../../wader/vmb/signals.py:24
-msgid "GPRS"
-msgstr "GPRS"
-
-#: ../../wader/vmb/views/main.py:432 ../../wader/vmb/controllers/main.py:545
-#: ../../wader/vmb/signals.py:25
-msgid "EDGE"
-msgstr ""
-
-#: ../../wader/vmb/uptime.py:83
+#: ../../gui/uptime.py:83
 #, python-format
 msgid "%(day)d days, %(msg)s"
 msgstr "%(day)d dani, %(msg)s"
 
-#: ../../wader/vmb/uptime.py:85
+#: ../../gui/uptime.py:85
 #, python-format
 msgid "%(day)d day, %(msg)s"
 msgstr "%(day)d dan, %(msg)s"
 
-#: ../../wader/vmb/controllers/payt_controller.py:95
-#: ../../wader/vmb/controllers/payt_controller.py:111
-#: ../../wader/vmb/controllers/payt_controller.py:121
+#: ../../gui/signals.py:23
+msgid "No signal"
+msgstr ""
+
+#: ../../gui/models/main.py:113 ../../gui/controllers/payt_controller.py:177
+#: ../../gui/controllers/payt_controller.py:214
+msgid "Not available"
+msgstr ""
+
+#: ../../gui/models/main.py:174
+msgid "Error while starting wader"
+msgstr "Error while starting wader"
+
+#: ../../gui/models/main.py:175
+#, python-format
+msgid ""
+"Check that your installation is correct and your  OS/distro is supported: %s"
+msgstr ""
+
+#: ../../gui/models/profile.py:167 ../../gui/controllers/preferences.py:158
+#: ../../gui/controllers/preferences.py:174
+msgid "Custom"
+msgstr "Prilagoditi"
+
+#: ../../gui/models/profile.py:383
+msgid "Trying to remove an unsaved profile"
+msgstr ""
+
+#: ../../gui/controllers/sms.py:51
+msgid "You can send the SMS to several recipients separating them by commas"
+msgstr "Možete poslati SMS nekoliko primatelja odvajajući ih zarezima"
+
+#: ../../gui/controllers/sms.py:83 ../../gui/controllers/sms.py:258
+#, python-format
+msgid "Text message: 0/%d chars"
+msgstr "Tekstualna poruka: 0/%d chars"
+
+#: ../../gui/controllers/sms.py:112
+msgid "Send empty message"
+msgstr "Šalji praznu poruku"
+
+#: ../../gui/controllers/sms.py:113
+msgid "Are you sure you want to send an empty message?"
+msgstr "Da li ste sigurni da želite poslati praznu poruku?"
+
+#: ../../gui/controllers/sms.py:137
+msgid "Error while sending SMS"
+msgstr "Error while sending SMS"
+
+#: ../../gui/controllers/sms.py:183
+msgid "No SMSC number"
+msgstr "Nema SMSC broja"
+
+#: ../../gui/controllers/sms.py:184
+#, python-format
+msgid ""
+"In order to send a SMS, %s needs to know the number of your provider's SMSC. "
+"If you do not know the SMSC number, contact your customer service."
+msgstr ""
+"Pri slanju SMS poruke, %s treba prepoznati SMSC broj vašeg davatelja usluga. "
+"Ako neznate SMSC broj, kontaktirajte tehničku podršku davatelja usluga."
+
+#: ../../gui/controllers/sms.py:266
+#, python-format
+msgid "Text message: %(num)d/%(total)d chars"
+msgstr "Tekstualna Poruka: %(num)d/%(total)d chars"
+
+#: ../../gui/controllers/sms.py:271
+#, python-format
+msgid "Text message: %(num)d/%(total)d chars (%(msgs)d SMS)"
+msgstr "Tekstualna Poruka: %(num)d/%(total)d chars (%(msgs)d SMS)"
+
+#: ../../gui/controllers/payt_controller.py:99
+#: ../../gui/controllers/payt_controller.py:115
+#: ../../gui/controllers/payt_controller.py:125
 msgid "PAYT submit voucher"
 msgstr ""
 
-#: ../../wader/vmb/controllers/payt_controller.py:96
-#: ../../wader/vmb/controllers/payt_controller.py:157
+#: ../../gui/controllers/payt_controller.py:100
+#: ../../gui/controllers/payt_controller.py:161
 msgid "SIM is not on a PAYT plan"
 msgstr ""
 
-#: ../../wader/vmb/controllers/payt_controller.py:112
+#: ../../gui/controllers/payt_controller.py:116
 #, python-format
 msgid ""
 "PAYT submit voucher failed\n"
 "'%s'"
 msgstr ""
 
-#: ../../wader/vmb/controllers/payt_controller.py:122
+#: ../../gui/controllers/payt_controller.py:126
 msgid "No PAYT submit voucher method available"
 msgstr ""
 
-#: ../../wader/vmb/controllers/payt_controller.py:156
-#: ../../wader/vmb/controllers/payt_controller.py:191
+#: ../../gui/controllers/payt_controller.py:160
+#: ../../gui/controllers/payt_controller.py:195
 msgid "PAYT credit check"
 msgstr ""
 
-#: ../../wader/vmb/controllers/payt_controller.py:192
+#: ../../gui/controllers/payt_controller.py:196
 msgid "No PAYT credit check method available"
 msgstr ""
 
-#: ../../wader/vmb/controllers/pin.py:109
-#: ../../wader/vmb/controllers/pin.py:190
+#: ../../gui/controllers/pin.py:109 ../../gui/controllers/pin.py:190
 msgid "Incorrect PIN"
 msgstr "Nevaljan PIN"
 
-#: ../../wader/vmb/controllers/pin.py:110
-#: ../../wader/vmb/controllers/pin.py:191
+#: ../../gui/controllers/pin.py:110 ../../gui/controllers/pin.py:191
 msgid ""
 "\n"
 "<small>The PIN you've just entered is\n"
@@ -1235,77 +1362,24 @@ msgstr ""
 "tri kriva PINa biti ćete pitani\n"
 "za PUK kod</small>\n"
 
-#: ../../wader/vmb/controllers/preferences.py:40
-msgid "Maximum time"
-msgstr "Maksimum vremena"
-
-#: ../../wader/vmb/controllers/preferences.py:41
-msgid "1 week"
-msgstr "1 tjedan"
-
-#: ../../wader/vmb/controllers/preferences.py:42
-msgid "3 days"
-msgstr "3 dana"
-
-#: ../../wader/vmb/controllers/preferences.py:43
-msgid "1 day"
-msgstr "1 dan"
-
-#: ../../wader/vmb/controllers/preferences.py:210
-#: ../../wader/vmb/controllers/preferences.py:229
-msgid "Missing dependency"
-msgstr "Nedostaju međuzavisnosti"
-
-#: ../../wader/vmb/controllers/preferences.py:230
-msgid ""
-"\n"
-"To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
-"module\n"
-msgstr ""
-"\n"
-"Za korištenje ove opcije trebate ili pygtk >= 2.10 ili egg.trayicon modul\n"
-
-#: ../../wader/vmb/controllers/profile.py:64
-msgid "Error while getting connection password"
-msgstr ""
-
-#: ../../wader/vmb/controllers/profile.py:65
-msgid ""
-"NoMatchError: No password was retrieved from connection, please set one again"
-msgstr ""
-
-#: ../../wader/vmb/controllers/profile.py:113
-#, fuzzy
-msgid "Error creating profile"
-msgstr "Greška kod brisanja profila"
-
-#: ../../wader/vmb/controllers/contacts.py:98
-msgid "No contact found"
-msgstr "Nema pronađenih kontakata"
-
-#: ../../wader/vmb/controllers/contacts.py:99
-#, python-format
-msgid "No contact with the name %s found"
-msgstr "Kontakt sa imenom %s nije pronađen"
-
-#: ../../wader/vmb/controllers/main.py:174
+#: ../../gui/controllers/main.py:172
 #, python-format
 msgid "Quit %s"
 msgstr "Ugasi %s"
 
-#: ../../wader/vmb/controllers/main.py:175
+#: ../../gui/controllers/main.py:173
 msgid "Are you sure you want to exit?"
 msgstr "Dali ste sigurni da želite ugasiti?"
 
-#: ../../wader/vmb/controllers/main.py:187
+#: ../../gui/controllers/main.py:185
 msgid "Can not close application"
 msgstr ""
 
-#: ../../wader/vmb/controllers/main.py:188
+#: ../../gui/controllers/main.py:186
 msgid "Can not close while a connection is active"
 msgstr ""
 
-#: ../../wader/vmb/controllers/main.py:271
+#: ../../gui/controllers/main.py:265
 #, fuzzy, python-format
 msgid ""
 "You can easily find answers to the most common questions in the help menu, "
@@ -1327,92 +1401,76 @@ msgstr ""
 "%(shortcode)s\n"
 "%(international)s"
 
-#: ../../wader/vmb/controllers/main.py:315
+#: ../../gui/controllers/main.py:376
 msgid "Invalid password"
 msgstr ""
 
-#: ../../wader/vmb/controllers/main.py:316
+#: ../../gui/controllers/main.py:377
 msgid "The supplied password is incorrect"
 msgstr ""
 
-#: ../../wader/vmb/controllers/main.py:326
-msgid "Unknown Network"
-msgstr "Nepoznata Mreža"
-
-#: ../../wader/vmb/controllers/main.py:402
+#: ../../gui/controllers/main.py:419
 msgid "SIM error"
 msgstr ""
 
-#: ../../wader/vmb/controllers/main.py:403
+#: ../../gui/controllers/main.py:420
 msgid "Perhaps your SIM is not inserted correctly?"
 msgstr ""
 
-#: ../../wader/vmb/controllers/main.py:405
+#: ../../gui/controllers/main.py:422
 #, fuzzy
 msgid "Unknown error"
 msgstr "Nepoznata greška"
 
-#: ../../wader/vmb/controllers/main.py:411
+#: ../../gui/controllers/main.py:428
 msgid "Error while registering to home network"
 msgstr ""
 
-#: ../../wader/vmb/controllers/main.py:486
+#: ../../gui/controllers/main.py:497
 msgid "Transfer limit exceeded"
 msgstr ""
 
-#: ../../wader/vmb/controllers/main.py:487
+#: ../../gui/controllers/main.py:498
 msgid "You have exceeded your transfer limit"
 msgstr ""
 
-#: ../../wader/vmb/controllers/main.py:546 ../../wader/vmb/signals.py:26
-msgid "UMTS"
-msgstr ""
-
-#: ../../wader/vmb/controllers/main.py:547 ../../wader/vmb/signals.py:31
-msgid "HSDPA"
-msgstr ""
-
-#: ../../wader/vmb/controllers/main.py:548 ../../wader/vmb/signals.py:32
-msgid "HSUPA"
-msgstr ""
-
-#: ../../wader/vmb/controllers/main.py:549 ../../wader/vmb/signals.py:33
-msgid "HSPA"
-msgstr ""
-
-#: ../../wader/vmb/controllers/main.py:580
+#: ../../gui/controllers/main.py:574
 #, fuzzy, python-format
 msgid "SMS receipt received for %s"
 msgstr "SMS primljen od %s"
 
-#: ../../wader/vmb/controllers/main.py:608
+#: ../../gui/controllers/main.py:608
 #, python-format
 msgid "SMS received from %s"
 msgstr "SMS primljen od %s"
 
-#: ../../wader/vmb/controllers/main.py:658
+#: ../../gui/controllers/main.py:649 ../../gui/controllers/main.py:652
 #, fuzzy
 msgid "Failed connection attempt"
 msgstr "Brzina veze:"
 
-#: ../../wader/vmb/controllers/main.py:724
-#: ../../wader/vmb/controllers/main.py:759
+#: ../../gui/controllers/main.py:650
+#, fuzzy
+msgid "Unable to connect"
+msgstr "Nije spojeno"
+
+#: ../../gui/controllers/main.py:703 ../../gui/controllers/main.py:738
 msgid "Send SMS"
 msgstr "Pošalji SMS"
 
-#: ../../wader/vmb/controllers/main.py:737
+#: ../../gui/controllers/main.py:716
 msgid "Quit"
 msgstr "Završi"
 
-#: ../../wader/vmb/controllers/main.py:781
+#: ../../gui/controllers/main.py:760
 msgid "Edit"
 msgstr "Uredi"
 
-#: ../../wader/vmb/controllers/main.py:801
+#: ../../gui/controllers/main.py:780
 msgid "Invalid CSV format"
 msgstr "Nevaljan CSV format"
 
-#: ../../wader/vmb/controllers/main.py:802
+#: ../../gui/controllers/main.py:781
 msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
@@ -1420,157 +1478,182 @@ msgstr ""
 "\n"
 "CSV datoteka koju ste pokušali uvesti je nevaljanog formata."
 
-#: ../../wader/vmb/controllers/main.py:830
+#: ../../gui/controllers/main.py:810
 #, fuzzy
 msgid "No device found"
 msgstr "Nisu pronađeni nikakvi poznati uređaji"
 
-#: ../../wader/vmb/controllers/main.py:831
+#: ../../gui/controllers/main.py:811
 msgid "No device has been found. Insert one and try again."
 msgstr ""
 
-#: ../../wader/vmb/controllers/main.py:838
+#: ../../gui/controllers/main.py:817
 #, fuzzy
 msgid "Profile needed"
 msgstr "Ime profila:"
 
-#: ../../wader/vmb/controllers/main.py:839
+#: ../../gui/controllers/main.py:818
 msgid "You need to create a profile for connecting."
 msgstr ""
 
-#: ../../wader/vmb/controllers/main.py:865
+#: ../../gui/controllers/main.py:863
 #, fuzzy
-msgid "Connecting"
-msgstr "Spajanje..."
+msgid "Invalid Connection"
+msgstr "Veza:"
 
-#: ../../wader/vmb/controllers/main.py:874
-#, fuzzy
-msgid "Disconnecting"
-msgstr "Prekini vezu"
+#: ../../gui/controllers/main.py:864
+msgid ""
+"It's likely that this connection was made by the Network Manager Applet, "
+"please use that to deactivate"
+msgstr ""
 
-#: ../../wader/vmb/controllers/main.py:1006
+#: ../../gui/controllers/main.py:1005
 msgid "_New Profile"
 msgstr "_Novi Profil"
 
-#: ../../wader/vmb/controllers/main.py:1015
+#: ../../gui/controllers/main.py:1014
 msgid "Load Profile"
 msgstr "Učitaj profil"
 
-#: ../../wader/vmb/controllers/main.py:1020
+#: ../../gui/controllers/main.py:1019
 #, fuzzy
 msgid "Edit Profile"
 msgstr "Uredi profil"
 
-#: ../../wader/vmb/controllers/main.py:1025
+#: ../../gui/controllers/main.py:1024
 #, fuzzy
 msgid "Delete Profile"
 msgstr "Obriši profil"
 
-#: ../../wader/vmb/controllers/main.py:1058
+#: ../../gui/controllers/main.py:1057
 msgid "No mobile connection. Do you want to continue?"
 msgstr "Nema mobilne veze. Da li želite nastaviti?"
 
-#: ../../wader/vmb/controllers/main.py:1504
+#: ../../gui/controllers/main.py:1487
 msgid "Editor not available"
 msgstr ""
 
-#: ../../wader/vmb/controllers/main.py:1505
+#: ../../gui/controllers/main.py:1488
 #, python-format
 msgid "Can not start external contact editor \"%s\""
 msgstr ""
 
-#: ../../wader/vmb/controllers/main.py:1511
+#: ../../gui/controllers/main.py:1494
 msgid "_Add to contacts"
 msgstr "_Dodaj u kontakte"
 
-#: ../../wader/vmb/controllers/main.py:1522
+#: ../../gui/controllers/main.py:1505
 msgid "Migrate to DB"
 msgstr ""
 
-#: ../../wader/vmb/controllers/main.py:1531
+#: ../../gui/controllers/main.py:1514
 msgid "Save to draft"
 msgstr "Spremi u Nedovršeno"
 
-#: ../../wader/vmb/controllers/main.py:1542
+#: ../../gui/controllers/main.py:1525
 msgid "Delete"
 msgstr "Obriši"
 
-#: ../../wader/vmb/controllers/sms.py:51
-msgid "You can send the SMS to several recipients separating them by commas"
-msgstr "Možete poslati SMS nekoliko primatelja odvajajući ih zarezima"
-
-#: ../../wader/vmb/controllers/sms.py:83
-#: ../../wader/vmb/controllers/sms.py:258
-#, python-format
-msgid "Text message: 0/%d chars"
-msgstr "Tekstualna poruka: 0/%d chars"
-
-#: ../../wader/vmb/controllers/sms.py:112
-msgid "Send empty message"
-msgstr "Šalji praznu poruku"
-
-#: ../../wader/vmb/controllers/sms.py:113
-msgid "Are you sure you want to send an empty message?"
-msgstr "Da li ste sigurni da želite poslati praznu poruku?"
-
-#: ../../wader/vmb/controllers/sms.py:137
-msgid "Error while sending SMS"
-msgstr "Error while sending SMS"
-
-#: ../../wader/vmb/controllers/sms.py:183
-msgid "No SMSC number"
-msgstr "Nema SMSC broja"
-
-#: ../../wader/vmb/controllers/sms.py:184
-#, python-format
-msgid ""
-"In order to send a SMS, %s needs to know the number of your provider's SMSC. "
-"If you do not know the SMSC number, contact your customer service."
+#: ../../gui/controllers/main.py:1573
+msgid "Can not handle DB contacts"
 msgstr ""
-"Pri slanju SMS poruke, %s treba prepoznati SMSC broj vašeg davatelja usluga. "
-"Ako neznate SMSC broj, kontaktirajte tehničku podršku davatelja usluga."
 
-#: ../../wader/vmb/controllers/sms.py:266
+#: ../../gui/controllers/main.py:1574
+msgid "Only SIM based contacts supported"
+msgstr ""
+
+#: ../../gui/controllers/preferences.py:40
+msgid "Maximum time"
+msgstr "Maksimum vremena"
+
+#: ../../gui/controllers/preferences.py:41
+msgid "1 week"
+msgstr "1 tjedan"
+
+#: ../../gui/controllers/preferences.py:42
+msgid "3 days"
+msgstr "3 dana"
+
+#: ../../gui/controllers/preferences.py:43
+msgid "1 day"
+msgstr "1 dan"
+
+#: ../../gui/controllers/preferences.py:210
+#: ../../gui/controllers/preferences.py:229
+msgid "Missing dependency"
+msgstr "Nedostaju međuzavisnosti"
+
+#: ../../gui/controllers/preferences.py:230
+msgid ""
+"\n"
+"To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
+"module\n"
+msgstr ""
+"\n"
+"Za korištenje ove opcije trebate ili pygtk >= 2.10 ili egg.trayicon modul\n"
+
+#: ../../gui/controllers/contacts.py:93
+msgid "No contact found"
+msgstr "Nema pronađenih kontakata"
+
+#: ../../gui/controllers/contacts.py:94
 #, python-format
-msgid "Text message: %(num)d/%(total)d chars"
-msgstr "Tekstualna Poruka: %(num)d/%(total)d chars"
+msgid "No contact with the name %s found"
+msgstr "Kontakt sa imenom %s nije pronađen"
 
-#: ../../wader/vmb/controllers/sms.py:271
-#, python-format
-msgid "Text message: %(num)d/%(total)d chars (%(msgs)d SMS)"
-msgstr "Tekstualna Poruka: %(num)d/%(total)d chars (%(msgs)d SMS)"
+#: ../../gui/controllers/profile.py:69
+msgid "Error while getting connection password"
+msgstr ""
 
-#: ../../wader/vmb/dialogs.py:63
+#: ../../gui/controllers/profile.py:70
+msgid ""
+"NoMatchError: No password was retrieved from connection, please set one again"
+msgstr ""
+
+#: ../../gui/controllers/profile.py:119
+#, fuzzy
+msgid "Error creating profile"
+msgstr "Greška kod brisanja profila"
+
+#: ../../gui/dialogs.py:66
 msgid "translator-credits"
 msgstr ""
 
-#: ../../wader/vmb/dialogs.py:211
+#: ../../gui/dialogs.py:129
+msgid "Warning"
+msgstr ""
+
+#: ../../gui/dialogs.py:155
+msgid "Error"
+msgstr "Greška"
+
+#: ../../gui/dialogs.py:239
 #, fuzzy
 msgid "Password required"
 msgstr "Lozinka:"
 
-#: ../../wader/vmb/dialogs.py:212
+#: ../../gui/dialogs.py:240
 msgid "Please, insert the password of your connection"
 msgstr "Please, insert the password of your connection"
 
-#: ../../wader/vmb/dialogs.py:246
+#: ../../gui/dialogs.py:274
 msgid "Save as ..."
 msgstr "Spremi kao ..."
 
-#: ../../wader/vmb/dialogs.py:254 ../../wader/vmb/dialogs.py:293
+#: ../../gui/dialogs.py:282 ../../gui/dialogs.py:321
 msgid "Csv files"
 msgstr "Csv datoteke"
 
-#: ../../wader/vmb/dialogs.py:260 ../../wader/vmb/dialogs.py:298
+#: ../../gui/dialogs.py:288 ../../gui/dialogs.py:326
 msgid "All files"
 msgstr "Sve datoteke"
 
-#: ../../wader/vmb/dialogs.py:271
+#: ../../gui/dialogs.py:299
 #, python-format
 msgid "Overwrite \"%s\"?"
 msgstr "Presnimi preko \"%s\"?"
 
-#: ../../wader/vmb/dialogs.py:272
+#: ../../gui/dialogs.py:300
 msgid ""
 "A file with this name already exists.\n"
 "If you choose to overwrite this file, the contents will be lost."
@@ -1578,118 +1661,55 @@ msgstr ""
 "Datoteka sa istim imenom već postoji.\n"
 "Ako izaberete presnimavanje preko, sadržaj će biti izgubljen."
 
-#: ../../wader/vmb/dialogs.py:285
+#: ../../gui/dialogs.py:313
 msgid "Import contacts from..."
 msgstr "Uvedi kontakte iz..."
 
-#: ../../wader/vmb/consts.py:88 ../../wader/vmb/consts.py:106
-#: ../../wader/vmb/consts.py:126
-msgid "Any"
+#: ../../gui/keyring_dialogs.py:103
+msgid "Create default keyring"
 msgstr ""
 
-#: ../../wader/vmb/consts.py:89
-msgid "EGSM 900"
+#: ../../gui/keyring_dialogs.py:104
+#, python-format
+msgid ""
+"The application '%s' wants to store a password, but there is no default "
+"keyring. To create one, you need to choose a password you wish to use for it."
 msgstr ""
 
-#: ../../wader/vmb/consts.py:90
-msgid "GSM DCS"
-msgstr "GSM DCS"
-
-#: ../../wader/vmb/consts.py:91
-msgid "GSM PCS"
-msgstr "GSM PCS"
-
-#: ../../wader/vmb/consts.py:92
-msgid "GSM 850"
+#: ../../gui/keyring_dialogs.py:138
+msgid "Unlock keyring"
 msgstr ""
 
-#: ../../wader/vmb/consts.py:93
-msgid "WCDMA 2100"
+#: ../../gui/keyring_dialogs.py:139
+#, python-format
+msgid ""
+"The application '%s' wants access to the default keyring, but is locked."
 msgstr ""
 
-#: ../../wader/vmb/consts.py:94
-msgid "WCDMA 1700"
-msgstr ""
-
-#: ../../wader/vmb/consts.py:95
-msgid "WCDMA 17IV"
-msgstr ""
-
-#: ../../wader/vmb/consts.py:96
-msgid "WCDMA 800"
-msgstr ""
-
-#: ../../wader/vmb/consts.py:97
-msgid "WCDMA 850"
-msgstr ""
-
-#: ../../wader/vmb/consts.py:98
-msgid "WCDMA 900"
-msgstr ""
-
-#: ../../wader/vmb/consts.py:99
-msgid "WCDMA 17IX"
-msgstr ""
-
-#: ../../wader/vmb/consts.py:100
-msgid "WCDMA 1900"
-msgstr ""
-
-#: ../../wader/vmb/consts.py:107 ../../wader/vmb/signals.py:27
-msgid "2G preferred"
-msgstr "Preferiraj 2G"
-
-#: ../../wader/vmb/consts.py:108 ../../wader/vmb/signals.py:28
-msgid "3G preferred"
-msgstr "Preferiraj 3G"
-
-#: ../../wader/vmb/consts.py:109 ../../wader/vmb/signals.py:29
-msgid "2G only"
-msgstr "Samo 2G"
-
-#: ../../wader/vmb/consts.py:110 ../../wader/vmb/signals.py:30
-msgid "3G only"
-msgstr "Samo 3G"
-
-#: ../../wader/vmb/consts.py:127
-msgid "PAP"
-msgstr "PAP"
-
-#: ../../wader/vmb/consts.py:128
-msgid "EAP"
-msgstr "EAP"
-
-#: ../../wader/vmb/consts.py:129
-msgid "CHAP"
-msgstr "CHAP"
-
-#: ../../wader/vmb/consts.py:130
-msgid "MSCHAP"
-msgstr "MSCHAP"
-
-#: ../../wader/vmb/consts.py:131
-msgid "MSCHAPv2"
-msgstr "MSCHAPv2"
-
-#: ../../wader/vmb/signals.py:23
-msgid "No signal"
-msgstr ""
-
-#: ../../wader/vmb/contacts/contact_kdepim.py:132
-msgid "KDE PIM"
-msgstr ""
-
-#: ../../wader/vmb/contacts/contact_evolution.py:136
+#: ../../gui/contacts/contact_evolution.py:136
 msgid "Evolution"
 msgstr ""
 
-#: ../../bin/vodafone-mobile-broadband:55
+#: ../../gui/contacts/contact_kdepim.py:132
+msgid "KDE PIM"
+msgstr ""
+
+#: ../../bin/vodafone-mobile-broadband:68
 msgid "Do not run the application as root"
 msgstr ""
 
-#: ../../bin/vodafone-mobile-broadband:56
+#: ../../bin/vodafone-mobile-broadband:69
 msgid "Otherwise some features, like profiles, might behave unpredictably."
 msgstr ""
+
+#~ msgid "<b>Total:</b>"
+#~ msgstr "<b>Ukupno: </b>"
+
+#~ msgid "Unknown Error"
+#~ msgstr "Nepoznata greška"
+
+#~ msgid "Unknown Network"
+#~ msgstr "Nepoznata Mreža"
 
 #, fuzzy
 #~ msgid "<b>Vodafone Mobile Broadband</b>"
@@ -1778,8 +1798,8 @@ msgstr ""
 
 #~ msgid ""
 #~ "\n"
-#~ "Your device \"%(name)s\" is not properly registered with the kernel. %"
-#~ "(vmb)s\n"
+#~ "Your device \"%(name)s\" is not properly registered with the kernel. "
+#~ "%(vmb)s\n"
 #~ "needs at least two serial ports to communicate with your %(name)s.\n"
 #~ "The program includes a set of udev rules plus some binaries that make "
 #~ "sure\n"
@@ -1808,9 +1828,6 @@ msgstr ""
 #~ "Uređaju je trebalo više od 15 sekundi da odgovori na zadnju komandu. "
 #~ "Izvadite uređaj,\n"
 #~ "stavite ga ponovno, i probajte za par trenutaka."
-
-#~ msgid "Authenticated!"
-#~ msgstr "Autorizacija uspješna!"
 
 #~ msgid "B"
 #~ msgstr "B"
@@ -2128,9 +2145,6 @@ msgstr ""
 #~ "\n"
 #~ "<small>PIN koji ste upisali je\n"
 #~ "nevaljan. PIN mora biti 4 znamenke</small>\n"
-
-#~ msgid "Error"
-#~ msgstr "Greška"
 
 #~ msgid "Passwords don't match"
 #~ msgstr "Neodgovarajuće lozinke"
