@@ -25,7 +25,6 @@ from os.path import basename, exists, join, isdir, walk
 from glob import glob
 from subprocess import call
 
-from ez_setup import use_setuptools; use_setuptools()
 from setuptools import setup
 
 from distutils.command.install_data import install_data as _install_data
