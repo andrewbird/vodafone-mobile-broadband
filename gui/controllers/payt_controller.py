@@ -20,6 +20,7 @@ Controllers for Pay As You Talk
 """
 import re
 from datetime import datetime
+from dateutil.tz import gettz
 from time import time
 
 from gui.constx import VMB_MODEM_STATE_REGISTERED
@@ -29,8 +30,6 @@ from gui.logger import logger
 from gui.network_codes import (get_payt_credit_check_info,
                                      get_payt_submit_voucher_info)
 from gui.translate import _
-
-from wader.common.oal import get_os_object
 
 # XXX: needs to be something other than any VMB_MODEM_STATE_* value
 TOPUP_BUSY = 9999
@@ -44,7 +43,7 @@ class PayAsYouTalkController(Controller):
 
         self.tz = None
         try:
-            self.tz = get_os_object().get_tzinfo()
+            self.tz = gettz()
         except:
             pass
 

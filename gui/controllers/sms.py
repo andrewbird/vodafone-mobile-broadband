@@ -18,6 +18,8 @@
 """Controllers for the sms dialogs"""
 
 from datetime import datetime
+from dateutil.tz import gettz
+
 #from gtkmvc import Controller, Model
 from gui.contrib.gtkmvc import Controller, Model
 
@@ -26,7 +28,6 @@ from messaging.sms.consts import (SEVENBIT_SIZE, UCS2_SIZE,
                                  SEVENBIT_MP_SIZE, UCS2_MP_SIZE)
 
 from wader.common.consts import SMS_INTFACE
-from wader.common.oal import get_os_object
 from wader.common.provider import NetworkProvider
 from wader.common.sms import Message
 
@@ -73,7 +74,7 @@ class NewSmsController(Controller):
 
         self.tz = None
         try:
-            self.tz = get_os_object().get_tzinfo()
+            self.tz = gettz()
         except:
             pass
 
