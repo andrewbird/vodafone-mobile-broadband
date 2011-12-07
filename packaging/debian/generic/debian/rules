@@ -28,6 +28,7 @@ install: build
 	dh_link /usr/share/vodafone-mobile-broadband/vodafone-mobile-broadband /usr/bin/vodafone-mobile-broadband
 	dh_install build/locale usr/share
 	dh_install
+	DH_PYCENTRAL=nomove dh_pycentral
 
 # Build architecture-independent files here.
 binary-indep: build install
