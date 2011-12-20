@@ -220,10 +220,13 @@ class MainController(WidgetController):
         logger.info("main.py: controller - ask_for_new_profile called")
 
         def apn_callback(network):
-            main_model = self.model.profiles_model
-            profile_model = ProfileModel(main_model, network=network,
-                                    device_callable=main_model.device_callable)
-            show_profile_window(main_model, profile=profile_model)
+            profile_model = ProfileModel(
+                                self.model.profiles_model,  # parent
+                                self.model,                 # main
+                                network=network)
+            show_profile_window(self.model.profiles_model,  # parent
+                                self.model,                 # main
+                                profile=profile_model)
 
         def imsi_callback(imsi):
             ctrl = APNSelectionController(self.model, imsi, apn_callback)
@@ -955,7 +958,8 @@ The csv file that you have tried to import has an invalid format.""")
             self.on_tools_menu_item_activate(get_fake_toggle_button())
 
         def edit_profile(widget, profile):
-            show_profile_window(self.model.profiles_model,
+            show_profile_window(self.model.profiles_model,  # parent model
+                                self.model,                 # main model
                                 profile=profile)
             # XXX: check out whether editing a profile should make it active
             # currently it doesn't

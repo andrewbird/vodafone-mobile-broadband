@@ -89,7 +89,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
     return abt
 
 
-def show_profile_window(main_model, profile=None, imsi=None):
+def show_profile_window(parent_model, main_model, profile=None, imsi=None):
     from gui.models.profile import ProfileModel
     from gui.controllers.profile import ProfileController
     from gui.views.profile import ProfileView
@@ -97,8 +97,7 @@ def show_profile_window(main_model, profile=None, imsi=None):
     if profile is not None:
         model = profile
     else:
-        model = ProfileModel(main_model, imsi=imsi,
-                             device_callable=main_model.device_callable)
+        model = ProfileModel(parent_model, main_model, imsi=imsi)
 
     controller = ProfileController(model)
     view = ProfileView(controller)

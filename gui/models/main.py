@@ -142,7 +142,7 @@ class MainModel(Model):
         self.device_opath = None
         self._we_dialed = None
         self.preferences_model = PreferencesModel(lambda: self.device)
-        self.profiles_model = ProfilesModel(lambda: self.device, lambda: self)
+        self.profiles_model = ProfilesModel(self)
         self.provider = UsageProvider(USAGE_DB)
         self._init_wader_object()
         # Per SIM stuff

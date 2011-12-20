@@ -41,10 +41,10 @@ from gui.constx import (VM_NETWORK_AUTH_ANY,
 
 class ProfilesModel(Model):
 
-    def __init__(self, device_callable=None, main_model_callable=None):
+    def __init__(self, main_model):
         super(ProfilesModel, self).__init__()
-        self.device_callable = device_callable
-        self.main_model_callable = main_model_callable
+        self.main_model = main_model
+
         self.conf = config
         self.manager = manager
 
@@ -104,9 +104,7 @@ class ProfilesModel(Model):
         except ProfileNotFoundError:
             return None
         else:
-            profile = ProfileModel(self, profile=profile,
-                                device_callable=self.device_callable,
-                                main_model_callable=self.main_model_callable)
+            profile = ProfileModel(self, self.main_model, profile=profile)
             if setactive:
                 self.active_profile = profile
             return profile
@@ -116,9 +114,7 @@ class ProfilesModel(Model):
         for profile in self.manager.get_profiles():
             settings = profile.get_settings()
             uuid = settings['connection']['uuid']
-            ret[uuid] = ProfileModel(self, profile=profile,
-                                 device_callable=self.device_callable,
-                                 main_model_callable=self.main_model_callable)
+            ret[uuid] = ProfileModel(self, self.main_model, profile=profile)
         return ret
 
 
@@ -139,8 +135,8 @@ class ProfileModel(Model):
         'secondary_dns': None,
     }
 
-    def __init__(self, parent_model, profile=None, imsi=None, network=None,
-                 device_callable=None, main_model_callable=None):
+    def __init__(self, parent_model, main_model,
+                    profile=None, imsi=None, network=None):
         super(ProfileModel, self).__init__()
 
         self.bus = dbus.SystemBus()
@@ -148,8 +144,7 @@ class ProfileModel(Model):
         self.profile = profile
 
         self.parent_model = parent_model
-        self.device_callable = device_callable
-        self.main_model_callable = main_model_callable
+        self.main_model = main_model
 
         if self.profile and hasattr(self.profile, '__dbus_object_path__'):
             self.profile_path = self.profile.__dbus_object_path__
@@ -191,9 +186,8 @@ class ProfileModel(Model):
                     self.password = ''
             else:
                 # keyring needs to be opened
-                main_model = self.main_model_callable()
-                main_model.on_keyring_key_needed_cb(self.profile.opath,
-                                                      callback=callback)
+                self.main_model.on_keyring_key_needed_cb(self.profile.opath,
+                                                            callback=callback)
 
     def _load_profile(self, profile):
         self.profile = profile
@@ -342,14 +336,11 @@ class ProfileModel(Model):
             self.activate()
 
     def activate(self):
-        if self.main_model_callable is None or self.device_callable is None:
-            return
-
-        main_model = self.main_model_callable()
-        if main_model and main_model.status < VMB_MODEM_STATE_CONNECTING:
+        if self.main_model and \
+                self.main_model.status < VMB_MODEM_STATE_CONNECTING:
             # only perform this operations if we are disconnected and
             # a device is available
-            device = self.device_callable()
+            device = self.main_model.get_device()
             if not device:
                 return
 
@@ -383,15 +374,14 @@ class ProfileModel(Model):
             raise RuntimeError(_("Trying to remove an unsaved profile"))
 
     def get_supported_bands(self, callback):
-        device = self.device_callable()
-
+        device = self.main_model.get_device()
         device.Get(CRD_INTFACE, 'SupportedBands',
                    dbus_interface=dbus.PROPERTIES_IFACE,
                    reply_handler=callback,
                    error_handler=logger.warn)
 
     def get_supported_prefs(self, callback):
-        device = self.device_callable()
+        device = self.main_model.get_device()
 
         def convert_cb(modes):
             ret = get_allowed_modes(modes)
