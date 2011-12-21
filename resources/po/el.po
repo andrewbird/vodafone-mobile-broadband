@@ -9,18 +9,19 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-18 10:05+0000\n"
-"PO-Revision-Date: 2010-05-21 11:32+0100\n"
-"Last-Translator: Dimitrios Psychogios <dpsychogios@gmail.com>\n"
+"PO-Revision-Date: 2011-12-20 16:49+0000\n"
+"Last-Translator: Christos Spyroglou <Unknown>\n"
 "Language-Team: Greek <EL@li.org>\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2011-12-21 09:48+0000\n"
+"X-Generator: Launchpad (build 14538)\n"
+"Language: el\n"
 
 #: ../glade/apnsel.glade:8
-#, fuzzy
 msgid "APN selection"
-msgstr "Ρυθμίσεις Συσκευής"
+msgstr "Επιλογή APN"
 
 #: ../glade/apnsel.glade:69
 msgid ""
@@ -32,9 +33,8 @@ msgstr ""
 
 #: ../glade/apnsel.glade:193 ../glade/pin.glade:217 ../glade/pin.glade:222
 #: ../glade/pin.glade:862 ../glade/profiles.glade:1334
-#, fuzzy
 msgid "Cancel"
-msgstr "gtk-cancel"
+msgstr ""
 
 #: ../glade/apnsel.glade:208 ../glade/pin.glade:239
 #: ../glade/profiles.glade:1349
@@ -42,9 +42,8 @@ msgid "OK"
 msgstr "OK"
 
 #: ../glade/apnsel.glade:228
-#, fuzzy
 msgid "<b>APN Settings</b>"
-msgstr "<b>Ρυθμίσεις σύνδεσης</b>"
+msgstr ""
 
 #: ../glade/config.glade:8
 msgid "Device setup"
@@ -214,9 +213,8 @@ msgid "Country:"
 msgstr "Χώρα"
 
 #: ../glade/diagnostics.glade:298
-#, fuzzy
 msgid "Mobile Number:"
-msgstr "Αριθμός:"
+msgstr ""
 
 #: ../glade/diagnostics.glade:321
 msgid "IMSI"
@@ -288,9 +286,8 @@ msgid "USSD reply message:"
 msgstr "USSD μήνυμα απάντησης"
 
 #: ../glade/diagnostics.glade:810 ../glade/payt.glade:289
-#, fuzzy
 msgid "Send"
-msgstr "Αποστολέας"
+msgstr ""
 
 #: ../glade/diagnostics.glade:843
 msgid "USSD"
@@ -346,18 +343,16 @@ msgid "Password:"
 msgstr "Κωδικός:"
 
 #: ../glade/keyring.glade:100
-#, fuzzy
 msgid "Confirm password:"
-msgstr "Επαλήθευση ΡΙΝ: "
+msgstr ""
 
 #: ../glade/keyring.glade:131
 msgid "Unlock Keyring"
 msgstr ""
 
 #: ../glade/keyring.glade:157
-#, fuzzy
 msgid "Please, enter your keyring password"
-msgstr "Παρακαλώ εισάγετε το ΡΙΝ σας"
+msgstr ""
 
 #: ../glade/main.glade:28
 msgid "Import contacts..."
@@ -368,9 +363,8 @@ msgid "Export contacts..."
 msgstr "Εξαγωγή επαφών..."
 
 #: ../glade/main.glade:48
-#, fuzzy
 msgid "_Quit"
-msgstr "Έξοδος"
+msgstr ""
 
 #: ../glade/main.glade:73
 msgid "_View"
@@ -402,9 +396,8 @@ msgid "Request PIN"
 msgstr "Απαίτηση PIN"
 
 #: ../glade/main.glade:194
-#, fuzzy
 msgid "Profiles"
-msgstr "Προφίλ:"
+msgstr ""
 
 #: ../glade/main.glade:216 ../glade/preferences.glade:7
 msgid "Preferences"
@@ -415,9 +408,8 @@ msgid "_Help"
 msgstr "_Βοήθεια"
 
 #: ../glade/main.glade:246
-#, fuzzy
 msgid "Help"
-msgstr "_Βοήθεια"
+msgstr ""
 
 #: ../glade/main.glade:265
 msgid "_About"
@@ -432,9 +424,8 @@ msgid "_New"
 msgstr "_Νέο"
 
 #: ../glade/main.glade:412
-#, fuzzy
 msgid "Create new SMS"
-msgstr "Δημιουργία νέου SMS"
+msgstr ""
 
 #: ../glade/main.glade:428
 msgid "_Reply"
@@ -482,9 +473,8 @@ msgid "Contacts menu"
 msgstr "Μενού επαφών"
 
 #: ../glade/main.glade:544
-#, fuzzy
 msgid "_Search"
-msgstr "_Αναζήτηση"
+msgstr ""
 
 #: ../glade/main.glade:546
 msgid "Search contacts"
@@ -523,28 +513,24 @@ msgid "Total:"
 msgstr ""
 
 #: ../glade/main.glade:945 ../glade/main.glade:1328
-#, fuzzy
 msgid "<b>Transferred Data</b>"
-msgstr "<b>Μεταδόθηκε</b>"
+msgstr ""
 
 #: ../glade/main.glade:1074
-#, fuzzy
 msgid "<b>Current session</b>"
-msgstr "<b>Ρυθμίσεις σύνδεσης</b>"
+msgstr ""
 
 #: ../glade/main.glade:1112 ../glade/main.glade:1364
 msgid "Total Traffic"
 msgstr ""
 
 #: ../glade/main.glade:1155
-#, fuzzy
 msgid "Current month"
-msgstr "Τρέχων μήνας"
+msgstr ""
 
 #: ../glade/main.glade:1410
-#, fuzzy
 msgid "Last month"
-msgstr "Προηγούμενος μήνας"
+msgstr ""
 
 #: ../glade/main.glade:1424
 msgid "<b>Usage</b> - Remember that this information is only orientative."
@@ -575,9 +561,8 @@ msgid "Topup Credit"
 msgstr ""
 
 #: ../glade/payt.glade:44
-#, fuzzy
 msgid "<b>SIM Details</b>"
-msgstr "<b>Ρυθμίσεις σύνδεσης</b>"
+msgstr ""
 
 #: ../glade/payt.glade:83
 msgid "<b>Number</b>"
@@ -600,9 +585,8 @@ msgid "Check credit"
 msgstr ""
 
 #: ../glade/payt.glade:237
-#, fuzzy
 msgid "<b>Voucher Code</b>"
-msgstr "<b>Υπολογιστής</b>"
+msgstr ""
 
 #: ../glade/payt.glade:267
 msgid "Enter code:"
@@ -621,18 +605,16 @@ msgid "Insert your PIN code"
 msgstr "Εισάγετε το ΡΙΝ σας"
 
 #: ../glade/pin.glade:23
-#, fuzzy
 msgid "Insert PIN Window"
-msgstr "Εισάγετε το ΡΙΝ σας"
+msgstr ""
 
 #: ../glade/pin.glade:64
 msgid "Please insert your PIN code"
 msgstr "Παρακαλώ εισάγετε το ΡΙΝ σας"
 
 #: ../glade/pin.glade:104
-#, fuzzy
 msgid "Insert PIN Entry"
-msgstr "Εισάγετε το ΡΙΝ σας"
+msgstr ""
 
 #: ../glade/pin.glade:149
 msgid "Manage my PIN through gnome-keyring"
@@ -713,9 +695,8 @@ msgid "Validity:"
 msgstr "Εγκυρότητα:"
 
 #: ../glade/preferences.glade:289
-#, fuzzy
 msgid "SMS Profile"
-msgstr "Προφίλ"
+msgstr ""
 
 #: ../glade/preferences.glade:308
 msgid "<b>User options</b>"
@@ -738,38 +719,32 @@ msgid "Manage my PIN through gnomekeyring"
 msgstr "Διαχείριση ΡΙΝ μέσω του gnomekeyring"
 
 #: ../glade/preferences.glade:409
-#, fuzzy
 msgid "User Preferences"
-msgstr "Προτιμήσεις"
+msgstr ""
 
 #: ../glade/preferences.glade:429
-#, fuzzy
 msgid "<b>Web Browser</b>"
-msgstr "<b>Περίοδος</b>"
+msgstr ""
 
 #: ../glade/preferences.glade:491 ../glade/preferences.glade:584
 msgid "Command:"
 msgstr ""
 
 #: ../glade/preferences.glade:528
-#, fuzzy
 msgid "<b>Email client</b>"
-msgstr "<b>Αποθήκευση σε:</b>"
+msgstr ""
 
 #: ../glade/preferences.glade:631
-#, fuzzy
 msgid "Applications"
-msgstr "Δράση"
+msgstr ""
 
 #: ../glade/preferences.glade:651
-#, fuzzy
 msgid "<b>Usage Options</b>"
-msgstr "<b>Επιλογές χρήστη</b>"
+msgstr ""
 
 #: ../glade/preferences.glade:679
-#, fuzzy
 msgid "Maximum traffic (MB):"
-msgstr "Μέγιστος χρόνος"
+msgstr ""
 
 #: ../glade/preferences.glade:708
 msgid "Notify when a given threshold is exceeded."
@@ -780,14 +755,12 @@ msgid "Notification threshold (MB):"
 msgstr ""
 
 #: ../glade/profiles.glade:9
-#, fuzzy
 msgid "New Profile"
-msgstr "Νέο προφίλ"
+msgstr ""
 
 #: ../glade/profiles.glade:23
-#, fuzzy
 msgid "New Profile Window"
-msgstr "Νέο προφίλ"
+msgstr ""
 
 #: ../glade/profiles.glade:64
 msgid ""
@@ -807,18 +780,16 @@ msgid "Username:"
 msgstr "Χρήστης:"
 
 #: ../glade/profiles.glade:202
-#, fuzzy
 msgid "Authentication method:"
-msgstr "Σφάλμα πιστοποίησης από %s !"
+msgstr ""
 
 #: ../glade/profiles.glade:227
 msgid "Preferred connection:"
 msgstr "Προτιμώμενη σύνδεση:"
 
 #: ../glade/profiles.glade:252
-#, fuzzy
 msgid "Preferred band:"
-msgstr "Προτιμώμενη σύνδεση:"
+msgstr ""
 
 #: ../glade/profiles.glade:277
 msgid "APN host:"
@@ -829,9 +800,8 @@ msgid "<b>DNS settings</b>"
 msgstr "<b>Ρυθμίσεις DNS</b>"
 
 #: ../glade/profiles.glade:485
-#, fuzzy
 msgid "Use static DNS"
-msgstr "Χρήση στατικών DNS"
+msgstr ""
 
 #: ../glade/profiles.glade:518
 msgid "Primary DNS:"
@@ -842,24 +812,20 @@ msgid "Secondary DNS:"
 msgstr "Εφεδρικός DNS:"
 
 #: ../glade/profiles.glade:715
-#, fuzzy
 msgid "<b>Profile settings</b>"
-msgstr "<b>Ρυθμίσεις σύνδεσης</b>"
+msgstr ""
 
 #: ../glade/profiles.glade:752
-#, fuzzy
 msgid "Profile name:"
-msgstr "Προφίλ:"
+msgstr ""
 
 #: ../glade/profiles.glade:863
-#, fuzzy
 msgid "Device selection"
-msgstr "Ρυθμίσεις Συσκευής"
+msgstr ""
 
 #: ../glade/profiles.glade:877
-#, fuzzy
 msgid "Device Selection Window"
-msgstr "Ρυθμίσεις Συσκευής"
+msgstr ""
 
 #: ../glade/profiles.glade:925
 msgid ""
@@ -870,19 +836,16 @@ msgid ""
 msgstr ""
 
 #: ../glade/profiles.glade:1024
-#, fuzzy
 msgid "Known devices"
-msgstr "Δεν βρέθηκαν συσκευές"
+msgstr ""
 
 #: ../glade/profiles.glade:1032
-#, fuzzy
 msgid "Known Devices Radio"
-msgstr "Δεν βρέθηκαν συσκευές"
+msgstr ""
 
 #: ../glade/profiles.glade:1083
-#, fuzzy
 msgid "Device type:"
-msgstr "Ρυθμίσεις Συσκευής"
+msgstr ""
 
 #: ../glade/profiles.glade:1108
 msgid "Serial"
@@ -893,29 +856,24 @@ msgid "115200"
 msgstr ""
 
 #: ../glade/profiles.glade:1198
-#, fuzzy
 msgid "Data port device:"
-msgstr "Θύρα δεδομένων"
+msgstr ""
 
 #: ../glade/profiles.glade:1226
-#, fuzzy
 msgid "Control port device:"
-msgstr "Θύρα ελέγχου"
+msgstr ""
 
 #: ../glade/profiles.glade:1254
-#, fuzzy
 msgid "Speed connection:"
-msgstr "Προτιμώμενη σύνδεση:"
+msgstr ""
 
 #: ../glade/profiles.glade:1294
-#, fuzzy
 msgid "Custom device settings"
-msgstr "Δεν βρέθηκε συσκευή"
+msgstr ""
 
 #: ../glade/profiles.glade:1303
-#, fuzzy
 msgid "Custom Device Settings Radio"
-msgstr "Δεν βρέθηκε συσκευή"
+msgstr ""
 
 #: ../glade/profiles.glade:1369
 msgid "<b>Device Settings</b>"
@@ -1099,9 +1057,8 @@ msgid "N/A"
 msgstr "N/A"
 
 #: ../../gui/views/main.py:335
-#, fuzzy
 msgid "GSM"
-msgstr "SIM"
+msgstr ""
 
 #: ../../gui/views/main.py:336
 msgid "GSM_COMPAT"
@@ -1145,24 +1102,21 @@ msgid "Connect"
 msgstr "Σύνδεση"
 
 #: ../../gui/views/main.py:392 ../../gui/views/main.py:425
-#, fuzzy
 msgid "Disconnecting"
-msgstr "Αποσύνδεση"
+msgstr ""
 
 #: ../../gui/views/main.py:396 ../../gui/views/main.py:424
 #: ../../gui/controllers/main.py:849
-#, fuzzy
 msgid "Connecting"
-msgstr "Σύνδεση..."
+msgstr ""
 
 #: ../../gui/views/main.py:400 ../../gui/controllers/main.py:684
 msgid "Disconnect"
 msgstr "Αποσύνδεση"
 
 #: ../../gui/views/main.py:414
-#, fuzzy
 msgid "Device found"
-msgstr "Τύπος Συσκευής: "
+msgstr ""
 
 #: ../../gui/views/main.py:415
 msgid "Disabled"
@@ -1173,14 +1127,12 @@ msgid "SIM locked"
 msgstr ""
 
 #: ../../gui/views/main.py:417
-#, fuzzy
 msgid "Authenticating"
-msgstr "Σύνδεση..."
+msgstr ""
 
 #: ../../gui/views/main.py:418
-#, fuzzy
 msgid "Authenticated"
-msgstr "Σύνδεση..."
+msgstr ""
 
 #: ../../gui/views/main.py:419
 msgid "Enabling"
@@ -1191,9 +1143,8 @@ msgid "Disabling"
 msgstr ""
 
 #: ../../gui/views/main.py:422
-#, fuzzy
 msgid "Searching"
-msgstr "_Αναζήτηση"
+msgstr ""
 
 #: ../../gui/views/main.py:423 ../../gui/controllers/main.py:1056
 msgid "Not connected"
@@ -1204,9 +1155,8 @@ msgid "Connected"
 msgstr "Συνδεδεμένο"
 
 #: ../../gui/views/main.py:429
-#, fuzzy
 msgid "No device"
-msgstr "Δεν βρέθηκαν συσκευές"
+msgstr ""
 
 #: ../../gui/views/main.py:491 ../../gui/views/main.py:529
 #: ../../gui/views/profile.py:141 ../../gui/controllers/contacts.py:141
@@ -1239,9 +1189,8 @@ msgid "Date"
 msgstr "Ημερομηνία"
 
 #: ../../gui/views/profile.py:136
-#, fuzzy
 msgid "Country"
-msgstr "Υπολογιστής"
+msgstr ""
 
 #: ../../gui/uptime.py:83
 #, python-format
@@ -1263,9 +1212,8 @@ msgid "Not available"
 msgstr ""
 
 #: ../../gui/models/main.py:174
-#, fuzzy
 msgid "Error while starting wader"
-msgstr "Σφάλμα κατά τη διαγραφή του προφίλ"
+msgstr ""
 
 #: ../../gui/models/main.py:175
 #, python-format
@@ -1300,9 +1248,8 @@ msgid "Are you sure you want to send an empty message?"
 msgstr "Ειστε βέβαιοι οτι θέλετε να στείλετε ένα κενό μήνυμα;"
 
 #: ../../gui/controllers/sms.py:137
-#, fuzzy
 msgid "Error while sending SMS"
-msgstr "Σφάλμα κατά τη διαγραφή του προφίλ"
+msgstr ""
 
 #: ../../gui/controllers/sms.py:183
 msgid "No SMSC number"
@@ -1427,9 +1374,8 @@ msgid "Perhaps your SIM is not inserted correctly?"
 msgstr ""
 
 #: ../../gui/controllers/main.py:422
-#, fuzzy
 msgid "Unknown error"
-msgstr "Άγνωστο"
+msgstr ""
 
 #: ../../gui/controllers/main.py:428
 msgid "Error while registering to home network"
@@ -1444,9 +1390,9 @@ msgid "You have exceeded your transfer limit"
 msgstr ""
 
 #: ../../gui/controllers/main.py:574
-#, fuzzy, python-format
+#, python-format
 msgid "SMS receipt received for %s"
-msgstr "Ελήφθη SMS από %s"
+msgstr ""
 
 #: ../../gui/controllers/main.py:608
 #, python-format
@@ -1454,14 +1400,12 @@ msgid "SMS received from %s"
 msgstr "Ελήφθη SMS από %s"
 
 #: ../../gui/controllers/main.py:649 ../../gui/controllers/main.py:652
-#, fuzzy
 msgid "Failed connection attempt"
-msgstr "Προτιμώμενη σύνδεση:"
+msgstr ""
 
 #: ../../gui/controllers/main.py:650
-#, fuzzy
 msgid "Unable to connect"
-msgstr "Αποσυνδεμένο"
+msgstr ""
 
 #: ../../gui/controllers/main.py:703 ../../gui/controllers/main.py:738
 msgid "Send SMS"
@@ -1488,27 +1432,24 @@ msgstr ""
 "Το αρχείο csv που προσπαθήσατε να εισάγετε έχει άκυρη διαμόρφωση."
 
 #: ../../gui/controllers/main.py:810
-#, fuzzy
 msgid "No device found"
-msgstr "Δεν βρέθηκαν συσκευές"
+msgstr ""
 
 #: ../../gui/controllers/main.py:811
 msgid "No device has been found. Insert one and try again."
 msgstr ""
 
 #: ../../gui/controllers/main.py:817
-#, fuzzy
 msgid "Profile needed"
-msgstr "Προφίλ:"
+msgstr ""
 
 #: ../../gui/controllers/main.py:818
 msgid "You need to create a profile for connecting."
 msgstr ""
 
 #: ../../gui/controllers/main.py:863
-#, fuzzy
 msgid "Invalid Connection"
-msgstr "Σύνδεση:"
+msgstr ""
 
 #: ../../gui/controllers/main.py:864
 msgid ""
@@ -1517,24 +1458,20 @@ msgid ""
 msgstr ""
 
 #: ../../gui/controllers/main.py:1005
-#, fuzzy
 msgid "_New Profile"
-msgstr "Νέο προφίλ"
+msgstr ""
 
 #: ../../gui/controllers/main.py:1014
-#, fuzzy
 msgid "Load Profile"
-msgstr "Προφίλ"
+msgstr ""
 
 #: ../../gui/controllers/main.py:1019
-#, fuzzy
 msgid "Edit Profile"
-msgstr "Επεξεργασία προφίλ"
+msgstr ""
 
 #: ../../gui/controllers/main.py:1024
-#, fuzzy
 msgid "Delete Profile"
-msgstr "Διαγραφή προφίλ"
+msgstr ""
 
 #: ../../gui/controllers/main.py:1057
 msgid "No mobile connection. Do you want to continue?"
@@ -1623,13 +1560,14 @@ msgid ""
 msgstr ""
 
 #: ../../gui/controllers/profile.py:119
-#, fuzzy
 msgid "Error creating profile"
-msgstr "Σφάλμα κατά τη διαγραφή του προφίλ"
+msgstr ""
 
 #: ../../gui/dialogs.py:66
 msgid "translator-credits"
 msgstr ""
+"Launchpad Contributions:\n"
+"  Christos Spyroglou https://launchpad.net/~cspyroglou"
 
 #: ../../gui/dialogs.py:129
 msgid "Warning"
@@ -1640,14 +1578,12 @@ msgid "Error"
 msgstr "Σφάλμα"
 
 #: ../../gui/dialogs.py:239
-#, fuzzy
 msgid "Password required"
-msgstr "Κωδικός:"
+msgstr ""
 
 #: ../../gui/dialogs.py:240
-#, fuzzy
 msgid "Please, insert the password of your connection"
-msgstr "Παρακαλώ εισάγετε το ΡΙΝ σας"
+msgstr ""
 
 #: ../../gui/dialogs.py:274
 msgid "Save as ..."
@@ -1714,499 +1650,3 @@ msgstr ""
 #: ../../bin/vodafone-mobile-broadband:69
 msgid "Otherwise some features, like profiles, might behave unpredictably."
 msgstr ""
-
-#, fuzzy
-#~ msgid "<b>Total:</b>"
-#~ msgstr "<b>τίτλος</b>"
-
-#, fuzzy
-#~ msgid "Unknown Error"
-#~ msgstr "Άγνωστο"
-
-#, fuzzy
-#~ msgid "Unknown Network"
-#~ msgstr "Άγνωστο"
-
-#~ msgid "SMS preferences"
-#~ msgstr "Ρυθμίσεις SMS"
-
-#~ msgid "Class:"
-#~ msgstr "Κλάση:"
-
-#~ msgid ""
-#~ "Maximum time\n"
-#~ "1 week\n"
-#~ "3 days\n"
-#~ "1 day"
-#~ msgstr ""
-#~ "Μέγιστος χρόνος\n"
-#~ "1 εβδομάδα\n"
-#~ "3 ημέρες\n"
-#~ "1 ημέρα"
-
-#~ msgid "<b>Modem</b>"
-#~ msgstr "<b>Modem</b>"
-
-#~ msgid "<b>SIM</b>"
-#~ msgstr "<b>SIM</b>"
-
-#~ msgid "<b>Mobile Connect</b>"
-#~ msgstr "<b>Mobile Connect</b>"
-
-#~ msgid "<b>Computer</b>"
-#~ msgstr "<b>Υπολογιστής</b>"
-
-#, fuzzy
-#~ msgid "Connect Button"
-#~ msgstr "Σύνδεση"
-
-#~ msgid "Inspect"
-#~ msgstr "Inspect"
-
-#~ msgid "_SMS"
-#~ msgstr "_SMS"
-
-#~ msgid "_Contact"
-#~ msgstr "_Επαφή"
-
-#~ msgid "3G"
-#~ msgstr "3G"
-
-#~ msgid "<b>GSM device</b>"
-#~ msgstr "<b>Συσκευή GSM</b>"
-
-#~ msgid "VMB number:"
-#~ msgstr "Αριθμός VMB:"
-
-#, fuzzy
-#~ msgid "Dialer profile"
-#~ msgstr "Διαγραφή προφίλ"
-
-#~ msgid "Initial setup..."
-#~ msgstr "Αρχικές ρυθμίσεις..."
-
-#~ msgid "Device setup not completed"
-#~ msgstr "Η ρύθμιση της συσκευής δεν έχει ολοκληρωθεί"
-
-#, fuzzy
-#~ msgid "Device not responding"
-#~ msgstr "Συσκευή σε χρήση αφαιρέθηκε"
-
-#~ msgid "No device present"
-#~ msgstr "Δεν βρέθηκε συσκευή"
-
-#~ msgid "Address"
-#~ msgstr "Διεύθυνση"
-
-#~ msgid "Incorrect PUK"
-#~ msgstr "Εσφαλμένο PUK"
-
-#~ msgid ""
-#~ "\n"
-#~ "<small>The PUK you've just entered is\n"
-#~ "incorrect. Bear in mind that after\n"
-#~ "three failed PUKs you'll be asked\n"
-#~ "for the PUK2 code. Your PIN code\n"
-#~ "should be your last PIN.</small>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<small>Ο κωδικός PUK που εισάγατε είναι\n"
-#~ "εσφαλμένος.Να θυμάστε οτι έπειτα από\n"
-#~ "τρείς εσσφαλμένες απόπειρες θα σας ζητηθεί\n"
-#~ "ο κωδικός PUK2 . Ο κωδικός PIN \n"
-#~ "δεν θα πρέπει να έχει αλλάξει.</small>\n"
-
-#~ msgid ""
-#~ "\n"
-#~ "The PIN you've just entered is\n"
-#~ "incorrect. Bear in mind that after\n"
-#~ "three failed PINs you'll be asked\n"
-#~ "for the PUK code\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Ο κωδικός PIN που εισάγατε είναι\n"
-#~ "εσφαλμένος. Να θυμάστε οτι έπειτα από\n"
-#~ "τρείς εσσφαλμένες απόπειρες θα σας\n"
-#~ "ζητηθεί ο κωδικός PUK\n"
-
-#~ msgid "Shutting down"
-#~ msgstr "Απενεργοποίηση"
-
-#~ msgid "Connected to Internet"
-#~ msgstr "Σύνδεση με το το Ίντερνετ"
-
-#~ msgid ""
-#~ "\n"
-#~ "You need to disconnect from Internet before shutting\n"
-#~ "down %s,\n"
-#~ "if you want to do so, press the OK button.\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Πρέπει να αποσυνδεθείτε από το Ίντερνετ για να κλείσετε την\n"
-#~ "εφαρμογή %s,\n"
-#~ "αν επιθυμείτε να το κάνετε αυτό, πιέστε την επιλογή OK.\n"
-
-#~ msgid "Reading contacts..."
-#~ msgstr "Ανάγνωση επαφών..."
-
-#~ msgid "Reading messages..."
-#~ msgstr "Ανάγνωση μηνυμάτων..."
-
-#, fuzzy
-#~ msgid "To use this widget you need python-vte installed"
-#~ msgstr ""
-#~ "Για να κάνετε χρήση αυτής της δυνατότητας χρειάζεστε την υπομονάδα "
-#~ "gnomekeyring"
-
-#~ msgid "Connected to %s"
-#~ msgstr "Συνδέθηκε με %s"
-
-#~ msgid "_Send SMS"
-#~ msgstr "_Αποστολή SMS"
-
-#~ msgid "Illegal Operation!"
-#~ msgstr "Εσφαλμένη λειτουργία!"
-
-#~ msgid ""
-#~ "\n"
-#~ "Your device only has one port and you are currently connected\n"
-#~ "to Internet, you cannot perform any operation while connected"
-#~ msgstr ""
-#~ "\n"
-#~ "Η συσκευή σας διαθέτει μόνο μία θύρα και είστε συνδεδεμένοι\n"
-#~ "με το Ίντερνετ.  Δεν μπορείτε να κάνετε οτιδήποτε όσο είστε συνδεδεμένοι"
-
-#~ msgid ""
-#~ "<small>Received at %(date)s</small>\n"
-#~ "<b>%(text)s</b>"
-#~ msgstr ""
-#~ "<small>Λήψη %(date)s</small>\n"
-#~ "<b>%(text)s</b>"
-
-#, fuzzy
-#~ msgid "Invalid DNS received from Network"
-#~ msgstr "Άκυρες ρυθμίσεις DNS από τον πάροχο"
-
-#, fuzzy
-#~ msgid ""
-#~ "\n"
-#~ "<small>The DNS settings received from the mobile network are invalid. You "
-#~ "will\n"
-#~ "probably want to restart the connection, or if the problem persists, you\n"
-#~ "can specify a static DNS entry in the connection preferences</small>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<small>Οι ρυθμίσεις DNS που ελήφθησαν από τον πάροχο είναι άκυρες. "
-#~ "Πιθανόν να χρειαστεί\n"
-#~ "να κάνετε επανασύνδεση ή αν το πρόβλημα εξακολουθήσει, μπορείτε να "
-#~ "ορίσετε\n"
-#~ "χειροκίνητες ρυθμίσεις DNS στις προτιμήσεις συνδέσεων</small>\n"
-
-#~ msgid "Disconnected from Internet"
-#~ msgstr "Έγινε αποσύνδεση από το Ίντερνετ"
-
-#~ msgid ""
-#~ "\n"
-#~ "<small>%s has given\n"
-#~ "up after trying to connect three times to Internet. This might\n"
-#~ "be provoked by a problem in the configuration or just the fact\n"
-#~ "that there's no carrier.</small>"
-#~ msgstr ""
-#~ "\n"
-#~ "<small>%s απέτυχε\n"
-#~ "να συνδεθεί έπειτα απο τρείς συνεχείς απόπειρες. Αυτό μπορεί να "
-#~ "οφείλεται\n"
-#~ "σε λάθος ρυθμίσεις ή στο γεγονός οτι δεν υπάρχει προσωρινά διαθέσιμο\n"
-#~ "δίκτυο.</small>"
-
-#~ msgid "Device in use removed"
-#~ msgstr "Συσκευή σε χρήση αφαιρέθηκε"
-
-#~ msgid ""
-#~ "\n"
-#~ "The 3G device in use has been removed. Now\n"
-#~ "%s\n"
-#~ "is going to shutdown. In order to continue,\n"
-#~ "plug in the 3G device and start again."
-#~ msgstr ""
-#~ "\n"
-#~ "Η συσκευή 3G που βρισκόταν σε χρήση, αφαιρέθηκε. Τώρα\n"
-#~ "η %s\n"
-#~ "θα τερματιστεί. Για να συνεχίσετε,\n"
-#~ "ενώστε τη συσκευή ξανά και αρχίστε απο την αρχή."
-
-#~ msgid "3G Device added"
-#~ msgstr "Προσθήκη συσκευής 3G"
-
-#~ msgid ""
-#~ "\n"
-#~ "A new 3G device (%(device_name)s)\n"
-#~ "has been added, in around 15 seconds\n"
-#~ "(%(app_name)s) will resume its functioning"
-#~ msgstr ""
-#~ "\n"
-#~ "Μία νέα συσκευή 3G (%(device_name)s)\n"
-#~ "ανιχνεύθηκε, σε περίπου 15 δευτερόλεπτα η\n"
-#~ "(%(app_name)s) θα επανέλθει σε λειτουργία"
-
-#~ msgid "Setting up device..."
-#~ msgstr "Ενεργοποίηση συσκευής..."
-
-#, fuzzy
-#~ msgid "The following characters are not allowed in a profile name: %s"
-#~ msgstr ""
-#~ "The following dependencies are not satisfied:\n"
-#~ "%s"
-
-#, fuzzy
-#~ msgid "Invalid value in profile"
-#~ msgstr "Διαγραφή προφίλ"
-
-#~ msgid "Authentication Error from %s !"
-#~ msgstr "Σφάλμα πιστοποίησης από %s !"
-
-#~ msgid "Connecting to %s ..."
-#~ msgstr "Σύνδεση με %s ..."
-
-#~ msgid "Discovery started..."
-#~ msgstr "Εκκίνηση ανίχνευσης"
-
-#~ msgid "Discovery finished!"
-#~ msgstr "Τερματισμός ανίχνευσης!"
-
-#~ msgid "No control port"
-#~ msgstr "Δεν βρέθηκε θύρα ελέγχου"
-
-#~ msgid "Connecting to device..."
-#~ msgstr "Σύνδεση με τη συσκευή..."
-
-#~ msgid "Exception received connecting to %s"
-#~ msgstr "Σφάλμα κατα τη σύνδεση με %s"
-
-#~ msgid ""
-#~ "\n"
-#~ "The following error was received while trying to establish a connection:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "\n"
-#~ "Το ακόλουθο σφάλμα παρουσιάστηκε κατα τη σύνδεση:\n"
-#~ "%s"
-
-#~ msgid "Overwrite"
-#~ msgstr "Αντικατάσταση"
-
-#~ msgid "Vodafone Spain S.A."
-#~ msgstr "Vodafone Spain S.A."
-
-#~ msgid "translated to $LANG by $translater"
-#~ msgstr "μεταφράστηκε στα $LANG από τον $translater"
-
-#, fuzzy
-#~ msgid "Default"
-#~ msgstr "default"
-
-#~ msgid "GPRS only"
-#~ msgstr "Μόνο GPRS"
-
-#~ msgid "GPRS preferred"
-#~ msgstr "Προτίμηση GPRS"
-
-#~ msgid "Shutting down..."
-#~ msgstr "Απενεργοποίηση..."
-
-#~ msgid "Missing dependencies"
-#~ msgstr "Missing dependencies"
-
-#~ msgid ""
-#~ "The following dependencies are not satisfied:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "The following dependencies are not satisfied:\n"
-#~ "%s"
-
-#~ msgid "OS/Distro not registered"
-#~ msgstr "OS/Distro not registered"
-
-#~ msgid "Permissions problems"
-#~ msgstr "Permissions problems"
-
-#~ msgid "PIN1..."
-#~ msgstr "PIN1..."
-
-#~ msgid "Invalid PIN"
-#~ msgstr "Εσφαλμένο ΡΙΝ"
-
-#~ msgid ""
-#~ "\n"
-#~ "<small>The PIN you've just entered is\n"
-#~ "invalid. The PIN must be a 4 digit code</small>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<small>Ο κωδικός PIN που εισάγατε είναι\n"
-#~ "εσφαλμένος. Ο PIN αποτελείται από 4 ψηφία</small>\n"
-
-#~ msgid "Passwords don't match"
-#~ msgstr "Οι κωδικοί δεν ταιριάζουν"
-
-#~ msgid "PIN:"
-#~ msgstr "ΡΙΝ:"
-
-#~ msgid "gtk-cancel"
-#~ msgstr "gtk-cancel"
-
-#~ msgid "gtk-ok"
-#~ msgstr "gtk-ok"
-
-#~ msgid "gtk-help"
-#~ msgstr "gtk-help"
-
-#~ msgid "gtk-go-back"
-#~ msgstr "gtk-go-back"
-
-#~ msgid "gtk-go-forward"
-#~ msgstr "gtk-go-forward"
-
-#, fuzzy
-#~ msgid "gtk-home"
-#~ msgstr "gtk-help"
-
-#, fuzzy
-#~ msgid "Device Selection Cancel Button"
-#~ msgstr "Ρυθμίσεις Συσκευής"
-
-#, fuzzy
-#~ msgid "Device Selection OK Button"
-#~ msgstr "Ρυθμίσεις Συσκευής"
-
-#, fuzzy
-#~ msgid "Insert PIN OK Button"
-#~ msgstr "Εισάγετε το ΡΙΝ σας"
-
-#~ msgid "<b>Connectivy test</b>"
-#~ msgstr "<b>Δοκιμή συνδεσιμότητας</b>"
-
-#~ msgid ""
-#~ "Check your current network status with this test. If you experience any "
-#~ "network problem, please contact your support service"
-#~ msgstr ""
-#~ "Εδώ μπορείτε να ελένξετε την τρέχουσα κατάσταση δικτύου σας. Αν "
-#~ "αντιμετωπίσετε οποιοδήποτε πρόβλημα, επικοινωνήστε με την Τεχνική "
-#~ "Υποστήριξη"
-
-#~ msgid "_Start"
-#~ msgstr "_Εναρξη"
-
-#~ msgid "Network testing"
-#~ msgstr "Δοκιμή δικτύου"
-
-#~ msgid ""
-#~ "Some information is going to be collected from your system and some basic "
-#~ "connectivity tests are going to be performed to find out what is causing "
-#~ "the network problems"
-#~ msgstr ""
-#~ "Θα συλλεχθούν ορισμένες πληροφορίες του συστήματός σας και θα γίνουν "
-#~ "κάποιες βασικές δοκιμές συνδεσιμότητας για να εξακριβωθεί η αιτία των "
-#~ "δικτυακών προβλημάτων που αντιμετωπίζετε"
-
-#~ msgid "ERROR"
-#~ msgstr "ΣΦΑΛΜΑ"
-
-#~ msgid "Checking if ppp interface is up..."
-#~ msgstr "Checking if ppp interface is up..."
-
-#~ msgid "Checking if we can reach gateway..."
-#~ msgstr "Checking if we can reach gateway..."
-
-#~ msgid "Checking if we can reach nameserver..."
-#~ msgstr "Checking if we can reach nameserver..."
-
-#~ msgid "Checking if we can resolve google.com..."
-#~ msgstr "Checking if we can resolve google.com..."
-
-#~ msgid "Checking if we can fetch google's homepage..."
-#~ msgstr "Checking if we can fetch google's homepage..."
-
-#~ msgid "Connectivity test done!"
-#~ msgstr "Connectivity test done!"
-
-#~ msgid "%s-report.txt"
-#~ msgstr "%s-report.txt"
-
-#~ msgid "Performing connectivity test..."
-#~ msgstr "Εκτέλεση δοκιμής συνδεσιμότητας..."
-
-#~ msgid "Minimize"
-#~ msgstr "Ελαχιστοποίηση"
-
-#~ msgid "Help topics"
-#~ msgstr "Θέματα βοήθειας"
-
-#~ msgid "<b>Domain Name Servers</b>"
-#~ msgstr "<b>Domain Name Servers</b>"
-
-#~ msgid "<b>CHAP/PAP secrets</b>"
-#~ msgstr "<b>CHAP/PAP secrets</b>"
-
-#~ msgid "Manage my /etc/ppp/{ch,p}ap-secrets"
-#~ msgstr "Manage my /etc/ppp/{ch,p}ap-secrets"
-
-#~ msgid ""
-#~ "<b>Do not change this unless you are completely sure you know what you "
-#~ "are doing</b>"
-#~ msgstr ""
-#~ "<b>Μην αλλάξετε τις ρυθμίσεις αυτές αν δεν είστε σίγουροι για το "
-#~ "αποτέλεσμα που θα έχουν</b>"
-
-#~ msgid "Use a custom profile"
-#~ msgstr "Χρήση προσαρμοσμένου προφίλ"
-
-#~ msgid "<b>Wvdial profile management</b>"
-#~ msgstr "<b>Διαχείριση προφίλ Wvdial</b>"
-
-#~ msgid "Wvdial profiles"
-#~ msgstr "Προφίλ Wvdial"
-
-#~ msgid "Select the device that you want to use"
-#~ msgstr "Επιλέξτε τη συσκευή που θέλετε να χρησιμοποιήσετε"
-
-#~ msgid "0/%d chars"
-#~ msgstr "0/%d χαρακτήρες"
-
-#~ msgid "System information"
-#~ msgstr "Πληροφορίες Συστήματος"
-
-#~ msgid ""
-#~ "You can't delete profile %s as this would leave the application in\n"
-#~ "an unusable state"
-#~ msgstr ""
-#~ "Δεν μπορείτε να διαγράψετε το προφίλ %s διότι αυτό θα άφηνε την εφαρμογή "
-#~ "σε\n"
-#~ "μη λειτουργική κατάσταση"
-
-#~ msgid "Are you sure that you want to delete profile %s"
-#~ msgstr "Είστε σίγουροι οτι θέλετε να διαγράψετε το προφίλ %s"
-
-#~ msgid "Profile %s does not exists"
-#~ msgstr "Το προφίλ %s δεν υπάρχει"
-
-#~ msgid "Profile %s can not be deleted"
-#~ msgstr "Το προφίλ %s δεν μπορεί να διαγραφεί"
-
-#~ msgid ""
-#~ "%s could not find any suitable device through DBus. If you own a "
-#~ "Bluetooth\n"
-#~ "device, press OK to setup and use it. Otherwise press Cancel and the "
-#~ "program\n"
-#~ "will stop"
-#~ msgstr ""
-#~ "Η %s δεν μπόρεσε να βρεί κατάλληλη συσκευή μέσω του DBus. Αν διαθέτετε "
-#~ "συσκευή\n"
-#~ "Bluetooth, πιέστε OK για να τη ρυθμίσετε. Διαφορετικά πιέστε Ακύρωση και "
-#~ "η εφαρμογή\n"
-#~ "θα τερματιστεί"
-
-#~ msgid "Running hardware wizard..."
-#~ msgstr "Εκτέλεση βοηθού υλικού..."
-
-#~ msgid "Initting device..."
-#~ msgstr "Ενεργοποίηση συσκευής..."
