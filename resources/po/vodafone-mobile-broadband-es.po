@@ -539,8 +539,8 @@ msgid "Last month"
 msgstr "Último mes"
 
 #: ../glade/main.glade:1424
-msgid "<b>Usage</b> - Remember that this information is only orientative."
-msgstr "<b>Uso</b> - Recuerde que esta información es sólo orientativa."
+msgid "<b>Usage</b> - Remember that this information is only indicative."
+msgstr ""
 
 #: ../glade/main.glade:1468
 msgid "Help menu"
