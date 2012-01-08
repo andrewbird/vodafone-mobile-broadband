@@ -7,13 +7,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-18 10:05+0000\n"
-"PO-Revision-Date: 2010-05-20 21:14+0100\n"
-"Last-Translator: Paulo Arinto <artinto@portugalmail.pt>\n"
+"PO-Revision-Date: 2011-12-17 10:03+0000\n"
+"Last-Translator: Paulo Arinto <Unknown>\n"
 "Language-Team: Portuguese <PT@li.org>\n"
-"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-01-08 11:12+0000\n"
+"X-Generator: Launchpad (build 14640)\n"
+"Language: pt\n"
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
@@ -57,7 +59,7 @@ msgstr "Seleccione uma das seguintes opções para se ligar à internet"
 
 #: ../glade/config.glade:56
 msgid "Device model: "
-msgstr "Modelo de dispositivo"
+msgstr "Modelo de dispositivo "
 
 #: ../glade/config.glade:63
 msgid "Connection:"
@@ -163,7 +165,7 @@ msgstr "Fabricante:"
 
 #: ../glade/diagnostics.glade:92
 msgid "Model:"
-msgstr "Modelo: "
+msgstr "Modelo:"
 
 #: ../glade/diagnostics.glade:103
 msgid "Firmware: "
@@ -240,15 +242,15 @@ msgstr "<b>Dispositivo informação</b>"
 
 #: ../glade/diagnostics.glade:446
 msgid "Operating System:"
-msgstr "Sistema Operativo: "
+msgstr "Sistema Operativo:"
 
 #: ../glade/diagnostics.glade:457
 msgid "Version:"
-msgstr "Versão: "
+msgstr "Versão:"
 
 #: ../glade/diagnostics.glade:468
 msgid "Uptime:"
-msgstr "Tempo Ligado: "
+msgstr "Tempo Ligado:"
 
 #: ../glade/diagnostics.glade:537
 msgid "Device"
@@ -259,9 +261,8 @@ msgid "Software Version:"
 msgstr "Versã de software:"
 
 #: ../glade/diagnostics.glade:613
-#, fuzzy
 msgid "Core Version:"
-msgstr "Versão core:"
+msgstr ""
 
 #: ../glade/diagnostics.glade:635 ../glade/diagnostics.glade:645
 msgid "Not supported"
@@ -363,9 +364,8 @@ msgid "Export contacts..."
 msgstr "Exportar contactos..."
 
 #: ../glade/main.glade:48
-#, fuzzy
 msgid "_Quit"
-msgstr "Sair"
+msgstr ""
 
 #: ../glade/main.glade:73
 msgid "_View"
@@ -397,9 +397,8 @@ msgid "Request PIN"
 msgstr "Pedir PIN"
 
 #: ../glade/main.glade:194
-#, fuzzy
 msgid "Profiles"
-msgstr "Perfil"
+msgstr ""
 
 #: ../glade/main.glade:216 ../glade/preferences.glade:7
 msgid "Preferences"
@@ -410,9 +409,8 @@ msgid "_Help"
 msgstr "_Ajuda"
 
 #: ../glade/main.glade:246
-#, fuzzy
 msgid "Help"
-msgstr "_Ajuda"
+msgstr ""
 
 #: ../glade/main.glade:265
 msgid "_About"
@@ -476,9 +474,8 @@ msgid "Contacts menu"
 msgstr "Menu de contactos"
 
 #: ../glade/main.glade:544
-#, fuzzy
 msgid "_Search"
-msgstr "Procurando"
+msgstr ""
 
 #: ../glade/main.glade:546
 msgid "Search contacts"
@@ -1067,9 +1064,8 @@ msgid "N/A"
 msgstr "N/D"
 
 #: ../../gui/views/main.py:335
-#, fuzzy
 msgid "GSM"
-msgstr "SIM"
+msgstr ""
 
 #: ../../gui/views/main.py:336
 msgid "GSM_COMPAT"
@@ -1100,9 +1096,8 @@ msgid "HSPA"
 msgstr "HSPA"
 
 #: ../../gui/views/main.py:343
-#, fuzzy
 msgid "HSPA+"
-msgstr "HSPA"
+msgstr ""
 
 #: ../../gui/views/main.py:344
 msgid "LTE"
@@ -1131,9 +1126,8 @@ msgid "Device found"
 msgstr "Dispositivo encontrado"
 
 #: ../../gui/views/main.py:415
-#, fuzzy
 msgid "Disabled"
-msgstr "Rádio com deficiência"
+msgstr ""
 
 #: ../../gui/views/main.py:416
 msgid "SIM locked"
@@ -1144,9 +1138,8 @@ msgid "Authenticating"
 msgstr "A autenticar..."
 
 #: ../../gui/views/main.py:418
-#, fuzzy
 msgid "Authenticated"
-msgstr "!Não é preciso autenticação!"
+msgstr ""
 
 #: ../../gui/views/main.py:419
 msgid "Enabling"
@@ -1268,9 +1261,8 @@ msgid "Error while sending SMS"
 msgstr "Erro ao enviar SMS"
 
 #: ../../gui/controllers/sms.py:183
-#, fuzzy
 msgid "No SMSC number"
-msgstr "Número SMSC"
+msgstr ""
 
 #: ../../gui/controllers/sms.py:184
 #, python-format
@@ -1358,7 +1350,7 @@ msgid "Can not close while a connection is active"
 msgstr "Não é possível fechar com uma conexão está ativa"
 
 #: ../../gui/controllers/main.py:265
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "You can easily find answers to the most common questions in the help menu, "
 "in your company's support center and in the support area at:\n"
@@ -1372,15 +1364,6 @@ msgid ""
 "\n"
 "%(international)s if you are calling from other network."
 msgstr ""
-"Pode encontrar rápidamente a solução para muitos problemas no Menu de Ajuda, "
-"no centro de suporte da sua empresa e na área de Apoio em:\n"
-"\n"
-"%(url)s\n"
-"\n"
-"Se mesmo assim tem dificuldades, pode sempre inscrever-se no forum do "
-"projecto em:\n"
-"%(shortcode)s\n"
-"%(international)s"
 
 #: ../../gui/controllers/main.py:376
 msgid "Invalid password"
@@ -1415,9 +1398,9 @@ msgid "You have exceeded your transfer limit"
 msgstr "Você excedeu o seu limite de transferência"
 
 #: ../../gui/controllers/main.py:574
-#, fuzzy, python-format
+#, python-format
 msgid "SMS receipt received for %s"
-msgstr "SMS recebido de %s"
+msgstr ""
 
 #: ../../gui/controllers/main.py:608
 #, python-format
@@ -1429,9 +1412,8 @@ msgid "Failed connection attempt"
 msgstr "Falha na conexão"
 
 #: ../../gui/controllers/main.py:650
-#, fuzzy
 msgid "Unable to connect"
-msgstr "A desligar"
+msgstr ""
 
 #: ../../gui/controllers/main.py:703 ../../gui/controllers/main.py:738
 msgid "Send SMS"
@@ -1474,9 +1456,8 @@ msgid "You need to create a profile for connecting."
 msgstr "Você precisa criar um perfil de ligação."
 
 #: ../../gui/controllers/main.py:863
-#, fuzzy
 msgid "Invalid Connection"
-msgstr "Conexão:"
+msgstr ""
 
 #: ../../gui/controllers/main.py:864
 msgid ""
@@ -1565,8 +1546,8 @@ msgid ""
 "module\n"
 msgstr ""
 "\n"
-"Para usar este recurso você precisa de> ou = 2,10 pygtk ou o módulo egg."
-"trayicon\n"
+"Para usar este recurso você precisa de> ou = 2,10 pygtk ou o módulo "
+"egg.trayicon\n"
 
 #: ../../gui/controllers/contacts.py:93
 msgid "No contact found"
@@ -1590,16 +1571,15 @@ msgstr ""
 
 #: ../../gui/controllers/profile.py:119
 msgid "Error creating profile"
-msgstr " Erro ao criar perfil"
+msgstr "Erro ao criar perfil"
 
 #: ../../gui/dialogs.py:66
 msgid "translator-credits"
 msgstr "translator-credits"
 
 #: ../../gui/dialogs.py:129
-#, fuzzy
 msgid "Warning"
-msgstr "Exploração"
+msgstr ""
 
 #: ../../gui/dialogs.py:155
 msgid "Error"
@@ -1675,513 +1655,9 @@ msgid "KDE PIM"
 msgstr "KDE PIM"
 
 #: ../../bin/vodafone-mobile-broadband:68
-#, fuzzy
 msgid "Do not run the application as root"
-msgstr "Não é possível fechar a aplicação"
+msgstr ""
 
 #: ../../bin/vodafone-mobile-broadband:69
 msgid "Otherwise some features, like profiles, might behave unpredictably."
 msgstr ""
-
-#~ msgid "<b>Total:</b>"
-#~ msgstr "<b>Total:</b>"
-
-#~ msgid "Registered"
-#~ msgstr "Registrado"
-
-#~ msgid "Reg. rejected"
-#~ msgstr "Registro indeferido"
-
-#~ msgid "Unknown Error"
-#~ msgstr "Erro desconhecido"
-
-#~ msgid "Roaming"
-#~ msgstr "Roaming"
-
-#~ msgid "Unknown Network"
-#~ msgstr "Rede Desconhecido"
-
-#~ msgid "SMS preferences"
-#~ msgstr "Preferências de SMS"
-
-#~ msgid "Class:"
-#~ msgstr "Classe:"
-
-#~ msgid ""
-#~ "Maximum time\n"
-#~ "1 week\n"
-#~ "3 days\n"
-#~ "1 day"
-#~ msgstr ""
-#~ "Tempo máximo\n"
-#~ "1 semana\n"
-#~ "3 dias\n"
-#~ "1 dia"
-
-#~ msgid "<b>Modem</b>"
-#~ msgstr "<b>Modem</b>"
-
-#~ msgid "<b>SIM</b>"
-#~ msgstr "<b>SIM</b>"
-
-#~ msgid "<b>Mobile Connect</b>"
-#~ msgstr "<b>Mobile Connect</b>"
-
-#~ msgid "<b>Computer</b>"
-#~ msgstr "<b>Computador</b>"
-
-#~ msgid "APN Selection Window"
-#~ msgstr "APN Selection Window"
-
-#~ msgid "Connect Button"
-#~ msgstr "Connect Button"
-
-#~ msgid "SMS Toggle Button"
-#~ msgstr "SMS Toggle Button"
-
-#~ msgid "Usage Toggle Button"
-#~ msgstr "Usage Toggle Button"
-
-#~ msgid "Support Toggle Button"
-#~ msgstr "Support Toggle Button"
-
-#~ msgid "_SMS"
-#~ msgstr "_SMS"
-
-#~ msgid "_Contact"
-#~ msgstr "_Contactos"
-
-#~ msgid "<b>GSM device</b>"
-#~ msgstr "<b>Dispositivo GSM</b>"
-
-#, fuzzy
-#~ msgid "VMB number:"
-#~ msgstr "Número VMB : "
-
-#, fuzzy
-#~ msgid "Dialer profile"
-#~ msgstr "Apagar perfil"
-
-#~ msgid "Initial setup..."
-#~ msgstr "Configuração inicial..."
-
-#, fuzzy
-#~ msgid "Device setup not completed"
-#~ msgstr "Nenhum equipamento presente"
-
-#, fuzzy
-#~ msgid "Device not responding"
-#~ msgstr "Dispositivo em uso removido"
-
-#~ msgid "No device present"
-#~ msgstr "Nenhum equipamento presente"
-
-#~ msgid "Incorrect PUK"
-#~ msgstr "PUK Incorrecto"
-
-#~ msgid ""
-#~ "\n"
-#~ "<small>The PUK you've just entered is\n"
-#~ "incorrect. Bear in mind that after\n"
-#~ "three failed PUKs you'll be asked\n"
-#~ "for the PUK2 code. Your PIN code\n"
-#~ "should be your last PIN.</small>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<small>O PUK que introduziu está\n"
-#~ "incorrecto. Depois de três tentativas\n"
-#~ "falhadas seré pedido o código PUK2.\n"
-#~ "O código PIN deveria ser o seu ultimo\n"
-#~ "o seu último PIN válido.</small>\n"
-
-#~ msgid ""
-#~ "\n"
-#~ "The PIN you've just entered is\n"
-#~ "incorrect. Bear in mind that after\n"
-#~ "three failed PINs you'll be asked\n"
-#~ "for the PUK code\n"
-#~ msgstr ""
-#~ "\n"
-#~ "O PIN que introduziu está\n"
-#~ "incorrecto. Depois de 3\n"
-#~ "tentativas falhadas será\n"
-#~ "pedido o código PUK\n"
-
-#~ msgid "Shutting down"
-#~ msgstr "A fechar"
-
-#, fuzzy
-#~ msgid "Connected to Internet"
-#~ msgstr "A desligar a Internet"
-
-#~ msgid "Reading contacts..."
-#~ msgstr "A ler contactos..."
-
-#~ msgid "Reading messages..."
-#~ msgstr "A ler mensagens..."
-
-#~ msgid "Connected to %s"
-#~ msgstr "A ligar a %s"
-
-#~ msgid "_Send SMS"
-#~ msgstr "_Enviar SMS"
-
-# python-format
-#~ msgid ""
-#~ "<small>Received at %(date)s</small>\n"
-#~ "<b>%(text)s</b>"
-#~ msgstr ""
-#~ "<small>Recibido o %(date)s</small>\n"
-#~ "<b>%(text)s</b>"
-
-#, fuzzy
-#~ msgid "Invalid DNS received from Network"
-#~ msgstr "Os DNS recebidos pela APN são inválidos"
-
-#, fuzzy
-#~ msgid ""
-#~ "\n"
-#~ "<small>The DNS settings received from the mobile network are invalid. You "
-#~ "will\n"
-#~ "probably want to restart the connection, or if the problem persists, you\n"
-#~ "can specify a static DNS entry in the connection preferences</small>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<small>Os DNS recebidos pela APN são inválidos. Possivelmente terá de\n"
-#~ "reiniciar a ligação ou, se o problema persistir, especificar uma entrada\n"
-#~ "de DNS estática nas preferências da ligação</small>\n"
-
-#~ msgid "Disconnected from Internet"
-#~ msgstr "A desligar a Internet"
-
-#~ msgid ""
-#~ "\n"
-#~ "<small>%s has given\n"
-#~ "up after trying to connect three times to Internet. This might\n"
-#~ "be provoked by a problem in the configuration or just the fact\n"
-#~ "that there's no carrier.</small>"
-#~ msgstr ""
-#~ "\n"
-#~ "<small>%s Desistiu\n"
-#~ "depois de tentar ligar 3 vezes à Internet. Isto pode ser\n"
-#~ "provocado por um problema na comunicação ou simplesmente\n"
-#~ "uma falha de sinal.</small>"
-
-#~ msgid "Device in use removed"
-#~ msgstr "Dispositivo em uso removido"
-
-#~ msgid ""
-#~ "\n"
-#~ "The 3G device in use has been removed. Now\n"
-#~ "%s\n"
-#~ "is going to shutdown. In order to continue,\n"
-#~ "plug in the 3G device and start again."
-#~ msgstr ""
-#~ "\n"
-#~ "A placa 3G em uso foi retirada. Agora\n"
-#~ "%s\n"
-#~ "vai desligar. Para continuar, Insira de\n"
-#~ "novo a placa 3G e inicie a aplicação."
-
-#~ msgid "3G Device added"
-#~ msgstr "Dispositivo 3G ligado"
-
-#~ msgid ""
-#~ "\n"
-#~ "A new 3G device (%(device_name)s)\n"
-#~ "has been added, in around 15 seconds\n"
-#~ "(%(app_name)s) will resume its functioning"
-#~ msgstr ""
-#~ "\n"
-#~ "Foi ligado um novo dispositivo 3G\n"
-#~ "(%(device_name)s), dentro de 15 segundos\n"
-#~ "(%(app_name)s) estará funcional"
-
-#~ msgid "Setting up device..."
-#~ msgstr "A Configurar o dispositivo..."
-
-#, fuzzy
-#~ msgid "The following characters are not allowed in a profile name: %s"
-#~ msgstr ""
-#~ "As seguintes dependências não estão satisfeitas:\n"
-#~ "%s"
-
-#, fuzzy
-#~ msgid "Invalid value in profile"
-#~ msgstr "Apagar perfil"
-
-#, fuzzy
-#~ msgid "Authentication Error from %s !"
-#~ msgstr "!Não é preciso autenticação %s !"
-
-#, fuzzy
-#~ msgid "Connecting to %s ..."
-#~ msgstr "A ligar %s ..."
-
-#, fuzzy
-#~ msgid "Connecting to device..."
-#~ msgstr "A Configurar o dispositivo..."
-
-#~ msgid "Overwrite"
-#~ msgstr "Escrever por cima"
-
-#~ msgid "Vodafone Spain S.A."
-#~ msgstr "Vodafone Spain S.A."
-
-#~ msgid "translated to $LANG by $translater"
-#~ msgstr "traducido em Português por Paulo Alexandre Mendes Simões Arinto"
-
-#, fuzzy
-#~ msgid "Default"
-#~ msgstr "predefinido"
-
-#~ msgid "WVDial directive error"
-#~ msgstr "Erro nas opções WVDial"
-
-#~ msgid ""
-#~ "\n"
-#~ "Since version 0.9.7 %s manages pppd's /etc/ppp/{p,ch}ap-secrets, the\n"
-#~ "'plugin passwordfd.so' directive should not appear on the\n"
-#~ "current wvdial profile, please remove it manually. Go to\n"
-#~ "Tools -> Preferences, select the wvdial profiles tab, and\n"
-#~ "remove from the current wvdial profile the\n"
-#~ "'plugin passwordfd.so' line."
-#~ msgstr ""
-#~ "\n"
-#~ "DDesde a versão 0.9.7 %s gere /etc/ppp/{p,ch]ap-secrets, a\n"
-#~ "directiva 'plugin passwordfd.so' Não deve aparecer no perfil\n"
-#~ "actual de wvdial, Apague-o manualmente por favor. Vá a \n"
-#~ "Ferramentas -> Preferencias, seleccione o separador de perfis\n"
-#~ "wvdial e apague a linha 'plugin passwordfd.so'\n"
-#~ "do perfil actual de wvdial."
-
-#~ msgid "GPRS only"
-#~ msgstr "Só GPRS"
-
-#~ msgid "GPRS preferred"
-#~ msgstr "GPRS preferido"
-
-#~ msgid "Shutting down..."
-#~ msgstr "A Encerrar..."
-
-#~ msgid "Missing dependencies"
-#~ msgstr "Falha nas dependências"
-
-#~ msgid ""
-#~ "The following dependencies are not satisfied:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "As seguintes dependências não estão satisfeitas:\n"
-#~ "%s"
-
-#~ msgid "OS/Distro not registered"
-#~ msgstr "OS/Distribuição não registada"
-
-#~ msgid "Permissions problems"
-#~ msgstr "Problemas de permissões"
-
-#~ msgid "PIN1..."
-#~ msgstr "PIN1..."
-
-#~ msgid "Invalid PIN"
-#~ msgstr "IP inválido"
-
-#~ msgid ""
-#~ "\n"
-#~ "<small>The PIN you've just entered is\n"
-#~ "invalid. The PIN must be a 4 digit code</small>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<small>O PIN que acaba de introduzir está\n"
-#~ "incorrecto. O código PIN deve ser um\n"
-#~ "código de 4 dígitos</small>\n"
-
-#~ msgid "Passwords don't match"
-#~ msgstr "As palavras-passe não são iguais"
-
-#, fuzzy
-#~ msgid "PIN:"
-#~ msgstr "PIN"
-
-#, fuzzy
-#~ msgid "Insert PIN OK Button"
-#~ msgstr "Introduza o seu código PIN"
-
-#~ msgid "<b>Connectivy test</b>"
-#~ msgstr "<b>Teste de Ligação</b>"
-
-#~ msgid "_Start"
-#~ msgstr "_Iniciar"
-
-#, fuzzy
-#~ msgid "Network testing"
-#~ msgstr "Rede"
-
-#, fuzzy
-#~ msgid ""
-#~ "Some information is going to be collected from your system and some basic "
-#~ "connectivity tests are going to be performed to find out what is causing "
-#~ "the network problems"
-#~ msgstr ""
-#~ "Vamos a reunir algo de información sobre\n"
-#~ "su sistema y a realizar una serie de tests\n"
-#~ "básicos de conectividad para averiguar\n"
-#~ "qué está causando el problema de red"
-
-#~ msgid "Checking if ppp interface is up..."
-#~ msgstr "A verificar se a interface ppp está activa..."
-
-#~ msgid "Checking if we can reach gateway..."
-#~ msgstr "A verificar se consegue comunicar com o gateway..."
-
-#~ msgid "Checking if we can reach nameserver..."
-#~ msgstr "A verificar o DNS..."
-
-#~ msgid "Checking if we can resolve google.com..."
-#~ msgstr "A verificar se consegue abrir o google.com..."
-
-#~ msgid "Checking if we can fetch google's homepage..."
-#~ msgstr "A verificar se consegue mostrar a  página google.com..."
-
-#~ msgid "Connectivity test done!"
-#~ msgstr "Fim do teste de ligação!"
-
-#~ msgid "%s-report.txt"
-#~ msgstr "%s-relatorio.txt"
-
-#~ msgid "Performing connectivity test..."
-#~ msgstr "A realizar o teste de ligação..."
-
-#~ msgid "Card setup"
-#~ msgstr "Configuração da placa"
-
-#~ msgid "<b>Initial device configuration</b>"
-#~ msgstr "<b>Configuração inicial do dispositivo</b>"
-
-#~ msgid "Card Model : "
-#~ msgstr "Modelo da Placa: "
-
-#~ msgid "Connection : "
-#~ msgstr "Ligação : "
-
-#~ msgid "Save in:"
-#~ msgstr "Guardar em:"
-
-#~ msgid ""
-#~ "Find out where your\n"
-#~ "network problem is!"
-#~ msgstr ""
-#~ "!Veja onde está o seu\n"
-#~ "problema de rede!"
-
-#~ msgid "Minimize"
-#~ msgstr "Minimizar"
-
-#~ msgid "Updates"
-#~ msgstr "Actualizações"
-
-#~ msgid "Help topics"
-#~ msgstr "Temas de ajuda"
-
-#~ msgid "Manage my /etc/ppp/{ch,p}ap-secrets"
-#~ msgstr "Gerir os meus /etc/ppp/{ch,p}ap-secrets"
-
-#~ msgid ""
-#~ "<b>Do not change this unless you\n"
-#~ "are completely sure you know\n"
-#~ "what you are doing</b>"
-#~ msgstr ""
-#~ "<b>Não mude isto a não ser que\n"
-#~ "tenha realmente a certeza do\n"
-#~ "que está haciendoque está a fazer."
-
-#~ msgid "Use a custom profile"
-#~ msgstr "Usar um perfil própio"
-
-#~ msgid "<b>Manage your wvdial profile</b>"
-#~ msgstr "<b>Administre os seus perfiles wvdial</b>"
-
-#~ msgid "Wvdial Profiles"
-#~ msgstr "Perfiles de wvdial"
-
-#~ msgid "Insert your PIN and PUK codes"
-#~ msgstr "Introduza os seus códigos PIN e PUK"
-
-#~ msgid ""
-#~ "In order to unlock your SIM card you\n"
-#~ "must insert your PIN and PUK codes"
-#~ msgstr ""
-#~ "Para desbloquear o seu cartão SIM\n"
-#~ "deve introduzir os seus códigos PIN e PUK"
-
-#~ msgid "P U K :"
-#~ msgstr "P U K :"
-
-#~ msgid "P I N :"
-#~ msgstr "P I N :"
-
-#~ msgid "0/%d chars"
-#~ msgstr "0/%d caracteres"
-
-#~ msgid "System information"
-#~ msgstr "Informação do Sistema"
-
-#~ msgid ""
-#~ "\n"
-#~ "%(name)s relies on\n"
-#~ "wvdial and pppd in order to connect to Internet. The\n"
-#~ "behaviour of this packages varies between distros as\n"
-#~ "they patch the source. Toggle this checkbutton if you\n"
-#~ "want %(name2)s to\n"
-#~ "manage pppd's password files. In some distros like\n"
-#~ "SLED 10, this is not configurable.\n"
-#~ msgstr ""
-#~ "\n"
-#~ "%(name)s depende do\n"
-#~ "wvdial e do pppd para se ligar à Internet. O\n"
-#~ "comportamento destes pacotes varia entre\n"
-#~ "distribuições conforme a fonte. Marque o botão\n"
-#~ "se quer que %(name2)s\n"
-#~ "gira os ficheiros de passwords de pppd. Em\n"
-#~ "algunas distribuições como SLED 10 isto não é configurável.\n"
-
-#~ msgid ""
-#~ "You can't delete profile %s as this would leave the application in\n"
-#~ "an unusable state"
-#~ msgstr ""
-#~ "Não é possivél apagar o perfil %s uma vez que este deixaria\n"
-#~ "a aplicação desconfigurada e inutilizada"
-
-#~ msgid "Are you sure that you want to delete profile %s"
-#~ msgstr "¿Tem a certeza que quer apagar o perfil %s?"
-
-#~ msgid "Profile %s does not exists"
-#~ msgstr "O perfil %s não existe"
-
-#~ msgid "Profile %s can not be deleted"
-#~ msgstr "O perfil %s não pode ser apagado"
-
-#~ msgid "Associating..."
-#~ msgstr "A Associar..."
-
-#~ msgid "_Use detail"
-#~ msgstr "_Usar detalhes"
-
-#~ msgid "Problems with SIM card connection"
-#~ msgstr "Problemas com a ligação ao cartão SIM"
-
-#~ msgid ""
-#~ "\n"
-#~ "An unexpected internal problem has occured, this probably\n"
-#~ "has happened because the SIM card took too much to reply\n"
-#~ "my last command. Please eject and insert the card and start\n"
-#~ "%s again."
-#~ msgstr ""
-#~ "\n"
-#~ "Erro interno inesperado. Possivelmente\n"
-#~ "o cartão SIM demorou demasiado tempo\n"
-#~ "a responder ao ultimo pedido. Por favor retire\n"
-#~ "e volte a colocar a placa e execute %s de novo."
-
-#~ msgid "Running hardware wizard..."
-#~ msgstr "A executar o assistente de configuração..."

@@ -8,20 +8,21 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-18 10:05+0000\n"
-"PO-Revision-Date: 2010-05-21 12:27+0100\n"
+"PO-Revision-Date: 2011-12-17 10:06+0000\n"
 "Last-Translator: sissie <sissie@bullteam.net>\n"
 "Language-Team: bullteam.net <sissie@bullteam.net>\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: French\n"
+"X-Launchpad-Export-Date: 2012-01-08 11:12+0000\n"
+"X-Generator: Launchpad (build 14640)\n"
 "X-Poedit-Country: FRANCE\n"
+"Language: fr\n"
+"X-Poedit-Language: French\n"
 
 #: ../glade/apnsel.glade:8
-#, fuzzy
 msgid "APN selection"
-msgstr "Sélection du périphérique"
+msgstr ""
 
 #: ../glade/apnsel.glade:69
 msgid ""
@@ -37,9 +38,8 @@ msgstr ""
 
 #: ../glade/apnsel.glade:193 ../glade/pin.glade:217 ../glade/pin.glade:222
 #: ../glade/pin.glade:862 ../glade/profiles.glade:1334
-#, fuzzy
 msgid "Cancel"
-msgstr "gtk-annuler"
+msgstr ""
 
 #: ../glade/apnsel.glade:208 ../glade/pin.glade:239
 #: ../glade/profiles.glade:1349
@@ -64,7 +64,7 @@ msgstr ""
 
 #: ../glade/config.glade:56
 msgid "Device model: "
-msgstr "Modèle de périphérique"
+msgstr "Modèle de périphérique "
 
 #: ../glade/config.glade:63
 msgid "Connection:"
@@ -72,7 +72,7 @@ msgstr "Connexion:"
 
 #: ../glade/config.glade:153
 msgid "Bluetooth configuration"
-msgstr "configuration Bluetooth "
+msgstr "configuration Bluetooth"
 
 #: ../glade/config.glade:174
 msgid "Configure your <b>Bluetooth</b> device"
@@ -128,7 +128,7 @@ msgstr "Activer le contrôle de flux logiciel"
 
 #: ../glade/contacts.glade:7
 msgid "Contact search"
-msgstr " Recherche de Contact"
+msgstr "Recherche de Contact"
 
 #: ../glade/contacts.glade:29 ../glade/contacts.glade:178
 msgid "Name:"
@@ -176,7 +176,7 @@ msgstr "Modèle:"
 
 #: ../glade/diagnostics.glade:103
 msgid "Firmware: "
-msgstr "Progiciel:"
+msgstr "Progiciel: "
 
 #: ../glade/diagnostics.glade:114
 msgid "IMEI: "
@@ -260,18 +260,16 @@ msgid "Uptime:"
 msgstr "Durée de connexion:"
 
 #: ../glade/diagnostics.glade:537
-#, fuzzy
 msgid "Device"
-msgstr "Liste de périphériques"
+msgstr ""
 
 #: ../glade/diagnostics.glade:602
 msgid "Software Version:"
 msgstr "Version du logiciel"
 
 #: ../glade/diagnostics.glade:613
-#, fuzzy
 msgid "Core Version:"
-msgstr "Version de base"
+msgstr ""
 
 #: ../glade/diagnostics.glade:635 ../glade/diagnostics.glade:645
 msgid "Not supported"
@@ -359,9 +357,8 @@ msgid "Unlock Keyring"
 msgstr ""
 
 #: ../glade/keyring.glade:157
-#, fuzzy
 msgid "Please, enter your keyring password"
-msgstr "Merci d'insérer votre code PIN"
+msgstr ""
 
 #: ../glade/main.glade:28
 msgid "Import contacts..."
@@ -372,9 +369,8 @@ msgid "Export contacts..."
 msgstr "Exporter les contacts..."
 
 #: ../glade/main.glade:48
-#, fuzzy
 msgid "_Quit"
-msgstr "Quitter"
+msgstr ""
 
 #: ../glade/main.glade:73
 msgid "_View"
@@ -406,9 +402,8 @@ msgid "Request PIN"
 msgstr "Demande le code PIN"
 
 #: ../glade/main.glade:194
-#, fuzzy
 msgid "Profiles"
-msgstr "Profil:"
+msgstr ""
 
 #: ../glade/main.glade:216 ../glade/preferences.glade:7
 msgid "Preferences"
@@ -419,9 +414,8 @@ msgid "_Help"
 msgstr "_Aide"
 
 #: ../glade/main.glade:246
-#, fuzzy
 msgid "Help"
-msgstr "_Aide"
+msgstr ""
 
 #: ../glade/main.glade:265
 msgid "_About"
@@ -485,9 +479,8 @@ msgid "Contacts menu"
 msgstr "menu Contacts"
 
 #: ../glade/main.glade:544
-#, fuzzy
 msgid "_Search"
-msgstr "Recherche"
+msgstr ""
 
 #: ../glade/main.glade:546
 msgid "Search contacts"
@@ -546,9 +539,8 @@ msgid "Last month"
 msgstr "Mois dernier"
 
 #: ../glade/main.glade:1424
-#, fuzzy
 msgid "<b>Usage</b> - Remember that this information is only orientative."
-msgstr "Ne perdez pas de vue que cette information n'est qu'une indication."
+msgstr ""
 
 #: ../glade/main.glade:1468
 msgid "Help menu"
@@ -619,18 +611,16 @@ msgid "Insert your PIN code"
 msgstr "Insérez votre code PIN"
 
 #: ../glade/pin.glade:23
-#, fuzzy
 msgid "Insert PIN Window"
-msgstr "Insérez votre code PIN"
+msgstr ""
 
 #: ../glade/pin.glade:64
 msgid "Please insert your PIN code"
 msgstr "Merci d'insérer votre code PIN"
 
 #: ../glade/pin.glade:104
-#, fuzzy
 msgid "Insert PIN Entry"
-msgstr "Insérez votre code PIN"
+msgstr ""
 
 #: ../glade/pin.glade:149
 msgid "Manage my PIN through gnome-keyring"
@@ -646,15 +636,15 @@ msgstr "Modifier le code PIN"
 
 #: ../glade/pin.glade:369 ../glade/pin.glade:758
 msgid "Confirm PIN code: "
-msgstr "Confirmer le code PIN:"
+msgstr "Confirmer le code PIN: "
 
 #: ../glade/pin.glade:397 ../glade/pin.glade:733
 msgid "New PIN code: "
-msgstr "Nouveau code PIN:"
+msgstr "Nouveau code PIN: "
 
 #: ../glade/pin.glade:425
 msgid "Current PIN code: "
-msgstr "Code PIN actuel:"
+msgstr "Code PIN actuel: "
 
 #: ../glade/pin.glade:513
 msgid "Please enter PUK"
@@ -775,9 +765,8 @@ msgid "New Profile"
 msgstr "Nouveau profil"
 
 #: ../glade/profiles.glade:23
-#, fuzzy
 msgid "New Profile Window"
-msgstr "Nouveau profil"
+msgstr ""
 
 #: ../glade/profiles.glade:64
 msgid ""
@@ -846,9 +835,8 @@ msgid "Device selection"
 msgstr "Sélection du périphérique"
 
 #: ../glade/profiles.glade:877
-#, fuzzy
 msgid "Device Selection Window"
-msgstr "Sélection du périphérique"
+msgstr ""
 
 #: ../glade/profiles.glade:925
 msgid ""
@@ -867,9 +855,8 @@ msgid "Known devices"
 msgstr "Périphériques connus"
 
 #: ../glade/profiles.glade:1032
-#, fuzzy
 msgid "Known Devices Radio"
-msgstr "Périphériques connus"
+msgstr ""
 
 #: ../glade/profiles.glade:1083
 msgid "Device type:"
@@ -900,9 +887,8 @@ msgid "Custom device settings"
 msgstr "Configuration personnalisée"
 
 #: ../glade/profiles.glade:1303
-#, fuzzy
 msgid "Custom Device Settings Radio"
-msgstr "Configuration personnalisée"
+msgstr ""
 
 #: ../glade/profiles.glade:1369
 msgid "<b>Device Settings</b>"
@@ -910,7 +896,7 @@ msgstr "<b>Configuration du périphérique</b>"
 
 #: ../glade/sms.glade:50
 msgid "TO : "
-msgstr "Pour:"
+msgstr "Pour: "
 
 #: ../glade/splash.glade:6
 msgid "3G Devices Manager"
@@ -1085,9 +1071,8 @@ msgid "N/A"
 msgstr "non déterminé"
 
 #: ../../gui/views/main.py:335
-#, fuzzy
 msgid "GSM"
-msgstr "SIM"
+msgstr ""
 
 #: ../../gui/views/main.py:336
 msgid "GSM_COMPAT"
@@ -1131,24 +1116,21 @@ msgid "Connect"
 msgstr "Connexion"
 
 #: ../../gui/views/main.py:392 ../../gui/views/main.py:425
-#, fuzzy
 msgid "Disconnecting"
-msgstr "Déconnecter"
+msgstr ""
 
 #: ../../gui/views/main.py:396 ../../gui/views/main.py:424
 #: ../../gui/controllers/main.py:849
-#, fuzzy
 msgid "Connecting"
-msgstr "Connexion..."
+msgstr ""
 
 #: ../../gui/views/main.py:400 ../../gui/controllers/main.py:684
 msgid "Disconnect"
 msgstr "Déconnecter"
 
 #: ../../gui/views/main.py:414
-#, fuzzy
 msgid "Device found"
-msgstr "Modèle de périphérique:"
+msgstr ""
 
 #: ../../gui/views/main.py:415
 msgid "Disabled"
@@ -1159,14 +1141,12 @@ msgid "SIM locked"
 msgstr ""
 
 #: ../../gui/views/main.py:417
-#, fuzzy
 msgid "Authenticating"
-msgstr "Authentification..."
+msgstr ""
 
 #: ../../gui/views/main.py:418
-#, fuzzy
 msgid "Authenticated"
-msgstr "Authentifié !"
+msgstr ""
 
 #: ../../gui/views/main.py:419
 msgid "Enabling"
@@ -1189,9 +1169,8 @@ msgid "Connected"
 msgstr "Connecté"
 
 #: ../../gui/views/main.py:429
-#, fuzzy
 msgid "No device"
-msgstr "Périphériques connus"
+msgstr ""
 
 #: ../../gui/views/main.py:491 ../../gui/views/main.py:529
 #: ../../gui/views/profile.py:141 ../../gui/controllers/contacts.py:141
@@ -1425,9 +1404,8 @@ msgid "Perhaps your SIM is not inserted correctly?"
 msgstr "Peut-être que votre carte SIM n'est pas insérée correctement?"
 
 #: ../../gui/controllers/main.py:422
-#, fuzzy
 msgid "Unknown error"
-msgstr "Erreur inconnue"
+msgstr ""
 
 #: ../../gui/controllers/main.py:428
 msgid "Error while registering to home network"
@@ -1442,9 +1420,9 @@ msgid "You have exceeded your transfer limit"
 msgstr ""
 
 #: ../../gui/controllers/main.py:574
-#, fuzzy, python-format
+#, python-format
 msgid "SMS receipt received for %s"
-msgstr "SMS reçu de %s"
+msgstr ""
 
 #: ../../gui/controllers/main.py:608
 #, python-format
@@ -1456,9 +1434,8 @@ msgid "Failed connection attempt"
 msgstr "Tentative de connexion a échoué"
 
 #: ../../gui/controllers/main.py:650
-#, fuzzy
 msgid "Unable to connect"
-msgstr "Non connecté"
+msgstr ""
 
 #: ../../gui/controllers/main.py:703 ../../gui/controllers/main.py:738
 msgid "Send SMS"
@@ -1485,9 +1462,8 @@ msgstr ""
 "Le fichier csv que vous tentez d'importer a un format invalide."
 
 #: ../../gui/controllers/main.py:810
-#, fuzzy
 msgid "No device found"
-msgstr "Aucun périphérique connu n'a été trouvé"
+msgstr ""
 
 #: ../../gui/controllers/main.py:811
 msgid "No device has been found. Insert one and try again."
@@ -1502,9 +1478,8 @@ msgid "You need to create a profile for connecting."
 msgstr ""
 
 #: ../../gui/controllers/main.py:863
-#, fuzzy
 msgid "Invalid Connection"
-msgstr "Connexion:"
+msgstr ""
 
 #: ../../gui/controllers/main.py:864
 msgid ""
@@ -1594,7 +1569,7 @@ msgid ""
 msgstr ""
 "\n"
 "Pour utiliser cette fonctionnalité vous avez besoin soir de  pygtk >= 2.10 "
-"ou du module egg.trayicon \n"
+"ou du module egg.trayicon\n"
 
 #: ../../gui/controllers/contacts.py:93
 msgid "No contact found"
@@ -1703,501 +1678,3 @@ msgstr ""
 #: ../../bin/vodafone-mobile-broadband:69
 msgid "Otherwise some features, like profiles, might behave unpredictably."
 msgstr ""
-
-#~ msgid "<b>Total:</b>"
-#~ msgstr "<b>Total:</b>"
-
-#~ msgid "Unknown Error"
-#~ msgstr "Erreur inconnue"
-
-#~ msgid "Unknown Network"
-#~ msgstr "Réseau Inconnu"
-
-#~ msgid "SMS preferences"
-#~ msgstr "Préférences SMS"
-
-#~ msgid "Class:"
-#~ msgstr "Classe:"
-
-#~ msgid ""
-#~ "Maximum time\n"
-#~ "1 week\n"
-#~ "3 days\n"
-#~ "1 day"
-#~ msgstr ""
-#~ "Durée Maximum\n"
-#~ "1 semaine\n"
-#~ "3 jours\n"
-#~ "1 jour"
-
-#~ msgid "<b>Modem</b>"
-#~ msgstr "<b>Modem</b>"
-
-#~ msgid "<b>SIM</b>"
-#~ msgstr "<b>SIM</b>"
-
-#~ msgid "<b>Mobile Connect</b>"
-#~ msgstr "<b>Mobile Connect</b>"
-
-#~ msgid "<b>Computer</b>"
-#~ msgstr "<b>Ordinateurr</b>"
-
-#, fuzzy
-#~ msgid "Connect Button"
-#~ msgstr "Connexion:"
-
-#~ msgid "Inspect"
-#~ msgstr "Inspecter"
-
-#~ msgid "_SMS"
-#~ msgstr "_SMS"
-
-#~ msgid "_Contact"
-#~ msgstr "_Contact"
-
-#~ msgid "3G"
-#~ msgstr "3G"
-
-#~ msgid "Remember that this information is only orientative."
-#~ msgstr "Ne perdez pas de vue que cette information n'est qu'une indication."
-
-#~ msgid "<b>GSM device</b>"
-#~ msgstr "<b>Périphérique GSM</b>"
-
-#~ msgid "VMB number:"
-#~ msgstr "numéro VMB:"
-
-#~ msgid ""
-#~ "<b>Change the dialer profile if your provider requires you to "
-#~ "authenticate with PAP/CHAP</b>"
-#~ msgstr ""
-#~ "<b>Changer le profile du numéroteur si votre fournisseur d'accès impose "
-#~ "que vous vous authentifiez avec PAP/CHAP</b>"
-
-#~ msgid "Dialer profile"
-#~ msgstr "Profil du numéroteur"
-
-#~ msgid "Initial setup..."
-#~ msgstr "Configuration initiale..."
-
-#~ msgid "Device setup not completed"
-#~ msgstr "Configuration du périphérique incomplète"
-
-#~ msgid ""
-#~ "\n"
-#~ "Your device has been detected but it has been impossible to connect to "
-#~ "it.\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr ""
-#~ "\n"
-#~ "Votre périphérique a été détecté mais il a été impossible de s'y "
-#~ "connecter.\n"
-#~ "\n"
-#~ "%s"
-
-#~ msgid ""
-#~ "\n"
-#~ "Your device \"%(name)s\" is not properly registered with the kernel. "
-#~ "%(vmb)s\n"
-#~ "needs at least two serial ports to communicate with your %(name)s.\n"
-#~ "The program includes a set of udev rules plus some binaries that make "
-#~ "sure\n"
-#~ "that your device is always recognised properly. If you've installed from\n"
-#~ "source, then make sure to copy the relevant files in the contrib dir\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Votre périphérique \"%(name)s\" n'est pas proprement enregistré avec le "
-#~ "kernel. %(vmb)s\n"
-#~ "a besoin de deux ports série pour communiquer avec votre %(name)s.\n"
-#~ "Le programme inclus un ensemble de règles udev ainsi que certains "
-#~ "binaires\n"
-#~ " qui s'assurent que votre périphérique est reconnu proprement.Si vous "
-#~ "avez\n"
-#~ " fait votre installation à partir des sources assurez vous de copier les "
-#~ "fichiers\n"
-#~ " en question dans le dossier contrib\n"
-
-#~ msgid "Device not responding"
-#~ msgstr "Le périphérique ne répond pas"
-
-#~ msgid ""
-#~ "\n"
-#~ "Your device took more than 15 seconds to reply to my last command. Unplug "
-#~ "it,\n"
-#~ "plug it again, and try in a moment."
-#~ msgstr ""
-#~ "\n"
-#~ "Vtre périphérique a mis plus de 15 secondes à répndre à la dernière "
-#~ "commande.\n"
-#~ "Débranchez-le. Re-branchez-le, patientez un peu et retentez. "
-
-#~ msgid "B"
-#~ msgstr "B"
-
-#~ msgid "KB"
-#~ msgstr "KB"
-
-#~ msgid "MB"
-#~ msgstr "MB"
-
-#~ msgid "GB"
-#~ msgstr "GB"
-
-#~ msgid "No device present"
-#~ msgstr "Aucun périphérique présent"
-
-#~ msgid "Address"
-#~ msgstr "Adresse"
-
-#~ msgid ""
-#~ "Your message cannot be sent to some of its recipients. Unsent messages "
-#~ "have been saved in drafts. Please, check that you have typed the number "
-#~ "correctly."
-#~ msgstr ""
-#~ "Votre message ne peut pas être envoyé à certains de ses destinataires. "
-#~ "Les messages non envoyés ont été sauvegardés dans les brouillons. Merci "
-#~ "de vérifier que vous avez entré le numéro correctement."
-
-#~ msgid "Incorrect PUK"
-#~ msgstr "PUK incorrect"
-
-#~ msgid ""
-#~ "\n"
-#~ "<small>The PUK you've just entered is\n"
-#~ "incorrect. Bear in mind that after\n"
-#~ "three failed PUKs you'll be asked\n"
-#~ "for the PUK2 code. Your PIN code\n"
-#~ "should be your last PIN.</small>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<small>Le code PUK que vous avez indiqué est\n"
-#~ "incorrect. N'oubliez pas qu'après trois erreurs\n"
-#~ "sur le code PUK vous devrez fournir le code\n"
-#~ "PUK2. Votre code PIN devrait être votre dernier\n"
-#~ "code PIN</small>\n"
-
-#~ msgid ""
-#~ "\n"
-#~ "The PIN you've just entered is\n"
-#~ "incorrect. Bear in mind that after\n"
-#~ "three failed PINs you'll be asked\n"
-#~ "for the PUK code\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Le code PIN que vous avez indiqué est\n"
-#~ "incorrect. N'oubliez pas qu'après trois\n"
-#~ " erreurs sur le code PIN\n"
-#~ "vous devrez fournir le code PUK\n"
-
-#~ msgid "Shutting down"
-#~ msgstr "Quitter"
-
-#~ msgid "Connected to Internet"
-#~ msgstr "Connecté à Internet"
-
-#~ msgid ""
-#~ "\n"
-#~ "You need to disconnect from Internet before shutting\n"
-#~ "down %s,\n"
-#~ "if you want to do so, press the OK button.\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Il faut vous déconnecter d'Internet avant de quitter \n"
-#~ "%s,\n"
-#~ "Si c'est ce que vous souhaitez faire, cliquez sur OK.\n"
-
-#~ msgid "Reading contacts..."
-#~ msgstr "Lecture des contacts..."
-
-#~ msgid "Reading messages..."
-#~ msgstr "Lecture des messages..."
-
-#~ msgid "User Limit"
-#~ msgstr "Limite Utilisateur"
-
-#~ msgid "You have reached your limit of maximum usage"
-#~ msgstr "Vous avez atteint votre limite d'utilisation maximale"
-
-#~ msgid "New mobile profile available"
-#~ msgstr "Nouveau profil mobile disponible"
-
-#~ msgid ""
-#~ "\n"
-#~ "New profile available, do you want to load it?"
-#~ msgstr ""
-#~ "\n"
-#~ "Nouveau profil disponible, voulez-vous le charger ?"
-
-#~ msgid "Load"
-#~ msgstr "Charger"
-
-#~ msgid "To use this widget you need python-vte installed"
-#~ msgstr "Pour utiliser ce gadget python-vte doit être installé"
-
-#~ msgid "Connected to %s"
-#~ msgstr "Connecté à %s"
-
-#~ msgid "_Send SMS"
-#~ msgstr "_Envoi de SMS"
-
-#~ msgid "Illegal Operation!"
-#~ msgstr "Opération illégale!"
-
-#~ msgid ""
-#~ "\n"
-#~ "Your device only has one port and you are currently connected\n"
-#~ "to Internet, you cannot perform any operation while connected"
-#~ msgstr ""
-#~ "\n"
-#~ "Votre périphérique n'a qu'un port et vous êtes actuellement connecté\n"
-#~ "à Internet, vous ne pouvez effectuer aucune opération pendant en étant "
-#~ "connecté"
-
-#~ msgid ""
-#~ "<small>Received at %(date)s</small>\n"
-#~ "<b>%(text)s</b>"
-#~ msgstr ""
-#~ "<small>Reçu le %(date)s</small>\n"
-#~ "<b>%(text)s</b>"
-
-#, fuzzy
-#~ msgid "Invalid DNS received from Network"
-#~ msgstr "DNS invalides reçus de l'APN"
-
-#, fuzzy
-#~ msgid ""
-#~ "\n"
-#~ "<small>The DNS settings received from the mobile network are invalid. You "
-#~ "will\n"
-#~ "probably want to restart the connection, or if the problem persists, you\n"
-#~ "can specify a static DNS entry in the connection preferences</small>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<small>Les informations de DNS reçues de l'APN sont invalides. Il vous\n"
-#~ "faudra probablement redémarrer la connexion, ou si le problème persiste,\n"
-#~ "vous pouvez spécifier des DNS statiques dans les préférences de "
-#~ "connexion</small>\n"
-
-#~ msgid "Disconnected from Internet"
-#~ msgstr "Déconnecté d'Internet"
-
-#~ msgid ""
-#~ "\n"
-#~ "<small>%s has given\n"
-#~ "up after trying to connect three times to Internet. This might\n"
-#~ "be provoked by a problem in the configuration or just the fact\n"
-#~ "that there's no carrier.</small>"
-#~ msgstr ""
-#~ "\n"
-#~ "<small>%s a abandonné\n"
-#~ "après avoir tnté de se connecter trois fois à Internet. Cela\n"
-#~ "est surement dû  à un problème dans la configuration ou juste par le "
-#~ "fait\n"
-#~ "qu'il n'y ait pas de porteuse</small>"
-
-#~ msgid "Device in use removed"
-#~ msgstr "Le périphérique utilisé a été débranché"
-
-#~ msgid ""
-#~ "\n"
-#~ "The 3G device in use has been removed. Now\n"
-#~ "%s\n"
-#~ "is going to shutdown. In order to continue,\n"
-#~ "plug in the 3G device and start again."
-#~ msgstr ""
-#~ "\n"
-#~ "Le périphérique 3G utilisé a été débranché. A présent\n"
-#~ "%s\n"
-#~ "va fermer. Pour continuer,\n"
-#~ "insérez le périphérique 3G et recommencez."
-
-#~ msgid "3G Device added"
-#~ msgstr "Périphérique 3G ajouté"
-
-#~ msgid ""
-#~ "\n"
-#~ "A new 3G device (%(device_name)s)\n"
-#~ "has been added, in around 15 seconds\n"
-#~ "(%(app_name)s) will resume its functioning"
-#~ msgstr ""
-#~ "\n"
-#~ "Un nouveau périphérique 3G (%(device_name)s)\n"
-#~ "a été ajouté, d'ici une quinzaine de secondes\n"
-#~ "(%(app_name)s) va résumer son fonctionnement"
-
-#~ msgid "Setting up device..."
-#~ msgstr "Configuration du périphérique..."
-
-#, fuzzy
-#~ msgid "The following characters are not allowed in a profile name: %s"
-#~ msgstr ""
-#~ "Les caractères suivants ne sont pas autorisés dans un nom de profil: %s"
-
-#, fuzzy
-#~ msgid "Invalid value in profile"
-#~ msgstr "Caractères invalides dans le nom du profil"
-
-#~ msgid ""
-#~ "\n"
-#~ "An unknown error occur when setting up the device:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "\n"
-#~ "Une erreur inconnue s'est produite en configurant le périphérique:\n"
-#~ "%s"
-
-#~ msgid "Authentication Error from %s !"
-#~ msgstr "Erreur d'authentification de %s !"
-
-#~ msgid "Connecting to %s ..."
-#~ msgstr "Connexion à %s..."
-
-#~ msgid "Discovery started..."
-#~ msgstr "Découverte démarrée..."
-
-#~ msgid "Discovery finished!"
-#~ msgstr "Découverte terminée !"
-
-#~ msgid "No control port"
-#~ msgstr "Aucun port de contrôle"
-
-#~ msgid "Connecting to device..."
-#~ msgstr "Connexion au périphérique..."
-
-#~ msgid "Exception received connecting to %s"
-#~ msgstr "Exception reçue en se connectant à %s"
-
-#~ msgid ""
-#~ "\n"
-#~ "The following error was received while trying to establish a connection:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "\n"
-#~ "L'erreur suivante a été reçue en tentant d'établir une connexion:\n"
-#~ "%s"
-
-#~ msgid "Overwrite"
-#~ msgstr "Écraser"
-
-#~ msgid "Vodafone Spain S.A."
-#~ msgstr "Vodafone Spain S.A."
-
-#~ msgid "translated to $LANG by $translater"
-#~ msgstr "traduit en $LANG par $translater"
-
-#~ msgid "Default"
-#~ msgstr "Défaut"
-
-#~ msgid "WVDial directive error"
-#~ msgstr "Erreur de directive WVDial"
-
-#~ msgid ""
-#~ "\n"
-#~ "Since version 0.9.7 %s manages pppd's /etc/ppp/{p,ch}ap-secrets, the\n"
-#~ "'plugin passwordfd.so' directive should not appear on the\n"
-#~ "current wvdial profile, please remove it manually. Go to\n"
-#~ "Tools -> Preferences, select the wvdial profiles tab, and\n"
-#~ "remove from the current wvdial profile the\n"
-#~ "'plugin passwordfd.so' line."
-#~ msgstr ""
-#~ "\n"
-#~ "Depuis la version 0.9.7 %s gère   /etc/ppp/{p,ch}ap-secrets de pppd, la\n"
-#~ "directive 'plugin passwordfd.so' ne devrait pas apparaître sur le\n"
-#~ "profil wvdial actuel, merci de l'effacer manuellement. Allez dans\n"
-#~ "Outils -> Préférences, selectionnez  profil wvdial, et effacez du\n"
-#~ "prifil wvdial actuel la ligne 'plugin passwordfd.so'."
-
-#~ msgid "GPRS only"
-#~ msgstr "GPRS seulement"
-
-#~ msgid "GPRS preferred"
-#~ msgstr "GPRS préféré"
-
-#~ msgid "Shutting down..."
-#~ msgstr "En cours de fermeture"
-
-#~ msgid "Missing dependencies"
-#~ msgstr "Dépendances manquantes"
-
-#~ msgid ""
-#~ "The following dependencies are not satisfied:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Les dépendances suivantes ne sont pas satisfaites:\n"
-#~ "%s"
-
-#~ msgid "OS/Distro not registered"
-#~ msgstr "OS/Distribution non enregistré"
-
-#~ msgid "Permissions problems"
-#~ msgstr "Problème de permissions"
-
-#~ msgid "PIN1..."
-#~ msgstr "PIN1..."
-
-#~ msgid "Invalid PIN"
-#~ msgstr "PIN invalide"
-
-#~ msgid ""
-#~ "\n"
-#~ "<small>The PIN you've just entered is\n"
-#~ "invalid. The PIN must be a 4 digit code</small>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<small>Le code PIN que vous avez indiqué est\n"
-#~ "invalide. Le code PIN doit être composé de 4 chiffres</small>\n"
-
-#~ msgid "Passwords don't match"
-#~ msgstr "Les mots de passe ne correspondent pas"
-
-#~ msgid "PIN:"
-#~ msgstr "PIN"
-
-#~ msgid "gtk-cancel"
-#~ msgstr "gtk-annuler"
-
-#~ msgid "gtk-ok"
-#~ msgstr "gtk-ok"
-
-#~ msgid "gtk-help"
-#~ msgstr "gtk-aide"
-
-#~ msgid "gtk-go-back"
-#~ msgstr "gtk-précédent"
-
-#~ msgid "gtk-go-forward"
-#~ msgstr "gtk-suivant"
-
-#~ msgid "gtk-quit"
-#~ msgstr "gtk-quitter"
-
-#~ msgid "gtk-home"
-#~ msgstr "gtk-accueil"
-
-#, fuzzy
-#~ msgid "Device Selection Cancel Button"
-#~ msgstr "Sélection du périphérique"
-
-#, fuzzy
-#~ msgid "Device Selection OK Button"
-#~ msgstr "Sélection du périphérique"
-
-#, fuzzy
-#~ msgid "Insert PIN OK Button"
-#~ msgstr "Insérez votre code PIN"
-
-#~ msgid "Configuration details found for Operator!"
-#~ msgstr ""
-#~ "Les détails de configuration pour ce fournisseur d'accès ont été trouvés !"
-
-#~ msgid "Do you want to load stored settings for %s?"
-#~ msgstr "Voulez vous charger la dernière configuration stockée pour %s ?"
-
-#~ msgid ""
-#~ "\n"
-#~ "%(vmb)s cannot connect with the selected device (%(name)s).\n"
-#~ msgstr ""
-#~ "\n"
-#~ "%(vmb)s ne peut se connecter avec le périphérique sélectionné (%(name)"
-#~ "s).\n"

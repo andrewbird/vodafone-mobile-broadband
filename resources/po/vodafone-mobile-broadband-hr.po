@@ -8,18 +8,19 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-18 10:05+0000\n"
-"PO-Revision-Date: 2010-05-21 10:54+0100\n"
+"PO-Revision-Date: 2011-12-17 10:06+0000\n"
 "Last-Translator: m1r0 <h15m1r0@gmail.com>\n"
 "Language-Team: Croatian <HR@li.org>\n"
-"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-01-08 11:12+0000\n"
+"X-Generator: Launchpad (build 14640)\n"
+"Language: hr\n"
 
 #: ../glade/apnsel.glade:8
-#, fuzzy
 msgid "APN selection"
-msgstr "Odabir uređaja"
+msgstr ""
 
 #: ../glade/apnsel.glade:69
 msgid ""
@@ -44,9 +45,8 @@ msgid "OK"
 msgstr ""
 
 #: ../glade/apnsel.glade:228
-#, fuzzy
 msgid "<b>APN Settings</b>"
-msgstr "<b>APN postavke</b>"
+msgstr ""
 
 #: ../glade/config.glade:8
 msgid "Device setup"
@@ -61,7 +61,7 @@ msgstr ""
 
 #: ../glade/config.glade:56
 msgid "Device model: "
-msgstr "Model uređaja:"
+msgstr "Model uređaja: "
 
 #: ../glade/config.glade:63
 msgid "Connection:"
@@ -109,9 +109,8 @@ msgid "Speed"
 msgstr "Brzina"
 
 #: ../glade/config.glade:440
-#, fuzzy
 msgid "<b>Connection settings</b>"
-msgstr "<b>Postavke veze</b>"
+msgstr ""
 
 #: ../glade/config.glade:461
 msgid "Enable hardware flow control"
@@ -158,9 +157,8 @@ msgid "Diagnostics"
 msgstr "Dijagnostika"
 
 #: ../glade/diagnostics.glade:43
-#, fuzzy
 msgid "<b>Datacard details</b>"
-msgstr "<b>Opcije uređaja</b>"
+msgstr ""
 
 #: ../glade/diagnostics.glade:81
 msgid "Manufacturer:"
@@ -195,33 +193,28 @@ msgid "IMEI"
 msgstr "IMEI"
 
 #: ../glade/diagnostics.glade:196
-#, fuzzy
 msgid "Modem"
-msgstr "Model:"
+msgstr ""
 
 #: ../glade/diagnostics.glade:227
 msgid "<b>Network details from SIM</b>"
 msgstr ""
 
 #: ../glade/diagnostics.glade:265
-#, fuzzy
 msgid "IMSI:"
-msgstr "IMSI: "
+msgstr ""
 
 #: ../glade/diagnostics.glade:276
-#, fuzzy
 msgid "Network:"
-msgstr "Nepoznata Mreža"
+msgstr ""
 
 #: ../glade/diagnostics.glade:287
-#, fuzzy
 msgid "Country:"
-msgstr "Računalo"
+msgstr ""
 
 #: ../glade/diagnostics.glade:298
-#, fuzzy
 msgid "Mobile Number:"
-msgstr "Broj:"
+msgstr ""
 
 #: ../glade/diagnostics.glade:321
 msgid "IMSI"
@@ -241,18 +234,16 @@ msgid "Unknown"
 msgstr "Nepoznato"
 
 #: ../glade/diagnostics.glade:377
-#, fuzzy
 msgid "SIM"
-msgstr "SMS"
+msgstr ""
 
 #: ../glade/diagnostics.glade:409
-#, fuzzy
 msgid "<b>Device information</b>"
-msgstr "<b>Opcije uređaja</b>"
+msgstr ""
 
 #: ../glade/diagnostics.glade:446
 msgid "Operating System:"
-msgstr "Operativni Sistem: "
+msgstr "Operativni Sistem:"
 
 #: ../glade/diagnostics.glade:457
 msgid "Version:"
@@ -260,12 +251,11 @@ msgstr "Verzija:"
 
 #: ../glade/diagnostics.glade:468
 msgid "Uptime:"
-msgstr "Vrijeme rada: "
+msgstr "Vrijeme rada:"
 
 #: ../glade/diagnostics.glade:537
-#, fuzzy
 msgid "Device"
-msgstr "Lista uređaja"
+msgstr ""
 
 #: ../glade/diagnostics.glade:602
 msgid "Software Version:"
@@ -296,9 +286,8 @@ msgid "USSD reply message:"
 msgstr "USSD reply message:"
 
 #: ../glade/diagnostics.glade:810 ../glade/payt.glade:289
-#, fuzzy
 msgid "Send"
-msgstr "Pošiljatelj"
+msgstr ""
 
 #: ../glade/diagnostics.glade:843
 msgid "USSD"
@@ -354,18 +343,16 @@ msgid "Password:"
 msgstr "Lozinka:"
 
 #: ../glade/keyring.glade:100
-#, fuzzy
 msgid "Confirm password:"
-msgstr "Potvrdi PIN kod: "
+msgstr ""
 
 #: ../glade/keyring.glade:131
 msgid "Unlock Keyring"
 msgstr ""
 
 #: ../glade/keyring.glade:157
-#, fuzzy
 msgid "Please, enter your keyring password"
-msgstr "Molimo upišite vaš PIN kod : "
+msgstr ""
 
 #: ../glade/main.glade:28
 msgid "Import contacts..."
@@ -376,9 +363,8 @@ msgid "Export contacts..."
 msgstr "Izvedi kontakte..."
 
 #: ../glade/main.glade:48
-#, fuzzy
 msgid "_Quit"
-msgstr "Završi"
+msgstr ""
 
 #: ../glade/main.glade:73
 msgid "_View"
@@ -410,9 +396,8 @@ msgid "Request PIN"
 msgstr "Zatraži PIN"
 
 #: ../glade/main.glade:194
-#, fuzzy
 msgid "Profiles"
-msgstr "Profil:"
+msgstr ""
 
 #: ../glade/main.glade:216 ../glade/preferences.glade:7
 msgid "Preferences"
@@ -423,9 +408,8 @@ msgid "_Help"
 msgstr "_Pomoć"
 
 #: ../glade/main.glade:246
-#, fuzzy
 msgid "Help"
-msgstr "_Pomoć"
+msgstr ""
 
 #: ../glade/main.glade:265
 msgid "_About"
@@ -440,9 +424,8 @@ msgid "_New"
 msgstr "_Novi"
 
 #: ../glade/main.glade:412
-#, fuzzy
 msgid "Create new SMS"
-msgstr "Novi SMS"
+msgstr ""
 
 #: ../glade/main.glade:428
 msgid "_Reply"
@@ -490,9 +473,8 @@ msgid "Contacts menu"
 msgstr "Izbornik kontaka"
 
 #: ../glade/main.glade:544
-#, fuzzy
 msgid "_Search"
-msgstr "_Petraga"
+msgstr ""
 
 #: ../glade/main.glade:546
 msgid "Search contacts"
@@ -531,9 +513,8 @@ msgid "Total:"
 msgstr "Ukupno:"
 
 #: ../glade/main.glade:945 ../glade/main.glade:1328
-#, fuzzy
 msgid "<b>Transferred Data</b>"
-msgstr "<b>Prebačeno</b>"
+msgstr ""
 
 #: ../glade/main.glade:1074
 msgid "<b>Current session</b>"
@@ -544,19 +525,16 @@ msgid "Total Traffic"
 msgstr ""
 
 #: ../glade/main.glade:1155
-#, fuzzy
 msgid "Current month"
-msgstr "Tekući mjesec"
+msgstr ""
 
 #: ../glade/main.glade:1410
-#, fuzzy
 msgid "Last month"
-msgstr "Prošli mjesec"
+msgstr ""
 
 #: ../glade/main.glade:1424
-#, fuzzy
 msgid "<b>Usage</b> - Remember that this information is only orientative."
-msgstr "Zapamtite da su ove informacije samo za orijentiranje"
+msgstr ""
 
 #: ../glade/main.glade:1468
 msgid "Help menu"
@@ -627,18 +605,16 @@ msgid "Insert your PIN code"
 msgstr "Upišite vaš PIN kod"
 
 #: ../glade/pin.glade:23
-#, fuzzy
 msgid "Insert PIN Window"
-msgstr "Upišite vaš PIN kod"
+msgstr ""
 
 #: ../glade/pin.glade:64
 msgid "Please insert your PIN code"
 msgstr "Molimo upišite vaš PIN kod"
 
 #: ../glade/pin.glade:104
-#, fuzzy
 msgid "Insert PIN Entry"
-msgstr "Upišite vaš PIN kod"
+msgstr ""
 
 #: ../glade/pin.glade:149
 msgid "Manage my PIN through gnome-keyring"
@@ -673,14 +649,12 @@ msgid "PUK:"
 msgstr "PUK:"
 
 #: ../glade/preferences.glade:55
-#, fuzzy
 msgid "<b>Change to global SMS settings </b>"
-msgstr "<b>Postavke veze</b>"
+msgstr ""
 
 #: ../glade/preferences.glade:71
-#, fuzzy
 msgid "Allow SMS confirmation"
-msgstr "Bluetooth konfiguracija"
+msgstr ""
 
 #: ../glade/preferences.glade:75
 msgid ""
@@ -689,9 +663,8 @@ msgid ""
 msgstr ""
 
 #: ../glade/preferences.glade:86
-#, fuzzy
 msgid "Use an alternative SMS Service centre address"
-msgstr "Koristi alternativni pozivni profil"
+msgstr ""
 
 #: ../glade/preferences.glade:90
 msgid ""
@@ -720,9 +693,8 @@ msgid "Validity:"
 msgstr "Trajanje:"
 
 #: ../glade/preferences.glade:289
-#, fuzzy
 msgid "SMS Profile"
-msgstr "Profili"
+msgstr ""
 
 #: ../glade/preferences.glade:308
 msgid "<b>User options</b>"
@@ -781,14 +753,12 @@ msgid "Notification threshold (MB):"
 msgstr "Obavijest prometa (MB):"
 
 #: ../glade/profiles.glade:9
-#, fuzzy
 msgid "New Profile"
-msgstr "Novi profil"
+msgstr ""
 
 #: ../glade/profiles.glade:23
-#, fuzzy
 msgid "New Profile Window"
-msgstr "Novi profil"
+msgstr ""
 
 #: ../glade/profiles.glade:64
 msgid ""
@@ -813,18 +783,16 @@ msgid "Username:"
 msgstr "Korisnik:"
 
 #: ../glade/profiles.glade:202
-#, fuzzy
 msgid "Authentication method:"
-msgstr "Autorizacijski mod:"
+msgstr ""
 
 #: ../glade/profiles.glade:227
 msgid "Preferred connection:"
 msgstr "Preferirana veza:"
 
 #: ../glade/profiles.glade:252
-#, fuzzy
 msgid "Preferred band:"
-msgstr "Preferirana veza:"
+msgstr ""
 
 #: ../glade/profiles.glade:277
 msgid "APN host:"
@@ -859,9 +827,8 @@ msgid "Device selection"
 msgstr "Odabir uređaja"
 
 #: ../glade/profiles.glade:877
-#, fuzzy
 msgid "Device Selection Window"
-msgstr "Odabir uređaja"
+msgstr ""
 
 #: ../glade/profiles.glade:925
 msgid ""
@@ -880,9 +847,8 @@ msgid "Known devices"
 msgstr "Poznati uređaji"
 
 #: ../glade/profiles.glade:1032
-#, fuzzy
 msgid "Known Devices Radio"
-msgstr "Poznati uređaji"
+msgstr ""
 
 #: ../glade/profiles.glade:1083
 msgid "Device type:"
@@ -913,9 +879,8 @@ msgid "Custom device settings"
 msgstr "Ručno postavljanje uređaja"
 
 #: ../glade/profiles.glade:1303
-#, fuzzy
 msgid "Custom Device Settings Radio"
-msgstr "Ručno postavljanje uređaja"
+msgstr ""
 
 #: ../glade/profiles.glade:1369
 msgid "<b>Device Settings</b>"
@@ -1087,9 +1052,8 @@ msgid "N/A"
 msgstr "N/A"
 
 #: ../../gui/views/main.py:335
-#, fuzzy
 msgid "GSM"
-msgstr "SMS"
+msgstr ""
 
 #: ../../gui/views/main.py:336
 msgid "GSM_COMPAT"
@@ -1133,24 +1097,21 @@ msgid "Connect"
 msgstr "Povezivanje"
 
 #: ../../gui/views/main.py:392 ../../gui/views/main.py:425
-#, fuzzy
 msgid "Disconnecting"
-msgstr "Prekini vezu"
+msgstr ""
 
 #: ../../gui/views/main.py:396 ../../gui/views/main.py:424
 #: ../../gui/controllers/main.py:849
-#, fuzzy
 msgid "Connecting"
-msgstr "Spajanje..."
+msgstr ""
 
 #: ../../gui/views/main.py:400 ../../gui/controllers/main.py:684
 msgid "Disconnect"
 msgstr "Prekini vezu"
 
 #: ../../gui/views/main.py:414
-#, fuzzy
 msgid "Device found"
-msgstr "Model uređaja:"
+msgstr ""
 
 #: ../../gui/views/main.py:415
 msgid "Disabled"
@@ -1161,14 +1122,12 @@ msgid "SIM locked"
 msgstr ""
 
 #: ../../gui/views/main.py:417
-#, fuzzy
 msgid "Authenticating"
-msgstr "Autorizacija..."
+msgstr ""
 
 #: ../../gui/views/main.py:418
-#, fuzzy
 msgid "Authenticated"
-msgstr "Autorizacija uspješna!"
+msgstr ""
 
 #: ../../gui/views/main.py:419
 msgid "Enabling"
@@ -1179,9 +1138,8 @@ msgid "Disabling"
 msgstr ""
 
 #: ../../gui/views/main.py:422
-#, fuzzy
 msgid "Searching"
-msgstr "_Petraga"
+msgstr ""
 
 #: ../../gui/views/main.py:423 ../../gui/controllers/main.py:1056
 msgid "Not connected"
@@ -1192,9 +1150,8 @@ msgid "Connected"
 msgstr "Spojeno"
 
 #: ../../gui/views/main.py:429
-#, fuzzy
 msgid "No device"
-msgstr "Poznati uređaji"
+msgstr ""
 
 #: ../../gui/views/main.py:491 ../../gui/views/main.py:529
 #: ../../gui/views/profile.py:141 ../../gui/controllers/contacts.py:141
@@ -1227,9 +1184,8 @@ msgid "Date"
 msgstr "Datum"
 
 #: ../../gui/views/profile.py:136
-#, fuzzy
 msgid "Country"
-msgstr "Računalo"
+msgstr ""
 
 #: ../../gui/uptime.py:83
 #, python-format
@@ -1380,7 +1336,7 @@ msgid "Can not close while a connection is active"
 msgstr ""
 
 #: ../../gui/controllers/main.py:265
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "You can easily find answers to the most common questions in the help menu, "
 "in your company's support center and in the support area at:\n"
@@ -1394,12 +1350,6 @@ msgid ""
 "\n"
 "%(international)s if you are calling from other network."
 msgstr ""
-"Možete naći odgovore na česta pitanja u izborniku pomoć, u tehničkoj podršci "
-"vaše kompanije i na web korisničkoj podršci na\n"
-"\n"
-"%(url)s.\n"
-"%(shortcode)s\n"
-"%(international)s"
 
 #: ../../gui/controllers/main.py:376
 msgid "Invalid password"
@@ -1418,9 +1368,8 @@ msgid "Perhaps your SIM is not inserted correctly?"
 msgstr ""
 
 #: ../../gui/controllers/main.py:422
-#, fuzzy
 msgid "Unknown error"
-msgstr "Nepoznata greška"
+msgstr ""
 
 #: ../../gui/controllers/main.py:428
 msgid "Error while registering to home network"
@@ -1435,9 +1384,9 @@ msgid "You have exceeded your transfer limit"
 msgstr ""
 
 #: ../../gui/controllers/main.py:574
-#, fuzzy, python-format
+#, python-format
 msgid "SMS receipt received for %s"
-msgstr "SMS primljen od %s"
+msgstr ""
 
 #: ../../gui/controllers/main.py:608
 #, python-format
@@ -1445,14 +1394,12 @@ msgid "SMS received from %s"
 msgstr "SMS primljen od %s"
 
 #: ../../gui/controllers/main.py:649 ../../gui/controllers/main.py:652
-#, fuzzy
 msgid "Failed connection attempt"
-msgstr "Brzina veze:"
+msgstr ""
 
 #: ../../gui/controllers/main.py:650
-#, fuzzy
 msgid "Unable to connect"
-msgstr "Nije spojeno"
+msgstr ""
 
 #: ../../gui/controllers/main.py:703 ../../gui/controllers/main.py:738
 msgid "Send SMS"
@@ -1479,27 +1426,24 @@ msgstr ""
 "CSV datoteka koju ste pokušali uvesti je nevaljanog formata."
 
 #: ../../gui/controllers/main.py:810
-#, fuzzy
 msgid "No device found"
-msgstr "Nisu pronađeni nikakvi poznati uređaji"
+msgstr ""
 
 #: ../../gui/controllers/main.py:811
 msgid "No device has been found. Insert one and try again."
 msgstr ""
 
 #: ../../gui/controllers/main.py:817
-#, fuzzy
 msgid "Profile needed"
-msgstr "Ime profila:"
+msgstr ""
 
 #: ../../gui/controllers/main.py:818
 msgid "You need to create a profile for connecting."
 msgstr ""
 
 #: ../../gui/controllers/main.py:863
-#, fuzzy
 msgid "Invalid Connection"
-msgstr "Veza:"
+msgstr ""
 
 #: ../../gui/controllers/main.py:864
 msgid ""
@@ -1516,14 +1460,12 @@ msgid "Load Profile"
 msgstr "Učitaj profil"
 
 #: ../../gui/controllers/main.py:1019
-#, fuzzy
 msgid "Edit Profile"
-msgstr "Uredi profil"
+msgstr ""
 
 #: ../../gui/controllers/main.py:1024
-#, fuzzy
 msgid "Delete Profile"
-msgstr "Obriši profil"
+msgstr ""
 
 #: ../../gui/controllers/main.py:1057
 msgid "No mobile connection. Do you want to continue?"
@@ -1611,9 +1553,8 @@ msgid ""
 msgstr ""
 
 #: ../../gui/controllers/profile.py:119
-#, fuzzy
 msgid "Error creating profile"
-msgstr "Greška kod brisanja profila"
+msgstr ""
 
 #: ../../gui/dialogs.py:66
 msgid "translator-credits"
@@ -1628,9 +1569,8 @@ msgid "Error"
 msgstr "Greška"
 
 #: ../../gui/dialogs.py:239
-#, fuzzy
 msgid "Password required"
-msgstr "Lozinka:"
+msgstr ""
 
 #: ../../gui/dialogs.py:240
 msgid "Please, insert the password of your connection"
@@ -1701,579 +1641,3 @@ msgstr ""
 #: ../../bin/vodafone-mobile-broadband:69
 msgid "Otherwise some features, like profiles, might behave unpredictably."
 msgstr ""
-
-#~ msgid "<b>Total:</b>"
-#~ msgstr "<b>Ukupno: </b>"
-
-#~ msgid "Unknown Error"
-#~ msgstr "Nepoznata greška"
-
-#~ msgid "Unknown Network"
-#~ msgstr "Nepoznata Mreža"
-
-#, fuzzy
-#~ msgid "<b>Vodafone Mobile Broadband</b>"
-#~ msgstr "<b>Postavke veze</b>"
-
-#~ msgid "SMS preferences"
-#~ msgstr "SMS postavke"
-
-#~ msgid "Class:"
-#~ msgstr "Klasa:"
-
-#~ msgid ""
-#~ "Maximum time\n"
-#~ "1 week\n"
-#~ "3 days\n"
-#~ "1 day"
-#~ msgstr ""
-#~ "Maksimum vremena\n"
-#~ "1 tjedan\n"
-#~ "3 dana\n"
-#~ "1 dan"
-
-#~ msgid "<b>Modem</b>"
-#~ msgstr "<b>Modem</b>"
-
-#~ msgid "<b>SIM</b>"
-#~ msgstr "<b>SIM</b>"
-
-#~ msgid "<b>Mobile Connect</b>"
-#~ msgstr "<b>Mobile Connect</b>"
-
-#~ msgid "<b>Computer</b>"
-#~ msgstr "<b>Računalo</b>"
-
-#, fuzzy
-#~ msgid "Connect Button"
-#~ msgstr "Veza:"
-
-#~ msgid "Inspect"
-#~ msgstr "Provjeri"
-
-#~ msgid "_SMS"
-#~ msgstr "_SMS"
-
-#~ msgid "_Contact"
-#~ msgstr "_Kontakt"
-
-#~ msgid "3G"
-#~ msgstr "3G"
-
-#~ msgid "Remember that this information is only orientative."
-#~ msgstr "Zapamtite da su ove informacije samo za orijentiranje"
-
-#~ msgid "<b>GSM device</b>"
-#~ msgstr "<b>GSM uređaj</b>"
-
-#~ msgid "VMB number:"
-#~ msgstr "VMB broj: "
-
-#~ msgid ""
-#~ "<b>Change the dialer profile if your provider requires you to "
-#~ "authenticate with PAP/CHAP</b>"
-#~ msgstr ""
-#~ "<b>Promjenite vaš pozivni profil ako se za autorizaciju traži PAP/CHAP</b>"
-
-#~ msgid "Dialer profile"
-#~ msgstr "Pozivni profil"
-
-#~ msgid "Initial setup..."
-#~ msgstr "Početna konfiguracija..."
-
-#~ msgid "Device setup not completed"
-#~ msgstr "Postavljanje uređaja nije dovršeno"
-
-#~ msgid ""
-#~ "\n"
-#~ "Your device has been detected but it has been impossible to connect to "
-#~ "it.\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr ""
-#~ "\n"
-#~ "Vaš uređaj je detektiran ali je nemoguće spojiti se na njega.\n"
-#~ "\n"
-#~ "%s"
-
-#~ msgid ""
-#~ "\n"
-#~ "Your device \"%(name)s\" is not properly registered with the kernel. "
-#~ "%(vmb)s\n"
-#~ "needs at least two serial ports to communicate with your %(name)s.\n"
-#~ "The program includes a set of udev rules plus some binaries that make "
-#~ "sure\n"
-#~ "that your device is always recognised properly. If you've installed from\n"
-#~ "source, then make sure to copy the relevant files in the contrib dir\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Vaš uređaj \"%(name)s\" nije pravilno registriran sa kernelom. %(vmb)s\n"
-#~ "treba najmanje dva serijska porta za komunikaciju %(name)s.\n"
-#~ "U programu su uključena udev pravila plus nekoliko binarnih datoteka koje "
-#~ "osiguravaju\n"
-#~ "da se vaš uređaj pravilno registrira. Ako ste instalirali iz\n"
-#~ "izvornih datoteka, provjerite da se datoteke kopiraju u contrib "
-#~ "direktorij\n"
-
-#~ msgid "Device not responding"
-#~ msgstr "Uređaj ne odgovara"
-
-#~ msgid ""
-#~ "\n"
-#~ "Your device took more than 15 seconds to reply to my last command. Unplug "
-#~ "it,\n"
-#~ "plug it again, and try in a moment."
-#~ msgstr ""
-#~ "\n"
-#~ "Uređaju je trebalo više od 15 sekundi da odgovori na zadnju komandu. "
-#~ "Izvadite uređaj,\n"
-#~ "stavite ga ponovno, i probajte za par trenutaka."
-
-#~ msgid "B"
-#~ msgstr "B"
-
-#~ msgid "KB"
-#~ msgstr "KB"
-
-#~ msgid "MB"
-#~ msgstr "MB"
-
-#~ msgid "GB"
-#~ msgstr "GB"
-
-#~ msgid "No device present"
-#~ msgstr "Nema prisutnog uređaja"
-
-#~ msgid "Address"
-#~ msgstr "Adresa"
-
-#~ msgid "%B, %Y"
-#~ msgstr "%B, %Y"
-
-#~ msgid ""
-#~ "Your message cannot be sent to some of its recipients. Unsent messages "
-#~ "have been saved in drafts. Please, check that you have typed the number "
-#~ "correctly."
-#~ msgstr ""
-#~ "Vaša poruka ne može biti poslana nekim primateljima.Poruke koje nisu "
-#~ "poslane nalaze se u mapi nedovršeno.Molimo provjerite ako ste upisali "
-#~ "valjani broj."
-
-#~ msgid "Incorrect PUK"
-#~ msgstr "Nevaljan PUK"
-
-#~ msgid ""
-#~ "\n"
-#~ "<small>The PUK you've just entered is\n"
-#~ "incorrect. Bear in mind that after\n"
-#~ "three failed PUKs you'll be asked\n"
-#~ "for the PUK2 code. Your PIN code\n"
-#~ "should be your last PIN.</small>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<small>PUK koji ste upisali je\n"
-#~ "nevaljan. Imajte na umu da nakon\n"
-#~ "tri kriva PUKa biti ćete pitani\n"
-#~ "za PUK2 kod. Vaš PIN kod\n"
-#~ "bi trebao biti vaš zadnji PIN.</small>\n"
-
-#~ msgid ""
-#~ "\n"
-#~ "The PIN you've just entered is\n"
-#~ "incorrect. Bear in mind that after\n"
-#~ "three failed PINs you'll be asked\n"
-#~ "for the PUK code\n"
-#~ msgstr ""
-#~ "\n"
-#~ "PIN koji ste upisali je\n"
-#~ "nevaljan. Imajte na umu da nakon\n"
-#~ "tri kriva PINa biti ćete pitani\n"
-#~ "za PUK kod\n"
-
-#~ msgid "Shutting down"
-#~ msgstr "Gašenje"
-
-#~ msgid "Connected to Internet"
-#~ msgstr "Spojeno na Internet"
-
-#~ msgid ""
-#~ "\n"
-#~ "You need to disconnect from Internet before shutting\n"
-#~ "down %s,\n"
-#~ "if you want to do so, press the OK button.\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Morate se isključiti sa Interneta prije\n"
-#~ "gašenja %s,\n"
-#~ "ako želite to učiniti sada, pritisnite OK tipku.\n"
-
-#~ msgid "Reading contacts..."
-#~ msgstr "Čitanje kontakata..."
-
-#~ msgid "Reading messages..."
-#~ msgstr "Čitanje poruka..."
-
-#~ msgid "User Limit"
-#~ msgstr "Korisnički limit"
-
-#~ msgid "You have reached your limit of maximum usage"
-#~ msgstr "Dostigli ste maksimalni limit upotrebe"
-
-#~ msgid "New mobile profile available"
-#~ msgstr "Novi mobilni profil dostupan"
-
-#~ msgid ""
-#~ "\n"
-#~ "New profile available, do you want to load it?"
-#~ msgstr ""
-#~ "\n"
-#~ "Novi profil je dostupan, želite ga učitati?"
-
-#~ msgid "Load"
-#~ msgstr "Učitavanje"
-
-#~ msgid "To use this widget you need python-vte installed"
-#~ msgstr "Za korištenje ovog widget-a trebate imati python-vte instaliran"
-
-#~ msgid "Connected to %s"
-#~ msgstr "Spojeno na %s"
-
-#~ msgid "_Send SMS"
-#~ msgstr "_Pošalji SMS"
-
-#~ msgid "Illegal Operation!"
-#~ msgstr "Ilegalna Operacija!"
-
-#~ msgid ""
-#~ "\n"
-#~ "Your device only has one port and you are currently connected\n"
-#~ "to Internet, you cannot perform any operation while connected"
-#~ msgstr ""
-#~ "\n"
-#~ "Vaš Uređaj ima samo jedan port i vi ste trenutno spojeni na Internet\n"
-#~ "Ne možete izvesti nikakve operacije dok ste spojeni"
-
-#~ msgid ""
-#~ "<small>Received at %(date)s</small>\n"
-#~ "<b>%(text)s</b>"
-#~ msgstr ""
-#~ "<small>Primljeno u %(date)s</small>\n"
-#~ "<b>%(text)s</b>"
-
-#, fuzzy
-#~ msgid "Invalid DNS received from Network"
-#~ msgstr "Nevaljan DNS primljen od APN"
-
-#, fuzzy
-#~ msgid ""
-#~ "\n"
-#~ "<small>The DNS settings received from the mobile network are invalid. You "
-#~ "will\n"
-#~ "probably want to restart the connection, or if the problem persists, you\n"
-#~ "can specify a static DNS entry in the connection preferences</small>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<small>DNS postavke primljene od APN nisu valjane. Najvjerovatnije\n"
-#~ "ćete htjeti ponovno pokrenuti vezu, ili ako problem i dalje postoji, "
-#~ "možete\n"
-#~ "ručno upisati DNS podatke u postavkama veze</small>\n"
-
-#~ msgid "Disconnected from Internet"
-#~ msgstr "Prekinuta veza na Internet"
-
-#~ msgid ""
-#~ "\n"
-#~ "<small>%s has given\n"
-#~ "up after trying to connect three times to Internet. This might\n"
-#~ "be provoked by a problem in the configuration or just the fact\n"
-#~ "that there's no carrier.</small>"
-#~ msgstr ""
-#~ "\n"
-#~ "<small>%s je odustao\n"
-#~ "nakon 3 neuspjela pokušaja spajanja na Internet. To može\n"
-#~ "biti izazvano sa krivom konfiguracijom ili\n"
-#~ "nedostatkom signala.</small>"
-
-#~ msgid "Device in use removed"
-#~ msgstr "Uređaj u upotrebi izvađen"
-
-#~ msgid ""
-#~ "\n"
-#~ "The 3G device in use has been removed. Now\n"
-#~ "%s\n"
-#~ "is going to shutdown. In order to continue,\n"
-#~ "plug in the 3G device and start again."
-#~ msgstr ""
-#~ "\n"
-#~ "3G uređaj u upotrebi je izvađen. sada će se\n"
-#~ "%s\n"
-#~ "ugasiti. Da bi mogao nastaviti,\n"
-#~ "ubacite 3G uređaj krenite ponovno."
-
-#~ msgid "3G Device added"
-#~ msgstr "3G Uređaj dodan"
-
-#~ msgid ""
-#~ "\n"
-#~ "A new 3G device (%(device_name)s)\n"
-#~ "has been added, in around 15 seconds\n"
-#~ "(%(app_name)s) will resume its functioning"
-#~ msgstr ""
-#~ "\n"
-#~ "Novi 3G Uređaj (%(device_name)s)\n"
-#~ "je dodan, za otprilike 15 sekundi\n"
-#~ "(%(app_name)s) će nastaviti sa radom"
-
-#~ msgid "Setting up device..."
-#~ msgstr "Postavljanje uređaja..."
-
-#, fuzzy
-#~ msgid "The following characters are not allowed in a profile name: %s"
-#~ msgstr "Sljedeći znakovi nisu dozvoljeni u imenima profila: %s"
-
-#, fuzzy
-#~ msgid "Invalid value in profile"
-#~ msgstr "Nepravilni znakovi u profilu imena"
-
-#~ msgid ""
-#~ "\n"
-#~ "An unknown error occur when setting up the device:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "\n"
-#~ "Nepoznata greška prilikom postavljanja uređaja:\n"
-#~ "%s"
-
-#~ msgid "Authentication Error from %s !"
-#~ msgstr "Autorizacijska greška na %s !"
-
-#~ msgid "Connecting to %s ..."
-#~ msgstr "Spajanje na %s ..."
-
-#~ msgid "Discovery started..."
-#~ msgstr "Počinjem pretragu..."
-
-#~ msgid "Discovery finished!"
-#~ msgstr "Pretraga završena!"
-
-#~ msgid "No control port"
-#~ msgstr "Nema kontrolnog porta"
-
-#~ msgid "Connecting to device..."
-#~ msgstr "Spajanje na uređaj..."
-
-#~ msgid "Exception received connecting to %s"
-#~ msgstr "Iznimka primljena pri spajanju na %s"
-
-#~ msgid ""
-#~ "\n"
-#~ "The following error was received while trying to establish a connection:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "\n"
-#~ "Dogodila se greška prilikom pokušaja uspostavljanja veze:\n"
-#~ "%s"
-
-#~ msgid "Overwrite"
-#~ msgstr "Presnimi preko"
-
-#~ msgid "Vodafone Spain S.A."
-#~ msgstr "VIP Vodafone"
-
-#~ msgid "translated to $LANG by $translater"
-#~ msgstr "prevedeno na $LANG od $translater"
-
-#~ msgid "Default"
-#~ msgstr "Uobičajno"
-
-#~ msgid "WVDial directive error"
-#~ msgstr "WVDial greška"
-
-#~ msgid ""
-#~ "\n"
-#~ "Since version 0.9.7 %s manages pppd's /etc/ppp/{p,ch}ap-secrets, the\n"
-#~ "'plugin passwordfd.so' directive should not appear on the\n"
-#~ "current wvdial profile, please remove it manually. Go to\n"
-#~ "Tools -> Preferences, select the wvdial profiles tab, and\n"
-#~ "remove from the current wvdial profile the\n"
-#~ "'plugin passwordfd.so' line."
-#~ msgstr ""
-#~ "\n"
-#~ "Od verzije 0.9.7 %s upravlja pppd's /etc/ppp/{p,ch}ap-secrets,\n"
-#~ "'plugin passwordfd.so' direktiva se nebi smjela pojaviti na\n"
-#~ "trenutnom wvdial profilu, molimo obrišite je ručno. Odite na\n"
-#~ "Tools -> Preferences, izaberite wvdial profiles tab, i\n"
-#~ "obrišite iz trenutnog wvdial profila liniju\n"
-#~ "'plugin passwordfd.so'."
-
-#~ msgid "GPRS only"
-#~ msgstr "Samo GPRS"
-
-#~ msgid "GPRS preferred"
-#~ msgstr "Preferiraj GPRS"
-
-#~ msgid "Shutting down..."
-#~ msgstr "Gašenje..."
-
-#~ msgid "Missing dependencies"
-#~ msgstr "Nerješene međuzavisnosti"
-
-#~ msgid ""
-#~ "The following dependencies are not satisfied:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Sljedeće međuzavisnosti nisu rješene:\n"
-#~ "%s"
-
-#~ msgid "OS/Distro not registered"
-#~ msgstr "OS/Distro nije registriran"
-
-#~ msgid "Permissions problems"
-#~ msgstr "Problemi sa dozvolama"
-
-#~ msgid "PIN1..."
-#~ msgstr "PIN1..."
-
-#~ msgid "Invalid PIN"
-#~ msgstr "Nevaljan PIN"
-
-#~ msgid ""
-#~ "\n"
-#~ "<small>The PIN you've just entered is\n"
-#~ "invalid. The PIN must be a 4 digit code</small>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<small>PIN koji ste upisali je\n"
-#~ "nevaljan. PIN mora biti 4 znamenke</small>\n"
-
-#~ msgid "Passwords don't match"
-#~ msgstr "Neodgovarajuće lozinke"
-
-#~ msgid "PIN:"
-#~ msgstr "PIN:"
-
-#, fuzzy
-#~ msgid "Device Selection Cancel Button"
-#~ msgstr "Odabir uređaja"
-
-#, fuzzy
-#~ msgid "Device Selection OK Button"
-#~ msgstr "Odabir uređaja"
-
-#, fuzzy
-#~ msgid "Insert PIN OK Button"
-#~ msgstr "Upišite vaš PIN kod"
-
-#~ msgid "Configuration details found for Operator!"
-#~ msgstr "Kofiguracijski detalji nađeni za Operatora!"
-
-#~ msgid "Do you want to load stored settings for %s?"
-#~ msgstr "Želite li učitati spremljene postavke za %s?"
-
-#~ msgid ""
-#~ "\n"
-#~ "%(vmb)s cannot connect with the selected device (%(name)s).\n"
-#~ msgstr ""
-#~ "\n"
-#~ "%(vmb)s se nemože spojiti sa izabranim uređajem (%(name)s).\n"
-
-#~ msgid "<b>Connectivy test</b>"
-#~ msgstr "<b>Test povezivanja</b>"
-
-#, fuzzy
-#~ msgid "Network testing"
-#~ msgstr "Mreža"
-
-#, fuzzy
-#~ msgid ""
-#~ "Some information is going to be collected from your system and some basic "
-#~ "connectivity tests are going to be performed to find out what is causing "
-#~ "the network problems"
-#~ msgstr ""
-#~ "Sakupiti ćemo potrebne informacije\n"
-#~ "sa vašeg sistema i izvesti\n"
-#~ "osnovne testove povezivanja\n"
-#~ "da bi utvrdili šta uzrokuje mrežne probleme"
-
-#~ msgid "Performing connectivity test..."
-#~ msgstr "Izvađam test povezivosti..."
-
-#~ msgid "Card setup"
-#~ msgstr "Podešavanje Kartice"
-
-#~ msgid "<b>Initial device configuration</b>"
-#~ msgstr "<b>Početna konfiguracija uređaja</b>"
-
-#~ msgid "Connection : "
-#~ msgstr "Veza : "
-
-#~ msgid "Save in:"
-#~ msgstr "Spremi u:"
-
-#~ msgid ""
-#~ "Find out where your\n"
-#~ "network problem is!"
-#~ msgstr ""
-#~ "Pronađite gdje se nalazi\n"
-#~ "vaš mrežni problem!"
-
-#~ msgid "Minimize"
-#~ msgstr "Minimaliziraj"
-
-#~ msgid "Help topics"
-#~ msgstr "Teme pomoći"
-
-#~ msgid "Manage my /etc/ppp/{ch,p}ap-secrets"
-#~ msgstr "Uredi moje /etc/ppp/{ch,p}ap-secrets"
-
-#~ msgid ""
-#~ "<b>Do not change this unless you\n"
-#~ "are completely sure you know\n"
-#~ "what you are doing</b>"
-#~ msgstr ""
-#~ "<b>Ne mjenjajte ovo ukoliko\n"
-#~ "niste potpuno sigurni da znate\n"
-#~ "šta radite</b>"
-
-#~ msgid "Use a custom profile"
-#~ msgstr "Koristite kustomizirani profil"
-
-#~ msgid "<b>Manage your wvdial profile</b>"
-#~ msgstr "<b>Uredi moj wvdial profil</b>"
-
-#~ msgid "Wvdial Profiles"
-#~ msgstr "Wvdial Profili"
-
-#~ msgid "Insert your PIN and PUK codes"
-#~ msgstr "Upišite vaš PIN i PUK kod"
-
-#~ msgid "System information"
-#~ msgstr "Informacije o sistemu"
-
-#~ msgid ""
-#~ "You can't delete profile %s as this would leave the application in\n"
-#~ "an unusable state"
-#~ msgstr ""
-#~ "Ne možete obrisati profil %s jel to stavlja aplikaciju u\n"
-#~ "neupotrebljivo stanje"
-
-#~ msgid "Are you sure that you want to delete profile %s"
-#~ msgstr "Dali ste sigurni da želite obrisati profil %s"
-
-#~ msgid "Profile %s does not exists"
-#~ msgstr "Profil %s ne postoji"
-
-#~ msgid "Profile %s can not be deleted"
-#~ msgstr "Profil %s ne može biti obrisan"
-
-#~ msgid "Associating..."
-#~ msgstr "Autorizacija..."
-
-#~ msgid "_Use detail"
-#~ msgstr "_Koristi detalje"
-
-#~ msgid "Problems with SIM card connection"
-#~ msgstr "Problem sa vezom SIM kartice"
-
-#~ msgid "Running hardware wizard..."
-#~ msgstr "Pokrečem čarobnjak za hardwer..."

@@ -9,19 +9,19 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-18 10:05+0000\n"
-"PO-Revision-Date: 2010-05-21 12:42+0100\n"
-"Last-Translator: Øystein Gulliksen <oystein@gulliksen.org>\n"
+"PO-Revision-Date: 2011-12-17 10:04+0000\n"
+"Last-Translator: Zack <Unknown>\n"
 "Language-Team: Norwegian <nb@li.org>\n"
-"Language: no\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Launchpad-Export-Date: 2012-01-08 11:12+0000\n"
+"X-Generator: Launchpad (build 14640)\n"
+"Language: no\n"
 
 #: ../glade/apnsel.glade:8
-#, fuzzy
 msgid "APN selection"
-msgstr "Action"
+msgstr ""
 
 #: ../glade/apnsel.glade:69
 msgid ""
@@ -33,9 +33,8 @@ msgstr ""
 
 #: ../glade/apnsel.glade:193 ../glade/pin.glade:217 ../glade/pin.glade:222
 #: ../glade/pin.glade:862 ../glade/profiles.glade:1334
-#, fuzzy
 msgid "Cancel"
-msgstr "gtk-cancel"
+msgstr ""
 
 #: ../glade/apnsel.glade:208 ../glade/pin.glade:239
 #: ../glade/profiles.glade:1349
@@ -43,36 +42,30 @@ msgid "OK"
 msgstr "OK"
 
 #: ../glade/apnsel.glade:228
-#, fuzzy
 msgid "<b>APN Settings</b>"
-msgstr "<b>Bruker valg</b>"
+msgstr ""
 
 #: ../glade/config.glade:8
-#, fuzzy
 msgid "Device setup"
-msgstr "Ingen enhet funnet"
+msgstr ""
 
 #: ../glade/config.glade:34
-#, fuzzy
 msgid ""
 "Please select from the following options how do you want to connect to the "
 "Internet"
-msgstr "Velg hvordan vil du koble deg til Internet"
+msgstr ""
 
 #: ../glade/config.glade:56
-#, fuzzy
 msgid "Device model: "
-msgstr "3G enhet lagt til"
+msgstr ""
 
 #: ../glade/config.glade:63
-#, fuzzy
 msgid "Connection:"
-msgstr "Tilkobling"
+msgstr ""
 
 #: ../glade/config.glade:153
-#, fuzzy
 msgid "Bluetooth configuration"
-msgstr "Avslutt uten advarsel"
+msgstr ""
 
 #: ../glade/config.glade:174
 msgid "Configure your <b>Bluetooth</b> device"
@@ -92,9 +85,8 @@ msgid "_Start discovery"
 msgstr ""
 
 #: ../glade/config.glade:301
-#, fuzzy
 msgid "<b>Serial Port</b>"
-msgstr "<b>Periode</b>"
+msgstr ""
 
 #: ../glade/config.glade:325
 msgid "Data port"
@@ -109,9 +101,8 @@ msgid "Speed"
 msgstr ""
 
 #: ../glade/config.glade:440
-#, fuzzy
 msgid "<b>Connection settings</b>"
-msgstr "<b>Tilkoblings innstillinger</b>"
+msgstr ""
 
 #: ../glade/config.glade:461
 msgid "Enable hardware flow control"
@@ -126,9 +117,8 @@ msgid "Contact search"
 msgstr "Kontakt søk"
 
 #: ../glade/contacts.glade:29 ../glade/contacts.glade:178
-#, fuzzy
 msgid "Name:"
-msgstr "Navn:"
+msgstr ""
 
 #: ../glade/contacts.glade:93
 msgid "Contacts List"
@@ -143,9 +133,8 @@ msgid "Number:"
 msgstr "Nummer:"
 
 #: ../glade/contacts.glade:257
-#, fuzzy
 msgid "<b>Save in:</b>"
-msgstr "<b>Navn: </b>"
+msgstr ""
 
 #: ../glade/contacts.glade:300 ../../gui/contacts/contact_sim.py:170
 msgid "Mobile"
@@ -160,18 +149,16 @@ msgid "Diagnostics"
 msgstr "Diagnose"
 
 #: ../glade/diagnostics.glade:43
-#, fuzzy
 msgid "<b>Datacard details</b>"
-msgstr "<b>En detaljert melding</b>"
+msgstr ""
 
 #: ../glade/diagnostics.glade:81
 msgid "Manufacturer:"
 msgstr ""
 
 #: ../glade/diagnostics.glade:92
-#, fuzzy
 msgid "Model:"
-msgstr "Modell:"
+msgstr ""
 
 #: ../glade/diagnostics.glade:103
 msgid "Firmware: "
@@ -255,14 +242,12 @@ msgid "Version:"
 msgstr "Versjon:"
 
 #: ../glade/diagnostics.glade:468
-#, fuzzy
 msgid "Uptime:"
-msgstr "Oppetid :"
+msgstr ""
 
 #: ../glade/diagnostics.glade:537
-#, fuzzy
 msgid "Device"
-msgstr "Ingen enhet funnet"
+msgstr ""
 
 #: ../glade/diagnostics.glade:602
 msgid "Software Version:"
@@ -293,9 +278,8 @@ msgid "USSD reply message:"
 msgstr "USSD svarmelding:"
 
 #: ../glade/diagnostics.glade:810 ../glade/payt.glade:289
-#, fuzzy
 msgid "Send"
-msgstr "Avsender"
+msgstr ""
 
 #: ../glade/diagnostics.glade:843
 msgid "USSD"
@@ -347,23 +331,20 @@ msgstr ""
 
 #: ../glade/keyring.glade:81 ../glade/keyring.glade:191
 #: ../glade/profiles.glade:177
-#, fuzzy
 msgid "Password:"
-msgstr "Passord"
+msgstr ""
 
 #: ../glade/keyring.glade:100
-#, fuzzy
 msgid "Confirm password:"
-msgstr "Bekreft PIN kode: "
+msgstr ""
 
 #: ../glade/keyring.glade:131
 msgid "Unlock Keyring"
 msgstr ""
 
 #: ../glade/keyring.glade:157
-#, fuzzy
 msgid "Please, enter your keyring password"
-msgstr "Vennligst tast inn din PIN kode :"
+msgstr ""
 
 #: ../glade/main.glade:28
 msgid "Import contacts..."
@@ -374,9 +355,8 @@ msgid "Export contacts..."
 msgstr "Eksportere kontakter..."
 
 #: ../glade/main.glade:48
-#, fuzzy
 msgid "_Quit"
-msgstr "Avslutt"
+msgstr ""
 
 #: ../glade/main.glade:73
 msgid "_View"
@@ -408,9 +388,8 @@ msgid "Request PIN"
 msgstr "Spør om PIN"
 
 #: ../glade/main.glade:194
-#, fuzzy
 msgid "Profiles"
-msgstr "Profiler"
+msgstr ""
 
 #: ../glade/main.glade:216 ../glade/preferences.glade:7
 msgid "Preferences"
@@ -421,9 +400,8 @@ msgid "_Help"
 msgstr "_Hjelp"
 
 #: ../glade/main.glade:246
-#, fuzzy
 msgid "Help"
-msgstr "_Hjelp"
+msgstr ""
 
 #: ../glade/main.glade:265
 msgid "_About"
@@ -438,9 +416,8 @@ msgid "_New"
 msgstr "_Ny"
 
 #: ../glade/main.glade:412
-#, fuzzy
 msgid "Create new SMS"
-msgstr "Lag ny SMS"
+msgstr ""
 
 #: ../glade/main.glade:428
 msgid "_Reply"
@@ -488,9 +465,8 @@ msgid "Contacts menu"
 msgstr "Kontakt meny"
 
 #: ../glade/main.glade:544
-#, fuzzy
 msgid "_Search"
-msgstr "_Søk"
+msgstr ""
 
 #: ../glade/main.glade:546
 msgid "Search contacts"
@@ -513,9 +489,8 @@ msgid "Contacts"
 msgstr "Kontakter"
 
 #: ../glade/main.glade:803 ../glade/main.glade:1186
-#, fuzzy
 msgid "<b>Month</b>"
-msgstr "<b>Datamaskin</b>"
+msgstr ""
 
 #: ../glade/main.glade:853 ../glade/main.glade:983 ../glade/main.glade:1285
 msgid "GPRS:"
@@ -530,28 +505,24 @@ msgid "Total:"
 msgstr ""
 
 #: ../glade/main.glade:945 ../glade/main.glade:1328
-#, fuzzy
 msgid "<b>Transferred Data</b>"
-msgstr "<b>Overført</b>"
+msgstr ""
 
 #: ../glade/main.glade:1074
-#, fuzzy
 msgid "<b>Current session</b>"
-msgstr "<b>SMSC innstillinger</b>"
+msgstr ""
 
 #: ../glade/main.glade:1112 ../glade/main.glade:1364
 msgid "Total Traffic"
 msgstr ""
 
 #: ../glade/main.glade:1155
-#, fuzzy
 msgid "Current month"
-msgstr "Gjeldende måned"
+msgstr ""
 
 #: ../glade/main.glade:1410
-#, fuzzy
 msgid "Last month"
-msgstr "Sist måned"
+msgstr ""
 
 #: ../glade/main.glade:1424
 msgid "<b>Usage</b> - Remember that this information is only orientative."
@@ -582,24 +553,20 @@ msgid "Topup Credit"
 msgstr ""
 
 #: ../glade/payt.glade:44
-#, fuzzy
 msgid "<b>SIM Details</b>"
-msgstr "<b>Bruker valg</b>"
+msgstr ""
 
 #: ../glade/payt.glade:83
-#, fuzzy
 msgid "<b>Number</b>"
-msgstr "<b>Nummer: </b>"
+msgstr ""
 
 #: ../glade/payt.glade:94
-#, fuzzy
 msgid "<b>Credit</b>"
-msgstr "<b>tittel</b>"
+msgstr ""
 
 #: ../glade/payt.glade:105
-#, fuzzy
 msgid "<b>Date</b>"
-msgstr "<b>Bruk</b>"
+msgstr ""
 
 #: ../glade/payt.glade:167
 msgid "Recheck my credit:"
@@ -610,18 +577,16 @@ msgid "Check credit"
 msgstr ""
 
 #: ../glade/payt.glade:237
-#, fuzzy
 msgid "<b>Voucher Code</b>"
-msgstr "<b>Datamaskin</b>"
+msgstr ""
 
 #: ../glade/payt.glade:267
 msgid "Enter code:"
 msgstr ""
 
 #: ../glade/payt.glade:341
-#, fuzzy
 msgid "<b>Credit Card</b>"
-msgstr "<b>Periode</b>"
+msgstr ""
 
 #: ../glade/payt.glade:371
 msgid "Pay by credit card"
@@ -632,28 +597,24 @@ msgid "Insert your PIN code"
 msgstr "Tast inn din PIN kode"
 
 #: ../glade/pin.glade:23
-#, fuzzy
 msgid "Insert PIN Window"
-msgstr "Tast inn din PIN kode"
+msgstr ""
 
 #: ../glade/pin.glade:64
-#, fuzzy
 msgid "Please insert your PIN code"
-msgstr "Vennligst tast inn din PIN kode :"
+msgstr ""
 
 #: ../glade/pin.glade:104
-#, fuzzy
 msgid "Insert PIN Entry"
-msgstr "Tast inn din PIN kode"
+msgstr ""
 
 #: ../glade/pin.glade:149
 msgid "Manage my PIN through gnome-keyring"
 msgstr ""
 
 #: ../glade/pin.glade:178
-#, fuzzy
 msgid "<b>Advanced Options</b>"
-msgstr "<b>Bruker valg</b>"
+msgstr ""
 
 #: ../glade/pin.glade:257
 msgid "Modify PIN code"
@@ -669,26 +630,23 @@ msgstr "Ny PIN kode: "
 
 #: ../glade/pin.glade:425
 msgid "Current PIN code: "
-msgstr "Nåværende PIN kode"
+msgstr "Nåværende PIN kode "
 
 #: ../glade/pin.glade:513
 msgid "Please enter PUK"
 msgstr "Oppgi PUK-koden"
 
 #: ../glade/pin.glade:650
-#, fuzzy
 msgid "PUK:"
-msgstr "PUK"
+msgstr ""
 
 #: ../glade/preferences.glade:55
-#, fuzzy
 msgid "<b>Change to global SMS settings </b>"
-msgstr "<b>Tilkoblings innstillinger</b>"
+msgstr ""
 
 #: ../glade/preferences.glade:71
-#, fuzzy
 msgid "Allow SMS confirmation"
-msgstr "Avslutt uten advarsel"
+msgstr ""
 
 #: ../glade/preferences.glade:75
 msgid ""
@@ -697,9 +655,8 @@ msgid ""
 msgstr ""
 
 #: ../glade/preferences.glade:86
-#, fuzzy
 msgid "Use an alternative SMS Service centre address"
-msgstr "Klarte ikke å slette profil"
+msgstr ""
 
 #: ../glade/preferences.glade:90
 msgid ""
@@ -712,28 +669,24 @@ msgid "<b>SMSC preferences</b>"
 msgstr "<b>SMSC innstillinger</b>"
 
 #: ../glade/preferences.glade:140
-#, fuzzy
 msgid "Profile:"
-msgstr "Profiler"
+msgstr ""
 
 #: ../glade/preferences.glade:151
-#, fuzzy
 msgid "SMSC number:"
-msgstr "SMSC nummer"
+msgstr ""
 
 #: ../glade/preferences.glade:219
 msgid "<b>Message options</b>"
 msgstr "<b>Meldings valg</b>"
 
 #: ../glade/preferences.glade:240
-#, fuzzy
 msgid "Validity:"
-msgstr "Gyldighet"
+msgstr ""
 
 #: ../glade/preferences.glade:289
-#, fuzzy
 msgid "SMS Profile"
-msgstr "Profiler"
+msgstr ""
 
 #: ../glade/preferences.glade:308
 msgid "<b>User options</b>"
@@ -756,38 +709,32 @@ msgid "Manage my PIN through gnomekeyring"
 msgstr ""
 
 #: ../glade/preferences.glade:409
-#, fuzzy
 msgid "User Preferences"
-msgstr "Innstillinger"
+msgstr ""
 
 #: ../glade/preferences.glade:429
-#, fuzzy
 msgid "<b>Web Browser</b>"
-msgstr "<b>Periode</b>"
+msgstr ""
 
 #: ../glade/preferences.glade:491 ../glade/preferences.glade:584
 msgid "Command:"
 msgstr ""
 
 #: ../glade/preferences.glade:528
-#, fuzzy
 msgid "<b>Email client</b>"
-msgstr "<b>tittel</b>"
+msgstr ""
 
 #: ../glade/preferences.glade:631
-#, fuzzy
 msgid "Applications"
-msgstr "Action"
+msgstr ""
 
 #: ../glade/preferences.glade:651
-#, fuzzy
 msgid "<b>Usage Options</b>"
-msgstr "<b>Bruker valg</b>"
+msgstr ""
 
 #: ../glade/preferences.glade:679
-#, fuzzy
 msgid "Maximum traffic (MB):"
-msgstr "Makstid"
+msgstr ""
 
 #: ../glade/preferences.glade:708
 msgid "Notify when a given threshold is exceeded."
@@ -798,14 +745,12 @@ msgid "Notification threshold (MB):"
 msgstr ""
 
 #: ../glade/profiles.glade:9
-#, fuzzy
 msgid "New Profile"
-msgstr "Ny profil"
+msgstr ""
 
 #: ../glade/profiles.glade:23
-#, fuzzy
 msgid "New Profile Window"
-msgstr "Ny profil"
+msgstr ""
 
 #: ../glade/profiles.glade:64
 msgid ""
@@ -821,39 +766,32 @@ msgid "<b>Connection preferences</b>"
 msgstr "<b>Tilkoblings innstillinger</b>"
 
 #: ../glade/profiles.glade:152
-#, fuzzy
 msgid "Username:"
-msgstr "Brukernavn"
+msgstr ""
 
 #: ../glade/profiles.glade:202
-#, fuzzy
 msgid "Authentication method:"
-msgstr "Autentisering ferdig!"
+msgstr ""
 
 #: ../glade/profiles.glade:227
-#, fuzzy
 msgid "Preferred connection:"
-msgstr "Foretrukket tilkobling   "
+msgstr ""
 
 #: ../glade/profiles.glade:252
-#, fuzzy
 msgid "Preferred band:"
-msgstr "Foretrukket tilkobling   "
+msgstr ""
 
 #: ../glade/profiles.glade:277
-#, fuzzy
 msgid "APN host:"
-msgstr "APN vert"
+msgstr ""
 
 #: ../glade/profiles.glade:447
-#, fuzzy
 msgid "<b>DNS settings</b>"
-msgstr "<b>Bruker valg</b>"
+msgstr ""
 
 #: ../glade/profiles.glade:485
-#, fuzzy
 msgid "Use static DNS"
-msgstr "Bruk statiske navntjenere"
+msgstr ""
 
 #: ../glade/profiles.glade:518
 msgid "Primary DNS:"
@@ -864,14 +802,12 @@ msgid "Secondary DNS:"
 msgstr "Sekundær DNS:"
 
 #: ../glade/profiles.glade:715
-#, fuzzy
 msgid "<b>Profile settings</b>"
-msgstr "<b>Meldings valg</b>"
+msgstr ""
 
 #: ../glade/profiles.glade:752
-#, fuzzy
 msgid "Profile name:"
-msgstr "Profiler"
+msgstr ""
 
 #: ../glade/profiles.glade:863
 msgid "Device selection"
@@ -890,14 +826,12 @@ msgid ""
 msgstr ""
 
 #: ../glade/profiles.glade:1024
-#, fuzzy
 msgid "Known devices"
-msgstr "Ingen enhet funnet"
+msgstr ""
 
 #: ../glade/profiles.glade:1032
-#, fuzzy
 msgid "Known Devices Radio"
-msgstr "Ingen enhet funnet"
+msgstr ""
 
 #: ../glade/profiles.glade:1083
 msgid "Device type:"
@@ -920,24 +854,20 @@ msgid "Control port device:"
 msgstr ""
 
 #: ../glade/profiles.glade:1254
-#, fuzzy
 msgid "Speed connection:"
-msgstr "Foretrukket tilkobling   "
+msgstr ""
 
 #: ../glade/profiles.glade:1294
-#, fuzzy
 msgid "Custom device settings"
-msgstr "Ingen enhet funnet"
+msgstr ""
 
 #: ../glade/profiles.glade:1303
-#, fuzzy
 msgid "Custom Device Settings Radio"
-msgstr "Ingen enhet funnet"
+msgstr ""
 
 #: ../glade/profiles.glade:1369
-#, fuzzy
 msgid "<b>Device Settings</b>"
-msgstr "<b>Meldings valg</b>"
+msgstr ""
 
 #: ../glade/sms.glade:50
 msgid "TO : "
@@ -1111,18 +1041,16 @@ msgid "N/A"
 msgstr "N/A"
 
 #: ../../gui/views/main.py:335
-#, fuzzy
 msgid "GSM"
-msgstr "SIM"
+msgstr ""
 
 #: ../../gui/views/main.py:336
 msgid "GSM_COMPAT"
 msgstr ""
 
 #: ../../gui/views/main.py:337 ../../gui/signals.py:24
-#, fuzzy
 msgid "GPRS"
-msgstr "Kun GPRS"
+msgstr ""
 
 #: ../../gui/views/main.py:338 ../../gui/signals.py:25
 msgid "EDGE"
@@ -1158,24 +1086,21 @@ msgid "Connect"
 msgstr "Koble til"
 
 #: ../../gui/views/main.py:392 ../../gui/views/main.py:425
-#, fuzzy
 msgid "Disconnecting"
-msgstr "Koble fra"
+msgstr ""
 
 #: ../../gui/views/main.py:396 ../../gui/views/main.py:424
 #: ../../gui/controllers/main.py:849
-#, fuzzy
 msgid "Connecting"
-msgstr "Kobler til..."
+msgstr ""
 
 #: ../../gui/views/main.py:400 ../../gui/controllers/main.py:684
 msgid "Disconnect"
 msgstr "Koble fra"
 
 #: ../../gui/views/main.py:414
-#, fuzzy
 msgid "Device found"
-msgstr "3G enhet lagt til"
+msgstr ""
 
 #: ../../gui/views/main.py:415
 msgid "Disabled"
@@ -1186,14 +1111,12 @@ msgid "SIM locked"
 msgstr ""
 
 #: ../../gui/views/main.py:417
-#, fuzzy
 msgid "Authenticating"
-msgstr "Autentiserer..."
+msgstr ""
 
 #: ../../gui/views/main.py:418
-#, fuzzy
 msgid "Authenticated"
-msgstr "Autentisering ferdig!"
+msgstr ""
 
 #: ../../gui/views/main.py:419
 msgid "Enabling"
@@ -1204,23 +1127,20 @@ msgid "Disabling"
 msgstr ""
 
 #: ../../gui/views/main.py:422
-#, fuzzy
 msgid "Searching"
-msgstr "_Søk"
+msgstr ""
 
 #: ../../gui/views/main.py:423 ../../gui/controllers/main.py:1056
 msgid "Not connected"
 msgstr "Ikke tilkoblet"
 
 #: ../../gui/views/main.py:426
-#, fuzzy
 msgid "Connected"
-msgstr "Koble til"
+msgstr ""
 
 #: ../../gui/views/main.py:429
-#, fuzzy
 msgid "No device"
-msgstr "Ingen enhet funnet"
+msgstr ""
 
 #: ../../gui/views/main.py:491 ../../gui/views/main.py:529
 #: ../../gui/views/profile.py:141 ../../gui/controllers/contacts.py:141
@@ -1253,9 +1173,8 @@ msgid "Date"
 msgstr "Dato"
 
 #: ../../gui/views/profile.py:136
-#, fuzzy
 msgid "Country"
-msgstr "Datamaskin"
+msgstr ""
 
 #: ../../gui/uptime.py:83
 #, python-format
@@ -1277,9 +1196,8 @@ msgid "Not available"
 msgstr ""
 
 #: ../../gui/models/main.py:174
-#, fuzzy
 msgid "Error while starting wader"
-msgstr "Feil ved sletting av profil"
+msgstr ""
 
 #: ../../gui/models/main.py:175
 #, python-format
@@ -1318,9 +1236,8 @@ msgid "Error while sending SMS"
 msgstr "Error while sending SMS"
 
 #: ../../gui/controllers/sms.py:183
-#, fuzzy
 msgid "No SMSC number"
-msgstr "SMSC nummer"
+msgstr ""
 
 #: ../../gui/controllers/sms.py:184
 #, python-format
@@ -1449,9 +1366,8 @@ msgid "Perhaps your SIM is not inserted correctly?"
 msgstr ""
 
 #: ../../gui/controllers/main.py:422
-#, fuzzy
 msgid "Unknown error"
-msgstr "Nettverk"
+msgstr ""
 
 #: ../../gui/controllers/main.py:428
 msgid "Error while registering to home network"
@@ -1466,24 +1382,22 @@ msgid "You have exceeded your transfer limit"
 msgstr ""
 
 #: ../../gui/controllers/main.py:574
-#, fuzzy, python-format
+#, python-format
 msgid "SMS receipt received for %s"
-msgstr "<small>SMS mottatt fra %s</small>"
+msgstr ""
 
 #: ../../gui/controllers/main.py:608
-#, fuzzy, python-format
+#, python-format
 msgid "SMS received from %s"
-msgstr "<small>SMS mottatt fra %s</small>"
+msgstr ""
 
 #: ../../gui/controllers/main.py:649 ../../gui/controllers/main.py:652
-#, fuzzy
 msgid "Failed connection attempt"
-msgstr "Foretrukket tilkobling   "
+msgstr ""
 
 #: ../../gui/controllers/main.py:650
-#, fuzzy
 msgid "Unable to connect"
-msgstr "Ikke tilkoblet"
+msgstr ""
 
 #: ../../gui/controllers/main.py:703 ../../gui/controllers/main.py:738
 msgid "Send SMS"
@@ -1510,27 +1424,24 @@ msgstr ""
 "CSV filen du prøver å importere har ugyldig format."
 
 #: ../../gui/controllers/main.py:810
-#, fuzzy
 msgid "No device found"
-msgstr "Ingen kontakter funnet"
+msgstr ""
 
 #: ../../gui/controllers/main.py:811
 msgid "No device has been found. Insert one and try again."
 msgstr ""
 
 #: ../../gui/controllers/main.py:817
-#, fuzzy
 msgid "Profile needed"
-msgstr "Profiler"
+msgstr ""
 
 #: ../../gui/controllers/main.py:818
 msgid "You need to create a profile for connecting."
 msgstr ""
 
 #: ../../gui/controllers/main.py:863
-#, fuzzy
 msgid "Invalid Connection"
-msgstr "Tilkobling"
+msgstr ""
 
 #: ../../gui/controllers/main.py:864
 msgid ""
@@ -1539,24 +1450,20 @@ msgid ""
 msgstr ""
 
 #: ../../gui/controllers/main.py:1005
-#, fuzzy
 msgid "_New Profile"
-msgstr "Ny profil"
+msgstr ""
 
 #: ../../gui/controllers/main.py:1014
-#, fuzzy
 msgid "Load Profile"
-msgstr "Profiler"
+msgstr ""
 
 #: ../../gui/controllers/main.py:1019
-#, fuzzy
 msgid "Edit Profile"
-msgstr "Rediger profil"
+msgstr ""
 
 #: ../../gui/controllers/main.py:1024
-#, fuzzy
 msgid "Delete Profile"
-msgstr "Slet profil"
+msgstr ""
 
 #: ../../gui/controllers/main.py:1057
 msgid "No mobile connection. Do you want to continue?"
@@ -1645,9 +1552,8 @@ msgid ""
 msgstr ""
 
 #: ../../gui/controllers/profile.py:119
-#, fuzzy
 msgid "Error creating profile"
-msgstr "Feil ved sletting av profil"
+msgstr ""
 
 #: ../../gui/dialogs.py:66
 msgid "translator-credits"
@@ -1662,14 +1568,12 @@ msgid "Error"
 msgstr "Feil"
 
 #: ../../gui/dialogs.py:239
-#, fuzzy
 msgid "Password required"
-msgstr "Passord"
+msgstr ""
 
 #: ../../gui/dialogs.py:240
-#, fuzzy
 msgid "Please, insert the password of your connection"
-msgstr "Vennligst tast inn din PIN kode :"
+msgstr ""
 
 #: ../../gui/dialogs.py:274
 msgid "Save as ..."
@@ -1736,522 +1640,3 @@ msgstr ""
 #: ../../bin/vodafone-mobile-broadband:69
 msgid "Otherwise some features, like profiles, might behave unpredictably."
 msgstr ""
-
-#~ msgid "<b>Total:</b>"
-#~ msgstr "<b>Tittel:</b>"
-
-#, fuzzy
-#~ msgid "Unknown Error"
-#~ msgstr "Nettverk"
-
-#, fuzzy
-#~ msgid "Unknown Network"
-#~ msgstr "Nettverk"
-
-#~ msgid "SMS preferences"
-#~ msgstr "SMS innstillinger"
-
-#, fuzzy
-#~ msgid "Class:"
-#~ msgstr "Klasse "
-
-#~ msgid ""
-#~ "Maximum time\n"
-#~ "1 week\n"
-#~ "3 days\n"
-#~ "1 day"
-#~ msgstr ""
-#~ "Maksimum tid\n"
-#~ "1 uke\n"
-#~ "3 dager\n"
-#~ "1 dag"
-
-#, fuzzy
-#~ msgid "<b>Modem</b>"
-#~ msgstr "<b>Datamaskin</b>"
-
-#, fuzzy
-#~ msgid "<b>SIM</b>"
-#~ msgstr "<b>Datamaskin</b>"
-
-#, fuzzy
-#~ msgid "<b>Mobile Connect</b>"
-#~ msgstr "<b>Datamaskin</b>"
-
-#~ msgid "<b>Computer</b>"
-#~ msgstr "<b>Datamaskin</b>"
-
-#, fuzzy
-#~ msgid "Connect Button"
-#~ msgstr "Tilkobling"
-
-#~ msgid "Inspect"
-#~ msgstr "Inspisere"
-
-#~ msgid "_SMS"
-#~ msgstr "_SMS"
-
-#~ msgid "_Contact"
-#~ msgstr "_Kontakt"
-
-#~ msgid "<b>GSM device</b>"
-#~ msgstr "<b>GSM enhet</b>"
-
-#, fuzzy
-#~ msgid "VMB number:"
-#~ msgstr "VMB nummer :"
-
-#, fuzzy
-#~ msgid "Dialer profile"
-#~ msgstr "Slet profil"
-
-#~ msgid "Initial setup..."
-#~ msgstr "Førstegangs oppsett..."
-
-#, fuzzy
-#~ msgid "Device setup not completed"
-#~ msgstr "Ingen enhet funnet"
-
-#, fuzzy
-#~ msgid "Device not responding"
-#~ msgstr "Enhet i bruk fjernet"
-
-#~ msgid "No device present"
-#~ msgstr "Ingen enhet funnet"
-
-#~ msgid "Incorrect PUK"
-#~ msgstr "Feil PUK"
-
-#~ msgid ""
-#~ "\n"
-#~ "<small>The PUK you've just entered is\n"
-#~ "incorrect. Bear in mind that after\n"
-#~ "three failed PUKs you'll be asked\n"
-#~ "for the PUK2 code. Your PIN code\n"
-#~ "should be your last PIN.</small>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<small>PUK koden du tastet inn\n"
-#~ "er feil. Vær klar over at etter\n"
-#~ "tre feil inntastinger av PUK koden, vil du blir spurt \n"
-#~ "om PUK2 koden. Din PIN kode\n"
-#~ "skal være din siste PIN.</small>\n"
-
-#~ msgid ""
-#~ "\n"
-#~ "The PIN you've just entered is\n"
-#~ "incorrect. Bear in mind that after\n"
-#~ "three failed PINs you'll be asked\n"
-#~ "for the PUK code\n"
-#~ msgstr ""
-#~ "\n"
-#~ "PIN koden du tastet er\n"
-#~ "feil. Vær klar over at etter\n"
-#~ "tre feil forsøk, så vil du bli spurt om\n"
-#~ "PUK koden\n"
-
-#~ msgid "Shutting down"
-#~ msgstr "Slår av"
-
-#~ msgid "Connected to Internet"
-#~ msgstr "Tilkoblet Internet"
-
-#~ msgid ""
-#~ "\n"
-#~ "You need to disconnect from Internet before shutting\n"
-#~ "down %s,\n"
-#~ "if you want to do so, press the OK button.\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Du må koble fra Internet før  du slår\n"
-#~ " av.%s\n"
-#~ "Dersom du vil de, press OK knappen.\n"
-
-#~ msgid "Reading contacts..."
-#~ msgstr "Leser kontakter..."
-
-#~ msgid "Reading messages..."
-#~ msgstr "Leser meldinger..."
-
-#~ msgid "To use this widget you need python-vte installed"
-#~ msgstr "For å bruke denne widget trenger du python-vte installert"
-
-#~ msgid "Connected to %s"
-#~ msgstr "Tilkoblet %s"
-
-#~ msgid "_Send SMS"
-#~ msgstr "_Send SMS"
-
-#~ msgid ""
-#~ "<small>Received at %(date)s</small>\n"
-#~ "<b>%(text)s</b>"
-#~ msgstr ""
-#~ "<small>Mottatt den %(date)s</small>\n"
-#~ "<b>%(text)s</b>"
-
-#, fuzzy
-#~ msgid "Invalid DNS received from Network"
-#~ msgstr "Ugyldig DNS fra APN"
-
-#, fuzzy
-#~ msgid ""
-#~ "\n"
-#~ "<small>The DNS settings received from the mobile network are invalid. You "
-#~ "will\n"
-#~ "probably want to restart the connection, or if the problem persists, you\n"
-#~ "can specify a static DNS entry in the connection preferences</small>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<small>DNS fra APN er ugyldig. Du må startet\n"
-#~ "tilkoblingen på nytt, dersom problemene vedvarer, kan du definere\n"
-#~ "statiske DNS felter i tilkoblings innstillingene</small>\n"
-
-#~ msgid "Disconnected from Internet"
-#~ msgstr "Koble fra Internet"
-
-#~ msgid ""
-#~ "\n"
-#~ "<small>%s has given\n"
-#~ "up after trying to connect three times to Internet. This might\n"
-#~ "be provoked by a problem in the configuration or just the fact\n"
-#~ "that there's no carrier.</small>"
-#~ msgstr ""
-#~ "\n"
-#~ "<small>%s har gitt opp\n"
-#~ "etter 3 tilkoblings forsøk til Internet. Dette kan\n"
-#~ "ha oppstått ved konfigurasjons problemer i innstillingene eller\n"
-#~ "nettverks problemer hos din operatør.</small>"
-
-#~ msgid "Device in use removed"
-#~ msgstr "Enhet i bruk fjernet"
-
-#~ msgid ""
-#~ "\n"
-#~ "The 3G device in use has been removed. Now\n"
-#~ "%s\n"
-#~ "is going to shutdown. In order to continue,\n"
-#~ "plug in the 3G device and start again."
-#~ msgstr ""
-#~ "\n"
-#~ "3G enheten i bruk er blitt fjernet.\n"
-#~ "%s avsluttes.\n"
-#~ "For å fortsette sett inn 3G enheten og start på nytt."
-
-#~ msgid "3G Device added"
-#~ msgstr "3G enhet lagt til"
-
-#~ msgid ""
-#~ "\n"
-#~ "A new 3G device (%(device_name)s)\n"
-#~ "has been added, in around 15 seconds\n"
-#~ "(%(app_name)s) will resume its functioning"
-#~ msgstr ""
-#~ "\n"
-#~ "En ny 3G enhet (%(device_name)s)\n"
-#~ "har blitt lagt til, i løpet av 15 sekunder\n"
-#~ "vil (%(app_name)s) fortsette."
-
-#~ msgid "Setting up device..."
-#~ msgstr "Setter opp enhet"
-
-#, fuzzy
-#~ msgid "The following characters are not allowed in a profile name: %s"
-#~ msgstr ""
-#~ "Følgende avhengigheter er ikke oppfylt:\n"
-#~ "%s"
-
-#, fuzzy
-#~ msgid "Invalid value in profile"
-#~ msgstr "Slet profil"
-
-#, fuzzy
-#~ msgid "Authentication Error from %s !"
-#~ msgstr "Autentisering ferdig %s !"
-
-#, fuzzy
-#~ msgid "Connecting to %s ..."
-#~ msgstr "Kobler til %s ..."
-
-#, fuzzy
-#~ msgid "Connecting to device..."
-#~ msgstr "Setter opp enhet"
-
-#~ msgid "Overwrite"
-#~ msgstr "Overskriv"
-
-#~ msgid "Vodafone Spain S.A."
-#~ msgstr "Vodafone Spain S.A."
-
-#~ msgid "translated to $LANG by $translater"
-#~ msgstr "oversatt til norsk av Øystein Gulliksen"
-
-#, fuzzy
-#~ msgid "Default"
-#~ msgstr "standard"
-
-#~ msgid "WVDial directive error"
-#~ msgstr "WVDial direktiv feil"
-
-#~ msgid ""
-#~ "\n"
-#~ "Since version 0.9.7 %s manages pppd's /etc/ppp/{p,ch}ap-secrets, the\n"
-#~ "'plugin passwordfd.so' directive should not appear on the\n"
-#~ "current wvdial profile, please remove it manually. Go to\n"
-#~ "Tools -> Preferences, select the wvdial profiles tab, and\n"
-#~ "remove from the current wvdial profile the\n"
-#~ "'plugin passwordfd.so' line."
-#~ msgstr ""
-#~ "\n"
-#~ "Siden versjon 0.9.7 %s behandles pppd's /etc/ppp/{p,ch}ap-secrets, \n"
-#~ "'plugin passwordfd.so' direktiv skal ikke vises på\n"
-#~ "nåværende wvdial profil, vennligst fjern det manuelt. Gå til\n"
-#~ "Verktøy -> Innstillinger, velg wvdial profiler fanen, og\n"
-#~ "fjern det fra gjeldende wvdial profil\n"
-#~ "'plugin passwordfd.so'."
-
-#~ msgid "GPRS only"
-#~ msgstr "Kun GPRS"
-
-#~ msgid "GPRS preferred"
-#~ msgstr "GPRS foretrukket"
-
-#~ msgid "Shutting down..."
-#~ msgstr "Slår av..."
-
-#~ msgid "Missing dependencies"
-#~ msgstr "Manglende avhengigheter"
-
-#~ msgid ""
-#~ "The following dependencies are not satisfied:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Følgende avhengigheter er ikke oppfylt:\n"
-#~ "%s"
-
-#~ msgid "OS/Distro not registered"
-#~ msgstr "OS/Distro ikke registrert"
-
-#~ msgid "Permissions problems"
-#~ msgstr "Rettighets problemer"
-
-#~ msgid "PIN1..."
-#~ msgstr "PIN1..."
-
-#~ msgid "Invalid PIN"
-#~ msgstr "Ugyldig PIN"
-
-#~ msgid ""
-#~ "\n"
-#~ "<small>The PIN you've just entered is\n"
-#~ "invalid. The PIN must be a 4 digit code</small>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<small>PIN koden du tastet inn\n"
-#~ "er ugyldig. Pin koden må være en 4 sifferet kode</small>\n"
-
-#~ msgid "Passwords don't match"
-#~ msgstr "Passordene matcher ikke"
-
-#, fuzzy
-#~ msgid "PIN:"
-#~ msgstr "PIN"
-
-#~ msgid "gtk-cancel"
-#~ msgstr "gtk-cancel"
-
-#~ msgid "gtk-ok"
-#~ msgstr "gtk-ok"
-
-#~ msgid "gtk-help"
-#~ msgstr "gtk-help"
-
-#, fuzzy
-#~ msgid "gtk-go-back"
-#~ msgstr "gtk-ok"
-
-#, fuzzy
-#~ msgid "gtk-home"
-#~ msgstr "gtk-help"
-
-#, fuzzy
-#~ msgid "Insert PIN OK Button"
-#~ msgstr "Tast inn din PIN kode"
-
-#~ msgid "<b>Connectivy test</b>"
-#~ msgstr "<b>Tilkoblings test</b>"
-
-#~ msgid "_Start"
-#~ msgstr "_Start"
-
-#, fuzzy
-#~ msgid "Network testing"
-#~ msgstr "Nettverk"
-
-#, fuzzy
-#~ msgid ""
-#~ "Some information is going to be collected from your system and some basic "
-#~ "connectivity tests are going to be performed to find out what is causing "
-#~ "the network problems"
-#~ msgstr ""
-#~ "Vi vil nå samle inn informasjon\n"
-#~ "fra ditt system og utføre noen\n"
-#~ "tilkoblings tester for å finne\n"
-#~ "ut hva nettverks problemene skyldes"
-
-#~ msgid "ERROR"
-#~ msgstr "FEIL"
-
-#~ msgid "Checking if ppp interface is up..."
-#~ msgstr "Tester om ppp grensesnitt er oppe..."
-
-#~ msgid "Checking if we can reach gateway..."
-#~ msgstr "Sjekker om vi kan nå gateway..."
-
-#~ msgid "Checking if we can reach nameserver..."
-#~ msgstr "Sjekker om vi kan nå navnetjeneren..."
-
-#~ msgid "Checking if we can resolve google.com..."
-#~ msgstr "Sjekker om vi kan slå opp google.com..."
-
-#~ msgid "Checking if we can fetch google's homepage..."
-#~ msgstr "Sjekker om vi kan hente google's hjemmeside..."
-
-#~ msgid "Connectivity test done!"
-#~ msgstr "Tilkoblings test ferdig!"
-
-#~ msgid "%s-report.txt"
-#~ msgstr "%s-report.txt"
-
-#~ msgid "Performing connectivity test..."
-#~ msgstr "Utfører tilkoblings test..."
-
-#~ msgid "Card setup"
-#~ msgstr "Kortoppsett"
-
-#~ msgid "<b>Initial device configuration</b>"
-#~ msgstr "<b>Førstegangs enhetskonfigurering</b>"
-
-#~ msgid "Card Model : "
-#~ msgstr "Kort modell : "
-
-#~ msgid "Connection : "
-#~ msgstr "Oppkobling :"
-
-#~ msgid "Save in:"
-#~ msgstr "Lagre i:"
-
-#~ msgid ""
-#~ "Find out where your\n"
-#~ "network problem is!"
-#~ msgstr ""
-#~ "Finn ut hvor ditt\n"
-#~ "nettverks problem er!"
-
-#~ msgid "Minimize"
-#~ msgstr "Minimer"
-
-#~ msgid "Help topics"
-#~ msgstr "Hjelpe sider"
-
-#~ msgid "Manage my /etc/ppp/{ch,p}ap-secrets"
-#~ msgstr "Behandle mine /etc/ppp/{ch,p}ap-secrets"
-
-#~ msgid ""
-#~ "<b>Do not change this unless you\n"
-#~ "are completely sure you know\n"
-#~ "what you are doing</b>"
-#~ msgstr ""
-#~ "<b>Ikke gjør endringer her, dersom\n"
-#~ "du ikke er helt sikker på hva\n"
-#~ "du gjør</b>"
-
-#~ msgid "Use a custom profile"
-#~ msgstr "Bruk egen profil"
-
-#~ msgid "<b>Manage your wvdial profile</b>"
-#~ msgstr "<b>Behandle dine Wvidal profiler</b>"
-
-#~ msgid "Wvdial Profiles"
-#~ msgstr "Wvdial profiler"
-
-#~ msgid "Insert your PIN and PUK codes"
-#~ msgstr "Tast inn din PIN og PUK kode"
-
-#~ msgid ""
-#~ "In order to unlock your SIM card you\n"
-#~ "must insert your PIN and PUK codes"
-#~ msgstr ""
-#~ "Får å låse opp ditt simkort,\n"
-#~ "må du taste inn PIN og PUK kode"
-
-#~ msgid "P U K :"
-#~ msgstr "P U K ;"
-
-#~ msgid "P I N :"
-#~ msgstr "P I N :"
-
-#~ msgid "0/%d chars"
-#~ msgstr "0/%d tegn"
-
-#~ msgid "System information"
-#~ msgstr "System informasjon"
-
-#~ msgid ""
-#~ "\n"
-#~ "%(name)s relies on\n"
-#~ "wvdial and pppd in order to connect to Internet. The\n"
-#~ "behaviour of this packages varies between distros as\n"
-#~ "they patch the source. Toggle this checkbutton if you\n"
-#~ "want %(name2)s to\n"
-#~ "manage pppd's password files. In some distros like\n"
-#~ "SLED 10, this is not configurable.\n"
-#~ msgstr ""
-#~ "\n"
-#~ "%(name)s krever\n"
-#~ "wvdial og pppd for å kunne koble til Internet.\n"
-#~ "Oppførselen av disse pakkene varierer fra distro til distro når de\n"
-#~ "patcher kilden. Velg denne sjekk knappen dersom du\n"
-#~ "vil at %(name2)s skal\n"
-#~ "behandle pppd's passord filer. In noen distroer, som f.eks\n"
-#~ "SLED 10, kan ikke dette konfigureres.\n"
-
-#~ msgid ""
-#~ "You can't delete profile %s as this would leave the application in\n"
-#~ "an unusable state"
-#~ msgstr ""
-#~ "Du kan ikke slette profilen %s siden dette vil gjøre at\n"
-#~ "applikasjonen ikke virker lenger"
-
-#~ msgid "Are you sure that you want to delete profile %s"
-#~ msgstr "Er du sikker på at du vil slette profil %s"
-
-#~ msgid "Profile %s does not exists"
-#~ msgstr "Profil %s eksisterer ikke"
-
-#~ msgid "Profile %s can not be deleted"
-#~ msgstr "Profilen %s kan ikke slettes"
-
-#~ msgid "Associating..."
-#~ msgstr "Assosierer..."
-
-#~ msgid "_Use detail"
-#~ msgstr "_Bruk detalj"
-
-#~ msgid "Problems with SIM card connection"
-#~ msgstr "Problemer med simkort tilkobling"
-
-#~ msgid ""
-#~ "\n"
-#~ "An unexpected internal problem has occured, this probably\n"
-#~ "has happened because the SIM card took too much to reply\n"
-#~ "my last command. Please eject and insert the card and start\n"
-#~ "%s again."
-#~ msgstr ""
-#~ "\n"
-#~ "En uventet intern feil har oppstått, dette har sannsynligvis\n"
-#~ "skjedd fordi SIM kortet tok for lang tid til å svare på min\n"
-#~ "siste kommando. Vennligst ta ut og inn kortet og start\n"
-#~ "%s på nytt"
-
-#~ msgid "Running hardware wizard..."
-#~ msgstr "Kjører hardware wizard"
