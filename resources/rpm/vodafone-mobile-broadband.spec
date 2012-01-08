@@ -27,7 +27,7 @@ Requires:       dbus-python, pytz, python-zope-interface
 Requires:       gnome-python2-gnome, gnome-python2-gnomekeyring, gnome-python2-gconf, pygtk2, pygtk2-libglade, gnome-python2-libwnck
 %endif
 
-BuildRequires:  python-imaging, gettext
+BuildRequires:  python-imaging, gnu-free-sans-fonts, gettext
 Requires:       python >= 2.5, wader-core >= 0.5.7, python-messaging >= 0.5.10, python-dateutil
 
 %description

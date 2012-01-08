@@ -43,7 +43,10 @@ def paint_file(path, text):
     from PIL import Image, ImageFont, ImageDraw
     im = Image.open(path)
     draw = ImageDraw.Draw(im)
-    font = ImageFont.truetype("resources/tools/FreeSans.ttf", 12)
+    if exists("/usr/share/fonts/truetype/freefont/FreeSans.ttf"):
+        font = ImageFont.truetype("/usr/share/fonts/truetype/freefont/FreeSans.ttf", 12)
+    else:
+        font = ImageFont.truetype("/usr/share/fonts/gnu-free/FreeSans.ttf", 12)
     draw.text((300, 0), text, font=font)
     im.save(path)
 
