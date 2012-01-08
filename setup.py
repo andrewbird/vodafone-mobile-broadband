@@ -61,7 +61,8 @@ class build_trans(cmd.Command):
 
     def run(self):
         for filename in glob(join('.', 'resources', 'po', '*.po')):
-            lang = basename(filename)[:-3]
+            name = basename(filename)[:-3]  # vodafone-mobile-broadband-es
+            lang = name.split('-')[-1]      # es
 
             tdir = join('build', 'locale', lang, 'LC_MESSAGES')
             if not exists(tdir):
