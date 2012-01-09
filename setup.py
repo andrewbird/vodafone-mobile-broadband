@@ -44,7 +44,8 @@ def paint_file(path, text):
     im = Image.open(path)
     draw = ImageDraw.Draw(im)
     if exists("/usr/share/fonts/truetype/freefont/FreeSans.ttf"):
-        font = ImageFont.truetype("/usr/share/fonts/truetype/freefont/FreeSans.ttf", 12)
+        font = ImageFont.truetype(
+                    "/usr/share/fonts/truetype/freefont/FreeSans.ttf", 12)
     else:
         font = ImageFont.truetype("/usr/share/fonts/gnu-free/FreeSans.ttf", 12)
     draw.text((300, 0), text, font=font)
@@ -71,7 +72,7 @@ class build_trans(cmd.Command):
             tfil = join(tdir, 'vodafone-mobile-broadband.mo')
             call(['msgfmt', '-cf', '-o', tfil, filename])
 
-#        raise RuntimeError("Uncomment to stop and see translation errors easily")
+#        raise RuntimeError("Uncomment to see translation errors easily")
 
 
 class build(_build):
@@ -86,7 +87,8 @@ class install_data(_install_data):
     def run(self):
         for lang in listdir('build/locale/'):
             lang_dir = join('share', 'locale', lang, 'LC_MESSAGES')
-            lang_file = join('build', 'locale', lang, 'LC_MESSAGES', 'vodafone-mobile-broadband.mo')
+            lang_file = join('build', 'locale', lang, 'LC_MESSAGES',
+                                                'vodafone-mobile-broadband.mo')
             self.data_files.append((lang_dir, [lang_file]))
 
         _install_data.run(self)
@@ -118,12 +120,12 @@ data_files = [
     (join(RESOURCES_DIR, 'glade'), list_files('resources/glade')),
     (join(RESOURCES_DIR, 'glade/animation'),
         list_files('resources/glade/animation')),
-    (join(RESOURCES_DIR, 'themes'), list_files('resources/themes')),
 ]
 
 if sys.platform.startswith('linux'):
     append = data_files.append
-    append((APPLICATIONS, ['resources/desktop/vodafone-mobile-broadband.desktop']))
+    append((APPLICATIONS,
+            ['resources/desktop/vodafone-mobile-broadband.desktop']))
     append((PIXMAPS, ['resources/desktop/vodafone-mobile-broadband.png']))
     append((DBUS_SYSTEMD, ['resources/dbus/vodafone-mobile-broadband.conf']))
 

@@ -27,8 +27,7 @@ from pango import ELLIPSIZE_END
 from gui.contrib.gtkmvc import View
 from gui.config import config
 from gui.translate import _
-from gui.consts import (GLADE_DIR, IMAGES_DIR, THEMES_DIR,
-                              APP_LONG_NAME, APP_URL)
+from gui.consts import GLADE_DIR, IMAGES_DIR, APP_LONG_NAME, APP_URL
 from gui.constx import (VMB_MODEM_STATE_NODEVICE,
                               VMB_MODEM_STATE_HAVEDEVICE,
                               VMB_MODEM_STATE_DISABLED,
@@ -87,7 +86,8 @@ class MainView(View):
         GLADE_FILE = os.path.join(GLADE_DIR, "main.glade")
 
         super(MainView, self).__init__(ctrl, GLADE_FILE, 'main_window',
-                                       register=False, domain='vodafone-mobile-broadband')
+                                        register=False,
+                                        domain='vodafone-mobile-broadband')
 
         # Usage statistics
         self.usage_user_limit = int(config.get('preferences',
@@ -107,8 +107,6 @@ class MainView(View):
         self.throbber = None
         ctrl.update_usage_view()
         self.setup_treeview(ctrl)
-
-        self.theme_ui()
 
     def show(self):
         ret = super(MainView, self).show()
@@ -135,10 +133,6 @@ class MainView(View):
         self._setup_usage_view()
         self.set_status_line(VMB_MODEM_STATE_NODEVICE, None, None, None, None)
         self.set_view_state(VMB_MODEM_STATE_NODEVICE)
-
-    def theme_ui(self):
-        theme = os.path.join(THEMES_DIR, "default.gtkrc")
-        gtk.rc_parse(theme)
 
     def _setup_support_tabs(self):
         # populate Help tab
