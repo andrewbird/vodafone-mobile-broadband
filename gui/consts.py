@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2006-2011  Vodafone España, S.A.
+# Copyright (C) 2006-2012  Vodafone España, S.A.
 # Copyright (C) 2008-2009  Warp Networks, S.L.
 # Author:  Pablo Martí
 #
@@ -27,7 +27,7 @@ APP_NAME = 'Vodafone Mobile Broadband'
 APP_SLUG_NAME = 'vodafone-mobile-broadband'
 APP_LONG_NAME = 'Vodafone Mobile Broadband'
 APP_SHORT_NAME = 'vmb'
-APP_VERSION = '2.99.15'
+APP_VERSION = '3.00.00'
 
 # credits
 APP_AUTHORS = [

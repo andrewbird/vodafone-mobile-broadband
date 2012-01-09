@@ -99,6 +99,8 @@ statistics, prepay top up and suchlike.
 %doc README
 
 %changelog
+* Tue Nov 15 2011 Andrew Bird <ajb@spheresystems.co.uk> 3.00.00
+- 0.5.6 New Release
 * Tue Nov 15 2011 Andrew Bird <ajb@spheresystems.co.uk> 2.99.15
 - 0.5.6 Package got renamed
 * Sun Sep 11 2011 Andrew Bird <ajb@spheresystems.co.uk> 2.99.14
