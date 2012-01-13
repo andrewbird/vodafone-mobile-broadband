@@ -128,8 +128,6 @@ class MainModel(Model):
         self.ctrl = None
         # stats stuff
         self.is_3g_bearer = True  # we assume 3G
-        self.prev_rx_bytes = 0
-        self.prev_tx_bytes = 0
         self.start_time = None
         self.stop_time = None
         self.rx_bytes = self.tx_bytes = 0
@@ -738,10 +736,10 @@ class MainModel(Model):
         self.calc_current_summed()
 
     def init_dial_stats(self):
-        self.rx_bytes = self.tx_bytes = self.rx_rate = self.tx_rate = 0
-
-        # to calc the delta (keep both just in case we need them)
-        self.prev_rx_bytes = self.prev_tx_bytes = 0
+        # Note: Use the new method from wader 0.5.10 to initialise as some
+        #       devices e.g. HSO, don't get initialised to zero on connect.
+        self.rx_bytes, self.tx_bytes = self.device.GetStats()
+        self.rx_rate = self.tx_rate = 0
 
         # the last values written to DB
         self._last_time = self.start_time
@@ -774,18 +772,17 @@ class MainModel(Model):
     def on_dial_stats(self, stats):
         rx_bytes, tx_bytes = stats[:2]
         self.rx_rate, self.tx_rate = stats[2:]
+        dx_rx_bytes = dx_tx_bytes = 0
 
         # sanitise txfr values - they have been known to go backwards :-)
+        # and calc the deltas
         if rx_bytes > self.rx_bytes:
+            dx_rx_bytes = rx_bytes - self.rx_bytes
             self.rx_bytes = rx_bytes
-        if tx_bytes > self.tx_bytes:
-            self.tx_bytes = tx_bytes
 
-        # calc the deltas and update for next time
-        dx_rx_bytes = self.rx_bytes - self.prev_rx_bytes
-        self.prev_rx_bytes = self.rx_bytes
-        dx_tx_bytes = self.tx_bytes - self.prev_tx_bytes
-        self.prev_tx_bytes = self.tx_bytes
+        if tx_bytes > self.tx_bytes:
+            dx_tx_bytes = tx_bytes - self.tx_bytes;
+            self.tx_bytes = tx_bytes
 
         # total traffic
         dx_bytes = dx_rx_bytes + dx_tx_bytes
@@ -809,11 +806,11 @@ class MainModel(Model):
         # ok make sure we get the current epoch start time in UTC format.
         # store it in the models properites for start_time
         self.start_time = datetime.datetime.utcnow()
+        self.init_dial_stats()
         # create a callback for getting data send/received via dbus.
         self.stats_sm = self.bus.add_signal_receiver(self.on_dial_stats,
                                                      S.SIG_DIAL_STATS,
                                                      MDM_INTFACE)
-        self.init_dial_stats()
 
     def stop_reginfo_tracking(self):
         if self.reginfo_sm is not None:
