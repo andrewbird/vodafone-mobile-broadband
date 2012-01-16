@@ -42,10 +42,10 @@ statistics, prepay top up and suchlike.
 %{__python} -c 'import setuptools; execfile("setup.py")' build
 
 %install
-%{__python} -c 'import setuptools; execfile("setup.py")' install -O1 --skip-build --root %{buildroot} --prefix=%{_prefix} --install-lib=/usr/share/vodafone-mobile-broadband
+%{__python} -c 'import setuptools; execfile("setup.py")' install -O1 --skip-build --root %{buildroot} --prefix=%{_prefix} --install-lib=/usr/share/%{name}
 (mkdir %{buildroot}/usr/bin && \
 	cd %{buildroot}/usr/bin && \
-	ln -s ../share/vodafone-mobile-broadband/vodafone-mobile-broadband .)
+	ln -s ../share/%{name}/%{name} .)
 
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
@@ -55,46 +55,46 @@ statistics, prepay top up and suchlike.
 
 %files
 %defattr(-,root,root)
-/usr/share/vodafone-mobile-broadband/Vodafone_Mobile_Broadband-*
-%dir /usr/share/vodafone-mobile-broadband/gui/
-%dir /usr/share/vodafone-mobile-broadband/gui/contacts/
-%dir /usr/share/vodafone-mobile-broadband/gui/contrib/
-%dir /usr/share/vodafone-mobile-broadband/gui/contrib/pycocuma/
-%dir /usr/share/vodafone-mobile-broadband/gui/contrib/gtkmvc/
-%dir /usr/share/vodafone-mobile-broadband/gui/contrib/gtkmvc/adapters/
-%dir /usr/share/vodafone-mobile-broadband/gui/contrib/gtkmvc/progen/
-%dir /usr/share/vodafone-mobile-broadband/gui/contrib/gtkmvc/support/
-%dir /usr/share/vodafone-mobile-broadband/gui/controllers/
-%dir /usr/share/vodafone-mobile-broadband/gui/models/
-%dir /usr/share/vodafone-mobile-broadband/gui/views/
-%dir /usr/share/vodafone-mobile-broadband/resources/glade/
+/usr/share/%{name}/Vodafone_Mobile_Broadband-*
+%dir /usr/share/%{name}/gui/
+%dir /usr/share/%{name}/gui/contacts/
+%dir /usr/share/%{name}/gui/contrib/
+%dir /usr/share/%{name}/gui/contrib/pycocuma/
+%dir /usr/share/%{name}/gui/contrib/gtkmvc/
+%dir /usr/share/%{name}/gui/contrib/gtkmvc/adapters/
+%dir /usr/share/%{name}/gui/contrib/gtkmvc/progen/
+%dir /usr/share/%{name}/gui/contrib/gtkmvc/support/
+%dir /usr/share/%{name}/gui/controllers/
+%dir /usr/share/%{name}/gui/models/
+%dir /usr/share/%{name}/gui/views/
+%dir /usr/share/%{name}/resources/glade/
 
-/usr/share/vodafone-mobile-broadband/gui/*.py
-/usr/share/vodafone-mobile-broadband/gui/*.py[co]
-/usr/share/vodafone-mobile-broadband/gui/contacts/*.py
-/usr/share/vodafone-mobile-broadband/gui/contacts/*.py[co]
-/usr/share/vodafone-mobile-broadband/gui/contrib/*.py
-/usr/share/vodafone-mobile-broadband/gui/contrib/*.py[co]
-/usr/share/vodafone-mobile-broadband/gui/contrib/gtkmvc/*.py
-/usr/share/vodafone-mobile-broadband/gui/contrib/gtkmvc/*.py[co]
-/usr/share/vodafone-mobile-broadband/gui/contrib/gtkmvc/*/*.py
-/usr/share/vodafone-mobile-broadband/gui/contrib/gtkmvc/*/*.py[co]
-/usr/share/vodafone-mobile-broadband/gui/contrib/pycocuma/*.py
-/usr/share/vodafone-mobile-broadband/gui/contrib/pycocuma/*.py[co]
-/usr/share/vodafone-mobile-broadband/gui/controllers/*.py
-/usr/share/vodafone-mobile-broadband/gui/controllers/*.py[co]
-/usr/share/vodafone-mobile-broadband/gui/models/*.py
-/usr/share/vodafone-mobile-broadband/gui/models/*.py[co]
-/usr/share/vodafone-mobile-broadband/gui/views/*.py
-/usr/share/vodafone-mobile-broadband/gui/views/*.py[co]
-/usr/share/vodafone-mobile-broadband/resources/glade/*
+/usr/share/%{name}/gui/*.py
+/usr/share/%{name}/gui/*.py[co]
+/usr/share/%{name}/gui/contacts/*.py
+/usr/share/%{name}/gui/contacts/*.py[co]
+/usr/share/%{name}/gui/contrib/*.py
+/usr/share/%{name}/gui/contrib/*.py[co]
+/usr/share/%{name}/gui/contrib/gtkmvc/*.py
+/usr/share/%{name}/gui/contrib/gtkmvc/*.py[co]
+/usr/share/%{name}/gui/contrib/gtkmvc/*/*.py
+/usr/share/%{name}/gui/contrib/gtkmvc/*/*.py[co]
+/usr/share/%{name}/gui/contrib/pycocuma/*.py
+/usr/share/%{name}/gui/contrib/pycocuma/*.py[co]
+/usr/share/%{name}/gui/controllers/*.py
+/usr/share/%{name}/gui/controllers/*.py[co]
+/usr/share/%{name}/gui/models/*.py
+/usr/share/%{name}/gui/models/*.py[co]
+/usr/share/%{name}/gui/views/*.py
+/usr/share/%{name}/gui/views/*.py[co]
+/usr/share/%{name}/resources/glade/*
 
-%{_bindir}/vodafone-mobile-broadband
-/usr/share/vodafone-mobile-broadband/vodafone-mobile-broadband
-/usr/share/locale/*/LC_MESSAGES/vodafone-mobile-broadband.mo
-/usr/share/applications/vodafone-mobile-broadband.desktop
-/usr/share/pixmaps/vodafone-mobile-broadband.png
-/etc/dbus-1/system.d/vodafone-mobile-broadband.conf
+%{_bindir}/%{name}
+/usr/share/%{name}/%{name}
+/usr/share/locale/*/LC_MESSAGES/%{name}.mo
+/usr/share/applications/%{name}.desktop
+/usr/share/pixmaps/%{name}.png
+/etc/dbus-1/system.d/%{name}.conf
 
 %doc README
 

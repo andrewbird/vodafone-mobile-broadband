@@ -1,6 +1,8 @@
 #!/usr/bin/make -f
 export DH_VERBOSE=1
 
+NAME=vodafone-mobile-broadband
+
 build: build-stamp
 
 build-stamp:
@@ -23,9 +25,9 @@ install: build
 	dh_installdirs
 	python setup.py install \
 		--install-layout=deb \
-		--install-lib=/usr/share/vodafone-mobile-broadband \
-		--root $(CURDIR)/debian/vodafone-mobile-broadband
-	dh_link /usr/share/vodafone-mobile-broadband/vodafone-mobile-broadband /usr/bin/vodafone-mobile-broadband
+		--install-lib=/usr/share/$(NAME) \
+		--root $(CURDIR)/debian/$(NAME)
+	dh_link /usr/share/$(NAME)/$(NAME) /usr/bin/$(NAME)
 	dh_install build/locale usr/share
 	dh_install
 	dh_installman
