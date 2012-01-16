@@ -50,14 +50,14 @@ from gui.models.preferences import PreferencesModel
 from gui.translate import _
 from gui.utils import dbus_error_is, get_error_msg
 from gui.consts import USAGE_DB, APP_VERSION
-from gui.constx import (VMB_SIM_AUTH_NONE, VMB_SIM_AUTH_PIN,
-                              VMB_SIM_AUTH_PUK, VMB_SIM_AUTH_PUK2,
-                              VMB_MODEM_STATE_UNKNOWN,
-                              VMB_MODEM_STATE_NODEVICE,
-                              VMB_MODEM_STATE_HAVEDEVICE,
-                              VMB_MODEM_STATE_DISABLING,
-                              VMB_MODEM_STATE_ENABLED,
-                              VMB_MODEM_STATE_CONNECTED)
+from gui.constx import (GUI_SIM_AUTH_NONE, GUI_SIM_AUTH_PIN,
+                              GUI_SIM_AUTH_PUK, GUI_SIM_AUTH_PUK2,
+                              GUI_MODEM_STATE_UNKNOWN,
+                              GUI_MODEM_STATE_NODEVICE,
+                              GUI_MODEM_STATE_HAVEDEVICE,
+                              GUI_MODEM_STATE_DISABLING,
+                              GUI_MODEM_STATE_ENABLED,
+                              GUI_MODEM_STATE_CONNECTED)
 from gui.config import config
 from gui.uptime import get_uptime
 from gui.network_codes import get_msisdn_ussd_info
@@ -84,10 +84,10 @@ class MainModel(Model):
         'device': None,
         'operator': '',
         'registration': -1,
-        'status': VMB_MODEM_STATE_UNKNOWN,
+        'status': GUI_MODEM_STATE_UNKNOWN,
         'tech': None,
         'msisdn': _('Unknown'),
-        'sim_auth_required': VMB_SIM_AUTH_NONE,
+        'sim_auth_required': GUI_SIM_AUTH_NONE,
         'profile_required': False,
         'sim_error': False,
         'net_error': '',
@@ -117,7 +117,7 @@ class MainModel(Model):
     }
 
     def __init__(self):
-        logger.info("VMB %s starting, using %s core" % (
+        logger.info("GUI %s starting, using %s core" % (
             self.get_app_version(), self.get_core_version()))
 
         super(MainModel, self).__init__()
@@ -160,10 +160,10 @@ class MainModel(Model):
         self._we_dialed = flag
 
     def is_enabled(self):
-        return self.status >= VMB_MODEM_STATE_ENABLED
+        return self.status >= GUI_MODEM_STATE_ENABLED
 
     def is_connected(self):
-        return self.status == VMB_MODEM_STATE_CONNECTED
+        return self.status == GUI_MODEM_STATE_CONNECTED
 
     def _init_wader_object(self):
         try:
@@ -217,7 +217,7 @@ class MainModel(Model):
             self.device = None
             self.device_opath = None
             self.dial_path = None
-            self.status = VMB_MODEM_STATE_NODEVICE
+            self.status = GUI_MODEM_STATE_NODEVICE
             self.operator = ''
             self.tech = None
             self.rssi = None
@@ -363,9 +363,9 @@ class MainModel(Model):
                 "main.py: model - Setting up device %s" % self.device_opath)
             self.device = self.bus.get_object(WADER_SERVICE, self.device_opath)
 
-            self.sim_auth_required = VMB_SIM_AUTH_NONE
+            self.sim_auth_required = GUI_SIM_AUTH_NONE
             self.sim_error = False
-            self.status = VMB_MODEM_STATE_HAVEDEVICE
+            self.status = GUI_MODEM_STATE_HAVEDEVICE
 
             # Get status of device, NM may have already connected it
             props = self.device.GetAll(MDM_INTFACE)
@@ -397,7 +397,7 @@ class MainModel(Model):
             self._get_registration_info_cb((-1, '', ''))
         else:
             logger.info("main.py: model - Disabling device")
-            self.status = VMB_MODEM_STATE_DISABLING
+            self.status = GUI_MODEM_STATE_DISABLING
 
             def disable_cb():
                 logger.info("main.py: model - Device disabled")
@@ -416,7 +416,7 @@ class MainModel(Model):
     def _enable_device_cb(self):
         logger.info("main.py: model - Device enabled")
 
-        self.sim_auth_required = VMB_SIM_AUTH_NONE
+        self.sim_auth_required = GUI_SIM_AUTH_NONE
 
         self.init_dial_stats()
 
@@ -434,14 +434,14 @@ class MainModel(Model):
 
     def _enable_device_eb(self, e):
         if dbus_error_is(e, E.SimPinRequired):
-            self.sim_auth_required = VMB_SIM_AUTH_NONE
-            self.sim_auth_required = VMB_SIM_AUTH_PIN
+            self.sim_auth_required = GUI_SIM_AUTH_NONE
+            self.sim_auth_required = GUI_SIM_AUTH_PIN
         elif dbus_error_is(e, E.SimPukRequired):
-            self.sim_auth_required = VMB_SIM_AUTH_NONE
-            self.sim_auth_required = VMB_SIM_AUTH_PUK
+            self.sim_auth_required = GUI_SIM_AUTH_NONE
+            self.sim_auth_required = GUI_SIM_AUTH_PUK
         elif dbus_error_is(e, E.SimPuk2Required):
-            self.sim_auth_required = VMB_SIM_AUTH_NONE
-            self.sim_auth_required = VMB_SIM_AUTH_PUK2
+            self.sim_auth_required = GUI_SIM_AUTH_NONE
+            self.sim_auth_required = GUI_SIM_AUTH_PUK2
         else:
             self.sim_error = get_error_msg(e)
             logger.warn("Error enabling device:\n%s" % self.sim_error)
@@ -525,8 +525,8 @@ class MainModel(Model):
 
         if ifname == MDM_INTFACE and 'UnlockRequired' in ifprops:
             if not ifprops['UnlockRequired']:
-                if self.sim_auth_required != VMB_SIM_AUTH_NONE:
-                    self.sim_auth_required = VMB_SIM_AUTH_NONE
+                if self.sim_auth_required != GUI_SIM_AUTH_NONE:
+                    self.sim_auth_required = GUI_SIM_AUTH_NONE
 
                 self.enable_device()
 
@@ -541,7 +541,7 @@ class MainModel(Model):
                 self.status = state
                 return False
 
-            if ifprops['State'] == VMB_MODEM_STATE_CONNECTED:
+            if ifprops['State'] == GUI_MODEM_STATE_CONNECTED:
                 if self.is_our_dial_attempt():
                     pass  # let our controller's Connect callback set it
                 else:  # NM applet probably made it, delay
@@ -553,14 +553,14 @@ class MainModel(Model):
 
         def _check_pin_status_eb(e):
             if dbus_error_is(e, E.SimPinRequired):
-                self.sim_auth_required = VMB_SIM_AUTH_NONE
-                self.sim_auth_required = VMB_SIM_AUTH_PIN
+                self.sim_auth_required = GUI_SIM_AUTH_NONE
+                self.sim_auth_required = GUI_SIM_AUTH_PIN
             elif dbus_error_is(e, E.SimPukRequired):
-                self.sim_auth_required = VMB_SIM_AUTH_NONE
-                self.sim_auth_required = VMB_SIM_AUTH_PUK
+                self.sim_auth_required = GUI_SIM_AUTH_NONE
+                self.sim_auth_required = GUI_SIM_AUTH_PUK
             elif dbus_error_is(e, E.SimPuk2Required):
-                self.sim_auth_required = VMB_SIM_AUTH_NONE
-                self.sim_auth_required = VMB_SIM_AUTH_PUK2
+                self.sim_auth_required = GUI_SIM_AUTH_NONE
+                self.sim_auth_required = GUI_SIM_AUTH_PUK2
             else:
                 self.sim_error = get_error_msg(e)
 
@@ -611,7 +611,7 @@ class MainModel(Model):
         #         SIM to another device it won't be found, or worse it finds
         #         the PIN associated with another SIM
         #      3/ Store in application specific location, this is effectively a
-        #         single PIN for all SIMs used within VMB
+        #         single PIN for all SIMs used within GUI
         if not self.keyring_available:
             return
         logger.info("Storing PIN in keyring")
@@ -657,10 +657,10 @@ class MainModel(Model):
             eb(enable)
 
             if 'SimPukRequired' in get_error_msg(e):
-                self.sim_auth_required = VMB_SIM_AUTH_PUK
+                self.sim_auth_required = GUI_SIM_AUTH_PUK
 
             if 'SimPuk2Required' in get_error_msg(e):
-                self.sim_auth_required = VMB_SIM_AUTH_PUK2
+                self.sim_auth_required = GUI_SIM_AUTH_PUK2
 
         self.device.EnablePin(pin, enable, dbus_interface=CRD_INTFACE,
                               reply_handler=enable_pin_cb,
@@ -674,10 +674,10 @@ class MainModel(Model):
             eb()
 
             if 'SimPukRequired' in get_error_msg(e):
-                self.sim_auth_required = VMB_SIM_AUTH_PUK
+                self.sim_auth_required = GUI_SIM_AUTH_PUK
 
             if 'SimPuk2Required' in get_error_msg(e):
-                self.sim_auth_required = VMB_SIM_AUTH_PUK2
+                self.sim_auth_required = GUI_SIM_AUTH_PUK2
 
         self.device.ChangePin(oldpin, newpin, dbus_interface=CRD_INTFACE,
                               reply_handler=change_pin_cb,

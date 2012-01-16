@@ -23,7 +23,7 @@ import gtk
 from gui.contrib.gtkmvc import View
 
 from gui.consts import GLADE_DIR, IMAGES_DIR
-from gui.constx import VMB_VIEW_DISABLED, VMB_VIEW_IDLE, VMB_VIEW_BUSY
+from gui.constx import GUI_VIEW_DISABLED, GUI_VIEW_IDLE, GUI_VIEW_BUSY
 from gui.translate import _
 
 
@@ -67,13 +67,13 @@ class DiagnosticsView(View):
         self['ussd_textview'].set_buffer(_buffer)
 
     def set_ussd_state(self, state):
-        if state is VMB_VIEW_DISABLED:
+        if state is GUI_VIEW_DISABLED:
             self['send_ussd_button'].set_sensitive(False)
             self['ussd_entry'].set_sensitive(False)
-        elif state is VMB_VIEW_IDLE:
+        elif state is GUI_VIEW_IDLE:
             self['send_ussd_button'].set_sensitive(True)
             self['ussd_entry'].set_sensitive(True)
-        elif state is VMB_VIEW_BUSY:
+        elif state is GUI_VIEW_BUSY:
             self['send_ussd_button'].set_sensitive(False)
             self['ussd_entry'].set_sensitive(False)
             self.set_ussd_reply('')

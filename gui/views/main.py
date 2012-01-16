@@ -28,20 +28,20 @@ from gui.contrib.gtkmvc import View
 from gui.config import config
 from gui.translate import _
 from gui.consts import GLADE_DIR, IMAGES_DIR, APP_LONG_NAME, APP_URL
-from gui.constx import (VMB_MODEM_STATE_NODEVICE,
-                              VMB_MODEM_STATE_HAVEDEVICE,
-                              VMB_MODEM_STATE_DISABLED,
-                              VMB_MODEM_STATE_LOCKED,
-                              VMB_MODEM_STATE_UNLOCKING,
-                              VMB_MODEM_STATE_UNLOCKED,
-                              VMB_MODEM_STATE_ENABLING,
-                              VMB_MODEM_STATE_DISABLING,
-                              VMB_MODEM_STATE_ENABLED,
-                              VMB_MODEM_STATE_SEARCHING,
-                              VMB_MODEM_STATE_REGISTERED,
-                              VMB_MODEM_STATE_DISCONNECTING,
-                              VMB_MODEM_STATE_CONNECTING,
-                              VMB_MODEM_STATE_CONNECTED)
+from gui.constx import (GUI_MODEM_STATE_NODEVICE,
+                              GUI_MODEM_STATE_HAVEDEVICE,
+                              GUI_MODEM_STATE_DISABLED,
+                              GUI_MODEM_STATE_LOCKED,
+                              GUI_MODEM_STATE_UNLOCKING,
+                              GUI_MODEM_STATE_UNLOCKED,
+                              GUI_MODEM_STATE_ENABLING,
+                              GUI_MODEM_STATE_DISABLING,
+                              GUI_MODEM_STATE_ENABLED,
+                              GUI_MODEM_STATE_SEARCHING,
+                              GUI_MODEM_STATE_REGISTERED,
+                              GUI_MODEM_STATE_DISCONNECTING,
+                              GUI_MODEM_STATE_CONNECTING,
+                              GUI_MODEM_STATE_CONNECTED)
 
 from gui.utils import UNIT_KB, UNIT_MB, units_to_bytes
 from gui.views.stats import StatsBar
@@ -131,8 +131,8 @@ class MainView(View):
         window.set_size_request(width=WIN_WIDTH, height=height)
         self._setup_support_tabs()
         self._setup_usage_view()
-        self.set_status_line(VMB_MODEM_STATE_NODEVICE, None, None, None, None)
-        self.set_view_state(VMB_MODEM_STATE_NODEVICE)
+        self.set_status_line(GUI_MODEM_STATE_NODEVICE, None, None, None, None)
+        self.set_view_state(GUI_MODEM_STATE_NODEVICE)
 
     def _setup_support_tabs(self):
         # populate Help tab
@@ -311,7 +311,7 @@ class MainView(View):
                 value = 100
             return 'signal-%s-%d.png' % (_type, value)
 
-        if state >= VMB_MODEM_STATE_REGISTERED:
+        if state >= GUI_MODEM_STATE_REGISTERED:
             # construct the signal image, bearer, network, roaming state
 
             # Image
@@ -346,19 +346,19 @@ class MainView(View):
             set_roaming_indicator(registration == 5)
         else:
             # Image
-            if state <= VMB_MODEM_STATE_NODEVICE:
+            if state <= GUI_MODEM_STATE_NODEVICE:
                 set_image('nodevice.png')
-            elif state in [VMB_MODEM_STATE_HAVEDEVICE,
-                           VMB_MODEM_STATE_DISABLED,
-                           VMB_MODEM_STATE_UNLOCKED,
-                           VMB_MODEM_STATE_ENABLED]:
+            elif state in [GUI_MODEM_STATE_HAVEDEVICE,
+                           GUI_MODEM_STATE_DISABLED,
+                           GUI_MODEM_STATE_UNLOCKED,
+                           GUI_MODEM_STATE_ENABLED]:
                 set_image('device.png')
-            elif state == VMB_MODEM_STATE_LOCKED:
+            elif state == GUI_MODEM_STATE_LOCKED:
                 set_image('simlocked.png')
-            elif state in [VMB_MODEM_STATE_UNLOCKING,
-                           VMB_MODEM_STATE_ENABLING,
-                           VMB_MODEM_STATE_DISABLING,
-                           VMB_MODEM_STATE_SEARCHING]:
+            elif state in [GUI_MODEM_STATE_UNLOCKING,
+                           GUI_MODEM_STATE_ENABLING,
+                           GUI_MODEM_STATE_DISABLING,
+                           GUI_MODEM_STATE_SEARCHING]:
                 set_image('throbber.gif')
 
             # Bearer
@@ -373,23 +373,23 @@ class MainView(View):
     def set_view_state(self, state):
 
         def set_button():
-            if state < VMB_MODEM_STATE_REGISTERED:
+            if state < GUI_MODEM_STATE_REGISTERED:
                 ifile = 'connect.png'
                 label = _("Connect")
                 enabled = False
-            elif state == VMB_MODEM_STATE_REGISTERED:
+            elif state == GUI_MODEM_STATE_REGISTERED:
                 ifile = 'connect.png'
                 label = _("Connect")
                 enabled = True
-            elif state == VMB_MODEM_STATE_DISCONNECTING:
+            elif state == GUI_MODEM_STATE_DISCONNECTING:
                 ifile = 'disconnect.png'
                 label = _("Disconnecting")
                 enabled = False
-            elif state == VMB_MODEM_STATE_CONNECTING:
+            elif state == GUI_MODEM_STATE_CONNECTING:
                 ifile = 'connect.png'
                 label = _("Connecting")
                 enabled = False
-            elif state == VMB_MODEM_STATE_CONNECTED:
+            elif state == GUI_MODEM_STATE_CONNECTED:
                 ifile = 'disconnect.png'
                 label = _("Disconnect")
                 enabled = True
@@ -405,29 +405,29 @@ class MainView(View):
 
         def set_status_bar():
             state_names = {
-                VMB_MODEM_STATE_HAVEDEVICE: _('Device found'),
-                VMB_MODEM_STATE_DISABLED: _('Disabled'),
-                VMB_MODEM_STATE_LOCKED: _('SIM locked'),
-                VMB_MODEM_STATE_UNLOCKING: _('Authenticating'),
-                VMB_MODEM_STATE_UNLOCKED: _('Authenticated'),
-                VMB_MODEM_STATE_ENABLING: _('Enabling'),
-                VMB_MODEM_STATE_DISABLING: _('Disabling'),
-                VMB_MODEM_STATE_ENABLED: _('Enabled'),
-                VMB_MODEM_STATE_SEARCHING: _('Searching'),
-                VMB_MODEM_STATE_REGISTERED: _('Not connected'),
-                VMB_MODEM_STATE_CONNECTING: _('Connecting'),
-                VMB_MODEM_STATE_DISCONNECTING: _('Disconnecting'),
-                VMB_MODEM_STATE_CONNECTED: _('Connected'),
+                GUI_MODEM_STATE_HAVEDEVICE: _('Device found'),
+                GUI_MODEM_STATE_DISABLED: _('Disabled'),
+                GUI_MODEM_STATE_LOCKED: _('SIM locked'),
+                GUI_MODEM_STATE_UNLOCKING: _('Authenticating'),
+                GUI_MODEM_STATE_UNLOCKED: _('Authenticated'),
+                GUI_MODEM_STATE_ENABLING: _('Enabling'),
+                GUI_MODEM_STATE_DISABLING: _('Disabling'),
+                GUI_MODEM_STATE_ENABLED: _('Enabled'),
+                GUI_MODEM_STATE_SEARCHING: _('Searching'),
+                GUI_MODEM_STATE_REGISTERED: _('Not connected'),
+                GUI_MODEM_STATE_CONNECTING: _('Connecting'),
+                GUI_MODEM_STATE_DISCONNECTING: _('Disconnecting'),
+                GUI_MODEM_STATE_CONNECTED: _('Connected'),
             }
             self['net_statusbar'].push(1,
                                     state_names.get(state, _('No device')))
 
         try:
             # Enable checkitem
-            if state < VMB_MODEM_STATE_HAVEDEVICE:
+            if state < GUI_MODEM_STATE_HAVEDEVICE:
                 self['enable_modem'].set_active(False)
                 self['enable_modem'].set_sensitive(False)
-            elif state < VMB_MODEM_STATE_ENABLED:
+            elif state < GUI_MODEM_STATE_ENABLED:
                 self['enable_modem'].set_active(False)
                 self['enable_modem'].set_sensitive(True)
             else:
@@ -435,7 +435,7 @@ class MainView(View):
                 self['enable_modem'].set_sensitive(True)
 
             # Most items that need to switch on once device is enabled
-            if state < VMB_MODEM_STATE_ENABLED:
+            if state < GUI_MODEM_STATE_ENABLED:
                 self['change_pin1'].set_sensitive(False)
                 self['request_pin1'].set_sensitive(False)
                 self['import_contacts1'].set_sensitive(False)
@@ -448,8 +448,8 @@ class MainView(View):
 
             # But we also don't want to tempt the user to try changing
             # profile whilst connected
-            if state < VMB_MODEM_STATE_ENABLED or \
-                    state > VMB_MODEM_STATE_REGISTERED:
+            if state < GUI_MODEM_STATE_ENABLED or \
+                    state > GUI_MODEM_STATE_REGISTERED:
                 self['profiles_menu_item'].set_sensitive(False)
             else:
                 self['profiles_menu_item'].set_sensitive(True)
@@ -458,8 +458,8 @@ class MainView(View):
 
             set_status_bar()
 
-            self.show_statistics(state == VMB_MODEM_STATE_CONNECTED)
-            self.show_current_session(state == VMB_MODEM_STATE_CONNECTED)
+            self.show_statistics(state == GUI_MODEM_STATE_CONNECTED)
+            self.show_current_session(state == GUI_MODEM_STATE_CONNECTED)
 
         except AttributeError:
             pass  # Probably we are being destroyed

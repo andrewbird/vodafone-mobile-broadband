@@ -25,8 +25,8 @@ from wader.common.consts import CRD_INTFACE, MDM_INTFACE
 from wader.common.provider import NetworkProvider
 
 from gui.logger import logger
-from gui.constx import (VMB_VIEW_DISABLED, VMB_VIEW_IDLE, VMB_VIEW_BUSY,
-                              VMB_MODEM_STATE_REGISTERED)
+from gui.constx import (GUI_VIEW_DISABLED, GUI_VIEW_IDLE, GUI_VIEW_BUSY,
+                              GUI_MODEM_STATE_REGISTERED)
 
 
 class DiagnosticsController(Controller):
@@ -145,10 +145,10 @@ class DiagnosticsController(Controller):
     # ------------------------------------------------------------ #
 
     def property_status_value_change(self, model, old, new):
-        if new < VMB_MODEM_STATE_REGISTERED:
-            self.view.set_ussd_state(VMB_VIEW_DISABLED)
+        if new < GUI_MODEM_STATE_REGISTERED:
+            self.view.set_ussd_state(GUI_VIEW_DISABLED)
         else:
             if not self.ussd_busy:
-                self.view.set_ussd_state(VMB_VIEW_IDLE)
+                self.view.set_ussd_state(GUI_VIEW_IDLE)
             else:
-                self.view.set_ussd_state(VMB_VIEW_BUSY)
+                self.view.set_ussd_state(GUI_VIEW_BUSY)

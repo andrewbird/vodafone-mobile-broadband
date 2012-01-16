@@ -53,13 +53,13 @@ from gui.consts import (GTK_LOCK, GUIDE_DIR, IMAGES_DIR, APP_URL,
                               CFG_PREFS_DEFAULT_TRAY_ICON,
                               CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
                               CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION)
-from gui.constx import (VMB_SIM_AUTH_NONE, VMB_SIM_AUTH_PIN,
-                              VMB_SIM_AUTH_PUK, VMB_SIM_AUTH_PUK2,
-                              VMB_MODEM_STATE_NODEVICE,
-                              VMB_MODEM_STATE_HAVEDEVICE,
-                              VMB_MODEM_STATE_ENABLED,
-                              VMB_MODEM_STATE_REGISTERED,
-                              VMB_MODEM_STATE_CONNECTED)
+from gui.constx import (GUI_SIM_AUTH_NONE, GUI_SIM_AUTH_PIN,
+                              GUI_SIM_AUTH_PUK, GUI_SIM_AUTH_PUK2,
+                              GUI_MODEM_STATE_NODEVICE,
+                              GUI_MODEM_STATE_HAVEDEVICE,
+                              GUI_MODEM_STATE_ENABLED,
+                              GUI_MODEM_STATE_REGISTERED,
+                              GUI_MODEM_STATE_CONNECTED)
 
 from gui.contacts import SIMContact
 from gui.phonebook import (get_phonebook, Contact,
@@ -124,7 +124,7 @@ class MainController(WidgetController):
         self.start()
 
     def start(self):
-        self.view.set_view_state(VMB_MODEM_STATE_NODEVICE)
+        self.view.set_view_state(GUI_MODEM_STATE_NODEVICE)
 
         self.model.populate_last_month()
         self.model.populate_curr_month()
@@ -293,7 +293,7 @@ class MainController(WidgetController):
 
         self.view.set_view_state(new)
 
-        if old < VMB_MODEM_STATE_ENABLED and new >= VMB_MODEM_STATE_ENABLED:
+        if old < GUI_MODEM_STATE_ENABLED and new >= GUI_MODEM_STATE_ENABLED:
             self.refresh_treeviews()
 
             def imsi_cb(imsi):
@@ -302,14 +302,14 @@ class MainController(WidgetController):
 
             self.model.get_imsi(imsi_cb)
 
-        if old < VMB_MODEM_STATE_CONNECTED and \
-                new >= VMB_MODEM_STATE_CONNECTED:
+        if old < GUI_MODEM_STATE_CONNECTED and \
+                new >= GUI_MODEM_STATE_CONNECTED:
             self.model.start_stats_tracking()
             self.view.set_connection_time("0:00:00")
             timeout_add_seconds(1, self.update_connection_time)
 
-        if old > VMB_MODEM_STATE_REGISTERED and \
-                new <= VMB_MODEM_STATE_REGISTERED:
+        if old > GUI_MODEM_STATE_REGISTERED and \
+                new <= GUI_MODEM_STATE_REGISTERED:
             self.model.stop_stats_tracking()
             self.model.dial_path = None
 
@@ -402,14 +402,14 @@ class MainController(WidgetController):
                                                 self.on_sms_delivery_cb)
             self.signal_matches.append(sm)
 
-            self.model.status = VMB_MODEM_STATE_HAVEDEVICE
+            self.model.status = GUI_MODEM_STATE_HAVEDEVICE
         else:
             while self.signal_matches:
                 sm = self.signal_matches.pop()
                 sm.remove()
             self._hide_sim_contacts()
             self._hide_sim_messages()
-            self.model.status = VMB_MODEM_STATE_NODEVICE
+            self.model.status = GUI_MODEM_STATE_NODEVICE
             logger.info("main-controller: property_device_value_change")
 
     def property_profile_value_change(self, model, old, new):
@@ -432,14 +432,14 @@ class MainController(WidgetController):
         show_error_dialog(title, new)
 
     def property_sim_auth_required_value_change(self, model, old, new):
-        if new == VMB_SIM_AUTH_NONE:
+        if new == GUI_SIM_AUTH_NONE:
             # XXX: we should check for any of our existing popups and hide them
             pass
-        elif new == VMB_SIM_AUTH_PIN:
+        elif new == GUI_SIM_AUTH_PIN:
             self.ask_for_pin()
-        elif new == VMB_SIM_AUTH_PUK:
+        elif new == GUI_SIM_AUTH_PUK:
             self.ask_for_puk()
-        elif new == VMB_SIM_AUTH_PUK2:
+        elif new == GUI_SIM_AUTH_PUK2:
             self.ask_for_puk2()
 
     def property_profile_required_value_change(self, model, old, new):
@@ -540,7 +540,7 @@ class MainController(WidgetController):
             self.view['support_tool_button'].set_active(True)
 
     def on_topup_button_clicked(self, widget):
-        logger.info("VMB Main: Topup button clicked")
+        logger.info("GUI Main: Topup button clicked")
         ctrl = PayAsYouTalkController(self.model)
         view = PayAsYouTalkView(ctrl, self.view)
         view.show()
@@ -630,7 +630,7 @@ class MainController(WidgetController):
             self.apb = None
 
         self.model.dial_path = dev_path
-        self.model.status = VMB_MODEM_STATE_CONNECTED
+        self.model.status = GUI_MODEM_STATE_CONNECTED
         self.model.set_our_dial_attempt(None)
 
     def _on_connect_eb(self, e):
@@ -806,7 +806,7 @@ The csv file that you have tried to import has an invalid format.""")
 
         # Note: Only do something if status REGISTERED or CONNECTED
 
-        if self.model.status == VMB_MODEM_STATE_REGISTERED:
+        if self.model.status == GUI_MODEM_STATE_REGISTERED:
             # user wants to connect
             if not self.model.device:
                 show_warning_dialog(
@@ -853,7 +853,7 @@ The csv file that you have tried to import has an invalid format.""")
             self.apb.set_cancel_cb(stop_connection_attempt)
             self.apb.init()
 
-        elif self.model.status == VMB_MODEM_STATE_CONNECTED:
+        elif self.model.status == GUI_MODEM_STATE_CONNECTED:
             # user wants to disconnect
             logger.info("Disconnecting...")
 
@@ -1286,7 +1286,7 @@ The csv file that you have tried to import has an invalid format.""")
 
     def on_main_notebook_switch_page(self, notebook, ptr, pagenum):
         """
-        Callback for whenever VMB's main notebook is switched
+        Callback for whenever GUI's main notebook is switched
 
         Basically takes care of showing and hiding the appropiate menubars
         depending on the page the user is viewing
@@ -1333,7 +1333,7 @@ The csv file that you have tried to import has an invalid format.""")
                 self.update_message_contact_info()
 
     def _setup_trayicon(self, ignoreconf=False):
-        """Attaches VMB's trayicon to the systray"""
+        """Attaches GUI's trayicon to the systray"""
         showit = config.get('preferences', 'show_icon',
                             CFG_PREFS_DEFAULT_TRAY_ICON)
         if ignoreconf:
@@ -1347,7 +1347,7 @@ The csv file that you have tried to import has an invalid format.""")
             self.tray.hide()
 
     def _detach_trayicon(self):
-        """Detachs VMB's trayicon from the systray"""
+        """Detachs GUI's trayicon from the systray"""
         if self.tray:
             self.tray.hide()
 
@@ -1392,7 +1392,7 @@ The csv file that you have tried to import has an invalid format.""")
 #        print keyval_name(event.keyval)
 
         if keyval_name(event.keyval) in 'F5' and \
-                self.model.status >= VMB_MODEM_STATE_ENABLED:
+                self.model.status >= GUI_MODEM_STATE_ENABLED:
             self.refresh_treeviews()
             self.view.set_message_preview(None)
 

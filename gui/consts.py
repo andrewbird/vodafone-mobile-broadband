@@ -63,11 +63,11 @@ GUIDE_DIR = join('/usr/share/doc', APP_SLUG_NAME)
 GTK_LOCK = join('/tmp', '.%s-lock' % APP_SLUG_NAME)
 
 USER_HOME = expanduser('~')
-VMB_HOME = join(USER_HOME, '.%s' % APP_SLUG_NAME)
+GUI_HOME = join(USER_HOME, '.%s' % APP_SLUG_NAME)
 
-LOG_FILE = join(VMB_HOME, 'log')
+LOG_FILE = join(GUI_HOME, 'log')
 
-DB_DIR = join(VMB_HOME, 'db')
+DB_DIR = join(GUI_HOME, 'db')
 MESSAGES_DB = join(DB_DIR, 'messages.db')
 USAGE_DB = join(DB_DIR, 'usage.db')
 

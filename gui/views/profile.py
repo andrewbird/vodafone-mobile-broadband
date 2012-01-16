@@ -29,8 +29,8 @@ from wader.common.utils import get_bands
 
 from gui.contrib.gtkmvc import View
 from gui.consts import GLADE_DIR
-from gui.constx import (VM_NETWORK_AUTH_ANY,
-                              VM_NETWORK_AUTH_PAP, VM_NETWORK_AUTH_CHAP,
+from gui.constx import (GUI_NETWORK_AUTH_ANY,
+                              GUI_NETWORK_AUTH_PAP, GUI_NETWORK_AUTH_CHAP,
                               BAND_MAP, MODE_MAP, AUTH_MAP)
 from gui.translate import _
 
@@ -80,9 +80,9 @@ class ProfileView(View):
     def set_auths(self, current):
         model = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_INT)
 
-        for value in [VM_NETWORK_AUTH_ANY,
-                      VM_NETWORK_AUTH_PAP,
-                      VM_NETWORK_AUTH_CHAP]:
+        for value in [GUI_NETWORK_AUTH_ANY,
+                      GUI_NETWORK_AUTH_PAP,
+                      GUI_NETWORK_AUTH_CHAP]:
             human_name = AUTH_MAP[value]
             model.append([human_name, value])
 

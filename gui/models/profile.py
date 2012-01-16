@@ -33,10 +33,10 @@ from gui.logger import logger
 from gui.profiles import manager
 from gui.translate import _
 
-from gui.constx import (VM_NETWORK_AUTH_ANY,
-                              VM_NETWORK_AUTH_PAP,
-                              VM_NETWORK_AUTH_CHAP,
-                              VMB_MODEM_STATE_CONNECTING)
+from gui.constx import (GUI_NETWORK_AUTH_ANY,
+                              GUI_NETWORK_AUTH_PAP,
+                              GUI_NETWORK_AUTH_CHAP,
+                              GUI_MODEM_STATE_CONNECTING)
 
 
 class ProfilesModel(Model):
@@ -126,7 +126,7 @@ class ProfileModel(Model):
         'password': "",
         'band': MM_NETWORK_BAND_ANY,
         'network_pref': MM_ALLOWED_MODE_ANY,
-        'auth': VM_NETWORK_AUTH_ANY,
+        'auth': GUI_NETWORK_AUTH_ANY,
         'autoconnect': False,
         'apn': "",
         'uuid': "",
@@ -217,11 +217,11 @@ class ProfileModel(Model):
             self.refuse_pap = settings.get('ppp', {}).get('refuse-pap')
 
             if not self.refuse_pap and self.refuse_chap:
-                self.auth = VM_NETWORK_AUTH_PAP
+                self.auth = GUI_NETWORK_AUTH_PAP
             elif not self.refuse_chap and self.refuse_pap:
-                self.auth = VM_NETWORK_AUTH_CHAP
+                self.auth = GUI_NETWORK_AUTH_CHAP
             else:
-                self.auth = VM_NETWORK_AUTH_ANY
+                self.auth = GUI_NETWORK_AUTH_ANY
 
             # the last one
             if settings['gsm'].get('password') is not None:
@@ -295,9 +295,9 @@ class ProfileModel(Model):
             props['gsm']['network-type'] = self.network_pref
 
         # Our GUI only cares about PAP/CHAP
-        if self.auth == VM_NETWORK_AUTH_PAP:
+        if self.auth == GUI_NETWORK_AUTH_PAP:
             props['ppp']['refuse-pap'] = False
-        elif self.auth == VM_NETWORK_AUTH_CHAP:
+        elif self.auth == GUI_NETWORK_AUTH_CHAP:
             props['ppp']['refuse-chap'] = False
         else:
             props['ppp']['refuse-pap'] = False
@@ -337,7 +337,7 @@ class ProfileModel(Model):
 
     def activate(self):
         if self.main_model and \
-                self.main_model.status < VMB_MODEM_STATE_CONNECTING:
+                self.main_model.status < GUI_MODEM_STATE_CONNECTING:
             # only perform this operations if we are disconnected and
             # a device is available
             device = self.main_model.get_device()

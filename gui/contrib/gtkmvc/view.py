@@ -31,7 +31,7 @@ import types
 class View (object):
 
     #
-    # modified for VMB to use translation domain
+    # modified for GUI to use translation domain
     #
 
     def __init__(self, controller, glade_filename=None,

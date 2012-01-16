@@ -26,7 +26,7 @@ import gui.consts as consts
 
 def check_for_bcm_home_compatibility():
 
-    if os.path.isdir(consts.VMB_HOME):
+    if os.path.isdir(consts.GUI_HOME):
         return
 
     old_home = os.path.join(consts.USER_HOME, '.bcm')
@@ -35,7 +35,7 @@ def check_for_bcm_home_compatibility():
         return
 
     try:
-        shutil.move(old_home, consts.VMB_HOME)
+        shutil.move(old_home, consts.GUI_HOME)
     except (OSError, IOError):
         raise RuntimeError("Conversion from %s to %s failed." %
                            (old_home, consts.USER_HOME))
@@ -50,5 +50,5 @@ def create_skeleton_and_return():
             except OSError:
                 raise RuntimeError("Cannot create %s" % path)
 
-    for path in [consts.VMB_HOME, consts.DB_DIR]:
+    for path in [consts.GUI_HOME, consts.DB_DIR]:
         mkdir(path)

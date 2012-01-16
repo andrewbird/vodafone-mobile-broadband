@@ -23,7 +23,7 @@ from datetime import datetime
 from dateutil.tz import gettz
 from time import time
 
-from gui.constx import VMB_MODEM_STATE_REGISTERED
+from gui.constx import GUI_MODEM_STATE_REGISTERED
 from gui.contrib.gtkmvc import Controller
 from gui.dialogs import show_warning_dialog
 from gui.logger import logger
@@ -31,7 +31,7 @@ from gui.network_codes import (get_payt_credit_check_info,
                                      get_payt_submit_voucher_info)
 from gui.translate import _
 
-# XXX: needs to be something other than any VMB_MODEM_STATE_* value
+# XXX: needs to be something other than any GUI_MODEM_STATE_* value
 TOPUP_BUSY = 9999
 
 
@@ -214,7 +214,7 @@ class PayAsYouTalkController(Controller):
         self.model.payt_credit_date = None
 
     def _set_form_state(self, status):
-        if status == VMB_MODEM_STATE_REGISTERED:
+        if status == GUI_MODEM_STATE_REGISTERED:
             self.view.enable_credit_button(True)
             self.view.enable_send_button(True)
             self.view.enable_voucher_entry_view(True)
