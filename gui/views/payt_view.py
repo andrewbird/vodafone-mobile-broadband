@@ -22,7 +22,7 @@ import gtk
 
 from gui.contrib.gtkmvc import View
 from gui.logger import logger
-from gui.consts import GLADE_DIR, IMAGES_DIR, ANIMATION_DIR
+from gui.consts import APP_SLUG_NAME, GLADE_DIR, IMAGES_DIR, ANIMATION_DIR
 from gui.translate import _
 
 
@@ -41,7 +41,9 @@ class PayAsYouTalkView(View):
 
     def __init__(self, ctrl, parent_view):
         super(PayAsYouTalkView, self).__init__(ctrl, self.GLADE_FILE,
-                'payt_window', parent_view, register=False, domain='vodafone-mobile-broadband')
+                                                'payt_window', parent_view,
+                                                register=False,
+                                                domain=APP_SLUG_NAME)
         self.setup_view()
         ctrl.register_view(self)
 

@@ -23,7 +23,7 @@ import gtk
 #from gtkmvc import View
 from gui.contrib.gtkmvc import View
 
-from gui.consts import GLADE_DIR
+from gui.consts import APP_SLUG_NAME, GLADE_DIR
 
 HEIGHT = 200
 WIDTH = 425
@@ -36,7 +36,8 @@ class NewSmsView(View):
 
     def __init__(self, ctrl):
         super(NewSmsView, self).__init__(ctrl, self.GLADE_FILE,
-            'sms_edit_window', register=False, domain='vodafone-mobile-broadband')
+                                            'sms_edit_window', register=False,
+                                            domain=APP_SLUG_NAME)
         self.setup_view(ctrl)
         ctrl.register_view(self)
 

@@ -23,7 +23,7 @@ import os.path
 #from gtkmvc import View
 from gui.contrib.gtkmvc import View
 
-from gui.consts import GLADE_DIR, IMAGES_DIR
+from gui.consts import APP_SLUG_NAME, GLADE_DIR, IMAGES_DIR
 from gui.translate import _
 
 
@@ -34,7 +34,8 @@ class PinModifyView(View):
 
     def __init__(self, ctrl):
         super(PinModifyView, self).__init__(ctrl, self.GLADE_FILE,
-                'pin_modify_window', register=True, domain='vodafone-mobile-broadband')
+                                            'pin_modify_window', register=True,
+                                            domain=APP_SLUG_NAME)
 
 
 class PinEnableView(View):
@@ -44,7 +45,8 @@ class PinEnableView(View):
 
     def __init__(self, ctrl):
         super(PinEnableView, self).__init__(ctrl, self.GLADE_FILE,
-            'ask_pin_window', register=False, domain='vodafone-mobile-broadband')
+                                            'ask_pin_window', register=False,
+                                            domain=APP_SLUG_NAME)
         self.setup_view()
         ctrl.register_view(self)
 
@@ -59,7 +61,8 @@ class AskPINView(View):
 
     def __init__(self, ctrl):
         super(AskPINView, self).__init__(ctrl, self.GLADE_FILE,
-            'ask_pin_window', register=False, domain='vodafone-mobile-broadband')
+                                            'ask_pin_window', register=False,
+                                            domain=APP_SLUG_NAME)
         ctrl.register_view(self)
 
     def get_keyring_checkbox_active(self):
@@ -83,7 +86,8 @@ class AskPUKView(View):
 
     def __init__(self, ctrl):
         super(AskPUKView, self).__init__(ctrl, self.GLADE_FILE,
-            'ask_puk_window', register=True, domain='vodafone-mobile-broadband')
+                                            'ask_puk_window', register=True,
+                                            domain=APP_SLUG_NAME)
 
     def set_puk_view(self):
         msg = _("""

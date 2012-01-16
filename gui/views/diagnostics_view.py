@@ -22,7 +22,7 @@ import gtk
 #from gtkmvc import View
 from gui.contrib.gtkmvc import View
 
-from gui.consts import GLADE_DIR, IMAGES_DIR
+from gui.consts import APP_SLUG_NAME, GLADE_DIR, IMAGES_DIR
 from gui.constx import GUI_VIEW_DISABLED, GUI_VIEW_IDLE, GUI_VIEW_BUSY
 from gui.translate import _
 
@@ -37,8 +37,8 @@ class DiagnosticsView(View):
     Betavine_Image = join(IMAGES_DIR, "VF_logo_medium.png")
 
     def __init__(self, ctrl):
-        View.__init__(self, ctrl, self.GLADE_FILE,
-                      'diagnostics_window', register=False, domain='vodafone-mobile-broadband')
+        View.__init__(self, ctrl, self.GLADE_FILE, 'diagnostics_window',
+                        register=False, domain=APP_SLUG_NAME)
         self.setup_view()
         ctrl.register_view(self)
 

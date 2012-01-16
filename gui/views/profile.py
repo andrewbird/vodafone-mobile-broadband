@@ -28,7 +28,7 @@ from wader.common.consts import MM_NETWORK_BAND_ANY, MM_ALLOWED_MODE_ANY
 from wader.common.utils import get_bands
 
 from gui.contrib.gtkmvc import View
-from gui.consts import GLADE_DIR
+from gui.consts import APP_SLUG_NAME, GLADE_DIR
 from gui.constx import (GUI_NETWORK_AUTH_ANY,
                               GUI_NETWORK_AUTH_PAP, GUI_NETWORK_AUTH_CHAP,
                               BAND_MAP, MODE_MAP, AUTH_MAP)
@@ -44,7 +44,8 @@ class ProfileView(View):
 
     def __init__(self, ctrl):
         super(ProfileView, self).__init__(ctrl, self.GLADE_FILE,
-                                          'new_profile_window', domain='vodafone-mobile-broadband')
+                                            'new_profile_window',
+                                            domain=APP_SLUG_NAME)
         self.get_top_widget().set_icon(DIALOG_ICON)
 
         ctrl.setup_view(self)
@@ -113,8 +114,9 @@ class APNSelectionView(View):
 
     def __init__(self, ctrl):
         super(APNSelectionView, self).__init__(ctrl, self.GLADE_FILE,
-                                               'apn_selection_window',
-                                               register=False, domain='vodafone-mobile-broadband')
+                                                'apn_selection_window',
+                                                register=False,
+                                                domain=APP_SLUG_NAME)
         self.get_top_widget().set_icon(DIALOG_ICON)
 
         self.store = None
@@ -169,8 +171,8 @@ class APNSelectionView(View):
             return None
 
         if not selected:
-            _iter = model.get_iter(0)    # 1st row if no selection
+            _iter = model.get_iter(0)       # 1st row if no selection
         else:
             _iter = model.get_iter(selected[0])
 
-        return model.get_value(_iter, 3) # the object
+        return model.get_value(_iter, 3)    # the object

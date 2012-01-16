@@ -22,7 +22,7 @@ import os.path
 #from gtkmvc import View
 from gui.contrib.gtkmvc import View
 
-from gui.consts import APP_LONG_NAME, GLADE_DIR, IMAGES_DIR
+from gui.consts import APP_SLUG_NAME, APP_LONG_NAME, GLADE_DIR, IMAGES_DIR
 
 
 def clear_s(s):
@@ -35,7 +35,8 @@ class CheckBoxDialogView(View):
     GLADE_FILE = os.path.join(GLADE_DIR, "dialogs.glade")
 
     def __init__(self, ctrl, top_widget):
-        View.__init__(self, ctrl, self.GLADE_FILE, top_widget, domain='vodafone-mobile-broadband')
+        View.__init__(self, ctrl, self.GLADE_FILE, top_widget,
+                        domain=APP_SLUG_NAME)
 
     def run(self):
         resp = self.get_top_widget().run()

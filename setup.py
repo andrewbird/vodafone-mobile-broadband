@@ -31,9 +31,9 @@ from distutils.command.install_data import install_data as _install_data
 from distutils import cmd
 from distutils.command.build import build as _build
 
-from gui.consts import APP_VERSION, APP_NAME, RESOURCES_DIR
+from gui.consts import APP_VERSION, APP_NAME, APP_SLUG_NAME, RESOURCES_DIR
 
-INSTALL_DIR = '/usr/share/vodafone-mobile-broadband'
+INSTALL_DIR = '/usr/share/' + APP_SLUG_NAME
 APPLICATIONS = '/usr/share/applications'
 PIXMAPS = '/usr/share/pixmaps'
 DBUS_SYSTEMD = '/etc/dbus-1/system.d'
@@ -62,14 +62,14 @@ class build_trans(cmd.Command):
 
     def run(self):
         for filename in glob(join('.', 'resources', 'po', '*.po')):
-            name = basename(filename)[:-3]  # vodafone-mobile-broadband-es
+            name = basename(filename)[:-3]  # APP_SLUG_NAME + '-es'
             lang = name.split('-')[-1]      # es
 
             tdir = join('build', 'locale', lang, 'LC_MESSAGES')
             if not exists(tdir):
                 makedirs(tdir)
 
-            tfil = join(tdir, 'vodafone-mobile-broadband.mo')
+            tfil = join(tdir, APP_SLUG_NAME + '.mo')
             call(['msgfmt', '-cf', '-o', tfil, filename])
 
 #        raise RuntimeError("Uncomment to see translation errors easily")
@@ -88,7 +88,7 @@ class install_data(_install_data):
         for lang in listdir('build/locale/'):
             lang_dir = join('share', 'locale', lang, 'LC_MESSAGES')
             lang_file = join('build', 'locale', lang, 'LC_MESSAGES',
-                                                'vodafone-mobile-broadband.mo')
+                                                APP_SLUG_NAME + '.mo')
             self.data_files.append((lang_dir, [lang_file]))
 
         _install_data.run(self)
@@ -116,7 +116,7 @@ def list_files(path, exclude=None):
     return result
 
 data_files = [
-    (INSTALL_DIR, ['bin/vodafone-mobile-broadband']),
+    (INSTALL_DIR, ['bin/' + APP_SLUG_NAME]),
     (join(RESOURCES_DIR, 'glade'), list_files('resources/glade')),
     (join(RESOURCES_DIR, 'glade/animation'),
         list_files('resources/glade/animation')),
@@ -125,9 +125,9 @@ data_files = [
 if sys.platform.startswith('linux'):
     append = data_files.append
     append((APPLICATIONS,
-            ['resources/desktop/vodafone-mobile-broadband.desktop']))
-    append((PIXMAPS, ['resources/desktop/vodafone-mobile-broadband.png']))
-    append((DBUS_SYSTEMD, ['resources/dbus/vodafone-mobile-broadband.conf']))
+            ['resources/desktop/' + APP_SLUG_NAME + '.desktop']))
+    append((PIXMAPS, ['resources/desktop/' + APP_SLUG_NAME + '.png']))
+    append((DBUS_SYSTEMD, ['resources/dbus/' + APP_SLUG_NAME + '.conf']))
 
 packages = [
     'gui',

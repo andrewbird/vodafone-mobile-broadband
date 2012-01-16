@@ -24,7 +24,7 @@ import gtk
 #from gtkmvc import View
 from gui.contrib.gtkmvc import View
 
-from gui.consts import GLADE_DIR
+from gui.consts import APP_SLUG_NAME, GLADE_DIR
 from gui.models.preferences import SMSCListStoreModel
 
 
@@ -35,7 +35,9 @@ class PreferencesView(View):
 
     def __init__(self, ctrl):
         super(PreferencesView, self).__init__(ctrl, self.GLADE_FILE,
-            'preferences_window', register=False, domain='vodafone-mobile-broadband')
+                                                'preferences_window',
+                                                register=False,
+                                                domain=APP_SLUG_NAME)
         self.ctrl = ctrl
         ctrl.register_view(self)
 
@@ -122,7 +124,9 @@ class SMSPreferencesView(View):
 
     def __init__(self, ctrl, parent_ctrl):
         super(SMSPreferencesView, self).__init__(ctrl, self.GLADE_FILE,
-            'sms_preferences', register=False, domain='vodafone-mobile-broadband')
+                                                    'sms_preferences',
+                                                    register=False,
+                                                    domain=APP_SLUG_NAME)
         self.parent_ctrl = parent_ctrl
         self.setup_view(ctrl)
         ctrl.register_view(self)

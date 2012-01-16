@@ -1,6 +1,7 @@
 SHELL = /bin/bash
 
 VERSION := $(shell python -c 'from gui.consts import APP_VERSION; print APP_VERSION')
+NAME := $(shell python -c 'from gui.consts import APP_SLUG_NAME; print APP_SLUG_NAME')
 SOURCES := $(shell rpmbuild --eval '%{_topdir}' 2>/dev/null)/SOURCES
 
 all:
@@ -13,8 +14,8 @@ rpm:
 		exit 1;\
 	fi
 
-	tar -jcvf $(SOURCES)/vodafone-mobile-broadband-$(VERSION).tar.bz2 --exclude=.git --transform="s/^\./vodafone-mobile-broadband-$(VERSION)/" .
-	rpmbuild -ba resources/rpm/vodafone-mobile-broadband.spec
+	tar -jcvf $(SOURCES)/$(NAME)-$(VERSION).tar.bz2 --exclude=.git --transform="s/^\./$(NAME)-$(VERSION)/" .
+	rpmbuild -ba resources/rpm/$(NAME).spec
 
 deb:
 	@if [ ! -d /var/lib/dpkg ] ;\

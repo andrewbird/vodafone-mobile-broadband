@@ -27,7 +27,8 @@ from pango import ELLIPSIZE_END
 from gui.contrib.gtkmvc import View
 from gui.config import config
 from gui.translate import _
-from gui.consts import GLADE_DIR, IMAGES_DIR, APP_LONG_NAME, APP_URL
+from gui.consts import (APP_LONG_NAME, APP_SLUG_NAME, APP_URL, GLADE_DIR,
+                        IMAGES_DIR)
 from gui.constx import (GUI_MODEM_STATE_NODEVICE,
                               GUI_MODEM_STATE_HAVEDEVICE,
                               GUI_MODEM_STATE_DISABLED,
@@ -86,8 +87,7 @@ class MainView(View):
         GLADE_FILE = os.path.join(GLADE_DIR, "main.glade")
 
         super(MainView, self).__init__(ctrl, GLADE_FILE, 'main_window',
-                                        register=False,
-                                        domain='vodafone-mobile-broadband')
+                                        register=False, domain=APP_SLUG_NAME)
 
         # Usage statistics
         self.usage_user_limit = int(config.get('preferences',

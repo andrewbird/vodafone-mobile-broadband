@@ -23,7 +23,7 @@ from gtk import WIN_POS_CENTER_ON_PARENT
 #from gtkmvc import View
 from gui.contrib.gtkmvc import View
 
-from gui.consts import GLADE_DIR
+from gui.consts import APP_SLUG_NAME, GLADE_DIR
 
 
 class ContactView(View):
@@ -48,7 +48,7 @@ class AddContactView(View):
 
     def __init__(self, ctrl):
         View.__init__(self, ctrl, self.GLADE_FILE, 'add_contact_window',
-                      register=False, domain='vodafone-mobile-broadband')
+                      register=False, domain=APP_SLUG_NAME)
         self.setup_view(ctrl)
         ctrl.register_view(self)
 
@@ -65,7 +65,8 @@ class SearchContactView(ContactView):
 
     def __init__(self, ctrl):
         ContactView.__init__(self, ctrl, self.GLADE_FILE,
-                      'search_dialog', register=True, domain='vodafone-mobile-broadband')
+                                'search_dialog', register=True,
+                                domain=APP_SLUG_NAME)
 
 
 class ContactsListView(ContactView):
@@ -73,4 +74,5 @@ class ContactsListView(ContactView):
 
     def __init__(self, ctrl):
         ContactView.__init__(self, ctrl, self.GLADE_FILE,
-                      'contacts_list_dialog', domain='vodafone-mobile-broadband')
+                                'contacts_list_dialog',
+                                domain=APP_SLUG_NAME)
