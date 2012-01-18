@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-18 10:05+0000\n"
-"PO-Revision-Date: 2012-01-15 12:32+0000\n"
-"Last-Translator: Daniel Winzen <d@winzen4.de>\n"
+"PO-Revision-Date: 2012-01-17 16:49+0000\n"
+"Last-Translator: Dennis Baudys <Unknown>\n"
 "Language-Team: <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-01-16 20:24+0000\n"
-"X-Generator: Launchpad (build 14664)\n"
+"X-Launchpad-Export-Date: 2012-01-18 20:24+0000\n"
+"X-Generator: Launchpad (build 14681)\n"
 "Language: de\n"
 
 #: ../glade/apnsel.glade:8
@@ -118,11 +118,11 @@ msgstr "<b>Verbindungseinstellungen</b>"
 
 #: ../glade/config.glade:461
 msgid "Enable hardware flow control"
-msgstr "Aktiviere HW-Fluß-Steuerung"
+msgstr "Hardware-Flusssteuerung aktivieren"
 
 #: ../glade/config.glade:474
 msgid "Enable software flow control"
-msgstr "Aktiviere SW-Fluß-Steuerung"
+msgstr "Software-Flusssteuerung aktivieren"
 
 #: ../glade/contacts.glade:7
 msgid "Contact search"
@@ -671,7 +671,7 @@ msgstr ""
 
 #: ../glade/preferences.glade:86
 msgid "Use an alternative SMS Service centre address"
-msgstr ""
+msgstr "Alternative SMS-Dienstzentrum-Adresse benutzen"
 
 #: ../glade/preferences.glade:90
 msgid ""
@@ -1288,12 +1288,12 @@ msgstr "Textnachricht: %(num)d/%(total)d chars (%(msgs)d SMS)"
 #: ../../gui/controllers/payt_controller.py:115
 #: ../../gui/controllers/payt_controller.py:125
 msgid "PAYT submit voucher"
-msgstr ""
+msgstr "PAYT-Gutschein übertragen"
 
 #: ../../gui/controllers/payt_controller.py:100
 #: ../../gui/controllers/payt_controller.py:161
 msgid "SIM is not on a PAYT plan"
-msgstr ""
+msgstr "SIM-Karte nimmt nicht am PAYT-Verfahren teil"
 
 #: ../../gui/controllers/payt_controller.py:116
 #, python-format
@@ -1301,10 +1301,12 @@ msgid ""
 "PAYT submit voucher failed\n"
 "'%s'"
 msgstr ""
+"PAYT-Gutscheinübertragung fehlgeschlagen\n"
+"»%s«"
 
 #: ../../gui/controllers/payt_controller.py:126
 msgid "No PAYT submit voucher method available"
-msgstr ""
+msgstr "Keine Möglichkeit zur PAYT-Gutscheinübertragung vorhanden"
 
 #: ../../gui/controllers/payt_controller.py:160
 #: ../../gui/controllers/payt_controller.py:195
@@ -1529,7 +1531,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:1574
 msgid "Only SIM based contacts supported"
-msgstr ""
+msgstr "Nur Kontakte, die auf der SIM-Karte sind, werden unterstützt"
 
 #: ../../gui/controllers/preferences.py:40
 msgid "Maximum time"

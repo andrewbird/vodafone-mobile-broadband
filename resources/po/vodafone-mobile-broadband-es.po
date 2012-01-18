@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-18 10:05+0000\n"
-"PO-Revision-Date: 2012-01-08 13:37+0000\n"
-"Last-Translator: txelu <Unknown>\n"
+"PO-Revision-Date: 2012-01-17 19:05+0000\n"
+"Last-Translator: Vicente Hernando <Unknown>\n"
 "Language-Team: British English <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-01-16 20:24+0000\n"
-"X-Generator: Launchpad (build 14664)\n"
+"X-Launchpad-Export-Date: 2012-01-18 20:24+0000\n"
+"X-Generator: Launchpad (build 14681)\n"
 "Language: es\n"
 
 #: ../glade/apnsel.glade:8
@@ -197,7 +197,7 @@ msgstr "IMEI"
 
 #: ../glade/diagnostics.glade:196
 msgid "Modem"
-msgstr "Modem:"
+msgstr "Módem:"
 
 #: ../glade/diagnostics.glade:227
 msgid "<b>Network details from SIM</b>"
@@ -274,7 +274,7 @@ msgstr "No soportado"
 
 #: ../glade/diagnostics.glade:673
 msgid "Modem Manager"
-msgstr "Gestor de modems"
+msgstr "Gestor de módems"
 
 #: ../glade/diagnostics.glade:689
 msgid "<b>USSD Test Message Diagnostics</b>"
@@ -308,7 +308,7 @@ msgstr "Un mensaje detallado"
 
 #: ../glade/dialogs.glade:138
 msgid "<big><b>Question?</b></big>"
-msgstr "<big><b>Pregunta?</b></big>"
+msgstr "<big><b>¿Pregunta?</b></big>"
 
 #: ../glade/dialogs.glade:152
 msgid "Detailed message"
@@ -540,7 +540,7 @@ msgstr "Último mes"
 
 #: ../glade/main.glade:1424
 msgid "<b>Usage</b> - Remember that this information is only indicative."
-msgstr "<b>Uso</b> - Recuerde que esta información es sólo indicativa."
+msgstr "<b>Consumo</b> - Recuerde que esta información es sólo orientativa."
 
 #: ../glade/main.glade:1468
 msgid "Help menu"
@@ -667,8 +667,8 @@ msgid ""
 "Allows SMS confirmation reports. This lets you see when someone has received "
 "your text message."
 msgstr ""
-"Permite notificaciones de confirmación SMS. Esto permit comprobar cuándo "
-"alguien ha recibido su mensaje de texto."
+"Permite notificaciones de confirmación SMS. Ésto permite comprobar cuándo "
+"alguien ha recibido su mensaje de texto"
 
 #: ../glade/preferences.glade:86
 msgid "Use an alternative SMS Service centre address"
@@ -905,7 +905,7 @@ msgstr "Gestor de dispositivos 3G"
 
 #: ../../gui/constx.py:47 ../../gui/constx.py:65 ../../gui/constx.py:84
 msgid "Any"
-msgstr "Cualquier"
+msgstr "Cualquiera"
 
 #: ../../gui/constx.py:48
 msgid "EGSM 900"
@@ -993,7 +993,7 @@ msgstr "MSCHAPv2"
 
 #: ../../gui/messages.py:38
 msgid "WAP Push (Binary content)"
-msgstr ""
+msgstr "WAP Push (contenido binario)"
 
 #: ../../gui/views/pin.py:74 ../../gui/controllers/preferences.py:212
 msgid "To use this feature you need the gnomekeyring module"
@@ -1064,7 +1064,7 @@ msgstr ""
 
 #: ../../gui/views/main.py:216 ../../gui/views/main.py:234
 msgid "N/A"
-msgstr "N/D"
+msgstr "No disponible"
 
 #: ../../gui/views/main.py:335
 msgid "GSM"
@@ -1146,11 +1146,11 @@ msgstr "Autenticado"
 
 #: ../../gui/views/main.py:419
 msgid "Enabling"
-msgstr ""
+msgstr "Habilitando"
 
 #: ../../gui/views/main.py:420
 msgid "Disabling"
-msgstr ""
+msgstr "Deshabilitando"
 
 #: ../../gui/views/main.py:422
 msgid "Searching"
@@ -1230,7 +1230,7 @@ msgstr "Error mientras se iniciaba wader"
 msgid ""
 "Check that your installation is correct and your  OS/distro is supported: %s"
 msgstr ""
-"Compruebe que la instalación está correcta y su distribución OS / está "
+"Compruebe que la instalación está correcta y su distribución/OS está "
 "soportado:%s"
 
 #: ../../gui/models/profile.py:167 ../../gui/controllers/preferences.py:158
@@ -1403,7 +1403,7 @@ msgstr "Error desconocido"
 
 #: ../../gui/controllers/main.py:428
 msgid "Error while registering to home network"
-msgstr ""
+msgstr "Error registrándose en la red base"
 
 #: ../../gui/controllers/main.py:497
 msgid "Transfer limit exceeded"
@@ -1481,6 +1481,8 @@ msgid ""
 "It's likely that this connection was made by the Network Manager Applet, "
 "please use that to deactivate"
 msgstr ""
+"Es probable que esta conexión se haya efectuado por la miniaplicación "
+"Network Manager. Úsela para desactivarla."
 
 #: ../../gui/controllers/main.py:1005
 msgid "_New Profile"
@@ -1521,7 +1523,7 @@ msgstr "Migrar a BD"
 
 #: ../../gui/controllers/main.py:1514
 msgid "Save to draft"
-msgstr "Guardar a borradores"
+msgstr "Guardar como borrador"
 
 #: ../../gui/controllers/main.py:1525
 msgid "Delete"
@@ -1529,11 +1531,11 @@ msgstr "Borrar"
 
 #: ../../gui/controllers/main.py:1573
 msgid "Can not handle DB contacts"
-msgstr ""
+msgstr "No se puede gestionar la BD de contactos"
 
 #: ../../gui/controllers/main.py:1574
 msgid "Only SIM based contacts supported"
-msgstr ""
+msgstr "Sólo soportados contactos en SIM"
 
 #: ../../gui/controllers/preferences.py:40
 msgid "Maximum time"
@@ -1563,8 +1565,8 @@ msgid ""
 "module\n"
 msgstr ""
 "\n"
-"To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
-"module\n"
+"Para usar esta funcionalidad se necesita pygtk >= 2.10 ó el módulo "
+"egg.trayicon\n"
 
 #: ../../gui/controllers/contacts.py:93
 msgid "No contact found"
@@ -1583,6 +1585,8 @@ msgstr "Error al obtener la contraseña de la conexión"
 msgid ""
 "NoMatchError: No password was retrieved from connection, please set one again"
 msgstr ""
+"NoMachError: No se ha podido obtener una contraseña para la conexión. Por "
+"favor, configúrela de nuevo."
 
 #: ../../gui/controllers/profile.py:119
 msgid "Error creating profile"
@@ -1594,6 +1598,7 @@ msgstr ""
 "Launchpad Contributions:\n"
 "  Andrew Bird https://launchpad.net/~ajb-spheresystems\n"
 "  Héctor https://launchpad.net/~hblanco\n"
+"  Vicente Hernando https://launchpad.net/~bizenton\n"
 "  txelu https://launchpad.net/~txelu70"
 
 #: ../../gui/dialogs.py:129

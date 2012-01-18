@@ -1,21 +1,23 @@
-# Norwegian translation for vodafone-mobile-broadband
+# translation of no.po to Norwegian
+# Vodafone Mobile Broadband translation of no.po to Norsk
 # Copyright (C) 2007 Vodafone España S.A.
-# This file is distributed under the license that launchpad translation service dictates
-# Øystein Gulliksen aka Zack <oystein@gulliksen.org>, 2007.
+# This file is distributed under the same license as the Vodafone Mobile Broadband package.
 #
+# Øystein Gulliksen aka Zack <oystein@gulliksen.org>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-18 10:05+0000\n"
-"PO-Revision-Date: 2007-08-09 09:44+0200\n"
-"Last-Translator: Øystein Gulliksen <oystein@gulliksen.org>\n"
+"PO-Revision-Date: 2012-01-18 20:10+0000\n"
+"Last-Translator: Andrew Bird <Unknown>\n"
 "Language-Team: Norwegian <nb@li.org>\n"
-"Language: no\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Launchpad-Export-Date: 2012-01-18 20:24+0000\n"
+"X-Generator: Launchpad (build 14681)\n"
+"Language: no\n"
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
@@ -32,7 +34,7 @@ msgstr ""
 #: ../glade/apnsel.glade:193 ../glade/pin.glade:217 ../glade/pin.glade:222
 #: ../glade/pin.glade:862 ../glade/profiles.glade:1334
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: ../glade/apnsel.glade:208 ../glade/pin.glade:239
 #: ../glade/profiles.glade:1349
@@ -160,7 +162,7 @@ msgstr "Modell:"
 
 #: ../glade/diagnostics.glade:103
 msgid "Firmware: "
-msgstr ""
+msgstr "Firmware: "
 
 #: ../glade/diagnostics.glade:114
 msgid "IMEI: "
@@ -176,7 +178,7 @@ msgstr "Kortmodell"
 
 #: ../glade/diagnostics.glade:160
 msgid "Firmware"
-msgstr ""
+msgstr "Firmware"
 
 #: ../glade/diagnostics.glade:172
 msgid "IMEI"
@@ -184,7 +186,7 @@ msgstr "IMEI"
 
 #: ../glade/diagnostics.glade:196
 msgid "Modem"
-msgstr ""
+msgstr "Modem"
 
 #: ../glade/diagnostics.glade:227
 msgid "<b>Network details from SIM</b>"
@@ -200,11 +202,11 @@ msgstr "Nettverk:"
 
 #: ../glade/diagnostics.glade:287
 msgid "Country:"
-msgstr ""
+msgstr "Land:"
 
 #: ../glade/diagnostics.glade:298
 msgid "Mobile Number:"
-msgstr ""
+msgstr "Mobilnummer:"
 
 #: ../glade/diagnostics.glade:321
 msgid "IMSI"
@@ -221,7 +223,7 @@ msgstr "IMSI"
 #: ../../gui/controllers/main.py:255 ../../gui/controllers/main.py:573
 #: ../../gui/controllers/preferences.py:85
 msgid "Unknown"
-msgstr ""
+msgstr "Ukjent"
 
 #: ../glade/diagnostics.glade:377
 msgid "SIM"
@@ -229,7 +231,7 @@ msgstr "SIM"
 
 #: ../glade/diagnostics.glade:409
 msgid "<b>Device information</b>"
-msgstr ""
+msgstr "<b>Enhetsinformasjon</b>"
 
 #: ../glade/diagnostics.glade:446
 msgid "Operating System:"
@@ -249,11 +251,11 @@ msgstr "Enhet"
 
 #: ../glade/diagnostics.glade:602
 msgid "Software Version:"
-msgstr ""
+msgstr "Programvareversjon:"
 
 #: ../glade/diagnostics.glade:613
 msgid "Core Version:"
-msgstr ""
+msgstr "Kjernen versjon:"
 
 #: ../glade/diagnostics.glade:635 ../glade/diagnostics.glade:645
 msgid "Not supported"
@@ -265,7 +267,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:689
 msgid "<b>USSD Test Message Diagnostics</b>"
-msgstr ""
+msgstr "<b>USSD Test Melding Diagnostic</b>"
 
 #: ../glade/diagnostics.glade:718
 msgid "Add your USSD string:"
@@ -273,7 +275,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:766
 msgid "USSD reply message:"
-msgstr ""
+msgstr "USSD svarmelding:"
 
 #: ../glade/diagnostics.glade:810 ../glade/payt.glade:289
 msgid "Send"
@@ -281,7 +283,7 @@ msgstr "Sender"
 
 #: ../glade/diagnostics.glade:843
 msgid "USSD"
-msgstr ""
+msgstr "USSD"
 
 #: ../glade/dialogs.glade:38 ../glade/dialogs.glade:239
 #: ../glade/dialogs.glade:451
@@ -628,7 +630,7 @@ msgstr "Ny PIN kode: "
 
 #: ../glade/pin.glade:425
 msgid "Current PIN code: "
-msgstr "Nåværende PIN kode"
+msgstr "Nåværende PIN kode "
 
 #: ../glade/pin.glade:513
 msgid "Please enter PUK"
@@ -969,7 +971,7 @@ msgstr ""
 
 #: ../../gui/views/pin.py:74 ../../gui/controllers/preferences.py:212
 msgid "To use this feature you need the gnomekeyring module"
-msgstr ""
+msgstr "To use this feature you need the gnomekeyring module"
 
 #: ../../gui/views/pin.py:89
 msgid ""
@@ -1007,6 +1009,17 @@ msgid ""
 "system, you might need to ask your Systems Administrator any doubt that you "
 "might have."
 msgstr ""
+"I de fleste tilfeller kan du finne svaret på dine spørsmål om programmet i "
+"hjelpe menyen Denne menyen kan du finne dersom du trykker på \"Hjelp\" "
+"knappen på menylinjen øverst til høyre og velger \"Hjelpe sider\"\n"
+"\n"
+"Du kan også finne hjelp, oppdateringer og tips på %(name)s's web:\n"
+"\n"
+" %(url)s\n"
+"\n"
+"Dersom du bruker epost og nettleser knappene for å åpne programmer i ditt "
+"system, bør du kanskje snakke med din System Administrator dersom du er i "
+"tvil"
 
 #: ../../gui/views/main.py:161
 msgid ""
@@ -1017,6 +1030,11 @@ msgid ""
 "If your company does not have a support center, you will have to contact "
 "your company's System Administrator."
 msgstr ""
+"Dersom du bruker dette programmet i din bedrift, så har sikkert din bedrift "
+"et eget support senter, som kan svare på spørsmål du har om programmet\n"
+"\n"
+"Dersom din bedrift ikke har noe support senter, så må du ta kontakt med din "
+"bedrifts System Administrator"
 
 #: ../../gui/views/main.py:216 ../../gui/views/main.py:234
 msgid "N/A"
@@ -1326,7 +1344,7 @@ msgstr ""
 "Senter på:\n"
 "%(shortcode)s, hvis du bruker Vodafone's nettverk, eller\n"
 "\n"
-"%(international)s dersom du ringer fra et annet nettverk. "
+"%(international)s dersom du ringer fra et annet nettverk."
 
 #: ../../gui/controllers/main.py:376
 msgid "Invalid password"
@@ -1399,6 +1417,8 @@ msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
 msgstr ""
+"\n"
+"CSV filen du prøver å importere har ugyldig format."
 
 #: ../../gui/controllers/main.py:810
 msgid "No device found"
@@ -1506,6 +1526,9 @@ msgid ""
 "To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
 "module\n"
 msgstr ""
+"\n"
+"To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
+"module\n"
 
 #: ../../gui/controllers/contacts.py:93
 msgid "No contact found"
@@ -1532,10 +1555,13 @@ msgstr ""
 #: ../../gui/dialogs.py:66
 msgid "translator-credits"
 msgstr ""
+"Launchpad Contributions:\n"
+"  Andrew Bird https://launchpad.net/~ajb-spheresystems\n"
+"  Zack https://launchpad.net/~oystein-gulliksen"
 
 #: ../../gui/dialogs.py:129
 msgid "Warning"
-msgstr ""
+msgstr "Advarsel"
 
 #: ../../gui/dialogs.py:155
 msgid "Error"
@@ -1543,7 +1569,7 @@ msgstr "Feil"
 
 #: ../../gui/dialogs.py:239
 msgid "Password required"
-msgstr ""
+msgstr "Passord kreves"
 
 #: ../../gui/dialogs.py:240
 msgid "Please, insert the password of your connection"
@@ -1601,11 +1627,11 @@ msgstr ""
 
 #: ../../gui/contacts/contact_evolution.py:136
 msgid "Evolution"
-msgstr ""
+msgstr "Evolution"
 
 #: ../../gui/contacts/contact_kdepim.py:132
 msgid "KDE PIM"
-msgstr ""
+msgstr "KDE PIM"
 
 #: ../../bin/vodafone-mobile-broadband:68
 msgid "Do not run the application as root"
