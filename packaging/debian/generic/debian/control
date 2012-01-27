@@ -11,7 +11,7 @@ XS-Python-Version: current
 Package: vodafone-mobile-broadband
 Architecture: all
 Replaces: bcm, vodafone-mobile-connect
-Depends: python (>= 2.5), ${python:Depends}, wader-core (>= 0.5.7), python-messaging (>= 0.5.10), python-dateutil, python-gtk2, python-glade2, python-gnome2, python-gnomekeyring, python-notify, network-manager-gnome, python-wnck
+Depends: python (>= 2.5), ${python:Depends}, wader-core (>= 0.5.10), python-messaging (>= 0.5.10), python-dateutil, python-gtk2, python-glade2, python-gnome2, python-gnomekeyring, python-notify, network-manager-gnome, python-wnck
 Conflicts: bcm
 Recommends: python-sexy
 Description: Internet connection assistant for mobile devices.

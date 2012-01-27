@@ -28,7 +28,7 @@ Requires:       gnome-python2-gnome, gnome-python2-gnomekeyring, gnome-python2-g
 %endif
 
 BuildRequires:  python-imaging, gnu-free-sans-fonts, gettext
-Requires:       python >= 2.5, wader-core >= 0.5.7, python-messaging >= 0.5.10, python-dateutil
+Requires:       python >= 2.5, wader-core >= 0.5.10, python-messaging >= 0.5.10, python-dateutil
 
 %description
 Vodafone Mobile Broadband is a tool that manages 3G devices and mobile phones,
