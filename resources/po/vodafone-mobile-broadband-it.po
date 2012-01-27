@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-18 10:05+0000\n"
-"PO-Revision-Date: 2011-12-17 10:05+0000\n"
-"Last-Translator: Emanuele FANTON <Unknown>\n"
+"PO-Revision-Date: 2012-01-22 16:52+0000\n"
+"Last-Translator: Andrew Bird <Unknown>\n"
 "Language-Team: Italian <IT@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-01-18 20:24+0000\n"
-"X-Generator: Launchpad (build 14681)\n"
+"X-Launchpad-Export-Date: 2012-01-27 09:24+0000\n"
+"X-Generator: Launchpad (build 14727)\n"
 "Language: it\n"
 
 #: ../glade/apnsel.glade:8
@@ -294,7 +294,7 @@ msgstr "Inviare"
 
 #: ../glade/diagnostics.glade:843
 msgid "USSD"
-msgstr ""
+msgstr "USSD"
 
 #: ../glade/dialogs.glade:38 ../glade/dialogs.glade:239
 #: ../glade/dialogs.glade:451
@@ -505,11 +505,11 @@ msgstr "<b>Mese</b>"
 
 #: ../glade/main.glade:853 ../glade/main.glade:983 ../glade/main.glade:1285
 msgid "GPRS:"
-msgstr ""
+msgstr "GPRS:"
 
 #: ../glade/main.glade:865 ../glade/main.glade:997 ../glade/main.glade:1297
 msgid "3G:"
-msgstr ""
+msgstr "3G:"
 
 #: ../glade/main.glade:879 ../glade/main.glade:1011 ../glade/main.glade:1311
 msgid "Total:"
@@ -1067,11 +1067,11 @@ msgstr "N/A"
 
 #: ../../gui/views/main.py:335
 msgid "GSM"
-msgstr ""
+msgstr "GSM"
 
 #: ../../gui/views/main.py:336
 msgid "GSM_COMPAT"
-msgstr ""
+msgstr "GSM_COMPAT"
 
 #: ../../gui/views/main.py:337 ../../gui/signals.py:24
 msgid "GPRS"
@@ -1079,7 +1079,7 @@ msgstr "GPRS"
 
 #: ../../gui/views/main.py:338 ../../gui/signals.py:25
 msgid "EDGE"
-msgstr ""
+msgstr "EDGE"
 
 #: ../../gui/views/main.py:339 ../../gui/signals.py:26
 msgid "UMTS"
@@ -1099,11 +1099,11 @@ msgstr "HSPA"
 
 #: ../../gui/views/main.py:343
 msgid "HSPA+"
-msgstr ""
+msgstr "HSPA+"
 
 #: ../../gui/views/main.py:344
 msgid "LTE"
-msgstr ""
+msgstr "LTE"
 
 #: ../../gui/views/main.py:384 ../../gui/views/main.py:388
 #: ../../gui/controllers/main.py:689
@@ -1587,6 +1587,8 @@ msgstr ""
 #: ../../gui/dialogs.py:66
 msgid "translator-credits"
 msgstr ""
+"Launchpad Contributions:\n"
+"  Andrew Bird https://launchpad.net/~ajb-spheresystems"
 
 #: ../../gui/dialogs.py:129
 msgid "Warning"

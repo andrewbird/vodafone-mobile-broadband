@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-18 10:05+0000\n"
-"PO-Revision-Date: 2011-12-17 10:03+0000\n"
-"Last-Translator: Paulo Arinto <Unknown>\n"
+"PO-Revision-Date: 2012-01-22 16:49+0000\n"
+"Last-Translator: Andrew Bird <Unknown>\n"
 "Language-Team: Portuguese <PT@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-01-18 20:24+0000\n"
-"X-Generator: Launchpad (build 14681)\n"
+"X-Launchpad-Export-Date: 2012-01-27 09:24+0000\n"
+"X-Generator: Launchpad (build 14727)\n"
 "Language: pt\n"
 
 #: ../glade/apnsel.glade:8
@@ -1065,11 +1065,11 @@ msgstr "N/D"
 
 #: ../../gui/views/main.py:335
 msgid "GSM"
-msgstr ""
+msgstr "GSM"
 
 #: ../../gui/views/main.py:336
 msgid "GSM_COMPAT"
-msgstr ""
+msgstr "GSM_COMPAT"
 
 #: ../../gui/views/main.py:337 ../../gui/signals.py:24
 msgid "GPRS"
@@ -1097,11 +1097,11 @@ msgstr "HSPA"
 
 #: ../../gui/views/main.py:343
 msgid "HSPA+"
-msgstr ""
+msgstr "HSPA+"
 
 #: ../../gui/views/main.py:344
 msgid "LTE"
-msgstr ""
+msgstr "LTE"
 
 #: ../../gui/views/main.py:384 ../../gui/views/main.py:388
 #: ../../gui/controllers/main.py:689
@@ -1575,7 +1575,11 @@ msgstr "Erro ao criar perfil"
 
 #: ../../gui/dialogs.py:66
 msgid "translator-credits"
-msgstr "translator-credits"
+msgstr ""
+"translator-credits\n"
+"\n"
+"Launchpad Contributions:\n"
+"  Andrew Bird https://launchpad.net/~ajb-spheresystems"
 
 #: ../../gui/dialogs.py:129
 msgid "Warning"

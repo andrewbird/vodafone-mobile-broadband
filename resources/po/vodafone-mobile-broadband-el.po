@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-18 10:05+0000\n"
-"PO-Revision-Date: 2012-01-08 13:03+0000\n"
+"PO-Revision-Date: 2012-01-22 17:15+0000\n"
 "Last-Translator: Andrew Bird <Unknown>\n"
 "Language-Team: Greek <EL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-01-18 20:24+0000\n"
-"X-Generator: Launchpad (build 14681)\n"
+"X-Launchpad-Export-Date: 2012-01-27 09:24+0000\n"
+"X-Generator: Launchpad (build 14727)\n"
 "Language: el\n"
 
 #: ../glade/apnsel.glade:8
@@ -291,7 +291,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:843
 msgid "USSD"
-msgstr ""
+msgstr "USSD"
 
 #: ../glade/dialogs.glade:38 ../glade/dialogs.glade:239
 #: ../glade/dialogs.glade:451
@@ -893,7 +893,7 @@ msgstr "Κάθε"
 
 #: ../../gui/constx.py:48
 msgid "EGSM 900"
-msgstr ""
+msgstr "EGSM 900"
 
 #: ../../gui/constx.py:49
 msgid "GSM DCS"
@@ -905,39 +905,39 @@ msgstr "GSM PCS"
 
 #: ../../gui/constx.py:51
 msgid "GSM 850"
-msgstr ""
+msgstr "GSM 850"
 
 #: ../../gui/constx.py:52
 msgid "WCDMA 2100"
-msgstr ""
+msgstr "WCDMA 2100"
 
 #: ../../gui/constx.py:53
 msgid "WCDMA 1700"
-msgstr ""
+msgstr "WCDMA 1700"
 
 #: ../../gui/constx.py:54
 msgid "WCDMA 17IV"
-msgstr ""
+msgstr "WCDMA 17IV"
 
 #: ../../gui/constx.py:55
 msgid "WCDMA 800"
-msgstr ""
+msgstr "WCDMA 800"
 
 #: ../../gui/constx.py:56
 msgid "WCDMA 850"
-msgstr ""
+msgstr "WCDMA 850"
 
 #: ../../gui/constx.py:57
 msgid "WCDMA 900"
-msgstr ""
+msgstr "WCDMA 900"
 
 #: ../../gui/constx.py:58
 msgid "WCDMA 17IX"
-msgstr ""
+msgstr "WCDMA 17IX"
 
 #: ../../gui/constx.py:59
 msgid "WCDMA 1900"
-msgstr ""
+msgstr "WCDMA 1900"
 
 #: ../../gui/constx.py:66 ../../gui/signals.py:27
 msgid "2G preferred"
@@ -957,23 +957,23 @@ msgstr "Μόνο 3G"
 
 #: ../../gui/constx.py:85
 msgid "PAP"
-msgstr ""
+msgstr "PAP"
 
 #: ../../gui/constx.py:86
 msgid "EAP"
-msgstr ""
+msgstr "EAP"
 
 #: ../../gui/constx.py:87
 msgid "CHAP"
-msgstr ""
+msgstr "CHAP"
 
 #: ../../gui/constx.py:88
 msgid "MSCHAP"
-msgstr ""
+msgstr "MSCHAP"
 
 #: ../../gui/constx.py:89
 msgid "MSCHAPv2"
-msgstr ""
+msgstr "MSCHAPv2"
 
 #: ../../gui/messages.py:38
 msgid "WAP Push (Binary content)"
@@ -1058,11 +1058,11 @@ msgstr "N/A"
 
 #: ../../gui/views/main.py:335
 msgid "GSM"
-msgstr ""
+msgstr "GSM"
 
 #: ../../gui/views/main.py:336
 msgid "GSM_COMPAT"
-msgstr ""
+msgstr "GSM_COMPAT"
 
 #: ../../gui/views/main.py:337 ../../gui/signals.py:24
 msgid "GPRS"
@@ -1070,11 +1070,11 @@ msgstr "GPRS"
 
 #: ../../gui/views/main.py:338 ../../gui/signals.py:25
 msgid "EDGE"
-msgstr ""
+msgstr "EDGE"
 
 #: ../../gui/views/main.py:339 ../../gui/signals.py:26
 msgid "UMTS"
-msgstr ""
+msgstr "UMTS"
 
 #: ../../gui/views/main.py:340 ../../gui/signals.py:31
 msgid "HSDPA"
@@ -1082,19 +1082,19 @@ msgstr ""
 
 #: ../../gui/views/main.py:341 ../../gui/signals.py:32
 msgid "HSUPA"
-msgstr ""
+msgstr "HSUPA"
 
 #: ../../gui/views/main.py:342 ../../gui/signals.py:33
 msgid "HSPA"
-msgstr ""
+msgstr "HSPA"
 
 #: ../../gui/views/main.py:343
 msgid "HSPA+"
-msgstr ""
+msgstr "HSPA+"
 
 #: ../../gui/views/main.py:344
 msgid "LTE"
-msgstr ""
+msgstr "LTE"
 
 #: ../../gui/views/main.py:384 ../../gui/views/main.py:388
 #: ../../gui/controllers/main.py:689

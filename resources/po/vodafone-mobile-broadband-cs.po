@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: vodafone-mobile-broadband\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-18 10:05+0000\n"
-"PO-Revision-Date: 2012-01-08 13:01+0000\n"
+"PO-Revision-Date: 2012-01-22 17:08+0000\n"
 "Last-Translator: Andrew Bird <Unknown>\n"
 "Language-Team: LANGUAGE <CS@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-01-18 20:24+0000\n"
-"X-Generator: Launchpad (build 14681)\n"
+"X-Launchpad-Export-Date: 2012-01-27 09:24+0000\n"
+"X-Generator: Launchpad (build 14727)\n"
 "Language: \n"
 
 #: ../glade/apnsel.glade:8
@@ -165,7 +165,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:114
 msgid "IMEI: "
-msgstr ""
+msgstr "IMEI: "
 
 #: ../glade/diagnostics.glade:138
 msgid "Card manufacturer"
@@ -181,7 +181,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:172
 msgid "IMEI"
-msgstr ""
+msgstr "IMEI"
 
 #: ../glade/diagnostics.glade:196
 msgid "Modem"
@@ -193,7 +193,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:265
 msgid "IMSI:"
-msgstr ""
+msgstr "IMSI:"
 
 #: ../glade/diagnostics.glade:276
 msgid "Network:"
@@ -209,7 +209,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:321
 msgid "IMSI"
-msgstr ""
+msgstr "IMSI"
 
 #: ../glade/diagnostics.glade:331 ../glade/diagnostics.glade:342
 #: ../glade/diagnostics.glade:352 ../glade/payt.glade:125
@@ -282,7 +282,7 @@ msgstr "Zaslat"
 
 #: ../glade/diagnostics.glade:843
 msgid "USSD"
-msgstr ""
+msgstr "USSD"
 
 #: ../glade/dialogs.glade:38 ../glade/dialogs.glade:239
 #: ../glade/dialogs.glade:451
@@ -493,11 +493,11 @@ msgstr ""
 
 #: ../glade/main.glade:853 ../glade/main.glade:983 ../glade/main.glade:1285
 msgid "GPRS:"
-msgstr ""
+msgstr "GPRS:"
 
 #: ../glade/main.glade:865 ../glade/main.glade:997 ../glade/main.glade:1297
 msgid "3G:"
-msgstr ""
+msgstr "3G:"
 
 #: ../glade/main.glade:879 ../glade/main.glade:1011 ../glade/main.glade:1311
 msgid "Total:"
@@ -637,7 +637,7 @@ msgstr ""
 
 #: ../glade/pin.glade:650
 msgid "PUK:"
-msgstr ""
+msgstr "PUK:"
 
 #: ../glade/preferences.glade:55
 msgid "<b>Change to global SMS settings </b>"
@@ -882,51 +882,51 @@ msgstr ""
 
 #: ../../gui/constx.py:48
 msgid "EGSM 900"
-msgstr ""
+msgstr "EGSM 900"
 
 #: ../../gui/constx.py:49
 msgid "GSM DCS"
-msgstr ""
+msgstr "GSM DCS"
 
 #: ../../gui/constx.py:50
 msgid "GSM PCS"
-msgstr ""
+msgstr "GSM PCS"
 
 #: ../../gui/constx.py:51
 msgid "GSM 850"
-msgstr ""
+msgstr "GSM 850"
 
 #: ../../gui/constx.py:52
 msgid "WCDMA 2100"
-msgstr ""
+msgstr "WCDMA 2100"
 
 #: ../../gui/constx.py:53
 msgid "WCDMA 1700"
-msgstr ""
+msgstr "WCDMA 1700"
 
 #: ../../gui/constx.py:54
 msgid "WCDMA 17IV"
-msgstr ""
+msgstr "WCDMA 17IV"
 
 #: ../../gui/constx.py:55
 msgid "WCDMA 800"
-msgstr ""
+msgstr "WCDMA 800"
 
 #: ../../gui/constx.py:56
 msgid "WCDMA 850"
-msgstr ""
+msgstr "WCDMA 850"
 
 #: ../../gui/constx.py:57
 msgid "WCDMA 900"
-msgstr ""
+msgstr "WCDMA 900"
 
 #: ../../gui/constx.py:58
 msgid "WCDMA 17IX"
-msgstr ""
+msgstr "WCDMA 17IX"
 
 #: ../../gui/constx.py:59
 msgid "WCDMA 1900"
-msgstr ""
+msgstr "WCDMA 1900"
 
 #: ../../gui/constx.py:66 ../../gui/signals.py:27
 msgid "2G preferred"
@@ -946,23 +946,23 @@ msgstr ""
 
 #: ../../gui/constx.py:85
 msgid "PAP"
-msgstr ""
+msgstr "PAP"
 
 #: ../../gui/constx.py:86
 msgid "EAP"
-msgstr ""
+msgstr "EAP"
 
 #: ../../gui/constx.py:87
 msgid "CHAP"
-msgstr ""
+msgstr "CHAP"
 
 #: ../../gui/constx.py:88
 msgid "MSCHAP"
-msgstr ""
+msgstr "MSCHAP"
 
 #: ../../gui/constx.py:89
 msgid "MSCHAPv2"
-msgstr ""
+msgstr "MSCHAPv2"
 
 #: ../../gui/messages.py:38
 msgid "WAP Push (Binary content)"
@@ -1019,23 +1019,23 @@ msgstr ""
 
 #: ../../gui/views/main.py:335
 msgid "GSM"
-msgstr ""
+msgstr "GSM"
 
 #: ../../gui/views/main.py:336
 msgid "GSM_COMPAT"
-msgstr ""
+msgstr "GSM_COMPAT"
 
 #: ../../gui/views/main.py:337 ../../gui/signals.py:24
 msgid "GPRS"
-msgstr ""
+msgstr "GPRS"
 
 #: ../../gui/views/main.py:338 ../../gui/signals.py:25
 msgid "EDGE"
-msgstr ""
+msgstr "EDGE"
 
 #: ../../gui/views/main.py:339 ../../gui/signals.py:26
 msgid "UMTS"
-msgstr ""
+msgstr "UMTS"
 
 #: ../../gui/views/main.py:340 ../../gui/signals.py:31
 msgid "HSDPA"
@@ -1043,19 +1043,19 @@ msgstr ""
 
 #: ../../gui/views/main.py:341 ../../gui/signals.py:32
 msgid "HSUPA"
-msgstr ""
+msgstr "HSDPA"
 
 #: ../../gui/views/main.py:342 ../../gui/signals.py:33
 msgid "HSPA"
-msgstr ""
+msgstr "HSPA"
 
 #: ../../gui/views/main.py:343
 msgid "HSPA+"
-msgstr ""
+msgstr "HSPA+"
 
 #: ../../gui/views/main.py:344
 msgid "LTE"
-msgstr ""
+msgstr "LTE"
 
 #: ../../gui/views/main.py:384 ../../gui/views/main.py:388
 #: ../../gui/controllers/main.py:689
