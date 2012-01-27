@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2012-01-27 09:24+0000\n"
 "X-Generator: Launchpad (build 14727)\n"
-"Language: no\n"
+"Language: nb\n"
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
