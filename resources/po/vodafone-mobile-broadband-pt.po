@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-18 10:05+0000\n"
-"PO-Revision-Date: 2012-01-22 16:49+0000\n"
+"POT-Creation-Date: 2012-01-27 11:30+0000\n"
+"PO-Revision-Date: 2012-01-27 10:44+0000\n"
 "Last-Translator: Andrew Bird <Unknown>\n"
 "Language-Team: Portuguese <PT@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-01-27 09:24+0000\n"
-"X-Generator: Launchpad (build 14727)\n"
+"X-Launchpad-Export-Date: 2012-02-08 09:40+0000\n"
+"X-Generator: Launchpad (build 14747)\n"
 "Language: pt\n"
 
 #: ../glade/apnsel.glade:8
@@ -224,10 +224,10 @@ msgstr "IMSI"
 #: ../glade/payt.glade:135 ../glade/payt.glade:145
 #: ../../gui/views/diagnostics_view.py:83
 #: ../../gui/views/diagnostics_view.py:91
-#: ../../gui/views/diagnostics_view.py:95 ../../gui/views/main.py:346
-#: ../../gui/views/payt_view.py:57 ../../gui/views/payt_view.py:69
-#: ../../gui/models/main.py:89 ../../gui/models/main.py:348
-#: ../../gui/controllers/main.py:255 ../../gui/controllers/main.py:573
+#: ../../gui/views/diagnostics_view.py:95 ../../gui/views/main.py:340
+#: ../../gui/views/payt_view.py:59 ../../gui/views/payt_view.py:71
+#: ../../gui/models/main.py:89 ../../gui/models/main.py:346
+#: ../../gui/controllers/main.py:258 ../../gui/controllers/main.py:576
 #: ../../gui/controllers/preferences.py:85
 msgid "Unknown"
 msgstr "Desconhecido"
@@ -372,7 +372,7 @@ msgid "_View"
 msgstr "_Ver"
 
 #: ../glade/main.glade:94 ../glade/main.glade:339
-#: ../glade/preferences.glade:781
+#: ../glade/preferences.glade:780
 msgid "Usage"
 msgstr "Uso"
 
@@ -384,7 +384,7 @@ msgstr "Suporte"
 msgid "_Tools"
 msgstr "_Ferramentas"
 
-#: ../glade/main.glade:140 ../../gui/views/main.py:421
+#: ../glade/main.glade:140 ../../gui/views/main.py:415
 msgid "Enabled"
 msgstr ""
 
@@ -461,7 +461,7 @@ msgid "Forward SMS to another contact"
 msgstr "Reenviar SMS para outro contacto"
 
 #: ../glade/main.glade:483 ../glade/main.glade:573
-#: ../../gui/controllers/main.py:749
+#: ../../gui/controllers/main.py:752
 msgid "_Delete"
 msgstr "_Apagar"
 
@@ -552,10 +552,6 @@ msgstr "Apoio ao Cliente"
 #: ../glade/misc.glade:54
 msgid "Wader log"
 msgstr "Wader log"
-
-#: ../glade/misc.glade:67 ../glade/preferences.glade:473
-msgid "\n"
-msgstr "\n"
 
 #: ../glade/payt.glade:6
 msgid "Topup Credit"
@@ -729,31 +725,31 @@ msgstr "Preferências do usuário"
 msgid "<b>Web Browser</b>"
 msgstr "<b>Web Browser</b>"
 
-#: ../glade/preferences.glade:491 ../glade/preferences.glade:584
+#: ../glade/preferences.glade:490 ../glade/preferences.glade:583
 msgid "Command:"
 msgstr "Comando:"
 
-#: ../glade/preferences.glade:528
+#: ../glade/preferences.glade:527
 msgid "<b>Email client</b>"
 msgstr "<b>cliente de e-mail</b>"
 
-#: ../glade/preferences.glade:631
+#: ../glade/preferences.glade:630
 msgid "Applications"
 msgstr "Aplicações"
 
-#: ../glade/preferences.glade:651
+#: ../glade/preferences.glade:650
 msgid "<b>Usage Options</b>"
 msgstr "<b>Uso de Opções</b>"
 
-#: ../glade/preferences.glade:679
+#: ../glade/preferences.glade:678
 msgid "Maximum traffic (MB):"
 msgstr "Máximo de tráfego (MB):"
 
-#: ../glade/preferences.glade:708
+#: ../glade/preferences.glade:707
 msgid "Notify when a given threshold is exceeded."
 msgstr "Notificar quando um determinado limite é excedido."
 
-#: ../glade/preferences.glade:735
+#: ../glade/preferences.glade:734
 msgid "Notification threshold (MB):"
 msgstr "Notificação limiar (MB):"
 
@@ -987,15 +983,15 @@ msgstr "MSCHAP"
 msgid "MSCHAPv2"
 msgstr "MSCHAPv2"
 
-#: ../../gui/messages.py:38
+#: ../../gui/messages.py:39
 msgid "WAP Push (Binary content)"
 msgstr ""
 
-#: ../../gui/views/pin.py:74 ../../gui/controllers/preferences.py:212
+#: ../../gui/views/pin.py:77 ../../gui/controllers/preferences.py:212
 msgid "To use this feature you need the gnomekeyring module"
 msgstr "Para usar este recurso você precisa do módulo gnomekeyring"
 
-#: ../../gui/views/pin.py:89
+#: ../../gui/views/pin.py:93
 msgid ""
 "\n"
 "In order to unlock your SIM, we need your\n"
@@ -1005,7 +1001,7 @@ msgstr ""
 "Para desbloquear o seu cartão SIM\n"
 "deve introduzir os seus códigos PIN e PUK"
 
-#: ../../gui/views/pin.py:96
+#: ../../gui/views/pin.py:100
 msgid ""
 "\n"
 "In order to unlock your SIM, we need your\n"
@@ -1015,7 +1011,7 @@ msgstr ""
 "Para desbloquear o seu cartão SIM\n"
 "deve introduzir os seus códigos PIN e PUK"
 
-#: ../../gui/views/main.py:146
+#: ../../gui/views/main.py:140
 #, python-format
 msgid ""
 "In most cases you can find the answer to your questions about the program in "
@@ -1043,7 +1039,7 @@ msgstr ""
 "computador, é possivél que seja necessário perguntar ao seu Administrador de "
 "Sistema qualquer dúvida relacionada com os mesmos."
 
-#: ../../gui/views/main.py:161
+#: ../../gui/views/main.py:155
 msgid ""
 "If you are using this program in a corporate environment, your company "
 "probably has a support center to solve the questions that you might have "
@@ -1059,143 +1055,143 @@ msgstr ""
 "Se a sua empresa não dispõe de um centro de suporte, contacte com o "
 "Administrador de sistemas da sua empresa através do procedimento habitual."
 
-#: ../../gui/views/main.py:216 ../../gui/views/main.py:234
+#: ../../gui/views/main.py:210 ../../gui/views/main.py:228
 msgid "N/A"
 msgstr "N/D"
 
-#: ../../gui/views/main.py:335
+#: ../../gui/views/main.py:329
 msgid "GSM"
 msgstr "GSM"
 
-#: ../../gui/views/main.py:336
+#: ../../gui/views/main.py:330
 msgid "GSM_COMPAT"
 msgstr "GSM_COMPAT"
 
-#: ../../gui/views/main.py:337 ../../gui/signals.py:24
+#: ../../gui/views/main.py:331 ../../gui/signals.py:24
 msgid "GPRS"
 msgstr "GPRS"
 
-#: ../../gui/views/main.py:338 ../../gui/signals.py:25
+#: ../../gui/views/main.py:332 ../../gui/signals.py:25
 msgid "EDGE"
 msgstr "EDGE"
 
-#: ../../gui/views/main.py:339 ../../gui/signals.py:26
+#: ../../gui/views/main.py:333 ../../gui/signals.py:26
 msgid "UMTS"
 msgstr "UMTS"
 
-#: ../../gui/views/main.py:340 ../../gui/signals.py:31
+#: ../../gui/views/main.py:334 ../../gui/signals.py:31
 msgid "HSDPA"
 msgstr "HSDPA"
 
-#: ../../gui/views/main.py:341 ../../gui/signals.py:32
+#: ../../gui/views/main.py:335 ../../gui/signals.py:32
 msgid "HSUPA"
 msgstr "HSUPA"
 
-#: ../../gui/views/main.py:342 ../../gui/signals.py:33
+#: ../../gui/views/main.py:336 ../../gui/signals.py:33
 msgid "HSPA"
 msgstr "HSPA"
 
-#: ../../gui/views/main.py:343
+#: ../../gui/views/main.py:337
 msgid "HSPA+"
 msgstr "HSPA+"
 
-#: ../../gui/views/main.py:344
+#: ../../gui/views/main.py:338
 msgid "LTE"
 msgstr "LTE"
 
-#: ../../gui/views/main.py:384 ../../gui/views/main.py:388
-#: ../../gui/controllers/main.py:689
+#: ../../gui/views/main.py:378 ../../gui/views/main.py:382
+#: ../../gui/controllers/main.py:692
 msgid "Connect"
 msgstr "Ligar"
 
-#: ../../gui/views/main.py:392 ../../gui/views/main.py:425
+#: ../../gui/views/main.py:386 ../../gui/views/main.py:419
 msgid "Disconnecting"
 msgstr "Desligar"
 
-#: ../../gui/views/main.py:396 ../../gui/views/main.py:424
-#: ../../gui/controllers/main.py:849
+#: ../../gui/views/main.py:390 ../../gui/views/main.py:418
+#: ../../gui/controllers/main.py:852
 msgid "Connecting"
 msgstr "A ligar..."
 
-#: ../../gui/views/main.py:400 ../../gui/controllers/main.py:684
+#: ../../gui/views/main.py:394 ../../gui/controllers/main.py:687
 msgid "Disconnect"
 msgstr "Desligar"
 
-#: ../../gui/views/main.py:414
+#: ../../gui/views/main.py:408
 msgid "Device found"
 msgstr "Dispositivo encontrado"
 
-#: ../../gui/views/main.py:415
+#: ../../gui/views/main.py:409
 msgid "Disabled"
 msgstr ""
 
-#: ../../gui/views/main.py:416
+#: ../../gui/views/main.py:410
 msgid "SIM locked"
 msgstr "SIM bloqueado"
 
-#: ../../gui/views/main.py:417
+#: ../../gui/views/main.py:411
 msgid "Authenticating"
 msgstr "A autenticar..."
 
-#: ../../gui/views/main.py:418
+#: ../../gui/views/main.py:412
 msgid "Authenticated"
 msgstr ""
 
-#: ../../gui/views/main.py:419
+#: ../../gui/views/main.py:413
 msgid "Enabling"
 msgstr ""
 
-#: ../../gui/views/main.py:420
+#: ../../gui/views/main.py:414
 msgid "Disabling"
 msgstr ""
 
-#: ../../gui/views/main.py:422
+#: ../../gui/views/main.py:416
 msgid "Searching"
 msgstr "Procurando"
 
-#: ../../gui/views/main.py:423 ../../gui/controllers/main.py:1056
+#: ../../gui/views/main.py:417 ../../gui/controllers/main.py:1060
 msgid "Not connected"
 msgstr "A desligar"
 
-#: ../../gui/views/main.py:426
+#: ../../gui/views/main.py:420
 msgid "Connected"
 msgstr "Ligado"
 
-#: ../../gui/views/main.py:429
+#: ../../gui/views/main.py:423
 msgid "No device"
 msgstr "Nenhum dispositivo"
 
-#: ../../gui/views/main.py:491 ../../gui/views/main.py:529
-#: ../../gui/views/profile.py:141 ../../gui/controllers/contacts.py:141
+#: ../../gui/views/main.py:485 ../../gui/views/main.py:523
+#: ../../gui/views/profile.py:143 ../../gui/controllers/contacts.py:141
 msgid "Type"
 msgstr "Tipo"
 
-#: ../../gui/views/main.py:497 ../../gui/views/profile.py:131
+#: ../../gui/views/main.py:491 ../../gui/views/profile.py:133
 #: ../../gui/controllers/contacts.py:147
 msgid "Name"
 msgstr "Nome"
 
-#: ../../gui/views/main.py:506 ../../gui/controllers/contacts.py:154
+#: ../../gui/views/main.py:500 ../../gui/controllers/contacts.py:154
 msgid "Number"
 msgstr "Número"
 
-#: ../../gui/views/main.py:540
+#: ../../gui/views/main.py:534
 msgid "Text"
 msgstr "Assunto"
 
-#: ../../gui/views/main.py:551
+#: ../../gui/views/main.py:545
 msgid "Recipient"
 msgstr "Destinatario"
 
-#: ../../gui/views/main.py:551
+#: ../../gui/views/main.py:545
 msgid "Sender"
 msgstr "Remetente"
 
-#: ../../gui/views/main.py:560
+#: ../../gui/views/main.py:554
 msgid "Date"
 msgstr "Data"
 
-#: ../../gui/views/profile.py:136
+#: ../../gui/views/profile.py:138
 msgid "Country"
 msgstr "País"
 
@@ -1213,86 +1209,86 @@ msgstr "%(day)d dia, %(msg)s"
 msgid "No signal"
 msgstr "Não há sinal de"
 
-#: ../../gui/models/main.py:113 ../../gui/controllers/payt_controller.py:177
-#: ../../gui/controllers/payt_controller.py:214
+#: ../../gui/models/main.py:113 ../../gui/controllers/payt_controller.py:176
+#: ../../gui/controllers/payt_controller.py:213
 msgid "Not available"
 msgstr "Não está disponível"
 
-#: ../../gui/models/main.py:174
+#: ../../gui/models/main.py:172
 msgid "Error while starting wader"
 msgstr "Erro enquanto wader partida"
 
-#: ../../gui/models/main.py:175
+#: ../../gui/models/main.py:173
 #, python-format
 msgid ""
 "Check that your installation is correct and your  OS/distro is supported: %s"
 msgstr ""
 "Verifique se a instalação está correto e sua distribuição OS é suportado:%s"
 
-#: ../../gui/models/profile.py:167 ../../gui/controllers/preferences.py:158
+#: ../../gui/models/profile.py:162 ../../gui/controllers/preferences.py:158
 #: ../../gui/controllers/preferences.py:174
 msgid "Custom"
 msgstr "Personalizado"
 
-#: ../../gui/models/profile.py:383
+#: ../../gui/models/profile.py:374
 msgid "Trying to remove an unsaved profile"
 msgstr "Tentar remover um perfil unsaved"
 
-#: ../../gui/controllers/sms.py:51
+#: ../../gui/controllers/sms.py:52
 msgid "You can send the SMS to several recipients separating them by commas"
 msgstr ""
 "Você pode enviar o SMS a vários destinatários separando-os por vírgulas"
 
-#: ../../gui/controllers/sms.py:83 ../../gui/controllers/sms.py:258
+#: ../../gui/controllers/sms.py:84 ../../gui/controllers/sms.py:259
 #, python-format
 msgid "Text message: 0/%d chars"
 msgstr "Mensagem de texto: 0/%d caracteres"
 
-#: ../../gui/controllers/sms.py:112
+#: ../../gui/controllers/sms.py:113
 msgid "Send empty message"
 msgstr "Enviar mensagem vazia"
 
-#: ../../gui/controllers/sms.py:113
+#: ../../gui/controllers/sms.py:114
 msgid "Are you sure you want to send an empty message?"
 msgstr "¿Tem a certeza que quer enviar uma mensagem vazia?"
 
-#: ../../gui/controllers/sms.py:137
+#: ../../gui/controllers/sms.py:138
 msgid "Error while sending SMS"
 msgstr "Erro ao enviar SMS"
 
-#: ../../gui/controllers/sms.py:183
+#: ../../gui/controllers/sms.py:184
 msgid "No SMSC number"
 msgstr ""
 
-#: ../../gui/controllers/sms.py:184
+#: ../../gui/controllers/sms.py:185
 #, python-format
 msgid ""
 "In order to send a SMS, %s needs to know the number of your provider's SMSC. "
 "If you do not know the SMSC number, contact your customer service."
 msgstr ""
 
-#: ../../gui/controllers/sms.py:266
+#: ../../gui/controllers/sms.py:267
 #, python-format
 msgid "Text message: %(num)d/%(total)d chars"
 msgstr "Mensagem de texto: %(num)d/%(total)d caracteres"
 
-#: ../../gui/controllers/sms.py:271
+#: ../../gui/controllers/sms.py:272
 #, python-format
 msgid "Text message: %(num)d/%(total)d chars (%(msgs)d SMS)"
 msgstr "Mensagem de texto: %(num)d/%(total)d caracteres (%(msgs)d SMS)"
 
-#: ../../gui/controllers/payt_controller.py:99
-#: ../../gui/controllers/payt_controller.py:115
-#: ../../gui/controllers/payt_controller.py:125
+#: ../../gui/controllers/payt_controller.py:98
+#: ../../gui/controllers/payt_controller.py:114
+#: ../../gui/controllers/payt_controller.py:124
 msgid "PAYT submit voucher"
 msgstr "PAYT submit voucher"
 
-#: ../../gui/controllers/payt_controller.py:100
-#: ../../gui/controllers/payt_controller.py:161
+#: ../../gui/controllers/payt_controller.py:99
+#: ../../gui/controllers/payt_controller.py:160
 msgid "SIM is not on a PAYT plan"
 msgstr "SIM is not on a PAYT plan"
 
-#: ../../gui/controllers/payt_controller.py:116
+#: ../../gui/controllers/payt_controller.py:115
 #, python-format
 msgid ""
 "PAYT submit voucher failed\n"
@@ -1301,16 +1297,16 @@ msgstr ""
 "PAYT submit voucher failed\n"
 "'%s'"
 
-#: ../../gui/controllers/payt_controller.py:126
+#: ../../gui/controllers/payt_controller.py:125
 msgid "No PAYT submit voucher method available"
 msgstr "No PAYT submit voucher method available"
 
-#: ../../gui/controllers/payt_controller.py:160
-#: ../../gui/controllers/payt_controller.py:195
+#: ../../gui/controllers/payt_controller.py:159
+#: ../../gui/controllers/payt_controller.py:194
 msgid "PAYT credit check"
 msgstr "PAYT credit check"
 
-#: ../../gui/controllers/payt_controller.py:196
+#: ../../gui/controllers/payt_controller.py:195
 msgid "No PAYT credit check method available"
 msgstr "No PAYT credit check method available"
 
@@ -1349,7 +1345,7 @@ msgstr "Não é possível fechar a aplicação"
 msgid "Can not close while a connection is active"
 msgstr "Não é possível fechar com uma conexão está ativa"
 
-#: ../../gui/controllers/main.py:265
+#: ../../gui/controllers/main.py:268
 #, python-format
 msgid ""
 "You can easily find answers to the most common questions in the help menu, "
@@ -1365,73 +1361,73 @@ msgid ""
 "%(international)s if you are calling from other network."
 msgstr ""
 
-#: ../../gui/controllers/main.py:376
+#: ../../gui/controllers/main.py:379
 msgid "Invalid password"
 msgstr "Senha inválida"
 
-#: ../../gui/controllers/main.py:377
+#: ../../gui/controllers/main.py:380
 msgid "The supplied password is incorrect"
 msgstr "A senha fornecida está incorreta"
 
-#: ../../gui/controllers/main.py:419
+#: ../../gui/controllers/main.py:422
 msgid "SIM error"
 msgstr "erro SIM"
 
-#: ../../gui/controllers/main.py:420
+#: ../../gui/controllers/main.py:423
 msgid "Perhaps your SIM is not inserted correctly?"
 msgstr "Talvez o cartão SIM não está inserido corretamente?"
 
-#: ../../gui/controllers/main.py:422
+#: ../../gui/controllers/main.py:425
 msgid "Unknown error"
 msgstr "Erro desconhecido"
 
-#: ../../gui/controllers/main.py:428
+#: ../../gui/controllers/main.py:431
 msgid "Error while registering to home network"
 msgstr "Erro ao registrar a rede doméstica"
 
-#: ../../gui/controllers/main.py:497
+#: ../../gui/controllers/main.py:500
 msgid "Transfer limit exceeded"
 msgstr "Transferir limite excedido"
 
-#: ../../gui/controllers/main.py:498
+#: ../../gui/controllers/main.py:501
 msgid "You have exceeded your transfer limit"
 msgstr "Você excedeu o seu limite de transferência"
 
-#: ../../gui/controllers/main.py:574
+#: ../../gui/controllers/main.py:577
 #, python-format
 msgid "SMS receipt received for %s"
 msgstr ""
 
-#: ../../gui/controllers/main.py:608
+#: ../../gui/controllers/main.py:611
 #, python-format
 msgid "SMS received from %s"
 msgstr "SMS recebido de %s"
 
-#: ../../gui/controllers/main.py:649 ../../gui/controllers/main.py:652
+#: ../../gui/controllers/main.py:652 ../../gui/controllers/main.py:655
 msgid "Failed connection attempt"
 msgstr "Falha na conexão"
 
-#: ../../gui/controllers/main.py:650
+#: ../../gui/controllers/main.py:653
 msgid "Unable to connect"
 msgstr ""
 
-#: ../../gui/controllers/main.py:703 ../../gui/controllers/main.py:738
+#: ../../gui/controllers/main.py:706 ../../gui/controllers/main.py:741
 msgid "Send SMS"
 msgstr "Enviar SMS"
 
-#: ../../gui/controllers/main.py:716
+#: ../../gui/controllers/main.py:719
 msgid "Quit"
 msgstr "Sair"
 
-#: ../../gui/controllers/main.py:760
+#: ../../gui/controllers/main.py:763
 msgid "Edit"
 msgstr "Editar"
 
-#: ../../gui/controllers/main.py:780
+#: ../../gui/controllers/main.py:783
 msgid "Invalid CSV format"
 msgstr "Formato CSV inválido"
 
-#: ../../gui/controllers/main.py:781
+#: ../../gui/controllers/main.py:784
 msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
@@ -1439,82 +1435,82 @@ msgstr ""
 "\n"
 "O ficheiro cvs que tentou importar não é compativél ou esta danificado."
 
-#: ../../gui/controllers/main.py:810
+#: ../../gui/controllers/main.py:813
 msgid "No device found"
 msgstr "Nenhum dispositivo encontrado"
 
-#: ../../gui/controllers/main.py:811
+#: ../../gui/controllers/main.py:814
 msgid "No device has been found. Insert one and try again."
 msgstr "Nenhum dispositivo foi encontrado. Insira um e tente novamente."
 
-#: ../../gui/controllers/main.py:817
+#: ../../gui/controllers/main.py:820
 msgid "Profile needed"
 msgstr "Perfil necessário"
 
-#: ../../gui/controllers/main.py:818
+#: ../../gui/controllers/main.py:821
 msgid "You need to create a profile for connecting."
 msgstr "Você precisa criar um perfil de ligação."
 
-#: ../../gui/controllers/main.py:863
+#: ../../gui/controllers/main.py:866
 msgid "Invalid Connection"
 msgstr ""
 
-#: ../../gui/controllers/main.py:864
+#: ../../gui/controllers/main.py:867
 msgid ""
 "It's likely that this connection was made by the Network Manager Applet, "
 "please use that to deactivate"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1005
+#: ../../gui/controllers/main.py:1009
 msgid "_New Profile"
 msgstr "_Novo perfil"
 
-#: ../../gui/controllers/main.py:1014
+#: ../../gui/controllers/main.py:1018
 msgid "Load Profile"
 msgstr "Perfil de carga"
 
-#: ../../gui/controllers/main.py:1019
+#: ../../gui/controllers/main.py:1023
 msgid "Edit Profile"
 msgstr "Editar perfil"
 
-#: ../../gui/controllers/main.py:1024
+#: ../../gui/controllers/main.py:1028
 msgid "Delete Profile"
 msgstr "Apagar perfil"
 
-#: ../../gui/controllers/main.py:1057
+#: ../../gui/controllers/main.py:1061
 msgid "No mobile connection. Do you want to continue?"
 msgstr "Sem rede. ¿Deseja continuar?"
 
-#: ../../gui/controllers/main.py:1487
+#: ../../gui/controllers/main.py:1491
 msgid "Editor not available"
 msgstr "Editor não está disponível"
 
-#: ../../gui/controllers/main.py:1488
+#: ../../gui/controllers/main.py:1492
 #, python-format
 msgid "Can not start external contact editor \"%s\""
 msgstr "Não é possível iniciar o editor de contato externo \"%s\""
 
-#: ../../gui/controllers/main.py:1494
+#: ../../gui/controllers/main.py:1498
 msgid "_Add to contacts"
 msgstr "_Adicionar aos contactos"
 
-#: ../../gui/controllers/main.py:1505
+#: ../../gui/controllers/main.py:1509
 msgid "Migrate to DB"
 msgstr "Migrar para o DB"
 
-#: ../../gui/controllers/main.py:1514
+#: ../../gui/controllers/main.py:1518
 msgid "Save to draft"
 msgstr "Guardar nos rascunhos"
 
-#: ../../gui/controllers/main.py:1525
+#: ../../gui/controllers/main.py:1529
 msgid "Delete"
 msgstr "Apagar"
 
-#: ../../gui/controllers/main.py:1573
+#: ../../gui/controllers/main.py:1577
 msgid "Can not handle DB contacts"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1574
+#: ../../gui/controllers/main.py:1578
 msgid "Only SIM based contacts supported"
 msgstr ""
 
@@ -1579,42 +1575,43 @@ msgstr ""
 "translator-credits\n"
 "\n"
 "Launchpad Contributions:\n"
-"  Andrew Bird https://launchpad.net/~ajb-spheresystems"
+"  Andrew Bird https://launchpad.net/~ajb-spheresystems\n"
+"  Paulo Arinto https://launchpad.net/~artinto"
 
-#: ../../gui/dialogs.py:129
+#: ../../gui/dialogs.py:128
 msgid "Warning"
 msgstr ""
 
-#: ../../gui/dialogs.py:155
+#: ../../gui/dialogs.py:154
 msgid "Error"
 msgstr "Erro!"
 
-#: ../../gui/dialogs.py:239
+#: ../../gui/dialogs.py:238
 msgid "Password required"
 msgstr "Palavra-passe necessária"
 
-#: ../../gui/dialogs.py:240
+#: ../../gui/dialogs.py:239
 msgid "Please, insert the password of your connection"
 msgstr "Por favor, insira a Palavra-passe de sua conexão"
 
-#: ../../gui/dialogs.py:274
+#: ../../gui/dialogs.py:273
 msgid "Save as ..."
 msgstr "Guardar como..."
 
-#: ../../gui/dialogs.py:282 ../../gui/dialogs.py:321
+#: ../../gui/dialogs.py:281 ../../gui/dialogs.py:320
 msgid "Csv files"
 msgstr "Ficheiros Csv"
 
-#: ../../gui/dialogs.py:288 ../../gui/dialogs.py:326
+#: ../../gui/dialogs.py:287 ../../gui/dialogs.py:325
 msgid "All files"
 msgstr "Todos os ficheiros"
 
-#: ../../gui/dialogs.py:299
+#: ../../gui/dialogs.py:298
 #, python-format
 msgid "Overwrite \"%s\"?"
 msgstr "Escrever por cima \"%s\"?"
 
-#: ../../gui/dialogs.py:300
+#: ../../gui/dialogs.py:299
 msgid ""
 "A file with this name already exists.\n"
 "If you choose to overwrite this file, the contents will be lost."
@@ -1622,7 +1619,7 @@ msgstr ""
 "Já existe um ficheiro com este nome.\n"
 "Se quiser escrever por cima, todo o conteudo será perdido."
 
-#: ../../gui/dialogs.py:313
+#: ../../gui/dialogs.py:312
 msgid "Import contacts from..."
 msgstr "Importar contactos de..."
 

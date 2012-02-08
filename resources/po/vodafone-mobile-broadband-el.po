@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-18 10:05+0000\n"
+"POT-Creation-Date: 2012-01-27 11:30+0000\n"
 "PO-Revision-Date: 2012-01-22 17:15+0000\n"
 "Last-Translator: Andrew Bird <Unknown>\n"
 "Language-Team: Greek <EL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-01-27 09:24+0000\n"
-"X-Generator: Launchpad (build 14727)\n"
+"X-Launchpad-Export-Date: 2012-02-08 09:40+0000\n"
+"X-Generator: Launchpad (build 14747)\n"
 "Language: el\n"
 
 #: ../glade/apnsel.glade:8
@@ -225,10 +225,10 @@ msgstr "IMSI"
 #: ../glade/payt.glade:135 ../glade/payt.glade:145
 #: ../../gui/views/diagnostics_view.py:83
 #: ../../gui/views/diagnostics_view.py:91
-#: ../../gui/views/diagnostics_view.py:95 ../../gui/views/main.py:346
-#: ../../gui/views/payt_view.py:57 ../../gui/views/payt_view.py:69
-#: ../../gui/models/main.py:89 ../../gui/models/main.py:348
-#: ../../gui/controllers/main.py:255 ../../gui/controllers/main.py:573
+#: ../../gui/views/diagnostics_view.py:95 ../../gui/views/main.py:340
+#: ../../gui/views/payt_view.py:59 ../../gui/views/payt_view.py:71
+#: ../../gui/models/main.py:89 ../../gui/models/main.py:346
+#: ../../gui/controllers/main.py:258 ../../gui/controllers/main.py:576
 #: ../../gui/controllers/preferences.py:85
 msgid "Unknown"
 msgstr "Άγνωστο"
@@ -371,7 +371,7 @@ msgid "_View"
 msgstr "Εμ_φάνιση"
 
 #: ../glade/main.glade:94 ../glade/main.glade:339
-#: ../glade/preferences.glade:781
+#: ../glade/preferences.glade:780
 msgid "Usage"
 msgstr "Χρήση"
 
@@ -383,7 +383,7 @@ msgstr "Υποστήριξη"
 msgid "_Tools"
 msgstr "Εργα_λεία"
 
-#: ../glade/main.glade:140 ../../gui/views/main.py:421
+#: ../glade/main.glade:140 ../../gui/views/main.py:415
 msgid "Enabled"
 msgstr ""
 
@@ -460,7 +460,7 @@ msgid "Forward SMS to another contact"
 msgstr "Προώθηση SMS σε άλλη επαφή"
 
 #: ../glade/main.glade:483 ../glade/main.glade:573
-#: ../../gui/controllers/main.py:749
+#: ../../gui/controllers/main.py:752
 msgid "_Delete"
 msgstr "_Διαγραφή"
 
@@ -550,10 +550,6 @@ msgstr "Υποστήριξη Πελατών"
 
 #: ../glade/misc.glade:54
 msgid "Wader log"
-msgstr ""
-
-#: ../glade/misc.glade:67 ../glade/preferences.glade:473
-msgid "\n"
 msgstr ""
 
 #: ../glade/payt.glade:6
@@ -726,31 +722,31 @@ msgstr ""
 msgid "<b>Web Browser</b>"
 msgstr ""
 
-#: ../glade/preferences.glade:491 ../glade/preferences.glade:584
+#: ../glade/preferences.glade:490 ../glade/preferences.glade:583
 msgid "Command:"
 msgstr ""
 
-#: ../glade/preferences.glade:528
+#: ../glade/preferences.glade:527
 msgid "<b>Email client</b>"
 msgstr ""
 
-#: ../glade/preferences.glade:631
+#: ../glade/preferences.glade:630
 msgid "Applications"
 msgstr ""
 
-#: ../glade/preferences.glade:651
+#: ../glade/preferences.glade:650
 msgid "<b>Usage Options</b>"
 msgstr ""
 
-#: ../glade/preferences.glade:679
+#: ../glade/preferences.glade:678
 msgid "Maximum traffic (MB):"
 msgstr ""
 
-#: ../glade/preferences.glade:708
+#: ../glade/preferences.glade:707
 msgid "Notify when a given threshold is exceeded."
 msgstr ""
 
-#: ../glade/preferences.glade:735
+#: ../glade/preferences.glade:734
 msgid "Notification threshold (MB):"
 msgstr ""
 
@@ -975,17 +971,17 @@ msgstr "MSCHAP"
 msgid "MSCHAPv2"
 msgstr "MSCHAPv2"
 
-#: ../../gui/messages.py:38
+#: ../../gui/messages.py:39
 msgid "WAP Push (Binary content)"
 msgstr ""
 
-#: ../../gui/views/pin.py:74 ../../gui/controllers/preferences.py:212
+#: ../../gui/views/pin.py:77 ../../gui/controllers/preferences.py:212
 msgid "To use this feature you need the gnomekeyring module"
 msgstr ""
 "Για να κάνετε χρήση αυτής της δυνατότητας χρειάζεστε την υπομονάδα "
 "gnomekeyring"
 
-#: ../../gui/views/pin.py:89
+#: ../../gui/views/pin.py:93
 msgid ""
 "\n"
 "In order to unlock your SIM, we need your\n"
@@ -995,7 +991,7 @@ msgstr ""
 "Για να ξεκλειδώσετε τη κάρτα SIM σας, θα χρειαστείτε\n"
 "τους κωδικούς PIN και PUK"
 
-#: ../../gui/views/pin.py:96
+#: ../../gui/views/pin.py:100
 msgid ""
 "\n"
 "In order to unlock your SIM, we need your\n"
@@ -1005,7 +1001,7 @@ msgstr ""
 "Για να ξεκλειδώσετε τη κάρτα SIM σας, θα χρειαστείτε\n"
 "τους κωδικούς PIN και PUK2"
 
-#: ../../gui/views/main.py:146
+#: ../../gui/views/main.py:140
 #, python-format
 msgid ""
 "In most cases you can find the answer to your questions about the program in "
@@ -1036,7 +1032,7 @@ msgstr ""
 "εφαρμογές του συστήματός σας, ίσως χρειαστείτε τη βοήθεια του Διαχειριστή "
 "σας για τυχών απορίες που μπορεί να έχετε."
 
-#: ../../gui/views/main.py:161
+#: ../../gui/views/main.py:155
 msgid ""
 "If you are using this program in a corporate environment, your company "
 "probably has a support center to solve the questions that you might have "
@@ -1052,143 +1048,143 @@ msgstr ""
 "Αν η εταιρία σας δεν διαθέτει τμήμα υποστήριξης, θα χρειαστεί να "
 "επικοινωνήσετε με το Διαχειριστή Συστημάτων σας."
 
-#: ../../gui/views/main.py:216 ../../gui/views/main.py:234
+#: ../../gui/views/main.py:210 ../../gui/views/main.py:228
 msgid "N/A"
 msgstr "N/A"
 
-#: ../../gui/views/main.py:335
+#: ../../gui/views/main.py:329
 msgid "GSM"
 msgstr "GSM"
 
-#: ../../gui/views/main.py:336
+#: ../../gui/views/main.py:330
 msgid "GSM_COMPAT"
 msgstr "GSM_COMPAT"
 
-#: ../../gui/views/main.py:337 ../../gui/signals.py:24
+#: ../../gui/views/main.py:331 ../../gui/signals.py:24
 msgid "GPRS"
 msgstr "GPRS"
 
-#: ../../gui/views/main.py:338 ../../gui/signals.py:25
+#: ../../gui/views/main.py:332 ../../gui/signals.py:25
 msgid "EDGE"
 msgstr "EDGE"
 
-#: ../../gui/views/main.py:339 ../../gui/signals.py:26
+#: ../../gui/views/main.py:333 ../../gui/signals.py:26
 msgid "UMTS"
 msgstr "UMTS"
 
-#: ../../gui/views/main.py:340 ../../gui/signals.py:31
+#: ../../gui/views/main.py:334 ../../gui/signals.py:31
 msgid "HSDPA"
 msgstr ""
 
-#: ../../gui/views/main.py:341 ../../gui/signals.py:32
+#: ../../gui/views/main.py:335 ../../gui/signals.py:32
 msgid "HSUPA"
 msgstr "HSUPA"
 
-#: ../../gui/views/main.py:342 ../../gui/signals.py:33
+#: ../../gui/views/main.py:336 ../../gui/signals.py:33
 msgid "HSPA"
 msgstr "HSPA"
 
-#: ../../gui/views/main.py:343
+#: ../../gui/views/main.py:337
 msgid "HSPA+"
 msgstr "HSPA+"
 
-#: ../../gui/views/main.py:344
+#: ../../gui/views/main.py:338
 msgid "LTE"
 msgstr "LTE"
 
-#: ../../gui/views/main.py:384 ../../gui/views/main.py:388
-#: ../../gui/controllers/main.py:689
+#: ../../gui/views/main.py:378 ../../gui/views/main.py:382
+#: ../../gui/controllers/main.py:692
 msgid "Connect"
 msgstr "Σύνδεση"
 
-#: ../../gui/views/main.py:392 ../../gui/views/main.py:425
+#: ../../gui/views/main.py:386 ../../gui/views/main.py:419
 msgid "Disconnecting"
 msgstr ""
 
-#: ../../gui/views/main.py:396 ../../gui/views/main.py:424
-#: ../../gui/controllers/main.py:849
+#: ../../gui/views/main.py:390 ../../gui/views/main.py:418
+#: ../../gui/controllers/main.py:852
 msgid "Connecting"
 msgstr ""
 
-#: ../../gui/views/main.py:400 ../../gui/controllers/main.py:684
+#: ../../gui/views/main.py:394 ../../gui/controllers/main.py:687
 msgid "Disconnect"
 msgstr "Αποσύνδεση"
 
-#: ../../gui/views/main.py:414
+#: ../../gui/views/main.py:408
 msgid "Device found"
 msgstr ""
 
-#: ../../gui/views/main.py:415
+#: ../../gui/views/main.py:409
 msgid "Disabled"
 msgstr ""
 
-#: ../../gui/views/main.py:416
+#: ../../gui/views/main.py:410
 msgid "SIM locked"
 msgstr ""
 
-#: ../../gui/views/main.py:417
+#: ../../gui/views/main.py:411
 msgid "Authenticating"
 msgstr ""
 
-#: ../../gui/views/main.py:418
+#: ../../gui/views/main.py:412
 msgid "Authenticated"
 msgstr ""
 
-#: ../../gui/views/main.py:419
+#: ../../gui/views/main.py:413
 msgid "Enabling"
 msgstr ""
 
-#: ../../gui/views/main.py:420
+#: ../../gui/views/main.py:414
 msgid "Disabling"
 msgstr ""
 
-#: ../../gui/views/main.py:422
+#: ../../gui/views/main.py:416
 msgid "Searching"
 msgstr ""
 
-#: ../../gui/views/main.py:423 ../../gui/controllers/main.py:1056
+#: ../../gui/views/main.py:417 ../../gui/controllers/main.py:1060
 msgid "Not connected"
 msgstr "Αποσυνδεμένο"
 
-#: ../../gui/views/main.py:426
+#: ../../gui/views/main.py:420
 msgid "Connected"
 msgstr "Συνδεδεμένο"
 
-#: ../../gui/views/main.py:429
+#: ../../gui/views/main.py:423
 msgid "No device"
 msgstr ""
 
-#: ../../gui/views/main.py:491 ../../gui/views/main.py:529
-#: ../../gui/views/profile.py:141 ../../gui/controllers/contacts.py:141
+#: ../../gui/views/main.py:485 ../../gui/views/main.py:523
+#: ../../gui/views/profile.py:143 ../../gui/controllers/contacts.py:141
 msgid "Type"
 msgstr "Τύπος"
 
-#: ../../gui/views/main.py:497 ../../gui/views/profile.py:131
+#: ../../gui/views/main.py:491 ../../gui/views/profile.py:133
 #: ../../gui/controllers/contacts.py:147
 msgid "Name"
 msgstr "Όνομα"
 
-#: ../../gui/views/main.py:506 ../../gui/controllers/contacts.py:154
+#: ../../gui/views/main.py:500 ../../gui/controllers/contacts.py:154
 msgid "Number"
 msgstr "Αριθμός"
 
-#: ../../gui/views/main.py:540
+#: ../../gui/views/main.py:534
 msgid "Text"
 msgstr "Κείμενο"
 
-#: ../../gui/views/main.py:551
+#: ../../gui/views/main.py:545
 msgid "Recipient"
 msgstr "Παραλήπτης"
 
-#: ../../gui/views/main.py:551
+#: ../../gui/views/main.py:545
 msgid "Sender"
 msgstr "Αποστολέας"
 
-#: ../../gui/views/main.py:560
+#: ../../gui/views/main.py:554
 msgid "Date"
 msgstr "Ημερομηνία"
 
-#: ../../gui/views/profile.py:136
+#: ../../gui/views/profile.py:138
 msgid "Country"
 msgstr ""
 
@@ -1206,56 +1202,56 @@ msgstr "%(day)d ημέρα, %(msg)s"
 msgid "No signal"
 msgstr ""
 
-#: ../../gui/models/main.py:113 ../../gui/controllers/payt_controller.py:177
-#: ../../gui/controllers/payt_controller.py:214
+#: ../../gui/models/main.py:113 ../../gui/controllers/payt_controller.py:176
+#: ../../gui/controllers/payt_controller.py:213
 msgid "Not available"
 msgstr ""
 
-#: ../../gui/models/main.py:174
+#: ../../gui/models/main.py:172
 msgid "Error while starting wader"
 msgstr ""
 
-#: ../../gui/models/main.py:175
+#: ../../gui/models/main.py:173
 #, python-format
 msgid ""
 "Check that your installation is correct and your  OS/distro is supported: %s"
 msgstr ""
 
-#: ../../gui/models/profile.py:167 ../../gui/controllers/preferences.py:158
+#: ../../gui/models/profile.py:162 ../../gui/controllers/preferences.py:158
 #: ../../gui/controllers/preferences.py:174
 msgid "Custom"
 msgstr ""
 
-#: ../../gui/models/profile.py:383
+#: ../../gui/models/profile.py:374
 msgid "Trying to remove an unsaved profile"
 msgstr ""
 
-#: ../../gui/controllers/sms.py:51
+#: ../../gui/controllers/sms.py:52
 msgid "You can send the SMS to several recipients separating them by commas"
 msgstr ""
 
-#: ../../gui/controllers/sms.py:83 ../../gui/controllers/sms.py:258
+#: ../../gui/controllers/sms.py:84 ../../gui/controllers/sms.py:259
 #, python-format
 msgid "Text message: 0/%d chars"
 msgstr "Μήνυμα κειμένου: 0/%d"
 
-#: ../../gui/controllers/sms.py:112
+#: ../../gui/controllers/sms.py:113
 msgid "Send empty message"
 msgstr "Αποστολή κενού μηνύματος"
 
-#: ../../gui/controllers/sms.py:113
+#: ../../gui/controllers/sms.py:114
 msgid "Are you sure you want to send an empty message?"
 msgstr "Ειστε βέβαιοι οτι θέλετε να στείλετε ένα κενό μήνυμα;"
 
-#: ../../gui/controllers/sms.py:137
+#: ../../gui/controllers/sms.py:138
 msgid "Error while sending SMS"
 msgstr ""
 
-#: ../../gui/controllers/sms.py:183
+#: ../../gui/controllers/sms.py:184
 msgid "No SMSC number"
 msgstr "Χωρίς αριθμό SMSC"
 
-#: ../../gui/controllers/sms.py:184
+#: ../../gui/controllers/sms.py:185
 #, python-format
 msgid ""
 "In order to send a SMS, %s needs to know the number of your provider's SMSC. "
@@ -1265,44 +1261,44 @@ msgstr ""
 "του παρόχου σας. Αν δεν γνωρίζετε τον αριθμό αυτό, καλέστε την Εξυπηρέτηση "
 "Πελατών."
 
-#: ../../gui/controllers/sms.py:266
+#: ../../gui/controllers/sms.py:267
 #, python-format
 msgid "Text message: %(num)d/%(total)d chars"
 msgstr "%(num)d/%(total)d χαρακτήρες"
 
-#: ../../gui/controllers/sms.py:271
+#: ../../gui/controllers/sms.py:272
 #, python-format
 msgid "Text message: %(num)d/%(total)d chars (%(msgs)d SMS)"
 msgstr "%(num)d/%(total)d χαρακτήρες (%(msgs)d SMS)"
 
-#: ../../gui/controllers/payt_controller.py:99
-#: ../../gui/controllers/payt_controller.py:115
-#: ../../gui/controllers/payt_controller.py:125
+#: ../../gui/controllers/payt_controller.py:98
+#: ../../gui/controllers/payt_controller.py:114
+#: ../../gui/controllers/payt_controller.py:124
 msgid "PAYT submit voucher"
 msgstr ""
 
-#: ../../gui/controllers/payt_controller.py:100
-#: ../../gui/controllers/payt_controller.py:161
+#: ../../gui/controllers/payt_controller.py:99
+#: ../../gui/controllers/payt_controller.py:160
 msgid "SIM is not on a PAYT plan"
 msgstr ""
 
-#: ../../gui/controllers/payt_controller.py:116
+#: ../../gui/controllers/payt_controller.py:115
 #, python-format
 msgid ""
 "PAYT submit voucher failed\n"
 "'%s'"
 msgstr ""
 
-#: ../../gui/controllers/payt_controller.py:126
+#: ../../gui/controllers/payt_controller.py:125
 msgid "No PAYT submit voucher method available"
 msgstr ""
 
-#: ../../gui/controllers/payt_controller.py:160
-#: ../../gui/controllers/payt_controller.py:195
+#: ../../gui/controllers/payt_controller.py:159
+#: ../../gui/controllers/payt_controller.py:194
 msgid "PAYT credit check"
 msgstr ""
 
-#: ../../gui/controllers/payt_controller.py:196
+#: ../../gui/controllers/payt_controller.py:195
 msgid "No PAYT credit check method available"
 msgstr ""
 
@@ -1341,7 +1337,7 @@ msgstr ""
 msgid "Can not close while a connection is active"
 msgstr ""
 
-#: ../../gui/controllers/main.py:265
+#: ../../gui/controllers/main.py:268
 #, python-format
 msgid ""
 "You can easily find answers to the most common questions in the help menu, "
@@ -1357,73 +1353,73 @@ msgid ""
 "%(international)s if you are calling from other network."
 msgstr ""
 
-#: ../../gui/controllers/main.py:376
+#: ../../gui/controllers/main.py:379
 msgid "Invalid password"
 msgstr ""
 
-#: ../../gui/controllers/main.py:377
+#: ../../gui/controllers/main.py:380
 msgid "The supplied password is incorrect"
 msgstr ""
 
-#: ../../gui/controllers/main.py:419
+#: ../../gui/controllers/main.py:422
 msgid "SIM error"
 msgstr ""
 
-#: ../../gui/controllers/main.py:420
+#: ../../gui/controllers/main.py:423
 msgid "Perhaps your SIM is not inserted correctly?"
 msgstr ""
 
-#: ../../gui/controllers/main.py:422
+#: ../../gui/controllers/main.py:425
 msgid "Unknown error"
 msgstr ""
 
-#: ../../gui/controllers/main.py:428
+#: ../../gui/controllers/main.py:431
 msgid "Error while registering to home network"
 msgstr ""
 
-#: ../../gui/controllers/main.py:497
+#: ../../gui/controllers/main.py:500
 msgid "Transfer limit exceeded"
 msgstr ""
 
-#: ../../gui/controllers/main.py:498
+#: ../../gui/controllers/main.py:501
 msgid "You have exceeded your transfer limit"
 msgstr ""
 
-#: ../../gui/controllers/main.py:574
+#: ../../gui/controllers/main.py:577
 #, python-format
 msgid "SMS receipt received for %s"
 msgstr ""
 
-#: ../../gui/controllers/main.py:608
+#: ../../gui/controllers/main.py:611
 #, python-format
 msgid "SMS received from %s"
 msgstr "Ελήφθη SMS από %s"
 
-#: ../../gui/controllers/main.py:649 ../../gui/controllers/main.py:652
+#: ../../gui/controllers/main.py:652 ../../gui/controllers/main.py:655
 msgid "Failed connection attempt"
 msgstr ""
 
-#: ../../gui/controllers/main.py:650
+#: ../../gui/controllers/main.py:653
 msgid "Unable to connect"
 msgstr ""
 
-#: ../../gui/controllers/main.py:703 ../../gui/controllers/main.py:738
+#: ../../gui/controllers/main.py:706 ../../gui/controllers/main.py:741
 msgid "Send SMS"
 msgstr "Αποστολή SMS"
 
-#: ../../gui/controllers/main.py:716
+#: ../../gui/controllers/main.py:719
 msgid "Quit"
 msgstr "Έξοδος"
 
-#: ../../gui/controllers/main.py:760
+#: ../../gui/controllers/main.py:763
 msgid "Edit"
 msgstr "Επεξεργασία"
 
-#: ../../gui/controllers/main.py:780
+#: ../../gui/controllers/main.py:783
 msgid "Invalid CSV format"
 msgstr "Άκυρη διαμόρφωση CSV"
 
-#: ../../gui/controllers/main.py:781
+#: ../../gui/controllers/main.py:784
 msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
@@ -1431,82 +1427,82 @@ msgstr ""
 "\n"
 "Το αρχείο csv που προσπαθήσατε να εισάγετε έχει άκυρη διαμόρφωση."
 
-#: ../../gui/controllers/main.py:810
+#: ../../gui/controllers/main.py:813
 msgid "No device found"
 msgstr ""
 
-#: ../../gui/controllers/main.py:811
+#: ../../gui/controllers/main.py:814
 msgid "No device has been found. Insert one and try again."
 msgstr ""
 
-#: ../../gui/controllers/main.py:817
+#: ../../gui/controllers/main.py:820
 msgid "Profile needed"
 msgstr ""
 
-#: ../../gui/controllers/main.py:818
+#: ../../gui/controllers/main.py:821
 msgid "You need to create a profile for connecting."
 msgstr ""
 
-#: ../../gui/controllers/main.py:863
+#: ../../gui/controllers/main.py:866
 msgid "Invalid Connection"
 msgstr ""
 
-#: ../../gui/controllers/main.py:864
+#: ../../gui/controllers/main.py:867
 msgid ""
 "It's likely that this connection was made by the Network Manager Applet, "
 "please use that to deactivate"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1005
+#: ../../gui/controllers/main.py:1009
 msgid "_New Profile"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1014
+#: ../../gui/controllers/main.py:1018
 msgid "Load Profile"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1019
+#: ../../gui/controllers/main.py:1023
 msgid "Edit Profile"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1024
+#: ../../gui/controllers/main.py:1028
 msgid "Delete Profile"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1057
+#: ../../gui/controllers/main.py:1061
 msgid "No mobile connection. Do you want to continue?"
 msgstr "Δεν υπάρχει σύνδεση.  Θέλετε να συνεχίσετε;"
 
-#: ../../gui/controllers/main.py:1487
+#: ../../gui/controllers/main.py:1491
 msgid "Editor not available"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1488
+#: ../../gui/controllers/main.py:1492
 #, python-format
 msgid "Can not start external contact editor \"%s\""
 msgstr ""
 
-#: ../../gui/controllers/main.py:1494
+#: ../../gui/controllers/main.py:1498
 msgid "_Add to contacts"
 msgstr "_Προσθήκη στις επαφές"
 
-#: ../../gui/controllers/main.py:1505
+#: ../../gui/controllers/main.py:1509
 msgid "Migrate to DB"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1514
+#: ../../gui/controllers/main.py:1518
 msgid "Save to draft"
 msgstr "Αποθήκευση στα πρόχειρα"
 
-#: ../../gui/controllers/main.py:1525
+#: ../../gui/controllers/main.py:1529
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: ../../gui/controllers/main.py:1573
+#: ../../gui/controllers/main.py:1577
 msgid "Can not handle DB contacts"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1574
+#: ../../gui/controllers/main.py:1578
 msgid "Only SIM based contacts supported"
 msgstr ""
 
@@ -1570,40 +1566,40 @@ msgstr ""
 "  Andrew Bird https://launchpad.net/~ajb-spheresystems\n"
 "  Christos Spyroglou https://launchpad.net/~cspyroglou"
 
-#: ../../gui/dialogs.py:129
+#: ../../gui/dialogs.py:128
 msgid "Warning"
 msgstr ""
 
-#: ../../gui/dialogs.py:155
+#: ../../gui/dialogs.py:154
 msgid "Error"
 msgstr "Σφάλμα"
 
-#: ../../gui/dialogs.py:239
+#: ../../gui/dialogs.py:238
 msgid "Password required"
 msgstr ""
 
-#: ../../gui/dialogs.py:240
+#: ../../gui/dialogs.py:239
 msgid "Please, insert the password of your connection"
 msgstr ""
 
-#: ../../gui/dialogs.py:274
+#: ../../gui/dialogs.py:273
 msgid "Save as ..."
 msgstr "Αποθήκευση ώς..."
 
-#: ../../gui/dialogs.py:282 ../../gui/dialogs.py:321
+#: ../../gui/dialogs.py:281 ../../gui/dialogs.py:320
 msgid "Csv files"
 msgstr "Αρχείο Csv"
 
-#: ../../gui/dialogs.py:288 ../../gui/dialogs.py:326
+#: ../../gui/dialogs.py:287 ../../gui/dialogs.py:325
 msgid "All files"
 msgstr "Όλα τα έγγραφα"
 
-#: ../../gui/dialogs.py:299
+#: ../../gui/dialogs.py:298
 #, python-format
 msgid "Overwrite \"%s\"?"
 msgstr "Αντικατάσταση του \"%s\";"
 
-#: ../../gui/dialogs.py:300
+#: ../../gui/dialogs.py:299
 msgid ""
 "A file with this name already exists.\n"
 "If you choose to overwrite this file, the contents will be lost."
@@ -1611,7 +1607,7 @@ msgstr ""
 "Βρέθηκε αρχείο με το ίδιο όνομα.\n"
 "Αν επιλέξετε να το αντικαστήσετε, τα αρχικά περιεχόμενα του θα χαθούν."
 
-#: ../../gui/dialogs.py:313
+#: ../../gui/dialogs.py:312
 msgid "Import contacts from..."
 msgstr "Εισαγωγή επαφών από..."
 
