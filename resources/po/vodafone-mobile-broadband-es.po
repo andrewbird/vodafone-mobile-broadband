@@ -672,7 +672,7 @@ msgstr "Utilizar una dirección alternativa para el centro de servicio SMS"
 
 #: ../glade/preferences.glade:90
 msgid ""
-"Lets you configure a different service centre address if you are not a "
+"You may configure a different service centre address if you are not a "
 "Vodafone customer or the default one is incorrect."
 msgstr ""
 "Permite configurar una dirección de centro de mensajes diferente si no es un "
