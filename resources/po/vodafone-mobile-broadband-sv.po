@@ -321,7 +321,7 @@ msgstr ""
 
 #: ../glade/keyring.glade:48
 msgid ""
-"Please, insert a code to encrypt your sensible\n"
+"Please, insert a code to encrypt your sensitive\n"
 "information."
 msgstr ""
 

@@ -337,11 +337,11 @@ msgstr ""
 
 #: ../glade/keyring.glade:48
 msgid ""
-"Please, insert a code to encrypt your sensible\n"
+"Please, insert a code to encrypt your sensitive\n"
 "information."
 msgstr ""
 "Por favor, inserte un código para cifrar su\n"
-"información sensible."
+"información confidencial."
 
 #: ../glade/keyring.glade:81 ../glade/keyring.glade:191
 #: ../glade/profiles.glade:177

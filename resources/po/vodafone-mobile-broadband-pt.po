@@ -332,7 +332,7 @@ msgstr "<span size='large' weight='bold'>Criando um novo chaveiro</span>"
 
 #: ../glade/keyring.glade:48
 msgid ""
-"Please, insert a code to encrypt your sensible\n"
+"Please, insert a code to encrypt your sensitive\n"
 "information."
 msgstr ""
 "Por favor, insira um código para criptografar o sensato\n"
