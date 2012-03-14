@@ -889,6 +889,10 @@ The csv file that you have tried to import has an invalid format.""")
         view.run()
 
     def on_new_sms_activate(self, widget):
+        if self.view['new_sms_button'].get_active() == True:
+            self.view['new_sms_button'].set_active(False)
+        else:
+            return
         ctrl = NewSmsController(self.model, self,
                                 self._get_treeview_contacts())
         view = NewSmsView(ctrl)
@@ -1061,37 +1065,39 @@ The csv file that you have tried to import has an invalid format.""")
 
             return False
 
-        def fake_forward_event(widget, event):
-            if event.button == 1:
-                self.on_forward_sms_menu_item_activate(widget)
-                return True
+       # def fake_forward_event(widget, event):
+       #     if event.button == 1:
+       #         self.on_forward_sms_menu_item_activate(widget)
+       #         return True
 
-            return False
+       #     return False
 
-        def fake_new_sms_event(widget, event):
-            if event.button == 1:
-                self.on_new_sms_activate(widget)
-                return True
+        # def fake_new_sms_event(widget, event):
+        #     if event.button == 1:
+        #         self.on_new_sms_activate(widget)
+        #         return True
 
-            return False
+        #     return False
 
-        items = ['contact_delete_menu_item', 'sms_delete_menu_item',
-                 'forward_sms_menu_item', 'new_menu_item']
+        # items = ['contact_delete_menu_item', 'sms_delete_menu_item',
+        #          'forward_sms_menu_item', 'new_menu_item']
+        items = ['contact_delete_menu_item']
 
         for item in items:
             self.view[item].set_events(gtk.gdk.BUTTON_PRESS_MASK)
 
         # contacts_menubar delete item and messages_menubar delete item
-        for item in ['contact_delete_menu_item', 'sms_delete_menu_item']:
+        #for item in ['contact_delete_menu_item', 'sms_delete_menu_item']:
+        for item in ['contact_delete_menu_item']:
             self.view[item].connect("button_press_event", fake_delete_event)
 
         # messages_menubar forward item
-        self.view['forward_sms_menu_item'].connect("button_press_event",
-                                                   fake_forward_event)
+        # self.view['forward_sms_menu_item'].connect("button_press_event",
+        #                                            fake_forward_event)
 
-        # message_menubar sms new item
-        self.view['new_menu_item'].connect("button_press_event",
-                                           fake_new_sms_event)
+        # # message_menubar sms new item
+        # self.view['new_menu_item'].connect("button_press_event",
+        #                                    fake_new_sms_event)
 
     def _empty_treeviews(self, treeviews):
         for treeview_name in treeviews:
@@ -1212,6 +1218,10 @@ The csv file that you have tried to import has an invalid format.""")
         self.view.update_bars_user_limit()
 
     def on_reply_sms_no_quoting_menu_item_activate(self, widget):
+        if self.view['reply_sms_no_quoting_button'].get_active() == True:
+            self.view['reply_sms_no_quoting_button'].set_active(False)
+        else:
+            return
         message = self.get_obj_from_selected_row()
         if message:
             ctrl = ForwardSmsController(self.model, self,
@@ -1223,6 +1233,10 @@ The csv file that you have tried to import has an invalid format.""")
             view.show()
 
     def on_reply_sms_quoting_menu_item_activate(self, widget):
+        if self.view['reply_sms_quoting_button'].get_active() == True:
+            self.view['reply_sms_quoting_button'].set_active(False)
+        else:
+            return
         message = self.get_obj_from_selected_row()
         if message:
             ctrl = ForwardSmsController(self.model, self,
@@ -1235,6 +1249,10 @@ The csv file that you have tried to import has an invalid format.""")
             view.show()
 
     def on_forward_sms_menu_item_activate(self, widget):
+        if self.view['forward_sms_button'].get_active() == True:
+            self.view['forward_sms_button'].set_active(False)
+        else:
+            return
         message = self.get_obj_from_selected_row()
         if message:
             ctrl = ForwardSmsController(self.model, self,
@@ -1285,11 +1303,13 @@ The csv file that you have tried to import has an invalid format.""")
         page = int(pagenum)
         if page == 3:
             self.view['contacts_menubar'].show()
-            self.view['sms_menubar'].hide()
+#            self.view['sms_menubar'].hide()
+            self.view['sms_toolbar'].hide()
             self.view.set_message_preview(None)
         else:
             self.view['contacts_menubar'].hide()
-            self.view['sms_menubar'].show()
+#            self.view['sms_menubar'].show()
+            self.view['sms_toolbar'].show()
             text = self._get_current_message_text(self.view[TV_DICT[page + 1]])
             self.view.set_message_preview(text)
 
