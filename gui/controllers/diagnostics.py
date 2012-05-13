@@ -67,7 +67,6 @@ class DiagnosticsController(Controller):
             # ok we don't have a model the data is coming from dbus
             # from wader core lets tell the view to set the imsi value
             # in the correct place
-            logger.info("diagnostics: controller - sim_imei - IMEI number is: " + str(imei))
             self.view.set_imei_info(imei)
 
         device.GetImei(dbus_interface=CRD_INTFACE,
@@ -101,9 +100,9 @@ class DiagnosticsController(Controller):
             manufacturer = datacard_info[0]
             model = datacard_info[1]
             firmware = datacard_info[2]
-            logger.info("diagnostics mdm_info - manufacturer: " + manufacturer)
-            logger.info("diagnostics mdm_info - model: " + model)
-            logger.info("diagnostics mdm_info - firmware:  " + firmware)
+            logger.info("mdm_info - manufacturer: " + manufacturer)
+            logger.info("mdm_info - model: " + model)
+            logger.info("mdm_info - firmware:  " + firmware)
 
             self.view.set_datacard_info(manufacturer, model, firmware)
 

@@ -201,13 +201,8 @@ class PayAsYouTalkController(Controller):
             utc = self.model.get_sim_conf('payt_credit_date')
 
             if credit and utc:
-                now = datetime.fromtimestamp(utc, self.tz)
-                logger.info("payt_controller - get_cached_sim_credit: PAYT "
-                            "SIM credit from gconf: %s - %s" %
-                            (credit, now.strftime("%c")))
-
                 self.model.payt_credit_balance = credit
-                self.model.payt_credit_date = now
+                self.model.payt_credit_date = datetime.fromtimestamp(utc, self.tz)
                 return
 
         self.model.payt_credit_balance = _("Not available")

@@ -261,9 +261,7 @@ class MainModel(Model):
             quit_cb()
 
     def get_imsi(self, cb):
-        logger.info("main.py: model - get_imsi called")
         if self.imsi:
-            logger.info("main.py: model - get_imsi imsi is: " + self.imsi)
             cb(self.imsi)
             return
 
@@ -359,8 +357,6 @@ class MainModel(Model):
                 return
 
             self.device_opath = opaths[0]
-            logger.info(
-                "main.py: model - Setting up device %s" % self.device_opath)
             self.device = self.bus.get_object(WADER_SERVICE, self.device_opath)
 
             self.sim_auth_required = GUI_SIM_AUTH_NONE
@@ -384,8 +380,6 @@ class MainModel(Model):
 
     def enable_device(self, enable=True):
         if enable:
-            logger.info("main.py: model - Enabling device")
-
             # Enable is a potentially long operation
             self.device.Enable(True,
                                 dbus_interface=MDM_INTFACE,
@@ -396,17 +390,14 @@ class MainModel(Model):
             # -1 == special value for Initialising
             self._get_registration_info_cb((-1, '', ''))
         else:
-            logger.info("main.py: model - Disabling device")
             self.status = GUI_MODEM_STATE_DISABLING
 
             def disable_cb():
-                logger.info("main.py: model - Device disabled")
                 self.stop_reginfo_tracking()
                 self.stop_rssi_tracking()
 
             def disable_eb(e):
-                logger.warn("main.py: model - Device disable failed\n%s"
-                                % get_error_msg(e))
+                logger.warn("Device disable failed\n%s" % get_error_msg(e))
 
             self.device.Enable(False,
                                 dbus_interface=MDM_INTFACE,
@@ -414,8 +405,6 @@ class MainModel(Model):
                                 error_handler=disable_eb)
 
     def _enable_device_cb(self):
-        logger.info("main.py: model - Device enabled")
-
         self.sim_auth_required = GUI_SIM_AUTH_NONE
 
         self.init_dial_stats()
@@ -461,10 +450,7 @@ class MainModel(Model):
                 self.profile.activate()
                 self.profile_required = False  # tell controller
             else:
-                logger.warn("main.py: model - No profile, creating one")
                 self.profile_required = True  # tell controller
-                logger.warn(
-                    "main.py: model - profile_required being set to 'True' ")
         else:
             self.profile.activate()
 

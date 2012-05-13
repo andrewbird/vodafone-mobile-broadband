@@ -81,7 +81,6 @@ class PayAsYouTalkView(View):
         # we reset any previous messages too.
         self['voucher_code'].set_text('')
         self['voucher_response_message'].set_text('')
-        logger.info("payt-view clear_voucher_entry_view")
 
     def enable_voucher_entry_view(self, sensitive):
         self['voucher_code'].set_sensitive(sensitive)
@@ -92,21 +91,16 @@ class PayAsYouTalkView(View):
         return voucher_code
 
     def set_voucher_throbbing(self):
-        logger.info("payt-view set_voucher_throbbing")
         self['voucher_image'].set_from_file(self.voucher_throb)
 
     def clear_voucher_throbbing(self):
-        logger.info("payt-view clear_voucher_throbbing")
         self['voucher_image'].set_from_file(self.voucher_image)
 
     def set_banner_voucher_animation(self):
-        logger.info("payt-view set_banner_voucher_annimation")
         self['paytbanner'].set_from_file(self.payt_banner_voucher)
 
     def set_banner_credit_check_animation(self):
-        logger.info("payt-view set_banner_credit_check_animation")
         self['paytbanner'].set_from_file(self.payt_banner_credit_check)
 
     def clear_banner_animation(self):
-        logger.info("payt-view clear_banner_animation")
         self['paytbanner'].set_from_file(self.payt_image)

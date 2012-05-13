@@ -215,7 +215,6 @@ class MainController(WidgetController):
         view.show()
 
     def ask_for_new_profile(self):
-        logger.info("main.py: controller - ask_for_new_profile called")
 
         def apn_callback(network):
             profile_model = ProfileModel(
@@ -282,7 +281,6 @@ class MainController(WidgetController):
 
     # properties
     def property_status_value_change(self, model, old, new):
-        logger.info("main-controller: property_status_value_change %s" % new)
         self.view.set_status_line(self.model.status,
                                      self.model.registration,
                                      self.model.tech,
@@ -408,7 +406,6 @@ class MainController(WidgetController):
             self._hide_sim_contacts()
             self._hide_sim_messages()
             self.model.status = GUI_MODEM_STATE_NODEVICE
-            logger.info("main-controller: property_device_value_change")
 
     def property_profile_value_change(self, model, old, new):
         logger.info("A profile has been set for current model %s" % new)
@@ -441,11 +438,7 @@ class MainController(WidgetController):
             self.ask_for_puk2()
 
     def property_profile_required_value_change(self, model, old, new):
-        logger.info("main.py: controller - property_profile value changed"
-                    " - begining method")
         if new:
-            logger.info("main.py: controller - property_profile value "
-                        "changed - calling 'ask_for_new_profile' ")
             self.ask_for_new_profile()
 
     def property_current_month_name_value_change(self, model, old, new):
