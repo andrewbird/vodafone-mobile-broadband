@@ -69,20 +69,18 @@ from gui.messages import get_messages_obj, is_sim_message
 
 from gui.network_codes import get_customer_support_info
 
-from gui.views.diagnostics_view import DiagnosticsView
-from gui.controllers.diagnostics_controller import DiagnosticsController
+from gui.views.diagnostics import DiagnosticsView
+from gui.controllers.diagnostics import DiagnosticsController
 
 from gui.views.sms import NewSmsView, ForwardSmsView
 from gui.controllers.sms import NewSmsController, ForwardSmsController
 
-from gui.views.payt_view import PayAsYouTalkView
-from gui.controllers.payt_controller import PayAsYouTalkController
+from gui.views.payt import PayAsYouTalkView
+from gui.controllers.payt import PayAsYouTalkController
 
-from gui.views.pin import (PinModifyView, PinEnableView,
-                                 AskPUKView, AskPINView)
-from gui.controllers.pin import (PinModifyController,
-                                       PinEnableController,
-                                       AskPUKController, AskPINController)
+from gui.views.pin import PinModifyView, PinEnableView, AskPUKView, AskPINView
+from gui.controllers.pin import (PinModifyController, PinEnableController,
+                                        AskPUKController, AskPINController)
 
 from gui.models.preferences import PreferencesModel
 from gui.controllers.preferences import PreferencesController
