@@ -115,12 +115,12 @@ class MainView(View):
         # in ctrl.register_view() are reshown by parent.show()
         self['usage_frame'].hide()
         self['support_notebook'].hide()
-        self['contacts_menubar'].hide()
         self['sms_message_pane'].hide()
         self['time_alignment'].hide()
         self['upload_alignment'].hide()
         self['download_alignment'].hide()
         self['roaming_image'].hide()
+        self['contacts_toolbar'].hide()
 
         return ret
 
@@ -180,7 +180,6 @@ class MainView(View):
         self.get_top_widget().show_all()
         self.get_top_widget().hide()
         self['sms_message_pane'].hide()
-        self['contacts_menubar'].hide()
 
     def show_current_session(self, show):
         items = ['usage_label7', 'current_session_2g_label',
@@ -275,6 +274,7 @@ class MainView(View):
                     self['cell_type_label'].set_text(name)
                     self['cell_type_label'].show()
                 else:
+                    self['cell_type_label'].set_text('')
                     self['cell_type_label'].hide()
             except AttributeError:
                 pass
@@ -285,6 +285,7 @@ class MainView(View):
                     self['network_name_label'].set_text(name)
                     self['network_name_label'].show()
                 else:
+                    self['network_name_label'].set_text('')
                     self['network_name_label'].hide()
             except AttributeError:
                 pass

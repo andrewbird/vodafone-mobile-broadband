@@ -131,8 +131,6 @@ class MainController(WidgetController):
         self.on_sms_button_toggled(get_fake_toggle_button())
 
     def connect_to_signals(self):
-        self._setup_menubar_hacks()
-
         self.view['main_window'].connect("delete_event",
                                          self._quit_or_minimize)
 
@@ -502,32 +500,32 @@ class MainController(WidgetController):
 
     def on_sms_button_toggled(self, widget):
         if widget.get_active():
+            self.view['toolbar_frame_alignment'].show()
             self.view['usage_frame'].hide()
+            self.view['support_notebook'].hide()
+            self.view['sms_tool_button'].set_active(True)
             self.view['usage_tool_button'].set_active(False)
             self.view['support_tool_button'].set_active(False)
-            self.view['support_notebook'].hide()
-            self.view['sms_frame_alignment'].show()
-            self.view['sms_tool_button'].set_active(True)
 
     def on_usage_button_clicked(self, widget):
         if widget.get_active():
-            self.view['sms_frame_alignment'].hide()
-            self.view['sms_tool_button'].set_active(False)
-            self.view['support_notebook'].hide()
-            self.view['support_tool_button'].set_active(False)
+            self.view['toolbar_frame_alignment'].hide()
             self.view['usage_frame'].show()
+            self.view['support_notebook'].hide()
+            self.view['sms_tool_button'].set_active(False)
             self.view['usage_tool_button'].set_active(True)
+            self.view['support_tool_button'].set_active(False)
 
             self.update_usage_view()
             self.view.show_current_session(self.model.is_connected())
 
     def on_support_button_toggled(self, widget):
         if widget.get_active():
+            self.view['toolbar_frame_alignment'].hide()
             self.view['usage_frame'].hide()
-            self.view['usage_tool_button'].set_active(False)
-            self.view['sms_frame_alignment'].hide()
-            self.view['sms_tool_button'].set_active(False)
             self.view['support_notebook'].show()
+            self.view['sms_tool_button'].set_active(False)
+            self.view['usage_tool_button'].set_active(False)
             self.view['support_tool_button'].set_active(True)
 
     def on_topup_button_clicked(self, widget):
@@ -888,17 +886,6 @@ The csv file that you have tried to import has an invalid format.""")
         view.set_parent_view(self.view)
         view.run()
 
-    def on_new_sms_activate(self, widget):
-        if self.view['new_sms_button'].get_active() == True:
-            self.view['new_sms_button'].set_active(False)
-        else:
-            return
-        ctrl = NewSmsController(self.model, self,
-                                self._get_treeview_contacts())
-        view = NewSmsView(ctrl)
-        view.set_parent_view(self.view)
-        view.show()
-
     def on_quit_menu_item_activate(self, widget):
         self._quit_confirm_exit()
 
@@ -1056,49 +1043,6 @@ The csv file that you have tried to import has an invalid format.""")
             details = _("No mobile connection. Do you want to continue?")
             return show_warning_request_cancel_ok(message, details)
 
-    def _setup_menubar_hacks(self):
-
-        def fake_delete_event(widget, event):
-            if event.button == 1:
-                self.on_delete_menu_item_activate(widget)
-                return True
-
-            return False
-
-       # def fake_forward_event(widget, event):
-       #     if event.button == 1:
-       #         self.on_forward_sms_menu_item_activate(widget)
-       #         return True
-
-       #     return False
-
-        # def fake_new_sms_event(widget, event):
-        #     if event.button == 1:
-        #         self.on_new_sms_activate(widget)
-        #         return True
-
-        #     return False
-
-        # items = ['contact_delete_menu_item', 'sms_delete_menu_item',
-        #          'forward_sms_menu_item', 'new_menu_item']
-        items = ['contact_delete_menu_item']
-
-        for item in items:
-            self.view[item].set_events(gtk.gdk.BUTTON_PRESS_MASK)
-
-        # contacts_menubar delete item and messages_menubar delete item
-        #for item in ['contact_delete_menu_item', 'sms_delete_menu_item']:
-        for item in ['contact_delete_menu_item']:
-            self.view[item].connect("button_press_event", fake_delete_event)
-
-        # messages_menubar forward item
-        # self.view['forward_sms_menu_item'].connect("button_press_event",
-        #                                            fake_forward_event)
-
-        # # message_menubar sms new item
-        # self.view['new_menu_item'].connect("button_press_event",
-        #                                    fake_new_sms_event)
-
     def _empty_treeviews(self, treeviews):
         for treeview_name in treeviews:
             model = self.view[treeview_name].get_model()
@@ -1217,11 +1161,26 @@ The csv file that you have tried to import has an invalid format.""")
     def update_usage_view(self):
         self.view.update_bars_user_limit()
 
+    def on_new_sms_activate(self, widget):
+        if hasattr(widget, 'get_active'):  # called by a menu item
+            if widget.get_active() == True:
+                widget.set_active(False)
+            else:
+                return
+
+        ctrl = NewSmsController(self.model, self,
+                                self._get_treeview_contacts())
+        view = NewSmsView(ctrl)
+        view.set_parent_view(self.view)
+        view.show()
+
     def on_reply_sms_no_quoting_menu_item_activate(self, widget):
-        if self.view['reply_sms_no_quoting_button'].get_active() == True:
-            self.view['reply_sms_no_quoting_button'].set_active(False)
-        else:
-            return
+        if hasattr(widget, 'get_active'):  # called by a menu item
+            if widget.get_active() == True:
+                widget.set_active(False)
+            else:
+                return
+
         message = self.get_obj_from_selected_row()
         if message:
             ctrl = ForwardSmsController(self.model, self,
@@ -1233,10 +1192,12 @@ The csv file that you have tried to import has an invalid format.""")
             view.show()
 
     def on_reply_sms_quoting_menu_item_activate(self, widget):
-        if self.view['reply_sms_quoting_button'].get_active() == True:
-            self.view['reply_sms_quoting_button'].set_active(False)
-        else:
-            return
+        if hasattr(widget, 'get_active'):  # called by a menu item
+            if widget.get_active() == True:
+                widget.set_active(False)
+            else:
+                return
+
         message = self.get_obj_from_selected_row()
         if message:
             ctrl = ForwardSmsController(self.model, self,
@@ -1249,10 +1210,12 @@ The csv file that you have tried to import has an invalid format.""")
             view.show()
 
     def on_forward_sms_menu_item_activate(self, widget):
-        if self.view['forward_sms_button'].get_active() == True:
-            self.view['forward_sms_button'].set_active(False)
-        else:
-            return
+        if hasattr(widget, 'get_active'):  # called by a menu item
+            if widget.get_active() == True:
+                widget.set_active(False)
+            else:
+                return
+
         message = self.get_obj_from_selected_row()
         if message:
             ctrl = ForwardSmsController(self.model, self,
@@ -1302,13 +1265,11 @@ The csv file that you have tried to import has an invalid format.""")
         """
         page = int(pagenum)
         if page == 3:
-            self.view['contacts_menubar'].show()
-#            self.view['sms_menubar'].hide()
+            self.view['contacts_toolbar'].show()
             self.view['sms_toolbar'].hide()
             self.view.set_message_preview(None)
         else:
-            self.view['contacts_menubar'].hide()
-#            self.view['sms_menubar'].show()
+            self.view['contacts_toolbar'].hide()
             self.view['sms_toolbar'].show()
             text = self._get_current_message_text(self.view[TV_DICT[page + 1]])
             self.view.set_message_preview(text)
