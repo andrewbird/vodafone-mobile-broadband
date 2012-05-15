@@ -468,6 +468,7 @@
                               <atkproperty name="AtkObject::accessible-name">Create new SMS</atkproperty>
                             </accessibility>
                             <signal name="clicked" handler="on_new_sms_activate" />
+                            <accelerator key="n" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
                           </widget>
                           <packing>
                             <property name="expand">False</property>
@@ -485,6 +486,7 @@
                               <atkproperty name="AtkObject::accessible-name">Reply to SMS</atkproperty>
                             </accessibility>
                             <signal name="clicked" handler="on_reply_sms_no_quoting_menu_item_activate" />
+                            <accelerator key="r" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
                           </widget>
                           <packing>
                             <property name="expand">False</property>
@@ -520,6 +522,7 @@
                               <atkproperty name="AtkObject::accessible-name">Forward SMS to another contact</atkproperty>
                             </accessibility>
                             <signal name="clicked" handler="on_forward_sms_menu_item_activate" />
+                            <accelerator key="f" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
                           </widget>
                           <packing>
                             <property name="expand">False</property>
@@ -537,6 +540,7 @@
                               <atkproperty name="AtkObject::accessible-name">Delete SMS</atkproperty>
                             </accessibility>
                             <signal name="clicked" handler="on_delete_menu_item_activate" />
+                            <accelerator key="d" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
                           </widget>
                           <packing>
                             <property name="expand">False</property>
@@ -566,6 +570,7 @@
                               <atkproperty name="AtkObject::accessible-name">Add a contact</atkproperty>
                             </accessibility>
                             <signal name="clicked" handler="on_new_contact_menu_item_activate" />
+                            <accelerator key="n" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
                           </widget>
                           <packing>
                             <property name="expand">False</property>
@@ -583,6 +588,7 @@
                               <atkproperty name="AtkObject::accessible-name">Search contacts</atkproperty>
                             </accessibility>
                             <signal name="clicked" handler="on_search_contact_menu_item_activate" />
+                            <accelerator key="s" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
                           </widget>
                           <packing>
                             <property name="expand">False</property>
@@ -600,6 +606,7 @@
                               <atkproperty name="AtkObject::accessible-name">Delete contacts</atkproperty>
                             </accessibility>
                             <signal name="clicked" handler="on_delete_menu_item_activate" />
+                            <accelerator key="d" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
                           </widget>
                           <packing>
                             <property name="expand">False</property>
