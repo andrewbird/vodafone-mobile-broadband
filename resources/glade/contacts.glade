@@ -2,6 +2,8 @@
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
 <!--*- mode: xml -*-->
 <glade-interface>
+  <!-- interface-requires gtk+ 2.16 -->
+  <!-- interface-naming-policy toplevel-contextual -->
   <widget class="GtkDialog" id="search_dialog">
     <property name="border_width">6</property>
     <property name="title" translatable="yes">Contact search</property>
@@ -19,8 +21,9 @@
             <child>
               <widget class="GtkImage" id="search_image">
                 <property name="visible">True</property>
-                <property name="icon_size">6</property>
-                <property name="icon_name">gtk-find</property>
+                <property name="can_focus">False</property>
+                <property name="stock">gtk-find</property>
+                <property name="icon-size">6</property>
               </widget>
             </child>
             <child>
