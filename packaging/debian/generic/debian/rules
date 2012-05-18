@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 export DH_VERBOSE=1
 
-NAME=vodafone-mobile-broadband
+NAME=v-mobile-broadband
 
 build: build-stamp
 
@@ -27,7 +27,7 @@ install: build
 		--install-layout=deb \
 		--install-lib=/usr/share/$(NAME) \
 		--root $(CURDIR)/debian/$(NAME)
-	dh_link /usr/share/$(NAME)/$(NAME) /usr/bin/$(NAME)
+	dh_link /usr/share/$(NAME)/bin/$(NAME) /usr/bin/$(NAME)
 	dh_install build/locale usr/share
 	dh_install
 	dh_installman

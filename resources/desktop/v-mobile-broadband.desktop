@@ -1,9 +1,9 @@
 [Desktop Entry]
-Name=Vodafone Mobile Broadband
-Exec=vodafone-mobile-broadband
+Name=V Mobile Broadband
+Exec=v-mobile-broadband
 Terminal=false
 X-MultipleArgs=false
 Type=Application
-Icon=vodafone-mobile-broadband
+Icon=v-mobile-broadband
 Categories=Application;Network;
 StartupNotify=false

@@ -1,6 +1,6 @@
-# Vodafone Mobile Broadband Portuguese translation file.
+# V Mobile Broadband Portuguese translation file.
 # Copyright (C) 2007
-# This file is distributed under the same license as the Vodafone Mobile Broadband package.
+# This file is distributed under the same license as the V Mobile Broadband package.
 # Paulo Arinto <arinto@portugalmail.pt>
 msgid ""
 msgstr ""

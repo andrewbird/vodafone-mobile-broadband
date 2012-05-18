@@ -23,11 +23,11 @@ from os.path import join, expanduser
 #       please put your new consts in constx.py, else we get issues building
 #       packages and with circular imports.
 
-APP_NAME = 'Vodafone Mobile Broadband'
-APP_SLUG_NAME = 'vodafone-mobile-broadband'
-APP_LONG_NAME = 'Vodafone Mobile Broadband'
+APP_NAME = 'V Mobile Broadband'
+APP_SLUG_NAME = 'v-mobile-broadband'
+APP_LONG_NAME = 'V Mobile Broadband'
 APP_SHORT_NAME = 'vmb'
-APP_VERSION = '3.00.00'
+APP_VERSION = '3.00.01'
 
 # credits
 APP_AUTHORS = [

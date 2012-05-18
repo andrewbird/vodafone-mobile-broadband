@@ -1,6 +1,6 @@
 %{!?python_sitelib: %define python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
 
-Name:           vodafone-mobile-broadband
+Name:           v-mobile-broadband
 Version:        %(%{__python} -c 'from gui.consts import APP_VERSION; print APP_VERSION')
 Release:        1%{?dist}
 Summary:        A Mobile Connection Manager written in Python
@@ -31,7 +31,7 @@ BuildRequires:  python-imaging, gnu-free-sans-fonts, gettext
 Requires:       python >= 2.5, wader-core >= 0.5.11, python-messaging >= 0.5.10, python-dateutil
 
 %description
-Vodafone Mobile Broadband is a tool that manages 3G devices and mobile phones,
+V Mobile Broadband is a tool that manages 3G devices and mobile phones,
 faciliating Internet connection, sending/receiving SMS, managing contacts, usage
 statistics, prepay top up and suchlike.
 
@@ -45,7 +45,7 @@ statistics, prepay top up and suchlike.
 %{__python} -c 'import setuptools; execfile("setup.py")' install -O1 --skip-build --root %{buildroot} --prefix=%{_prefix} --install-lib=/usr/share/%{name}
 (mkdir %{buildroot}/usr/bin && \
 	cd %{buildroot}/usr/bin && \
-	ln -s ../share/%{name}/%{name} .)
+	ln -s ../share/%{name}/bin/%{name} .)
 
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
@@ -55,7 +55,7 @@ statistics, prepay top up and suchlike.
 
 %files
 %defattr(-,root,root)
-/usr/share/%{name}/Vodafone_Mobile_Broadband-*
+/usr/share/%{name}/V_Mobile_Broadband-*
 %dir /usr/share/%{name}/gui/
 %dir /usr/share/%{name}/gui/contacts/
 %dir /usr/share/%{name}/gui/contrib/
@@ -99,6 +99,8 @@ statistics, prepay top up and suchlike.
 %doc README
 
 %changelog
+* Fri May 18 2012 Andrew Bird <ajb@spheresystems.co.uk> 3.00.00
+- 0.5.6 Package got renamed
 * Tue Nov 15 2011 Andrew Bird <ajb@spheresystems.co.uk> 3.00.00
 - 0.5.6 New Release
 * Tue Nov 15 2011 Andrew Bird <ajb@spheresystems.co.uk> 2.99.15

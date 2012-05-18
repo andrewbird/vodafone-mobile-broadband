@@ -1,11 +1,11 @@
-# Indonesian translation for vodafone-mobile-broadband
+# Indonesian translation for v-mobile-broadband
 # Copyright (C) 2008 Warp Networks, S.L.
 # This file is distributed under the license that launchpad translation service dictates
 # Pablo Marti <pmarti@warp.es>, 2008.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: vodafone-mobile-broadband\n"
+"Project-Id-Version: v-mobile-broadband\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-27 11:30+0000\n"
 "PO-Revision-Date: 2012-01-22 17:25+0000\n"

@@ -1,3 +1,9 @@
+v-mobile-broadband (3.00.01-1) lucid; urgency=low
+
+  * Release of v-mobile-broadband
+
+ -- Andrew Bird <ajb@spheresystems.co.uk>  Fri, 18 May 2012 11:06:34 +0100
+
 vodafone-mobile-broadband (3.00.00-1) lucid; urgency=low
 
   * Release of vodafone-mobile-broadband

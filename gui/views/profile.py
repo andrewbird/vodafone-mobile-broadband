@@ -34,7 +34,7 @@ from gui.constx import (GUI_NETWORK_AUTH_ANY,
                               BAND_MAP, MODE_MAP, AUTH_MAP)
 from gui.translate import _
 
-DIALOG_ICON = gtk.gdk.pixbuf_new_from_file(join(GLADE_DIR, 'VF_logo.png'))
+DIALOG_ICON = gtk.gdk.pixbuf_new_from_file(join(GLADE_DIR, 'logo24.png'))
 
 
 class ProfileView(View):

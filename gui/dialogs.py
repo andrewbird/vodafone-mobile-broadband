@@ -31,7 +31,7 @@ from gui.consts import (APP_ARTISTS, APP_AUTHORS, APP_DOCUMENTERS,
 from gui.views.dialogs import QuestionCheckboxOkCancel
 
 DIALOG_WIDTH = 40
-DIALOG_ICON = os.path.join(GLADE_DIR, 'VF_logo.png')
+DIALOG_ICON = os.path.join(GLADE_DIR, 'logo24.png')
 
 
 def show_uri(uri):
@@ -55,7 +55,7 @@ def show_about_dialog():
         abt.set_name(APP_NAME)
     abt.set_version(APP_VERSION)
     _copyright = """\
-Copyright (C) 2006-2011 Vodafone España S.A.
+Copyright (C) 2006-2012 Vodafone España S.A.
 Copyright (C) 2008-2010 Warp Networks, S.L.
 Copyright (C) 2008-2009 Wader contributors"""
     abt.set_copyright(_copyright)
@@ -67,7 +67,7 @@ Copyright (C) 2008-2009 Wader contributors"""
 
     abt.set_website_label(APP_URL)
     _license = """\
-Vodafone Mobile Broadband
+V Mobile Broadband
 
 %s
 

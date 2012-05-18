@@ -1,22 +1,22 @@
-# Vodafone Mobile Broadband Croatian translation file.
-# Copyright (C) 2007, Vodafone España S.A.
-# This file is distributed under the same license as the Vodafone Mobile Broadband package.
-#
-# m1r0 <h15m1r0@gmail.com>, 2007 , 2010.
+# Italian translation file for V Mobile Broadband.
+# Copyright (C) 2007
+# This file is distributed under the same license as the V Mobile Broadband package.
+# Paola <paola@insulainformatica.it>, 2007.
+# Emanuele Fanton <emanuele.fanton@gmail.com>, 2007, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-27 11:30+0000\n"
-"PO-Revision-Date: 2012-03-11 12:47+0000\n"
+"PO-Revision-Date: 2012-01-27 10:49+0000\n"
 "Last-Translator: Andrew Bird <Unknown>\n"
-"Language-Team: Croatian <HR@li.org>\n"
+"Language-Team: Italian <IT@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2012-05-15 09:20+0000\n"
 "X-Generator: Launchpad (build 15238)\n"
-"Language: hr\n"
+"Language: it\n"
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
@@ -29,15 +29,15 @@ msgid ""
 "You can choose a preconfigured APN or cancel to enter the information needed "
 "to set up a custom one.\n"
 msgstr ""
-"<b>Izaberite uređaj za vašu vezu.</b>\n"
+"<b>Seleziona la periferica per la connessione.</b>\n"
 "\n"
-"Izaberite poznati uređaj ili ubacite potrebne podatke  za ručno "
-"postavljanje.\n"
+"Puoi scegliere la periferica o inserire le informazioni che ti servono per "
+"definirne una personalizzata.\n"
 
 #: ../glade/apnsel.glade:193 ../glade/pin.glade:217 ../glade/pin.glade:222
 #: ../glade/pin.glade:862 ../glade/profiles.glade:1334
 msgid "Cancel"
-msgstr "Odustani"
+msgstr ""
 
 #: ../glade/apnsel.glade:208 ../glade/pin.glade:239
 #: ../glade/profiles.glade:1349
@@ -50,30 +50,30 @@ msgstr ""
 
 #: ../glade/config.glade:8
 msgid "Device setup"
-msgstr "Postavke uređaja"
+msgstr "Configurazione periferica"
 
 #: ../glade/config.glade:34
 msgid ""
 "Please select from the following options how do you want to connect to the "
 "Internet"
 msgstr ""
-"Molimo izaberite iz sljedećih opcija kako se želite spojiti na Internet"
+"Seleziona quali delle seguenti opzioni vuoi usare per connetterti a Internet"
 
 #: ../glade/config.glade:56
 msgid "Device model: "
-msgstr "Model uređaja: "
+msgstr "Modello periferica: "
 
 #: ../glade/config.glade:63
 msgid "Connection:"
-msgstr "Veza:"
+msgstr "Connessione:"
 
 #: ../glade/config.glade:153
 msgid "Bluetooth configuration"
-msgstr "Bluetooth konfiguracija"
+msgstr "Configurazione bluetooth"
 
 #: ../glade/config.glade:174
 msgid "Configure your <b>Bluetooth</b> device"
-msgstr "Podešavanje <b>Bluetooth</b> uređaja"
+msgstr "Configura la tua periferica <b>Bluetooth</b>"
 
 #: ../glade/config.glade:198
 msgid ""
@@ -83,78 +83,81 @@ msgid ""
 "sports a recent version of libbluetooth2. Otherwise you will\n"
 "have to configure it yourself and fill the relevant entries"
 msgstr ""
-"Provjerite ako vaš mobilni telefon ima uključen Bluetooth i da je vidljiv.\n"
-"Trebat će vam pass-key agent instaliran kao bluez-gnome.Vaša veza će biti "
-"automatski konfigurirana ako vaša distibucija ima posljednju verziju "
-"libbluetooth2.U suprotnom morate popuniti tražene podatke"
+"Accertati che il tuo cellulare abbia il bluetooth abilitato e visibile.\n"
+"Avrai bisogno di un pogramma che fornisce la chiave di sicurezza tipo bluez-"
+"gnome.\n"
+"La tua connessione potrà essere configurata automaticamente se la tua "
+"distribuzione\n"
+"contiene una versione recente di libbluetooth2. Altrimenti\n"
+"dovrai configurartela compilando i relativi campi."
 
 #: ../glade/config.glade:250
 msgid "_Start discovery"
-msgstr "_Počni otkrivanje"
+msgstr "_Avvia ricerca"
 
 #: ../glade/config.glade:301
 msgid "<b>Serial Port</b>"
-msgstr "<b>Serijski Port</b>"
+msgstr "<b>Porta seriale</b"
 
 #: ../glade/config.glade:325
 msgid "Data port"
-msgstr "Podatkovni port"
+msgstr "Porta dati"
 
 #: ../glade/config.glade:334
 msgid "Control port"
-msgstr "Kontrolni port"
+msgstr "Porta controllo"
 
 #: ../glade/config.glade:346
 msgid "Speed"
-msgstr "Brzina"
+msgstr "Velocità"
 
 #: ../glade/config.glade:440
 msgid "<b>Connection settings</b>"
-msgstr ""
+msgstr "<b>Configurazione connessione</b>"
 
 #: ../glade/config.glade:461
 msgid "Enable hardware flow control"
-msgstr "Omogući hardverski protok podataka"
+msgstr "Abilita il controllo di flusso hardware"
 
 #: ../glade/config.glade:474
 msgid "Enable software flow control"
-msgstr "Omogući softverski protok podataka"
+msgstr "Abilita il controllo di flusso software"
 
 #: ../glade/contacts.glade:7
 msgid "Contact search"
-msgstr "Pretaga kontakata"
+msgstr "Ricerca contatto"
 
 #: ../glade/contacts.glade:29 ../glade/contacts.glade:178
 msgid "Name:"
-msgstr "Ime:"
+msgstr "Nome:"
 
 #: ../glade/contacts.glade:93
 msgid "Contacts List"
-msgstr "Lista kontakata"
+msgstr "Lista contatti"
 
 #: ../glade/contacts.glade:158 ../glade/main.glade:526
 msgid "Add a contact"
-msgstr "Dodaj kontakt"
+msgstr "Aggiungi un contatto"
 
 #: ../glade/contacts.glade:221
 msgid "Number:"
-msgstr "Broj:"
+msgstr "Numero:"
 
 #: ../glade/contacts.glade:257
 msgid "<b>Save in:</b>"
-msgstr "<b>Spremi u: </b>"
+msgstr "<b>Salva in:</b>"
 
 #: ../glade/contacts.glade:300 ../../gui/contacts/contact_sim.py:170
 msgid "Mobile"
-msgstr "Prijenosno"
+msgstr "Cellulare"
 
 #: ../glade/contacts.glade:340
 msgid "Computer"
-msgstr "Računalo"
+msgstr "Computer"
 
 #: ../glade/diagnostics.glade:7 ../glade/main.glade:170
 msgid "Diagnostics"
-msgstr "Dijagnostika"
+msgstr "Diagnostica"
 
 #: ../glade/diagnostics.glade:43
 msgid "<b>Datacard details</b>"
@@ -162,11 +165,11 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:81
 msgid "Manufacturer:"
-msgstr "Proizvođač:"
+msgstr ""
 
 #: ../glade/diagnostics.glade:92
 msgid "Model:"
-msgstr "Model:"
+msgstr "Modello:"
 
 #: ../glade/diagnostics.glade:103
 msgid "Firmware: "
@@ -182,7 +185,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:149
 msgid "Card model"
-msgstr "Model kartice"
+msgstr "Modello periferica"
 
 #: ../glade/diagnostics.glade:160
 msgid "Firmware"
@@ -194,7 +197,7 @@ msgstr "IMEI"
 
 #: ../glade/diagnostics.glade:196
 msgid "Modem"
-msgstr ""
+msgstr "Modem"
 
 #: ../glade/diagnostics.glade:227
 msgid "<b>Network details from SIM</b>"
@@ -206,11 +209,11 @@ msgstr "IMSI:"
 
 #: ../glade/diagnostics.glade:276
 msgid "Network:"
-msgstr "Mreža:"
+msgstr "Rete:"
 
 #: ../glade/diagnostics.glade:287
 msgid "Country:"
-msgstr "Država:"
+msgstr "Paese:"
 
 #: ../glade/diagnostics.glade:298
 msgid "Mobile Number:"
@@ -231,7 +234,7 @@ msgstr "IMSI"
 #: ../../gui/controllers/main.py:258 ../../gui/controllers/main.py:576
 #: ../../gui/controllers/preferences.py:85
 msgid "Unknown"
-msgstr "Nepoznato"
+msgstr "Sconosciuto"
 
 #: ../glade/diagnostics.glade:377
 msgid "SIM"
@@ -239,27 +242,27 @@ msgstr "SIM"
 
 #: ../glade/diagnostics.glade:409
 msgid "<b>Device information</b>"
-msgstr ""
+msgstr "<b>Dispositivo di informazioni</b>"
 
 #: ../glade/diagnostics.glade:446
 msgid "Operating System:"
-msgstr "Operativni Sistem:"
+msgstr "Sistema Operativo:"
 
 #: ../glade/diagnostics.glade:457
 msgid "Version:"
-msgstr "Verzija:"
+msgstr "Versione:"
 
 #: ../glade/diagnostics.glade:468
 msgid "Uptime:"
-msgstr "Vrijeme rada:"
+msgstr "Acceso da:"
 
 #: ../glade/diagnostics.glade:537
 msgid "Device"
-msgstr "Uređaj"
+msgstr ""
 
 #: ../glade/diagnostics.glade:602
 msgid "Software Version:"
-msgstr ""
+msgstr "Versione del software:"
 
 #: ../glade/diagnostics.glade:613
 msgid "Core Version:"
@@ -267,7 +270,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:635 ../glade/diagnostics.glade:645
 msgid "Not supported"
-msgstr "Nije podržano"
+msgstr "Non supportato"
 
 #: ../glade/diagnostics.glade:673
 msgid "Modem Manager"
@@ -275,7 +278,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:689
 msgid "<b>USSD Test Message Diagnostics</b>"
-msgstr "<b>USSD Test Message Diagnostics</b>"
+msgstr "<b>Test messaggio USSD Diagnostica</b>"
 
 #: ../glade/diagnostics.glade:718
 msgid "Add your USSD string:"
@@ -283,11 +286,11 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:766
 msgid "USSD reply message:"
-msgstr "USSD reply message:"
+msgstr ""
 
 #: ../glade/diagnostics.glade:810 ../glade/payt.glade:289
 msgid "Send"
-msgstr ""
+msgstr "Inviare"
 
 #: ../glade/diagnostics.glade:843
 msgid "USSD"
@@ -296,36 +299,36 @@ msgstr "USSD"
 #: ../glade/dialogs.glade:38 ../glade/dialogs.glade:239
 #: ../glade/dialogs.glade:451
 msgid "<big><b>Big title!</b></big>"
-msgstr ""
+msgstr "<big><b>Grande titolo!</b></big>"
 
 #: ../glade/dialogs.glade:51 ../glade/dialogs.glade:252
 #: ../glade/dialogs.glade:348 ../glade/dialogs.glade:464
 msgid "A detailed message"
-msgstr "Detaljna poruka"
+msgstr "Messaggio dettagliato"
 
 #: ../glade/dialogs.glade:138
 msgid "<big><b>Question?</b></big>"
-msgstr ""
+msgstr "<big><b>Domanda?</b></big>"
 
 #: ../glade/dialogs.glade:152
 msgid "Detailed message"
-msgstr "Detaljna poruka"
+msgstr "Messaggio dettagliato"
 
 #: ../glade/dialogs.glade:189
 msgid "Action"
-msgstr "Akcija"
+msgstr "Azione"
 
 #: ../glade/dialogs.glade:326
 msgid "<b>title</b>"
-msgstr ""
+msgstr "<b>titolo</b>"
 
 #: ../glade/dialogs.glade:363
 msgid "Remember my choice"
-msgstr "Zapamti moj izbor"
+msgstr "Ricorda la mia scelta"
 
 #: ../glade/helpbrowser.glade:21 ../glade/main.glade:21
 msgid "_File"
-msgstr "_Datoteka"
+msgstr "_File"
 
 #: ../glade/keyring.glade:35
 msgid "<span size='large' weight='bold'>Creating a new keyring</span>"
@@ -340,7 +343,7 @@ msgstr ""
 #: ../glade/keyring.glade:81 ../glade/keyring.glade:191
 #: ../glade/profiles.glade:177
 msgid "Password:"
-msgstr "Lozinka:"
+msgstr "Password:"
 
 #: ../glade/keyring.glade:100
 msgid "Confirm password:"
@@ -356,32 +359,32 @@ msgstr ""
 
 #: ../glade/main.glade:28
 msgid "Import contacts..."
-msgstr "Uvedi kontakte..."
+msgstr "Importa contatti..."
 
 #: ../glade/main.glade:36
 msgid "Export contacts..."
-msgstr "Izvedi kontakte..."
+msgstr "Esporta contatti..."
 
 #: ../glade/main.glade:48
 msgid "_Quit"
-msgstr "_Zatvori"
+msgstr ""
 
 #: ../glade/main.glade:73
 msgid "_View"
-msgstr "P_ogled"
+msgstr "_Mostra"
 
 #: ../glade/main.glade:94 ../glade/main.glade:339
 #: ../glade/preferences.glade:780
 msgid "Usage"
-msgstr "Upotreba"
+msgstr "Utilizzo"
 
 #: ../glade/main.glade:108 ../glade/main.glade:377
 msgid "Support"
-msgstr "Podrška"
+msgstr "Supporto"
 
 #: ../glade/main.glade:132
 msgid "_Tools"
-msgstr "_Alati"
+msgstr "_Strumenti"
 
 #: ../glade/main.glade:140 ../../gui/views/main.py:415
 msgid "Enabled"
@@ -389,31 +392,31 @@ msgstr ""
 
 #: ../glade/main.glade:149
 msgid "Change PIN"
-msgstr "Promjeni PIN"
+msgstr "Cambia PIN"
 
 #: ../glade/main.glade:157
 msgid "Request PIN"
-msgstr "Zatraži PIN"
+msgstr "Richiedi PIN"
 
 #: ../glade/main.glade:194
 msgid "Profiles"
-msgstr "Profili"
+msgstr ""
 
 #: ../glade/main.glade:216 ../glade/preferences.glade:7
 msgid "Preferences"
-msgstr "Postavke"
+msgstr "Impostazioni"
 
 #: ../glade/main.glade:240
 msgid "_Help"
-msgstr "_Pomoć"
+msgstr "_Aiuto"
 
 #: ../glade/main.glade:246
 msgid "Help"
-msgstr "Pomoć"
+msgstr ""
 
 #: ../glade/main.glade:265
 msgid "_About"
-msgstr "_O programu"
+msgstr "_Informazioni"
 
 #: ../glade/main.glade:356
 msgid "Topup"
@@ -421,84 +424,84 @@ msgstr ""
 
 #: ../glade/main.glade:410 ../glade/main.glade:524
 msgid "_New"
-msgstr "_Novi"
+msgstr "_Nuovo"
 
 #: ../glade/main.glade:412
 msgid "Create new SMS"
-msgstr ""
+msgstr "Crea nuovo SMS"
 
 #: ../glade/main.glade:428
 msgid "_Reply"
-msgstr "_Odgovori"
+msgstr "_Rispondi"
 
 #: ../glade/main.glade:430
 msgid "Reply message"
-msgstr "Odgovori na poruku"
+msgstr "Rispondi al messaggio"
 
 #: ../glade/main.glade:439
 msgid "Reply without quoting original text"
-msgstr "Odgovori bez navođenja originalnog teksta"
+msgstr "_Rispondi senza riportare il testo originale"
 
 #: ../glade/main.glade:440
 msgid "Send new"
-msgstr "Pošalji novu"
+msgstr "Spedisci nuovo"
 
 #: ../glade/main.glade:448
 msgid "Reply quoting original message"
-msgstr "Odgovori sa originalnom porukom"
+msgstr "Rispondi riportando il messaggio originale"
 
 #: ../glade/main.glade:449
 msgid "Reply quoting"
-msgstr "Odgovori sa navođenjem"
+msgstr "Rispondi riportando"
 
 #: ../glade/main.glade:466
 msgid "_Forward"
-msgstr "_Preusmjeri"
+msgstr "_Inoltra"
 
 #: ../glade/main.glade:468
 msgid "Forward SMS to another contact"
-msgstr "Preusmjeri SMS na drugi kontakt"
+msgstr "Inoltra SMS ad un altro contatto"
 
 #: ../glade/main.glade:483 ../glade/main.glade:573
 #: ../../gui/controllers/main.py:752
 msgid "_Delete"
-msgstr "_Obriši"
+msgstr "_Cancella"
 
 #: ../glade/main.glade:508
 msgid "_Contacts"
-msgstr "_Kontakti"
+msgstr "_Contatti"
 
 #: ../glade/main.glade:510
 msgid "Contacts menu"
-msgstr "Izbornik kontaka"
+msgstr "Menu contatti"
 
 #: ../glade/main.glade:544
 msgid "_Search"
-msgstr "_Pretraga"
+msgstr ""
 
 #: ../glade/main.glade:546
 msgid "Search contacts"
-msgstr "Pretraži kontakte"
+msgstr "Cerca contatti"
 
 #: ../glade/main.glade:623
 msgid "Inbox"
-msgstr "Dolazno"
+msgstr "Posta in Arrivo"
 
 #: ../glade/main.glade:654
 msgid "Draft"
-msgstr "Nedovršeno"
+msgstr "Bozza"
 
 #: ../glade/main.glade:685
 msgid "Sent"
-msgstr "Poslano"
+msgstr "Spediti"
 
 #: ../glade/main.glade:715 ../glade/sms.glade:34
 msgid "Contacts"
-msgstr "Kontakti"
+msgstr "Contatti"
 
 #: ../glade/main.glade:803 ../glade/main.glade:1186
 msgid "<b>Month</b>"
-msgstr "<b>Mjesec</b>"
+msgstr "<b>Mese</b>"
 
 #: ../glade/main.glade:853 ../glade/main.glade:983 ../glade/main.glade:1285
 msgid "GPRS:"
@@ -510,15 +513,15 @@ msgstr "3G:"
 
 #: ../glade/main.glade:879 ../glade/main.glade:1011 ../glade/main.glade:1311
 msgid "Total:"
-msgstr "Ukupno:"
+msgstr "Totale:"
 
 #: ../glade/main.glade:945 ../glade/main.glade:1328
 msgid "<b>Transferred Data</b>"
-msgstr ""
+msgstr "<b>Dati trasferiti</b>"
 
 #: ../glade/main.glade:1074
 msgid "<b>Current session</b>"
-msgstr "<b>Sadašnja sesija</b>"
+msgstr "<b>Sessione corrente</b>"
 
 #: ../glade/main.glade:1112 ../glade/main.glade:1364
 msgid "Total Traffic"
@@ -526,11 +529,11 @@ msgstr ""
 
 #: ../glade/main.glade:1155
 msgid "Current month"
-msgstr ""
+msgstr "Mese corrente"
 
 #: ../glade/main.glade:1410
 msgid "Last month"
-msgstr ""
+msgstr "Ultimo mese"
 
 #: ../glade/main.glade:1424
 msgid "<b>Usage</b> - Remember that this information is only indicative."
@@ -538,15 +541,15 @@ msgstr ""
 
 #: ../glade/main.glade:1468
 msgid "Help menu"
-msgstr "Izbornik Pomoći"
+msgstr "Menu Aiuto"
 
 #: ../glade/main.glade:1505
 msgid "Support center"
-msgstr "Centar za Podršku"
+msgstr "Centro supporto"
 
 #: ../glade/main.glade:1543
 msgid "Customer support"
-msgstr "Korisnička podrška"
+msgstr "Supporto Clienti"
 
 #: ../glade/misc.glade:54
 msgid "Wader log"
@@ -566,11 +569,11 @@ msgstr "<b>Number</b>"
 
 #: ../glade/payt.glade:94
 msgid "<b>Credit</b>"
-msgstr "<b>Credit</b>"
+msgstr "<b>Credito</b>"
 
 #: ../glade/payt.glade:105
 msgid "<b>Date</b>"
-msgstr "<b>Date</b>"
+msgstr "<b>Data</b>"
 
 #: ../glade/payt.glade:167
 msgid "Recheck my credit:"
@@ -582,7 +585,7 @@ msgstr ""
 
 #: ../glade/payt.glade:237
 msgid "<b>Voucher Code</b>"
-msgstr "<b>Voucher Code</b>"
+msgstr "<b>Voucher codice</b>"
 
 #: ../glade/payt.glade:267
 msgid "Enter code:"
@@ -590,7 +593,7 @@ msgstr ""
 
 #: ../glade/payt.glade:341
 msgid "<b>Credit Card</b>"
-msgstr "<b>Credit Card</b>"
+msgstr "<b>Carta di credito</b"
 
 #: ../glade/payt.glade:371
 msgid "Pay by credit card"
@@ -598,7 +601,7 @@ msgstr ""
 
 #: ../glade/pin.glade:8
 msgid "Insert your PIN code"
-msgstr "Upišite vaš PIN kod"
+msgstr "Inserisci il tuo codice PIN"
 
 #: ../glade/pin.glade:23
 msgid "Insert PIN Window"
@@ -606,7 +609,7 @@ msgstr ""
 
 #: ../glade/pin.glade:64
 msgid "Please insert your PIN code"
-msgstr "Molimo upišite vaš PIN kod"
+msgstr "Per cortesia introduci il codice PIN"
 
 #: ../glade/pin.glade:104
 msgid "Insert PIN Entry"
@@ -614,31 +617,31 @@ msgstr ""
 
 #: ../glade/pin.glade:149
 msgid "Manage my PIN through gnome-keyring"
-msgstr "Koristi moj PIN kroz gnome-keyring"
+msgstr "Gestisci il codice PIN attraverso il portachiavi di gnome"
 
 #: ../glade/pin.glade:178
 msgid "<b>Advanced Options</b>"
-msgstr "<b>Napredne opcije</b>"
+msgstr "<b>Opzioni avanzate</b>"
 
 #: ../glade/pin.glade:257
 msgid "Modify PIN code"
-msgstr "Uredi PIN kod"
+msgstr "Modifica il codice PIN"
 
 #: ../glade/pin.glade:369 ../glade/pin.glade:758
 msgid "Confirm PIN code: "
-msgstr "Potvrdi PIN kod: "
+msgstr "Conferma il codice PIN: "
 
 #: ../glade/pin.glade:397 ../glade/pin.glade:733
 msgid "New PIN code: "
-msgstr "Novi PIN kod: "
+msgstr "Nuovo codice PIN "
 
 #: ../glade/pin.glade:425
 msgid "Current PIN code: "
-msgstr "Sadašnji PIN kod: "
+msgstr "Codice PIN corrente: "
 
 #: ../glade/pin.glade:513
 msgid "Please enter PUK"
-msgstr "Molimo, unesite PUK kod"
+msgstr "Immettere il codice PUK"
 
 #: ../glade/pin.glade:650
 msgid "PUK:"
@@ -646,11 +649,11 @@ msgstr "PUK:"
 
 #: ../glade/preferences.glade:55
 msgid "<b>Change to global SMS settings </b>"
-msgstr ""
+msgstr "<b>Cambia impostazioni globali SMS</b>"
 
 #: ../glade/preferences.glade:71
 msgid "Allow SMS confirmation"
-msgstr ""
+msgstr "Consenti conferma SMS"
 
 #: ../glade/preferences.glade:75
 msgid ""
@@ -660,7 +663,7 @@ msgstr ""
 
 #: ../glade/preferences.glade:86
 msgid "Use an alternative SMS Service centre address"
-msgstr ""
+msgstr "Utilizzare un indirizzo alternativo SMS Centro servizi"
 
 #: ../glade/preferences.glade:90
 msgid ""
@@ -670,23 +673,23 @@ msgstr ""
 
 #: ../glade/preferences.glade:118
 msgid "<b>SMSC preferences</b>"
-msgstr "<b>SMSC postavke</b>"
+msgstr "<b>Impostazioni SMSC</b>"
 
 #: ../glade/preferences.glade:140
 msgid "Profile:"
-msgstr "Profil:"
+msgstr "Profilo:"
 
 #: ../glade/preferences.glade:151
 msgid "SMSC number:"
-msgstr "SMSC broj:"
+msgstr "Numero SMSC:"
 
 #: ../glade/preferences.glade:219
 msgid "<b>Message options</b>"
-msgstr "<b>Opcije poruka</b>"
+msgstr "<b>Opzioni messaggio</b>"
 
 #: ../glade/preferences.glade:240
 msgid "Validity:"
-msgstr "Trajanje:"
+msgstr "Validità:"
 
 #: ../glade/preferences.glade:289
 msgid "SMS Profile"
@@ -694,63 +697,64 @@ msgstr ""
 
 #: ../glade/preferences.glade:308
 msgid "<b>User options</b>"
-msgstr "<b>Korisničke opcije</b>"
+msgstr "<b>Opzioni utente</b>"
 
 #: ../glade/preferences.glade:329
 msgid "Exit without confirmation"
-msgstr "Izađi bez potvrde"
+msgstr "Esci senza confermare"
 
 #: ../glade/preferences.glade:344
 msgid "Show icon on tray"
-msgstr "Prikaži ikonu u tray-u"
+msgstr "Mostra l'icona sulla barra applicazioni"
 
 #: ../glade/preferences.glade:359
 msgid "Close window minimizes app to tray"
-msgstr "Ugasi prozor minimalizira aplikaciju u sistemski izbornik"
+msgstr ""
+"Chiudi la finestra minimizzando l'applicazione sulla barra applicazioni"
 
 #: ../glade/preferences.glade:374
 msgid "Manage my PIN through gnomekeyring"
-msgstr "Kontroliraj moj PIN kroz gnomekeyring"
+msgstr "Gestisci il mio PIN attraverso il gestore portachiavi"
 
 #: ../glade/preferences.glade:409
 msgid "User Preferences"
-msgstr "Korisničke postavke"
+msgstr "Impostazioni utente"
 
 #: ../glade/preferences.glade:429
 msgid "<b>Web Browser</b>"
-msgstr "<b>Internet preglednik</b>"
+msgstr ""
 
 #: ../glade/preferences.glade:490 ../glade/preferences.glade:583
 msgid "Command:"
-msgstr "Naredba:"
+msgstr "Comando:"
 
 #: ../glade/preferences.glade:527
 msgid "<b>Email client</b>"
-msgstr "<b>Email klijent</b>"
+msgstr "<b>Programma Email</b>"
 
 #: ../glade/preferences.glade:630
 msgid "Applications"
-msgstr "Aplikacije"
+msgstr "Programmi"
 
 #: ../glade/preferences.glade:650
 msgid "<b>Usage Options</b>"
-msgstr "<b>Opcije upotrebe</b>"
+msgstr "<b>Uso Opzioni</b>"
 
 #: ../glade/preferences.glade:678
 msgid "Maximum traffic (MB):"
-msgstr "Maksimum prometa (MB):"
+msgstr "Traffico massimo (MB):"
 
 #: ../glade/preferences.glade:707
 msgid "Notify when a given threshold is exceeded."
-msgstr "Obavjsti kada je postavljeni promet prekoračen."
+msgstr "Informami quando supero la soglia specificata."
 
 #: ../glade/preferences.glade:734
 msgid "Notification threshold (MB):"
-msgstr "Obavijest prometa (MB):"
+msgstr "Soglia notifica (MB):"
 
 #: ../glade/profiles.glade:9
 msgid "New Profile"
-msgstr "Novi profil"
+msgstr "Nuovo profilo"
 
 #: ../glade/profiles.glade:23
 msgid "New Profile Window"
@@ -764,19 +768,19 @@ msgid ""
 "support center and they should provide\n"
 "you with the relevant information."
 msgstr ""
-"<b>Kreiranje novog profila za vaš uređaj.</b>\n"
+"<b>Crea un nuovo profilo per la tua periferica.</b>\n"
 "\n"
-"Ako niste sigurni koje podatke trebate upisati, kontaktirajte vašu "
-"korisnkičku podršku i oni bi vam trebali dostaviti\n"
-"valjane informacije."
+"Se non sei sicuro su quali campi devi compilare, contatta il centro supporto "
+"e loro dovrebbero fornirti\n"
+"le informazioni che ti servono."
 
 #: ../glade/profiles.glade:115
 msgid "<b>Connection preferences</b>"
-msgstr "<b>Postavke veze</b>"
+msgstr "<b>Impostazioni connessione</b>"
 
 #: ../glade/profiles.glade:152
 msgid "Username:"
-msgstr "Korisnik:"
+msgstr "Utente:"
 
 #: ../glade/profiles.glade:202
 msgid "Authentication method:"
@@ -784,7 +788,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:227
 msgid "Preferred connection:"
-msgstr "Preferirana veza:"
+msgstr "Connessione preferita:"
 
 #: ../glade/profiles.glade:252
 msgid "Preferred band:"
@@ -792,35 +796,35 @@ msgstr ""
 
 #: ../glade/profiles.glade:277
 msgid "APN host:"
-msgstr "APN domaćin:"
+msgstr "Host APN:"
 
 #: ../glade/profiles.glade:447
 msgid "<b>DNS settings</b>"
-msgstr "<b>DNS postavke</b>"
+msgstr "<b>Impostazioni DNS</b>"
 
 #: ../glade/profiles.glade:485
 msgid "Use static DNS"
-msgstr "Koristi statični DNS"
+msgstr "Usa DNS statico"
 
 #: ../glade/profiles.glade:518
 msgid "Primary DNS:"
-msgstr "Primarni DNS:"
+msgstr "DNS primario:"
 
 #: ../glade/profiles.glade:543
 msgid "Secondary DNS:"
-msgstr "Sekundarni DNS:"
+msgstr "DNS secondario:"
 
 #: ../glade/profiles.glade:715
 msgid "<b>Profile settings</b>"
-msgstr "<b>Postavka profila</b>"
+msgstr "<b>Profilo impostazioni</b>"
 
 #: ../glade/profiles.glade:752
 msgid "Profile name:"
-msgstr "Ime profila:"
+msgstr "Nome Profilo:"
 
 #: ../glade/profiles.glade:863
 msgid "Device selection"
-msgstr "Odabir uređaja"
+msgstr "Selezione periferica"
 
 #: ../glade/profiles.glade:877
 msgid "Device Selection Window"
@@ -833,14 +837,14 @@ msgid ""
 "You can choose a known device or insert the needed information to set up a "
 "custom one.\n"
 msgstr ""
-"<b>Izaberite uređaj za vašu vezu.</b>\n"
+"<b>Seleziona la periferica per la connessione.</b>\n"
 "\n"
-"Izaberite poznati uređaj ili ubacite potrebne podatke  za ručno "
-"postavljanje.\n"
+"Puoi scegliere la periferica o inserire le informazioni che ti servono per "
+"definirne una personalizzata.\n"
 
 #: ../glade/profiles.glade:1024
 msgid "Known devices"
-msgstr "Poznati uređaji"
+msgstr "Periferiche conosciute"
 
 #: ../glade/profiles.glade:1032
 msgid "Known Devices Radio"
@@ -848,31 +852,31 @@ msgstr ""
 
 #: ../glade/profiles.glade:1083
 msgid "Device type:"
-msgstr "Tip uređaja:"
+msgstr "Tipo periferica:"
 
 #: ../glade/profiles.glade:1108
 msgid "Serial"
-msgstr "Serijski"
+msgstr "Seriale"
 
 #: ../glade/profiles.glade:1183
 msgid "115200"
-msgstr "115200"
+msgstr ""
 
 #: ../glade/profiles.glade:1198
 msgid "Data port device:"
-msgstr "Podatkovni port uređaj:"
+msgstr "Periferica porta dati"
 
 #: ../glade/profiles.glade:1226
 msgid "Control port device:"
-msgstr "Kontrola porta uređaja:"
+msgstr "Periferica porta controllo"
 
 #: ../glade/profiles.glade:1254
 msgid "Speed connection:"
-msgstr "Brzina veze:"
+msgstr "Velocità di connessione:"
 
 #: ../glade/profiles.glade:1294
 msgid "Custom device settings"
-msgstr "Ručno postavljanje uređaja"
+msgstr "Impostazioni periferica personalizzate"
 
 #: ../glade/profiles.glade:1303
 msgid "Custom Device Settings Radio"
@@ -880,19 +884,19 @@ msgstr ""
 
 #: ../glade/profiles.glade:1369
 msgid "<b>Device Settings</b>"
-msgstr "<b>Opcije uređaja</b>"
+msgstr "<b>Opzioni Periferica</b>"
 
 #: ../glade/sms.glade:50
 msgid "TO : "
-msgstr "Za : "
+msgstr "A : "
 
 #: ../glade/splash.glade:6
 msgid "3G Devices Manager"
-msgstr "Uredi 3G uređaje"
+msgstr "Gestione periferiche 3G"
 
 #: ../../gui/constx.py:47 ../../gui/constx.py:65 ../../gui/constx.py:84
 msgid "Any"
-msgstr ""
+msgstr "Qualsiasi"
 
 #: ../../gui/constx.py:48
 msgid "EGSM 900"
@@ -944,19 +948,19 @@ msgstr "WCDMA 1900"
 
 #: ../../gui/constx.py:66 ../../gui/signals.py:27
 msgid "2G preferred"
-msgstr "Preferiraj 2G"
+msgstr "Prediligi 2G"
 
 #: ../../gui/constx.py:67 ../../gui/signals.py:28
 msgid "3G preferred"
-msgstr "Preferiraj 3G"
+msgstr "Prediligi 3G"
 
 #: ../../gui/constx.py:68 ../../gui/signals.py:29
 msgid "2G only"
-msgstr "Samo 2G"
+msgstr "Solo 2G"
 
 #: ../../gui/constx.py:69 ../../gui/signals.py:30
 msgid "3G only"
-msgstr "Samo 3G"
+msgstr "Solo 3G"
 
 #: ../../gui/constx.py:85
 msgid "PAP"
@@ -984,7 +988,8 @@ msgstr ""
 
 #: ../../gui/views/pin.py:77 ../../gui/controllers/preferences.py:212
 msgid "To use this feature you need the gnomekeyring module"
-msgstr "Da bi koristili ovu opciju trebate gnomekeyring modul"
+msgstr ""
+"Per usare questo caratteristica hai bisogno di avere gnomekeyring installato"
 
 #: ../../gui/views/pin.py:93
 msgid ""
@@ -993,8 +998,8 @@ msgid ""
 "PIN and PUK codes"
 msgstr ""
 "\n"
-"Da bi otključali vaš SIM, trebamo vaše\n"
-"PIN i PUK kodove"
+"Per sbloccare la SIM, abbiamo bisogno dei \n"
+"codici PIN e PUK"
 
 #: ../../gui/views/pin.py:100
 msgid ""
@@ -1003,8 +1008,8 @@ msgid ""
 "PIN and PUK2 codes"
 msgstr ""
 "\n"
-"Da bi otključali vaš SIM, trebamo vaše\n"
-"PIN i PUK2 kodove"
+"Per sbloccare la SIM, abbiamo bisogno dei \n"
+"codici PIN e PUK2"
 
 #: ../../gui/views/main.py:140
 #, python-format
@@ -1022,11 +1027,19 @@ msgid ""
 "system, you might need to ask your Systems Administrator any doubt that you "
 "might have."
 msgstr ""
-"U većini slučajeva odgovore na vaša pitanja o programumožete pronaći u "
-"izborniku pomoć.\n"
+"In molti casi puoi trovare la risposta alle tue domande sul programma nel "
+"menu degli aiuti. Puoi accedere a questo menu cliccando sull'etichetta "
+"\"Aiuto\" sulla barra dei menu situata nella parte alta della finestra e "
+"selezionando l'opzione \"Argomenti di Aiuto\" .\n"
+"%(name)s\n"
+"Puoi inoltre trovare aiuto, aggiornamenti e suggerimenti nella pagina web "
+"della Vodafone:\n"
 "\n"
-"Isto tako pomoć , nadogradnje i upute možete potražiti na%(name)s's webu:\n"
-"%(url)s."
+"%(url)s.\n"
+"\n"
+"Se usi i pulsanti per la posta elettronica ed il browser per accedere a "
+"programmi del tuo sistema,  potresti aver bisogno di chiedere al tuo "
+"Responsabile di Sistema per ogni dubbio che potresti avere."
 
 #: ../../gui/views/main.py:155
 msgid ""
@@ -1037,11 +1050,12 @@ msgid ""
 "If your company does not have a support center, you will have to contact "
 "your company's System Administrator."
 msgstr ""
-"Ako koristite ovaj program u korporacijskoj okolini, vaša kompanija bi "
-"trebala imati tehničku podršku da odgovori na pitanja koja imate o "
-"programu.\n"
+"Se stai usando questo programma all'interno di un'Impresa, la tua compagnia "
+"probabilmente ha un centro di supporto per risolvere i problemi che potresti "
+"avere in merito all'uso di questo programma.\n"
 "\n"
-"U suprotnom zatražite pomoć od sistemskog administrator vaše kompanije."
+"Se la tua compagnia non ha un centro di supporto, dovresti contattare "
+"l'Amministratore di sistema della tua compagnia."
 
 #: ../../gui/views/main.py:210 ../../gui/views/main.py:228
 msgid "N/A"
@@ -1090,7 +1104,7 @@ msgstr "LTE"
 #: ../../gui/views/main.py:378 ../../gui/views/main.py:382
 #: ../../gui/controllers/main.py:692
 msgid "Connect"
-msgstr "Povezivanje"
+msgstr "Connetti"
 
 #: ../../gui/views/main.py:386 ../../gui/views/main.py:419
 msgid "Disconnecting"
@@ -1103,7 +1117,7 @@ msgstr ""
 
 #: ../../gui/views/main.py:394 ../../gui/controllers/main.py:687
 msgid "Disconnect"
-msgstr "Prekini vezu"
+msgstr "Disconnetti"
 
 #: ../../gui/views/main.py:408
 msgid "Device found"
@@ -1135,15 +1149,15 @@ msgstr ""
 
 #: ../../gui/views/main.py:416
 msgid "Searching"
-msgstr ""
+msgstr "Searching"
 
 #: ../../gui/views/main.py:417 ../../gui/controllers/main.py:1060
 msgid "Not connected"
-msgstr "Nije spojeno"
+msgstr "Non connesso"
 
 #: ../../gui/views/main.py:420
 msgid "Connected"
-msgstr "Spojeno"
+msgstr "Connesso"
 
 #: ../../gui/views/main.py:423
 msgid "No device"
@@ -1152,46 +1166,46 @@ msgstr ""
 #: ../../gui/views/main.py:485 ../../gui/views/main.py:523
 #: ../../gui/views/profile.py:143 ../../gui/controllers/contacts.py:141
 msgid "Type"
-msgstr "Tip"
+msgstr "Tipo"
 
 #: ../../gui/views/main.py:491 ../../gui/views/profile.py:133
 #: ../../gui/controllers/contacts.py:147
 msgid "Name"
-msgstr "Ime"
+msgstr "Nome"
 
 #: ../../gui/views/main.py:500 ../../gui/controllers/contacts.py:154
 msgid "Number"
-msgstr "Broj"
+msgstr "Numero"
 
 #: ../../gui/views/main.py:534
 msgid "Text"
-msgstr "Tekst"
+msgstr "Testo"
 
 #: ../../gui/views/main.py:545
 msgid "Recipient"
-msgstr "Primatelj"
+msgstr "Destinatario"
 
 #: ../../gui/views/main.py:545
 msgid "Sender"
-msgstr "Pošiljatelj"
+msgstr "Inviato da"
 
 #: ../../gui/views/main.py:554
 msgid "Date"
-msgstr "Datum"
+msgstr "Dattero"
 
 #: ../../gui/views/profile.py:138
 msgid "Country"
-msgstr "Država"
+msgstr ""
 
 #: ../../gui/uptime.py:83
 #, python-format
 msgid "%(day)d days, %(msg)s"
-msgstr "%(day)d dani, %(msg)s"
+msgstr "%(day)d giorni, %(msg)s"
 
 #: ../../gui/uptime.py:85
 #, python-format
 msgid "%(day)d day, %(msg)s"
-msgstr "%(day)d dan, %(msg)s"
+msgstr "%(day)d giorno, %(msg)s"
 
 #: ../../gui/signals.py:23
 msgid "No signal"
@@ -1204,7 +1218,7 @@ msgstr ""
 
 #: ../../gui/models/main.py:172
 msgid "Error while starting wader"
-msgstr "Error while starting wader"
+msgstr ""
 
 #: ../../gui/models/main.py:173
 #, python-format
@@ -1215,7 +1229,7 @@ msgstr ""
 #: ../../gui/models/profile.py:162 ../../gui/controllers/preferences.py:158
 #: ../../gui/controllers/preferences.py:174
 msgid "Custom"
-msgstr "Prilagoditi"
+msgstr "Personalizzato"
 
 #: ../../gui/models/profile.py:374
 msgid "Trying to remove an unsaved profile"
@@ -1223,28 +1237,29 @@ msgstr ""
 
 #: ../../gui/controllers/sms.py:52
 msgid "You can send the SMS to several recipients separating them by commas"
-msgstr "Možete poslati SMS nekoliko primatelja odvajajući ih zarezima"
+msgstr ""
+"Tu puoi spedire gli SMS a diversi destinatari separandoli con delle virgole"
 
 #: ../../gui/controllers/sms.py:84 ../../gui/controllers/sms.py:259
 #, python-format
 msgid "Text message: 0/%d chars"
-msgstr "Tekstualna poruka: 0/%d chars"
+msgstr "Messagio di testo: 0/%d caratteri"
 
 #: ../../gui/controllers/sms.py:113
 msgid "Send empty message"
-msgstr "Šalji praznu poruku"
+msgstr "Spedisci un messaggio vuoto"
 
 #: ../../gui/controllers/sms.py:114
 msgid "Are you sure you want to send an empty message?"
-msgstr "Da li ste sigurni da želite poslati praznu poruku?"
+msgstr "Sei sicuro di voler spedire un messaggio vuoto?"
 
 #: ../../gui/controllers/sms.py:138
 msgid "Error while sending SMS"
-msgstr "Error while sending SMS"
+msgstr ""
 
 #: ../../gui/controllers/sms.py:184
 msgid "No SMSC number"
-msgstr "Nema SMSC broja"
+msgstr "Nessun numero SMSC"
 
 #: ../../gui/controllers/sms.py:185
 #, python-format
@@ -1252,18 +1267,18 @@ msgid ""
 "In order to send a SMS, %s needs to know the number of your provider's SMSC. "
 "If you do not know the SMSC number, contact your customer service."
 msgstr ""
-"Pri slanju SMS poruke, %s treba prepoznati SMSC broj vašeg davatelja usluga. "
-"Ako neznate SMSC broj, kontaktirajte tehničku podršku davatelja usluga."
+"Per spedire SMS, %s necessita di sapere il numero SMSC del tuo provider. Se "
+"non conosci il numero SMSC, contatta il servizio clienti."
 
 #: ../../gui/controllers/sms.py:267
 #, python-format
 msgid "Text message: %(num)d/%(total)d chars"
-msgstr "Tekstualna Poruka: %(num)d/%(total)d chars"
+msgstr "Messagio di testo: %(num)d/%(total)d caratteri"
 
 #: ../../gui/controllers/sms.py:272
 #, python-format
 msgid "Text message: %(num)d/%(total)d chars (%(msgs)d SMS)"
-msgstr "Tekstualna Poruka: %(num)d/%(total)d chars (%(msgs)d SMS)"
+msgstr "Messagio di testo: %(num)d/%(total)d caratteri (%(msgs)d SMS)"
 
 #: ../../gui/controllers/payt_controller.py:98
 #: ../../gui/controllers/payt_controller.py:114
@@ -1298,7 +1313,7 @@ msgstr ""
 
 #: ../../gui/controllers/pin.py:109 ../../gui/controllers/pin.py:190
 msgid "Incorrect PIN"
-msgstr "Nevaljan PIN"
+msgstr "PIN sbagliato"
 
 #: ../../gui/controllers/pin.py:110 ../../gui/controllers/pin.py:191
 msgid ""
@@ -1309,19 +1324,19 @@ msgid ""
 "for the PUK code</small>\n"
 msgstr ""
 "\n"
-"<small>PIN koji ste upisali je\n"
-"nevaljan. Imajte na umu da nakon\n"
-"tri kriva PINa biti ćete pitani\n"
-"za PUK kod</small>\n"
+"<small>Il PIN che hai inserito è\n"
+"sbagliato. Ricordati che dopo 3\n"
+"tentativi falliti del PIN ti verrà\n"
+"richiesto il codice PUK</small>\n"
 
 #: ../../gui/controllers/main.py:172
 #, python-format
 msgid "Quit %s"
-msgstr "Ugasi %s"
+msgstr "Chiudi %s"
 
 #: ../../gui/controllers/main.py:173
 msgid "Are you sure you want to exit?"
-msgstr "Dali ste sigurni da želite ugasiti?"
+msgstr "Sei sicuro di voler uscire?"
 
 #: ../../gui/controllers/main.py:185
 msgid "Can not close application"
@@ -1346,6 +1361,18 @@ msgid ""
 "\n"
 "%(international)s if you are calling from other network."
 msgstr ""
+"Puoi facilmente trovare le risposte alle domande più comuni nel menu aiuto, "
+"nel centro di supporto della tua compagnia e nell'area supporto in \n"
+"\n"
+"%(url)s.\n"
+"\n"
+"Se hai ancora problemi puoi chiamare il centro di supporto Clienti della "
+"Vodafone ,\n"
+"i numeri sono:\n"
+"\n"
+"%(shortcode)s, se stai usando la rete Vodafone, o\n"
+"\n"
+"%(international)s se stai chiamando da altre reti."
 
 #: ../../gui/controllers/main.py:379
 msgid "Invalid password"
@@ -1387,7 +1414,7 @@ msgstr ""
 #: ../../gui/controllers/main.py:611
 #, python-format
 msgid "SMS received from %s"
-msgstr "SMS primljen od %s"
+msgstr "SMS ricevuto da %s"
 
 #: ../../gui/controllers/main.py:652 ../../gui/controllers/main.py:655
 msgid "Failed connection attempt"
@@ -1399,19 +1426,19 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:706 ../../gui/controllers/main.py:741
 msgid "Send SMS"
-msgstr "Pošalji SMS"
+msgstr "Spedisci un SMS"
 
 #: ../../gui/controllers/main.py:719
 msgid "Quit"
-msgstr "Završi"
+msgstr "Chiudi"
 
 #: ../../gui/controllers/main.py:763
 msgid "Edit"
-msgstr "Uredi"
+msgstr "Modifica"
 
 #: ../../gui/controllers/main.py:783
 msgid "Invalid CSV format"
-msgstr "Nevaljan CSV format"
+msgstr "Formato CSV non valido"
 
 #: ../../gui/controllers/main.py:784
 msgid ""
@@ -1419,7 +1446,7 @@ msgid ""
 "The csv file that you have tried to import has an invalid format."
 msgstr ""
 "\n"
-"CSV datoteka koju ste pokušali uvesti je nevaljanog formata."
+"Il file csv che hai provato ad importare ha un formato non valido."
 
 #: ../../gui/controllers/main.py:813
 msgid "No device found"
@@ -1449,23 +1476,23 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:1009
 msgid "_New Profile"
-msgstr "_Novi Profil"
+msgstr "_Nuovo profilo"
 
 #: ../../gui/controllers/main.py:1018
 msgid "Load Profile"
-msgstr "Učitaj profil"
+msgstr "Carica profilo"
 
 #: ../../gui/controllers/main.py:1023
 msgid "Edit Profile"
-msgstr ""
+msgstr "Modifica Profilo"
 
 #: ../../gui/controllers/main.py:1028
 msgid "Delete Profile"
-msgstr ""
+msgstr "Cancella Profilo"
 
 #: ../../gui/controllers/main.py:1061
 msgid "No mobile connection. Do you want to continue?"
-msgstr "Nema mobilne veze. Da li želite nastaviti?"
+msgstr "Nessuna connessione attiva. Vuoi continuare?"
 
 #: ../../gui/controllers/main.py:1491
 msgid "Editor not available"
@@ -1478,7 +1505,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:1498
 msgid "_Add to contacts"
-msgstr "_Dodaj u kontakte"
+msgstr "_Aggiungi ai contatti"
 
 #: ../../gui/controllers/main.py:1509
 msgid "Migrate to DB"
@@ -1486,11 +1513,11 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:1518
 msgid "Save to draft"
-msgstr "Spremi u Nedovršeno"
+msgstr "Salva brutta copia"
 
 #: ../../gui/controllers/main.py:1529
 msgid "Delete"
-msgstr "Obriši"
+msgstr "Cancella"
 
 #: ../../gui/controllers/main.py:1577
 msgid "Can not handle DB contacts"
@@ -1502,24 +1529,24 @@ msgstr ""
 
 #: ../../gui/controllers/preferences.py:40
 msgid "Maximum time"
-msgstr "Maksimum vremena"
+msgstr "Tempo massimo"
 
 #: ../../gui/controllers/preferences.py:41
 msgid "1 week"
-msgstr "1 tjedan"
+msgstr "1 settimana"
 
 #: ../../gui/controllers/preferences.py:42
 msgid "3 days"
-msgstr "3 dana"
+msgstr "3 giorni"
 
 #: ../../gui/controllers/preferences.py:43
 msgid "1 day"
-msgstr "1 dan"
+msgstr "1 giorno"
 
 #: ../../gui/controllers/preferences.py:210
 #: ../../gui/controllers/preferences.py:229
 msgid "Missing dependency"
-msgstr "Nedostaju međuzavisnosti"
+msgstr "Dipendenze mancanti"
 
 #: ../../gui/controllers/preferences.py:230
 msgid ""
@@ -1528,16 +1555,17 @@ msgid ""
 "module\n"
 msgstr ""
 "\n"
-"Za korištenje ove opcije trebate ili pygtk >= 2.10 ili egg.trayicon modul\n"
+"Per usare questa caratteristica hai bisogno dei moduli pygtk >= 2.10 o di "
+"egg.trayicon\n"
 
 #: ../../gui/controllers/contacts.py:93
 msgid "No contact found"
-msgstr "Nema pronađenih kontakata"
+msgstr "Nessun contatto trovato"
 
 #: ../../gui/controllers/contacts.py:94
 #, python-format
 msgid "No contact with the name %s found"
-msgstr "Kontakt sa imenom %s nije pronađen"
+msgstr "Nessun contatto con il nome %s è stato trovato"
 
 #: ../../gui/controllers/profile.py:69
 msgid "Error while getting connection password"
@@ -1564,7 +1592,7 @@ msgstr ""
 
 #: ../../gui/dialogs.py:154
 msgid "Error"
-msgstr "Greška"
+msgstr "Errore"
 
 #: ../../gui/dialogs.py:238
 msgid "Password required"
@@ -1572,36 +1600,36 @@ msgstr ""
 
 #: ../../gui/dialogs.py:239
 msgid "Please, insert the password of your connection"
-msgstr "Please, insert the password of your connection"
+msgstr ""
 
 #: ../../gui/dialogs.py:273
 msgid "Save as ..."
-msgstr "Spremi kao ..."
+msgstr "Salva con nome..."
 
 #: ../../gui/dialogs.py:281 ../../gui/dialogs.py:320
 msgid "Csv files"
-msgstr "Csv datoteke"
+msgstr "Documenti Csv"
 
 #: ../../gui/dialogs.py:287 ../../gui/dialogs.py:325
 msgid "All files"
-msgstr "Sve datoteke"
+msgstr "Tutti i documenti"
 
 #: ../../gui/dialogs.py:298
 #, python-format
 msgid "Overwrite \"%s\"?"
-msgstr "Presnimi preko \"%s\"?"
+msgstr "Sovrascrivi \"%s\"?"
 
 #: ../../gui/dialogs.py:299
 msgid ""
 "A file with this name already exists.\n"
 "If you choose to overwrite this file, the contents will be lost."
 msgstr ""
-"Datoteka sa istim imenom već postoji.\n"
-"Ako izaberete presnimavanje preko, sadržaj će biti izgubljen."
+"Esiste già un documento con lo stesso nome.\n"
+"Se scegli di sovrascriverlo, il suo contenuto sarà perso."
 
 #: ../../gui/dialogs.py:312
 msgid "Import contacts from..."
-msgstr "Uvedi kontakte iz..."
+msgstr "Importa i contatti da..."
 
 #: ../../gui/keyring_dialogs.py:103
 msgid "Create default keyring"
@@ -1626,11 +1654,11 @@ msgstr ""
 
 #: ../../gui/contacts/contact_evolution.py:136
 msgid "Evolution"
-msgstr ""
+msgstr "Evolution"
 
 #: ../../gui/contacts/contact_kdepim.py:132
 msgid "KDE PIM"
-msgstr ""
+msgstr "KDE PIM"
 
 #: ../../bin/vodafone-mobile-broadband:68
 msgid "Do not run the application as root"

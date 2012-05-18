@@ -1,26 +1,27 @@
-# Czech translation for vodafone-mobile-broadband
-# Copyright (C) 2009,2011 Rosetta Contributors and Canonical Ltd
-# This file is distributed under the license that launchpad translation service dictates
-# Andrew Bird <ajb@spheresystems.co.uk>, 2011.
+# V Mobile Broadband Greek translation file.
+# Greek Translation file
+# Copyright (C) 2007
+# This file is distributed under the same license as the V Mobile Broadband package.
 #
+# Dimitrios Psychogios <dpsychogios@gmail.com>, 2007, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: vodafone-mobile-broadband\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-27 11:30+0000\n"
-"PO-Revision-Date: 2012-01-22 17:08+0000\n"
+"PO-Revision-Date: 2012-01-22 17:15+0000\n"
 "Last-Translator: Andrew Bird <Unknown>\n"
-"Language-Team: LANGUAGE <CS@li.org>\n"
+"Language-Team: Greek <EL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2012-05-15 09:20+0000\n"
 "X-Generator: Launchpad (build 15238)\n"
-"Language: \n"
+"Language: el\n"
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
-msgstr ""
+msgstr "Επιλογή APN"
 
 #: ../glade/apnsel.glade:69
 msgid ""
@@ -38,7 +39,7 @@ msgstr ""
 #: ../glade/apnsel.glade:208 ../glade/pin.glade:239
 #: ../glade/profiles.glade:1349
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../glade/apnsel.glade:228
 msgid "<b>APN Settings</b>"
@@ -46,29 +47,31 @@ msgstr ""
 
 #: ../glade/config.glade:8
 msgid "Device setup"
-msgstr ""
+msgstr "Ρυθμίσεις Συσκευής"
 
 #: ../glade/config.glade:34
 msgid ""
 "Please select from the following options how do you want to connect to the "
 "Internet"
 msgstr ""
+"Παρακαλώ επιλέξτε με ποιόν από τους παρακάτω τρόπους επιθυμείτε να "
+"συνδεθείτε με τοΊντερνετ"
 
 #: ../glade/config.glade:56
 msgid "Device model: "
-msgstr ""
+msgstr "Τύπος Συσκευής: "
 
 #: ../glade/config.glade:63
 msgid "Connection:"
-msgstr ""
+msgstr "Σύνδεση:"
 
 #: ../glade/config.glade:153
 msgid "Bluetooth configuration"
-msgstr ""
+msgstr "Ρυθμίσεις Bluetooth"
 
 #: ../glade/config.glade:174
 msgid "Configure your <b>Bluetooth</b> device"
-msgstr ""
+msgstr "Ρυθμίστε τη συσκευή <b>Bluetooth</b> σας"
 
 #: ../glade/config.glade:198
 msgid ""
@@ -78,78 +81,84 @@ msgid ""
 "sports a recent version of libbluetooth2. Otherwise you will\n"
 "have to configure it yourself and fill the relevant entries"
 msgstr ""
+"Παρακαλώ βεβαιωθείτε ότι το κινητό σας έχει ενεργοποιημένο το bluetooth.\n"
+"Θα χρειαστείτε έναν pass-key agent όπως ο bluez-gnome. Η\n"
+"σύνδεσή σας μπορεί να ρυθμιστεί αυτόματα αν η διανομή σας\n"
+"έχει πρόσφατη έκδοση της libbluetooth2. Διαφορετικά θα πρέπει\n"
+"να κάνετε τις ρυθμίσεις μόνοι σας και να συμπληρώσετε τα\n"
+"σχετικά πεδία"
 
 #: ../glade/config.glade:250
 msgid "_Start discovery"
-msgstr ""
+msgstr "_Εναρξη ανίχνευσης"
 
 #: ../glade/config.glade:301
 msgid "<b>Serial Port</b>"
-msgstr ""
+msgstr "<b>Σειριακή Θύρα</b>"
 
 #: ../glade/config.glade:325
 msgid "Data port"
-msgstr ""
+msgstr "Θύρα δεδομένων"
 
 #: ../glade/config.glade:334
 msgid "Control port"
-msgstr ""
+msgstr "Θύρα ελέγχου"
 
 #: ../glade/config.glade:346
 msgid "Speed"
-msgstr ""
+msgstr "Ταχύτητα"
 
 #: ../glade/config.glade:440
 msgid "<b>Connection settings</b>"
-msgstr ""
+msgstr "<b>Ρυθμίσεις σύνδεσης</b>"
 
 #: ../glade/config.glade:461
 msgid "Enable hardware flow control"
-msgstr ""
+msgstr "Enable hardware flow control"
 
 #: ../glade/config.glade:474
 msgid "Enable software flow control"
-msgstr ""
+msgstr "Enable software flow control"
 
 #: ../glade/contacts.glade:7
 msgid "Contact search"
-msgstr ""
+msgstr "Αναζήτηση επαφών"
 
 #: ../glade/contacts.glade:29 ../glade/contacts.glade:178
 msgid "Name:"
-msgstr "Název:"
+msgstr "Όνομα:"
 
 #: ../glade/contacts.glade:93
 msgid "Contacts List"
-msgstr ""
+msgstr "Λίστα επαφών"
 
 #: ../glade/contacts.glade:158 ../glade/main.glade:526
 msgid "Add a contact"
-msgstr "Přidat kontakt"
+msgstr "Προσθήκη επαφής"
 
 #: ../glade/contacts.glade:221
 msgid "Number:"
-msgstr "Číslo:"
+msgstr "Αριθμός:"
 
 #: ../glade/contacts.glade:257
 msgid "<b>Save in:</b>"
-msgstr ""
+msgstr "<b>Αποθήκευση σε:</b>"
 
 #: ../glade/contacts.glade:300 ../../gui/contacts/contact_sim.py:170
 msgid "Mobile"
-msgstr ""
+msgstr "Κινητό"
 
 #: ../glade/contacts.glade:340
 msgid "Computer"
-msgstr ""
+msgstr "Υπολογιστής"
 
 #: ../glade/diagnostics.glade:7 ../glade/main.glade:170
 msgid "Diagnostics"
-msgstr ""
+msgstr "Διαγνωστικά"
 
 #: ../glade/diagnostics.glade:43
 msgid "<b>Datacard details</b>"
-msgstr ""
+msgstr "<b>Datacard λεπτομέρειες</b>"
 
 #: ../glade/diagnostics.glade:81
 msgid "Manufacturer:"
@@ -157,11 +166,11 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:92
 msgid "Model:"
-msgstr ""
+msgstr "Τύπος:"
 
 #: ../glade/diagnostics.glade:103
 msgid "Firmware: "
-msgstr ""
+msgstr "Firmware: "
 
 #: ../glade/diagnostics.glade:114
 msgid "IMEI: "
@@ -173,11 +182,11 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:149
 msgid "Card model"
-msgstr ""
+msgstr "Τύπος κάρτας"
 
 #: ../glade/diagnostics.glade:160
 msgid "Firmware"
-msgstr ""
+msgstr "Firmware"
 
 #: ../glade/diagnostics.glade:172
 msgid "IMEI"
@@ -185,7 +194,7 @@ msgstr "IMEI"
 
 #: ../glade/diagnostics.glade:196
 msgid "Modem"
-msgstr ""
+msgstr "Modem"
 
 #: ../glade/diagnostics.glade:227
 msgid "<b>Network details from SIM</b>"
@@ -197,11 +206,11 @@ msgstr "IMSI:"
 
 #: ../glade/diagnostics.glade:276
 msgid "Network:"
-msgstr ""
+msgstr "Δίκτυο:"
 
 #: ../glade/diagnostics.glade:287
 msgid "Country:"
-msgstr ""
+msgstr "Χώρα"
 
 #: ../glade/diagnostics.glade:298
 msgid "Mobile Number:"
@@ -222,7 +231,7 @@ msgstr "IMSI"
 #: ../../gui/controllers/main.py:258 ../../gui/controllers/main.py:576
 #: ../../gui/controllers/preferences.py:85
 msgid "Unknown"
-msgstr "Neznámý"
+msgstr "Άγνωστο"
 
 #: ../glade/diagnostics.glade:377
 msgid "SIM"
@@ -230,23 +239,23 @@ msgstr "SIM"
 
 #: ../glade/diagnostics.glade:409
 msgid "<b>Device information</b>"
-msgstr ""
+msgstr "<b>πληροφορίες Συσκευών</b>"
 
 #: ../glade/diagnostics.glade:446
 msgid "Operating System:"
-msgstr ""
+msgstr "Λειτουργικό σύστημα:"
 
 #: ../glade/diagnostics.glade:457
 msgid "Version:"
-msgstr ""
+msgstr "Έκδοση:"
 
 #: ../glade/diagnostics.glade:468
 msgid "Uptime:"
-msgstr ""
+msgstr "Uptime:"
 
 #: ../glade/diagnostics.glade:537
 msgid "Device"
-msgstr ""
+msgstr "Συσκευή"
 
 #: ../glade/diagnostics.glade:602
 msgid "Software Version:"
@@ -258,7 +267,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:635 ../glade/diagnostics.glade:645
 msgid "Not supported"
-msgstr ""
+msgstr "Δεν υποστηρίζεται"
 
 #: ../glade/diagnostics.glade:673
 msgid "Modem Manager"
@@ -266,19 +275,19 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:689
 msgid "<b>USSD Test Message Diagnostics</b>"
-msgstr ""
+msgstr "<b>USSD Διαγνωστικά Μήνυμα Test</b>"
 
 #: ../glade/diagnostics.glade:718
 msgid "Add your USSD string:"
-msgstr ""
+msgstr "Προσθέστε USSD string σας:"
 
 #: ../glade/diagnostics.glade:766
 msgid "USSD reply message:"
-msgstr ""
+msgstr "USSD μήνυμα απάντησης"
 
 #: ../glade/diagnostics.glade:810 ../glade/payt.glade:289
 msgid "Send"
-msgstr "Zaslat"
+msgstr ""
 
 #: ../glade/diagnostics.glade:843
 msgid "USSD"
@@ -287,36 +296,36 @@ msgstr "USSD"
 #: ../glade/dialogs.glade:38 ../glade/dialogs.glade:239
 #: ../glade/dialogs.glade:451
 msgid "<big><b>Big title!</b></big>"
-msgstr ""
+msgstr "<big><b>Big title!</b></big>"
 
 #: ../glade/dialogs.glade:51 ../glade/dialogs.glade:252
 #: ../glade/dialogs.glade:348 ../glade/dialogs.glade:464
 msgid "A detailed message"
-msgstr ""
+msgstr "Λεπτομερές μήνυμα"
 
 #: ../glade/dialogs.glade:138
 msgid "<big><b>Question?</b></big>"
-msgstr ""
+msgstr "<big><b>Ερώτηση;</b></big>"
 
 #: ../glade/dialogs.glade:152
 msgid "Detailed message"
-msgstr ""
+msgstr "Λεπτομερές μήνυμα"
 
 #: ../glade/dialogs.glade:189
 msgid "Action"
-msgstr ""
+msgstr "Δράση"
 
 #: ../glade/dialogs.glade:326
 msgid "<b>title</b>"
-msgstr ""
+msgstr "<b>τίτλος</b>"
 
 #: ../glade/dialogs.glade:363
 msgid "Remember my choice"
-msgstr ""
+msgstr "Αποθήκευση επιλογής"
 
 #: ../glade/helpbrowser.glade:21 ../glade/main.glade:21
 msgid "_File"
-msgstr "_Soubor"
+msgstr "_Αρχείο"
 
 #: ../glade/keyring.glade:35
 msgid "<span size='large' weight='bold'>Creating a new keyring</span>"
@@ -331,7 +340,7 @@ msgstr ""
 #: ../glade/keyring.glade:81 ../glade/keyring.glade:191
 #: ../glade/profiles.glade:177
 msgid "Password:"
-msgstr "Heslo:"
+msgstr "Κωδικός:"
 
 #: ../glade/keyring.glade:100
 msgid "Confirm password:"
@@ -347,11 +356,11 @@ msgstr ""
 
 #: ../glade/main.glade:28
 msgid "Import contacts..."
-msgstr ""
+msgstr "Εισαγωγή επαφών..."
 
 #: ../glade/main.glade:36
 msgid "Export contacts..."
-msgstr ""
+msgstr "Εξαγωγή επαφών..."
 
 #: ../glade/main.glade:48
 msgid "_Quit"
@@ -359,20 +368,20 @@ msgstr ""
 
 #: ../glade/main.glade:73
 msgid "_View"
-msgstr "_Zobrazení"
+msgstr "Εμ_φάνιση"
 
 #: ../glade/main.glade:94 ../glade/main.glade:339
 #: ../glade/preferences.glade:780
 msgid "Usage"
-msgstr ""
+msgstr "Χρήση"
 
 #: ../glade/main.glade:108 ../glade/main.glade:377
 msgid "Support"
-msgstr ""
+msgstr "Υποστήριξη"
 
 #: ../glade/main.glade:132
 msgid "_Tools"
-msgstr ""
+msgstr "Εργα_λεία"
 
 #: ../glade/main.glade:140 ../../gui/views/main.py:415
 msgid "Enabled"
@@ -380,23 +389,23 @@ msgstr ""
 
 #: ../glade/main.glade:149
 msgid "Change PIN"
-msgstr ""
+msgstr "Αλλαγή PIN"
 
 #: ../glade/main.glade:157
 msgid "Request PIN"
-msgstr ""
+msgstr "Απαίτηση PIN"
 
 #: ../glade/main.glade:194
 msgid "Profiles"
-msgstr "Profily"
+msgstr ""
 
 #: ../glade/main.glade:216 ../glade/preferences.glade:7
 msgid "Preferences"
-msgstr ""
+msgstr "Προτιμήσεις"
 
 #: ../glade/main.glade:240
 msgid "_Help"
-msgstr "_Nápověda"
+msgstr "_Βοήθεια"
 
 #: ../glade/main.glade:246
 msgid "Help"
@@ -404,7 +413,7 @@ msgstr ""
 
 #: ../glade/main.glade:265
 msgid "_About"
-msgstr ""
+msgstr "Σ_χετικά"
 
 #: ../glade/main.glade:356
 msgid "Topup"
@@ -412,7 +421,7 @@ msgstr ""
 
 #: ../glade/main.glade:410 ../glade/main.glade:524
 msgid "_New"
-msgstr "_Nové"
+msgstr "_Νέο"
 
 #: ../glade/main.glade:412
 msgid "Create new SMS"
@@ -420,76 +429,76 @@ msgstr ""
 
 #: ../glade/main.glade:428
 msgid "_Reply"
-msgstr ""
+msgstr "_Απάντηση"
 
 #: ../glade/main.glade:430
 msgid "Reply message"
-msgstr ""
+msgstr "Απάντηση σε μύνημα"
 
 #: ../glade/main.glade:439
 msgid "Reply without quoting original text"
-msgstr ""
+msgstr "Απάντηση χωρίς προσθήκη του αρχικού"
 
 #: ../glade/main.glade:440
 msgid "Send new"
-msgstr ""
+msgstr "Αποστολή νέου"
 
 #: ../glade/main.glade:448
 msgid "Reply quoting original message"
-msgstr ""
+msgstr "Απάντηση με προσθήκη του αρχικού"
 
 #: ../glade/main.glade:449
 msgid "Reply quoting"
-msgstr ""
+msgstr "Απάντηση με προσθήκη"
 
 #: ../glade/main.glade:466
 msgid "_Forward"
-msgstr ""
+msgstr "_Προώθηση"
 
 #: ../glade/main.glade:468
 msgid "Forward SMS to another contact"
-msgstr ""
+msgstr "Προώθηση SMS σε άλλη επαφή"
 
 #: ../glade/main.glade:483 ../glade/main.glade:573
 #: ../../gui/controllers/main.py:752
 msgid "_Delete"
-msgstr "_Odstranit"
+msgstr "_Διαγραφή"
 
 #: ../glade/main.glade:508
 msgid "_Contacts"
-msgstr ""
+msgstr "_Επαφές"
 
 #: ../glade/main.glade:510
 msgid "Contacts menu"
-msgstr ""
+msgstr "Μενού επαφών"
 
 #: ../glade/main.glade:544
 msgid "_Search"
-msgstr "_Hledat"
+msgstr ""
 
 #: ../glade/main.glade:546
 msgid "Search contacts"
-msgstr ""
+msgstr "Αναζήτηση επαφών"
 
 #: ../glade/main.glade:623
 msgid "Inbox"
-msgstr "Přijaté"
+msgstr "Εισερχόμενα"
 
 #: ../glade/main.glade:654
 msgid "Draft"
-msgstr "Koncept"
+msgstr "Πρόχειρα"
 
 #: ../glade/main.glade:685
 msgid "Sent"
-msgstr "Odesláno"
+msgstr "Απεσταλμένα"
 
 #: ../glade/main.glade:715 ../glade/sms.glade:34
 msgid "Contacts"
-msgstr "Kontakty"
+msgstr "Επαφές"
 
 #: ../glade/main.glade:803 ../glade/main.glade:1186
 msgid "<b>Month</b>"
-msgstr ""
+msgstr "<b>Μήνας</b>"
 
 #: ../glade/main.glade:853 ../glade/main.glade:983 ../glade/main.glade:1285
 msgid "GPRS:"
@@ -501,7 +510,7 @@ msgstr "3G:"
 
 #: ../glade/main.glade:879 ../glade/main.glade:1011 ../glade/main.glade:1311
 msgid "Total:"
-msgstr "Celkem:"
+msgstr ""
 
 #: ../glade/main.glade:945 ../glade/main.glade:1328
 msgid "<b>Transferred Data</b>"
@@ -529,19 +538,19 @@ msgstr ""
 
 #: ../glade/main.glade:1468
 msgid "Help menu"
-msgstr ""
+msgstr "Μενού βοήθειας"
 
 #: ../glade/main.glade:1505
 msgid "Support center"
-msgstr ""
+msgstr "Κέντρο υποστήριξης"
 
 #: ../glade/main.glade:1543
 msgid "Customer support"
-msgstr ""
+msgstr "Υποστήριξη Πελατών"
 
 #: ../glade/misc.glade:54
 msgid "Wader log"
-msgstr "Záznam Wader"
+msgstr ""
 
 #: ../glade/payt.glade:6
 msgid "Topup Credit"
@@ -553,15 +562,15 @@ msgstr ""
 
 #: ../glade/payt.glade:83
 msgid "<b>Number</b>"
-msgstr "<b>Číslo</b>"
+msgstr "<b>Αριθμός</b>"
 
 #: ../glade/payt.glade:94
 msgid "<b>Credit</b>"
-msgstr ""
+msgstr "<b>Πίστωση</b>"
 
 #: ../glade/payt.glade:105
 msgid "<b>Date</b>"
-msgstr ""
+msgstr "<b>Ημερομηνία</b>"
 
 #: ../glade/payt.glade:167
 msgid "Recheck my credit:"
@@ -581,7 +590,7 @@ msgstr ""
 
 #: ../glade/payt.glade:341
 msgid "<b>Credit Card</b>"
-msgstr ""
+msgstr "<b>Πιστωτική κάρτα</b>"
 
 #: ../glade/payt.glade:371
 msgid "Pay by credit card"
@@ -589,7 +598,7 @@ msgstr ""
 
 #: ../glade/pin.glade:8
 msgid "Insert your PIN code"
-msgstr ""
+msgstr "Εισάγετε το ΡΙΝ σας"
 
 #: ../glade/pin.glade:23
 msgid "Insert PIN Window"
@@ -597,7 +606,7 @@ msgstr ""
 
 #: ../glade/pin.glade:64
 msgid "Please insert your PIN code"
-msgstr ""
+msgstr "Παρακαλώ εισάγετε το ΡΙΝ σας"
 
 #: ../glade/pin.glade:104
 msgid "Insert PIN Entry"
@@ -605,31 +614,31 @@ msgstr ""
 
 #: ../glade/pin.glade:149
 msgid "Manage my PIN through gnome-keyring"
-msgstr ""
+msgstr "Να διαχειρίζεται το ΡΙΝ μου το gnomekeyring"
 
 #: ../glade/pin.glade:178
 msgid "<b>Advanced Options</b>"
-msgstr ""
+msgstr "<b>Προχωρημένες επιλογές</b>"
 
 #: ../glade/pin.glade:257
 msgid "Modify PIN code"
-msgstr ""
+msgstr "Τροποποίηση ΡΙΝ"
 
 #: ../glade/pin.glade:369 ../glade/pin.glade:758
 msgid "Confirm PIN code: "
-msgstr ""
+msgstr "Επαλήθευση ΡΙΝ: "
 
 #: ../glade/pin.glade:397 ../glade/pin.glade:733
 msgid "New PIN code: "
-msgstr ""
+msgstr "Νέος ΡΙΝ: "
 
 #: ../glade/pin.glade:425
 msgid "Current PIN code: "
-msgstr ""
+msgstr "Υπάρχον ΡΙΝ: "
 
 #: ../glade/pin.glade:513
 msgid "Please enter PUK"
-msgstr ""
+msgstr "Παρακαλούμε εισαγάγετε τον κωδικό PUK"
 
 #: ../glade/pin.glade:650
 msgid "PUK:"
@@ -637,21 +646,23 @@ msgstr "PUK:"
 
 #: ../glade/preferences.glade:55
 msgid "<b>Change to global SMS settings </b>"
-msgstr ""
+msgstr "<b>Αλλαγή σε παγκόσμιο επίπεδο τις ρυθμίσεις SMS</b>"
 
 #: ../glade/preferences.glade:71
 msgid "Allow SMS confirmation"
-msgstr ""
+msgstr "Επιτρέψτε SMS επιβεβαίωσης"
 
 #: ../glade/preferences.glade:75
 msgid ""
 "Allows SMS confirmation reports. This lets you see when someone has received "
 "your text message."
 msgstr ""
+"Επιτρέπει την επιβεβαίωση εκθέσεις SMS. Αυτό σας επιτρέπει να δείτε πότε "
+"κάποιος έχει λάβει το μήνυμα κειμένου."
 
 #: ../glade/preferences.glade:86
 msgid "Use an alternative SMS Service centre address"
-msgstr ""
+msgstr "Χρησιμοποιήστε μια εναλλακτική διεύθυνση SMS Κέντρο υπηρεσιών"
 
 #: ../glade/preferences.glade:90
 msgid ""
@@ -661,23 +672,23 @@ msgstr ""
 
 #: ../glade/preferences.glade:118
 msgid "<b>SMSC preferences</b>"
-msgstr ""
+msgstr "<b>Προτιμήσεις SMSC</b>"
 
 #: ../glade/preferences.glade:140
 msgid "Profile:"
-msgstr ""
+msgstr "Προφίλ:"
 
 #: ../glade/preferences.glade:151
 msgid "SMSC number:"
-msgstr ""
+msgstr "Αριθμός SMSC:"
 
 #: ../glade/preferences.glade:219
 msgid "<b>Message options</b>"
-msgstr ""
+msgstr "<b>Επιλογές Μηνυμάτων</b>"
 
 #: ../glade/preferences.glade:240
 msgid "Validity:"
-msgstr ""
+msgstr "Εγκυρότητα:"
 
 #: ../glade/preferences.glade:289
 msgid "SMS Profile"
@@ -685,23 +696,23 @@ msgstr ""
 
 #: ../glade/preferences.glade:308
 msgid "<b>User options</b>"
-msgstr ""
+msgstr "<b>Επιλογές χρήστη</b>"
 
 #: ../glade/preferences.glade:329
 msgid "Exit without confirmation"
-msgstr ""
+msgstr "Έξοδος χωρίς επιβεβαίωση"
 
 #: ../glade/preferences.glade:344
 msgid "Show icon on tray"
-msgstr ""
+msgstr "Εμφάνιση εικονιδίου στο πλαίσιο συστήματος"
 
 #: ../glade/preferences.glade:359
 msgid "Close window minimizes app to tray"
-msgstr ""
+msgstr "Ελαχιστοποίηση εφαρμογής στο πλαίσιο συστήματος"
 
 #: ../glade/preferences.glade:374
 msgid "Manage my PIN through gnomekeyring"
-msgstr ""
+msgstr "Διαχείριση ΡΙΝ μέσω του gnomekeyring"
 
 #: ../glade/preferences.glade:409
 msgid "User Preferences"
@@ -741,7 +752,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:9
 msgid "New Profile"
-msgstr "Nový profil"
+msgstr ""
 
 #: ../glade/profiles.glade:23
 msgid "New Profile Window"
@@ -758,11 +769,11 @@ msgstr ""
 
 #: ../glade/profiles.glade:115
 msgid "<b>Connection preferences</b>"
-msgstr "<b>Nastavení připojení</b>"
+msgstr "<b>Προτιμήσεις σύνδεσης</b>"
 
 #: ../glade/profiles.glade:152
 msgid "Username:"
-msgstr "Uživatelské jméno:"
+msgstr "Χρήστης:"
 
 #: ../glade/profiles.glade:202
 msgid "Authentication method:"
@@ -770,7 +781,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:227
 msgid "Preferred connection:"
-msgstr "Upřednostňované připojení:"
+msgstr "Προτιμώμενη σύνδεση:"
 
 #: ../glade/profiles.glade:252
 msgid "Preferred band:"
@@ -778,31 +789,31 @@ msgstr ""
 
 #: ../glade/profiles.glade:277
 msgid "APN host:"
-msgstr "APN hostitel:"
+msgstr "Αναγνωριστικό APN:"
 
 #: ../glade/profiles.glade:447
 msgid "<b>DNS settings</b>"
-msgstr ""
+msgstr "<b>Ρυθμίσεις DNS</b>"
 
 #: ../glade/profiles.glade:485
 msgid "Use static DNS"
-msgstr "Statické DNS"
+msgstr ""
 
 #: ../glade/profiles.glade:518
 msgid "Primary DNS:"
-msgstr "Primární DNS:"
+msgstr "Βασικός DNS:"
 
 #: ../glade/profiles.glade:543
 msgid "Secondary DNS:"
-msgstr "Sekundární DNS:"
+msgstr "Εφεδρικός DNS:"
 
 #: ../glade/profiles.glade:715
 msgid "<b>Profile settings</b>"
-msgstr "<b>Nastavení profilu</b>"
+msgstr ""
 
 #: ../glade/profiles.glade:752
 msgid "Profile name:"
-msgstr "Název profilu:"
+msgstr ""
 
 #: ../glade/profiles.glade:863
 msgid "Device selection"
@@ -862,19 +873,19 @@ msgstr ""
 
 #: ../glade/profiles.glade:1369
 msgid "<b>Device Settings</b>"
-msgstr ""
+msgstr "<b>Ρυθμίσεις Συσκευών</b>"
 
 #: ../glade/sms.glade:50
 msgid "TO : "
-msgstr ""
+msgstr "Προς : "
 
 #: ../glade/splash.glade:6
 msgid "3G Devices Manager"
-msgstr ""
+msgstr "Διαχειριστής συσκευών 3G"
 
 #: ../../gui/constx.py:47 ../../gui/constx.py:65 ../../gui/constx.py:84
 msgid "Any"
-msgstr ""
+msgstr "Κάθε"
 
 #: ../../gui/constx.py:48
 msgid "EGSM 900"
@@ -926,19 +937,19 @@ msgstr "WCDMA 1900"
 
 #: ../../gui/constx.py:66 ../../gui/signals.py:27
 msgid "2G preferred"
-msgstr ""
+msgstr "Προτίμηση 2G"
 
 #: ../../gui/constx.py:67 ../../gui/signals.py:28
 msgid "3G preferred"
-msgstr ""
+msgstr "Προτίμηση 3G"
 
 #: ../../gui/constx.py:68 ../../gui/signals.py:29
 msgid "2G only"
-msgstr ""
+msgstr "Μόνο 2G"
 
 #: ../../gui/constx.py:69 ../../gui/signals.py:30
 msgid "3G only"
-msgstr ""
+msgstr "Μόνο 3G"
 
 #: ../../gui/constx.py:85
 msgid "PAP"
@@ -967,6 +978,8 @@ msgstr ""
 #: ../../gui/views/pin.py:77 ../../gui/controllers/preferences.py:212
 msgid "To use this feature you need the gnomekeyring module"
 msgstr ""
+"Για να κάνετε χρήση αυτής της δυνατότητας χρειάζεστε την υπομονάδα "
+"gnomekeyring"
 
 #: ../../gui/views/pin.py:93
 msgid ""
@@ -974,6 +987,9 @@ msgid ""
 "In order to unlock your SIM, we need your\n"
 "PIN and PUK codes"
 msgstr ""
+"\n"
+"Για να ξεκλειδώσετε τη κάρτα SIM σας, θα χρειαστείτε\n"
+"τους κωδικούς PIN και PUK"
 
 #: ../../gui/views/pin.py:100
 msgid ""
@@ -981,6 +997,9 @@ msgid ""
 "In order to unlock your SIM, we need your\n"
 "PIN and PUK2 codes"
 msgstr ""
+"\n"
+"Για να ξεκλειδώσετε τη κάρτα SIM σας, θα χρειαστείτε\n"
+"τους κωδικούς PIN και PUK2"
 
 #: ../../gui/views/main.py:140
 #, python-format
@@ -998,6 +1017,20 @@ msgid ""
 "system, you might need to ask your Systems Administrator any doubt that you "
 "might have."
 msgstr ""
+"Στις περισσότερες περιπτώσεις θα βρείτε απαντήσεις στα θέματα βοήθειας της "
+"εφαρμογής. Τα θέματα βοήθειας βρίσκονται στο μενού \"Βοήθεια\" στη μπάρα "
+"επιλογών που βρίσκεται στην κορυφή του παραθύρου, επιλέγοντας \"Θέματα "
+"βοήθειας\" απο τις επιλογές.\n"
+"\n"
+"%(name)s\n"
+"\n"
+"Μπορείτε επίσης να βρείτε βοήθεια,αναβαθμίσεις και συμβουλές στην "
+"ιστοσελίδα:\n"
+"%(url)s.\n"
+"\n"
+"Αν κάνετε χρήση των κουμπιών mail και browser για να ενεργοποιήσετε "
+"εφαρμογές του συστήματός σας, ίσως χρειαστείτε τη βοήθεια του Διαχειριστή "
+"σας για τυχών απορίες που μπορεί να έχετε."
 
 #: ../../gui/views/main.py:155
 msgid ""
@@ -1008,10 +1041,16 @@ msgid ""
 "If your company does not have a support center, you will have to contact "
 "your company's System Administrator."
 msgstr ""
+"Αν κάνετε χρήση της εφαρμογής αυτής σε εταιρικό περιβάλλον, η εταιρία σας "
+"πιθανών διαθέτει τμήμα υποστήριξης που μπορεί να σας βοηθήσει σχετικά με τη "
+"χρήση της.\n"
+"\n"
+"Αν η εταιρία σας δεν διαθέτει τμήμα υποστήριξης, θα χρειαστεί να "
+"επικοινωνήσετε με το Διαχειριστή Συστημάτων σας."
 
 #: ../../gui/views/main.py:210 ../../gui/views/main.py:228
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: ../../gui/views/main.py:329
 msgid "GSM"
@@ -1039,7 +1078,7 @@ msgstr ""
 
 #: ../../gui/views/main.py:335 ../../gui/signals.py:32
 msgid "HSUPA"
-msgstr "HSDPA"
+msgstr "HSUPA"
 
 #: ../../gui/views/main.py:336 ../../gui/signals.py:33
 msgid "HSPA"
@@ -1056,7 +1095,7 @@ msgstr "LTE"
 #: ../../gui/views/main.py:378 ../../gui/views/main.py:382
 #: ../../gui/controllers/main.py:692
 msgid "Connect"
-msgstr "Připojení"
+msgstr "Σύνδεση"
 
 #: ../../gui/views/main.py:386 ../../gui/views/main.py:419
 msgid "Disconnecting"
@@ -1065,11 +1104,11 @@ msgstr ""
 #: ../../gui/views/main.py:390 ../../gui/views/main.py:418
 #: ../../gui/controllers/main.py:852
 msgid "Connecting"
-msgstr "Připojování"
+msgstr ""
 
 #: ../../gui/views/main.py:394 ../../gui/controllers/main.py:687
 msgid "Disconnect"
-msgstr "Odpojit"
+msgstr "Αποσύνδεση"
 
 #: ../../gui/views/main.py:408
 msgid "Device found"
@@ -1105,45 +1144,45 @@ msgstr ""
 
 #: ../../gui/views/main.py:417 ../../gui/controllers/main.py:1060
 msgid "Not connected"
-msgstr ""
+msgstr "Αποσυνδεμένο"
 
 #: ../../gui/views/main.py:420
 msgid "Connected"
-msgstr ""
+msgstr "Συνδεδεμένο"
 
 #: ../../gui/views/main.py:423
 msgid "No device"
-msgstr "Žádné zařízení"
+msgstr ""
 
 #: ../../gui/views/main.py:485 ../../gui/views/main.py:523
 #: ../../gui/views/profile.py:143 ../../gui/controllers/contacts.py:141
 msgid "Type"
-msgstr ""
+msgstr "Τύπος"
 
 #: ../../gui/views/main.py:491 ../../gui/views/profile.py:133
 #: ../../gui/controllers/contacts.py:147
 msgid "Name"
-msgstr "Název"
+msgstr "Όνομα"
 
 #: ../../gui/views/main.py:500 ../../gui/controllers/contacts.py:154
 msgid "Number"
-msgstr "Číslo"
+msgstr "Αριθμός"
 
 #: ../../gui/views/main.py:534
 msgid "Text"
-msgstr ""
+msgstr "Κείμενο"
 
 #: ../../gui/views/main.py:545
 msgid "Recipient"
-msgstr ""
+msgstr "Παραλήπτης"
 
 #: ../../gui/views/main.py:545
 msgid "Sender"
-msgstr ""
+msgstr "Αποστολέας"
 
 #: ../../gui/views/main.py:554
 msgid "Date"
-msgstr ""
+msgstr "Ημερομηνία"
 
 #: ../../gui/views/profile.py:138
 msgid "Country"
@@ -1152,12 +1191,12 @@ msgstr ""
 #: ../../gui/uptime.py:83
 #, python-format
 msgid "%(day)d days, %(msg)s"
-msgstr ""
+msgstr "%(day)d ημέρες, %(msg)s"
 
 #: ../../gui/uptime.py:85
 #, python-format
 msgid "%(day)d day, %(msg)s"
-msgstr ""
+msgstr "%(day)d ημέρα, %(msg)s"
 
 #: ../../gui/signals.py:23
 msgid "No signal"
@@ -1194,15 +1233,15 @@ msgstr ""
 #: ../../gui/controllers/sms.py:84 ../../gui/controllers/sms.py:259
 #, python-format
 msgid "Text message: 0/%d chars"
-msgstr ""
+msgstr "Μήνυμα κειμένου: 0/%d"
 
 #: ../../gui/controllers/sms.py:113
 msgid "Send empty message"
-msgstr ""
+msgstr "Αποστολή κενού μηνύματος"
 
 #: ../../gui/controllers/sms.py:114
 msgid "Are you sure you want to send an empty message?"
-msgstr ""
+msgstr "Ειστε βέβαιοι οτι θέλετε να στείλετε ένα κενό μήνυμα;"
 
 #: ../../gui/controllers/sms.py:138
 msgid "Error while sending SMS"
@@ -1210,7 +1249,7 @@ msgstr ""
 
 #: ../../gui/controllers/sms.py:184
 msgid "No SMSC number"
-msgstr ""
+msgstr "Χωρίς αριθμό SMSC"
 
 #: ../../gui/controllers/sms.py:185
 #, python-format
@@ -1218,16 +1257,19 @@ msgid ""
 "In order to send a SMS, %s needs to know the number of your provider's SMSC. "
 "If you do not know the SMSC number, contact your customer service."
 msgstr ""
+"Προκειμένου να στείλετε ένα SMS, το %s πρέπει να γνωρίζει τον αριθμό SMSC "
+"του παρόχου σας. Αν δεν γνωρίζετε τον αριθμό αυτό, καλέστε την Εξυπηρέτηση "
+"Πελατών."
 
 #: ../../gui/controllers/sms.py:267
 #, python-format
 msgid "Text message: %(num)d/%(total)d chars"
-msgstr ""
+msgstr "%(num)d/%(total)d χαρακτήρες"
 
 #: ../../gui/controllers/sms.py:272
 #, python-format
 msgid "Text message: %(num)d/%(total)d chars (%(msgs)d SMS)"
-msgstr ""
+msgstr "%(num)d/%(total)d χαρακτήρες (%(msgs)d SMS)"
 
 #: ../../gui/controllers/payt_controller.py:98
 #: ../../gui/controllers/payt_controller.py:114
@@ -1262,7 +1304,7 @@ msgstr ""
 
 #: ../../gui/controllers/pin.py:109 ../../gui/controllers/pin.py:190
 msgid "Incorrect PIN"
-msgstr ""
+msgstr "Εσφαλμένο ΡΙΝ"
 
 #: ../../gui/controllers/pin.py:110 ../../gui/controllers/pin.py:191
 msgid ""
@@ -1272,19 +1314,24 @@ msgid ""
 "three failed PINs you'll be asked\n"
 "for the PUK code</small>\n"
 msgstr ""
+"\n"
+"<small>Ο κωδικός PIN που εισάγατε είναι\n"
+"εσφαλμένος. Να θυμάστε οτι έπειτα από\n"
+"τρείς εσσφαλμένες απόπειρες θα σας\n"
+"ζητηθεί ο κωδικός PUK</small>\n"
 
 #: ../../gui/controllers/main.py:172
 #, python-format
 msgid "Quit %s"
-msgstr ""
+msgstr "Έξοδος από %s"
 
 #: ../../gui/controllers/main.py:173
 msgid "Are you sure you want to exit?"
-msgstr ""
+msgstr "Είστε σίγουροι οτι θέλετε να βγείτε;"
 
 #: ../../gui/controllers/main.py:185
 msgid "Can not close application"
-msgstr "Nemohu zavřít aplikaci"
+msgstr ""
 
 #: ../../gui/controllers/main.py:186
 msgid "Can not close while a connection is active"
@@ -1324,15 +1371,15 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:425
 msgid "Unknown error"
-msgstr "Neznámá chyba"
+msgstr ""
 
 #: ../../gui/controllers/main.py:431
 msgid "Error while registering to home network"
-msgstr "Chyba během registrace do domácí sítě"
+msgstr ""
 
 #: ../../gui/controllers/main.py:500
 msgid "Transfer limit exceeded"
-msgstr "Transfér překročil limit"
+msgstr ""
 
 #: ../../gui/controllers/main.py:501
 msgid "You have exceeded your transfer limit"
@@ -1346,7 +1393,7 @@ msgstr ""
 #: ../../gui/controllers/main.py:611
 #, python-format
 msgid "SMS received from %s"
-msgstr ""
+msgstr "Ελήφθη SMS από %s"
 
 #: ../../gui/controllers/main.py:652 ../../gui/controllers/main.py:655
 msgid "Failed connection attempt"
@@ -1358,29 +1405,31 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:706 ../../gui/controllers/main.py:741
 msgid "Send SMS"
-msgstr "Zaslat SMS"
+msgstr "Αποστολή SMS"
 
 #: ../../gui/controllers/main.py:719
 msgid "Quit"
-msgstr ""
+msgstr "Έξοδος"
 
 #: ../../gui/controllers/main.py:763
 msgid "Edit"
-msgstr ""
+msgstr "Επεξεργασία"
 
 #: ../../gui/controllers/main.py:783
 msgid "Invalid CSV format"
-msgstr ""
+msgstr "Άκυρη διαμόρφωση CSV"
 
 #: ../../gui/controllers/main.py:784
 msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
 msgstr ""
+"\n"
+"Το αρχείο csv που προσπαθήσατε να εισάγετε έχει άκυρη διαμόρφωση."
 
 #: ../../gui/controllers/main.py:813
 msgid "No device found"
-msgstr "Nebylo nalezeno žádné zařízení"
+msgstr ""
 
 #: ../../gui/controllers/main.py:814
 msgid "No device has been found. Insert one and try again."
@@ -1388,11 +1437,11 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:820
 msgid "Profile needed"
-msgstr "Potřebuji profil"
+msgstr ""
 
 #: ../../gui/controllers/main.py:821
 msgid "You need to create a profile for connecting."
-msgstr "Musíte vytvořit profil pro připojení."
+msgstr ""
 
 #: ../../gui/controllers/main.py:866
 msgid "Invalid Connection"
@@ -1422,7 +1471,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:1061
 msgid "No mobile connection. Do you want to continue?"
-msgstr ""
+msgstr "Δεν υπάρχει σύνδεση.  Θέλετε να συνεχίσετε;"
 
 #: ../../gui/controllers/main.py:1491
 msgid "Editor not available"
@@ -1435,7 +1484,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:1498
 msgid "_Add to contacts"
-msgstr ""
+msgstr "_Προσθήκη στις επαφές"
 
 #: ../../gui/controllers/main.py:1509
 msgid "Migrate to DB"
@@ -1443,11 +1492,11 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:1518
 msgid "Save to draft"
-msgstr ""
+msgstr "Αποθήκευση στα πρόχειρα"
 
 #: ../../gui/controllers/main.py:1529
 msgid "Delete"
-msgstr "Smazat"
+msgstr "Διαγραφή"
 
 #: ../../gui/controllers/main.py:1577
 msgid "Can not handle DB contacts"
@@ -1459,24 +1508,24 @@ msgstr ""
 
 #: ../../gui/controllers/preferences.py:40
 msgid "Maximum time"
-msgstr ""
+msgstr "Μέγιστος χρόνος"
 
 #: ../../gui/controllers/preferences.py:41
 msgid "1 week"
-msgstr ""
+msgstr "1 εβδομάδα"
 
 #: ../../gui/controllers/preferences.py:42
 msgid "3 days"
-msgstr ""
+msgstr "3 ημέρες"
 
 #: ../../gui/controllers/preferences.py:43
 msgid "1 day"
-msgstr ""
+msgstr "1 ημέρα"
 
 #: ../../gui/controllers/preferences.py:210
 #: ../../gui/controllers/preferences.py:229
 msgid "Missing dependency"
-msgstr ""
+msgstr "Missing dependency"
 
 #: ../../gui/controllers/preferences.py:230
 msgid ""
@@ -1484,15 +1533,18 @@ msgid ""
 "To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
 "module\n"
 msgstr ""
+"\n"
+"To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
+"module\n"
 
 #: ../../gui/controllers/contacts.py:93
 msgid "No contact found"
-msgstr ""
+msgstr "Δεν βρέθηκε επαφή"
 
 #: ../../gui/controllers/contacts.py:94
 #, python-format
 msgid "No contact with the name %s found"
-msgstr ""
+msgstr "Δεν βρέθηκε επαφή με το όνομα %s"
 
 #: ../../gui/controllers/profile.py:69
 msgid "Error while getting connection password"
@@ -1511,7 +1563,8 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Andrew Bird https://launchpad.net/~ajb-spheresystems"
+"  Andrew Bird https://launchpad.net/~ajb-spheresystems\n"
+"  Christos Spyroglou https://launchpad.net/~cspyroglou"
 
 #: ../../gui/dialogs.py:128
 msgid "Warning"
@@ -1519,7 +1572,7 @@ msgstr ""
 
 #: ../../gui/dialogs.py:154
 msgid "Error"
-msgstr ""
+msgstr "Σφάλμα"
 
 #: ../../gui/dialogs.py:238
 msgid "Password required"
@@ -1531,30 +1584,32 @@ msgstr ""
 
 #: ../../gui/dialogs.py:273
 msgid "Save as ..."
-msgstr ""
+msgstr "Αποθήκευση ώς..."
 
 #: ../../gui/dialogs.py:281 ../../gui/dialogs.py:320
 msgid "Csv files"
-msgstr ""
+msgstr "Αρχείο Csv"
 
 #: ../../gui/dialogs.py:287 ../../gui/dialogs.py:325
 msgid "All files"
-msgstr ""
+msgstr "Όλα τα έγγραφα"
 
 #: ../../gui/dialogs.py:298
 #, python-format
 msgid "Overwrite \"%s\"?"
-msgstr ""
+msgstr "Αντικατάσταση του \"%s\";"
 
 #: ../../gui/dialogs.py:299
 msgid ""
 "A file with this name already exists.\n"
 "If you choose to overwrite this file, the contents will be lost."
 msgstr ""
+"Βρέθηκε αρχείο με το ίδιο όνομα.\n"
+"Αν επιλέξετε να το αντικαστήσετε, τα αρχικά περιεχόμενα του θα χαθούν."
 
 #: ../../gui/dialogs.py:312
 msgid "Import contacts from..."
-msgstr ""
+msgstr "Εισαγωγή επαφών από..."
 
 #: ../../gui/keyring_dialogs.py:103
 msgid "Create default keyring"

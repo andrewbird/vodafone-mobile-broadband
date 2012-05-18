@@ -46,7 +46,7 @@ class CheckBoxDialogView(View):
 
 class QuestionCheckboxOkCancel(CheckBoxDialogView):
 
-    IMAGE_FILE = os.path.join(IMAGES_DIR, 'VF_logo_medium.png')
+    IMAGE_FILE = os.path.join(IMAGES_DIR, 'logo24.png')
 
     def __init__(self, ctrl, message, details):
         CheckBoxDialogView.__init__(self, ctrl,
@@ -102,5 +102,5 @@ class QuestionCheckboxOkCancel(CheckBoxDialogView):
 #        self['label_details'].set_text(clear_s(details))
 #        self['button_action'].set_label(action_name)
 ##        self.get_top_widget().set_title("")
-#        filepath = os.path.join(consts.IMAGES_DIR, 'VF_logo.png')
+#        filepath = os.path.join(consts.IMAGES_DIR, 'logo24.png')
 #        self.get_top_widget().set_icon_from_file(filepath)

@@ -24,7 +24,7 @@ import pynotify
 
 from gui.consts import IMAGES_DIR, APP_SHORT_NAME, APP_NAME
 
-IMG_PATH = os.path.join(IMAGES_DIR, 'VF_logo.png')
+IMG_PATH = os.path.join(IMAGES_DIR, 'logo16.png')
 
 if gtk.ver >= (2, 10, 0):
     HAVE_STATUS_ICON = True

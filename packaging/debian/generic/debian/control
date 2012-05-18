@@ -1,4 +1,4 @@
-Source: vodafone-mobile-broadband
+Source: v-mobile-broadband
 Section: net
 Priority: optional
 Maintainer: Andrew Bird <ajb@spheresystems.co.uk>
@@ -8,15 +8,15 @@ Standards-Version: 3.8.0
 Homepage: http://www.wader-project.org
 XS-Python-Version: current
 
-Package: vodafone-mobile-broadband
+Package: v-mobile-broadband
 Architecture: all
-Replaces: bcm, vodafone-mobile-connect
+Replaces: bcm, vodafone-mobile-broadband, vodafone-mobile-connect
 Depends: python (>= 2.5), ${python:Depends}, wader-core (>= 0.5.11), python-messaging (>= 0.5.10), python-dateutil, python-gtk2, python-glade2, python-gnome2, python-gnomekeyring, python-notify, network-manager-gnome, python-wnck
-Conflicts: bcm
+Conflicts: bcm, vodafone-mobile-broadband
 Recommends: python-sexy
 Description: Internet connection assistant for mobile devices.
-  Wader is a tool that manages 3G devices and mobile phones offering a dbus
-  interface so other applications can use its services as connecting to the
-  Internet, sending SMS, managing contacts, and such. This package contains
-  the GTK GUI.
+  V Mobile Broadband is an application UI to manage mobile data devices
+  and phones via the Modem Manager dbus interface that Wader provides.
+  It offers facilities to connect to the Internet, monitor usage, send
+  SMS and manage contacts etc.
   .

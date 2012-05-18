@@ -34,7 +34,6 @@ class DiagnosticsView(View):
     Sim_Image = join(IMAGES_DIR, "simple_sim_35x20.png")
     Computer_Image = join(IMAGES_DIR, "netbookGraphic_50x25.png")
     Modem_Image = join(IMAGES_DIR, "blackDongle_65x18.png")
-    Betavine_Image = join(IMAGES_DIR, "VF_logo_medium.png")
 
     def __init__(self, ctrl):
         View.__init__(self, ctrl, self.GLADE_FILE, 'diagnostics_window',
@@ -47,7 +46,6 @@ class DiagnosticsView(View):
         self['SIMImage'].set_from_file(self.Sim_Image)
         self['ComputerImage'].set_from_file(self.Computer_Image)
         self['ModemImage'].set_from_file(self.Modem_Image)
-        self['BetavineImage'].set_from_file(self.Betavine_Image)
 
         self['ussd_entry'].set_text('')
         self.set_ussd_reply('')

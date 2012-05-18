@@ -16,7 +16,7 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 """
-setuptools file for Vodafone Mobile Broadband.
+setuptools file for V Mobile Broadband.
 """
 
 import sys
@@ -116,9 +116,9 @@ def list_files(path, exclude=None):
     return result
 
 data_files = [
-    (INSTALL_DIR, ['bin/' + APP_SLUG_NAME]),
+    (join(INSTALL_DIR, 'bin'), list_files('bin')),
     (join(RESOURCES_DIR, 'glade'), list_files('resources/glade')),
-    (join(RESOURCES_DIR, 'glade/animation'),
+    (join(RESOURCES_DIR, 'glade', 'animation'),
         list_files('resources/glade/animation')),
 ]
 

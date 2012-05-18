@@ -23,7 +23,7 @@ from subprocess import Popen, PIPE
 import gtk
 
 import sys
-sys.path.insert(0, '/usr/share/vodafone-mobile-broadband')
+sys.path.insert(0, '/usr/share/v-mobile-broadband')
 
 from wader.common.utils import save_file, get_file_data
 

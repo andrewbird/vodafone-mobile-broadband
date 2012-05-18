@@ -1,27 +1,27 @@
-# translation of no.po to Norwegian
-# Vodafone Mobile Broadband translation of no.po to Norsk
-# Copyright (C) 2007 Vodafone España S.A.
-# This file is distributed under the same license as the Vodafone Mobile Broadband package.
-#
-# Øystein Gulliksen aka Zack <oystein@gulliksen.org>, 2007.
+# V Mobile Broadband Spanish translation file.
+# Copyright (C) 2007
+# This file is distributed under the same license as the V Mobile Broadband package.
+# Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2007.
+# Pablo Martí <pmarti@warp.es>, 200, 2010.
+# Héctor <hblanco@warp.es>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-27 11:30+0000\n"
-"PO-Revision-Date: 2012-04-17 21:31+0000\n"
-"Last-Translator: Einar Svensen <Unknown>\n"
-"Language-Team: Norwegian <nb@li.org>\n"
+"PO-Revision-Date: 2012-03-11 14:57+0000\n"
+"Last-Translator: Andrew Bird <Unknown>\n"
+"Language-Team: British English <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2012-05-15 09:20+0000\n"
 "X-Generator: Launchpad (build 15238)\n"
-"Language: nb\n"
+"Language: es\n"
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
-msgstr "APN valg"
+msgstr "Selección de APN"
 
 #: ../glade/apnsel.glade:69
 msgid ""
@@ -30,46 +30,52 @@ msgid ""
 "You can choose a preconfigured APN or cancel to enter the information needed "
 "to set up a custom one.\n"
 msgstr ""
+"<b>APNs preconfigurados para su operadora.</b>\n"
+"\n"
+"Puede seleccionar un APN preconfigurado, o cancelar para introducir la "
+"información necesaria para fijar uno personalizado.\n"
 
 #: ../glade/apnsel.glade:193 ../glade/pin.glade:217 ../glade/pin.glade:222
 #: ../glade/pin.glade:862 ../glade/profiles.glade:1334
 msgid "Cancel"
-msgstr "Avbryt"
+msgstr "Cancelar"
 
 #: ../glade/apnsel.glade:208 ../glade/pin.glade:239
 #: ../glade/profiles.glade:1349
 msgid "OK"
-msgstr "OK"
+msgstr "Aceptar"
 
 #: ../glade/apnsel.glade:228
 msgid "<b>APN Settings</b>"
-msgstr "<b>APN innstillinger</b>"
+msgstr "<b>Preferencias APN</b>"
 
 #: ../glade/config.glade:8
 msgid "Device setup"
-msgstr "Enhets oppsett"
+msgstr "Configuración de dispositivo"
 
 #: ../glade/config.glade:34
 msgid ""
 "Please select from the following options how do you want to connect to the "
 "Internet"
-msgstr "Velg hvordan vil du koble deg til Internet"
+msgstr ""
+"Seleccione cual de las siguientes opciones quiere usar para conectarse a "
+"Internet"
 
 #: ../glade/config.glade:56
 msgid "Device model: "
-msgstr "Enhets model: "
+msgstr "Modelo del dispositivo: "
 
 #: ../glade/config.glade:63
 msgid "Connection:"
-msgstr "Tilkobling:"
+msgstr "Conexión:"
 
 #: ../glade/config.glade:153
 msgid "Bluetooth configuration"
-msgstr "Bluetooth innstillinger"
+msgstr "Configuración de Bluetooth"
 
 #: ../glade/config.glade:174
 msgid "Configure your <b>Bluetooth</b> device"
-msgstr "Konfigurere din <b>Bluetooth</b> enhet"
+msgstr "Configure su dispositivo <b>Bluetooth</b>"
 
 #: ../glade/config.glade:198
 msgid ""
@@ -79,86 +85,91 @@ msgid ""
 "sports a recent version of libbluetooth2. Otherwise you will\n"
 "have to configure it yourself and fill the relevant entries"
 msgstr ""
+"Asegúrese de que su móvil tiene bluetooth activado y es visible.\n"
+"Necesitará tener instalado un agente de claves como bluez-gnome.\n"
+"La conexión se puede configurar automáticamente si su distribución\n"
+"dispone de una versión reciente de libbluetooth2. De otro modo, tendrá\n"
+"que configurarla introduciendo las opciones relevantes."
 
 #: ../glade/config.glade:250
 msgid "_Start discovery"
-msgstr "_Start oppdagelse"
+msgstr "_Empezar búsqueda"
 
 #: ../glade/config.glade:301
 msgid "<b>Serial Port</b>"
-msgstr "<b>Serie port</>"
+msgstr "<b>Puerto serie</b>"
 
 #: ../glade/config.glade:325
 msgid "Data port"
-msgstr "Data port"
+msgstr "Puerto de datos"
 
 #: ../glade/config.glade:334
 msgid "Control port"
-msgstr "Kontroll port"
+msgstr "Puerto de control"
 
 #: ../glade/config.glade:346
 msgid "Speed"
-msgstr "Hastighet"
+msgstr "Velocidad"
 
 #: ../glade/config.glade:440
 msgid "<b>Connection settings</b>"
-msgstr "<b>Tilkoblings innstillinger</b>"
+msgstr "<b>Preferencias de conexión</b>"
 
 #: ../glade/config.glade:461
 msgid "Enable hardware flow control"
-msgstr ""
+msgstr "Activar control de flujo por hardware"
 
 #: ../glade/config.glade:474
 msgid "Enable software flow control"
-msgstr ""
+msgstr "Activar control de flujo por software"
 
 #: ../glade/contacts.glade:7
 msgid "Contact search"
-msgstr "Kontakt søk"
+msgstr "Buscar contacto"
 
 #: ../glade/contacts.glade:29 ../glade/contacts.glade:178
 msgid "Name:"
-msgstr "Navn:"
+msgstr "Nombre:"
 
 #: ../glade/contacts.glade:93
 msgid "Contacts List"
-msgstr "Kontakt liste"
+msgstr "Lista de contactos"
 
 #: ../glade/contacts.glade:158 ../glade/main.glade:526
 msgid "Add a contact"
-msgstr "Legg til kontakt"
+msgstr "Añadir un contacto"
 
 #: ../glade/contacts.glade:221
 msgid "Number:"
-msgstr "Nummer:"
+msgstr "Número:"
 
 #: ../glade/contacts.glade:257
 msgid "<b>Save in:</b>"
-msgstr "<b>Lagre i:</b>"
+msgstr "<b>Guardar en:</b>"
 
 #: ../glade/contacts.glade:300 ../../gui/contacts/contact_sim.py:170
 msgid "Mobile"
-msgstr "Mobil"
+msgstr "Móvil"
 
 #: ../glade/contacts.glade:340
 msgid "Computer"
-msgstr "Datamaskin"
+msgstr "Ordenador"
 
 #: ../glade/diagnostics.glade:7 ../glade/main.glade:170
 msgid "Diagnostics"
-msgstr "Diagnose"
+msgstr "Diagnóstico"
 
 #: ../glade/diagnostics.glade:43
 msgid "<b>Datacard details</b>"
-msgstr ""
+msgstr "<b>Detalles del dispositivo</b>"
 
 #: ../glade/diagnostics.glade:81
 msgid "Manufacturer:"
-msgstr "Produsent:"
+msgstr "Fabricante:"
 
 #: ../glade/diagnostics.glade:92
 msgid "Model:"
-msgstr "Modell:"
+msgstr "Modelo:"
 
 #: ../glade/diagnostics.glade:103
 msgid "Firmware: "
@@ -170,11 +181,11 @@ msgstr "IMEI: "
 
 #: ../glade/diagnostics.glade:138
 msgid "Card manufacturer"
-msgstr "Kort produsent"
+msgstr "Fabricante del dispositivo"
 
 #: ../glade/diagnostics.glade:149
 msgid "Card model"
-msgstr "Kortmodell"
+msgstr "Modelo de tarjeta"
 
 #: ../glade/diagnostics.glade:160
 msgid "Firmware"
@@ -186,11 +197,11 @@ msgstr "IMEI"
 
 #: ../glade/diagnostics.glade:196
 msgid "Modem"
-msgstr "Modem"
+msgstr "Módem:"
 
 #: ../glade/diagnostics.glade:227
 msgid "<b>Network details from SIM</b>"
-msgstr "<b>Nettverks detaljer fra SIM</b>"
+msgstr "<b>Detalles de red de la SIM</b>"
 
 #: ../glade/diagnostics.glade:265
 msgid "IMSI:"
@@ -198,15 +209,15 @@ msgstr "IMSI:"
 
 #: ../glade/diagnostics.glade:276
 msgid "Network:"
-msgstr "Nettverk:"
+msgstr "Red"
 
 #: ../glade/diagnostics.glade:287
 msgid "Country:"
-msgstr "Land:"
+msgstr "País:"
 
 #: ../glade/diagnostics.glade:298
 msgid "Mobile Number:"
-msgstr "Mobilnummer:"
+msgstr "Número de móvil:"
 
 #: ../glade/diagnostics.glade:321
 msgid "IMSI"
@@ -223,7 +234,7 @@ msgstr "IMSI"
 #: ../../gui/controllers/main.py:258 ../../gui/controllers/main.py:576
 #: ../../gui/controllers/preferences.py:85
 msgid "Unknown"
-msgstr "Ukjent"
+msgstr "Desconocido"
 
 #: ../glade/diagnostics.glade:377
 msgid "SIM"
@@ -231,55 +242,55 @@ msgstr "SIM"
 
 #: ../glade/diagnostics.glade:409
 msgid "<b>Device information</b>"
-msgstr "<b>Enhetsinformasjon</b>"
+msgstr "<b>Información del dispositivo</b>"
 
 #: ../glade/diagnostics.glade:446
 msgid "Operating System:"
-msgstr "Operativ System:"
+msgstr "Sistema Operativo:"
 
 #: ../glade/diagnostics.glade:457
 msgid "Version:"
-msgstr "Versjon:"
+msgstr "Versión:"
 
 #: ../glade/diagnostics.glade:468
 msgid "Uptime:"
-msgstr "Oppetid:"
+msgstr "Tiempo encendido:"
 
 #: ../glade/diagnostics.glade:537
 msgid "Device"
-msgstr "Enhet"
+msgstr "Dispositivo"
 
 #: ../glade/diagnostics.glade:602
 msgid "Software Version:"
-msgstr "Programvareversjon:"
+msgstr "Versión de software:"
 
 #: ../glade/diagnostics.glade:613
 msgid "Core Version:"
-msgstr "Kjernen versjon:"
+msgstr "Versión del núcleo de VMB:"
 
 #: ../glade/diagnostics.glade:635 ../glade/diagnostics.glade:645
 msgid "Not supported"
-msgstr "Ikke støttet"
+msgstr "No soportado"
 
 #: ../glade/diagnostics.glade:673
 msgid "Modem Manager"
-msgstr ""
+msgstr "Gestor de módems"
 
 #: ../glade/diagnostics.glade:689
 msgid "<b>USSD Test Message Diagnostics</b>"
-msgstr "<b>USSD Test Melding Diagnostic</b>"
+msgstr "<b>Diagnóstico de los mensajes de prueba USSD</b>"
 
 #: ../glade/diagnostics.glade:718
 msgid "Add your USSD string:"
-msgstr ""
+msgstr "Añada su cadena USSD:"
 
 #: ../glade/diagnostics.glade:766
 msgid "USSD reply message:"
-msgstr "USSD svarmelding:"
+msgstr "Mensaje de respuesta USSD"
 
 #: ../glade/diagnostics.glade:810 ../glade/payt.glade:289
 msgid "Send"
-msgstr "Sender"
+msgstr "Enviar"
 
 #: ../glade/diagnostics.glade:843
 msgid "USSD"
@@ -288,211 +299,212 @@ msgstr "USSD"
 #: ../glade/dialogs.glade:38 ../glade/dialogs.glade:239
 #: ../glade/dialogs.glade:451
 msgid "<big><b>Big title!</b></big>"
-msgstr "<big><b>Stor tittel!</b></big>"
+msgstr "<big><b>¡Encabezado grande!</b></big>"
 
 #: ../glade/dialogs.glade:51 ../glade/dialogs.glade:252
 #: ../glade/dialogs.glade:348 ../glade/dialogs.glade:464
 msgid "A detailed message"
-msgstr "En detaljert melding"
+msgstr "Un mensaje detallado"
 
 #: ../glade/dialogs.glade:138
 msgid "<big><b>Question?</b></big>"
-msgstr "<big><b>Spørsmål?</b></big>"
+msgstr "<big><b>¿Pregunta?</b></big>"
 
 #: ../glade/dialogs.glade:152
 msgid "Detailed message"
-msgstr "Detaljert melding"
+msgstr "Mensaje detallado"
 
 #: ../glade/dialogs.glade:189
 msgid "Action"
-msgstr "Action"
+msgstr "Acción"
 
 #: ../glade/dialogs.glade:326
 msgid "<b>title</b>"
-msgstr "<b>tittel</b>"
+msgstr "<b>título</b>"
 
 #: ../glade/dialogs.glade:363
 msgid "Remember my choice"
-msgstr "Husk mitt valg"
+msgstr "Recordar mi elección"
 
 #: ../glade/helpbrowser.glade:21 ../glade/main.glade:21
 msgid "_File"
-msgstr "_Fil"
+msgstr "_Archivo"
 
 #: ../glade/keyring.glade:35
 msgid "<span size='large' weight='bold'>Creating a new keyring</span>"
 msgstr ""
+"<span size='large' weight='bold'>Creando un nuevo almacén de claves</span>"
 
 #: ../glade/keyring.glade:48
 msgid ""
 "Please, insert a code to encrypt your sensitive\n"
 "information."
 msgstr ""
-"Venligst tast inn en kode for kryptere din sensitive\n"
-"informasjon"
+"Por favor, inserte un código para cifrar su\n"
+"información confidencial."
 
 #: ../glade/keyring.glade:81 ../glade/keyring.glade:191
 #: ../glade/profiles.glade:177
 msgid "Password:"
-msgstr "Passord:"
+msgstr "Contraseña:"
 
 #: ../glade/keyring.glade:100
 msgid "Confirm password:"
-msgstr "Bekreft passord:"
+msgstr "Confirmar contraseña:"
 
 #: ../glade/keyring.glade:131
 msgid "Unlock Keyring"
-msgstr "Lås opp nøkkelring"
+msgstr "Desbloquear almacén de claves"
 
 #: ../glade/keyring.glade:157
 msgid "Please, enter your keyring password"
-msgstr "Venligst tastinn din nøkkelring passord"
+msgstr "Por favor, introduzca su contraseña para el almacén de claves"
 
 #: ../glade/main.glade:28
 msgid "Import contacts..."
-msgstr "Importere kontakter..."
+msgstr "Importar contactos..."
 
 #: ../glade/main.glade:36
 msgid "Export contacts..."
-msgstr "Eksportere kontakter..."
+msgstr "Exportar contactos..."
 
 #: ../glade/main.glade:48
 msgid "_Quit"
-msgstr "_Avslutt"
+msgstr "_Salir"
 
 #: ../glade/main.glade:73
 msgid "_View"
-msgstr "_Vis"
+msgstr "_Ver"
 
 #: ../glade/main.glade:94 ../glade/main.glade:339
 #: ../glade/preferences.glade:780
 msgid "Usage"
-msgstr "Bruk"
+msgstr "Uso"
 
 #: ../glade/main.glade:108 ../glade/main.glade:377
 msgid "Support"
-msgstr "Support"
+msgstr "Soporte"
 
 #: ../glade/main.glade:132
 msgid "_Tools"
-msgstr "_Verktøy"
+msgstr "_Herramientas"
 
 #: ../glade/main.glade:140 ../../gui/views/main.py:415
 msgid "Enabled"
-msgstr "Aktivert"
+msgstr "Activado"
 
 #: ../glade/main.glade:149
 msgid "Change PIN"
-msgstr "Endre PIN"
+msgstr "Cambiar PIN"
 
 #: ../glade/main.glade:157
 msgid "Request PIN"
-msgstr "Spør om PIN"
+msgstr "Solicitar PIN"
 
 #: ../glade/main.glade:194
 msgid "Profiles"
-msgstr "Profiler"
+msgstr "Perfiles"
 
 #: ../glade/main.glade:216 ../glade/preferences.glade:7
 msgid "Preferences"
-msgstr "Innstillinger"
+msgstr "Preferencias"
 
 #: ../glade/main.glade:240
 msgid "_Help"
-msgstr "_Hjelp"
+msgstr "_Ayuda"
 
 #: ../glade/main.glade:246
 msgid "Help"
-msgstr "Hjelp"
+msgstr "Ayuda"
 
 #: ../glade/main.glade:265
 msgid "_About"
-msgstr "_Om"
+msgstr "_Acerca de"
 
 #: ../glade/main.glade:356
 msgid "Topup"
-msgstr "Påfyllingsbeløp"
+msgstr "Recargar"
 
 #: ../glade/main.glade:410 ../glade/main.glade:524
 msgid "_New"
-msgstr "_Ny"
+msgstr "_Nuevo"
 
 #: ../glade/main.glade:412
 msgid "Create new SMS"
-msgstr "Lag ny SMS"
+msgstr "Crear un nuevo SMS"
 
 #: ../glade/main.glade:428
 msgid "_Reply"
-msgstr "_Svar"
+msgstr "_Responder"
 
 #: ../glade/main.glade:430
 msgid "Reply message"
-msgstr "Svar på melding"
+msgstr "Responder mensaje"
 
 #: ../glade/main.glade:439
 msgid "Reply without quoting original text"
-msgstr "Svar uten original tekst"
+msgstr "Responder sin incluir el texto original"
 
 #: ../glade/main.glade:440
 msgid "Send new"
-msgstr "Send ny"
+msgstr "Enviar nuevo"
 
 #: ../glade/main.glade:448
 msgid "Reply quoting original message"
-msgstr "Svar uten original tekst"
+msgstr "Responder incluyendo el texto original"
 
 #: ../glade/main.glade:449
 msgid "Reply quoting"
-msgstr "Svar melding"
+msgstr "Responder incluyendo texto"
 
 #: ../glade/main.glade:466
 msgid "_Forward"
-msgstr "_Videresend"
+msgstr "_Reenviar"
 
 #: ../glade/main.glade:468
 msgid "Forward SMS to another contact"
-msgstr "Videresend SMS til annen kontakt"
+msgstr "Reenviar SMS a otro contacto"
 
 #: ../glade/main.glade:483 ../glade/main.glade:573
 #: ../../gui/controllers/main.py:752
 msgid "_Delete"
-msgstr "_Slett"
+msgstr "_Borrar"
 
 #: ../glade/main.glade:508
 msgid "_Contacts"
-msgstr "_Kontakter"
+msgstr "_Contactos"
 
 #: ../glade/main.glade:510
 msgid "Contacts menu"
-msgstr "Kontakt meny"
+msgstr "Menú de contactos"
 
 #: ../glade/main.glade:544
 msgid "_Search"
-msgstr "_Søk"
+msgstr "_Buscar"
 
 #: ../glade/main.glade:546
 msgid "Search contacts"
-msgstr "Søk kontakter"
+msgstr "Buscar contactos"
 
 #: ../glade/main.glade:623
 msgid "Inbox"
-msgstr "Innboks"
+msgstr "Bandeja de entrada"
 
 #: ../glade/main.glade:654
 msgid "Draft"
-msgstr "Kladd"
+msgstr "Borradores"
 
 #: ../glade/main.glade:685
 msgid "Sent"
-msgstr "Sendt"
+msgstr "Enviados"
 
 #: ../glade/main.glade:715 ../glade/sms.glade:34
 msgid "Contacts"
-msgstr "Kontakter"
+msgstr "Contactos"
 
 #: ../glade/main.glade:803 ../glade/main.glade:1186
 msgid "<b>Month</b>"
-msgstr "<b>Måned</b>"
+msgstr "<b>Mes</b>"
 
 #: ../glade/main.glade:853 ../glade/main.glade:983 ../glade/main.glade:1285
 msgid "GPRS:"
@@ -508,131 +520,131 @@ msgstr "Total:"
 
 #: ../glade/main.glade:945 ../glade/main.glade:1328
 msgid "<b>Transferred Data</b>"
-msgstr "<b>Overført</b>"
+msgstr "<b>Datos transferidos</b>"
 
 #: ../glade/main.glade:1074
 msgid "<b>Current session</b>"
-msgstr "<b>Nåværende økt</b>"
+msgstr "<b>Sesión actual</b>"
 
 #: ../glade/main.glade:1112 ../glade/main.glade:1364
 msgid "Total Traffic"
-msgstr "Total trafikk"
+msgstr "Tráfico total"
 
 #: ../glade/main.glade:1155
 msgid "Current month"
-msgstr "Gjeldende måned"
+msgstr "Mes actual"
 
 #: ../glade/main.glade:1410
 msgid "Last month"
-msgstr "Sist måned"
+msgstr "Último mes"
 
 #: ../glade/main.glade:1424
 msgid "<b>Usage</b> - Remember that this information is only indicative."
-msgstr ""
+msgstr "<b>Consumo</b> - Recuerde que esta información es sólo orientativa."
 
 #: ../glade/main.glade:1468
 msgid "Help menu"
-msgstr "Hjelpe meny"
+msgstr "Menú ayuda"
 
 #: ../glade/main.glade:1505
 msgid "Support center"
-msgstr "Support senter"
+msgstr "Centro de soporte"
 
 #: ../glade/main.glade:1543
 msgid "Customer support"
-msgstr "Kunde support"
+msgstr "Soporte al cliente"
 
 #: ../glade/misc.glade:54
 msgid "Wader log"
-msgstr ""
+msgstr "Registro de Wader"
 
 #: ../glade/payt.glade:6
 msgid "Topup Credit"
-msgstr "Påfyllingsbeløp kredit"
+msgstr "Crédito para recargas"
 
 #: ../glade/payt.glade:44
 msgid "<b>SIM Details</b>"
-msgstr "<b>SIM detaljer</b>"
+msgstr "<b>Detalles de la SIM</b>"
 
 #: ../glade/payt.glade:83
 msgid "<b>Number</b>"
-msgstr "<b>Nummer</b>"
+msgstr "<b>Número</b>"
 
 #: ../glade/payt.glade:94
 msgid "<b>Credit</b>"
-msgstr "<b>Kredit</b>"
+msgstr "<b>Crédito</b>"
 
 #: ../glade/payt.glade:105
 msgid "<b>Date</b>"
-msgstr "<b>Dato</b>"
+msgstr "<b>Fecha</b>"
 
 #: ../glade/payt.glade:167
 msgid "Recheck my credit:"
-msgstr ""
+msgstr "Volver a comprobar crédito:"
 
 #: ../glade/payt.glade:182
 msgid "Check credit"
-msgstr "Sjekk kredit"
+msgstr "Comprobar crédito"
 
 #: ../glade/payt.glade:237
 msgid "<b>Voucher Code</b>"
-msgstr ""
+msgstr "<b>Código de voucher</b>"
 
 #: ../glade/payt.glade:267
 msgid "Enter code:"
-msgstr "Tast kode:"
+msgstr "Introduzca el código:"
 
 #: ../glade/payt.glade:341
 msgid "<b>Credit Card</b>"
-msgstr "<b>Kredit kort</b>"
+msgstr "<b>Tarjeta de crédito</b>"
 
 #: ../glade/payt.glade:371
 msgid "Pay by credit card"
-msgstr ""
+msgstr "Pagar con tarjeta de crédito"
 
 #: ../glade/pin.glade:8
 msgid "Insert your PIN code"
-msgstr "Tast inn din PIN kode"
+msgstr "Introduzca su código PIN"
 
 #: ../glade/pin.glade:23
 msgid "Insert PIN Window"
-msgstr ""
+msgstr "Ventaja para introducir su código PIN"
 
 #: ../glade/pin.glade:64
 msgid "Please insert your PIN code"
-msgstr "Vennligst tast inn din PIN kode"
+msgstr "Por favor, introduzca su código PIN"
 
 #: ../glade/pin.glade:104
 msgid "Insert PIN Entry"
-msgstr "Tast inn din PIN kode"
+msgstr "Entrada para introducir su código PIN"
 
 #: ../glade/pin.glade:149
 msgid "Manage my PIN through gnome-keyring"
-msgstr ""
+msgstr "Gestionar mi PIN con gnome-keyring"
 
 #: ../glade/pin.glade:178
 msgid "<b>Advanced Options</b>"
-msgstr "<b>Avanserte valg</b>"
+msgstr "<b>Opciones Avanzadas</b>"
 
 #: ../glade/pin.glade:257
 msgid "Modify PIN code"
-msgstr "Rediger PIN kode"
+msgstr "Modificar código PIN"
 
 #: ../glade/pin.glade:369 ../glade/pin.glade:758
 msgid "Confirm PIN code: "
-msgstr "Bekreft PIN kode: "
+msgstr "Confirmar código PIN: "
 
 #: ../glade/pin.glade:397 ../glade/pin.glade:733
 msgid "New PIN code: "
-msgstr "Ny PIN kode: "
+msgstr "Nuevo código PIN: "
 
 #: ../glade/pin.glade:425
 msgid "Current PIN code: "
-msgstr "Nåværende PIN kode "
+msgstr "Código PIN actual: "
 
 #: ../glade/pin.glade:513
 msgid "Please enter PUK"
-msgstr "Oppgi PUK-koden"
+msgstr "Por favor, introduzca el código PUK"
 
 #: ../glade/pin.glade:650
 msgid "PUK:"
@@ -640,115 +652,119 @@ msgstr "PUK:"
 
 #: ../glade/preferences.glade:55
 msgid "<b>Change to global SMS settings </b>"
-msgstr "<b>Endre til global SMS innstillinger</b>"
+msgstr "<b>Cambiar a la configuración global de SMS</b>"
 
 #: ../glade/preferences.glade:71
 msgid "Allow SMS confirmation"
-msgstr ""
+msgstr "Permitir confirmación SMS"
 
 #: ../glade/preferences.glade:75
 msgid ""
 "Allows SMS confirmation reports. This lets you see when someone has received "
 "your text message."
 msgstr ""
+"Permite notificaciones de confirmación SMS. Ésto permite comprobar cuándo "
+"alguien ha recibido su mensaje de texto"
 
 #: ../glade/preferences.glade:86
 msgid "Use an alternative SMS Service centre address"
-msgstr ""
+msgstr "Utilizar una dirección alternativa para el centro de servicio SMS"
 
 #: ../glade/preferences.glade:90
 msgid ""
 "You may configure a different service centre address if you are not a "
 "Vodafone customer or the default one is incorrect."
 msgstr ""
+"Permite configurar una dirección de centro de mensajes diferente si no es un "
+"cliente de Vodafone o la opción por defecto es incorrecta."
 
 #: ../glade/preferences.glade:118
 msgid "<b>SMSC preferences</b>"
-msgstr "<b>SMSC innstillinger</b>"
+msgstr "<b>Preferencias SMSC</b>"
 
 #: ../glade/preferences.glade:140
 msgid "Profile:"
-msgstr "Profile:"
+msgstr "Perfil:"
 
 #: ../glade/preferences.glade:151
 msgid "SMSC number:"
-msgstr "SMSC nummer:"
+msgstr "Número SMSC:"
 
 #: ../glade/preferences.glade:219
 msgid "<b>Message options</b>"
-msgstr "<b>Meldings valg</b>"
+msgstr "<b>Opciones de mensaje</b>"
 
 #: ../glade/preferences.glade:240
 msgid "Validity:"
-msgstr "Gyldighet:"
+msgstr "Validez:"
 
 #: ../glade/preferences.glade:289
 msgid "SMS Profile"
-msgstr "SMS Profile"
+msgstr "Perfile SMS"
 
 #: ../glade/preferences.glade:308
 msgid "<b>User options</b>"
-msgstr "<b>Bruker valg</b>"
+msgstr "<b>Opciones de usuario</b>"
 
 #: ../glade/preferences.glade:329
 msgid "Exit without confirmation"
-msgstr "Avslutt uten advarsel"
+msgstr "Salir sin confirmación"
 
 #: ../glade/preferences.glade:344
 msgid "Show icon on tray"
-msgstr "Vis icon i oppgavelinje"
+msgstr "Mostrar icono en bandeja"
 
 #: ../glade/preferences.glade:359
 msgid "Close window minimizes app to tray"
-msgstr "Lukk vindu, minimerer applikasjon til panelet"
+msgstr "Cerrar ventana minimiza la aplicación en la bandeja"
 
 #: ../glade/preferences.glade:374
 msgid "Manage my PIN through gnomekeyring"
-msgstr "Håndter min PIN gjennom gnome nøkkelring"
+msgstr "Gestionar PIN a través de gnomekeyring"
 
 #: ../glade/preferences.glade:409
 msgid "User Preferences"
-msgstr "Bruker Preferanser"
+msgstr "Preferencias de usuario"
 
 #: ../glade/preferences.glade:429
 msgid "<b>Web Browser</b>"
-msgstr "<b>Nettleser</b>"
+msgstr "<b>Navegador web</b>"
 
 #: ../glade/preferences.glade:490 ../glade/preferences.glade:583
 msgid "Command:"
-msgstr "Kommando:"
+msgstr "Comando:"
 
 #: ../glade/preferences.glade:527
 msgid "<b>Email client</b>"
-msgstr "<b>Epost klient</b>"
+msgstr "<b>Cliente email</b>"
 
 #: ../glade/preferences.glade:630
 msgid "Applications"
-msgstr "Programmer"
+msgstr "Aplicaciones"
 
 #: ../glade/preferences.glade:650
 msgid "<b>Usage Options</b>"
-msgstr "<b>Bruker Alternativer</b>"
+msgstr "<b>Opciones de consumo</b>"
 
 #: ../glade/preferences.glade:678
 msgid "Maximum traffic (MB):"
-msgstr ""
+msgstr "Tráfico máximo (MB):"
 
 #: ../glade/preferences.glade:707
 msgid "Notify when a given threshold is exceeded."
-msgstr ""
+msgstr "Notificar cuando se excede límite."
 
 #: ../glade/preferences.glade:734
 msgid "Notification threshold (MB):"
-msgstr ""
+msgstr "Umbral de notificación (MB):"
 
 #: ../glade/profiles.glade:9
 msgid "New Profile"
-msgstr "Ny Profil"
+msgstr "Nuevo Perfil"
 
 #: ../glade/profiles.glade:23
 msgid "New Profile Window"
-msgstr ""
+msgstr "Ventana de nuevo perfil"
 
 #: ../glade/profiles.glade:64
 msgid ""
@@ -757,63 +773,67 @@ msgid ""
 "If you are not sure about what should you fill in, contact your customer "
 "support center and they should provide\n"
 "you with the relevant information."
-msgstr "<b>Opprett en ny profil for din enhet</b>"
+msgstr ""
+"<b>Crear un nuevo perfil para su dispositivo</b>\n"
+"\n"
+"Si no está seguro de qué debería rellenar contacte a su servicio de atención "
+"al cliente, ellos le deberían de proporcionar la información necesaria."
 
 #: ../glade/profiles.glade:115
 msgid "<b>Connection preferences</b>"
-msgstr "<b>Tilkoblings innstillinger</b>"
+msgstr "<b>Preferencias de conexión</b>"
 
 #: ../glade/profiles.glade:152
 msgid "Username:"
-msgstr "Brukernavn:"
+msgstr "Nombre de usuario:"
 
 #: ../glade/profiles.glade:202
 msgid "Authentication method:"
-msgstr "Autentiseringsmetode:"
+msgstr "Método de autenticación:"
 
 #: ../glade/profiles.glade:227
 msgid "Preferred connection:"
-msgstr "Trukket tilkobling:"
+msgstr "Conexión preferida:"
 
 #: ../glade/profiles.glade:252
 msgid "Preferred band:"
-msgstr "Foretrukket bånd"
+msgstr "Banda de conexión preferida:"
 
 #: ../glade/profiles.glade:277
 msgid "APN host:"
-msgstr "APN vert:"
+msgstr "Host APN:"
 
 #: ../glade/profiles.glade:447
 msgid "<b>DNS settings</b>"
-msgstr "<b>DNS innstillinger</b>"
+msgstr "<b>Preferencias DNS</b>"
 
 #: ../glade/profiles.glade:485
 msgid "Use static DNS"
-msgstr "Bruk statiske navntjenere"
+msgstr "Usar DNS estáticos"
 
 #: ../glade/profiles.glade:518
 msgid "Primary DNS:"
-msgstr "Primær DNS:"
+msgstr "DNS primario:"
 
 #: ../glade/profiles.glade:543
 msgid "Secondary DNS:"
-msgstr "Sekundær DNS:"
+msgstr "DNS secundario:"
 
 #: ../glade/profiles.glade:715
 msgid "<b>Profile settings</b>"
-msgstr "<b>Profil innstillinger</b>"
+msgstr "<b>Opciones de perfil</b>"
 
 #: ../glade/profiles.glade:752
 msgid "Profile name:"
-msgstr "Profile navn:"
+msgstr "Nombre de perfil:"
 
 #: ../glade/profiles.glade:863
 msgid "Device selection"
-msgstr "Enhets valg"
+msgstr "Selección de dispositivo"
 
 #: ../glade/profiles.glade:877
 msgid "Device Selection Window"
-msgstr "Enhets valg vindu"
+msgstr "Ventana de selección de dispositivo"
 
 #: ../glade/profiles.glade:925
 msgid ""
@@ -822,22 +842,26 @@ msgid ""
 "You can choose a known device or insert the needed information to set up a "
 "custom one.\n"
 msgstr ""
+"<b>Seleccione un dispositivo para su conexión.</b>\n"
+"\n"
+"Puede seleccionar un dispositivo conocido o introducir la información para "
+"configurar uno personalizado.\n"
 
 #: ../glade/profiles.glade:1024
 msgid "Known devices"
-msgstr "Kjente enheter"
+msgstr "Dispositivos conocidos"
 
 #: ../glade/profiles.glade:1032
 msgid "Known Devices Radio"
-msgstr ""
+msgstr "Dispositivos de radio conocidos"
 
 #: ../glade/profiles.glade:1083
 msgid "Device type:"
-msgstr "Enhetstype:"
+msgstr "Tipo de dispositivo:"
 
 #: ../glade/profiles.glade:1108
 msgid "Serial"
-msgstr "Seriell"
+msgstr "Serie"
 
 #: ../glade/profiles.glade:1183
 msgid "115200"
@@ -845,39 +869,39 @@ msgstr "115200"
 
 #: ../glade/profiles.glade:1198
 msgid "Data port device:"
-msgstr "Data port enhet"
+msgstr "Puerto de datos"
 
 #: ../glade/profiles.glade:1226
 msgid "Control port device:"
-msgstr "Kontroll port enhet"
+msgstr "Puerto de control"
 
 #: ../glade/profiles.glade:1254
 msgid "Speed connection:"
-msgstr "Hastighetstilkobling"
+msgstr "Velocidad de conexión:"
 
 #: ../glade/profiles.glade:1294
 msgid "Custom device settings"
-msgstr ""
+msgstr "Configuración personalizada del dispositivo"
 
 #: ../glade/profiles.glade:1303
 msgid "Custom Device Settings Radio"
-msgstr ""
+msgstr "Configuración personalizada del dispositivo para radio"
 
 #: ../glade/profiles.glade:1369
 msgid "<b>Device Settings</b>"
-msgstr "<b>enhets innstillinger</b>"
+msgstr "<b>Preferencias Dispositivo</b>"
 
 #: ../glade/sms.glade:50
 msgid "TO : "
-msgstr "Til : "
+msgstr "A : "
 
 #: ../glade/splash.glade:6
 msgid "3G Devices Manager"
-msgstr "3G enhets behandler"
+msgstr "Gestor de dispositivos 3G"
 
 #: ../../gui/constx.py:47 ../../gui/constx.py:65 ../../gui/constx.py:84
 msgid "Any"
-msgstr "Eventuelle"
+msgstr "Cualquiera"
 
 #: ../../gui/constx.py:48
 msgid "EGSM 900"
@@ -929,19 +953,19 @@ msgstr "WCDMA 1900"
 
 #: ../../gui/constx.py:66 ../../gui/signals.py:27
 msgid "2G preferred"
-msgstr "2G foretrukket"
+msgstr "2G preferido"
 
 #: ../../gui/constx.py:67 ../../gui/signals.py:28
 msgid "3G preferred"
-msgstr "3G foretrukket"
+msgstr "3G preferido"
 
 #: ../../gui/constx.py:68 ../../gui/signals.py:29
 msgid "2G only"
-msgstr "Kun 2G"
+msgstr "Sólo 2G"
 
 #: ../../gui/constx.py:69 ../../gui/signals.py:30
 msgid "3G only"
-msgstr "Kun 3G"
+msgstr "Sólo 3G"
 
 #: ../../gui/constx.py:85
 msgid "PAP"
@@ -965,11 +989,11 @@ msgstr "MSCHAPv2"
 
 #: ../../gui/messages.py:39
 msgid "WAP Push (Binary content)"
-msgstr ""
+msgstr "WAP Push (contenido binario)"
 
 #: ../../gui/views/pin.py:77 ../../gui/controllers/preferences.py:212
 msgid "To use this feature you need the gnomekeyring module"
-msgstr "To use this feature you need the gnomekeyring module"
+msgstr "Para usar esta utilidad necesita el módulo gnomekeyring"
 
 #: ../../gui/views/pin.py:93
 msgid ""
@@ -978,8 +1002,8 @@ msgid ""
 "PIN and PUK codes"
 msgstr ""
 "\n"
-"For å låse opp ditt simkort, trenger vi\n"
-"din PIN og PUK kode"
+"Para desbloquear su tarjeta SIM, deberá\n"
+"introducir sus códigos PIN y PUK"
 
 #: ../../gui/views/pin.py:100
 msgid ""
@@ -988,8 +1012,8 @@ msgid ""
 "PIN and PUK2 codes"
 msgstr ""
 "\n"
-"For å låse opp simkortet, trenger vi\n"
-"din PIN og PUK2 kode"
+"Para desbloquear su tarjeta SIM, deberá\n"
+"introducir sus códigos PIN y PUK2"
 
 #: ../../gui/views/main.py:140
 #, python-format
@@ -1007,17 +1031,17 @@ msgid ""
 "system, you might need to ask your Systems Administrator any doubt that you "
 "might have."
 msgstr ""
-"I de fleste tilfeller kan du finne svaret på dine spørsmål om programmet i "
-"hjelpe menyen Denne menyen kan du finne dersom du trykker på \"Hjelp\" "
-"knappen på menylinjen øverst til høyre og velger \"Hjelpe sider\"\n"
+"En muchos casos podrá encontrar la respuesta a las preguntas sobre el "
+"programa en el menú de Ayuda. Este menú puede abrirse haciendo click en el "
+"menú con la etiqueta \"Ayuda\" en la barra de Menú, en la parte superior de "
+"la ventana.\n"
 "\n"
-"Du kan også finne hjelp, oppdateringer og tips på %(name)s's web:\n"
+"Usted puede encontrar ayuda, actualizaciones y consejos en la web %(name)s:\n"
+"%(url)s.\n"
 "\n"
-" %(url)s\n"
-"\n"
-"Dersom du bruker epost og nettleser knappene for å åpne programmer i ditt "
-"system, bør du kanskje snakke med din System Administrator dersom du er i "
-"tvil"
+"Si usa los botones de e-mail y web para acceder a otros programas de su "
+"sistema, es posible que necesite preguntar a su Administrador de Sistemas "
+"cualquier duda relacionada con los mismos."
 
 #: ../../gui/views/main.py:155
 msgid ""
@@ -1028,15 +1052,15 @@ msgid ""
 "If your company does not have a support center, you will have to contact "
 "your company's System Administrator."
 msgstr ""
-"Dersom du bruker dette programmet i din bedrift, så har sikkert din bedrift "
-"et eget support senter, som kan svare på spørsmål du har om programmet\n"
+"Si está usando este programa en una red corporativa, seguramente su empresa "
+"tiene un Centro de Soporte para resolver las preguntas sobre el programa.\n"
 "\n"
-"Dersom din bedrift ikke har noe support senter, så må du ta kontakt med din "
-"bedrifts System Administrator"
+"Si su compañía no dispone de un centro de soporte, contacte con el "
+"Administrador de sistemas de su empresa usando el procedimiento habitual."
 
 #: ../../gui/views/main.py:210 ../../gui/views/main.py:228
 msgid "N/A"
-msgstr "N/A"
+msgstr "No disponible"
 
 #: ../../gui/views/main.py:329
 msgid "GSM"
@@ -1081,161 +1105,163 @@ msgstr "LTE"
 #: ../../gui/views/main.py:378 ../../gui/views/main.py:382
 #: ../../gui/controllers/main.py:692
 msgid "Connect"
-msgstr "Koble til"
+msgstr "Conectar"
 
 #: ../../gui/views/main.py:386 ../../gui/views/main.py:419
 msgid "Disconnecting"
-msgstr "Kobler fra"
+msgstr "Desconectando"
 
 #: ../../gui/views/main.py:390 ../../gui/views/main.py:418
 #: ../../gui/controllers/main.py:852
 msgid "Connecting"
-msgstr "Kobler til"
+msgstr "Conectando"
 
 #: ../../gui/views/main.py:394 ../../gui/controllers/main.py:687
 msgid "Disconnect"
-msgstr "Koble fra"
+msgstr "Desconectar"
 
 #: ../../gui/views/main.py:408
 msgid "Device found"
-msgstr "enhet funnet"
+msgstr "Disposivo encontrado"
 
 #: ../../gui/views/main.py:409
 msgid "Disabled"
-msgstr "Deaktivert"
+msgstr "Desactivado"
 
 #: ../../gui/views/main.py:410
 msgid "SIM locked"
-msgstr "SIM låst"
+msgstr "SIM bloqueada"
 
 #: ../../gui/views/main.py:411
 msgid "Authenticating"
-msgstr "Autentiserer"
+msgstr "Autenticando"
 
 #: ../../gui/views/main.py:412
 msgid "Authenticated"
-msgstr "Autentisert"
+msgstr "Autenticado"
 
 #: ../../gui/views/main.py:413
 msgid "Enabling"
-msgstr "Aktiverer"
+msgstr "Habilitando"
 
 #: ../../gui/views/main.py:414
 msgid "Disabling"
-msgstr "Deaktiverer"
+msgstr "Deshabilitando"
 
 #: ../../gui/views/main.py:416
 msgid "Searching"
-msgstr "Søke"
+msgstr "Búsqueda"
 
 #: ../../gui/views/main.py:417 ../../gui/controllers/main.py:1060
 msgid "Not connected"
-msgstr "Ikke tilkoblet"
+msgstr "Desconectado"
 
 #: ../../gui/views/main.py:420
 msgid "Connected"
-msgstr "Tilkoblet"
+msgstr "Conectado"
 
 #: ../../gui/views/main.py:423
 msgid "No device"
-msgstr "Ingen enhet"
+msgstr "Sin dispositivo"
 
 #: ../../gui/views/main.py:485 ../../gui/views/main.py:523
 #: ../../gui/views/profile.py:143 ../../gui/controllers/contacts.py:141
 msgid "Type"
-msgstr "Typen"
+msgstr "Tipo"
 
 #: ../../gui/views/main.py:491 ../../gui/views/profile.py:133
 #: ../../gui/controllers/contacts.py:147
 msgid "Name"
-msgstr "Navn"
+msgstr "Nombre"
 
 #: ../../gui/views/main.py:500 ../../gui/controllers/contacts.py:154
 msgid "Number"
-msgstr "Nummer"
+msgstr "Número"
 
 #: ../../gui/views/main.py:534
 msgid "Text"
-msgstr "Tekst"
+msgstr "Asunto"
 
 #: ../../gui/views/main.py:545
 msgid "Recipient"
-msgstr "Mottaker"
+msgstr "Destinatario"
 
 #: ../../gui/views/main.py:545
 msgid "Sender"
-msgstr "Avsender"
+msgstr "Remitente"
 
 #: ../../gui/views/main.py:554
 msgid "Date"
-msgstr "Dato"
+msgstr "Fecha"
 
 #: ../../gui/views/profile.py:138
 msgid "Country"
-msgstr "Land"
+msgstr "País"
 
 #: ../../gui/uptime.py:83
 #, python-format
 msgid "%(day)d days, %(msg)s"
-msgstr "%(day)d dager, %(msg)s"
+msgstr "%(day)d días, %(msg)s"
 
 #: ../../gui/uptime.py:85
 #, python-format
 msgid "%(day)d day, %(msg)s"
-msgstr "%(day)d dag, %(msg)s"
+msgstr "%(day)d día, %(msg)s"
 
 #: ../../gui/signals.py:23
 msgid "No signal"
-msgstr "Ingen signal"
+msgstr "Sin señal"
 
 #: ../../gui/models/main.py:113 ../../gui/controllers/payt_controller.py:176
 #: ../../gui/controllers/payt_controller.py:213
 msgid "Not available"
-msgstr "Ikke tilgjengelig"
+msgstr "No disponible"
 
 #: ../../gui/models/main.py:172
 msgid "Error while starting wader"
-msgstr ""
+msgstr "Error mientras se iniciaba wader"
 
 #: ../../gui/models/main.py:173
 #, python-format
 msgid ""
 "Check that your installation is correct and your  OS/distro is supported: %s"
 msgstr ""
+"Compruebe que la instalación está correcta y su distribución/OS está "
+"soportado:%s"
 
 #: ../../gui/models/profile.py:162 ../../gui/controllers/preferences.py:158
 #: ../../gui/controllers/preferences.py:174
 msgid "Custom"
-msgstr "Egen definert"
+msgstr "Personalizado"
 
 #: ../../gui/models/profile.py:374
 msgid "Trying to remove an unsaved profile"
-msgstr "Prøver å slette en ulagert profil"
+msgstr "Intentando eliminar un perfil sin guardar"
 
 #: ../../gui/controllers/sms.py:52
 msgid "You can send the SMS to several recipients separating them by commas"
-msgstr ""
+msgstr "Puede enviar el SMS a varios números separándolos por comas"
 
 #: ../../gui/controllers/sms.py:84 ../../gui/controllers/sms.py:259
 #, python-format
 msgid "Text message: 0/%d chars"
-msgstr "Tekstmelding: 0/%d tegn"
+msgstr "Mensaje de texto: 0/%d caracteres"
 
 #: ../../gui/controllers/sms.py:113
 msgid "Send empty message"
-msgstr "Send tom melding"
+msgstr "Enviar mensaje vacío"
 
 #: ../../gui/controllers/sms.py:114
 msgid "Are you sure you want to send an empty message?"
-msgstr "Er du sikker på at du vil sende en tom melding ?"
+msgstr "¿Está seguro de que quiere enviar un mensaje vacío?"
 
 #: ../../gui/controllers/sms.py:138
 msgid "Error while sending SMS"
-msgstr "Feil ved sending av SMS"
+msgstr "Error enviando SMS"
 
 #: ../../gui/controllers/sms.py:184
 msgid "No SMSC number"
-msgstr "Ingen SMSC nummer"
+msgstr "Sin número SMSC"
 
 #: ../../gui/controllers/sms.py:185
 #, python-format
@@ -1243,27 +1269,29 @@ msgid ""
 "In order to send a SMS, %s needs to know the number of your provider's SMSC. "
 "If you do not know the SMSC number, contact your customer service."
 msgstr ""
+"Para poder enviar un SMS, %s necesita saber el número SMSC de su proveedor. "
+"Si desconoce el número SMSC, contacte a su servicio de atención al cliente."
 
 #: ../../gui/controllers/sms.py:267
 #, python-format
 msgid "Text message: %(num)d/%(total)d chars"
-msgstr "Tekstmelding: %(num)d/%(total)d tegn"
+msgstr "Text message: %(num)d/%(total)d caracteres"
 
 #: ../../gui/controllers/sms.py:272
 #, python-format
 msgid "Text message: %(num)d/%(total)d chars (%(msgs)d SMS)"
-msgstr "Tekstmelding: %(num)d/%(total)d tegn (%(msgs)d SMS)"
+msgstr "Text message: %(num)d/%(total)d caracteres (%(msgs)d SMS)"
 
 #: ../../gui/controllers/payt_controller.py:98
 #: ../../gui/controllers/payt_controller.py:114
 #: ../../gui/controllers/payt_controller.py:124
 msgid "PAYT submit voucher"
-msgstr ""
+msgstr "PAYT enviar voucher"
 
 #: ../../gui/controllers/payt_controller.py:99
 #: ../../gui/controllers/payt_controller.py:160
 msgid "SIM is not on a PAYT plan"
-msgstr ""
+msgstr "Esta SIM no está en un plan PAYT"
 
 #: ../../gui/controllers/payt_controller.py:115
 #, python-format
@@ -1271,23 +1299,25 @@ msgid ""
 "PAYT submit voucher failed\n"
 "'%s'"
 msgstr ""
+"Envio de voucher PAYT fallido\n"
+"'%s'"
 
 #: ../../gui/controllers/payt_controller.py:125
 msgid "No PAYT submit voucher method available"
-msgstr ""
+msgstr "No hay un método para enviar voucher PAYT disponible"
 
 #: ../../gui/controllers/payt_controller.py:159
 #: ../../gui/controllers/payt_controller.py:194
 msgid "PAYT credit check"
-msgstr ""
+msgstr "Comprobación de crédito PAYT"
 
 #: ../../gui/controllers/payt_controller.py:195
 msgid "No PAYT credit check method available"
-msgstr ""
+msgstr "No hay un método para comprobar el crédito PAYT disponible"
 
 #: ../../gui/controllers/pin.py:109 ../../gui/controllers/pin.py:190
 msgid "Incorrect PIN"
-msgstr "Feil PIN"
+msgstr "PIN incorrecto"
 
 #: ../../gui/controllers/pin.py:110 ../../gui/controllers/pin.py:191
 msgid ""
@@ -1298,27 +1328,27 @@ msgid ""
 "for the PUK code</small>\n"
 msgstr ""
 "\n"
-"<small>Pin koden du oppgav er\n"
-"feil. Vær klar over at\n"
-"etter 3 forsøk vil du bli spurt\n"
-"om PUK koden</small>\n"
+"<small>El PIN que acaba de introducir es\n"
+"incorrecto. Tenga en cuenta que después\n"
+"de tres intentos fallidos se le pedirá\n"
+"el código PUK</small>\n"
 
 #: ../../gui/controllers/main.py:172
 #, python-format
 msgid "Quit %s"
-msgstr "Avslutt %s"
+msgstr "Salir de %s"
 
 #: ../../gui/controllers/main.py:173
 msgid "Are you sure you want to exit?"
-msgstr "Er du sikker på at du vil avslutte ?"
+msgstr "¿Seguro que desea salir?"
 
 #: ../../gui/controllers/main.py:185
 msgid "Can not close application"
-msgstr ""
+msgstr "No se puede cerrar la aplicación"
 
 #: ../../gui/controllers/main.py:186
 msgid "Can not close while a connection is active"
-msgstr ""
+msgstr "No se puede cerrar mientras exista una conexión activa"
 
 #: ../../gui/controllers/main.py:268
 #, python-format
@@ -1335,80 +1365,83 @@ msgid ""
 "\n"
 "%(international)s if you are calling from other network."
 msgstr ""
-"Du kan lett finne svar på de vanligste spørsmålene i hjelpe menyen\n"
-"hos ditt support senter eller i support område på:\n"
-"%(url)s.\n"
-"Dersom du fremdeles har problemer, kan du ringe Vodafone's Kunde Support "
-"Senter på:\n"
-"%(shortcode)s, hvis du bruker Vodafone's nettverk, eller\n"
+"Puede encontrar rápidamente la solución a muchos problemas en el Menú de "
+"ayuda, en el centro de soporte de su empresa y en el área de Soporte de \n"
 "\n"
-"%(international)s dersom du ringer fra et annet nettverk."
+"%(url)s.\n"
+"\n"
+"Si todavía tiene dificultades puede llamar al Servicio de Atención al "
+"Cliente de Vodafone, a los siguientes números:\n"
+"\n"
+"%(shortcode)s, si está utilizando la red Vodafone, o\n"
+"\n"
+"%(international)s si llama desde otra red."
 
 #: ../../gui/controllers/main.py:379
 msgid "Invalid password"
-msgstr "Ugyldig passord"
+msgstr "Contraseña incorrecta"
 
 #: ../../gui/controllers/main.py:380
 msgid "The supplied password is incorrect"
-msgstr ""
+msgstr "La contraseña introducida es incorrecta"
 
 #: ../../gui/controllers/main.py:422
 msgid "SIM error"
-msgstr "SIM feil"
+msgstr "Error de SIM"
 
 #: ../../gui/controllers/main.py:423
 msgid "Perhaps your SIM is not inserted correctly?"
-msgstr ""
+msgstr "¿Quizá la SIM no esté correctamente introducida?"
 
 #: ../../gui/controllers/main.py:425
 msgid "Unknown error"
-msgstr "Ukjent feil"
+msgstr "Error desconocido"
 
 #: ../../gui/controllers/main.py:431
 msgid "Error while registering to home network"
-msgstr ""
+msgstr "Error registrándose en la red base"
 
 #: ../../gui/controllers/main.py:500
 msgid "Transfer limit exceeded"
-msgstr ""
+msgstr "Límite de traferencia sobrepasado"
 
 #: ../../gui/controllers/main.py:501
 msgid "You have exceeded your transfer limit"
-msgstr ""
+msgstr "Ha sobrepasado su límite de transferencia"
 
 #: ../../gui/controllers/main.py:577
 #, python-format
 msgid "SMS receipt received for %s"
-msgstr ""
+msgstr "Recepción confirmada del SMS para %s"
 
 #: ../../gui/controllers/main.py:611
 #, python-format
 msgid "SMS received from %s"
-msgstr "SMS mottatt fra %s"
+msgstr "SMS recibido de %s"
 
 #: ../../gui/controllers/main.py:652 ../../gui/controllers/main.py:655
 msgid "Failed connection attempt"
-msgstr ""
+msgstr "Intento de conexión fallido"
 
 #: ../../gui/controllers/main.py:653
 msgid "Unable to connect"
-msgstr "Kan ikke koble til"
+msgstr "No se ha podido conectar"
 
 #: ../../gui/controllers/main.py:706 ../../gui/controllers/main.py:741
 msgid "Send SMS"
-msgstr "Send SMS"
+msgstr "Enviar SMS"
 
 #: ../../gui/controllers/main.py:719
 msgid "Quit"
-msgstr "Avslutt"
+msgstr "Salir"
 
 #: ../../gui/controllers/main.py:763
 msgid "Edit"
-msgstr "Rediger"
+msgstr "Editar"
 
 #: ../../gui/controllers/main.py:783
 msgid "Invalid CSV format"
-msgstr "Ugyldig CSV format"
+msgstr "Formato CSV inválido"
 
 #: ../../gui/controllers/main.py:784
 msgid ""
@@ -1416,107 +1449,110 @@ msgid ""
 "The csv file that you have tried to import has an invalid format."
 msgstr ""
 "\n"
-"CSV filen du prøver å importere har ugyldig format."
+"El archivo csv que acaba de intentar importar tiene formato inválido."
 
 #: ../../gui/controllers/main.py:813
 msgid "No device found"
-msgstr "Ingen enhet funnet"
+msgstr "No se ha encontrado ningún dispositivo conocido"
 
 #: ../../gui/controllers/main.py:814
 msgid "No device has been found. Insert one and try again."
 msgstr ""
+"No se ha encontrado ningún dispositivo. Conecte uno e inténtelo de nuevo."
 
 #: ../../gui/controllers/main.py:820
 msgid "Profile needed"
-msgstr ""
+msgstr "Perfil necesario"
 
 #: ../../gui/controllers/main.py:821
 msgid "You need to create a profile for connecting."
-msgstr ""
+msgstr "Necesita crear un perfil para conectarse."
 
 #: ../../gui/controllers/main.py:866
 msgid "Invalid Connection"
-msgstr ""
+msgstr "Conexión inválida"
 
 #: ../../gui/controllers/main.py:867
 msgid ""
 "It's likely that this connection was made by the Network Manager Applet, "
 "please use that to deactivate"
 msgstr ""
+"Es probable que esta conexión se haya efectuado por la miniaplicación "
+"Network Manager. Úsela para desactivarla."
 
 #: ../../gui/controllers/main.py:1009
 msgid "_New Profile"
-msgstr "_Ny Profil"
+msgstr "_Nuevo perfil"
 
 #: ../../gui/controllers/main.py:1018
 msgid "Load Profile"
-msgstr "Last inn profil"
+msgstr "Cargar Perfil"
 
 #: ../../gui/controllers/main.py:1023
 msgid "Edit Profile"
-msgstr "Rediger Profil"
+msgstr "Editar Perfil"
 
 #: ../../gui/controllers/main.py:1028
 msgid "Delete Profile"
-msgstr "Slett Profil"
+msgstr "Borrar Perfil"
 
 #: ../../gui/controllers/main.py:1061
 msgid "No mobile connection. Do you want to continue?"
-msgstr "Ingen mobil tilkobling. Vil du fortsette ?"
+msgstr "Sin conexión móvil. ¿Desea continuar?"
 
 #: ../../gui/controllers/main.py:1491
 msgid "Editor not available"
-msgstr ""
+msgstr "Editor no disponible"
 
 #: ../../gui/controllers/main.py:1492
 #, python-format
 msgid "Can not start external contact editor \"%s\""
-msgstr ""
+msgstr "No se ha podido iniciar el editor de contactos externo \"%s\""
 
 #: ../../gui/controllers/main.py:1498
 msgid "_Add to contacts"
-msgstr "_Legg til kontakter"
+msgstr "_Añadir a contactos"
 
 #: ../../gui/controllers/main.py:1509
 msgid "Migrate to DB"
-msgstr ""
+msgstr "Migrar a BD"
 
 #: ../../gui/controllers/main.py:1518
 msgid "Save to draft"
-msgstr "Lagre til kladd"
+msgstr "Guardar como borrador"
 
 #: ../../gui/controllers/main.py:1529
 msgid "Delete"
-msgstr "Slett"
+msgstr "Borrar"
 
 #: ../../gui/controllers/main.py:1577
 msgid "Can not handle DB contacts"
-msgstr ""
+msgstr "No se puede gestionar la BD de contactos"
 
 #: ../../gui/controllers/main.py:1578
 msgid "Only SIM based contacts supported"
-msgstr ""
+msgstr "Sólo soportados contactos en SIM"
 
 #: ../../gui/controllers/preferences.py:40
 msgid "Maximum time"
-msgstr "Makstid"
+msgstr "Tiempo máximo"
 
 #: ../../gui/controllers/preferences.py:41
 msgid "1 week"
-msgstr "1 uke"
+msgstr "1 semana"
 
 #: ../../gui/controllers/preferences.py:42
 msgid "3 days"
-msgstr "3 dager"
+msgstr "3 días"
 
 #: ../../gui/controllers/preferences.py:43
 msgid "1 day"
-msgstr "1 dag"
+msgstr "1 día"
 
 #: ../../gui/controllers/preferences.py:210
 #: ../../gui/controllers/preferences.py:229
 msgid "Missing dependency"
-msgstr "Mangler avhengige pakker"
+msgstr "Dependencias no satisfechas"
 
 #: ../../gui/controllers/preferences.py:230
 msgid ""
@@ -1525,86 +1561,90 @@ msgid ""
 "module\n"
 msgstr ""
 "\n"
-"To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
-"module\n"
+"Para usar esta funcionalidad se necesita pygtk >= 2.10 ó el módulo "
+"egg.trayicon\n"
 
 #: ../../gui/controllers/contacts.py:93
 msgid "No contact found"
-msgstr "Ingen kontakter funnet"
+msgstr "No se ha encontrado ningún contacto"
 
 #: ../../gui/controllers/contacts.py:94
 #, python-format
 msgid "No contact with the name %s found"
-msgstr "Ingen kontakter med navn %s funnet"
+msgstr "No se ha encontrado ningún contacto con el nombre %s"
 
 #: ../../gui/controllers/profile.py:69
 msgid "Error while getting connection password"
-msgstr ""
+msgstr "Error al obtener la contraseña de la conexión"
 
 #: ../../gui/controllers/profile.py:70
 msgid ""
 "NoMatchError: No password was retrieved from connection, please set one again"
 msgstr ""
+"NoMachError: No se ha podido obtener una contraseña para la conexión. Por "
+"favor, configúrela de nuevo."
 
 #: ../../gui/controllers/profile.py:119
 msgid "Error creating profile"
-msgstr ""
+msgstr "Error creando perfil"
 
 #: ../../gui/dialogs.py:66
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Andrew Bird https://launchpad.net/~ajb-spheresystems\n"
-"  Einar Svensen https://launchpad.net/~support-coman"
+"  Héctor https://launchpad.net/~hblanco\n"
+"  Jose Luis Tirado https://launchpad.net/~txelu70\n"
+"  Vicente Hernando https://launchpad.net/~bizenton"
 
 #: ../../gui/dialogs.py:128
 msgid "Warning"
-msgstr "Advarsel"
+msgstr "Advertencia"
 
 #: ../../gui/dialogs.py:154
 msgid "Error"
-msgstr "Feil"
+msgstr "Error"
 
 #: ../../gui/dialogs.py:238
 msgid "Password required"
-msgstr "Passord kreves"
+msgstr "Contraseña requerida"
 
 #: ../../gui/dialogs.py:239
 msgid "Please, insert the password of your connection"
-msgstr ""
+msgstr "Por favor, introduzca la contraseña de su conexión"
 
 #: ../../gui/dialogs.py:273
 msgid "Save as ..."
-msgstr "Lagre som ..."
+msgstr "Guardar como..."
 
 #: ../../gui/dialogs.py:281 ../../gui/dialogs.py:320
 msgid "Csv files"
-msgstr "CSV filer"
+msgstr "Archivos Csv"
 
 #: ../../gui/dialogs.py:287 ../../gui/dialogs.py:325
 msgid "All files"
-msgstr "Alle filer"
+msgstr "Todos los archivos"
 
 #: ../../gui/dialogs.py:298
 #, python-format
 msgid "Overwrite \"%s\"?"
-msgstr "Overskriv  \"%s\"?"
+msgstr "Sobreescribir \"%s\"?"
 
 #: ../../gui/dialogs.py:299
 msgid ""
 "A file with this name already exists.\n"
 "If you choose to overwrite this file, the contents will be lost."
 msgstr ""
-"En fil med dette navnet eksisterer allerede.\n"
-"Dersom du velger å overskrive denne filen, vil innholdet bli tapt"
+"Ya existe un archivo con este nombre.\n"
+"Si elije sobreescribirlo, se perderá su contenido."
 
 #: ../../gui/dialogs.py:312
 msgid "Import contacts from..."
-msgstr "Importere kontakter fra..."
+msgstr "Importar contactos desde..."
 
 #: ../../gui/keyring_dialogs.py:103
 msgid "Create default keyring"
-msgstr ""
+msgstr "Crear almacén de claves por defecto"
 
 #: ../../gui/keyring_dialogs.py:104
 #, python-format
@@ -1612,16 +1652,21 @@ msgid ""
 "The application '%s' wants to store a password, but there is no default "
 "keyring. To create one, you need to choose a password you wish to use for it."
 msgstr ""
+"La aplicación '%s' quiere almacenar una contraseña, pero no hay un almacén "
+"de claves por defecto. Para crear uno, necesita escoger una contraseña que "
+"quiera usar para él."
 
 #: ../../gui/keyring_dialogs.py:138
 msgid "Unlock keyring"
-msgstr ""
+msgstr "Desbloquar almacén de claves"
 
 #: ../../gui/keyring_dialogs.py:139
 #, python-format
 msgid ""
 "The application '%s' wants access to the default keyring, but is locked."
 msgstr ""
+"La aplicación '%s' quiere acceder al almacén de claves por defecto, pero "
+"está bloqueado."
 
 #: ../../gui/contacts/contact_evolution.py:136
 msgid "Evolution"
@@ -1633,8 +1678,10 @@ msgstr "KDE PIM"
 
 #: ../../bin/vodafone-mobile-broadband:68
 msgid "Do not run the application as root"
-msgstr "Ikke kjør programmet som root"
+msgstr "No iniciar la aplicación como superusuario"
 
 #: ../../bin/vodafone-mobile-broadband:69
 msgid "Otherwise some features, like profiles, might behave unpredictably."
 msgstr ""
+"De otra forma algunas funcionalidades, como los perfiles, podrían "
+"comportarse de manera imprevisible."

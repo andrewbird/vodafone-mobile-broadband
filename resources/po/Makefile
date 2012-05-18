@@ -1,10 +1,10 @@
-DOMAIN = vodafone-mobile-broadband
+DOMAIN = v-mobile-broadband
 
 all:
 
 create:
 	xgettext -d$(DOMAIN) -LGlade ../glade/*.glade -o $(DOMAIN).pot
-	xgettext --from-code=utf-8 -k_ -d$(DOMAIN) -LPython `find ../../gui -name "*.py"` ../../bin/vodafone-mobile-broadband -o $(DOMAIN).pot -j
+	xgettext --from-code=utf-8 -k_ -d$(DOMAIN) -LPython `find ../../gui -name "*.py"` ../../bin/v-mobile-broadband -o $(DOMAIN).pot -j
 	# Tidy output to be more like launchpad's
 	sed -i $(DOMAIN).pot \
 		-e '1,5d' \
