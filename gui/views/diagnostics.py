@@ -22,7 +22,7 @@ import gtk
 #from gtkmvc import View
 from gui.contrib.gtkmvc import View
 
-from gui.consts import APP_SLUG_NAME, GLADE_DIR, IMAGES_DIR
+from gui.consts import APP_SLUG_NAME, GLADE_DIR
 from gui.constx import GUI_VIEW_DISABLED, GUI_VIEW_IDLE, GUI_VIEW_BUSY
 from gui.translate import _
 
@@ -31,9 +31,6 @@ class DiagnosticsView(View):
     """View for the main diagnostics window"""
 
     GLADE_FILE = join(GLADE_DIR, "diagnostics.glade")
-    Sim_Image = join(IMAGES_DIR, "simple_sim_35x20.png")
-    Computer_Image = join(IMAGES_DIR, "netbookGraphic_50x25.png")
-    Modem_Image = join(IMAGES_DIR, "blackDongle_65x18.png")
 
     def __init__(self, ctrl):
         View.__init__(self, ctrl, self.GLADE_FILE, 'diagnostics_window',
@@ -43,9 +40,6 @@ class DiagnosticsView(View):
 
     def setup_view(self):
         self.get_top_widget().set_position(gtk.WIN_POS_CENTER_ON_PARENT)
-        self['SIMImage'].set_from_file(self.Sim_Image)
-        self['ComputerImage'].set_from_file(self.Computer_Image)
-        self['ModemImage'].set_from_file(self.Modem_Image)
 
         self['ussd_entry'].set_text('')
         self.set_ussd_reply('')

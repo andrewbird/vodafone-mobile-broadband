@@ -28,7 +28,7 @@
                     <child>
                       <widget class="GtkImage" id="ModemImage">
                         <property name="visible">True</property>
-                        <property name="stock">gtk-missing-image</property>
+                        <property name="pixbuf">blackDongle_65x18.png</property>
                       </widget>
                       <packing>
                         <property name="expand">False</property>
@@ -210,9 +210,9 @@
                   <widget class="GtkHBox" id="hbox12">
                     <property name="visible">True</property>
                     <child>
-                      <widget class="GtkImage" id="SIMImage">
+                      <widget class="GtkImage" id="SimImage">
                         <property name="visible">True</property>
-                        <property name="stock">gtk-missing-image</property>
+                        <property name="pixbuf">simple_sim_35x20.png</property>
                       </widget>
                       <packing>
                         <property name="expand">False</property>
@@ -394,7 +394,7 @@
                     <child>
                       <widget class="GtkImage" id="ComputerImage">
                         <property name="visible">True</property>
-                        <property name="stock">gtk-missing-image</property>
+                        <property name="pixbuf">netbookGraphic_50x25.png</property>
                       </widget>
                       <packing>
                         <property name="expand">False</property>
