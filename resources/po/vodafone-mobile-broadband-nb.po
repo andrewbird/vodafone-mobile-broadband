@@ -9,19 +9,19 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-27 11:30+0000\n"
-"PO-Revision-Date: 2012-02-08 14:21+0000\n"
-"Last-Translator: Andrew Bird <Unknown>\n"
+"PO-Revision-Date: 2012-04-17 21:31+0000\n"
+"Last-Translator: Einar Svensen <Unknown>\n"
 "Language-Team: Norwegian <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-12 13:12+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-05-15 09:20+0000\n"
+"X-Generator: Launchpad (build 15238)\n"
 "Language: nb\n"
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
-msgstr ""
+msgstr "APN valg"
 
 #: ../glade/apnsel.glade:69
 msgid ""
@@ -43,11 +43,11 @@ msgstr "OK"
 
 #: ../glade/apnsel.glade:228
 msgid "<b>APN Settings</b>"
-msgstr ""
+msgstr "<b>APN innstillinger</b>"
 
 #: ../glade/config.glade:8
 msgid "Device setup"
-msgstr ""
+msgstr "Enhets oppsett"
 
 #: ../glade/config.glade:34
 msgid ""
@@ -57,7 +57,7 @@ msgstr "Velg hvordan vil du koble deg til Internet"
 
 #: ../glade/config.glade:56
 msgid "Device model: "
-msgstr ""
+msgstr "Enhets model: "
 
 #: ../glade/config.glade:63
 msgid "Connection:"
@@ -65,11 +65,11 @@ msgstr "Tilkobling:"
 
 #: ../glade/config.glade:153
 msgid "Bluetooth configuration"
-msgstr ""
+msgstr "Bluetooth innstillinger"
 
 #: ../glade/config.glade:174
 msgid "Configure your <b>Bluetooth</b> device"
-msgstr ""
+msgstr "Konfigurere din <b>Bluetooth</b> enhet"
 
 #: ../glade/config.glade:198
 msgid ""
@@ -82,23 +82,23 @@ msgstr ""
 
 #: ../glade/config.glade:250
 msgid "_Start discovery"
-msgstr ""
+msgstr "_Start oppdagelse"
 
 #: ../glade/config.glade:301
 msgid "<b>Serial Port</b>"
-msgstr ""
+msgstr "<b>Serie port</>"
 
 #: ../glade/config.glade:325
 msgid "Data port"
-msgstr ""
+msgstr "Data port"
 
 #: ../glade/config.glade:334
 msgid "Control port"
-msgstr ""
+msgstr "Kontroll port"
 
 #: ../glade/config.glade:346
 msgid "Speed"
-msgstr ""
+msgstr "Hastighet"
 
 #: ../glade/config.glade:440
 msgid "<b>Connection settings</b>"
@@ -134,7 +134,7 @@ msgstr "Nummer:"
 
 #: ../glade/contacts.glade:257
 msgid "<b>Save in:</b>"
-msgstr ""
+msgstr "<b>Lagre i:</b>"
 
 #: ../glade/contacts.glade:300 ../../gui/contacts/contact_sim.py:170
 msgid "Mobile"
@@ -170,7 +170,7 @@ msgstr "IMEI: "
 
 #: ../glade/diagnostics.glade:138
 msgid "Card manufacturer"
-msgstr ""
+msgstr "Kort produsent"
 
 #: ../glade/diagnostics.glade:149
 msgid "Card model"
@@ -190,7 +190,7 @@ msgstr "Modem"
 
 #: ../glade/diagnostics.glade:227
 msgid "<b>Network details from SIM</b>"
-msgstr ""
+msgstr "<b>Nettverks detaljer fra SIM</b>"
 
 #: ../glade/diagnostics.glade:265
 msgid "IMSI:"
@@ -328,6 +328,8 @@ msgid ""
 "Please, insert a code to encrypt your sensitive\n"
 "information."
 msgstr ""
+"Venligst tast inn en kode for kryptere din sensitive\n"
+"informasjon"
 
 #: ../glade/keyring.glade:81 ../glade/keyring.glade:191
 #: ../glade/profiles.glade:177
@@ -340,11 +342,11 @@ msgstr "Bekreft passord:"
 
 #: ../glade/keyring.glade:131
 msgid "Unlock Keyring"
-msgstr ""
+msgstr "Lås opp nøkkelring"
 
 #: ../glade/keyring.glade:157
 msgid "Please, enter your keyring password"
-msgstr ""
+msgstr "Venligst tastinn din nøkkelring passord"
 
 #: ../glade/main.glade:28
 msgid "Import contacts..."
@@ -377,7 +379,7 @@ msgstr "_Verktøy"
 
 #: ../glade/main.glade:140 ../../gui/views/main.py:415
 msgid "Enabled"
-msgstr ""
+msgstr "Aktivert"
 
 #: ../glade/main.glade:149
 msgid "Change PIN"
@@ -409,7 +411,7 @@ msgstr "_Om"
 
 #: ../glade/main.glade:356
 msgid "Topup"
-msgstr ""
+msgstr "Påfyllingsbeløp"
 
 #: ../glade/main.glade:410 ../glade/main.glade:524
 msgid "_New"
@@ -510,11 +512,11 @@ msgstr "<b>Overført</b>"
 
 #: ../glade/main.glade:1074
 msgid "<b>Current session</b>"
-msgstr ""
+msgstr "<b>Nåværende økt</b>"
 
 #: ../glade/main.glade:1112 ../glade/main.glade:1364
 msgid "Total Traffic"
-msgstr ""
+msgstr "Total trafikk"
 
 #: ../glade/main.glade:1155
 msgid "Current month"
@@ -546,11 +548,11 @@ msgstr ""
 
 #: ../glade/payt.glade:6
 msgid "Topup Credit"
-msgstr ""
+msgstr "Påfyllingsbeløp kredit"
 
 #: ../glade/payt.glade:44
 msgid "<b>SIM Details</b>"
-msgstr ""
+msgstr "<b>SIM detaljer</b>"
 
 #: ../glade/payt.glade:83
 msgid "<b>Number</b>"
@@ -558,7 +560,7 @@ msgstr "<b>Nummer</b>"
 
 #: ../glade/payt.glade:94
 msgid "<b>Credit</b>"
-msgstr ""
+msgstr "<b>Kredit</b>"
 
 #: ../glade/payt.glade:105
 msgid "<b>Date</b>"
@@ -570,7 +572,7 @@ msgstr ""
 
 #: ../glade/payt.glade:182
 msgid "Check credit"
-msgstr ""
+msgstr "Sjekk kredit"
 
 #: ../glade/payt.glade:237
 msgid "<b>Voucher Code</b>"
@@ -578,11 +580,11 @@ msgstr ""
 
 #: ../glade/payt.glade:267
 msgid "Enter code:"
-msgstr ""
+msgstr "Tast kode:"
 
 #: ../glade/payt.glade:341
 msgid "<b>Credit Card</b>"
-msgstr ""
+msgstr "<b>Kredit kort</b>"
 
 #: ../glade/payt.glade:371
 msgid "Pay by credit card"
@@ -610,7 +612,7 @@ msgstr ""
 
 #: ../glade/pin.glade:178
 msgid "<b>Advanced Options</b>"
-msgstr ""
+msgstr "<b>Avanserte valg</b>"
 
 #: ../glade/pin.glade:257
 msgid "Modify PIN code"
@@ -638,7 +640,7 @@ msgstr "PUK:"
 
 #: ../glade/preferences.glade:55
 msgid "<b>Change to global SMS settings </b>"
-msgstr ""
+msgstr "<b>Endre til global SMS innstillinger</b>"
 
 #: ../glade/preferences.glade:71
 msgid "Allow SMS confirmation"
@@ -694,7 +696,7 @@ msgstr "Avslutt uten advarsel"
 
 #: ../glade/preferences.glade:344
 msgid "Show icon on tray"
-msgstr ""
+msgstr "Vis icon i oppgavelinje"
 
 #: ../glade/preferences.glade:359
 msgid "Close window minimizes app to tray"
@@ -702,7 +704,7 @@ msgstr "Lukk vindu, minimerer applikasjon til panelet"
 
 #: ../glade/preferences.glade:374
 msgid "Manage my PIN through gnomekeyring"
-msgstr ""
+msgstr "Håndter min PIN gjennom gnome nøkkelring"
 
 #: ../glade/preferences.glade:409
 msgid "User Preferences"
@@ -710,19 +712,19 @@ msgstr "Bruker Preferanser"
 
 #: ../glade/preferences.glade:429
 msgid "<b>Web Browser</b>"
-msgstr ""
+msgstr "<b>Nettleser</b>"
 
 #: ../glade/preferences.glade:490 ../glade/preferences.glade:583
 msgid "Command:"
-msgstr ""
+msgstr "Kommando:"
 
 #: ../glade/preferences.glade:527
 msgid "<b>Email client</b>"
-msgstr ""
+msgstr "<b>Epost klient</b>"
 
 #: ../glade/preferences.glade:630
 msgid "Applications"
-msgstr ""
+msgstr "Programmer"
 
 #: ../glade/preferences.glade:650
 msgid "<b>Usage Options</b>"
@@ -755,7 +757,7 @@ msgid ""
 "If you are not sure about what should you fill in, contact your customer "
 "support center and they should provide\n"
 "you with the relevant information."
-msgstr ""
+msgstr "<b>Opprett en ny profil for din enhet</b>"
 
 #: ../glade/profiles.glade:115
 msgid "<b>Connection preferences</b>"
@@ -775,7 +777,7 @@ msgstr "Trukket tilkobling:"
 
 #: ../glade/profiles.glade:252
 msgid "Preferred band:"
-msgstr ""
+msgstr "Foretrukket bånd"
 
 #: ../glade/profiles.glade:277
 msgid "APN host:"
@@ -783,7 +785,7 @@ msgstr "APN vert:"
 
 #: ../glade/profiles.glade:447
 msgid "<b>DNS settings</b>"
-msgstr ""
+msgstr "<b>DNS innstillinger</b>"
 
 #: ../glade/profiles.glade:485
 msgid "Use static DNS"
@@ -799,7 +801,7 @@ msgstr "Sekundær DNS:"
 
 #: ../glade/profiles.glade:715
 msgid "<b>Profile settings</b>"
-msgstr ""
+msgstr "<b>Profil innstillinger</b>"
 
 #: ../glade/profiles.glade:752
 msgid "Profile name:"
@@ -807,11 +809,11 @@ msgstr "Profile navn:"
 
 #: ../glade/profiles.glade:863
 msgid "Device selection"
-msgstr ""
+msgstr "Enhets valg"
 
 #: ../glade/profiles.glade:877
 msgid "Device Selection Window"
-msgstr ""
+msgstr "Enhets valg vindu"
 
 #: ../glade/profiles.glade:925
 msgid ""
@@ -823,7 +825,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:1024
 msgid "Known devices"
-msgstr ""
+msgstr "Kjente enheter"
 
 #: ../glade/profiles.glade:1032
 msgid "Known Devices Radio"
@@ -831,27 +833,27 @@ msgstr ""
 
 #: ../glade/profiles.glade:1083
 msgid "Device type:"
-msgstr ""
+msgstr "Enhetstype:"
 
 #: ../glade/profiles.glade:1108
 msgid "Serial"
-msgstr ""
+msgstr "Seriell"
 
 #: ../glade/profiles.glade:1183
 msgid "115200"
-msgstr ""
+msgstr "115200"
 
 #: ../glade/profiles.glade:1198
 msgid "Data port device:"
-msgstr ""
+msgstr "Data port enhet"
 
 #: ../glade/profiles.glade:1226
 msgid "Control port device:"
-msgstr ""
+msgstr "Kontroll port enhet"
 
 #: ../glade/profiles.glade:1254
 msgid "Speed connection:"
-msgstr ""
+msgstr "Hastighetstilkobling"
 
 #: ../glade/profiles.glade:1294
 msgid "Custom device settings"
@@ -863,7 +865,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:1369
 msgid "<b>Device Settings</b>"
-msgstr ""
+msgstr "<b>enhets innstillinger</b>"
 
 #: ../glade/sms.glade:50
 msgid "TO : "
@@ -1083,12 +1085,12 @@ msgstr "Koble til"
 
 #: ../../gui/views/main.py:386 ../../gui/views/main.py:419
 msgid "Disconnecting"
-msgstr ""
+msgstr "Kobler fra"
 
 #: ../../gui/views/main.py:390 ../../gui/views/main.py:418
 #: ../../gui/controllers/main.py:852
 msgid "Connecting"
-msgstr ""
+msgstr "Kobler til"
 
 #: ../../gui/views/main.py:394 ../../gui/controllers/main.py:687
 msgid "Disconnect"
@@ -1096,7 +1098,7 @@ msgstr "Koble fra"
 
 #: ../../gui/views/main.py:408
 msgid "Device found"
-msgstr ""
+msgstr "enhet funnet"
 
 #: ../../gui/views/main.py:409
 msgid "Disabled"
@@ -1104,7 +1106,7 @@ msgstr "Deaktivert"
 
 #: ../../gui/views/main.py:410
 msgid "SIM locked"
-msgstr ""
+msgstr "SIM låst"
 
 #: ../../gui/views/main.py:411
 msgid "Authenticating"
@@ -1112,15 +1114,15 @@ msgstr "Autentiserer"
 
 #: ../../gui/views/main.py:412
 msgid "Authenticated"
-msgstr ""
+msgstr "Autentisert"
 
 #: ../../gui/views/main.py:413
 msgid "Enabling"
-msgstr ""
+msgstr "Aktiverer"
 
 #: ../../gui/views/main.py:414
 msgid "Disabling"
-msgstr ""
+msgstr "Deaktiverer"
 
 #: ../../gui/views/main.py:416
 msgid "Searching"
@@ -1132,7 +1134,7 @@ msgstr "Ikke tilkoblet"
 
 #: ../../gui/views/main.py:420
 msgid "Connected"
-msgstr ""
+msgstr "Tilkoblet"
 
 #: ../../gui/views/main.py:423
 msgid "No device"
@@ -1184,12 +1186,12 @@ msgstr "%(day)d dag, %(msg)s"
 
 #: ../../gui/signals.py:23
 msgid "No signal"
-msgstr ""
+msgstr "Ingen signal"
 
 #: ../../gui/models/main.py:113 ../../gui/controllers/payt_controller.py:176
 #: ../../gui/controllers/payt_controller.py:213
 msgid "Not available"
-msgstr ""
+msgstr "Ikke tilgjengelig"
 
 #: ../../gui/models/main.py:172
 msgid "Error while starting wader"
@@ -1208,7 +1210,7 @@ msgstr "Egen definert"
 
 #: ../../gui/models/profile.py:374
 msgid "Trying to remove an unsaved profile"
-msgstr ""
+msgstr "Prøver å slette en ulagert profil"
 
 #: ../../gui/controllers/sms.py:52
 msgid "You can send the SMS to several recipients separating them by commas"
@@ -1344,7 +1346,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:379
 msgid "Invalid password"
-msgstr ""
+msgstr "Ugyldig passord"
 
 #: ../../gui/controllers/main.py:380
 msgid "The supplied password is incorrect"
@@ -1352,7 +1354,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:422
 msgid "SIM error"
-msgstr ""
+msgstr "SIM feil"
 
 #: ../../gui/controllers/main.py:423
 msgid "Perhaps your SIM is not inserted correctly?"
@@ -1390,7 +1392,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:653
 msgid "Unable to connect"
-msgstr ""
+msgstr "Kan ikke koble til"
 
 #: ../../gui/controllers/main.py:706 ../../gui/controllers/main.py:741
 msgid "Send SMS"
@@ -1448,7 +1450,7 @@ msgstr "_Ny Profil"
 
 #: ../../gui/controllers/main.py:1018
 msgid "Load Profile"
-msgstr ""
+msgstr "Last inn profil"
 
 #: ../../gui/controllers/main.py:1023
 msgid "Edit Profile"
@@ -1552,7 +1554,8 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Andrew Bird https://launchpad.net/~ajb-spheresystems"
+"  Andrew Bird https://launchpad.net/~ajb-spheresystems\n"
+"  Einar Svensen https://launchpad.net/~support-coman"
 
 #: ../../gui/dialogs.py:128
 msgid "Warning"
@@ -1630,7 +1633,7 @@ msgstr "KDE PIM"
 
 #: ../../bin/vodafone-mobile-broadband:68
 msgid "Do not run the application as root"
-msgstr ""
+msgstr "Ikke kjør programmet som root"
 
 #: ../../bin/vodafone-mobile-broadband:69
 msgid "Otherwise some features, like profiles, might behave unpredictably."

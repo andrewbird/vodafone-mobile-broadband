@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-12 13:12+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-05-15 09:20+0000\n"
+"X-Generator: Launchpad (build 15238)\n"
 "Language: es\n"
 
 #: ../glade/apnsel.glade:8
@@ -1594,8 +1594,8 @@ msgstr ""
 "Launchpad Contributions:\n"
 "  Andrew Bird https://launchpad.net/~ajb-spheresystems\n"
 "  Héctor https://launchpad.net/~hblanco\n"
-"  Vicente Hernando https://launchpad.net/~bizenton\n"
-"  txelu https://launchpad.net/~txelu70"
+"  Jose Luis Tirado https://launchpad.net/~txelu70\n"
+"  Vicente Hernando https://launchpad.net/~bizenton"
 
 #: ../../gui/dialogs.py:128
 msgid "Warning"
