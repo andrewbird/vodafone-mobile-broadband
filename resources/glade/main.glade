@@ -497,7 +497,7 @@
                             <property name="can_focus">False</property>
                             <property name="tooltip" translatable="yes">Reply to SMS quoting original message</property>
                             <property name="use_action_appearance">False</property>
-                            <property name="icon">sms_reply.png</property>
+                            <property name="icon">sms_reply_quoting.png</property>
                             <accessibility>
                               <atkproperty name="AtkObject::accessible-name">Reply to SMS quoting original message</atkproperty>
                             </accessibility>
