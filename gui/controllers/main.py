@@ -25,6 +25,7 @@ import re
 from subprocess import Popen
 
 import gtk
+from gettext import dgettext
 from gobject import timeout_add_seconds
 
 from wader.common.signals import SIG_SMS_COMP, SIG_SMS_DELV
@@ -44,7 +45,7 @@ from gui.dialogs import (show_profile_window,
                                open_dialog_question_checkbox_cancel_ok,
                                save_csv_file, open_import_csv_dialog)
 from gui.keyring_dialogs import NewKeyringDialog, KeyringPasswordDialog
-from gui.utils import get_error_msg
+from gui.utils import find_windows, get_error_msg, raise_window
 from gui.translate import _
 from gui.tray import get_tray_icon
 from gui.consts import (GTK_LOCK, GUIDE_DIR, IMAGES_DIR, APP_URL,
@@ -429,7 +430,14 @@ class MainController(WidgetController):
             # XXX: we should check for any of our existing popups and hide them
             pass
         elif new == GUI_SIM_AUTH_PIN:
-            self.ask_for_pin()
+            # Check for NM's desktop PIN popup
+            app_name = dgettext('nm-applet', 'NetworkManager Applet')
+            win_name = dgettext('nm-applet', 'SIM PIN unlock required')
+            win_list = find_windows(app_name, win_name)
+            if win_list is None or len(win_list) == 0:
+                self.ask_for_pin()
+            else:
+                raise_window(win_list[0])
         elif new == GUI_SIM_AUTH_PUK:
             self.ask_for_puk()
         elif new == GUI_SIM_AUTH_PUK2:
