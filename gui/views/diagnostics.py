@@ -45,11 +45,6 @@ class DiagnosticsView(View):
         self.set_ussd_reply('')
         self['ussd_textview'].set_editable(False)
 
-    def set_datacard_info(self, manufacturer, model, firmware):
-        self['card_manufacturer_label'].set_text(manufacturer)
-        self['card_model_label'].set_text(model)
-        self['firmware_label'].set_text(firmware)
-
     def get_ussd_request(self):
         return self['ussd_entry'].get_text()
 
@@ -70,24 +65,41 @@ class DiagnosticsView(View):
             self['ussd_entry'].set_sensitive(False)
             self.set_ussd_reply('')
 
+    def set_card_manufacturer_info(self, manufacturer):
+        self['card_manufacturer_label'].set_text(
+            manufacturer if manufacturer is not None else _('Unknown'))
+
+    def set_card_model_info(self, model):
+        self['card_model_label'].set_text(
+            model if model is not None else _('Unknown'))
+
+    def set_card_firmware_info(self, firmware):
+        self['card_firmware_label'].set_text(
+            firmware if firmware is not None else _('Unknown'))
+
     def set_msisdn_info(self, msisdn):
         if msisdn is None:
             msisdn = _('Unknown')
         self['msisdn_name_label'].set_text(msisdn)
 
     def set_imsi_info(self, imsi):
+        if imsi is None:
+            imsi = _('Unknown')
         self['imsi_number_label'].set_text(imsi)
 
-    def set_network_info(self, network=None, country=None):
+    def set_network_info(self, network):
         if network is None:
             network = _('Unknown')
         self['network_name_label'].set_text(network)
 
+    def set_country_info(self, country):
         if country is None:
             country = _('Unknown')
         self['country_name_label'].set_text(country)
 
     def set_imei_info(self, imei):
+        if imei is None:
+            imei = _('Unknown')
         self['imei_number_label'].set_text(imei)
 
     def set_appVersion_info(self, appVersion):

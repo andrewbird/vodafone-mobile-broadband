@@ -21,7 +21,6 @@ Controllers for diagnostics
 #from gtkmvc import Controller
 from gui.contrib.gtkmvc import Controller
 
-from wader.common.consts import CRD_INTFACE, MDM_INTFACE
 from wader.common.provider import NetworkProvider
 
 from gui.logger import logger
@@ -59,55 +58,30 @@ class DiagnosticsController(Controller):
                 self.model, None, self.model.status)
 
     def set_device_info(self):
-        device = self.model.get_device()
-        if not device:
-            return
+        self.view.set_imei_info(self.model.imei)
 
-        def sim_imei(imei):
-            # ok we don't have a model the data is coming from dbus
-            # from wader core lets tell the view to set the imsi value
-            # in the correct place
-            self.view.set_imei_info(imei)
+        self.view.set_imsi_info(self.model.imsi)
+        self.set_network_country_info(self.model.imsi)
 
-        device.GetImei(dbus_interface=CRD_INTFACE,
-                       error_handler=logger.error, reply_handler=sim_imei)
+        self.view.set_msisdn_info(self.model.msisdn)
 
-        def sim_imsi(imsi):
-            logger.info("diagnostics sim_imsi - IMSI number is: " + str(imsi))
-            self.view.set_imsi_info(imsi)
+        self.view.set_card_manufacturer_info(self.model.card_manufacturer)
+        self.view.set_card_model_info(self.model.card_model)
+        self.view.set_card_firmware_info(self.model.card_firmware)
 
-            # let's look up what we think this SIM's network is.
-            # so we want to display the country and network operator
+    def set_network_country_info(self, imsi):
+        try:
             provider = NetworkProvider()
-            networks_attributes = provider.get_network_by_id(imsi)
-            if networks_attributes:
-                net_attrib = networks_attributes[0]
-                logger.info("diagnostics sim_imsi - country: "
-                            + str(net_attrib.country))
-                logger.info("diagnostics sim_imsi - network operator: "
-                            + str(net_attrib.name))
-                self.view.set_network_info(network=net_attrib.name,
-                                           country=net_attrib.country)
+            nets = provider.get_network_by_id(imsi)
+            if not len(nets):
+                raise ValueError
+            self.view.set_network_info(nets[0].name)
+            self.view.set_country_info(nets[0].country)
+        except (TypeError, ValueError):
+            self.view.set_network_info(None)
+            self.view.set_country_info(None)
+        finally:
             provider.close()
-
-        self.model.get_imsi(sim_imsi)
-
-        self.model.get_msisdn(self.view.set_msisdn_info)
-
-        def mdm_info(datacard_info):
-            # ok we don't have a model the data is coming straight from
-            # our core via dbus
-            manufacturer = datacard_info[0]
-            model = datacard_info[1]
-            firmware = datacard_info[2]
-            logger.info("mdm_info - manufacturer: " + manufacturer)
-            logger.info("mdm_info - model: " + model)
-            logger.info("mdm_info - firmware:  " + firmware)
-
-            self.view.set_datacard_info(manufacturer, model, firmware)
-
-        device.GetInfo(dbus_interface=MDM_INTFACE,
-                       error_handler=logger.error, reply_handler=mdm_info)
 
     # ------------------------------------------------------------ #
     #                       Signals Handling                       #
@@ -142,6 +116,25 @@ class DiagnosticsController(Controller):
     # ------------------------------------------------------------ #
     #                       Property Changes                       #
     # ------------------------------------------------------------ #
+
+    def property_card_manufacturer_value_change(self, model, old, new):
+        self.view.set_card_manufacturer_info(new)
+
+    def property_card_model_value_change(self, model, old, new):
+        self.view.set_card_model_info(new)
+
+    def property_card_firmware_value_change(self, model, old, new):
+        self.view.set_card_firmware_info(new)
+
+    def property_imei_value_change(self, model, old, new):
+        self.view.set_imei_info(new)
+
+    def property_imsi_value_change(self, model, old, new):
+        self.view.set_imsi_info(new)
+        self.set_network_country_info(new)
+
+    def property_msisdn_value_change(self, model, old, new):
+        self.view.set_msisdn_info(new)
 
     def property_status_value_change(self, model, old, new):
         if new < GUI_MODEM_STATE_REGISTERED:

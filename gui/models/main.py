@@ -86,6 +86,11 @@ class MainModel(Model):
         'registration': -1,
         'status': GUI_MODEM_STATE_UNKNOWN,
         'tech': None,
+        'card_manufacturer': None,
+        'card_model': None,
+        'card_firmware': None,
+        'imei': None,
+        'imsi': None,
         'msisdn': _('Unknown'),
         'sim_auth_required': GUI_SIM_AUTH_NONE,
         'profile_required': False,
@@ -137,12 +142,18 @@ class MainModel(Model):
         self.reginfo_sm = None
         self.dialer_manager = None
         self.dial_path = None
+        self.device = None
         self.device_opath = None
         self._we_dialed = None
         self.preferences_model = PreferencesModel(lambda: self.device)
         self.profiles_model = ProfilesModel(self)
         self.provider = UsageProvider(USAGE_DB)
         self._init_wader_object()
+        # Per device
+        self.card_manufacturer = None
+        self.card_model = None
+        self.card_firmware = None
+        self.imei = None
         # Per SIM stuff
         self.imsi = None
         self.msisdn = None
@@ -222,6 +233,10 @@ class MainModel(Model):
             self.tech = None
             self.rssi = None
             self.registration = -1
+            self.card_manufacturer = None
+            self.card_model = None
+            self.card_firmware = None
+            self.imei = None
             self.imsi = None
             self.msisdn = None
 
@@ -405,6 +420,28 @@ class MainModel(Model):
                                 error_handler=disable_eb)
 
     def _enable_device_cb(self):
+        mdmprops = self.device.GetAll(MDM_INTFACE)
+        self.imei = mdmprops.get('EquipmentIdentifier')
+
+        # Grab manufacturer, model and firmware
+
+        def getinfo_cb(info):
+            self.card_manufacturer = info[0]
+            self.card_model = info[1]
+            self.card_firmware = info[2]
+
+        def getinfo_eb(failure):
+            logger.warn("Couldn't get device info '%s'" % str(failure))
+            self.card_manufacturer = None
+            self.card_model = None
+            self.card_firmware = None
+
+        self.device.GetInfo(dbus_interface=MDM_INTFACE,
+                            reply_handler=getinfo_cb,
+                            error_handler=getinfo_eb)
+
+        self.get_imsi(lambda x: True)
+
         self.sim_auth_required = GUI_SIM_AUTH_NONE
 
         self.init_dial_stats()
@@ -767,7 +804,7 @@ class MainModel(Model):
             self.rx_bytes = rx_bytes
 
         if tx_bytes > self.tx_bytes:
-            dx_tx_bytes = tx_bytes - self.tx_bytes;
+            dx_tx_bytes = tx_bytes - self.tx_bytes
             self.tx_bytes = tx_bytes
 
         # total traffic
