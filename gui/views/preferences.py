@@ -85,6 +85,9 @@ class PreferencesView(View):
     def setup_manage_my_pin(self, val):
         self['gnomekeyring_checkbutton'].set_active(val)
 
+    def setup_user_use_global_menu(self, val):
+        self['use_global_menu'].set_active(val)
+
     # third page
     # methods are called by the controller to setup the view for
     # applications tab in properties. methods are called on initialisation

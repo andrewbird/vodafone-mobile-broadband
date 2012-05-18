@@ -142,6 +142,7 @@ class PreferencesController(Controller):
         self.view.setup_user_close_window_minimize(self.model.close_minimizes)
         self.view.setup_user_close_window_minimize_enable(sensitive)
         self.view.setup_manage_my_pin(self.model.manage_pin)
+        self.view.setup_user_use_global_menu(self.model.use_global_menu)
 
     def setup_usage_tab(self):
         # setup the usage tab to reflect what's in our model on startup
@@ -311,6 +312,7 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         self.model.close_minimizes = close_minimizes
         self.model.show_icon = show_icon
         self.model.manage_pin = manage_pin
+        self.model.use_global_menu = self.view['use_global_menu'].get_active()
 
         # make the change in the parent
         if self.model.show_icon:

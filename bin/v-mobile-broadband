@@ -33,7 +33,7 @@ from gui.splash import SplashScreen
 from gui.startup import (create_skeleton_and_return,
                                check_for_bcm_home_compatibility)
 from gui.utils import find_windows, raise_window
-from gui.config import CheckOldConfig
+from gui.config import CheckOldConfig, config
 
 
 def check_if_running():
@@ -70,12 +70,15 @@ def main():
                             "might behave unpredictably."))
         return
 
-
     # Check for legacy files and initialization.
     check_for_bcm_home_compatibility()
     create_skeleton_and_return()
     check_old_conf = CheckOldConfig()
     check_old_conf.check()
+
+    # disable the unity global menu
+    if not config.get('preferences', 'use_global_menu', False):
+        os.environ['UBUNTU_MENUPROXY'] = ''
 
     # delay import until we have the necessary skeleton
     from gui.models.main import MainModel

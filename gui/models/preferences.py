@@ -45,10 +45,12 @@ class PreferencesModel(BaseWrapperModel):
         'use_alternate_smsc': False,
         'smsc_profile': "default",
         'smsc_number': "+447785016005",
-        'exit_without_confirmation': CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION,
+        'exit_without_confirmation': \
+            CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION,
         'show_icon': CFG_PREFS_DEFAULT_TRAY_ICON,
         'close_minimizes': CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
         'manage_pin': False,
+        'use_global_menu': False,
         'max_traffic': 10,
         'traffic_threshold': 100,
         'usage_notification': False,
@@ -99,6 +101,9 @@ class PreferencesModel(BaseWrapperModel):
         self.manage_pin = config.get('preferences', 'manage_pin_by_keyring',
                                      False)
 
+        self.use_global_menu = config.get('preferences', 'use_global_menu',
+                                            False)
+
         # ok lets load the application values from configuration file
         self.browser = config.get('preferences', 'browser',
                                   CFG_PREFS_DEFAULT_BROWSER)
@@ -128,6 +133,7 @@ class PreferencesModel(BaseWrapperModel):
         config.set('preferences', 'show_icon', self.show_icon)
         config.set('preferences', 'close_minimizes', self.close_minimizes)
         config.set('preferences', 'manage_pin_by_keyring', self.manage_pin)
+        config.set('preferences', 'use_global_menu', self.use_global_menu)
 
         # Save all the attributes on the applications tab
         config.set('preferences', 'browser', self.browser)
@@ -135,8 +141,10 @@ class PreferencesModel(BaseWrapperModel):
 
         # Save all the attributes on the usage tab
         config.set('preferences', 'max_traffic', int(self.max_traffic))
-        config.set('preferences', 'traffic_threshold', int(self.traffic_threshold))
-        config.set('preferences', 'usage_notification', self.usage_notification)
+        config.set('preferences', 'traffic_threshold',
+                    int(self.traffic_threshold))
+        config.set('preferences', 'usage_notification',
+                    self.usage_notification)
 
 
 class SMSCListStoreModel(ListStoreModel):
