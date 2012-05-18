@@ -3,7 +3,7 @@ Section: net
 Priority: optional
 Maintainer: Andrew Bird <ajb@spheresystems.co.uk>
 Build-Depends: debhelper (>= 5), ttf-freefont
-Build-Depends-Indep: python-dev, python-central (>= 0.5), gettext, python-setuptools, python-imaging
+Build-Depends-Indep: python-central (>= 0.5), gettext, python-setuptools, python-imaging
 Standards-Version: 3.8.0
 Homepage: http://www.wader-project.org
 XS-Python-Version: current
