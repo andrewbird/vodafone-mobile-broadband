@@ -21,7 +21,6 @@ from os.path import join
 import gtk
 
 from gui.contrib.gtkmvc import View
-from gui.logger import logger
 from gui.consts import APP_SLUG_NAME, GLADE_DIR, IMAGES_DIR, ANIMATION_DIR
 from gui.translate import _
 
