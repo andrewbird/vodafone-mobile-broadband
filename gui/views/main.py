@@ -59,8 +59,10 @@ from gui.constx import (GUI_MODEM_STATE_NODEVICE,
                         GUI_MODEM_STATE_CONNECTED,
                         TV_DICT)
 
+
+from gui.stats import StatsBar
 from gui.utils import UNIT_KB, UNIT_MB, units_to_bytes
-from gui.views.stats import StatsBar
+
 from gui.models.sms import SMSStoreModel
 from gui.models.contacts import ContactsStoreModel
 
