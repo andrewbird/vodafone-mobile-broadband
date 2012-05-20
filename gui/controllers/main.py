@@ -1037,8 +1037,7 @@ The csv file that you have tried to import has an invalid format.""")
 
     def on_about_menu_item_activate(self, widget):
         about = show_about_dialog()
-        about.run()
-        about.destroy()
+        about.show()
 
     def _check_if_connected(self):
         """
