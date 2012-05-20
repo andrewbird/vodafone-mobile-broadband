@@ -39,8 +39,7 @@ from gui.utils import get_error_msg
 from gui.consts import (APP_LONG_NAME, CFG_PREFS_DEFAULT_SMS_VALIDITY,
                               CFG_SMS_VALIDITY_R1D, CFG_SMS_VALIDITY_R3D,
                               CFG_SMS_VALIDITY_R1W, CFG_SMS_VALIDITY_MAX)
-
-from gui.controllers.base import TV_DICT, TV_DICT_REV
+from gui.constx import TV_DICT, TV_DICT_REV
 
 from gui.views.contacts import ContactsListView
 from gui.controllers.contacts import ContactsListController

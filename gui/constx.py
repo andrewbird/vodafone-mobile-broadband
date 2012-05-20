@@ -110,3 +110,12 @@ GUI_SIM_AUTH_NONE, GUI_SIM_AUTH_PIN, \
 GUI_SIM_AUTH_PUK, GUI_SIM_AUTH_PUK2 = range(4)
 
 GUI_VIEW_DISABLED, GUI_VIEW_IDLE, GUI_VIEW_BUSY = range(3)
+
+TV_DICT = {0: 'inbox_treeview',
+           1: 'inbox_treeview',
+           2: 'drafts_treeview',
+           3: 'sent_treeview',
+           4: 'contacts_treeview'}
+
+TV_DICT_REV = revert_dict(TV_DICT)
+

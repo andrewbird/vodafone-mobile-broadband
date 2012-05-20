@@ -25,13 +25,15 @@ import re
 from subprocess import Popen
 
 import gtk
+#from gtkmvc import Controller
+from gui.contrib.gtkmvc import Controller
+
 from gettext import dgettext
 from gobject import timeout_add_seconds
 
 from wader.common.signals import SIG_SMS_COMP, SIG_SMS_DELV
 from wader.common.keyring import KeyringInvalidPassword
 
-from gui.controllers.base import WidgetController, TV_DICT, TV_DICT_REV
 from gui.controllers.contacts import (AddContactController,
                                           SearchContactController)
 from gui.views.contacts import AddContactView, SearchContactView
@@ -60,7 +62,8 @@ from gui.constx import (GUI_SIM_AUTH_NONE, GUI_SIM_AUTH_PIN,
                               GUI_MODEM_STATE_HAVEDEVICE,
                               GUI_MODEM_STATE_ENABLED,
                               GUI_MODEM_STATE_REGISTERED,
-                              GUI_MODEM_STATE_CONNECTED)
+                              GUI_MODEM_STATE_CONNECTED,
+                              TV_DICT, TV_DICT_REV)
 
 from gui.contacts import SIMContact
 from gui.phonebook import (get_phonebook, Contact,
@@ -99,7 +102,7 @@ def get_fake_toggle_button():
     return button
 
 
-class MainController(WidgetController):
+class MainController(Controller):
     """
     I am the controller for the main window
     """

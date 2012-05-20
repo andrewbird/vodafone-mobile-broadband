@@ -26,7 +26,6 @@ from gui.contrib.gtkmvc import Controller
 
 from gui.translate import _
 from gui.dialogs import show_warning_dialog
-from gui.controllers.base import WidgetController
 
 
 def is_valid_puk(s):
@@ -45,7 +44,7 @@ def set_bg(widget, colour):
     widget.modify_base(STATE_NORMAL, color_parse(col))
 
 
-class PinModifyController(WidgetController):
+class PinModifyController(Controller):
     """Controller for the PIN modify dialog"""
 
     def __init__(self, model):
@@ -101,7 +100,6 @@ class PinModifyController(WidgetController):
         """
 
         def pin_modify_cb():
-            self.hide_widgets()
             self.model.unregister_observer(self)
             self.view.hide()
 
@@ -115,7 +113,6 @@ for the PUK code</small>
 """)
             show_warning_dialog(title, details)
 
-            self.hide_widgets()
             self.model.unregister_observer(self)
             self.view.hide()
 
@@ -129,7 +126,7 @@ for the PUK code</small>
         self.view.hide()
 
 
-class PinEnableController(WidgetController):
+class PinEnableController(Controller):
     """Controller for the pin Enable dialog"""
 
     def __init__(self, model, enable, callback, errback):
@@ -182,7 +179,6 @@ class PinEnableController(WidgetController):
 
         def enable_pin_cb(args=None):
             self.callback(self.enable)
-            self.hide_widgets()
             self.model.unregister_observer(self)
             self.view.hide()
 
@@ -196,7 +192,6 @@ for the PUK code</small>
 """)
             show_warning_dialog(title, details)
             self.errback(self.enable)
-            self.hide_widgets()
             self.model.unregister_observer(self)
             self.view.hide()
 
@@ -205,7 +200,6 @@ for the PUK code</small>
 
     def on_pin_enable_cancel_button_clicked(self, widget):
         self.errback(self.enable)
-        self.hide_widgets()
         self.model.unregister_observer(self)
         self.view.hide()
 

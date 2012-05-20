@@ -24,35 +24,6 @@ import os
 import gtk
 from pango import ELLIPSIZE_END
 
-from gui.contrib.gtkmvc import View
-from gui.config import config
-from gui.translate import _
-from gui.consts import (APP_LONG_NAME, APP_SLUG_NAME, APP_URL, GLADE_DIR,
-                        IMAGES_DIR)
-from gui.constx import (GUI_MODEM_STATE_NODEVICE,
-                              GUI_MODEM_STATE_HAVEDEVICE,
-                              GUI_MODEM_STATE_DISABLED,
-                              GUI_MODEM_STATE_LOCKED,
-                              GUI_MODEM_STATE_UNLOCKING,
-                              GUI_MODEM_STATE_UNLOCKED,
-                              GUI_MODEM_STATE_ENABLING,
-                              GUI_MODEM_STATE_DISABLING,
-                              GUI_MODEM_STATE_ENABLED,
-                              GUI_MODEM_STATE_SEARCHING,
-                              GUI_MODEM_STATE_REGISTERED,
-                              GUI_MODEM_STATE_DISCONNECTING,
-                              GUI_MODEM_STATE_CONNECTING,
-                              GUI_MODEM_STATE_CONNECTED)
-
-from gui.utils import UNIT_KB, UNIT_MB, units_to_bytes
-from gui.views.stats import StatsBar
-from gui.controllers.base import TV_DICT
-from gui.models.sms import SMSStoreModel
-from gui.models.contacts import ContactsStoreModel
-
-from gui.consts import (CFG_PREFS_DEFAULT_USAGE_USER_LIMIT,
-                              CFG_PREFS_DEFAULT_USAGE_MAX_VALUE)
-
 from wader.common.consts import (MM_GSM_ACCESS_TECH_UNKNOWN,
                                  MM_GSM_ACCESS_TECH_GSM,
                                  MM_GSM_ACCESS_TECH_GSM_COMPAT,
@@ -64,6 +35,34 @@ from wader.common.consts import (MM_GSM_ACCESS_TECH_UNKNOWN,
                                  MM_GSM_ACCESS_TECH_HSPA,
                                  MM_GSM_ACCESS_TECH_HSPA_PLUS,
                                  MM_GSM_ACCESS_TECH_LTE)
+
+from gui.contrib.gtkmvc import View
+from gui.config import config
+from gui.translate import _
+from gui.consts import (APP_LONG_NAME, APP_SLUG_NAME, APP_URL,
+                        GLADE_DIR, IMAGES_DIR,
+                        CFG_PREFS_DEFAULT_USAGE_USER_LIMIT,
+                        CFG_PREFS_DEFAULT_USAGE_MAX_VALUE)
+from gui.constx import (GUI_MODEM_STATE_NODEVICE,
+                        GUI_MODEM_STATE_HAVEDEVICE,
+                        GUI_MODEM_STATE_DISABLED,
+                        GUI_MODEM_STATE_LOCKED,
+                        GUI_MODEM_STATE_UNLOCKING,
+                        GUI_MODEM_STATE_UNLOCKED,
+                        GUI_MODEM_STATE_ENABLING,
+                        GUI_MODEM_STATE_DISABLING,
+                        GUI_MODEM_STATE_ENABLED,
+                        GUI_MODEM_STATE_SEARCHING,
+                        GUI_MODEM_STATE_REGISTERED,
+                        GUI_MODEM_STATE_DISCONNECTING,
+                        GUI_MODEM_STATE_CONNECTING,
+                        GUI_MODEM_STATE_CONNECTED,
+                        TV_DICT)
+
+from gui.utils import UNIT_KB, UNIT_MB, units_to_bytes
+from gui.views.stats import StatsBar
+from gui.models.sms import SMSStoreModel
+from gui.models.contacts import ContactsStoreModel
 
 WIDGETS_TO_SHOW = ['change_pin1', 'request_pin1',
                    'import_contacts1', 'export_contacts1', 'new_menu_item',
