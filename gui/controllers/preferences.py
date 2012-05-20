@@ -23,18 +23,15 @@ import gtk
 from gui.contrib.gtkmvc import Controller
 
 from wader.common.provider import NetworkProvider
-from wader.common.consts import CRD_INTFACE
 
 from gui.consts import (CFG_PREFS_DEFAULT_BROWSER,
                               CFG_PREFS_DEFAULT_EMAIL,
                               CFG_SMS_VALIDITY_R1W, CFG_SMS_VALIDITY_R1D,
                               CFG_SMS_VALIDITY_R3D, CFG_SMS_VALIDITY_MAX)
 
-from gui.logger import logger
 from gui.translate import _
 from gui.dialogs import show_warning_dialog
 from gui.tray import tray_available
-from gui.utils import get_error_msg
 
 VALIDITY_DICT = {
      _('Maximum time').encode('utf8'): CFG_SMS_VALIDITY_MAX,
@@ -60,7 +57,6 @@ class PreferencesController(Controller):
 
     def register_view(self, view):
         Controller.register_view(self, view)
-        self.set_device_info()
         self.setup_sms_tab()
         self.setup_user_prefs_tab()
         self.setup_mail_browser_tab()
@@ -68,53 +64,42 @@ class PreferencesController(Controller):
         # set up signals after init
         self.setup_signals()
 
-    def set_device_info(self):
-        device = self.model.get_device()
-        if not device:
-            return
-
-        def error(e):
-            logger.error("Error while getting IMSI: %s" % get_error_msg(e))
-
-        print "preferences - controller: set_device_info"
-        device.GetImsi(dbus_interface=CRD_INTFACE, error_handler=error,
-                       reply_handler=self.load_smsc)
-
-    def load_smsc(self, sim_data):
-        print "preferences: smsc value in model", self.model.smsc_number
-        if (self.model.smsc_number.capitalize() == _('Unknown')
-                                        or not self.model.smsc_number):
-            logger.warning("self.smsc_number is Unknown or None")
-            #create a NetworProvider object to querry our NetworkProvider db
-            sim_network = NetworkProvider()
-            # ask for our network attributes based on what our sim value is
-            networks_attributes = sim_network.get_network_by_id(sim_data)
-            if networks_attributes:
-                net_attrib = networks_attributes[0]
-                print "model: preferences sms value:", net_attrib.smsc
-                # tell the view to setup the smsc number. when the user clicks
-                # save or changes him self it will be saved.
-                self.view.setup_smsc_number(net_attrib.smsc)
+    def get_default_smsc(self, imsi):
+        try:
+            # create a NetworkProvider object to query our Network DB
+            provider = NetworkProvider()
+            # ask for our network attributes based on what our SIM is
+            nets = provider.get_network_by_id(imsi)
+            if not len(nets):
+                raise ValueError
+            return nets[0].smsc
+        except (TypeError, ValueError):
+            return None
+        finally:
+            provider.close()
 
     def setup_sms_tab(self):
-        # setup the sms preferences to reflect what's in our model on startup
-        # remember that if 'use an alternative SMSC service centre is set ' is
-        # False we have to grey out 'SMSC preferences' so tell the view that
-        # he has to do that by checking the show_smsc_preferences flag.
-        alternate_smsc_flag = self.model.use_alternate_smsc
-        smsc_number = self.model.smsc_number
+        # Setup the sms preferences to reflect what's in our model on startup
 
-        # setup the smsc number
-        self.view.setup_smsc_number(smsc_number)
+        # Setup the SMSC
+        self.model.default_smsc = self.get_default_smsc(
+                                                self.parent_ctrl.model.imsi)
 
-        # setup the alternate checkbox
-        self.view.setup_alternate_smsc_address_checkbox(alternate_smsc_flag)
+        # Setup the alternate checkbox
+        # remember that if 'use an alternative SMSC service centre' is False
+        # we have to grey out 'SMSC preferences' and toggle the current value
+        # so tell the view that he has to do that by checking the
+        # show_smsc_preferences flag.
+
+        self.view.setup_alternate_smsc_address(self.model.use_alternate_smsc,
+                                                self.model.default_smsc,
+                                                self.model.smsc_number)
 
         # ok lets populate the view of the sms profile box
         smsc_profile_box = gtk.ListStore(gobject.TYPE_STRING)
         _iter = smsc_profile_box.append([self.model.smsc_profile])
         self.view.setup_smsc_profile(smsc_profile_box, _iter,
-                                     alternate_smsc_flag)
+                                                self.model.use_alternate_smsc)
 
         # validity period
         sms_validity_box = gtk.ListStore(gobject.TYPE_STRING)
@@ -375,14 +360,11 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         self.model.unregister_observer(self)
         self.view.hide()
 
-    # second notebook page stuff
     def on_custom_smsc_profile_checkbutton_toggled(self, button):
-        if button.get_active():
-            self.view['vbox14'].set_sensitive(True)
-        else:
-            self.view['vbox14'].set_sensitive(False)
-
-        #self.view.setup_sms_combobox()
+        self.model.use_alternate_smsc = button.get_active()
+        self.view.setup_alternate_smsc_address(self.model.use_alternate_smsc,
+                                                self.model.default_smsc,
+                                                self.model.smsc_number)
 
     def on_browser_combobox_changed(self, combobox):
         model = combobox.get_model()

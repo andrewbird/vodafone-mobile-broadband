@@ -145,7 +145,7 @@ class MainModel(Model):
         self.device = None
         self.device_opath = None
         self._we_dialed = None
-        self.preferences_model = PreferencesModel(lambda: self.device)
+        self.preferences_model = PreferencesModel()
         self.profiles_model = ProfilesModel(self)
         self.provider = UsageProvider(USAGE_DB)
         self._init_wader_object()

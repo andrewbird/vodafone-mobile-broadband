@@ -18,12 +18,11 @@
 
 import dbus
 import gobject
-#from gtkmvc import ListStoreModel
-from gui.contrib.gtkmvc import ListStoreModel
+
+#from gtkmvc import ListStoreModel, Model
+from gui.contrib.gtkmvc import ListStoreModel, Model
 
 from gui.config import config
-from gui.models.base import BaseWrapperModel
-
 from gui.consts import (CFG_PREFS_DEFAULT_BROWSER,
                               CFG_PREFS_DEFAULT_EMAIL,
                               CFG_PREFS_DEFAULT_TRAY_ICON,
@@ -35,7 +34,7 @@ from gui.consts import (CFG_PREFS_DEFAULT_BROWSER,
 PREF_TABS = ["PROFILES"]
 
 
-class PreferencesModel(BaseWrapperModel):
+class PreferencesModel(Model):
 
     __properties__ = {
         'current_tab': PREF_TABS[0],
@@ -58,11 +57,10 @@ class PreferencesModel(BaseWrapperModel):
         'mail': CFG_PREFS_DEFAULT_EMAIL,
     }
 
-    def __init__(self, device_callable):
-        super(PreferencesModel, self).__init__(device_callable)
+    def __init__(self):
+        super(PreferencesModel, self).__init__()
         self.bus = dbus.SystemBus()
         self.conf = config
-        self.device_callable = device_callable
         self.load()
 
     def load(self):

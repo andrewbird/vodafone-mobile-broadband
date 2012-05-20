@@ -878,7 +878,7 @@ The csv file that you have tried to import has an invalid format.""")
                 #                        error_handler=self._on_disconnect_eb)
 
     def on_preferences_menu_item_activate(self, widget):
-        model = PreferencesModel(self.model.device)
+        model = PreferencesModel()
         ctrl = PreferencesController(model, self)
         view = PreferencesView(ctrl)
         view.show()

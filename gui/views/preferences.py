@@ -41,17 +41,22 @@ class PreferencesView(View):
         self.ctrl = ctrl
         ctrl.register_view(self)
 
-    def setup_alternate_smsc_address_checkbox(self, val):
-        self['smsc_profile_checkbutton'].set_active(val)
+    def setup_alternate_smsc_address(self, is_alternate, default, current):
+        self['smsc_profile_checkbutton'].set_active(is_alternate)
+        self['smsc_alternate_panel'].set_sensitive(is_alternate)
+        if not is_alternate:
+            new = default
+        else:
+            new = current
+
+        if new is None:
+            new = ''
+        self['smsc_number'].set_text(new)
 
     def setup_smsc_profile(self, profile_val, active_set,
                            show_sms_preferences):
         self['sms_profiles_combobox'].set_model(profile_val)
         self['sms_profiles_combobox'].set_active_iter(active_set)
-        self['vbox14'].set_sensitive(show_sms_preferences)
-
-    def setup_smsc_number(self, smsc_number):
-        self['smsc_number'].set_text(smsc_number)
 
     def setup_sms_message_validity(self, val, active_set):
         self['validity_combobox'].set_model(val)
@@ -62,7 +67,6 @@ class PreferencesView(View):
         self['sms_confirmation'].set_active(val)
 
     def get_sms_combobox_model(self):
-        print "get_sms_combobox_model"
         model = gtk.ListStore(gobject.TYPE_STRING)
         return model
 
@@ -111,7 +115,6 @@ class PreferencesView(View):
     # for usage options tab. methods are called on initialisation
 
     def setup_usage_max_traffic_value(self, val):
-        print "view: setup_usage_max_traffic_value - :", val
         self['maximum_traffic_entry'].set_value(val)
 
     def setup_usage_threshold_value(self, val):
