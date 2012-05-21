@@ -895,7 +895,7 @@ The csv file that you have tried to import has an invalid format.""")
         ctrl = SearchContactController(self.model, self)
         view = SearchContactView(ctrl)
         view.set_parent_view(self.view)
-        view.run()
+        view.show()
 
     def on_quit_menu_item_activate(self, widget):
         self._quit_confirm_exit()

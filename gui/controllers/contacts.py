@@ -80,7 +80,7 @@ class SearchContactController(Controller):
         self.parent_ctrl = parent_ctrl
 
     def on_search_cancel_button_clicked(self, widget):
-        pass
+        self.view.hide()
 
     def on_search_find_button_clicked(self, widget):
         pattern = self.view['search_entry'].get_text()
@@ -103,6 +103,8 @@ class SearchContactController(Controller):
         for elem in path:
             # and set the new selection
             sel.select_path(elem)
+
+        self.view.hide()
 
 
 class ContactsListController(Controller):
