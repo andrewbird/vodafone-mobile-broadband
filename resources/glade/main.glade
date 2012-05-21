@@ -35,7 +35,7 @@
                             <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">Import contacts...</property>
                             <property name="use_underline">True</property>
-                            <signal name="activate" handler="on_import_contacts1_activate" />
+                            <signal name="activate" handler="on_import_contacts1_activate"/>
                           </widget>
                         </child>
                         <child>
@@ -45,7 +45,7 @@
                             <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">Export contacts...</property>
                             <property name="use_underline">True</property>
-                            <signal name="activate" handler="on_export_contacts1_activate" />
+                            <signal name="activate" handler="on_export_contacts1_activate"/>
                           </widget>
                         </child>
                         <child>
@@ -62,7 +62,7 @@
                             <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">False</property>
-                            <signal name="activate" handler="on_quit_menu_item_activate" />
+                            <signal name="activate" handler="on_quit_menu_item_activate"/>
                             <accelerator key="q" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image651">
@@ -85,7 +85,7 @@
                     <property name="use_action_appearance">False</property>
                     <property name="label" translatable="yes">_View</property>
                     <property name="use_underline">True</property>
-                    <signal name="activate" handler="on_view_menu_item_activate" />
+                    <signal name="activate" handler="on_view_menu_item_activate"/>
                     <child>
                       <widget class="GtkMenu" id="view_menu_item_menu">
                         <property name="can_focus">False</property>
@@ -97,7 +97,7 @@
                             <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">False</property>
-                            <signal name="activate" handler="on_sms_menu_item_activate" />
+                            <signal name="activate" handler="on_sms_menu_item_activate"/>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image657">
                                 <property name="visible">True</property>
@@ -115,7 +115,7 @@
                             <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">False</property>
-                            <signal name="activate" handler="on_usage_menu_item_activate" />
+                            <signal name="activate" handler="on_usage_menu_item_activate"/>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image659">
                                 <property name="visible">True</property>
@@ -133,7 +133,7 @@
                             <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">False</property>
-                            <signal name="activate" handler="on_support_menu_item_activate" />
+                            <signal name="activate" handler="on_support_menu_item_activate"/>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image1">
                                 <property name="visible">True</property>
@@ -155,7 +155,7 @@
                     <property name="use_action_appearance">False</property>
                     <property name="label" translatable="yes">_Tools</property>
                     <property name="use_underline">True</property>
-                    <signal name="activate" handler="on_tools_menu_item_activate" />
+                    <signal name="activate" handler="on_tools_menu_item_activate"/>
                     <child>
                       <widget class="GtkMenu" id="tools_menu_item_menu">
                         <property name="can_focus">False</property>
@@ -166,7 +166,7 @@
                             <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">Enabled</property>
                             <property name="use_underline">True</property>
-                            <signal name="activate" handler="on_enable_modem_activate" />
+                            <signal name="activate" handler="on_enable_modem_activate"/>
                           </widget>
                         </child>
                         <child>
@@ -176,7 +176,7 @@
                             <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">Change PIN</property>
                             <property name="use_underline">True</property>
-                            <signal name="activate" handler="on_change_pin1_activate" />
+                            <signal name="activate" handler="on_change_pin1_activate"/>
                           </widget>
                         </child>
                         <child>
@@ -187,7 +187,7 @@
                             <property name="label" translatable="yes">Request PIN</property>
                             <property name="use_underline">True</property>
                             <property name="active">True</property>
-                            <signal name="activate" handler="on_request_pin1_activate" />
+                            <signal name="activate" handler="on_request_pin1_activate"/>
                           </widget>
                         </child>
                         <child>
@@ -204,7 +204,7 @@
                             <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">False</property>
-                            <signal name="activate" handler="on_diagnostics_item_activate" />
+                            <signal name="activate" handler="on_diagnostics_item_activate"/>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image652">
                                 <property name="visible">True</property>
@@ -252,7 +252,7 @@
                             <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">False</property>
-                            <signal name="activate" handler="on_preferences_menu_item_activate" />
+                            <signal name="activate" handler="on_preferences_menu_item_activate"/>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image2">
                                 <property name="visible">True</property>
@@ -285,7 +285,7 @@
                             <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">False</property>
-                            <signal name="activate" handler="on_help_topics_menu_item_activate" />
+                            <signal name="activate" handler="on_help_topics_menu_item_activate"/>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image3">
                                 <property name="visible">True</property>
@@ -304,7 +304,7 @@
                             <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">False</property>
-                            <signal name="activate" handler="on_about_menu_item_activate" />
+                            <signal name="activate" handler="on_about_menu_item_activate"/>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image656">
                                 <property name="visible">True</property>
@@ -367,7 +367,7 @@
                     <accessibility>
                       <atkproperty name="AtkObject::accessible-name">SMS Toggle Button</atkproperty>
                     </accessibility>
-                    <signal name="toggled" handler="on_sms_button_toggled" />
+                    <signal name="toggled" handler="on_sms_button_toggled"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
@@ -386,7 +386,7 @@
                     <accessibility>
                       <atkproperty name="AtkObject::accessible-name">Usage Toggle Button</atkproperty>
                     </accessibility>
-                    <signal name="clicked" handler="on_usage_button_clicked" />
+                    <signal name="clicked" handler="on_usage_button_clicked"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
@@ -404,7 +404,7 @@
                     <accessibility>
                       <atkproperty name="AtkObject::accessible-name">Support Toggle Button</atkproperty>
                     </accessibility>
-                    <signal name="toggled" handler="on_support_button_toggled" />
+                    <signal name="toggled" handler="on_support_button_toggled"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
@@ -429,7 +429,7 @@
                     <property name="label" translatable="yes">Topup</property>
                     <property name="use_underline">True</property>
                     <property name="icon">topup3.png</property>
-                    <signal name="clicked" handler="on_topup_button_clicked" />
+                    <signal name="clicked" handler="on_topup_button_clicked"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
@@ -467,7 +467,7 @@
                             <accessibility>
                               <atkproperty name="AtkObject::accessible-name">Create new SMS</atkproperty>
                             </accessibility>
-                            <signal name="clicked" handler="on_new_sms_activate" />
+                            <signal name="clicked" handler="on_new_sms_activate"/>
                             <accelerator key="n" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
                           </widget>
                           <packing>
@@ -485,7 +485,7 @@
                             <accessibility>
                               <atkproperty name="AtkObject::accessible-name">Reply to SMS</atkproperty>
                             </accessibility>
-                            <signal name="clicked" handler="on_reply_sms_no_quoting_menu_item_activate" />
+                            <signal name="clicked" handler="on_reply_sms_no_quoting_menu_item_activate"/>
                             <accelerator key="r" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
                           </widget>
                           <packing>
@@ -503,7 +503,7 @@
                             <accessibility>
                               <atkproperty name="AtkObject::accessible-name">Reply to SMS quoting original message</atkproperty>
                             </accessibility>
-                            <signal name="clicked" handler="on_reply_sms_quoting_menu_item_activate" />
+                            <signal name="clicked" handler="on_reply_sms_quoting_menu_item_activate"/>
                           </widget>
                           <packing>
                             <property name="expand">False</property>
@@ -521,7 +521,7 @@
                             <accessibility>
                               <atkproperty name="AtkObject::accessible-name">Forward SMS to another contact</atkproperty>
                             </accessibility>
-                            <signal name="clicked" handler="on_forward_sms_menu_item_activate" />
+                            <signal name="clicked" handler="on_forward_sms_menu_item_activate"/>
                             <accelerator key="f" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
                           </widget>
                           <packing>
@@ -539,7 +539,7 @@
                             <accessibility>
                               <atkproperty name="AtkObject::accessible-name">Delete SMS</atkproperty>
                             </accessibility>
-                            <signal name="clicked" handler="on_delete_menu_item_activate" />
+                            <signal name="clicked" handler="on_delete_menu_item_activate"/>
                             <accelerator key="d" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
                           </widget>
                           <packing>
@@ -556,7 +556,6 @@
                     </child>
                     <child>
                       <widget class="GtkToolbar" id="contacts_toolbar">
-                        <property name="visible">False</property>
                         <property name="can_focus">False</property>
                         <property name="toolbar_style">icons</property>
                         <child>
@@ -569,7 +568,7 @@
                             <accessibility>
                               <atkproperty name="AtkObject::accessible-name">Add a contact</atkproperty>
                             </accessibility>
-                            <signal name="clicked" handler="on_new_contact_menu_item_activate" />
+                            <signal name="clicked" handler="on_new_contact_menu_item_activate"/>
                             <accelerator key="n" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
                           </widget>
                           <packing>
@@ -587,7 +586,7 @@
                             <accessibility>
                               <atkproperty name="AtkObject::accessible-name">Search contacts</atkproperty>
                             </accessibility>
-                            <signal name="clicked" handler="on_search_contact_menu_item_activate" />
+                            <signal name="clicked" handler="on_search_contact_menu_item_activate"/>
                             <accelerator key="s" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
                           </widget>
                           <packing>
@@ -605,7 +604,7 @@
                             <accessibility>
                               <atkproperty name="AtkObject::accessible-name">Delete contacts</atkproperty>
                             </accessibility>
-                            <signal name="clicked" handler="on_delete_menu_item_activate" />
+                            <signal name="clicked" handler="on_delete_menu_item_activate"/>
                             <accelerator key="d" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
                           </widget>
                           <packing>
@@ -625,7 +624,7 @@
                         <property name="height_request">175</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-                        <signal name="switch_page" handler="on_main_notebook_switch_page" />
+                        <signal name="switch_page" handler="on_main_notebook_switch_page"/>
                         <child>
                           <widget class="GtkScrolledWindow" id="scrolledwindow1">
                             <property name="visible">True</property>
@@ -637,8 +636,8 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="rules_hint">True</property>
-                                <signal name="button_press_event" handler="on_generic_treeview_row_button_press_event" />
-                                <signal name="cursor_changed" handler="on_cursor_changed_treeview_event" />
+                                <signal name="button_press_event" handler="on_generic_treeview_row_button_press_event"/>
+                                <signal name="cursor_changed" handler="on_cursor_changed_treeview_event"/>
                               </widget>
                             </child>
                           </widget>
@@ -669,8 +668,8 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="rules_hint">True</property>
-                                <signal name="button_press_event" handler="on_generic_treeview_row_button_press_event" />
-                                <signal name="cursor_changed" handler="on_cursor_changed_treeview_event" />
+                                <signal name="button_press_event" handler="on_generic_treeview_row_button_press_event"/>
+                                <signal name="cursor_changed" handler="on_cursor_changed_treeview_event"/>
                               </widget>
                             </child>
                           </widget>
@@ -701,8 +700,8 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="rules_hint">True</property>
-                                <signal name="button_press_event" handler="on_generic_treeview_row_button_press_event" />
-                                <signal name="cursor_changed" handler="on_cursor_changed_treeview_event" />
+                                <signal name="button_press_event" handler="on_generic_treeview_row_button_press_event"/>
+                                <signal name="cursor_changed" handler="on_cursor_changed_treeview_event"/>
                               </widget>
                             </child>
                           </widget>
@@ -733,7 +732,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="rules_hint">True</property>
-                                <signal name="button_press_event" handler="on_generic_treeview_row_button_press_event" />
+                                <signal name="button_press_event" handler="on_generic_treeview_row_button_press_event"/>
                               </widget>
                             </child>
                           </widget>
@@ -1210,7 +1209,15 @@
                                         <property name="can_focus">False</property>
                                         <property name="spacing">6</property>
                                         <child>
-                                          <placeholder/>
+                                          <widget class="GtkDrawingArea" id="stats_bar_current_da">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                          </widget>
+                                          <packing>
+                                            <property name="expand">True</property>
+                                            <property name="fill">True</property>
+                                            <property name="position">0</property>
+                                          </packing>
                                         </child>
                                       </widget>
                                       <packing>
@@ -1501,7 +1508,15 @@
                                         <property name="can_focus">False</property>
                                         <property name="spacing">6</property>
                                         <child>
-                                          <placeholder/>
+                                          <widget class="GtkDrawingArea" id="stats_bar_last_da">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                          </widget>
+                                          <packing>
+                                            <property name="expand">True</property>
+                                            <property name="fill">True</property>
+                                            <property name="position">0</property>
+                                          </packing>
                                         </child>
                                       </widget>
                                       <packing>

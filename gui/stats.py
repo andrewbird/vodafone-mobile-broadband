@@ -23,12 +23,14 @@ import cairo
 from gui.utils import repr_usage, units_to_bytes, bytes_to_units, UNIT_MB
 
 
-class StatsBar(gtk.DrawingArea):
+class StatsBar(gtk.Object):
 
     def __init__(self, label="", value=0, min_value=0,
-                    max_value=10, units=UNIT_MB, user_limit=0):
-        super(StatsBar, self).__init__()
+                    max_value=10, units=UNIT_MB, user_limit=0,
+                    drawingarea=None):
 
+        self.drawingarea = gtk.DrawingArea() \
+            if drawingarea is None else drawingarea
         self.supports_alpha = False
         # value in bits
         self.value = value
@@ -38,13 +40,16 @@ class StatsBar(gtk.DrawingArea):
         self.max_value = units_to_bytes(max_value, units)
         self.user_limit = units_to_bytes(user_limit, units)
 
-        self.connect('expose-event', self.on_expose)
-        self.connect('screen-changed', self.on_screen_changed)
+        self.drawingarea.connect('expose-event', self.on_expose)
+        self.drawingarea.connect('screen-changed', self.on_screen_changed)
 
     @classmethod
     def init_array(cls, labels, *args, **kwargs):
         """This method makes an array of n identical StatsBars"""
         return [cls(*((label,) + args), **kwargs) for label in labels]
+
+    def DrawingArea(self):
+        return self.drawingarea
 
     def on_screen_changed(self, widget, old_screen=None):
         # To check if the display supports alpha channels, get the colormap
@@ -166,8 +171,8 @@ class StatsBar(gtk.DrawingArea):
 
     def update(self):
         assert self.max_value > self.value
-        self.emit('expose-event', gtk.gdk.Event(gtk.gdk.EXPOSE))
-        self.queue_draw()
+        self.drawingarea.emit('expose-event', gtk.gdk.Event(gtk.gdk.EXPOSE))
+        self.drawingarea.queue_draw()
 
     def set_value(self, value):
         if value != self.value:

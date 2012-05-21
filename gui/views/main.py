@@ -98,7 +98,7 @@ class MainView(View):
                                               'max_traffic',
                                          CFG_PREFS_DEFAULT_USAGE_MAX_VALUE))
         self.usage_units = UNIT_KB
-        self.usage_bars = None
+        self.usage_bars = {}
 
         self.bearer = 'gprs'    # 'gprs' or 'umts'
         self.signal = 0         # -1, 0, 25, 50, 75, 100
@@ -167,15 +167,16 @@ class MainView(View):
         self['support_notebook_customer_text'].set_buffer(tbuf)
 
     def _setup_usage_view(self):
-        args = {'user_limit': self.usage_user_limit}
-#       labels = ('GPRS', '3G') * 2
-        labels = ('TOTAL TRAFFIC') * 2  # XXX: Not sure about this.
-        self.usage_bars = dict(zip(
-                ('current-total', 'last-total'),
-                    StatsBar.init_array(labels, **args)))
+        self.usage_bars['current-total'] = \
+            StatsBar(label="TOTAL TRAFFIC",
+                        user_limit=self.usage_user_limit,
+                        drawingarea=self['stats_bar_current_da'])
 
-        self['stats_bar_last_box'].add(self.usage_bars['last-total'])
-        self['stats_bar_current_box'].add(self.usage_bars['current-total'])
+        self.usage_bars['last-total'] = \
+            StatsBar(label="TOTAL TRAFFIC",
+                        user_limit=self.usage_user_limit,
+                        drawingarea=self['stats_bar_last_da'])
+
         # XXX: Malign hack we couldn't find out a better way to build up the
         # usage widgets without messing up the initial view
         self.get_top_widget().show_all()
