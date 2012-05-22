@@ -33,7 +33,8 @@ formatter = logging.Formatter(FORMAT)
 # us off!
 logging.basicConfig(format=FORMAT)  # log sur console
 
-# as usual we set our proper log handler which will normally go to ~/.v-mobile-broadband/log
+# as usual we set our proper log handler which will normally go to
+# ~/.v-mobile-broadband/log
 hdlr.setFormatter(formatter)
 logger.addHandler(hdlr)
 logger.setLevel(logging.INFO)

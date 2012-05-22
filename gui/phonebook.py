@@ -112,7 +112,7 @@ class PhoneBook(object):
 
             for cclass, mclass in supported_types:
                 manager = mclass()
-                if manager.device_reqd(): # SIM
+                if manager.device_reqd():  # SIM
                     continue
                 ret.extend(manager.get_contacts())
             cb(ret)

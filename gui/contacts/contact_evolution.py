@@ -106,7 +106,7 @@ class EVContactsManager(object):
 
         ret = []
         for i in addressbooks:
-            name, id = i # ('Personal', 'default')
+            name, id = i  # ('Personal', 'default')
 
             addressbook = evolution.ebook.open_addressbook(id)
             if not addressbook:

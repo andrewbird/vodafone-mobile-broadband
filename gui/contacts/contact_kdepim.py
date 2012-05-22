@@ -116,8 +116,9 @@ class KDEContactsManager(object):
                             cell = num.value.get()
                             break
 
+                    # try to exclude distribution lists etc
                     email = vl.data[vc].email
-                    if len(cell) or len(email):  # try to exclude distribution lists etc
+                    if len(cell) or len(email):
                         ret.append(KDEContact(name=fn, number=cell))
         return ret
 

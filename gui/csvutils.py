@@ -43,7 +43,7 @@ class CSVUnicodeWriter(object):
         self.writer.writerow([s.encode("utf-8") for s in row])
         # Fetch UTF-8 output from the queue ...
         data = self.queue.getvalue()
-        data = data.replace('""', '') # remove extra '""'
+        data = data.replace('""', '')  # remove extra '""'
         data = data.decode("utf-8")
         # ... and reencode it into the target encoding
         data = self.encode(data)[0]

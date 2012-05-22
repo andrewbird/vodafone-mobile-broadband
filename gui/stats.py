@@ -72,9 +72,9 @@ class StatsBar(gtk.Object):
 
         cr = widget.window.cairo_create()
         if self.supports_alpha:
-            cr.set_source_rgba(1.0, 1.0, 1.0, 0.0) # Transparent
+            cr.set_source_rgba(1.0, 1.0, 1.0, 0.0)  # Transparent
         else:
-            cr.set_source_rgb(1.0, 1.0, 1.0) # Opaque white
+            cr.set_source_rgb(1.0, 1.0, 1.0)        # Opaque white
 
         # Draw the background
         cr.set_operator(cairo.OPERATOR_SOURCE)
@@ -151,14 +151,14 @@ class StatsBar(gtk.Object):
         #linear = cairo.LinearGradient(0.85, 0.85, 0.85, 0.65)
         #linear.add_color_stop_rgba(.9, 0.9, 0.9, 0.9, 0.5)
         cr.set_source_rgba(0.7, 0.7, 0.7, 0.9)
-        cr.rectangle(5, usage_height, inner_width-10, height)
+        cr.rectangle(5, usage_height, inner_width - 10, height)
         cr.fill()
 
         if self.user_limit and self.value > self.user_limit:
             limit = self._fraction(self.value - self.user_limit)
             limit = limit * height
             cr.set_source_rgba(5.0, 0, 0, 0.5)
-            cr.rectangle(5, usage_height, inner_width-10, limit)
+            cr.rectangle(5, usage_height, inner_width - 10, limit)
             cr.fill()
 
     def _fraction(self, value=None):
