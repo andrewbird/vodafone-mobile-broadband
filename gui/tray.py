@@ -105,7 +105,10 @@ class TrayIcon(object):
 
         # Attach
         if HAVE_STATUS_ICON:
-            n.set_property('status-icon', self.icon)
+            try:
+                n.set_property('status-icon', self.icon)
+            except TypeError:
+                pass
         else:
             n.attach_to_widget(self.icon)
 
