@@ -573,10 +573,15 @@ class MainController(Controller):
 
         # Send notification - just display the first forty chars though
         if sms:
-            number, text = sms.number, sms.text[:40]
+            contact = self._find_contact_by_number(sms.number)
+            if contact:
+                who = contact.get_name()
+            else:
+                who = sms.number
+            text = sms.text[:40]
         else:
-            number, text = _('Unknown'), ''
-        title = _("SMS receipt received for %s") % number
+            who, text = _('Unknown'), ''
+        title = _("SMS receipt received for %s") % who
         self.tray.attach_notification(title, text, stock=gtk.STOCK_INFO)
 
     def on_sms_received_cb(self, index, complete):
