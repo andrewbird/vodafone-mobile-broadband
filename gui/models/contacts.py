@@ -18,10 +18,13 @@
 """Contacts-related models"""
 
 import gtk
+from gobject import TYPE_STRING, TYPE_PYOBJECT, TYPE_BOOLEAN
 
 #from gtkmvc import ListStoreModel
 from gui.contrib.gtkmvc import ListStoreModel
-from gobject import TYPE_STRING, TYPE_PYOBJECT, TYPE_BOOLEAN
+
+from gui.consts import (TV_CNT_TYPE, TV_CNT_NAME, TV_CNT_NUMBER,
+                        TV_CNT_EDITABLE, TV_CNT_OBJ)
 
 
 class ContactsStoreModel(ListStoreModel):
@@ -29,7 +32,7 @@ class ContactsStoreModel(ListStoreModel):
 
     def __init__(self):
         super(ContactsStoreModel, self).__init__(gtk.gdk.Pixbuf,
-                TYPE_STRING, TYPE_STRING, TYPE_PYOBJECT, TYPE_BOOLEAN)
+                TYPE_STRING, TYPE_STRING, TYPE_BOOLEAN, TYPE_PYOBJECT)
 
     def add_contacts(self, contacts):
         """Adds C{contacts} to the store"""
@@ -38,17 +41,21 @@ class ContactsStoreModel(ListStoreModel):
 
     def add_contact(self, contact):
         """Adds C{contact} to the store"""
-        img = gtk.gdk.pixbuf_new_from_file(contact.image_16x16())
-        self.append([img, contact.name, contact.number, contact,
-                     contact.writable])
+        c = [None] * (TV_CNT_OBJ + 1)
+        c[TV_CNT_TYPE] = gtk.gdk.pixbuf_new_from_file(contact.image_16x16())
+        c[TV_CNT_NAME] = contact.name
+        c[TV_CNT_NUMBER] = contact.number
+        c[TV_CNT_EDITABLE] = contact.writable
+        c[TV_CNT_OBJ] = contact
+        self.append(c)
 
     def find_contacts_by_number(self, number):
         ret = []
         _iter = self.get_iter_first()
         while _iter:
-            _number = self.get_value(_iter, 2)
+            _number = self.get_value(_iter, TV_CNT_NUMBER)
             if _number == number:
-                ret.append(self.get_value(_iter, 3))
+                ret.append(self.get_value(_iter, TV_CNT_OBJ))
 
             _iter = self.iter_next(_iter)
 
@@ -58,11 +65,11 @@ class ContactsStoreModel(ListStoreModel):
         ret = []
         _iter = self.get_iter_first()
         while _iter:
-            _name = self.get_value(_iter, 1)
-            _number = self.get_value(_iter, 2)
+            _name = self.get_value(_iter, TV_CNT_NAME)
+            _number = self.get_value(_iter, TV_CNT_NUMBER)
 
             if (pattern.lower() in _name.lower()) and _number:
-                ret.append(self.get_value(_iter, 3))
+                ret.append(self.get_value(_iter, TV_CNT_OBJ))
 
             _iter = self.iter_next(_iter)
 
@@ -72,7 +79,7 @@ class ContactsStoreModel(ListStoreModel):
         ret = []
         _iter = self.get_iter_first()
         while _iter:
-            ret.append(self.get_value(_iter, 3))
+            ret.append(self.get_value(_iter, TV_CNT_OBJ))
 
             _iter = self.iter_next(_iter)
 

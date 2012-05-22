@@ -42,7 +42,12 @@ from gui.translate import _
 from gui.consts import (APP_LONG_NAME, APP_SLUG_NAME, APP_URL,
                         GLADE_DIR, IMAGES_DIR,
                         CFG_PREFS_DEFAULT_USAGE_USER_LIMIT,
-                        CFG_PREFS_DEFAULT_USAGE_MAX_VALUE)
+                        CFG_PREFS_DEFAULT_USAGE_MAX_VALUE,
+                        TV_CNT_TYPE, TV_CNT_NAME, TV_CNT_NUMBER,
+                        TV_CNT_EDITABLE,
+                        TV_SMS_TYPE, TV_SMS_TEXT, TV_SMS_NUMBER,
+                        TV_SMS_DATE)
+
 from gui.constx import (GUI_MODEM_STATE_NODEVICE,
                         GUI_MODEM_STATE_HAVEDEVICE,
                         GUI_MODEM_STATE_DISABLED,
@@ -469,12 +474,9 @@ class MainView(View):
 
     def setup_treeview(self, ctrl):
         """Sets up the treeviews"""
+
         for name in list(set(TV_DICT.values())):
             treeview = self[name]
-            col_smstype, col_smstext, col_smsnumber, \
-                    col_smsdate, col_smsid = range(5)
-            col_usertype, col_username, col_usernumber,\
-                    col_userid, col_editable = range(5)
             if name in 'contacts_treeview':
                 model = ContactsStoreModel()
             else:
@@ -487,45 +489,43 @@ class MainView(View):
                 cell = gtk.CellRendererPixbuf()
                 column = gtk.TreeViewColumn(_("Type"))
                 column.pack_start(cell)
-                column.set_attributes(cell, pixbuf=col_usertype)
+                column.set_attributes(cell, pixbuf=TV_CNT_TYPE)
                 treeview.append_column(column)
 
                 cell = gtk.CellRendererText()
-                column = gtk.TreeViewColumn(_("Name"), cell,
-                                            text=col_username,
-                                            editable=col_editable)
-                column.set_resizable(True)
-                column.set_sort_column_id(col_username)
                 cell.connect('edited', ctrl._name_contact_cell_edited)
-                treeview.append_column(column)
-
-                cell = gtk.CellRendererText()
-                column = gtk.TreeViewColumn(_("Number"), cell,
-                                            text=col_usernumber,
-                                            editable=col_editable)
+                column = gtk.TreeViewColumn(_("Name"), cell,
+                                            text=TV_CNT_NAME,
+                                            editable=TV_CNT_EDITABLE)
                 column.set_resizable(True)
-                column.set_sort_column_id(col_usernumber)
+                column.set_sort_column_id(TV_CNT_NAME)
+                treeview.append_column(column)
+
+                cell = gtk.CellRendererText()
                 cell.connect('edited', ctrl._number_contact_cell_edited)
+                column = gtk.TreeViewColumn(_("Number"), cell,
+                                            text=TV_CNT_NUMBER,
+                                            editable=TV_CNT_EDITABLE)
+                column.set_resizable(True)
+                column.set_sort_column_id(TV_CNT_NUMBER)
                 treeview.append_column(column)
 
-                cell = gtk.CellRendererText()
-                column = gtk.TreeViewColumn("IntId", cell, text=col_userid)
+                cell = gtk.CellRendererToggle()
+                column = gtk.TreeViewColumn('', cell, active=TV_CNT_EDITABLE)
                 column.set_visible(False)
-                column.set_sort_column_id(col_userid)
                 treeview.append_column(column)
 
-                cell = gtk.CellRendererText()
-                column = gtk.TreeViewColumn("Editable", cell,
-                                            text=col_editable)
+                cell = None
+                column = gtk.TreeViewColumn('', cell)  # TV_CNT_OBJ
                 column.set_visible(False)
-                column.set_sort_column_id(col_editable)
                 treeview.append_column(column)
 
             else:  # inbox_tv sent_tv drafts_tv sent_tv
+
                 cell = gtk.CellRendererPixbuf()
                 column = gtk.TreeViewColumn(_("Type"))
                 column.pack_start(cell)
-                column.set_attributes(cell, pixbuf=col_smstype)
+                column.set_attributes(cell, pixbuf=TV_SMS_TYPE)
                 treeview.append_column(column)
 
                 cell = gtk.CellRendererText()
@@ -534,39 +534,30 @@ class MainView(View):
                 cell.set_property('ellipsize', ELLIPSIZE_END)
                 cell.set_property('ellipsize-set', True)
                 cell.set_property('wrap-width', -1)
-                column = gtk.TreeViewColumn(_("Text"), cell,
-                                        text=col_smstext)
+                column = gtk.TreeViewColumn(_("Text"), cell, text=TV_SMS_TEXT)
                 column.set_resizable(True)
-                column.set_sort_column_id(col_smstext)
+                column.set_sort_column_id(TV_SMS_TEXT)
                 column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
                 column.set_fixed_width(SMS_TEXT_TV_WIDTH)
                 treeview.append_column(column)
 
                 cell = gtk.CellRendererText()
-
+                cell.set_property('editable', False)
                 thename = name in ['sent_treeview', 'drafts_treeview'] \
                              and _("Recipient") or _("Sender")
-                column = gtk.TreeViewColumn(thename, cell, text=col_smsnumber)
+                column = gtk.TreeViewColumn(thename, cell, text=TV_SMS_NUMBER)
                 column.set_resizable(True)
-                column.set_sort_column_id(col_smsnumber)
-                cell.set_property('editable', False)
+                column.set_sort_column_id(TV_SMS_NUMBER)
                 treeview.append_column(column)
 
-                cell = gtk.CellRendererText()
-                cell.set_property('xalign', 1.0)
-                column = gtk.TreeViewColumn(_("Date"), cell, text=col_smsdate)
-                column.set_resizable(True)
-                column.set_sort_column_id(col_smsdate)
-
                 def render_date(cellview, cell, model, _iter):
-                    datetime = model.get_value(_iter, 3)
+                    datetime = model.get_value(_iter, TV_SMS_DATE)
                     if datetime:
                         cell.set_property('text', datetime.strftime("%c"))
-                    return
 
-                def sort_func(model, iter1, iter2, data):
-                    date1 = model.get_value(iter1, 3)
-                    date2 = model.get_value(iter2, 3)
+                def sort_date(model, iter1, iter2, data):
+                    date1 = model.get_value(iter1, TV_SMS_DATE)
+                    date2 = model.get_value(iter2, TV_SMS_DATE)
                     if date1 and not date2:
                         return 1
                     if date2 and not date1:
@@ -578,16 +569,20 @@ class MainView(View):
                     else:
                         return 1
 
-                model.set_sort_column_id(col_smsdate, gtk.SORT_DESCENDING)
-                model.set_sort_func(col_smsdate, sort_func, None)
-                column.set_cell_data_func(cell, render_date)
-                cell.set_property('editable', False)
-                treeview.append_column(column)
-
                 cell = gtk.CellRendererText()
-                column = gtk.TreeViewColumn("intId", cell, text=col_smsid)
+                cell.set_property('xalign', 1.0)
+                cell.set_property('editable', False)
+                column = gtk.TreeViewColumn(_("Date"), cell)  # TV_SMS_DATE
+                column.set_resizable(True)
+                column.set_sort_column_id(TV_SMS_DATE)
+                column.set_cell_data_func(cell, render_date)
+                treeview.append_column(column)
+                model.set_sort_column_id(TV_SMS_DATE, gtk.SORT_DESCENDING)
+                model.set_sort_func(TV_SMS_DATE, sort_date, None)
+
+                cell = None
+                column = gtk.TreeViewColumn('', cell)  # TV_SMS_OBJ
                 column.set_visible(False)
-                column.set_sort_column_id(col_smsid)
                 treeview.append_column(column)
 
     def set_message_preview(self, content):

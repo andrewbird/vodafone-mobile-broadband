@@ -21,6 +21,8 @@ import gtk
 from gobject import TYPE_PYOBJECT, TYPE_STRING
 
 from gui.contrib.gtkmvc import ListStoreModel
+
+from gui.consts import TV_SMS_NUMBER, TV_SMS_OBJ
 from gui.images import MOBILE_IMG, COMPUTER_IMG
 from gui.messages import is_sim_message
 
@@ -109,14 +111,14 @@ class SMSStoreModel(ListStoreModel):
 
         _iter = self.get_iter_first()
         while _iter:
-            message = self.get_value(_iter, 4)
+            message = self.get_value(_iter, TV_SMS_OBJ)
 
             match = [contact.name for contact in contacts
                             if message.number == contact.get_number()]
             if match:
-                self.set_value(_iter, 2, match[0])
+                self.set_value(_iter, TV_SMS_NUMBER, match[0])
             else:
-                self.set_value(_iter, 2, message.number)
+                self.set_value(_iter, TV_SMS_NUMBER, message.number)
 
             _iter = self.iter_next(_iter)
 
@@ -124,7 +126,7 @@ class SMSStoreModel(ListStoreModel):
         ret = []
         _iter = self.get_iter_first()
         while _iter:
-            ret.append(self.get_value(_iter, 4))
+            ret.append(self.get_value(_iter, TV_SMS_OBJ))
 
             _iter = self.iter_next(_iter)
 

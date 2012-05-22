@@ -51,11 +51,13 @@ from gui.utils import find_windows, get_error_msg, raise_window
 from gui.translate import _
 from gui.tray import get_tray_icon
 from gui.consts import (GTK_LOCK, GUIDE_DIR, IMAGES_DIR, APP_URL,
-                              APP_LONG_NAME, CFG_PREFS_DEFAULT_BROWSER,
-                              CFG_PREFS_DEFAULT_EMAIL,
-                              CFG_PREFS_DEFAULT_TRAY_ICON,
-                              CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
-                              CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION)
+                        APP_LONG_NAME, CFG_PREFS_DEFAULT_BROWSER,
+                        CFG_PREFS_DEFAULT_EMAIL,
+                        CFG_PREFS_DEFAULT_TRAY_ICON,
+                        CFG_PREFS_DEFAULT_CLOSE_MINIMIZES,
+                        CFG_PREFS_DEFAULT_EXIT_WITHOUT_CONFIRMATION,
+                        TV_CNT_NAME, TV_CNT_NUMBER, TV_CNT_OBJ, TV_SMS_OBJ)
+
 from gui.constx import (GUI_SIM_AUTH_NONE, GUI_SIM_AUTH_PIN,
                               GUI_SIM_AUTH_PUK, GUI_SIM_AUTH_PUK2,
                               GUI_MODEM_STATE_NODEVICE,
@@ -603,7 +605,8 @@ class MainController(Controller):
         model.add_message(sms, contacts_list)
 
         # Get the path of the new message and scroll to it
-        paths = [str(i) for i, row in enumerate(model) if row[4] is sms]
+        paths = [str(i) for i, row in enumerate(model)
+                    if row[TV_SMS_OBJ] is sms]
         if len(paths):
             treeview.scroll_to_cell(paths[0])
 
@@ -734,7 +737,7 @@ class MainController(Controller):
         selection = treeview.get_selection()
         model, selected = selection.get_selected_rows()
         iters = [model.get_iter(path) for path in selected]
-        contacts = [model.get_value(_iter, 3) for _iter in iters]
+        contacts = [model.get_value(_iter, TV_CNT_OBJ) for _iter in iters]
 
         menu = gtk.Menu()
 
@@ -1068,7 +1071,7 @@ The csv file that you have tried to import has an invalid format.""")
 
         iter = model.get_iter_first()
         while iter:
-            obj = model.get_value(iter, 3)
+            obj = model.get_value(iter, TV_CNT_OBJ)
             _iter = model.iter_next(iter)
             if isinstance(obj, SIMContact):
                 model.remove(iter)
@@ -1083,7 +1086,7 @@ The csv file that you have tried to import has an invalid format.""")
 
         iter = model.get_iter_first()
         while iter:
-            obj = model.get_value(iter, 4)
+            obj = model.get_value(iter, TV_SMS_OBJ)
             _iter = model.iter_next(iter)
             if is_sim_message(obj):
                 model.remove(iter)
@@ -1111,7 +1114,6 @@ The csv file that you have tried to import has an invalid format.""")
     def _fill_contacts(self, contacts):
         """Fills the contacts treeview with contacts"""
         treeview = self.view['contacts_treeview']
-
         model = treeview.get_model()
         model.add_contacts(contacts)
 
@@ -1260,7 +1262,7 @@ The csv file that you have tried to import has an invalid format.""")
         if path is None:
             return None
         model = treeview.get_model()
-        return model[path][4].text
+        return model[path][TV_SMS_OBJ].text
 
     def on_cursor_changed_treeview_event(self, treeview):
         text = self._get_current_message_text(treeview)
@@ -1273,6 +1275,7 @@ The csv file that you have tried to import has an invalid format.""")
         Basically takes care of showing and hiding the appropiate menubars
         depending on the page the user is viewing
         """
+
         page = int(pagenum)
         if page == 3:
             self.view['contacts_toolbar'].show()
@@ -1292,10 +1295,10 @@ The csv file that you have tried to import has an invalid format.""")
         """Handler for the cell-edited signal of the name column"""
         # first check that the edit is necessary
         model = self.view['contacts_treeview'].get_model()
-        if newname != model[path][1] and newname:
-            contact = model[path][3]
+        if newname != model[path][TV_CNT_NAME] and newname:
+            contact = model[path][TV_CNT_OBJ]
             if contact.set_name(unicode(newname, 'utf8')):
-                model[path][1] = newname
+                model[path][TV_CNT_NAME] = newname
                 self.update_message_contact_info()
 
     def _number_contact_cell_edited(self, widget, path, newnumber):
@@ -1308,10 +1311,10 @@ The csv file that you have tried to import has an invalid format.""")
             pattern = re.compile('^\+?\d+$')
             return pattern.match(number) and True or False
 
-        if number != model[path][2] and is_valid_number(number):
-            contact = model[path][3]
+        if number != model[path][TV_CNT_NUMBER] and is_valid_number(number):
+            contact = model[path][TV_CNT_OBJ]
             if contact.set_number(unicode(number, 'utf8')):
-                model[path][2] = number
+                model[path][TV_CNT_NUMBER] = number
                 self.update_message_contact_info()
 
     def _setup_trayicon(self, ignoreconf=False):
@@ -1395,23 +1398,18 @@ The csv file that you have tried to import has an invalid format.""")
         model, selected = treeview.get_selection().get_selected_rows()
         iters = [model.get_iter(path) for path in selected]
 
-        # filter out the read only items
         if treeview.name == 'contacts_treeview':
-            # if we are in contacts_treeview the gobject.TYPE_PYOBJECT that
-            # contains the contact is at position 3, if we are on a sms
-            # treeview, then it's at position 4
-            pos = 3
+            # filter out the read only items
             objs = []
             _iters = []
             for _iter in iters:
-                obj = model.get_value(_iter, pos)
+                obj = model.get_value(_iter, TV_CNT_OBJ)
                 if obj.is_writable():
                     objs.append(obj)
                     _iters.append(_iter)
             iters = _iters
         else:
-            pos = 4
-            objs = [model.get_value(_iter, pos) for _iter in iters]
+            objs = [model.get_value(_iter, TV_SMS_OBJ) for _iter in iters]
 
         if not (len(objs) and iters):  # maybe we filtered out everything
             return
@@ -1453,7 +1451,7 @@ The csv file that you have tried to import has an invalid format.""")
         selection = treeview.get_selection()
         model, selected = selection.get_selected_rows()
         iters = [model.get_iter(path) for path in selected]
-        numbers = [model.get_value(_iter, 2) for _iter in iters]
+        numbers = [model.get_value(_iter, TV_CNT_NUMBER) for _iter in iters]
 
         ctrl = NewSmsController(self.model, self,
                                 self._get_treeview_contacts())
@@ -1590,6 +1588,9 @@ The csv file that you have tried to import has an invalid format.""")
 
         # in the contacts treeview, the contact object is at row[3]
         # while in the rest the SMS object is at row[4]
-        row = 3 if page == TV_DICT_REV['contacts_treeview'] else 4
         _iter = model.get_iter(selected[0])
-        return model, _iter, model.get_value(_iter, row)
+        if page == TV_DICT_REV['contacts_treeview']:
+            obj = model.get_value(_iter, TV_CNT_OBJ)
+        else:
+            obj = model.get_value(_iter, TV_SMS_OBJ)
+        return model, _iter, obj

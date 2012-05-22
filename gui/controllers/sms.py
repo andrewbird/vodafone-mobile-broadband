@@ -37,8 +37,9 @@ from gui.logger import logger
 from gui.messages import get_messages_obj
 from gui.utils import get_error_msg
 from gui.consts import (APP_LONG_NAME, CFG_PREFS_DEFAULT_SMS_VALIDITY,
-                              CFG_SMS_VALIDITY_R1D, CFG_SMS_VALIDITY_R3D,
-                              CFG_SMS_VALIDITY_R1W, CFG_SMS_VALIDITY_MAX)
+                        CFG_SMS_VALIDITY_R1D, CFG_SMS_VALIDITY_R3D,
+                        CFG_SMS_VALIDITY_R1W, CFG_SMS_VALIDITY_MAX,
+                        TV_SMS_OBJ)
 from gui.constx import TV_DICT, TV_DICT_REV
 
 from gui.views.contacts import ContactsListView
@@ -309,7 +310,7 @@ class NewSmsController(Controller):
         model = self.parent_ctrl.view['drafts_treeview'].get_model()
         iter = model.get_iter_first()
         while iter:
-            if model.get_value(iter, 4) in smslist:
+            if model.get_value(iter, TV_SMS_OBJ) in smslist:
                 model.remove(iter)
             iter = model.iter_next(iter)
 

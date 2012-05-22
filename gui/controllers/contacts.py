@@ -19,6 +19,9 @@
 
 import gtk
 
+from gui.consts import (TV_CNT_TYPE, TV_CNT_NAME, TV_CNT_NUMBER,
+                        TV_CNT_EDITABLE, TV_CNT_OBJ)
+
 from gui.models.contacts import ContactsStoreModel
 from gui.translate import _
 
@@ -96,7 +99,7 @@ class SearchContactController(Controller):
 
         # get the path
         path = [str(i) for i, row in enumerate(model)
-                    if row[3] in contacts]
+                    if row[TV_CNT_OBJ] in contacts]
         # unselect
         sel = treeview.get_selection()
         sel.unselect_all()
@@ -133,7 +136,6 @@ class ContactsListController(Controller):
 
     def _setup_view(self):
         treeview = self.view['treeview1']
-        col_type, col_name, col_number, col_pyobj, col_editable = range(5)
         treeview.set_model(ContactsStoreModel())
 
         treeview.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
@@ -142,33 +144,31 @@ class ContactsListController(Controller):
         cell = gtk.CellRendererPixbuf()
         column = gtk.TreeViewColumn(_("Type"))
         column.pack_start(cell)
-        column.set_attributes(cell, pixbuf=col_type)
+        column.set_attributes(cell, pixbuf=TV_CNT_TYPE)
         treeview.append_column(column)
 
         cell = gtk.CellRendererText()
-        column = gtk.TreeViewColumn(_("Name"), cell, text=col_name)
-        column.set_resizable(True)
-        column.set_sort_column_id(col_name)
         cell.set_property('editable', False)
-        treeview.append_column(column)
-
-        cell = gtk.CellRendererText()
-        column = gtk.TreeViewColumn(_("Number"), cell, text=col_number)
+        column = gtk.TreeViewColumn(_("Name"), cell, text=TV_CNT_NAME)
         column.set_resizable(True)
-        column.set_sort_column_id(col_number)
+        column.set_sort_column_id(TV_CNT_NAME)
+        treeview.append_column(column)
+
+        cell = gtk.CellRendererText()
         cell.set_property('editable', False)
+        column = gtk.TreeViewColumn(_("Number"), cell, text=TV_CNT_NUMBER)
+        column.set_resizable(True)
+        column.set_sort_column_id(TV_CNT_NUMBER)
         treeview.append_column(column)
 
-        cell = gtk.CellRendererText()
-        column = gtk.TreeViewColumn("IntId", cell, text=col_pyobj)
+        cell = gtk.CellRendererToggle()
+        column = gtk.TreeViewColumn("Editable", cell, active=TV_CNT_EDITABLE)
         column.set_visible(False)
-        column.set_sort_column_id(col_pyobj)
         treeview.append_column(column)
 
-        cell = gtk.CellRendererText()
-        column = gtk.TreeViewColumn("Editable", cell, text=col_editable)
+        cell = None
+        column = gtk.TreeViewColumn("IntId", cell)  # TV_CNT_OBJ
         column.set_visible(False)
-        column.set_sort_column_id(col_editable)
         treeview.append_column(column)
 
         # make add contact insensitive until a row has been selected
