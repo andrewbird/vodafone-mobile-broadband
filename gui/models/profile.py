@@ -314,6 +314,9 @@ class ProfileModel(Model):
             # store password associated to this connection
             secrets = {'gsm': {'passwd': self.password}}
             self.profile.secrets.update(secrets, ask=True)
+
+            if self.parent_model.is_active_profile(self):
+                self.activate()
         else:
             uuid = props['connection']['uuid']
             sm = None  # SignalMatch object
