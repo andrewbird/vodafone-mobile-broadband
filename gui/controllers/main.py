@@ -986,7 +986,10 @@ The csv file that you have tried to import has an invalid format.""")
 
         menu2 = gtk.Menu()
         for profile in profiles.values():
-            item = gtk.ImageMenuItem(profile.name)
+            if self.model.profiles_model.is_active_profile(profile):
+                item = gtk.ImageMenuItem("%s (*)" % profile.name)
+            else:
+                item = gtk.ImageMenuItem(profile.name)
             item.connect("activate", edit_profile, profile)
             item.show()
             menu2.append(item)
