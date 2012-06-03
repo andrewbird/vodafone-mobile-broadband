@@ -6,10 +6,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-24 15:29+0100\n"
-"PO-Revision-Date: 2012-05-24 10:46\n"
+"PO-Revision-Date: 2012-05-24 15:31+0000\n"
 "Last-Translator: Andrew Bird <Unknown>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-06-03 10:12+0000\n"
+"X-Generator: Launchpad (build 15342)\n"
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
@@ -94,7 +98,7 @@ msgstr "Vitezã"
 
 #: ../glade/config.glade:440
 msgid "<b>Connection settings</b>"
-msgstr ""
+msgstr "<b>Setări conexiune</b>"
 
 #: ../glade/config.glade:461
 msgid "Enable hardware flow control"
@@ -118,7 +122,7 @@ msgstr ""
 
 #: ../glade/contacts.glade:161 ../glade/main.glade:565
 msgid "Add a contact"
-msgstr ""
+msgstr "Adauga un contact"
 
 #: ../glade/contacts.glade:224
 msgid "Number:"
@@ -154,7 +158,7 @@ msgstr "Model:"
 
 #: ../glade/diagnostics.glade:103
 msgid "Firmware: "
-msgstr "Firmware:"
+msgstr "Firmware: "
 
 #: ../glade/diagnostics.glade:114
 msgid "IMEI: "
@@ -328,7 +332,7 @@ msgstr "Parola:"
 
 #: ../glade/keyring.glade:100
 msgid "Confirm password:"
-msgstr ""
+msgstr "Confirmați parola:"
 
 #: ../glade/keyring.glade:131
 msgid "Unlock Keyring"
@@ -497,7 +501,7 @@ msgstr ""
 
 #: ../glade/main.glade:1695
 msgid "Customer support"
-msgstr ""
+msgstr "Asistență pentru clienți"
 
 #: ../glade/misc.glade:54
 msgid "Wader log"
@@ -569,7 +573,7 @@ msgstr ""
 
 #: ../glade/pin.glade:178
 msgid "<b>Advanced Options</b>"
-msgstr ""
+msgstr "<b>Opțiuni avansate</b>"
 
 #: ../glade/pin.glade:257
 msgid "Modify PIN code"
@@ -581,7 +585,7 @@ msgstr ""
 
 #: ../glade/pin.glade:397 ../glade/pin.glade:733
 msgid "New PIN code: "
-msgstr "Cod PIN nou:"
+msgstr "Cod PIN nou: "
 
 #: ../glade/pin.glade:425
 msgid "Current PIN code: "
@@ -673,11 +677,11 @@ msgstr ""
 
 #: ../glade/preferences.glade:509
 msgid "User Preferences"
-msgstr ""
+msgstr "Preferințe utilizator"
 
 #: ../glade/preferences.glade:530
 msgid "<b>Web Browser</b>"
-msgstr ""
+msgstr "<b>Navigator web</b>"
 
 #: ../glade/preferences.glade:599 ../glade/preferences.glade:716
 msgid "Command:"
@@ -1227,7 +1231,7 @@ msgstr ""
 
 #: ../../gui/controllers/pin.py:107 ../../gui/controllers/pin.py:186
 msgid "Incorrect PIN"
-msgstr ""
+msgstr "Cod PIN incorect"
 
 #: ../../gui/controllers/pin.py:108 ../../gui/controllers/pin.py:187
 msgid ""
@@ -1273,7 +1277,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:379
 msgid "Invalid password"
-msgstr ""
+msgstr "Parolă invalidă"
 
 #: ../../gui/controllers/main.py:380
 msgid "The supplied password is incorrect"
@@ -1331,7 +1335,7 @@ msgstr "Conectare eșuată"
 
 #: ../../gui/controllers/main.py:714 ../../gui/controllers/main.py:749
 msgid "Send SMS"
-msgstr ""
+msgstr "Expediază SMS"
 
 #: ../../gui/controllers/main.py:727
 msgid "Quit"
@@ -1387,11 +1391,11 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:1022
 msgid "Load Profile"
-msgstr ""
+msgstr "Încarcă profil"
 
 #: ../../gui/controllers/main.py:1027
 msgid "Edit Profile"
-msgstr ""
+msgstr "Editează profil"
 
 #: ../../gui/controllers/main.py:1032
 msgid "Delete Profile"
@@ -1487,6 +1491,8 @@ msgstr ""
 #: ../../gui/dialogs.py:66
 msgid "translator-credits"
 msgstr ""
+"Launchpad Contributions:\n"
+"  Andrew Bird https://launchpad.net/~ajb-spheresystems"
 
 #: ../../gui/dialogs.py:134
 msgid "Warning"
