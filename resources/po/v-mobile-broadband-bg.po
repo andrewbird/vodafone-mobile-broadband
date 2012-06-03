@@ -8,13 +8,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-24 15:29+0100\n"
-"PO-Revision-Date: 2012-06-03 11:15+0000\n"
+"PO-Revision-Date: 2012-06-03 13:46+0000\n"
 "Last-Translator: Andrew Bird <Unknown>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
-"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-06-03 19:04+0000\n"
+"X-Generator: Launchpad (build 15342)\n"
+"Language: bg\n"
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
@@ -163,7 +165,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:114
 msgid "IMEI: "
-msgstr ""
+msgstr "IMEI: "
 
 #: ../glade/diagnostics.glade:138
 msgid "Card manufacturer"
@@ -191,7 +193,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:264
 msgid "IMSI:"
-msgstr ""
+msgstr "IMSI:"
 
 #: ../glade/diagnostics.glade:275
 msgid "Network:"
@@ -207,7 +209,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:320
 msgid "IMSI"
-msgstr ""
+msgstr "IMSI"
 
 #: ../glade/diagnostics.glade:330 ../glade/diagnostics.glade:341
 #: ../glade/diagnostics.glade:351 ../glade/payt.glade:125
@@ -224,7 +226,7 @@ msgstr "Неизвестен"
 
 #: ../glade/diagnostics.glade:376
 msgid "SIM"
-msgstr ""
+msgstr "SIM"
 
 #: ../glade/diagnostics.glade:408
 msgid "<b>Device information</b>"
@@ -240,7 +242,7 @@ msgstr "Версия:"
 
 #: ../glade/diagnostics.glade:467
 msgid "Uptime:"
-msgstr ""
+msgstr "Време на работа:"
 
 #: ../glade/diagnostics.glade:536
 msgid "Device"
@@ -280,7 +282,7 @@ msgstr "Изпраща"
 
 #: ../glade/diagnostics.glade:842
 msgid "USSD"
-msgstr ""
+msgstr "USSD"
 
 #: ../glade/dialogs.glade:38 ../glade/dialogs.glade:239
 #: ../glade/dialogs.glade:451
@@ -378,11 +380,11 @@ msgstr "Включена"
 
 #: ../glade/main.glade:177
 msgid "Change PIN"
-msgstr ""
+msgstr "Промяна на ПИН"
 
 #: ../glade/main.glade:187
 msgid "Request PIN"
-msgstr ""
+msgstr "Изискване на PIN код"
 
 #: ../glade/main.glade:226
 msgid "Profiles"
@@ -486,7 +488,7 @@ msgstr "Текущ месец"
 
 #: ../glade/main.glade:1553
 msgid "Last month"
-msgstr ""
+msgstr "Миналия месец"
 
 #: ../glade/main.glade:1568
 msgid "<b>Usage</b> - Remember that this information is only indicative."
@@ -502,7 +504,7 @@ msgstr ""
 
 #: ../glade/main.glade:1695
 msgid "Customer support"
-msgstr ""
+msgstr "Поддръжка на клиенти"
 
 #: ../glade/misc.glade:54
 msgid "Wader log"
@@ -574,7 +576,7 @@ msgstr ""
 
 #: ../glade/pin.glade:178
 msgid "<b>Advanced Options</b>"
-msgstr ""
+msgstr "<b>Допълнителни настройки</b>"
 
 #: ../glade/pin.glade:257
 msgid "Modify PIN code"
@@ -598,7 +600,7 @@ msgstr ""
 
 #: ../glade/pin.glade:650
 msgid "PUK:"
-msgstr ""
+msgstr "PUK:"
 
 #: ../glade/preferences.glade:60
 msgid "<b>Change to global SMS settings </b>"
@@ -678,7 +680,7 @@ msgstr ""
 
 #: ../glade/preferences.glade:509
 msgid "User Preferences"
-msgstr ""
+msgstr "Настройки на потребител"
 
 #: ../glade/preferences.glade:530
 msgid "<b>Web Browser</b>"
@@ -759,7 +761,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:485
 msgid "Use static DNS"
-msgstr ""
+msgstr "Използване на статичен DNS"
 
 #: ../glade/profiles.glade:518
 msgid "Primary DNS:"
@@ -775,7 +777,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:752
 msgid "Profile name:"
-msgstr ""
+msgstr "Име на потребителския профил:"
 
 #: ../glade/profiles.glade:863
 msgid "Device selection"
@@ -795,7 +797,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:1024
 msgid "Known devices"
-msgstr ""
+msgstr "Познати устройства"
 
 #: ../glade/profiles.glade:1032
 msgid "Known Devices Radio"
@@ -851,51 +853,51 @@ msgstr "Всеки"
 
 #: ../../gui/constx.py:48
 msgid "EGSM 900"
-msgstr ""
+msgstr "EGSM 900"
 
 #: ../../gui/constx.py:49
 msgid "GSM DCS"
-msgstr ""
+msgstr "GSM DCS"
 
 #: ../../gui/constx.py:50
 msgid "GSM PCS"
-msgstr ""
+msgstr "GSM PCS"
 
 #: ../../gui/constx.py:51
 msgid "GSM 850"
-msgstr ""
+msgstr "GSM 850"
 
 #: ../../gui/constx.py:52
 msgid "WCDMA 2100"
-msgstr ""
+msgstr "WCDMA 2100"
 
 #: ../../gui/constx.py:53
 msgid "WCDMA 1800"
-msgstr ""
+msgstr "WCDMA 1800"
 
 #: ../../gui/constx.py:54
 msgid "WCDMA 17IV"
-msgstr ""
+msgstr "WCDMA 17IV"
 
 #: ../../gui/constx.py:55
 msgid "WCDMA 800"
-msgstr ""
+msgstr "WCDMA 800"
 
 #: ../../gui/constx.py:56
 msgid "WCDMA 850"
-msgstr ""
+msgstr "WCDMA 850"
 
 #: ../../gui/constx.py:57
 msgid "WCDMA 900"
-msgstr ""
+msgstr "WCDMA 900"
 
 #: ../../gui/constx.py:58
 msgid "WCDMA 17IX"
-msgstr ""
+msgstr "WCDMA 17IX"
 
 #: ../../gui/constx.py:59
 msgid "WCDMA 1900"
-msgstr ""
+msgstr "WCDMA 1900"
 
 #: ../../gui/constx.py:66 ../../gui/signals.py:27
 msgid "2G preferred"
@@ -1232,7 +1234,7 @@ msgstr ""
 
 #: ../../gui/controllers/pin.py:107 ../../gui/controllers/pin.py:186
 msgid "Incorrect PIN"
-msgstr ""
+msgstr "Неправилен ПИН"
 
 #: ../../gui/controllers/pin.py:108 ../../gui/controllers/pin.py:187
 msgid ""
@@ -1336,7 +1338,7 @@ msgstr "Невъзможна връзка"
 
 #: ../../gui/controllers/main.py:714 ../../gui/controllers/main.py:749
 msgid "Send SMS"
-msgstr ""
+msgstr "Изпращане на SMS"
 
 #: ../../gui/controllers/main.py:727
 msgid "Quit"
@@ -1392,7 +1394,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:1022
 msgid "Load Profile"
-msgstr ""
+msgstr "Зареждане на профил"
 
 #: ../../gui/controllers/main.py:1027
 msgid "Edit Profile"
@@ -1492,6 +1494,8 @@ msgstr ""
 #: ../../gui/dialogs.py:66
 msgid "translator-credits"
 msgstr ""
+"Launchpad Contributions:\n"
+"  Andrew Bird https://launchpad.net/~ajb-spheresystems"
 
 #: ../../gui/dialogs.py:134
 msgid "Warning"
@@ -1563,7 +1567,7 @@ msgstr "Evolution"
 
 #: ../../gui/contacts/contact_kdepim.py:133
 msgid "KDE PIM"
-msgstr ""
+msgstr "KDE PIM"
 
 #: ../../bin/v-mobile-broadband:68
 msgid "Do not run the application as root"

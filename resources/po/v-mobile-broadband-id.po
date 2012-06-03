@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: v-mobile-broadband\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-24 15:29+0100\n"
-"PO-Revision-Date: 2012-01-22 17:25+0000\n"
+"PO-Revision-Date: 2012-06-03 15:19+0000\n"
 "Last-Translator: Andrew Bird <Unknown>\n"
 "Language-Team: BlankOn <fadly.kasim@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-03 10:12+0000\n"
+"X-Launchpad-Export-Date: 2012-06-03 19:04+0000\n"
 "X-Generator: Launchpad (build 15342)\n"
 "X-Poedit-Country: INDONESIA\n"
 "Language: \n"
@@ -36,7 +36,7 @@ msgstr ""
 #: ../glade/apnsel.glade:193 ../glade/pin.glade:217 ../glade/pin.glade:222
 #: ../glade/pin.glade:862 ../glade/profiles.glade:1334
 msgid "Cancel"
-msgstr ""
+msgstr "Batalkan"
 
 #: ../glade/apnsel.glade:208 ../glade/pin.glade:239
 #: ../glade/profiles.glade:1349
@@ -100,11 +100,11 @@ msgstr ""
 
 #: ../glade/config.glade:346
 msgid "Speed"
-msgstr ""
+msgstr "Kecepatan"
 
 #: ../glade/config.glade:440
 msgid "<b>Connection settings</b>"
-msgstr ""
+msgstr "<v>Pengaturan koneksi</b>"
 
 #: ../glade/config.glade:461
 msgid "Enable hardware flow control"
@@ -140,11 +140,11 @@ msgstr ""
 
 #: ../glade/contacts.glade:303 ../../gui/contacts/contact_sim.py:170
 msgid "Mobile"
-msgstr ""
+msgstr "Handphone"
 
 #: ../glade/contacts.glade:343
 msgid "Computer"
-msgstr ""
+msgstr "Komputer"
 
 #: ../glade/diagnostics.glade:7 ../glade/main.glade:201
 msgid "Diagnostics"
@@ -156,7 +156,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:81
 msgid "Manufacturer:"
-msgstr ""
+msgstr "Pabrikan:"
 
 #: ../glade/diagnostics.glade:92
 msgid "Model:"
@@ -196,15 +196,15 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:264
 msgid "IMSI:"
-msgstr ""
+msgstr "IMSI:"
 
 #: ../glade/diagnostics.glade:275
 msgid "Network:"
-msgstr ""
+msgstr "Jaringan:"
 
 #: ../glade/diagnostics.glade:286
 msgid "Country:"
-msgstr ""
+msgstr "Negara:"
 
 #: ../glade/diagnostics.glade:297
 msgid "Mobile Number:"
@@ -237,11 +237,11 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:445
 msgid "Operating System:"
-msgstr ""
+msgstr "Sistem Operasi:"
 
 #: ../glade/diagnostics.glade:456
 msgid "Version:"
-msgstr ""
+msgstr "Versi:"
 
 #: ../glade/diagnostics.glade:467
 msgid "Uptime:"
@@ -261,7 +261,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:634 ../glade/diagnostics.glade:644
 msgid "Not supported"
-msgstr ""
+msgstr "Tidak didukung"
 
 #: ../glade/diagnostics.glade:672
 msgid "Modem Manager"
@@ -307,7 +307,7 @@ msgstr ""
 
 #: ../glade/dialogs.glade:189
 msgid "Action"
-msgstr ""
+msgstr "Aksi"
 
 #: ../glade/dialogs.glade:326
 msgid "<b>title</b>"
@@ -338,11 +338,11 @@ msgstr "Password:"
 
 #: ../glade/keyring.glade:100
 msgid "Confirm password:"
-msgstr ""
+msgstr "Konfirmasi password:"
 
 #: ../glade/keyring.glade:131
 msgid "Unlock Keyring"
-msgstr ""
+msgstr "Buka Keyring"
 
 #: ../glade/keyring.glade:157
 msgid "Please, enter your keyring password"
@@ -367,23 +367,23 @@ msgstr "_Tampilan"
 #: ../glade/main.glade:112 ../glade/main.glade:383
 #: ../glade/preferences.glade:957
 msgid "Usage"
-msgstr ""
+msgstr "Pemakaian"
 
 #: ../glade/main.glade:130 ../glade/main.glade:401
 msgid "Support"
-msgstr ""
+msgstr "Dukungan"
 
 #: ../glade/main.glade:156
 msgid "_Tools"
-msgstr ""
+msgstr "Ala_t"
 
 #: ../glade/main.glade:167 ../../gui/views/main.py:423
 msgid "Enabled"
-msgstr ""
+msgstr "Aktif"
 
 #: ../glade/main.glade:177
 msgid "Change PIN"
-msgstr ""
+msgstr "Ubah PIN"
 
 #: ../glade/main.glade:187
 msgid "Request PIN"
@@ -403,11 +403,11 @@ msgstr "_Pertolongan"
 
 #: ../glade/main.glade:282
 msgid "Help"
-msgstr ""
+msgstr "Bantuan"
 
 #: ../glade/main.glade:301
 msgid "_About"
-msgstr ""
+msgstr "_Tentang"
 
 #: ../glade/main.glade:429
 msgid "Topup"
@@ -435,7 +435,7 @@ msgstr ""
 
 #: ../glade/main.glade:583
 msgid "Search contacts"
-msgstr ""
+msgstr "Cari kontak"
 
 #: ../glade/main.glade:601
 msgid "Delete contacts"
@@ -447,11 +447,11 @@ msgstr "Inbox"
 
 #: ../glade/main.glade:684
 msgid "Draft"
-msgstr ""
+msgstr "Konsep"
 
 #: ../glade/main.glade:716
 msgid "Sent"
-msgstr ""
+msgstr "Terkirim"
 
 #: ../glade/main.glade:747 ../glade/sms.glade:34
 msgid "Contacts"
@@ -459,7 +459,7 @@ msgstr "Kontak"
 
 #: ../glade/main.glade:852 ../glade/main.glade:1288
 msgid "<b>Month</b>"
-msgstr ""
+msgstr "<b>Bulan</b>"
 
 #: ../glade/main.glade:910 ../glade/main.glade:1050 ../glade/main.glade:1398
 msgid "GPRS:"
@@ -487,11 +487,11 @@ msgstr ""
 
 #: ../glade/main.glade:1251
 msgid "Current month"
-msgstr ""
+msgstr "Bulan ini"
 
 #: ../glade/main.glade:1553
 msgid "Last month"
-msgstr ""
+msgstr "Bulan lalu"
 
 #: ../glade/main.glade:1568
 msgid "<b>Usage</b> - Remember that this information is only indicative."
@@ -507,7 +507,7 @@ msgstr ""
 
 #: ../glade/main.glade:1695
 msgid "Customer support"
-msgstr ""
+msgstr "Dukungan pelanggan"
 
 #: ../glade/misc.glade:54
 msgid "Wader log"
@@ -531,7 +531,7 @@ msgstr ""
 
 #: ../glade/payt.glade:105
 msgid "<b>Date</b>"
-msgstr ""
+msgstr "<b>Tanggal</b>"
 
 #: ../glade/payt.glade:167
 msgid "Recheck my credit:"
@@ -579,7 +579,7 @@ msgstr ""
 
 #: ../glade/pin.glade:178
 msgid "<b>Advanced Options</b>"
-msgstr ""
+msgstr "<b>Opsi Tingkat Lanjut</b>"
 
 #: ../glade/pin.glade:257
 msgid "Modify PIN code"
@@ -683,15 +683,15 @@ msgstr ""
 
 #: ../glade/preferences.glade:509
 msgid "User Preferences"
-msgstr ""
+msgstr "Pengaturan User"
 
 #: ../glade/preferences.glade:530
 msgid "<b>Web Browser</b>"
-msgstr ""
+msgstr "<b>Peramban Web</b>"
 
 #: ../glade/preferences.glade:599 ../glade/preferences.glade:716
 msgid "Command:"
-msgstr ""
+msgstr "Perintah:"
 
 #: ../glade/preferences.glade:650
 msgid "<b>Email client</b>"
@@ -699,7 +699,7 @@ msgstr ""
 
 #: ../glade/preferences.glade:779
 msgid "Applications"
-msgstr ""
+msgstr "Aplikasi"
 
 #: ../glade/preferences.glade:800
 msgid "<b>Usage Options</b>"
@@ -740,7 +740,7 @@ msgstr "<b>Sambungan preferensi</b>"
 
 #: ../glade/profiles.glade:152
 msgid "Username:"
-msgstr ""
+msgstr "Nama pengguna:"
 
 #: ../glade/profiles.glade:202
 msgid "Authentication method:"
@@ -816,7 +816,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:1183
 msgid "115200"
-msgstr ""
+msgstr "115200"
 
 #: ../glade/profiles.glade:1198
 msgid "Data port device:"
@@ -852,7 +852,7 @@ msgstr ""
 
 #: ../../gui/constx.py:47 ../../gui/constx.py:65 ../../gui/constx.py:84
 msgid "Any"
-msgstr ""
+msgstr "Sebarang"
 
 #: ../../gui/constx.py:48
 msgid "EGSM 900"
@@ -876,7 +876,7 @@ msgstr "WCDMA 2100"
 
 #: ../../gui/constx.py:53
 msgid "WCDMA 1800"
-msgstr ""
+msgstr "WCDMA 1800"
 
 #: ../../gui/constx.py:54
 msgid "WCDMA 17IV"
@@ -1055,7 +1055,7 @@ msgstr ""
 
 #: ../../gui/views/main.py:417
 msgid "Disabled"
-msgstr ""
+msgstr "Dinonaktifkan"
 
 #: ../../gui/views/main.py:418
 msgid "SIM locked"
@@ -1067,7 +1067,7 @@ msgstr ""
 
 #: ../../gui/views/main.py:420
 msgid "Authenticated"
-msgstr ""
+msgstr "Terotentikasi"
 
 #: ../../gui/views/main.py:421
 msgid "Enabling"
@@ -1079,15 +1079,15 @@ msgstr ""
 
 #: ../../gui/views/main.py:424
 msgid "Searching"
-msgstr ""
+msgstr "Mencari"
 
 #: ../../gui/views/main.py:425 ../../gui/controllers/main.py:1063
 msgid "Not connected"
-msgstr ""
+msgstr "Tak tersambung"
 
 #: ../../gui/views/main.py:428
 msgid "Connected"
-msgstr ""
+msgstr "Tersambung"
 
 #: ../../gui/views/main.py:431
 msgid "No device"
@@ -1096,7 +1096,7 @@ msgstr "perangkat tidak ada"
 #: ../../gui/views/main.py:490 ../../gui/views/main.py:526
 #: ../../gui/views/profile.py:143 ../../gui/controllers/contacts.py:145
 msgid "Type"
-msgstr ""
+msgstr "Jenis"
 
 #: ../../gui/views/main.py:497 ../../gui/views/profile.py:133
 #: ../../gui/controllers/contacts.py:152
@@ -1109,23 +1109,23 @@ msgstr "Nomor"
 
 #: ../../gui/views/main.py:537
 msgid "Text"
-msgstr ""
+msgstr "Teks"
 
 #: ../../gui/views/main.py:547
 msgid "Recipient"
-msgstr ""
+msgstr "Penerima"
 
 #: ../../gui/views/main.py:547
 msgid "Sender"
-msgstr ""
+msgstr "Pengirim"
 
 #: ../../gui/views/main.py:575
 msgid "Date"
-msgstr ""
+msgstr "Tanggal"
 
 #: ../../gui/views/profile.py:138
 msgid "Country"
-msgstr ""
+msgstr "Negara"
 
 #: ../../gui/uptime.py:83
 #, python-format
@@ -1144,7 +1144,7 @@ msgstr ""
 #: ../../gui/models/main.py:118 ../../gui/controllers/payt.py:176
 #: ../../gui/controllers/payt.py:208
 msgid "Not available"
-msgstr ""
+msgstr "Tidak tersedia"
 
 #: ../../gui/models/main.py:183
 msgid "Error while starting wader"
@@ -1159,7 +1159,7 @@ msgstr ""
 #: ../../gui/models/profile.py:162 ../../gui/controllers/preferences.py:144
 #: ../../gui/controllers/preferences.py:160
 msgid "Custom"
-msgstr ""
+msgstr "Ubahsuaikan"
 
 #: ../../gui/models/profile.py:377
 msgid "Trying to remove an unsaved profile"
@@ -1237,7 +1237,7 @@ msgstr ""
 
 #: ../../gui/controllers/pin.py:107 ../../gui/controllers/pin.py:186
 msgid "Incorrect PIN"
-msgstr ""
+msgstr "PIN salah"
 
 #: ../../gui/controllers/pin.py:108 ../../gui/controllers/pin.py:187
 msgid ""
@@ -1299,7 +1299,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:424
 msgid "Unknown error"
-msgstr ""
+msgstr "Galat tak dikenal"
 
 #: ../../gui/controllers/main.py:430
 msgid "Error while registering to home network"
@@ -1337,7 +1337,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:661
 msgid "Unable to connect"
-msgstr ""
+msgstr "Tidak dapat tersambung"
 
 #: ../../gui/controllers/main.py:714 ../../gui/controllers/main.py:749
 msgid "Send SMS"
@@ -1353,7 +1353,7 @@ msgstr "_Hapus"
 
 #: ../../gui/controllers/main.py:771
 msgid "Edit"
-msgstr ""
+msgstr "Sunting"
 
 #: ../../gui/controllers/main.py:791
 msgid "Invalid CSV format"
@@ -1401,11 +1401,11 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:1027
 msgid "Edit Profile"
-msgstr ""
+msgstr "Sunting Profil"
 
 #: ../../gui/controllers/main.py:1032
 msgid "Delete Profile"
-msgstr ""
+msgstr "Hapus Profil"
 
 #: ../../gui/controllers/main.py:1064
 msgid "No mobile connection. Do you want to continue?"
@@ -1450,15 +1450,15 @@ msgstr ""
 
 #: ../../gui/controllers/preferences.py:38
 msgid "1 week"
-msgstr ""
+msgstr "1 minggu"
 
 #: ../../gui/controllers/preferences.py:39
 msgid "3 days"
-msgstr ""
+msgstr "3 hari"
 
 #: ../../gui/controllers/preferences.py:40
 msgid "1 day"
-msgstr ""
+msgstr "1 hari"
 
 #: ../../gui/controllers/preferences.py:196
 #: ../../gui/controllers/preferences.py:215
@@ -1502,15 +1502,15 @@ msgstr ""
 
 #: ../../gui/dialogs.py:134
 msgid "Warning"
-msgstr ""
+msgstr "Peringatan"
 
 #: ../../gui/dialogs.py:160
 msgid "Error"
-msgstr ""
+msgstr "Galat"
 
 #: ../../gui/dialogs.py:244
 msgid "Password required"
-msgstr ""
+msgstr "Perlu kata sandi"
 
 #: ../../gui/dialogs.py:245
 msgid "Please, insert the password of your connection"
@@ -1526,7 +1526,7 @@ msgstr ""
 
 #: ../../gui/dialogs.py:293 ../../gui/dialogs.py:331
 msgid "All files"
-msgstr ""
+msgstr "Semua berkas"
 
 #: ../../gui/dialogs.py:304
 #, python-format
@@ -1566,7 +1566,7 @@ msgstr ""
 
 #: ../../gui/contacts/contact_evolution.py:136
 msgid "Evolution"
-msgstr ""
+msgstr "Evolution"
 
 #: ../../gui/contacts/contact_kdepim.py:133
 msgid "KDE PIM"

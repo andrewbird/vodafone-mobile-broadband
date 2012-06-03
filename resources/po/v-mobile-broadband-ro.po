@@ -6,13 +6,13 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-24 15:29+0100\n"
-"PO-Revision-Date: 2012-05-24 15:31+0000\n"
+"PO-Revision-Date: 2012-06-03 15:57+0000\n"
 "Last-Translator: Andrew Bird <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-03 10:12+0000\n"
+"X-Launchpad-Export-Date: 2012-06-03 19:04+0000\n"
 "X-Generator: Launchpad (build 15342)\n"
 
 #: ../glade/apnsel.glade:8
@@ -162,7 +162,7 @@ msgstr "Firmware: "
 
 #: ../glade/diagnostics.glade:114
 msgid "IMEI: "
-msgstr ""
+msgstr "IMEI: "
 
 #: ../glade/diagnostics.glade:138
 msgid "Card manufacturer"
@@ -190,7 +190,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:264
 msgid "IMSI:"
-msgstr ""
+msgstr "IMSI:"
 
 #: ../glade/diagnostics.glade:275
 msgid "Network:"
@@ -206,7 +206,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:320
 msgid "IMSI"
-msgstr ""
+msgstr "IMSI"
 
 #: ../glade/diagnostics.glade:330 ../glade/diagnostics.glade:341
 #: ../glade/diagnostics.glade:351 ../glade/payt.glade:125
@@ -223,7 +223,7 @@ msgstr "Necunoscută"
 
 #: ../glade/diagnostics.glade:376
 msgid "SIM"
-msgstr ""
+msgstr "SIM"
 
 #: ../glade/diagnostics.glade:408
 msgid "<b>Device information</b>"
@@ -279,7 +279,7 @@ msgstr "Trimite"
 
 #: ../glade/diagnostics.glade:842
 msgid "USSD"
-msgstr ""
+msgstr "USSD"
 
 #: ../glade/dialogs.glade:38 ../glade/dialogs.glade:239
 #: ../glade/dialogs.glade:451
@@ -309,7 +309,7 @@ msgstr ""
 
 #: ../glade/dialogs.glade:363
 msgid "Remember my choice"
-msgstr ""
+msgstr "Se reține alegerea"
 
 #: ../glade/helpbrowser.glade:21 ../glade/main.glade:26
 msgid "_File"
@@ -457,11 +457,11 @@ msgstr ""
 
 #: ../glade/main.glade:910 ../glade/main.glade:1050 ../glade/main.glade:1398
 msgid "GPRS:"
-msgstr ""
+msgstr "GPRS:"
 
 #: ../glade/main.glade:923 ../glade/main.glade:1063 ../glade/main.glade:1411
 msgid "3G:"
-msgstr ""
+msgstr "3G:"
 
 #: ../glade/main.glade:938 ../glade/main.glade:1078 ../glade/main.glade:1426
 msgid "Total:"
@@ -597,7 +597,7 @@ msgstr ""
 
 #: ../glade/pin.glade:650
 msgid "PUK:"
-msgstr ""
+msgstr "PUK:"
 
 #: ../glade/preferences.glade:60
 msgid "<b>Change to global SMS settings </b>"
@@ -794,7 +794,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:1024
 msgid "Known devices"
-msgstr ""
+msgstr "Dispozitive cunoscute"
 
 #: ../glade/profiles.glade:1032
 msgid "Known Devices Radio"
@@ -810,7 +810,7 @@ msgstr "Serie"
 
 #: ../glade/profiles.glade:1183
 msgid "115200"
-msgstr ""
+msgstr "115200"
 
 #: ../glade/profiles.glade:1198
 msgid "Data port device:"
@@ -850,51 +850,51 @@ msgstr "Orice"
 
 #: ../../gui/constx.py:48
 msgid "EGSM 900"
-msgstr ""
+msgstr "EGSM 900"
 
 #: ../../gui/constx.py:49
 msgid "GSM DCS"
-msgstr ""
+msgstr "GSM DCS"
 
 #: ../../gui/constx.py:50
 msgid "GSM PCS"
-msgstr ""
+msgstr "GSM PCS"
 
 #: ../../gui/constx.py:51
 msgid "GSM 850"
-msgstr ""
+msgstr "GSM 850"
 
 #: ../../gui/constx.py:52
 msgid "WCDMA 2100"
-msgstr ""
+msgstr "WCDMA 2100"
 
 #: ../../gui/constx.py:53
 msgid "WCDMA 1800"
-msgstr ""
+msgstr "WCDMA 1800"
 
 #: ../../gui/constx.py:54
 msgid "WCDMA 17IV"
-msgstr ""
+msgstr "WCDMA 17IV"
 
 #: ../../gui/constx.py:55
 msgid "WCDMA 800"
-msgstr ""
+msgstr "WCDMA 800"
 
 #: ../../gui/constx.py:56
 msgid "WCDMA 850"
-msgstr ""
+msgstr "WCDMA 850"
 
 #: ../../gui/constx.py:57
 msgid "WCDMA 900"
-msgstr ""
+msgstr "WCDMA 900"
 
 #: ../../gui/constx.py:58
 msgid "WCDMA 17IX"
-msgstr ""
+msgstr "WCDMA 17IX"
 
 #: ../../gui/constx.py:59
 msgid "WCDMA 1900"
-msgstr ""
+msgstr "WCDMA 1900"
 
 #: ../../gui/constx.py:66 ../../gui/signals.py:27
 msgid "2G preferred"
@@ -991,7 +991,7 @@ msgstr "GSM"
 
 #: ../../gui/views/main.py:338
 msgid "GSM_COMPAT"
-msgstr ""
+msgstr "GSM_COMPAT"
 
 #: ../../gui/views/main.py:339 ../../gui/signals.py:24
 msgid "GPRS"
@@ -1019,11 +1019,11 @@ msgstr "HSPA"
 
 #: ../../gui/views/main.py:345
 msgid "HSPA+"
-msgstr ""
+msgstr "HSPA+"
 
 #: ../../gui/views/main.py:346
 msgid "LTE"
-msgstr ""
+msgstr "LTE"
 
 #: ../../gui/views/main.py:386 ../../gui/views/main.py:390
 #: ../../gui/controllers/main.py:700
@@ -1564,7 +1564,7 @@ msgstr "Evolution"
 
 #: ../../gui/contacts/contact_kdepim.py:133
 msgid "KDE PIM"
-msgstr ""
+msgstr "KDE PIM"
 
 #: ../../bin/v-mobile-broadband:68
 msgid "Do not run the application as root"

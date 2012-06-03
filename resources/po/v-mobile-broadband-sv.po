@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-24 15:29+0100\n"
-"PO-Revision-Date: 2012-06-03 08:51+0000\n"
+"PO-Revision-Date: 2012-06-03 16:11+0000\n"
 "Last-Translator: Andrew Bird <Unknown>\n"
 "Language-Team: Swedish <SV@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-03 10:12+0000\n"
+"X-Launchpad-Export-Date: 2012-06-03 19:04+0000\n"
 "X-Generator: Launchpad (build 15342)\n"
 "Language: sv\n"
 
@@ -354,7 +354,7 @@ msgstr ""
 
 #: ../glade/main.glade:59
 msgid "_Quit"
-msgstr ""
+msgstr "Avsluta"
 
 #: ../glade/main.glade:86
 msgid "_View"
@@ -363,7 +363,7 @@ msgstr "_Visa"
 #: ../glade/main.glade:112 ../glade/main.glade:383
 #: ../glade/preferences.glade:957
 msgid "Usage"
-msgstr ""
+msgstr "Användning"
 
 #: ../glade/main.glade:130 ../glade/main.glade:401
 msgid "Support"
@@ -379,11 +379,11 @@ msgstr "Aktiverad"
 
 #: ../glade/main.glade:177
 msgid "Change PIN"
-msgstr ""
+msgstr "Ändra PIN-kod"
 
 #: ../glade/main.glade:187
 msgid "Request PIN"
-msgstr ""
+msgstr "Begär PIN-kod"
 
 #: ../glade/main.glade:226
 msgid "Profiles"

@@ -8,13 +8,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-24 15:29+0100\n"
-"PO-Revision-Date: 2012-06-03 11:15+0000\n"
+"PO-Revision-Date: 2012-06-03 15:35+0000\n"
 "Last-Translator: Andrew Bird <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
-"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-06-03 19:04+0000\n"
+"X-Generator: Launchpad (build 15342)\n"
+"Language: lv\n"
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
@@ -99,7 +101,7 @@ msgstr "Ātrums"
 
 #: ../glade/config.glade:440
 msgid "<b>Connection settings</b>"
-msgstr ""
+msgstr "<b>Savienojuma uzstādījumi</b>"
 
 #: ../glade/config.glade:461
 msgid "Enable hardware flow control"
@@ -159,11 +161,11 @@ msgstr "Modelis:"
 
 #: ../glade/diagnostics.glade:103
 msgid "Firmware: "
-msgstr "Programmatūra:"
+msgstr "Programmatūra: "
 
 #: ../glade/diagnostics.glade:114
 msgid "IMEI: "
-msgstr ""
+msgstr "IMEI: "
 
 #: ../glade/diagnostics.glade:138
 msgid "Card manufacturer"
@@ -333,7 +335,7 @@ msgstr "Parole:"
 
 #: ../glade/keyring.glade:100
 msgid "Confirm password:"
-msgstr ""
+msgstr "Apstiprini paroli:"
 
 #: ../glade/keyring.glade:131
 msgid "Unlock Keyring"
@@ -378,7 +380,7 @@ msgstr "Aktivizēts"
 
 #: ../glade/main.glade:177
 msgid "Change PIN"
-msgstr ""
+msgstr "Mainīt PIN"
 
 #: ../glade/main.glade:187
 msgid "Request PIN"
@@ -458,11 +460,11 @@ msgstr ""
 
 #: ../glade/main.glade:910 ../glade/main.glade:1050 ../glade/main.glade:1398
 msgid "GPRS:"
-msgstr ""
+msgstr "GPRS:"
 
 #: ../glade/main.glade:923 ../glade/main.glade:1063 ../glade/main.glade:1411
 msgid "3G:"
-msgstr ""
+msgstr "3G:"
 
 #: ../glade/main.glade:938 ../glade/main.glade:1078 ../glade/main.glade:1426
 msgid "Total:"
@@ -486,7 +488,7 @@ msgstr "Pašreizējais mēnesis"
 
 #: ../glade/main.glade:1553
 msgid "Last month"
-msgstr ""
+msgstr "Pagājušajā mēnesī"
 
 #: ../glade/main.glade:1568
 msgid "<b>Usage</b> - Remember that this information is only indicative."
@@ -502,7 +504,7 @@ msgstr ""
 
 #: ../glade/main.glade:1695
 msgid "Customer support"
-msgstr ""
+msgstr "Klientu atbalsts"
 
 #: ../glade/misc.glade:54
 msgid "Wader log"
@@ -586,7 +588,7 @@ msgstr ""
 
 #: ../glade/pin.glade:397 ../glade/pin.glade:733
 msgid "New PIN code: "
-msgstr "Jauns PIN kods:"
+msgstr "Jauns PIN kods: "
 
 #: ../glade/pin.glade:425
 msgid "Current PIN code: "
@@ -598,7 +600,7 @@ msgstr ""
 
 #: ../glade/pin.glade:650
 msgid "PUK:"
-msgstr ""
+msgstr "PUK:"
 
 #: ../glade/preferences.glade:60
 msgid "<b>Change to global SMS settings </b>"
@@ -678,11 +680,11 @@ msgstr ""
 
 #: ../glade/preferences.glade:509
 msgid "User Preferences"
-msgstr ""
+msgstr "Lietotāja iestatījumi"
 
 #: ../glade/preferences.glade:530
 msgid "<b>Web Browser</b>"
-msgstr ""
+msgstr "<b>Tīmekļa pārlūks</b>"
 
 #: ../glade/preferences.glade:599 ../glade/preferences.glade:716
 msgid "Command:"
@@ -775,7 +777,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:752
 msgid "Profile name:"
-msgstr ""
+msgstr "Profila nosaukums:"
 
 #: ../glade/profiles.glade:863
 msgid "Device selection"
@@ -851,51 +853,51 @@ msgstr "Jebkāds"
 
 #: ../../gui/constx.py:48
 msgid "EGSM 900"
-msgstr ""
+msgstr "EGSM 900"
 
 #: ../../gui/constx.py:49
 msgid "GSM DCS"
-msgstr ""
+msgstr "GSM DCS"
 
 #: ../../gui/constx.py:50
 msgid "GSM PCS"
-msgstr ""
+msgstr "GSM PCS"
 
 #: ../../gui/constx.py:51
 msgid "GSM 850"
-msgstr ""
+msgstr "GSM 850"
 
 #: ../../gui/constx.py:52
 msgid "WCDMA 2100"
-msgstr ""
+msgstr "WCDMA 2100"
 
 #: ../../gui/constx.py:53
 msgid "WCDMA 1800"
-msgstr ""
+msgstr "WCDMA 1800"
 
 #: ../../gui/constx.py:54
 msgid "WCDMA 17IV"
-msgstr ""
+msgstr "WCDMA 17IV"
 
 #: ../../gui/constx.py:55
 msgid "WCDMA 800"
-msgstr ""
+msgstr "WCDMA 800"
 
 #: ../../gui/constx.py:56
 msgid "WCDMA 850"
-msgstr ""
+msgstr "WCDMA 850"
 
 #: ../../gui/constx.py:57
 msgid "WCDMA 900"
-msgstr ""
+msgstr "WCDMA 900"
 
 #: ../../gui/constx.py:58
 msgid "WCDMA 17IX"
-msgstr ""
+msgstr "WCDMA 17IX"
 
 #: ../../gui/constx.py:59
 msgid "WCDMA 1900"
-msgstr ""
+msgstr "WCDMA 1900"
 
 #: ../../gui/constx.py:66 ../../gui/signals.py:27
 msgid "2G preferred"
@@ -992,7 +994,7 @@ msgstr "GSM"
 
 #: ../../gui/views/main.py:338
 msgid "GSM_COMPAT"
-msgstr ""
+msgstr "GSM_COMPAT"
 
 #: ../../gui/views/main.py:339 ../../gui/signals.py:24
 msgid "GPRS"
@@ -1070,7 +1072,7 @@ msgstr ""
 
 #: ../../gui/views/main.py:422
 msgid "Disabling"
-msgstr ""
+msgstr "Atslēdz"
 
 #: ../../gui/views/main.py:424
 msgid "Searching"
@@ -1232,7 +1234,7 @@ msgstr ""
 
 #: ../../gui/controllers/pin.py:107 ../../gui/controllers/pin.py:186
 msgid "Incorrect PIN"
-msgstr ""
+msgstr "Nepareizs PIN"
 
 #: ../../gui/controllers/pin.py:108 ../../gui/controllers/pin.py:187
 msgid ""
@@ -1250,7 +1252,7 @@ msgstr "Iziet no %s"
 
 #: ../../gui/controllers/main.py:175
 msgid "Are you sure you want to exit?"
-msgstr ""
+msgstr "Vai jūs esat drošs par iziešanu?"
 
 #: ../../gui/controllers/main.py:187
 msgid "Can not close application"
@@ -1278,7 +1280,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:379
 msgid "Invalid password"
-msgstr ""
+msgstr "Parole nav derīga"
 
 #: ../../gui/controllers/main.py:380
 msgid "The supplied password is incorrect"
@@ -1336,7 +1338,7 @@ msgstr "Nevar pieslegties"
 
 #: ../../gui/controllers/main.py:714 ../../gui/controllers/main.py:749
 msgid "Send SMS"
-msgstr ""
+msgstr "Sūtīt SMS"
 
 #: ../../gui/controllers/main.py:727
 msgid "Quit"
@@ -1492,6 +1494,8 @@ msgstr ""
 #: ../../gui/dialogs.py:66
 msgid "translator-credits"
 msgstr ""
+"Launchpad Contributions:\n"
+"  Andrew Bird https://launchpad.net/~ajb-spheresystems"
 
 #: ../../gui/dialogs.py:134
 msgid "Warning"
@@ -1563,7 +1567,7 @@ msgstr "Evolution"
 
 #: ../../gui/contacts/contact_kdepim.py:133
 msgid "KDE PIM"
-msgstr ""
+msgstr "KDE PIM"
 
 #: ../../bin/v-mobile-broadband:68
 msgid "Do not run the application as root"

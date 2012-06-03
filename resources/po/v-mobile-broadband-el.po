@@ -9,13 +9,13 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-24 15:29+0100\n"
-"PO-Revision-Date: 2012-01-22 17:15+0000\n"
+"PO-Revision-Date: 2012-06-03 18:00+0000\n"
 "Last-Translator: Andrew Bird <Unknown>\n"
 "Language-Team: Greek <EL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-03 10:12+0000\n"
+"X-Launchpad-Export-Date: 2012-06-03 19:04+0000\n"
 "X-Generator: Launchpad (build 15342)\n"
 "Language: el\n"
 
@@ -34,7 +34,7 @@ msgstr ""
 #: ../glade/apnsel.glade:193 ../glade/pin.glade:217 ../glade/pin.glade:222
 #: ../glade/pin.glade:862 ../glade/profiles.glade:1334
 msgid "Cancel"
-msgstr ""
+msgstr "Άκυρο"
 
 #: ../glade/apnsel.glade:208 ../glade/pin.glade:239
 #: ../glade/profiles.glade:1349
@@ -162,7 +162,7 @@ msgstr "<b>Datacard λεπτομέρειες</b>"
 
 #: ../glade/diagnostics.glade:81
 msgid "Manufacturer:"
-msgstr ""
+msgstr "Κατασκευαστής:"
 
 #: ../glade/diagnostics.glade:92
 msgid "Model:"
@@ -344,11 +344,11 @@ msgstr "Κωδικός:"
 
 #: ../glade/keyring.glade:100
 msgid "Confirm password:"
-msgstr ""
+msgstr "Επιβεβαίωση κωδικού:"
 
 #: ../glade/keyring.glade:131
 msgid "Unlock Keyring"
-msgstr ""
+msgstr "Ξεκλείδωμα κλειδοθήκης"
 
 #: ../glade/keyring.glade:157
 msgid "Please, enter your keyring password"
@@ -385,7 +385,7 @@ msgstr "Εργα_λεία"
 
 #: ../glade/main.glade:167 ../../gui/views/main.py:423
 msgid "Enabled"
-msgstr ""
+msgstr "Ενεργοποιημένο"
 
 #: ../glade/main.glade:177
 msgid "Change PIN"
@@ -397,7 +397,7 @@ msgstr "Απαίτηση PIN"
 
 #: ../glade/main.glade:226
 msgid "Profiles"
-msgstr ""
+msgstr "Προφίλ"
 
 #: ../glade/main.glade:249 ../glade/preferences.glade:8
 msgid "Preferences"
@@ -409,7 +409,7 @@ msgstr "_Βοήθεια"
 
 #: ../glade/main.glade:282
 msgid "Help"
-msgstr ""
+msgstr "Βοήθεια"
 
 #: ../glade/main.glade:301
 msgid "_About"
@@ -477,7 +477,7 @@ msgstr "3G:"
 
 #: ../glade/main.glade:938 ../glade/main.glade:1078 ../glade/main.glade:1426
 msgid "Total:"
-msgstr ""
+msgstr "Σύνολο:"
 
 #: ../glade/main.glade:1008 ../glade/main.glade:1444
 msgid "<b>Transferred Data</b>"
@@ -493,11 +493,11 @@ msgstr ""
 
 #: ../glade/main.glade:1251
 msgid "Current month"
-msgstr ""
+msgstr "Τρέχων μήνας"
 
 #: ../glade/main.glade:1553
 msgid "Last month"
-msgstr ""
+msgstr "Τελευταίος μήνας"
 
 #: ../glade/main.glade:1568
 msgid "<b>Usage</b> - Remember that this information is only indicative."
@@ -691,15 +691,15 @@ msgstr ""
 
 #: ../glade/preferences.glade:509
 msgid "User Preferences"
-msgstr ""
+msgstr "Προτιμήσεις χρήστη"
 
 #: ../glade/preferences.glade:530
 msgid "<b>Web Browser</b>"
-msgstr ""
+msgstr "<b>Περιηγητής ιστοσελίδων</b>"
 
 #: ../glade/preferences.glade:599 ../glade/preferences.glade:716
 msgid "Command:"
-msgstr ""
+msgstr "Εντολή:"
 
 #: ../glade/preferences.glade:650
 msgid "<b>Email client</b>"
@@ -707,7 +707,7 @@ msgstr ""
 
 #: ../glade/preferences.glade:779
 msgid "Applications"
-msgstr ""
+msgstr "Εφαρμογές"
 
 #: ../glade/preferences.glade:800
 msgid "<b>Usage Options</b>"
@@ -727,7 +727,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:9
 msgid "New Profile"
-msgstr ""
+msgstr "Νέο προφίλ"
 
 #: ../glade/profiles.glade:23
 msgid "New Profile Window"
@@ -772,7 +772,7 @@ msgstr "<b>Ρυθμίσεις DNS</b>"
 
 #: ../glade/profiles.glade:485
 msgid "Use static DNS"
-msgstr ""
+msgstr "Χρήση στατικού DNS"
 
 #: ../glade/profiles.glade:518
 msgid "Primary DNS:"
@@ -788,7 +788,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:752
 msgid "Profile name:"
-msgstr ""
+msgstr "Όνομα κατατομής:"
 
 #: ../glade/profiles.glade:863
 msgid "Device selection"
@@ -816,15 +816,15 @@ msgstr ""
 
 #: ../glade/profiles.glade:1083
 msgid "Device type:"
-msgstr ""
+msgstr "Τύπος συσκευής:"
 
 #: ../glade/profiles.glade:1108
 msgid "Serial"
-msgstr ""
+msgstr "Σειριακή"
 
 #: ../glade/profiles.glade:1183
 msgid "115200"
-msgstr ""
+msgstr "115200"
 
 #: ../glade/profiles.glade:1198
 msgid "Data port device:"
@@ -1049,7 +1049,7 @@ msgstr "UMTS"
 
 #: ../../gui/views/main.py:342 ../../gui/signals.py:31
 msgid "HSDPA"
-msgstr ""
+msgstr "HSDPA"
 
 #: ../../gui/views/main.py:343 ../../gui/signals.py:32
 msgid "HSUPA"
@@ -1091,7 +1091,7 @@ msgstr ""
 
 #: ../../gui/views/main.py:417
 msgid "Disabled"
-msgstr ""
+msgstr "Απενεργοποιήθηκε"
 
 #: ../../gui/views/main.py:418
 msgid "SIM locked"
@@ -1115,7 +1115,7 @@ msgstr ""
 
 #: ../../gui/views/main.py:424
 msgid "Searching"
-msgstr ""
+msgstr "Γίνεται αναζήτηση"
 
 #: ../../gui/views/main.py:425 ../../gui/controllers/main.py:1063
 msgid "Not connected"
@@ -1127,7 +1127,7 @@ msgstr "Συνδεδεμένο"
 
 #: ../../gui/views/main.py:431
 msgid "No device"
-msgstr ""
+msgstr "Καμία συσκευή"
 
 #: ../../gui/views/main.py:490 ../../gui/views/main.py:526
 #: ../../gui/views/profile.py:143 ../../gui/controllers/contacts.py:145
@@ -1161,7 +1161,7 @@ msgstr "Ημερομηνία"
 
 #: ../../gui/views/profile.py:138
 msgid "Country"
-msgstr ""
+msgstr "Χώρα"
 
 #: ../../gui/uptime.py:83
 #, python-format
@@ -1180,7 +1180,7 @@ msgstr ""
 #: ../../gui/models/main.py:118 ../../gui/controllers/payt.py:176
 #: ../../gui/controllers/payt.py:208
 msgid "Not available"
-msgstr ""
+msgstr "Μη διαθέσιμο"
 
 #: ../../gui/models/main.py:183
 msgid "Error while starting wader"
@@ -1195,7 +1195,7 @@ msgstr ""
 #: ../../gui/models/profile.py:162 ../../gui/controllers/preferences.py:144
 #: ../../gui/controllers/preferences.py:160
 msgid "Custom"
-msgstr ""
+msgstr "Προσαρμοσμένη"
 
 #: ../../gui/models/profile.py:377
 msgid "Trying to remove an unsaved profile"
@@ -1327,7 +1327,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:379
 msgid "Invalid password"
-msgstr ""
+msgstr "Μη έγκυρος κωδικός πρόσβασης"
 
 #: ../../gui/controllers/main.py:380
 msgid "The supplied password is incorrect"
@@ -1343,7 +1343,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:424
 msgid "Unknown error"
-msgstr ""
+msgstr "Άγνωστο σφάλμα"
 
 #: ../../gui/controllers/main.py:430
 msgid "Error while registering to home network"
@@ -1381,7 +1381,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:661
 msgid "Unable to connect"
-msgstr ""
+msgstr "Αδυναμία σύνδεσης"
 
 #: ../../gui/controllers/main.py:714 ../../gui/controllers/main.py:749
 msgid "Send SMS"
@@ -1413,7 +1413,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:821
 msgid "No device found"
-msgstr ""
+msgstr "Δε βρέθηκε συσκευή"
 
 #: ../../gui/controllers/main.py:822
 msgid "No device has been found. Insert one and try again."
@@ -1443,15 +1443,15 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:1022
 msgid "Load Profile"
-msgstr ""
+msgstr "Φόρτωμα Προφίλ"
 
 #: ../../gui/controllers/main.py:1027
 msgid "Edit Profile"
-msgstr ""
+msgstr "Επεξεργασία προφίλ"
 
 #: ../../gui/controllers/main.py:1032
 msgid "Delete Profile"
-msgstr ""
+msgstr "Διαγραφή Προφίλ"
 
 #: ../../gui/controllers/main.py:1064
 msgid "No mobile connection. Do you want to continue?"
@@ -1553,7 +1553,7 @@ msgstr ""
 
 #: ../../gui/dialogs.py:134
 msgid "Warning"
-msgstr ""
+msgstr "Προειδοποίηση"
 
 #: ../../gui/dialogs.py:160
 msgid "Error"
@@ -1561,7 +1561,7 @@ msgstr "Σφάλμα"
 
 #: ../../gui/dialogs.py:244
 msgid "Password required"
-msgstr ""
+msgstr "Απαιτείται συνθηματικό"
 
 #: ../../gui/dialogs.py:245
 msgid "Please, insert the password of your connection"
@@ -1619,11 +1619,11 @@ msgstr ""
 
 #: ../../gui/contacts/contact_evolution.py:136
 msgid "Evolution"
-msgstr ""
+msgstr "Evolution"
 
 #: ../../gui/contacts/contact_kdepim.py:133
 msgid "KDE PIM"
-msgstr ""
+msgstr "KDE PIM"
 
 #: ../../bin/v-mobile-broadband:68
 msgid "Do not run the application as root"
