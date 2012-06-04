@@ -435,9 +435,13 @@ class MainController(Controller):
             # XXX: we should check for any of our existing popups and hide them
             pass
         elif new == GUI_SIM_AUTH_PIN:
+            # Note: Define an alias for dgettext so that xgetext doesn't add
+            #       them to our .pot file, as they are in nm-applet domain.
+            _dgettext = dgettext
+
             # Check for NM's desktop PIN popup
-            app_name = dgettext('nm-applet', 'NetworkManager Applet')
-            win_name = dgettext('nm-applet', 'SIM PIN unlock required')
+            app_name = _dgettext('nm-applet', 'NetworkManager Applet')
+            win_name = _dgettext('nm-applet', 'SIM PIN unlock required')
             win_list = find_windows(app_name, win_name)
             if win_list is None or len(win_list) == 0:
                 self.ask_for_pin()
