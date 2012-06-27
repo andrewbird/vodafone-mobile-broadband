@@ -7,20 +7,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-24 15:29+0100\n"
-"PO-Revision-Date: 2012-06-03 13:06+0000\n"
-"Last-Translator: Andrew Bird <Unknown>\n"
+"POT-Creation-Date: 2012-06-04 09:28+0100\n"
+"PO-Revision-Date: 2012-06-18 16:17+0000\n"
+"Last-Translator: Milo Casagrande <milo.casagrande@gmail.com>\n"
 "Language-Team: Italian <IT@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-03 19:04+0000\n"
-"X-Generator: Launchpad (build 15342)\n"
+"X-Launchpad-Export-Date: 2012-06-27 08:01+0000\n"
+"X-Generator: Launchpad (build 15482)\n"
 "Language: it\n"
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
-msgstr ""
+msgstr "Selezione APN"
 
 #: ../glade/apnsel.glade:69
 msgid ""
@@ -37,16 +37,16 @@ msgstr ""
 #: ../glade/apnsel.glade:193 ../glade/pin.glade:217 ../glade/pin.glade:222
 #: ../glade/pin.glade:862 ../glade/profiles.glade:1334
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #: ../glade/apnsel.glade:208 ../glade/pin.glade:239
 #: ../glade/profiles.glade:1349
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../glade/apnsel.glade:228
 msgid "<b>APN Settings</b>"
-msgstr ""
+msgstr "<b>Impostazioni APN</b>"
 
 #: ../glade/config.glade:8
 msgid "Device setup"
@@ -232,7 +232,7 @@ msgstr "IMSI"
 #: ../../gui/views/diagnostics.py:87 ../../gui/views/diagnostics.py:92
 #: ../../gui/views/diagnostics.py:97 ../../gui/views/diagnostics.py:102
 #: ../../gui/models/main.py:94 ../../gui/models/main.py:359
-#: ../../gui/controllers/main.py:259 ../../gui/controllers/main.py:583
+#: ../../gui/controllers/main.py:259 ../../gui/controllers/main.py:587
 msgid "Unknown"
 msgstr "Sconosciuto"
 
@@ -1077,7 +1077,7 @@ msgid "LTE"
 msgstr "LTE"
 
 #: ../../gui/views/main.py:386 ../../gui/views/main.py:390
-#: ../../gui/controllers/main.py:700
+#: ../../gui/controllers/main.py:704
 msgid "Connect"
 msgstr "Connetti"
 
@@ -1086,11 +1086,11 @@ msgid "Disconnecting"
 msgstr "Disconnessione"
 
 #: ../../gui/views/main.py:398 ../../gui/views/main.py:426
-#: ../../gui/controllers/main.py:860
+#: ../../gui/controllers/main.py:864
 msgid "Connecting"
 msgstr "Connettendo"
 
-#: ../../gui/views/main.py:402 ../../gui/controllers/main.py:695
+#: ../../gui/views/main.py:402 ../../gui/controllers/main.py:699
 msgid "Disconnect"
 msgstr "Disconnetti"
 
@@ -1126,7 +1126,7 @@ msgstr ""
 msgid "Searching"
 msgstr "Searching"
 
-#: ../../gui/views/main.py:425 ../../gui/controllers/main.py:1063
+#: ../../gui/views/main.py:425 ../../gui/controllers/main.py:1067
 msgid "Not connected"
 msgstr "Non connesso"
 
@@ -1166,7 +1166,7 @@ msgstr "Inviato da"
 
 #: ../../gui/views/main.py:575
 msgid "Date"
-msgstr "Dattero"
+msgstr "Data"
 
 #: ../../gui/views/profile.py:138
 msgid "Country"
@@ -1370,61 +1370,53 @@ msgstr "Errore sconosciuto"
 msgid "Error while registering to home network"
 msgstr ""
 
-#: ../../gui/controllers/main.py:439
-msgid "NetworkManager Applet"
-msgstr ""
-
-#: ../../gui/controllers/main.py:440
-msgid "SIM PIN unlock required"
-msgstr ""
-
-#: ../../gui/controllers/main.py:502
+#: ../../gui/controllers/main.py:506
 msgid "Transfer limit exceeded"
 msgstr ""
 
-#: ../../gui/controllers/main.py:503
+#: ../../gui/controllers/main.py:507
 msgid "You have exceeded your transfer limit"
 msgstr ""
 
-#: ../../gui/controllers/main.py:584
+#: ../../gui/controllers/main.py:588
 #, python-format
 msgid "SMS receipt received for %s"
 msgstr ""
 
-#: ../../gui/controllers/main.py:619
+#: ../../gui/controllers/main.py:623
 #, python-format
 msgid "SMS received from %s"
 msgstr "SMS ricevuto da %s"
 
-#: ../../gui/controllers/main.py:660 ../../gui/controllers/main.py:663
+#: ../../gui/controllers/main.py:664 ../../gui/controllers/main.py:667
 msgid "Failed connection attempt"
 msgstr ""
 
-#: ../../gui/controllers/main.py:661
+#: ../../gui/controllers/main.py:665
 msgid "Unable to connect"
 msgstr "Impossibile connettere"
 
-#: ../../gui/controllers/main.py:714 ../../gui/controllers/main.py:749
+#: ../../gui/controllers/main.py:718 ../../gui/controllers/main.py:753
 msgid "Send SMS"
 msgstr "Spedisci un SMS"
 
-#: ../../gui/controllers/main.py:727
+#: ../../gui/controllers/main.py:731
 msgid "Quit"
 msgstr "Chiudi"
 
-#: ../../gui/controllers/main.py:760
+#: ../../gui/controllers/main.py:764
 msgid "_Delete"
 msgstr "_Cancella"
 
-#: ../../gui/controllers/main.py:771
+#: ../../gui/controllers/main.py:775
 msgid "Edit"
 msgstr "Modifica"
 
-#: ../../gui/controllers/main.py:791
+#: ../../gui/controllers/main.py:795
 msgid "Invalid CSV format"
 msgstr "Formato CSV non valido"
 
-#: ../../gui/controllers/main.py:792
+#: ../../gui/controllers/main.py:796
 msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
@@ -1432,82 +1424,82 @@ msgstr ""
 "\n"
 "Il file csv che hai provato ad importare ha un formato non valido."
 
-#: ../../gui/controllers/main.py:821
+#: ../../gui/controllers/main.py:825
 msgid "No device found"
 msgstr ""
 
-#: ../../gui/controllers/main.py:822
+#: ../../gui/controllers/main.py:826
 msgid "No device has been found. Insert one and try again."
 msgstr ""
 
-#: ../../gui/controllers/main.py:828
+#: ../../gui/controllers/main.py:832
 msgid "Profile needed"
 msgstr ""
 
-#: ../../gui/controllers/main.py:829
+#: ../../gui/controllers/main.py:833
 msgid "You need to create a profile for connecting."
 msgstr ""
 
-#: ../../gui/controllers/main.py:874
+#: ../../gui/controllers/main.py:878
 msgid "Invalid Connection"
 msgstr ""
 
-#: ../../gui/controllers/main.py:875
+#: ../../gui/controllers/main.py:879
 msgid ""
 "It's likely that this connection was made by the Network Manager Applet, "
 "please use that to deactivate"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1013
+#: ../../gui/controllers/main.py:1017
 msgid "_New Profile"
 msgstr "_Nuovo profilo"
 
-#: ../../gui/controllers/main.py:1022
+#: ../../gui/controllers/main.py:1026
 msgid "Load Profile"
 msgstr "Carica profilo"
 
-#: ../../gui/controllers/main.py:1027
+#: ../../gui/controllers/main.py:1031
 msgid "Edit Profile"
 msgstr "Modifica Profilo"
 
-#: ../../gui/controllers/main.py:1032
+#: ../../gui/controllers/main.py:1036
 msgid "Delete Profile"
 msgstr "Cancella Profilo"
 
-#: ../../gui/controllers/main.py:1064
+#: ../../gui/controllers/main.py:1068
 msgid "No mobile connection. Do you want to continue?"
 msgstr "Nessuna connessione attiva. Vuoi continuare?"
 
-#: ../../gui/controllers/main.py:1479
+#: ../../gui/controllers/main.py:1483
 msgid "Editor not available"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1480
+#: ../../gui/controllers/main.py:1484
 #, python-format
 msgid "Can not start external contact editor \"%s\""
 msgstr ""
 
-#: ../../gui/controllers/main.py:1486
+#: ../../gui/controllers/main.py:1490
 msgid "_Add to contacts"
 msgstr "_Aggiungi ai contatti"
 
-#: ../../gui/controllers/main.py:1497
+#: ../../gui/controllers/main.py:1501
 msgid "Migrate to DB"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1506
+#: ../../gui/controllers/main.py:1510
 msgid "Save to draft"
 msgstr "Salva brutta copia"
 
-#: ../../gui/controllers/main.py:1517
+#: ../../gui/controllers/main.py:1521
 msgid "Delete"
 msgstr "Cancella"
 
-#: ../../gui/controllers/main.py:1565
+#: ../../gui/controllers/main.py:1569
 msgid "Can not handle DB contacts"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1566
+#: ../../gui/controllers/main.py:1570
 msgid "Only SIM based contacts supported"
 msgstr ""
 
@@ -1569,7 +1561,8 @@ msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Andrew Bird https://launchpad.net/~ajb-spheresystems\n"
-"  Emanuele FANTON https://launchpad.net/~emanuele-fanton"
+"  Emanuele FANTON https://launchpad.net/~emanuele-fanton\n"
+"  Milo Casagrande https://launchpad.net/~milo"
 
 #: ../../gui/dialogs.py:134
 msgid "Warning"

@@ -7,20 +7,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-24 15:29+0100\n"
-"PO-Revision-Date: 2012-06-03 16:08+0000\n"
-"Last-Translator: Andrew Bird <Unknown>\n"
+"POT-Creation-Date: 2012-06-04 09:28+0100\n"
+"PO-Revision-Date: 2012-06-22 12:25+0000\n"
+"Last-Translator: Eugene Marshal <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-03 19:04+0000\n"
-"X-Generator: Launchpad (build 15342)\n"
+"X-Launchpad-Export-Date: 2012-06-27 08:01+0000\n"
+"X-Generator: Launchpad (build 15482)\n"
 "Language: ru\n"
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
-msgstr ""
+msgstr "Выбор точки доступа"
 
 #: ../glade/apnsel.glade:69
 msgid ""
@@ -29,6 +29,10 @@ msgid ""
 "You can choose a preconfigured APN or cancel to enter the information needed "
 "to set up a custom one.\n"
 msgstr ""
+"<b>Профили точек доступа для вашего оператора.</b>\n"
+"\n"
+"Вы можете выбрать профиль точки доступа или самостоятельно ввести сведения "
+"необходимые для настройки доступа.\n"
 
 #: ../glade/apnsel.glade:193 ../glade/pin.glade:217 ../glade/pin.glade:222
 #: ../glade/pin.glade:862 ../glade/profiles.glade:1334
@@ -42,7 +46,7 @@ msgstr "Да"
 
 #: ../glade/apnsel.glade:228
 msgid "<b>APN Settings</b>"
-msgstr ""
+msgstr "<b>Настройки точки доступа</b>"
 
 #: ../glade/config.glade:8
 msgid "Device setup"
@@ -53,10 +57,11 @@ msgid ""
 "Please select from the following options how do you want to connect to the "
 "Internet"
 msgstr ""
+"Пожалуйста, выберите из следующих вариантов, способ подключения к интернету"
 
 #: ../glade/config.glade:56
 msgid "Device model: "
-msgstr ""
+msgstr "Модель устройства: "
 
 #: ../glade/config.glade:63
 msgid "Connection:"
@@ -64,11 +69,11 @@ msgstr "Подключение:"
 
 #: ../glade/config.glade:153
 msgid "Bluetooth configuration"
-msgstr ""
+msgstr "Настройки Bluetooth"
 
 #: ../glade/config.glade:174
 msgid "Configure your <b>Bluetooth</b> device"
-msgstr ""
+msgstr "Настроить устройство с <b>Bluetooth</b>"
 
 #: ../glade/config.glade:198
 msgid ""
@@ -78,22 +83,29 @@ msgid ""
 "sports a recent version of libbluetooth2. Otherwise you will\n"
 "have to configure it yourself and fill the relevant entries"
 msgstr ""
+"Убедитесь, что на вашем мобильном аппарате включён bluetooth и доступен для "
+"обнаружения.\n"
+"Вам понадобится установленный агент ключа доступа, например bluez-gnome. "
+"Ваше\n"
+"соединение может быть автоматически настроено, если ваш дистрибутив\n"
+"содержит последнюю версию libbluetooth2. В противном случае, вам\n"
+"необходимо настроить самостоятельно и заполнить необходимые поля"
 
 #: ../glade/config.glade:250
 msgid "_Start discovery"
-msgstr ""
+msgstr "_Задействовать обнаружение"
 
 #: ../glade/config.glade:301
 msgid "<b>Serial Port</b>"
-msgstr ""
+msgstr "<b>Последовательный порт</b>"
 
 #: ../glade/config.glade:325
 msgid "Data port"
-msgstr ""
+msgstr "Порт данных"
 
 #: ../glade/config.glade:334
 msgid "Control port"
-msgstr ""
+msgstr "Порт управления"
 
 #: ../glade/config.glade:346
 msgid "Speed"
@@ -105,15 +117,15 @@ msgstr "<b>Настройки соединения</b>"
 
 #: ../glade/config.glade:461
 msgid "Enable hardware flow control"
-msgstr ""
+msgstr "Задействовать аппаратное управление потоком"
 
 #: ../glade/config.glade:474
 msgid "Enable software flow control"
-msgstr ""
+msgstr "Задействовать программное управление потоком"
 
 #: ../glade/contacts.glade:9
 msgid "Contact search"
-msgstr ""
+msgstr "Поиск контакта"
 
 #: ../glade/contacts.glade:32 ../glade/contacts.glade:181
 msgid "Name:"
@@ -121,11 +133,11 @@ msgstr "Название:"
 
 #: ../glade/contacts.glade:96
 msgid "Contacts List"
-msgstr ""
+msgstr "Список контактов"
 
 #: ../glade/contacts.glade:161 ../glade/main.glade:565
 msgid "Add a contact"
-msgstr ""
+msgstr "Добавить контакт"
 
 #: ../glade/contacts.glade:224
 msgid "Number:"
@@ -133,7 +145,7 @@ msgstr "Номер:"
 
 #: ../glade/contacts.glade:260
 msgid "<b>Save in:</b>"
-msgstr ""
+msgstr "<b>Сохранить в:</b>"
 
 #: ../glade/contacts.glade:303 ../../gui/contacts/contact_sim.py:170
 msgid "Mobile"
@@ -149,7 +161,7 @@ msgstr "Сводка"
 
 #: ../glade/diagnostics.glade:43
 msgid "<b>Datacard details</b>"
-msgstr ""
+msgstr "<b>Сведения карты данныхs</b>"
 
 #: ../glade/diagnostics.glade:81
 msgid "Manufacturer:"
@@ -169,11 +181,11 @@ msgstr "IMEI: "
 
 #: ../glade/diagnostics.glade:138
 msgid "Card manufacturer"
-msgstr ""
+msgstr "Издатель карты"
 
 #: ../glade/diagnostics.glade:149
 msgid "Card model"
-msgstr ""
+msgstr "Модель карты"
 
 #: ../glade/diagnostics.glade:160
 msgid "Firmware"
@@ -189,7 +201,7 @@ msgstr "Модем"
 
 #: ../glade/diagnostics.glade:226
 msgid "<b>Network details from SIM</b>"
-msgstr ""
+msgstr "<b>Сетевые реквизиты с SIM</b>"
 
 #: ../glade/diagnostics.glade:264
 msgid "IMSI:"
@@ -205,7 +217,7 @@ msgstr "Страна:"
 
 #: ../glade/diagnostics.glade:297
 msgid "Mobile Number:"
-msgstr ""
+msgstr "Мобильный номер:"
 
 #: ../glade/diagnostics.glade:320
 msgid "IMSI"
@@ -220,7 +232,7 @@ msgstr "IMSI"
 #: ../../gui/views/diagnostics.py:87 ../../gui/views/diagnostics.py:92
 #: ../../gui/views/diagnostics.py:97 ../../gui/views/diagnostics.py:102
 #: ../../gui/models/main.py:94 ../../gui/models/main.py:359
-#: ../../gui/controllers/main.py:259 ../../gui/controllers/main.py:583
+#: ../../gui/controllers/main.py:259 ../../gui/controllers/main.py:587
 msgid "Unknown"
 msgstr "Неизвестно"
 
@@ -230,7 +242,7 @@ msgstr "SIM"
 
 #: ../glade/diagnostics.glade:408
 msgid "<b>Device information</b>"
-msgstr ""
+msgstr "<b>Сведения об устройстве</b>"
 
 #: ../glade/diagnostics.glade:445
 msgid "Operating System:"
@@ -250,11 +262,11 @@ msgstr "Устройство"
 
 #: ../glade/diagnostics.glade:601
 msgid "Software Version:"
-msgstr ""
+msgstr "Версия ПО:"
 
 #: ../glade/diagnostics.glade:612
 msgid "Core Version:"
-msgstr ""
+msgstr "Версия ядра:"
 
 #: ../glade/diagnostics.glade:634 ../glade/diagnostics.glade:644
 msgid "Not supported"
@@ -262,7 +274,7 @@ msgstr "Не поддерживается"
 
 #: ../glade/diagnostics.glade:672
 msgid "Modem Manager"
-msgstr ""
+msgstr "Диспетчер модема"
 
 #: ../glade/diagnostics.glade:688
 msgid "<b>USSD Test Message Diagnostics</b>"
@@ -270,11 +282,11 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:717
 msgid "Add your USSD string:"
-msgstr ""
+msgstr "Добавьте вашу строку USSD:"
 
 #: ../glade/diagnostics.glade:765
 msgid "USSD reply message:"
-msgstr ""
+msgstr "Ответное сообщение USSD:"
 
 #: ../glade/diagnostics.glade:809 ../glade/payt.glade:289
 msgid "Send"
@@ -287,20 +299,20 @@ msgstr "USSD"
 #: ../glade/dialogs.glade:38 ../glade/dialogs.glade:239
 #: ../glade/dialogs.glade:451
 msgid "<big><b>Big title!</b></big>"
-msgstr ""
+msgstr "<big><b>Большое название!</b></big>"
 
 #: ../glade/dialogs.glade:51 ../glade/dialogs.glade:252
 #: ../glade/dialogs.glade:348 ../glade/dialogs.glade:464
 msgid "A detailed message"
-msgstr ""
+msgstr "Подробное сообщение"
 
 #: ../glade/dialogs.glade:138
 msgid "<big><b>Question?</b></big>"
-msgstr ""
+msgstr "<big><b>Вопрос?</b></big>"
 
 #: ../glade/dialogs.glade:152
 msgid "Detailed message"
-msgstr ""
+msgstr "Подробное сообщение"
 
 #: ../glade/dialogs.glade:189
 msgid "Action"
@@ -308,7 +320,7 @@ msgstr "Действие"
 
 #: ../glade/dialogs.glade:326
 msgid "<b>title</b>"
-msgstr ""
+msgstr "<b>название</b>"
 
 #: ../glade/dialogs.glade:363
 msgid "Remember my choice"
@@ -321,12 +333,16 @@ msgstr "_Файл"
 #: ../glade/keyring.glade:35
 msgid "<span size='large' weight='bold'>Creating a new keyring</span>"
 msgstr ""
+"<span size='large' weight='bold'>Создание нового диспетчера ключей и "
+"паролей</span>"
 
 #: ../glade/keyring.glade:48
 msgid ""
 "Please, insert a code to encrypt your sensitive\n"
 "information."
 msgstr ""
+"Пожалуйста, вставьте код для шифрования ваших конфиденциальных\n"
+"сведений."
 
 #: ../glade/keyring.glade:81 ../glade/keyring.glade:191
 #: ../glade/profiles.glade:177
@@ -343,15 +359,15 @@ msgstr "Разблокирование связки ключей"
 
 #: ../glade/keyring.glade:157
 msgid "Please, enter your keyring password"
-msgstr ""
+msgstr "Пожалуйста, введите ваш пароль диспетчера паролей и ключей"
 
 #: ../glade/main.glade:36
 msgid "Import contacts..."
-msgstr ""
+msgstr "Импортировать контакты..."
 
 #: ../glade/main.glade:46
 msgid "Export contacts..."
-msgstr ""
+msgstr "Экспортировать контакты..."
 
 #: ../glade/main.glade:59
 msgid "_Quit"
@@ -408,27 +424,27 @@ msgstr "О _программе"
 
 #: ../glade/main.glade:429
 msgid "Topup"
-msgstr ""
+msgstr "Пополнить"
 
 #: ../glade/main.glade:464
 msgid "Create new SMS"
-msgstr ""
+msgstr "Создать новое SMS сообщение"
 
 #: ../glade/main.glade:482
 msgid "Reply to SMS"
-msgstr ""
+msgstr "Ответить на SMS сообщение"
 
 #: ../glade/main.glade:500
 msgid "Reply to SMS quoting original message"
-msgstr ""
+msgstr "Ответить на SMS сообщение, взяв исходное сообщение в кавычки"
 
 #: ../glade/main.glade:517
 msgid "Forward SMS to another contact"
-msgstr ""
+msgstr "Передать SMS другому контакту"
 
 #: ../glade/main.glade:536
 msgid "Delete SMS"
-msgstr ""
+msgstr "Удалить SMS"
 
 #: ../glade/main.glade:583
 msgid "Search contacts"
@@ -436,7 +452,7 @@ msgstr "Поиск собеседников"
 
 #: ../glade/main.glade:601
 msgid "Delete contacts"
-msgstr ""
+msgstr "Удалить контакты"
 
 #: ../glade/main.glade:652
 msgid "Inbox"
@@ -472,15 +488,15 @@ msgstr "Всего:"
 
 #: ../glade/main.glade:1008 ../glade/main.glade:1444
 msgid "<b>Transferred Data</b>"
-msgstr ""
+msgstr "<b>Переданные данные</b>"
 
 #: ../glade/main.glade:1145
 msgid "<b>Current session</b>"
-msgstr ""
+msgstr "<b>Текущий сеанс</b>"
 
 #: ../glade/main.glade:1189 ../glade/main.glade:1488
 msgid "Total Traffic"
-msgstr ""
+msgstr "Всего передано"
 
 #: ../glade/main.glade:1251
 msgid "Current month"
@@ -493,14 +509,15 @@ msgstr "За последний месяц"
 #: ../glade/main.glade:1568
 msgid "<b>Usage</b> - Remember that this information is only indicative."
 msgstr ""
+"<b>Использование</b> - Помните, что эти сведения являются ориентировочными."
 
 #: ../glade/main.glade:1616
 msgid "Help menu"
-msgstr ""
+msgstr "Меню справки"
 
 #: ../glade/main.glade:1655
 msgid "Support center"
-msgstr ""
+msgstr "Центр поддержки"
 
 #: ../glade/main.glade:1695
 msgid "Customer support"
@@ -512,19 +529,19 @@ msgstr ""
 
 #: ../glade/payt.glade:6
 msgid "Topup Credit"
-msgstr ""
+msgstr "Пополнить кредит"
 
 #: ../glade/payt.glade:44
 msgid "<b>SIM Details</b>"
-msgstr ""
+msgstr "<b>Сведения о SIM</b>"
 
 #: ../glade/payt.glade:83
 msgid "<b>Number</b>"
-msgstr ""
+msgstr "<b>Номер</b>"
 
 #: ../glade/payt.glade:94
 msgid "<b>Credit</b>"
-msgstr ""
+msgstr "<b>Кредит</b>"
 
 #: ../glade/payt.glade:105
 msgid "<b>Date</b>"
@@ -532,11 +549,11 @@ msgstr "<b>Дата</b>"
 
 #: ../glade/payt.glade:167
 msgid "Recheck my credit:"
-msgstr ""
+msgstr "Перепроверить мой кредит:"
 
 #: ../glade/payt.glade:182
 msgid "Check credit"
-msgstr ""
+msgstr "Проверить кредит"
 
 #: ../glade/payt.glade:237
 msgid "<b>Voucher Code</b>"
@@ -544,35 +561,35 @@ msgstr ""
 
 #: ../glade/payt.glade:267
 msgid "Enter code:"
-msgstr ""
+msgstr "Введите код:"
 
 #: ../glade/payt.glade:341
 msgid "<b>Credit Card</b>"
-msgstr ""
+msgstr "<b>Кредитная карта</b>"
 
 #: ../glade/payt.glade:371
 msgid "Pay by credit card"
-msgstr ""
+msgstr "Оплатить кредитной картой"
 
 #: ../glade/pin.glade:8
 msgid "Insert your PIN code"
-msgstr ""
+msgstr "Вставьте ваш ПИН-код"
 
 #: ../glade/pin.glade:23
 msgid "Insert PIN Window"
-msgstr ""
+msgstr "Окно ввода ПИН-кода"
 
 #: ../glade/pin.glade:64
 msgid "Please insert your PIN code"
-msgstr ""
+msgstr "Пожалуйста, введите ваш ПИН-код"
 
 #: ../glade/pin.glade:104
 msgid "Insert PIN Entry"
-msgstr ""
+msgstr "Вставить запись ПИН-кода"
 
 #: ../glade/pin.glade:149
 msgid "Manage my PIN through gnome-keyring"
-msgstr ""
+msgstr "Настроить мой ПИН-код в диспетчере паролей и ключей"
 
 #: ../glade/pin.glade:178
 msgid "<b>Advanced Options</b>"
@@ -580,11 +597,11 @@ msgstr "<b>Дополнительные параметры сортировки<
 
 #: ../glade/pin.glade:257
 msgid "Modify PIN code"
-msgstr ""
+msgstr "Изменить ПИН-код"
 
 #: ../glade/pin.glade:369 ../glade/pin.glade:758
 msgid "Confirm PIN code: "
-msgstr ""
+msgstr "Подтвердите ПИН-код: "
 
 #: ../glade/pin.glade:397 ../glade/pin.glade:733
 msgid "New PIN code: "
@@ -592,11 +609,11 @@ msgstr "Новый PIN-код: "
 
 #: ../glade/pin.glade:425
 msgid "Current PIN code: "
-msgstr ""
+msgstr "Текущий ПИН-код: "
 
 #: ../glade/pin.glade:513
 msgid "Please enter PUK"
-msgstr ""
+msgstr "Пожалуйста, введите PUK-код"
 
 #: ../glade/pin.glade:650
 msgid "PUK:"
@@ -604,21 +621,23 @@ msgstr "PUK:"
 
 #: ../glade/preferences.glade:60
 msgid "<b>Change to global SMS settings </b>"
-msgstr ""
+msgstr "<b>Общие настройки SMS </b>"
 
 #: ../glade/preferences.glade:95
 msgid "<b>SMSC preferences</b>"
-msgstr ""
+msgstr "<b>Параметры SMSC</b>"
 
 #: ../glade/preferences.glade:112
 msgid "Use an alternative SMS Service centre address"
-msgstr ""
+msgstr "Использовать другой адрес центра службы SMS"
 
 #: ../glade/preferences.glade:117
 msgid ""
 "You may configure a different service centre address if you are not a "
 "Vodafone customer or the default one is incorrect."
 msgstr ""
+"Вы можете настроить другой адрес центра службы, если вы не являетесь "
+"абонентом Vodafone или назначенный по умолчанию не работает."
 
 #: ../glade/preferences.glade:144
 msgid "Profile:"
@@ -626,21 +645,23 @@ msgstr "Профиль:"
 
 #: ../glade/preferences.glade:158
 msgid "SMSC number:"
-msgstr ""
+msgstr "Номер SMSC:"
 
 #: ../glade/preferences.glade:249
 msgid "<b>Message options</b>"
-msgstr ""
+msgstr "<b>Параметры сообщения</b>"
 
 #: ../glade/preferences.glade:266
 msgid "Allow SMS confirmation"
-msgstr ""
+msgstr "Разрешить подтверждение SMS"
 
 #: ../glade/preferences.glade:270
 msgid ""
 "Allows SMS confirmation reports. This lets you see when someone has received "
 "your text message."
 msgstr ""
+"Разрешает ведение отчётов о подтверждении SMS. Это позволяет узнать, когда "
+"кто-либо принял ваше сообщение."
 
 #: ../glade/preferences.glade:301
 msgid "Validity:"
@@ -648,35 +669,35 @@ msgstr ""
 
 #: ../glade/preferences.glade:362
 msgid "SMS Profile"
-msgstr ""
+msgstr "Профиль SMS"
 
 #: ../glade/preferences.glade:382
 msgid "<b>User options</b>"
-msgstr ""
+msgstr "<b>Параметры пользователя</b>"
 
 #: ../glade/preferences.glade:405
 msgid "Exit without confirmation"
-msgstr ""
+msgstr "Выйти без подтверждения"
 
 #: ../glade/preferences.glade:421
 msgid "Show icon on tray"
-msgstr ""
+msgstr "Показывать значок на панели"
 
 #: ../glade/preferences.glade:437
 msgid "Close window minimizes app to tray"
-msgstr ""
+msgstr "При закрытии окна сворачивать в значок на панели"
 
 #: ../glade/preferences.glade:453
 msgid "Manage my PIN through gnomekeyring"
-msgstr ""
+msgstr "Свойства моего ПИН-кода в диспетчере паролей и ключей"
 
 #: ../glade/preferences.glade:469
 msgid "Use global menu if available"
-msgstr ""
+msgstr "Использовать общее меню, если оно доступно"
 
 #: ../glade/preferences.glade:474
 msgid "Change effective only after UI restart"
-msgstr ""
+msgstr "Изменения вступят в силу после перезапуска интерфейса"
 
 #: ../glade/preferences.glade:509
 msgid "User Preferences"
@@ -692,7 +713,7 @@ msgstr "Команда:"
 
 #: ../glade/preferences.glade:650
 msgid "<b>Email client</b>"
-msgstr ""
+msgstr "<b>Клиент эл.почты</b>"
 
 #: ../glade/preferences.glade:779
 msgid "Applications"
@@ -700,19 +721,19 @@ msgstr "Приложения"
 
 #: ../glade/preferences.glade:800
 msgid "<b>Usage Options</b>"
-msgstr ""
+msgstr "<b>Параметры использования</b>"
 
 #: ../glade/preferences.glade:832
 msgid "Maximum traffic (MB):"
-msgstr ""
+msgstr "Макс. трафик (МБ):"
 
 #: ../glade/preferences.glade:869
 msgid "Notify when a given threshold is exceeded."
-msgstr ""
+msgstr "Оповещать, при превышении ограничения."
 
 #: ../glade/preferences.glade:901
 msgid "Notification threshold (MB):"
-msgstr ""
+msgstr "Оповещать при ограничении (МБ):"
 
 #: ../glade/profiles.glade:9
 msgid "New Profile"
@@ -720,7 +741,7 @@ msgstr "Новый профиль"
 
 #: ../glade/profiles.glade:23
 msgid "New Profile Window"
-msgstr ""
+msgstr "Окно нового профиля"
 
 #: ../glade/profiles.glade:64
 msgid ""
@@ -730,10 +751,15 @@ msgid ""
 "support center and they should provide\n"
 "you with the relevant information."
 msgstr ""
+"<b>Создание нового профиля для вашего устройства.</b>\n"
+"\n"
+"Если вы не уверены, как правильно заполнять, обратитесь в центр поддержки "
+"абонентов, в котором вам будет предоставлена\n"
+"соответствующая информация."
 
 #: ../glade/profiles.glade:115
 msgid "<b>Connection preferences</b>"
-msgstr ""
+msgstr "<b>Свойства соединения</b>"
 
 #: ../glade/profiles.glade:152
 msgid "Username:"
@@ -741,11 +767,11 @@ msgstr "Имя пользователя:"
 
 #: ../glade/profiles.glade:202
 msgid "Authentication method:"
-msgstr ""
+msgstr "Метод проверки подлинности:"
 
 #: ../glade/profiles.glade:227
 msgid "Preferred connection:"
-msgstr ""
+msgstr "Назначенное соединение:"
 
 #: ../glade/profiles.glade:252
 msgid "Preferred band:"
@@ -753,11 +779,11 @@ msgstr ""
 
 #: ../glade/profiles.glade:277
 msgid "APN host:"
-msgstr ""
+msgstr "Узел точки доступа:"
 
 #: ../glade/profiles.glade:447
 msgid "<b>DNS settings</b>"
-msgstr ""
+msgstr "<b>Настройки DNS</b>"
 
 #: ../glade/profiles.glade:485
 msgid "Use static DNS"
@@ -773,7 +799,7 @@ msgstr "Вторичный DNS:"
 
 #: ../glade/profiles.glade:715
 msgid "<b>Profile settings</b>"
-msgstr ""
+msgstr "<b>Настройки профиля</b>"
 
 #: ../glade/profiles.glade:752
 msgid "Profile name:"
@@ -785,7 +811,7 @@ msgstr "Выбор устройства"
 
 #: ../glade/profiles.glade:877
 msgid "Device Selection Window"
-msgstr ""
+msgstr "Окно выбора устройства"
 
 #: ../glade/profiles.glade:925
 msgid ""
@@ -794,6 +820,10 @@ msgid ""
 "You can choose a known device or insert the needed information to set up a "
 "custom one.\n"
 msgstr ""
+"<b>Выберите устройство для вашего соединения.</b>\n"
+"\n"
+"Вы можете выбрать существующее устройства или заполнить сведения о новом "
+"добавляемом вами устройстве.\n"
 
 #: ../glade/profiles.glade:1024
 msgid "Known devices"
@@ -817,19 +847,19 @@ msgstr "115200"
 
 #: ../glade/profiles.glade:1198
 msgid "Data port device:"
-msgstr ""
+msgstr "Порт данных устройства:"
 
 #: ../glade/profiles.glade:1226
 msgid "Control port device:"
-msgstr ""
+msgstr "Порт управления устройством:"
 
 #: ../glade/profiles.glade:1254
 msgid "Speed connection:"
-msgstr ""
+msgstr "Скорость соединения:"
 
 #: ../glade/profiles.glade:1294
 msgid "Custom device settings"
-msgstr ""
+msgstr "Настройки пользовательского устройства"
 
 #: ../glade/profiles.glade:1303
 msgid "Custom Device Settings Radio"
@@ -837,7 +867,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:1369
 msgid "<b>Device Settings</b>"
-msgstr ""
+msgstr "<b>Настройки устройства</b>"
 
 #: ../glade/sms.glade:50
 msgid "TO : "
@@ -845,7 +875,7 @@ msgstr ""
 
 #: ../glade/splash.glade:6
 msgid "3G Devices Manager"
-msgstr ""
+msgstr "Диспетчер устройств 3G"
 
 #: ../../gui/constx.py:47 ../../gui/constx.py:65 ../../gui/constx.py:84
 msgid "Any"
@@ -901,19 +931,19 @@ msgstr "WCDMA 1900"
 
 #: ../../gui/constx.py:66 ../../gui/signals.py:27
 msgid "2G preferred"
-msgstr ""
+msgstr "предпочтительнее 2G"
 
 #: ../../gui/constx.py:67 ../../gui/signals.py:28
 msgid "3G preferred"
-msgstr ""
+msgstr "предпочтительнее 3G"
 
 #: ../../gui/constx.py:68 ../../gui/signals.py:29
 msgid "2G only"
-msgstr ""
+msgstr "только 2G"
 
 #: ../../gui/constx.py:69 ../../gui/signals.py:30
 msgid "3G only"
-msgstr ""
+msgstr "только 3G"
 
 #: ../../gui/constx.py:85
 msgid "PAP"
@@ -942,6 +972,8 @@ msgstr ""
 #: ../../gui/views/pin.py:77 ../../gui/controllers/preferences.py:198
 msgid "To use this feature you need the gnomekeyring module"
 msgstr ""
+"Если вы хотите использовать эту возможность, вам понадобится модуль "
+"диспетчера паролей и ключей gnomekeyring"
 
 #: ../../gui/views/pin.py:93
 msgid ""
@@ -949,6 +981,9 @@ msgid ""
 "In order to unlock your SIM, we need your\n"
 "PIN and PUK codes"
 msgstr ""
+"\n"
+"Если вы хотите разблокировать вашу SIM-карту, необходимы\n"
+"PIN и PUK коды"
 
 #: ../../gui/views/pin.py:100
 msgid ""
@@ -956,6 +991,9 @@ msgid ""
 "In order to unlock your SIM, we need your\n"
 "PIN and PUK2 codes"
 msgstr ""
+"\n"
+"Если вы хотите разблокировать вашу SIM-карту, необходимы\n"
+"PIN и PUK2 коды"
 
 #: ../../gui/views/main.py:146
 #, python-format
@@ -973,6 +1011,17 @@ msgid ""
 "system, you might need to ask your Systems Administrator any doubt that you "
 "might have."
 msgstr ""
+"В большинстве случаев, вы можете найти ответы на возникшие вопросы о "
+"программе, в справочном меню. Разделы справки доступны из меню \"Справка\", "
+"расположенном в верхней части окна.\n"
+"\n"
+"Также вы можете получить справку, обновления и советы %(name)s по адресу:\n"
+"\n"
+"%(url)s.\n"
+"\n"
+"Если вы используете кнопки эл.почты и обозревателя для доступа к другим "
+"программам на вашей системе, вам необходимо обратиться к вашему системному "
+"администратору, насчёт доступности этой возможности."
 
 #: ../../gui/views/main.py:161
 msgid ""
@@ -983,6 +1032,12 @@ msgid ""
 "If your company does not have a support center, you will have to contact "
 "your company's System Administrator."
 msgstr ""
+"Если вы используете эту программу в корпоративной среде, ваша компания, "
+"возможно, имеет центр поддержки для решения возникающих вопросов касающихся "
+"программы.\n"
+"\n"
+"Если ваша компания не имеет центра поддержки, вам необходимо связаться с "
+"системным администратором вашей компании."
 
 #: ../../gui/views/main.py:216 ../../gui/views/main.py:234
 msgid "N/A"
@@ -1029,7 +1084,7 @@ msgid "LTE"
 msgstr "LTE"
 
 #: ../../gui/views/main.py:386 ../../gui/views/main.py:390
-#: ../../gui/controllers/main.py:700
+#: ../../gui/controllers/main.py:704
 msgid "Connect"
 msgstr "Подключиться"
 
@@ -1038,17 +1093,17 @@ msgid "Disconnecting"
 msgstr "Отключение"
 
 #: ../../gui/views/main.py:398 ../../gui/views/main.py:426
-#: ../../gui/controllers/main.py:860
+#: ../../gui/controllers/main.py:864
 msgid "Connecting"
 msgstr "Идет подключение"
 
-#: ../../gui/views/main.py:402 ../../gui/controllers/main.py:695
+#: ../../gui/views/main.py:402 ../../gui/controllers/main.py:699
 msgid "Disconnect"
 msgstr "Разъединить"
 
 #: ../../gui/views/main.py:416
 msgid "Device found"
-msgstr ""
+msgstr "Обнаружено устройство"
 
 #: ../../gui/views/main.py:417
 msgid "Disabled"
@@ -1056,7 +1111,7 @@ msgstr "Запрещено"
 
 #: ../../gui/views/main.py:418
 msgid "SIM locked"
-msgstr ""
+msgstr "SIM-карта заблокирована"
 
 #: ../../gui/views/main.py:419
 msgid "Authenticating"
@@ -1068,17 +1123,17 @@ msgstr "Требовать проверку подлинности"
 
 #: ../../gui/views/main.py:421
 msgid "Enabling"
-msgstr ""
+msgstr "Включение"
 
 #: ../../gui/views/main.py:422
 msgid "Disabling"
-msgstr ""
+msgstr "Отключение"
 
 #: ../../gui/views/main.py:424
 msgid "Searching"
 msgstr "Идёт поиск"
 
-#: ../../gui/views/main.py:425 ../../gui/controllers/main.py:1063
+#: ../../gui/views/main.py:425 ../../gui/controllers/main.py:1067
 msgid "Not connected"
 msgstr "Отсоединен"
 
@@ -1127,12 +1182,12 @@ msgstr "Страна"
 #: ../../gui/uptime.py:83
 #, python-format
 msgid "%(day)d days, %(msg)s"
-msgstr ""
+msgstr "%(day)d дней, %(msg)s"
 
 #: ../../gui/uptime.py:85
 #, python-format
 msgid "%(day)d day, %(msg)s"
-msgstr ""
+msgstr "%(day)d день, %(msg)s"
 
 #: ../../gui/signals.py:23
 msgid "No signal"
@@ -1152,6 +1207,8 @@ msgstr ""
 msgid ""
 "Check that your installation is correct and your  OS/distro is supported: %s"
 msgstr ""
+"Убедитесь, что установка выполнена правильно и ваша операционная "
+"система/дистрибутив поддерживается: %s"
 
 #: ../../gui/models/profile.py:162 ../../gui/controllers/preferences.py:144
 #: ../../gui/controllers/preferences.py:160
@@ -1160,7 +1217,7 @@ msgstr "Пользовательский"
 
 #: ../../gui/models/profile.py:377
 msgid "Trying to remove an unsaved profile"
-msgstr ""
+msgstr "Попытка удаления несохранённого профиля"
 
 #: ../../gui/controllers/payt.py:98 ../../gui/controllers/payt.py:114
 #: ../../gui/controllers/payt.py:124
@@ -1193,27 +1250,28 @@ msgstr ""
 #: ../../gui/controllers/sms.py:52
 msgid "You can send the SMS to several recipients separating them by commas"
 msgstr ""
+"Вы можете отправлять SMS нескольким абонентам, разделив их через запятую"
 
 #: ../../gui/controllers/sms.py:84 ../../gui/controllers/sms.py:259
 #, python-format
 msgid "Text message: 0/%d chars"
-msgstr ""
+msgstr "Текстовое сообщение: 0/%d символов"
 
 #: ../../gui/controllers/sms.py:113
 msgid "Send empty message"
-msgstr ""
+msgstr "Отправить пустое сообщение"
 
 #: ../../gui/controllers/sms.py:114
 msgid "Are you sure you want to send an empty message?"
-msgstr ""
+msgstr "Вы действительно хотите отправить пустое сообщение?"
 
 #: ../../gui/controllers/sms.py:138
 msgid "Error while sending SMS"
-msgstr ""
+msgstr "Ошибка во время отправки SMS"
 
 #: ../../gui/controllers/sms.py:184
 msgid "No SMSC number"
-msgstr ""
+msgstr "Отсутствует номер SMSC"
 
 #: ../../gui/controllers/sms.py:185
 #, python-format
@@ -1221,16 +1279,18 @@ msgid ""
 "In order to send a SMS, %s needs to know the number of your provider's SMSC. "
 "If you do not know the SMSC number, contact your customer service."
 msgstr ""
+"Для отправки SMS, %s необходимо знать номер поставщика услуги SMSC. Если вы "
+"не знаете номер SMSC, свяжитесь со службой поддержки абонентов."
 
 #: ../../gui/controllers/sms.py:267
 #, python-format
 msgid "Text message: %(num)d/%(total)d chars"
-msgstr ""
+msgstr "Текстовое сообщение: %(num)d/%(total)d символов"
 
 #: ../../gui/controllers/sms.py:272
 #, python-format
 msgid "Text message: %(num)d/%(total)d chars (%(msgs)d SMS)"
-msgstr ""
+msgstr "Текстовое сообщение: %(num)d/%(total)d символов (%(msgs)d SMS)"
 
 #: ../../gui/controllers/pin.py:107 ../../gui/controllers/pin.py:186
 msgid "Incorrect PIN"
@@ -1244,6 +1304,11 @@ msgid ""
 "three failed PINs you'll be asked\n"
 "for the PUK code</small>\n"
 msgstr ""
+"\n"
+"<small>Вы ввели неправильный ПИН-код.\n"
+"Учтите, если вы введёте ПИН-код неправильно\n"
+"три раза подряд, в последствии вам будет необходимо\n"
+"ввести PUK-код</small>\n"
 
 #: ../../gui/controllers/main.py:174
 #, python-format
@@ -1256,11 +1321,11 @@ msgstr "Вы действительно хотите выйти?"
 
 #: ../../gui/controllers/main.py:187
 msgid "Can not close application"
-msgstr ""
+msgstr "Невозможно закрыть приложение"
 
 #: ../../gui/controllers/main.py:188
 msgid "Can not close while a connection is active"
-msgstr ""
+msgstr "Невозможно завершить работу, в то время как соединение активно"
 
 #: ../../gui/controllers/main.py:269
 #, python-format
@@ -1277,6 +1342,17 @@ msgid ""
 "\n"
 "%(international)s if you are calling from other network."
 msgstr ""
+"Вы можете найти ответы на наиболее частые вопросы, используя меню справки, в "
+"центре поддержки вашей компании и службой поддержки по адресу:\n"
+"\n"
+"%(url)s.\n"
+"\n"
+"Если вы до сих пор испытываете трудности, вы можете обратиться в центр "
+"поддержки абонентов Vodafone, по номерам:\n"
+"\n"
+"%(shortcode)s, если вы используете сеть Vodafone, или\n"
+"\n"
+"%(international)s если вы звоните из другой сети."
 
 #: ../../gui/controllers/main.py:379
 msgid "Invalid password"
@@ -1284,15 +1360,15 @@ msgstr "Неверный пароль"
 
 #: ../../gui/controllers/main.py:380
 msgid "The supplied password is incorrect"
-msgstr ""
+msgstr "Предоставленный вами пароль неправильный"
 
 #: ../../gui/controllers/main.py:421
 msgid "SIM error"
-msgstr ""
+msgstr "Ошибка SIM-карты"
 
 #: ../../gui/controllers/main.py:422
 msgid "Perhaps your SIM is not inserted correctly?"
-msgstr ""
+msgstr "Возможно ваша SIM-карта вставлена неправильно?"
 
 #: ../../gui/controllers/main.py:424
 msgid "Unknown error"
@@ -1300,150 +1376,147 @@ msgstr "Неизвестная ошибка"
 
 #: ../../gui/controllers/main.py:430
 msgid "Error while registering to home network"
-msgstr ""
+msgstr "Ошибка во время регистрации в домашней сети"
 
-#: ../../gui/controllers/main.py:439
-msgid "NetworkManager Applet"
-msgstr "Апплет NetworkManager"
-
-#: ../../gui/controllers/main.py:440
-msgid "SIM PIN unlock required"
-msgstr "Для разблокировки SIM требуется PIN-код"
-
-#: ../../gui/controllers/main.py:502
+#: ../../gui/controllers/main.py:506
 msgid "Transfer limit exceeded"
-msgstr ""
+msgstr "Превышено ограничение передачи"
 
-#: ../../gui/controllers/main.py:503
+#: ../../gui/controllers/main.py:507
 msgid "You have exceeded your transfer limit"
-msgstr ""
+msgstr "Вы превысили ограничение передачи"
 
-#: ../../gui/controllers/main.py:584
+#: ../../gui/controllers/main.py:588
 #, python-format
 msgid "SMS receipt received for %s"
 msgstr ""
 
-#: ../../gui/controllers/main.py:619
+#: ../../gui/controllers/main.py:623
 #, python-format
 msgid "SMS received from %s"
-msgstr ""
+msgstr "SMS получено от %s"
 
-#: ../../gui/controllers/main.py:660 ../../gui/controllers/main.py:663
+#: ../../gui/controllers/main.py:664 ../../gui/controllers/main.py:667
 msgid "Failed connection attempt"
 msgstr ""
 
-#: ../../gui/controllers/main.py:661
+#: ../../gui/controllers/main.py:665
 msgid "Unable to connect"
 msgstr "Невозможно соединиться"
 
-#: ../../gui/controllers/main.py:714 ../../gui/controllers/main.py:749
+#: ../../gui/controllers/main.py:718 ../../gui/controllers/main.py:753
 msgid "Send SMS"
 msgstr "Отправить SMS"
 
-#: ../../gui/controllers/main.py:727
+#: ../../gui/controllers/main.py:731
 msgid "Quit"
 msgstr "Выход"
 
-#: ../../gui/controllers/main.py:760
+#: ../../gui/controllers/main.py:764
 msgid "_Delete"
 msgstr "_Удалить"
 
-#: ../../gui/controllers/main.py:771
+#: ../../gui/controllers/main.py:775
 msgid "Edit"
 msgstr "Изменить"
 
-#: ../../gui/controllers/main.py:791
+#: ../../gui/controllers/main.py:795
 msgid "Invalid CSV format"
-msgstr ""
+msgstr "Недопустимый формат CSV"
 
-#: ../../gui/controllers/main.py:792
+#: ../../gui/controllers/main.py:796
 msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
 msgstr ""
+"\n"
+"Файл csv, который вы попытались импортировать имеет недопустимый формат."
 
-#: ../../gui/controllers/main.py:821
+#: ../../gui/controllers/main.py:825
 msgid "No device found"
 msgstr "Устройства не найдены"
 
-#: ../../gui/controllers/main.py:822
+#: ../../gui/controllers/main.py:826
 msgid "No device has been found. Insert one and try again."
-msgstr ""
+msgstr "Устройство не обнаружено. Подсоедините его и повторите снова."
 
-#: ../../gui/controllers/main.py:828
+#: ../../gui/controllers/main.py:832
 msgid "Profile needed"
-msgstr ""
+msgstr "Необходим профиль"
 
-#: ../../gui/controllers/main.py:829
+#: ../../gui/controllers/main.py:833
 msgid "You need to create a profile for connecting."
-msgstr ""
+msgstr "Для подключения вам необходим профиль."
 
-#: ../../gui/controllers/main.py:874
+#: ../../gui/controllers/main.py:878
 msgid "Invalid Connection"
-msgstr ""
+msgstr "Недопустимое соединение"
 
-#: ../../gui/controllers/main.py:875
+#: ../../gui/controllers/main.py:879
 msgid ""
 "It's likely that this connection was made by the Network Manager Applet, "
 "please use that to deactivate"
 msgstr ""
+"Судя по всему, это соединение создано мини-программой Диспетчер сети, "
+"пожалуйста, используйте его для разъединения"
 
-#: ../../gui/controllers/main.py:1013
+#: ../../gui/controllers/main.py:1017
 msgid "_New Profile"
-msgstr ""
+msgstr "_Создать профиль"
 
-#: ../../gui/controllers/main.py:1022
+#: ../../gui/controllers/main.py:1026
 msgid "Load Profile"
 msgstr "Загрузить профиль"
 
-#: ../../gui/controllers/main.py:1027
+#: ../../gui/controllers/main.py:1031
 msgid "Edit Profile"
 msgstr "Изменение профиля"
 
-#: ../../gui/controllers/main.py:1032
+#: ../../gui/controllers/main.py:1036
 msgid "Delete Profile"
 msgstr "Удалить профиль"
 
-#: ../../gui/controllers/main.py:1064
+#: ../../gui/controllers/main.py:1068
 msgid "No mobile connection. Do you want to continue?"
 msgstr ""
+"Мобильное соединение отсутствует. Вы действительно хотите продолжить?"
 
-#: ../../gui/controllers/main.py:1479
+#: ../../gui/controllers/main.py:1483
 msgid "Editor not available"
-msgstr ""
+msgstr "Редактор недоступен"
 
-#: ../../gui/controllers/main.py:1480
+#: ../../gui/controllers/main.py:1484
 #, python-format
 msgid "Can not start external contact editor \"%s\""
-msgstr ""
+msgstr "Невозможно запустить внешний редактор контактов \"%s\""
 
-#: ../../gui/controllers/main.py:1486
+#: ../../gui/controllers/main.py:1490
 msgid "_Add to contacts"
-msgstr ""
+msgstr "_Добавить в список контактов"
 
-#: ../../gui/controllers/main.py:1497
+#: ../../gui/controllers/main.py:1501
 msgid "Migrate to DB"
-msgstr ""
+msgstr "Переместить в базу данных"
 
-#: ../../gui/controllers/main.py:1506
+#: ../../gui/controllers/main.py:1510
 msgid "Save to draft"
-msgstr ""
+msgstr "Сохранить в черновиках"
 
-#: ../../gui/controllers/main.py:1517
+#: ../../gui/controllers/main.py:1521
 msgid "Delete"
 msgstr "Удалить"
 
-#: ../../gui/controllers/main.py:1565
+#: ../../gui/controllers/main.py:1569
 msgid "Can not handle DB contacts"
-msgstr ""
+msgstr "Невозможно обработать контакты базы данных"
 
-#: ../../gui/controllers/main.py:1566
+#: ../../gui/controllers/main.py:1570
 msgid "Only SIM based contacts supported"
-msgstr ""
+msgstr "Поддерживаются контакты только с SIM-карты"
 
 #: ../../gui/controllers/preferences.py:37
 msgid "Maximum time"
-msgstr ""
+msgstr "Макс. время"
 
 #: ../../gui/controllers/preferences.py:38
 msgid "1 week"
@@ -1460,7 +1533,7 @@ msgstr "1 день"
 #: ../../gui/controllers/preferences.py:196
 #: ../../gui/controllers/preferences.py:215
 msgid "Missing dependency"
-msgstr ""
+msgstr "Отсутствует зависимость"
 
 #: ../../gui/controllers/preferences.py:216
 msgid ""
@@ -1468,19 +1541,22 @@ msgid ""
 "To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
 "module\n"
 msgstr ""
+"\n"
+"Если вы хотите использовать эту возможность, вам необходимо установить pygtk "
+">= 2.10 или модуль egg.trayicon\n"
 
 #: ../../gui/controllers/contacts.py:96
 msgid "No contact found"
-msgstr ""
+msgstr "Контакт не найден"
 
 #: ../../gui/controllers/contacts.py:97
 #, python-format
 msgid "No contact with the name %s found"
-msgstr ""
+msgstr "Контакт с именем %s не найден"
 
 #: ../../gui/controllers/profile.py:69
 msgid "Error while getting connection password"
-msgstr ""
+msgstr "Ошибка во время приёма пароля соединения"
 
 #: ../../gui/controllers/profile.py:70
 msgid ""
@@ -1489,13 +1565,14 @@ msgstr ""
 
 #: ../../gui/controllers/profile.py:119
 msgid "Error creating profile"
-msgstr ""
+msgstr "Ошибка создания профиля"
 
 #: ../../gui/dialogs.py:66
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Andrew Bird https://launchpad.net/~ajb-spheresystems"
+"  Andrew Bird https://launchpad.net/~ajb-spheresystems\n"
+"  Eugene Marshal https://launchpad.net/~lowrider"
 
 #: ../../gui/dialogs.py:134
 msgid "Warning"
@@ -1511,7 +1588,7 @@ msgstr "Требуется пароль"
 
 #: ../../gui/dialogs.py:245
 msgid "Please, insert the password of your connection"
-msgstr ""
+msgstr "Пожалуйста, введите пароль вашего соединения"
 
 #: ../../gui/dialogs.py:279
 msgid "Save as ..."
@@ -1519,7 +1596,7 @@ msgstr "Сохранить как ..."
 
 #: ../../gui/dialogs.py:287 ../../gui/dialogs.py:326
 msgid "Csv files"
-msgstr ""
+msgstr "Файлы Csv"
 
 #: ../../gui/dialogs.py:293 ../../gui/dialogs.py:331
 msgid "All files"
@@ -1528,21 +1605,23 @@ msgstr "Все файлы"
 #: ../../gui/dialogs.py:304
 #, python-format
 msgid "Overwrite \"%s\"?"
-msgstr ""
+msgstr "Заменить \"%s\"?"
 
 #: ../../gui/dialogs.py:305
 msgid ""
 "A file with this name already exists.\n"
 "If you choose to overwrite this file, the contents will be lost."
 msgstr ""
+"Файл с этим именем уже существует.\n"
+"Если вы замените его, содержимое файла будет потеряно."
 
 #: ../../gui/dialogs.py:318
 msgid "Import contacts from..."
-msgstr ""
+msgstr "Импортировать контакты из..."
 
 #: ../../gui/keyring_dialogs.py:103
 msgid "Create default keyring"
-msgstr ""
+msgstr "Создать диспетчер паролей и ключей по умолчанию"
 
 #: ../../gui/keyring_dialogs.py:104
 #, python-format
@@ -1550,16 +1629,21 @@ msgid ""
 "The application '%s' wants to store a password, but there is no default "
 "keyring. To create one, you need to choose a password you wish to use for it."
 msgstr ""
+"Приложение '%s' хочет сохранить пароль, но диспетчер паролей и ключей не "
+"назначен по умолчанию. Если вы хотите создать его, вам необходимо выбрать "
+"для него пароль, который вы будете использовать."
 
 #: ../../gui/keyring_dialogs.py:138
 msgid "Unlock keyring"
-msgstr ""
+msgstr "Разблокировать диспетчер паролей и ключей"
 
 #: ../../gui/keyring_dialogs.py:139
 #, python-format
 msgid ""
 "The application '%s' wants access to the default keyring, but is locked."
 msgstr ""
+"Приложение '%s' предпринимает попытку получить доступ к диспетчеру паролей и "
+"ключей по умолчанию, но он заблокирован."
 
 #: ../../gui/contacts/contact_evolution.py:136
 msgid "Evolution"
@@ -1571,8 +1655,10 @@ msgstr "KDE PIM"
 
 #: ../../bin/v-mobile-broadband:68
 msgid "Do not run the application as root"
-msgstr ""
+msgstr "Не запускайте приложение от имени администратора"
 
 #: ../../bin/v-mobile-broadband:69
 msgid "Otherwise some features, like profiles, might behave unpredictably."
 msgstr ""
+"В противном случае некоторые возможности, такие как профили, могут вести "
+"себя непредсказуемо."

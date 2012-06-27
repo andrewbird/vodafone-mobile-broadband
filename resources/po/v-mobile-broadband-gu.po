@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-24 15:29+0100\n"
-"PO-Revision-Date: 2012-06-03 18:46+0000\n"
+"POT-Creation-Date: 2012-06-04 09:28+0100\n"
+"PO-Revision-Date: 2012-06-04 02:24+0000\n"
 "Last-Translator: Andrew Bird <Unknown>\n"
 "Language-Team: Gujarati <gu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-03 19:04+0000\n"
-"X-Generator: Launchpad (build 15342)\n"
+"X-Launchpad-Export-Date: 2012-06-27 08:01+0000\n"
+"X-Generator: Launchpad (build 15482)\n"
 "Language: gu\n"
 
 #: ../glade/apnsel.glade:8
@@ -220,7 +220,7 @@ msgstr "IMSI"
 #: ../../gui/views/diagnostics.py:87 ../../gui/views/diagnostics.py:92
 #: ../../gui/views/diagnostics.py:97 ../../gui/views/diagnostics.py:102
 #: ../../gui/models/main.py:94 ../../gui/models/main.py:359
-#: ../../gui/controllers/main.py:259 ../../gui/controllers/main.py:583
+#: ../../gui/controllers/main.py:259 ../../gui/controllers/main.py:587
 msgid "Unknown"
 msgstr "અજ્ઞાત"
 
@@ -1029,7 +1029,7 @@ msgid "LTE"
 msgstr "LTE"
 
 #: ../../gui/views/main.py:386 ../../gui/views/main.py:390
-#: ../../gui/controllers/main.py:700
+#: ../../gui/controllers/main.py:704
 msgid "Connect"
 msgstr "જોડાવો"
 
@@ -1038,11 +1038,11 @@ msgid "Disconnecting"
 msgstr "જોડાણ તૂટી રહ્યુ છે"
 
 #: ../../gui/views/main.py:398 ../../gui/views/main.py:426
-#: ../../gui/controllers/main.py:860
+#: ../../gui/controllers/main.py:864
 msgid "Connecting"
 msgstr "જોડાઇ રહ્યા છે"
 
-#: ../../gui/views/main.py:402 ../../gui/controllers/main.py:695
+#: ../../gui/views/main.py:402 ../../gui/controllers/main.py:699
 msgid "Disconnect"
 msgstr "જોડાણ તોડો"
 
@@ -1078,7 +1078,7 @@ msgstr ""
 msgid "Searching"
 msgstr "શોધી રહ્યા છે"
 
-#: ../../gui/views/main.py:425 ../../gui/controllers/main.py:1063
+#: ../../gui/views/main.py:425 ../../gui/controllers/main.py:1067
 msgid "Not connected"
 msgstr "જોડાયેલ નથી"
 
@@ -1302,142 +1302,134 @@ msgstr "અજ્ઞાત ભૂલ"
 msgid "Error while registering to home network"
 msgstr ""
 
-#: ../../gui/controllers/main.py:439
-msgid "NetworkManager Applet"
-msgstr "NetworkManager એપ્લેટ"
-
-#: ../../gui/controllers/main.py:440
-msgid "SIM PIN unlock required"
-msgstr "SIM PIN તાળુ ખોલવુ જરૂરી"
-
-#: ../../gui/controllers/main.py:502
+#: ../../gui/controllers/main.py:506
 msgid "Transfer limit exceeded"
 msgstr ""
 
-#: ../../gui/controllers/main.py:503
+#: ../../gui/controllers/main.py:507
 msgid "You have exceeded your transfer limit"
 msgstr ""
 
-#: ../../gui/controllers/main.py:584
+#: ../../gui/controllers/main.py:588
 #, python-format
 msgid "SMS receipt received for %s"
 msgstr ""
 
-#: ../../gui/controllers/main.py:619
+#: ../../gui/controllers/main.py:623
 #, python-format
 msgid "SMS received from %s"
 msgstr ""
 
-#: ../../gui/controllers/main.py:660 ../../gui/controllers/main.py:663
+#: ../../gui/controllers/main.py:664 ../../gui/controllers/main.py:667
 msgid "Failed connection attempt"
 msgstr ""
 
-#: ../../gui/controllers/main.py:661
+#: ../../gui/controllers/main.py:665
 msgid "Unable to connect"
 msgstr "જોડાવામાં અસમર્થ"
 
-#: ../../gui/controllers/main.py:714 ../../gui/controllers/main.py:749
+#: ../../gui/controllers/main.py:718 ../../gui/controllers/main.py:753
 msgid "Send SMS"
 msgstr ""
 
-#: ../../gui/controllers/main.py:727
+#: ../../gui/controllers/main.py:731
 msgid "Quit"
 msgstr "બહાર નીકળો"
 
-#: ../../gui/controllers/main.py:760
+#: ../../gui/controllers/main.py:764
 msgid "_Delete"
 msgstr "કાઢી નાંખો (_D)"
 
-#: ../../gui/controllers/main.py:771
+#: ../../gui/controllers/main.py:775
 msgid "Edit"
 msgstr "ફેરફાર કરો"
 
-#: ../../gui/controllers/main.py:791
+#: ../../gui/controllers/main.py:795
 msgid "Invalid CSV format"
 msgstr ""
 
-#: ../../gui/controllers/main.py:792
+#: ../../gui/controllers/main.py:796
 msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
 msgstr ""
 
-#: ../../gui/controllers/main.py:821
+#: ../../gui/controllers/main.py:825
 msgid "No device found"
 msgstr "ઉપકરણ મળ્યુ નહિં"
 
-#: ../../gui/controllers/main.py:822
+#: ../../gui/controllers/main.py:826
 msgid "No device has been found. Insert one and try again."
 msgstr ""
 
-#: ../../gui/controllers/main.py:828
+#: ../../gui/controllers/main.py:832
 msgid "Profile needed"
 msgstr ""
 
-#: ../../gui/controllers/main.py:829
+#: ../../gui/controllers/main.py:833
 msgid "You need to create a profile for connecting."
 msgstr ""
 
-#: ../../gui/controllers/main.py:874
+#: ../../gui/controllers/main.py:878
 msgid "Invalid Connection"
 msgstr ""
 
-#: ../../gui/controllers/main.py:875
+#: ../../gui/controllers/main.py:879
 msgid ""
 "It's likely that this connection was made by the Network Manager Applet, "
 "please use that to deactivate"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1013
+#: ../../gui/controllers/main.py:1017
 msgid "_New Profile"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1022
+#: ../../gui/controllers/main.py:1026
 msgid "Load Profile"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1027
+#: ../../gui/controllers/main.py:1031
 msgid "Edit Profile"
 msgstr "રૂપરેખામાં ફેરફાર કરો"
 
-#: ../../gui/controllers/main.py:1032
+#: ../../gui/controllers/main.py:1036
 msgid "Delete Profile"
 msgstr "રુપરેખા કાઢી નાખો"
 
-#: ../../gui/controllers/main.py:1064
+#: ../../gui/controllers/main.py:1068
 msgid "No mobile connection. Do you want to continue?"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1479
+#: ../../gui/controllers/main.py:1483
 msgid "Editor not available"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1480
+#: ../../gui/controllers/main.py:1484
 #, python-format
 msgid "Can not start external contact editor \"%s\""
 msgstr ""
 
-#: ../../gui/controllers/main.py:1486
+#: ../../gui/controllers/main.py:1490
 msgid "_Add to contacts"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1497
+#: ../../gui/controllers/main.py:1501
 msgid "Migrate to DB"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1506
+#: ../../gui/controllers/main.py:1510
 msgid "Save to draft"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1517
+#: ../../gui/controllers/main.py:1521
 msgid "Delete"
 msgstr "કાઢો"
 
-#: ../../gui/controllers/main.py:1565
+#: ../../gui/controllers/main.py:1569
 msgid "Can not handle DB contacts"
 msgstr ""
 
-#: ../../gui/controllers/main.py:1566
+#: ../../gui/controllers/main.py:1570
 msgid "Only SIM based contacts supported"
 msgstr ""
 
