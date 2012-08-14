@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-04 09:28+0100\n"
-"PO-Revision-Date: 2012-06-27 10:42+0000\n"
-"Last-Translator: Milo Casagrande <milo.casagrande@gmail.com>\n"
+"PO-Revision-Date: 2012-08-13 19:39+0000\n"
+"Last-Translator: Andrea Bernini <andrea.bernini@gmail.com>\n"
 "Language-Team: Italian <IT@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-12 18:32+0000\n"
-"X-Generator: Launchpad (build 15593)\n"
+"X-Launchpad-Export-Date: 2012-08-14 07:56+0000\n"
+"X-Generator: Launchpad (build 15791)\n"
 "Language: it\n"
 
 #: ../glade/apnsel.glade:8
@@ -29,10 +29,10 @@ msgid ""
 "You can choose a preconfigured APN or cancel to enter the information needed "
 "to set up a custom one.\n"
 msgstr ""
-"<b>Seleziona la periferica per la connessione.</b>\n"
+"<b>APN preconfigurati per il tuo operatore</b>\n"
 "\n"
-"Puoi scegliere la periferica o inserire le informazioni che ti servono per "
-"definirne una personalizzata.\n"
+"Puoi selezionare un APN preconfigurato o annullare e inserire le "
+"informazioni per un APN personalizzato.\n"
 
 #: ../glade/apnsel.glade:193 ../glade/pin.glade:217 ../glade/pin.glade:222
 #: ../glade/pin.glade:862 ../glade/profiles.glade:1334
@@ -161,7 +161,7 @@ msgstr "Diagnostica"
 
 #: ../glade/diagnostics.glade:43
 msgid "<b>Datacard details</b>"
-msgstr ""
+msgstr "<b>Dettagli della datacard</b>"
 
 #: ../glade/diagnostics.glade:81
 msgid "Manufacturer:"
@@ -181,7 +181,7 @@ msgstr "IMEI: "
 
 #: ../glade/diagnostics.glade:138
 msgid "Card manufacturer"
-msgstr ""
+msgstr "Costruttore della scheda"
 
 #: ../glade/diagnostics.glade:149
 msgid "Card model"
@@ -201,7 +201,7 @@ msgstr "Modem"
 
 #: ../glade/diagnostics.glade:226
 msgid "<b>Network details from SIM</b>"
-msgstr ""
+msgstr "<b>Dettagli rete dalla SIM</b>"
 
 #: ../glade/diagnostics.glade:264
 msgid "IMSI:"
@@ -217,7 +217,7 @@ msgstr "Paese:"
 
 #: ../glade/diagnostics.glade:297
 msgid "Mobile Number:"
-msgstr ""
+msgstr "Numero Cellulare:"
 
 #: ../glade/diagnostics.glade:320
 msgid "IMSI"
@@ -258,7 +258,7 @@ msgstr "Acceso da:"
 
 #: ../glade/diagnostics.glade:536
 msgid "Device"
-msgstr ""
+msgstr "Dispositivo"
 
 #: ../glade/diagnostics.glade:601
 msgid "Software Version:"
@@ -266,7 +266,7 @@ msgstr "Versione del software:"
 
 #: ../glade/diagnostics.glade:612
 msgid "Core Version:"
-msgstr ""
+msgstr "Versione Core:"
 
 #: ../glade/diagnostics.glade:634 ../glade/diagnostics.glade:644
 msgid "Not supported"
@@ -274,7 +274,7 @@ msgstr "Non supportato"
 
 #: ../glade/diagnostics.glade:672
 msgid "Modem Manager"
-msgstr ""
+msgstr "Modem Manager"
 
 #: ../glade/diagnostics.glade:688
 msgid "<b>USSD Test Message Diagnostics</b>"
@@ -282,11 +282,11 @@ msgstr "<b>Test messaggio USSD Diagnostica</b>"
 
 #: ../glade/diagnostics.glade:717
 msgid "Add your USSD string:"
-msgstr ""
+msgstr "Aggiungi la tua stringa USSD:"
 
 #: ../glade/diagnostics.glade:765
 msgid "USSD reply message:"
-msgstr ""
+msgstr "Risposta da USSD:"
 
 #: ../glade/diagnostics.glade:809 ../glade/payt.glade:289
 msgid "Send"
@@ -333,12 +333,14 @@ msgstr "_File"
 #: ../glade/keyring.glade:35
 msgid "<span size='large' weight='bold'>Creating a new keyring</span>"
 msgstr ""
+"<span size='large' weight='bold'>Sto creando un nuovo portachiavi</span>"
 
 #: ../glade/keyring.glade:48
 msgid ""
 "Please, insert a code to encrypt your sensitive\n"
 "information."
 msgstr ""
+"Per favore, inserisci un codice per criptare le tue informazioni sensibili."
 
 #: ../glade/keyring.glade:81 ../glade/keyring.glade:191
 #: ../glade/profiles.glade:177
@@ -347,15 +349,15 @@ msgstr "Password:"
 
 #: ../glade/keyring.glade:100
 msgid "Confirm password:"
-msgstr ""
+msgstr "Conferma la password:"
 
 #: ../glade/keyring.glade:131
 msgid "Unlock Keyring"
-msgstr ""
+msgstr "Sblocca portachiavi"
 
 #: ../glade/keyring.glade:157
 msgid "Please, enter your keyring password"
-msgstr ""
+msgstr "Per favore, inserisci la password del tuo portachiavi"
 
 #: ../glade/main.glade:36
 msgid "Import contacts..."
@@ -367,7 +369,7 @@ msgstr "Esporta contatti..."
 
 #: ../glade/main.glade:59
 msgid "_Quit"
-msgstr ""
+msgstr "_Esci"
 
 #: ../glade/main.glade:86
 msgid "_View"
@@ -388,7 +390,7 @@ msgstr "_Strumenti"
 
 #: ../glade/main.glade:167 ../../gui/views/main.py:423
 msgid "Enabled"
-msgstr ""
+msgstr "Abilitato"
 
 #: ../glade/main.glade:177
 msgid "Change PIN"
@@ -400,7 +402,7 @@ msgstr "Richiedi PIN"
 
 #: ../glade/main.glade:226
 msgid "Profiles"
-msgstr ""
+msgstr "Profili"
 
 #: ../glade/main.glade:249 ../glade/preferences.glade:8
 msgid "Preferences"
@@ -412,7 +414,7 @@ msgstr "_Aiuto"
 
 #: ../glade/main.glade:282
 msgid "Help"
-msgstr ""
+msgstr "Aiuto"
 
 #: ../glade/main.glade:301
 msgid "_About"
@@ -420,7 +422,7 @@ msgstr "_Informazioni"
 
 #: ../glade/main.glade:429
 msgid "Topup"
-msgstr ""
+msgstr "Ricaricabile"
 
 #: ../glade/main.glade:464
 msgid "Create new SMS"
@@ -428,11 +430,11 @@ msgstr "Crea nuovo SMS"
 
 #: ../glade/main.glade:482
 msgid "Reply to SMS"
-msgstr ""
+msgstr "Rispondi a SMS"
 
 #: ../glade/main.glade:500
 msgid "Reply to SMS quoting original message"
-msgstr ""
+msgstr "Rispondi a SMS includendo messaggio originale"
 
 #: ../glade/main.glade:517
 msgid "Forward SMS to another contact"
@@ -440,7 +442,7 @@ msgstr "Inoltra SMS ad un altro contatto"
 
 #: ../glade/main.glade:536
 msgid "Delete SMS"
-msgstr ""
+msgstr "Elimina SMS"
 
 #: ../glade/main.glade:583
 msgid "Search contacts"
@@ -492,7 +494,7 @@ msgstr "<b>Sessione corrente</b>"
 
 #: ../glade/main.glade:1189 ../glade/main.glade:1488
 msgid "Total Traffic"
-msgstr ""
+msgstr "Traffico Totale"
 
 #: ../glade/main.glade:1251
 msgid "Current month"
@@ -504,7 +506,7 @@ msgstr "Ultimo mese"
 
 #: ../glade/main.glade:1568
 msgid "<b>Usage</b> - Remember that this information is only indicative."
-msgstr ""
+msgstr "<b>Utilizzo</b> - Ricorda che questa informazione è solo indicativa."
 
 #: ../glade/main.glade:1616
 msgid "Help menu"
@@ -520,11 +522,11 @@ msgstr "Supporto Clienti"
 
 #: ../glade/misc.glade:54
 msgid "Wader log"
-msgstr ""
+msgstr "Log di wader"
 
 #: ../glade/payt.glade:6
 msgid "Topup Credit"
-msgstr ""
+msgstr "Credito ricaricabile"
 
 #: ../glade/payt.glade:44
 msgid "<b>SIM Details</b>"
@@ -544,11 +546,11 @@ msgstr "<b>Data</b>"
 
 #: ../glade/payt.glade:167
 msgid "Recheck my credit:"
-msgstr ""
+msgstr "Ricontrolla il mio credito:"
 
 #: ../glade/payt.glade:182
 msgid "Check credit"
-msgstr ""
+msgstr "Controlla il credito"
 
 #: ../glade/payt.glade:237
 msgid "<b>Voucher Code</b>"
@@ -556,7 +558,7 @@ msgstr "<b>Voucher codice</b>"
 
 #: ../glade/payt.glade:267
 msgid "Enter code:"
-msgstr ""
+msgstr "Inserisci il codice:"
 
 #: ../glade/payt.glade:341
 msgid "<b>Credit Card</b>"
@@ -564,7 +566,7 @@ msgstr "<b>Carta di credito</b"
 
 #: ../glade/payt.glade:371
 msgid "Pay by credit card"
-msgstr ""
+msgstr "Paga con carta di credito"
 
 #: ../glade/pin.glade:8
 msgid "Insert your PIN code"
@@ -572,7 +574,7 @@ msgstr "Inserisci il tuo codice PIN"
 
 #: ../glade/pin.glade:23
 msgid "Insert PIN Window"
-msgstr ""
+msgstr "Finestra di inserimento PIN"
 
 #: ../glade/pin.glade:64
 msgid "Please insert your PIN code"
@@ -580,7 +582,7 @@ msgstr "Per cortesia introduci il codice PIN"
 
 #: ../glade/pin.glade:104
 msgid "Insert PIN Entry"
-msgstr ""
+msgstr "Inserisci PIN"
 
 #: ../glade/pin.glade:149
 msgid "Manage my PIN through gnome-keyring"
@@ -631,6 +633,8 @@ msgid ""
 "You may configure a different service centre address if you are not a "
 "Vodafone customer or the default one is incorrect."
 msgstr ""
+"Puoi configurare un different centro servizise non sei cliente Vodafone o se "
+"quello inserito non è corretto."
 
 #: ../glade/preferences.glade:144
 msgid "Profile:"
@@ -653,6 +657,8 @@ msgid ""
 "Allows SMS confirmation reports. This lets you see when someone has received "
 "your text message."
 msgstr ""
+"Permetti report di conferma SMS. Questo ti permette di vedere quando il "
+"destinatario riceve il tuo messaggio."
 
 #: ../glade/preferences.glade:301
 msgid "Validity:"
@@ -660,7 +666,7 @@ msgstr "Validità:"
 
 #: ../glade/preferences.glade:362
 msgid "SMS Profile"
-msgstr ""
+msgstr "Profilo SMS"
 
 #: ../glade/preferences.glade:382
 msgid "<b>User options</b>"
@@ -685,11 +691,11 @@ msgstr "Gestisci il mio PIN attraverso il gestore portachiavi"
 
 #: ../glade/preferences.glade:469
 msgid "Use global menu if available"
-msgstr ""
+msgstr "Usa menu globale se disponibile"
 
 #: ../glade/preferences.glade:474
 msgid "Change effective only after UI restart"
-msgstr ""
+msgstr "Il cambio sarò effettivo dopo il riavvio dell'interfaccia"
 
 #: ../glade/preferences.glade:509
 msgid "User Preferences"
@@ -697,7 +703,7 @@ msgstr "Impostazioni utente"
 
 #: ../glade/preferences.glade:530
 msgid "<b>Web Browser</b>"
-msgstr ""
+msgstr "<b>Browser web</b>"
 
 #: ../glade/preferences.glade:599 ../glade/preferences.glade:716
 msgid "Command:"
@@ -733,7 +739,7 @@ msgstr "Nuovo profilo"
 
 #: ../glade/profiles.glade:23
 msgid "New Profile Window"
-msgstr ""
+msgstr "Finestra Nuovo Profilo"
 
 #: ../glade/profiles.glade:64
 msgid ""
@@ -759,7 +765,7 @@ msgstr "Utente:"
 
 #: ../glade/profiles.glade:202
 msgid "Authentication method:"
-msgstr ""
+msgstr "Metodo di autenticazione:"
 
 #: ../glade/profiles.glade:227
 msgid "Preferred connection:"
@@ -767,7 +773,7 @@ msgstr "Connessione preferita:"
 
 #: ../glade/profiles.glade:252
 msgid "Preferred band:"
-msgstr ""
+msgstr "Banda preferita:"
 
 #: ../glade/profiles.glade:277
 msgid "APN host:"
@@ -803,7 +809,7 @@ msgstr "Selezione periferica"
 
 #: ../glade/profiles.glade:877
 msgid "Device Selection Window"
-msgstr ""
+msgstr "Finestra di Selezione Dispositivo"
 
 #: ../glade/profiles.glade:925
 msgid ""
@@ -823,7 +829,7 @@ msgstr "Periferiche conosciute"
 
 #: ../glade/profiles.glade:1032
 msgid "Known Devices Radio"
-msgstr ""
+msgstr "Dispositivi Radio Conosciuti"
 
 #: ../glade/profiles.glade:1083
 msgid "Device type:"
@@ -855,7 +861,7 @@ msgstr "Impostazioni periferica personalizzate"
 
 #: ../glade/profiles.glade:1303
 msgid "Custom Device Settings Radio"
-msgstr ""
+msgstr "Impostazioni radio per dispositivo personalizzato"
 
 #: ../glade/profiles.glade:1369
 msgid "<b>Device Settings</b>"
@@ -959,7 +965,7 @@ msgstr "MSCHAPv2"
 
 #: ../../gui/messages.py:39
 msgid "WAP Push (Binary content)"
-msgstr ""
+msgstr "WAP Push (Contenuto binario)"
 
 #: ../../gui/views/pin.py:77 ../../gui/controllers/preferences.py:198
 msgid "To use this feature you need the gnomekeyring module"
@@ -1096,19 +1102,19 @@ msgstr "Disconnetti"
 
 #: ../../gui/views/main.py:416
 msgid "Device found"
-msgstr ""
+msgstr "Dispositivo rilevato"
 
 #: ../../gui/views/main.py:417
 msgid "Disabled"
-msgstr ""
+msgstr "Disabilitato"
 
 #: ../../gui/views/main.py:418
 msgid "SIM locked"
-msgstr ""
+msgstr "SIM bloccata"
 
 #: ../../gui/views/main.py:419
 msgid "Authenticating"
-msgstr ""
+msgstr "Autenticazione in corso"
 
 #: ../../gui/views/main.py:420
 msgid "Authenticated"
@@ -1116,11 +1122,11 @@ msgstr "Autenticato"
 
 #: ../../gui/views/main.py:421
 msgid "Enabling"
-msgstr ""
+msgstr "Abilitazione in corso"
 
 #: ../../gui/views/main.py:422
 msgid "Disabling"
-msgstr ""
+msgstr "Disabilitazione in corso"
 
 #: ../../gui/views/main.py:424
 msgid "Searching"
@@ -1136,7 +1142,7 @@ msgstr "Connesso"
 
 #: ../../gui/views/main.py:431
 msgid "No device"
-msgstr ""
+msgstr "Nessun dispositivo"
 
 #: ../../gui/views/main.py:490 ../../gui/views/main.py:526
 #: ../../gui/views/profile.py:143 ../../gui/controllers/contacts.py:145
@@ -1184,7 +1190,7 @@ msgstr "%(day)d giorno, %(msg)s"
 
 #: ../../gui/signals.py:23
 msgid "No signal"
-msgstr ""
+msgstr "Nessun segnale"
 
 #: ../../gui/models/main.py:118 ../../gui/controllers/payt.py:176
 #: ../../gui/controllers/payt.py:208
@@ -1193,13 +1199,15 @@ msgstr "Non disponibile"
 
 #: ../../gui/models/main.py:183
 msgid "Error while starting wader"
-msgstr ""
+msgstr "Errore all'avvio di wader"
 
 #: ../../gui/models/main.py:184
 #, python-format
 msgid ""
 "Check that your installation is correct and your  OS/distro is supported: %s"
 msgstr ""
+"Controlla che l'installazione sia corretta e il tuo Sistema "
+"Operativo/Distribuzione sia supportata: %s"
 
 #: ../../gui/models/profile.py:162 ../../gui/controllers/preferences.py:144
 #: ../../gui/controllers/preferences.py:160
@@ -1208,16 +1216,16 @@ msgstr "Personalizzato"
 
 #: ../../gui/models/profile.py:377
 msgid "Trying to remove an unsaved profile"
-msgstr ""
+msgstr "Rimozione del profilo non salvato in corso"
 
 #: ../../gui/controllers/payt.py:98 ../../gui/controllers/payt.py:114
 #: ../../gui/controllers/payt.py:124
 msgid "PAYT submit voucher"
-msgstr ""
+msgstr "Invia voucher PAYT"
 
 #: ../../gui/controllers/payt.py:99 ../../gui/controllers/payt.py:160
 msgid "SIM is not on a PAYT plan"
-msgstr ""
+msgstr "Questa SIM non ha un piano PAYT"
 
 #: ../../gui/controllers/payt.py:115
 #, python-format
@@ -1225,18 +1233,20 @@ msgid ""
 "PAYT submit voucher failed\n"
 "'%s'"
 msgstr ""
+"Invio voucher PAYT fallito\n"
+"'%s'"
 
 #: ../../gui/controllers/payt.py:125
 msgid "No PAYT submit voucher method available"
-msgstr ""
+msgstr "Nessun metodo di invio voucher PAYT disponibile"
 
 #: ../../gui/controllers/payt.py:159 ../../gui/controllers/payt.py:194
 msgid "PAYT credit check"
-msgstr ""
+msgstr "Controlla credito PAYT"
 
 #: ../../gui/controllers/payt.py:195
 msgid "No PAYT credit check method available"
-msgstr ""
+msgstr "Nessun metodo di controllo del credito PAYT è disponibile"
 
 #: ../../gui/controllers/sms.py:52
 msgid "You can send the SMS to several recipients separating them by commas"
@@ -1258,7 +1268,7 @@ msgstr "Sei sicuro di voler spedire un messaggio vuoto?"
 
 #: ../../gui/controllers/sms.py:138
 msgid "Error while sending SMS"
-msgstr ""
+msgstr "Errore durante l'invio dell'SMS"
 
 #: ../../gui/controllers/sms.py:184
 msgid "No SMSC number"
@@ -1312,11 +1322,11 @@ msgstr "Sei sicuro di voler uscire?"
 
 #: ../../gui/controllers/main.py:187
 msgid "Can not close application"
-msgstr ""
+msgstr "Impossibile chiudere l'applicazione"
 
 #: ../../gui/controllers/main.py:188
 msgid "Can not close while a connection is active"
-msgstr ""
+msgstr "Impossibile chiudere mentre una connessione è attiva"
 
 #: ../../gui/controllers/main.py:269
 #, python-format
@@ -1348,19 +1358,19 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:379
 msgid "Invalid password"
-msgstr ""
+msgstr "Password non valida"
 
 #: ../../gui/controllers/main.py:380
 msgid "The supplied password is incorrect"
-msgstr ""
+msgstr "La password inserita non è corretta"
 
 #: ../../gui/controllers/main.py:421
 msgid "SIM error"
-msgstr ""
+msgstr "Errore di SIM"
 
 #: ../../gui/controllers/main.py:422
 msgid "Perhaps your SIM is not inserted correctly?"
-msgstr ""
+msgstr "Forse la SIM non è stata inserita correttamente?"
 
 #: ../../gui/controllers/main.py:424
 msgid "Unknown error"
@@ -1368,20 +1378,20 @@ msgstr "Errore sconosciuto"
 
 #: ../../gui/controllers/main.py:430
 msgid "Error while registering to home network"
-msgstr ""
+msgstr "Errore di registrazione alla rete"
 
 #: ../../gui/controllers/main.py:506
 msgid "Transfer limit exceeded"
-msgstr ""
+msgstr "Limite di trasferimento superato"
 
 #: ../../gui/controllers/main.py:507
 msgid "You have exceeded your transfer limit"
-msgstr ""
+msgstr "Hai superato il tuo limite di traffico"
 
 #: ../../gui/controllers/main.py:588
 #, python-format
 msgid "SMS receipt received for %s"
-msgstr ""
+msgstr "Rapporto di ricezione SMS ricevuto per %s"
 
 #: ../../gui/controllers/main.py:623
 #, python-format
@@ -1390,7 +1400,7 @@ msgstr "SMS ricevuto da %s"
 
 #: ../../gui/controllers/main.py:664 ../../gui/controllers/main.py:667
 msgid "Failed connection attempt"
-msgstr ""
+msgstr "Tentativo di connessione fallito"
 
 #: ../../gui/controllers/main.py:665
 msgid "Unable to connect"
@@ -1406,7 +1416,7 @@ msgstr "Chiudi"
 
 #: ../../gui/controllers/main.py:764
 msgid "_Delete"
-msgstr "_Cancella"
+msgstr "Elimi_na"
 
 #: ../../gui/controllers/main.py:775
 msgid "Edit"
@@ -1426,29 +1436,31 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:825
 msgid "No device found"
-msgstr ""
+msgstr "Nessun dispositivo trovato"
 
 #: ../../gui/controllers/main.py:826
 msgid "No device has been found. Insert one and try again."
-msgstr ""
+msgstr "Nessun dispositivo trovato. Inserisci dispositivo e riprova."
 
 #: ../../gui/controllers/main.py:832
 msgid "Profile needed"
-msgstr ""
+msgstr "E' necessario un profilo"
 
 #: ../../gui/controllers/main.py:833
 msgid "You need to create a profile for connecting."
-msgstr ""
+msgstr "Devi creare un profile per connetterti."
 
 #: ../../gui/controllers/main.py:878
 msgid "Invalid Connection"
-msgstr ""
+msgstr "Connessione non valida"
 
 #: ../../gui/controllers/main.py:879
 msgid ""
 "It's likely that this connection was made by the Network Manager Applet, "
 "please use that to deactivate"
 msgstr ""
+"E' possibile che questa connessione sia stata iniziata dall'applet Network "
+"Manager, utilizzala per disattivare la connessione"
 
 #: ../../gui/controllers/main.py:1017
 msgid "_New Profile"
@@ -1472,12 +1484,12 @@ msgstr "Nessuna connessione attiva. Vuoi continuare?"
 
 #: ../../gui/controllers/main.py:1483
 msgid "Editor not available"
-msgstr ""
+msgstr "Editor non disponibile"
 
 #: ../../gui/controllers/main.py:1484
 #, python-format
 msgid "Can not start external contact editor \"%s\""
-msgstr ""
+msgstr "Impossibile avviare l'editor di contatti \"%s\""
 
 #: ../../gui/controllers/main.py:1490
 msgid "_Add to contacts"
@@ -1485,7 +1497,7 @@ msgstr "_Aggiungi ai contatti"
 
 #: ../../gui/controllers/main.py:1501
 msgid "Migrate to DB"
-msgstr ""
+msgstr "Esporta verso DB"
 
 #: ../../gui/controllers/main.py:1510
 msgid "Save to draft"
@@ -1497,11 +1509,11 @@ msgstr "Cancella"
 
 #: ../../gui/controllers/main.py:1569
 msgid "Can not handle DB contacts"
-msgstr ""
+msgstr "Impossibile gestire i contatti del DB"
 
 #: ../../gui/controllers/main.py:1570
 msgid "Only SIM based contacts supported"
-msgstr ""
+msgstr "Solo i contatti sulla SIM sono supportati"
 
 #: ../../gui/controllers/preferences.py:37
 msgid "Maximum time"
@@ -1545,21 +1557,24 @@ msgstr "Nessun contatto con il nome %s è stato trovato"
 
 #: ../../gui/controllers/profile.py:69
 msgid "Error while getting connection password"
-msgstr ""
+msgstr "Errore nell'ottenere la password di connessione"
 
 #: ../../gui/controllers/profile.py:70
 msgid ""
 "NoMatchError: No password was retrieved from connection, please set one again"
 msgstr ""
+"NoMatchError: Nessuna password è stata ottenuta dalla connessione, per "
+"favore impostane una di nuovo"
 
 #: ../../gui/controllers/profile.py:119
 msgid "Error creating profile"
-msgstr ""
+msgstr "Errore durante la creazione del profilo"
 
 #: ../../gui/dialogs.py:66
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
+"  Andrea Bernini https://launchpad.net/~andrea-bernini\n"
 "  Andrew Bird https://launchpad.net/~ajb-spheresystems\n"
 "  Emanuele FANTON https://launchpad.net/~emanuele-fanton\n"
 "  Milo Casagrande https://launchpad.net/~milo"
@@ -1578,7 +1593,7 @@ msgstr "Password necessaria"
 
 #: ../../gui/dialogs.py:245
 msgid "Please, insert the password of your connection"
-msgstr ""
+msgstr "Per favore, inserire la password della tua connessione"
 
 #: ../../gui/dialogs.py:279
 msgid "Save as ..."
@@ -1611,7 +1626,7 @@ msgstr "Importa i contatti da..."
 
 #: ../../gui/keyring_dialogs.py:103
 msgid "Create default keyring"
-msgstr ""
+msgstr "Crea il portachiavi di default"
 
 #: ../../gui/keyring_dialogs.py:104
 #, python-format
@@ -1619,16 +1634,20 @@ msgid ""
 "The application '%s' wants to store a password, but there is no default "
 "keyring. To create one, you need to choose a password you wish to use for it."
 msgstr ""
+"L'applicazione '%s' sta cercando di salvare una password, ma non esiste un "
+"portachiavi di default. Per crearne uno devi selezionare la password che "
+"vuoi usare per il portachiavi."
 
 #: ../../gui/keyring_dialogs.py:138
 msgid "Unlock keyring"
-msgstr ""
+msgstr "Sblocca portachiavi"
 
 #: ../../gui/keyring_dialogs.py:139
 #, python-format
 msgid ""
 "The application '%s' wants access to the default keyring, but is locked."
 msgstr ""
+"L'applicazione '%s' vuole accedere al portachiavi di default, ma è bloccato."
 
 #: ../../gui/contacts/contact_evolution.py:136
 msgid "Evolution"
@@ -1640,8 +1659,10 @@ msgstr "KDE PIM"
 
 #: ../../bin/v-mobile-broadband:68
 msgid "Do not run the application as root"
-msgstr ""
+msgstr "Non eseguire l'applicazione come root"
 
 #: ../../bin/v-mobile-broadband:69
 msgid "Otherwise some features, like profiles, might behave unpredictably."
 msgstr ""
+"Altrimenti alcune funzioni, come i profili, possono avere comportamenti "
+"imprevedibili."
