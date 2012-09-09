@@ -90,7 +90,7 @@ statistics, prepay top up and suchlike.
 /usr/share/%{name}/resources/glade/*
 
 %{_bindir}/%{name}
-/usr/share/%{name}/%{name}
+/usr/share/%{name}/bin/%{name}
 /usr/share/locale/*/LC_MESSAGES/%{name}.mo
 /usr/share/applications/%{name}.desktop
 /usr/share/pixmaps/%{name}.png
