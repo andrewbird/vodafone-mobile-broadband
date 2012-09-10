@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-04 09:28+0100\n"
-"PO-Revision-Date: 2012-07-13 00:17+0000\n"
-"Last-Translator: gogo <trebelnik2@gmail.com>\n"
+"PO-Revision-Date: 2012-08-19 14:44+0000\n"
+"Last-Translator: Davor Buday <Unknown>\n"
 "Language-Team: Croatian <HR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-08-14 07:56+0000\n"
-"X-Generator: Launchpad (build 15791)\n"
+"X-Launchpad-Export-Date: 2012-09-10 16:32+0000\n"
+"X-Generator: Launchpad (build 15924)\n"
 "Language: hr\n"
 
 #: ../glade/apnsel.glade:8
@@ -287,7 +287,7 @@ msgstr "USSD reply message:"
 
 #: ../glade/diagnostics.glade:809 ../glade/payt.glade:289
 msgid "Send"
-msgstr ""
+msgstr "Pošalji"
 
 #: ../glade/diagnostics.glade:842
 msgid "USSD"
@@ -1533,6 +1533,7 @@ msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Andrew Bird https://launchpad.net/~ajb-spheresystems\n"
+"  Davor Buday https://launchpad.net/~davor-buday-gmail\n"
 "  gogo https://launchpad.net/~trebelnik-stefina\n"
 "  m1r0 https://launchpad.net/~h15m1r0"
 

@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: v-mobile-broadband\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-04 09:28+0100\n"
-"PO-Revision-Date: 2012-06-03 17:08+0000\n"
-"Last-Translator: Andrew Bird <Unknown>\n"
+"PO-Revision-Date: 2012-09-04 10:47+0000\n"
+"Last-Translator: Konki <pavel.konkol@seznam.cz>\n"
 "Language-Team: LANGUAGE <CS@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-08-14 07:56+0000\n"
-"X-Generator: Launchpad (build 15791)\n"
+"X-Launchpad-Export-Date: 2012-09-10 16:32+0000\n"
+"X-Generator: Launchpad (build 15924)\n"
 "Language: \n"
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
-msgstr ""
+msgstr "Výběr APN"
 
 #: ../glade/apnsel.glade:69
 msgid ""
@@ -38,11 +38,11 @@ msgstr "Zrušit"
 #: ../glade/apnsel.glade:208 ../glade/pin.glade:239
 #: ../glade/profiles.glade:1349
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../glade/apnsel.glade:228
 msgid "<b>APN Settings</b>"
-msgstr ""
+msgstr "<b>APN nastavení</b>"
 
 #: ../glade/config.glade:8
 msgid "Device setup"
@@ -56,7 +56,7 @@ msgstr ""
 
 #: ../glade/config.glade:56
 msgid "Device model: "
-msgstr ""
+msgstr "Model zařízení: "
 
 #: ../glade/config.glade:63
 msgid "Connection:"
@@ -64,11 +64,11 @@ msgstr "Spojení:"
 
 #: ../glade/config.glade:153
 msgid "Bluetooth configuration"
-msgstr ""
+msgstr "Konfigurace bluetooth"
 
 #: ../glade/config.glade:174
 msgid "Configure your <b>Bluetooth</b> device"
-msgstr ""
+msgstr "Konfigurovat vaše <b>Bluetooth</b> zařízení"
 
 #: ../glade/config.glade:198
 msgid ""
@@ -89,11 +89,11 @@ msgstr ""
 
 #: ../glade/config.glade:325
 msgid "Data port"
-msgstr ""
+msgstr "Datový port"
 
 #: ../glade/config.glade:334
 msgid "Control port"
-msgstr ""
+msgstr "Ovládací port"
 
 #: ../glade/config.glade:346
 msgid "Speed"
@@ -113,7 +113,7 @@ msgstr ""
 
 #: ../glade/contacts.glade:9
 msgid "Contact search"
-msgstr ""
+msgstr "Vyhledávání kontaktů"
 
 #: ../glade/contacts.glade:32 ../glade/contacts.glade:181
 msgid "Name:"
@@ -121,7 +121,7 @@ msgstr "Název:"
 
 #: ../glade/contacts.glade:96
 msgid "Contacts List"
-msgstr ""
+msgstr "Seznam kontaktů"
 
 #: ../glade/contacts.glade:161 ../glade/main.glade:565
 msgid "Add a contact"
@@ -133,7 +133,7 @@ msgstr "Číslo:"
 
 #: ../glade/contacts.glade:260
 msgid "<b>Save in:</b>"
-msgstr ""
+msgstr "<b>Uložit do:</b>"
 
 #: ../glade/contacts.glade:303 ../../gui/contacts/contact_sim.py:170
 msgid "Mobile"
@@ -157,11 +157,11 @@ msgstr "Výrobce:"
 
 #: ../glade/diagnostics.glade:92
 msgid "Model:"
-msgstr ""
+msgstr "Model:"
 
 #: ../glade/diagnostics.glade:103
 msgid "Firmware: "
-msgstr ""
+msgstr "Firmware: "
 
 #: ../glade/diagnostics.glade:114
 msgid "IMEI: "
@@ -169,15 +169,15 @@ msgstr "IMEI: "
 
 #: ../glade/diagnostics.glade:138
 msgid "Card manufacturer"
-msgstr ""
+msgstr "Výrobce karty"
 
 #: ../glade/diagnostics.glade:149
 msgid "Card model"
-msgstr ""
+msgstr "Model karty"
 
 #: ../glade/diagnostics.glade:160
 msgid "Firmware"
-msgstr ""
+msgstr "Firmware"
 
 #: ../glade/diagnostics.glade:171
 msgid "IMEI"
@@ -185,7 +185,7 @@ msgstr "IMEI"
 
 #: ../glade/diagnostics.glade:195
 msgid "Modem"
-msgstr ""
+msgstr "Modem"
 
 #: ../glade/diagnostics.glade:226
 msgid "<b>Network details from SIM</b>"
@@ -205,7 +205,7 @@ msgstr "Země:"
 
 #: ../glade/diagnostics.glade:297
 msgid "Mobile Number:"
-msgstr ""
+msgstr "Telefonní číslo:"
 
 #: ../glade/diagnostics.glade:320
 msgid "IMSI"
@@ -250,11 +250,11 @@ msgstr "Zařízení"
 
 #: ../glade/diagnostics.glade:601
 msgid "Software Version:"
-msgstr ""
+msgstr "Verze softwaru:"
 
 #: ../glade/diagnostics.glade:612
 msgid "Core Version:"
-msgstr ""
+msgstr "Verze jádra:"
 
 #: ../glade/diagnostics.glade:634 ../glade/diagnostics.glade:644
 msgid "Not supported"
@@ -262,7 +262,7 @@ msgstr "Není podporováno"
 
 #: ../glade/diagnostics.glade:672
 msgid "Modem Manager"
-msgstr ""
+msgstr "Správce modemu"
 
 #: ../glade/diagnostics.glade:688
 msgid "<b>USSD Test Message Diagnostics</b>"
@@ -292,7 +292,7 @@ msgstr ""
 #: ../glade/dialogs.glade:51 ../glade/dialogs.glade:252
 #: ../glade/dialogs.glade:348 ../glade/dialogs.glade:464
 msgid "A detailed message"
-msgstr ""
+msgstr "Detailní zpráva"
 
 #: ../glade/dialogs.glade:138
 msgid "<big><b>Question?</b></big>"
@@ -300,7 +300,7 @@ msgstr ""
 
 #: ../glade/dialogs.glade:152
 msgid "Detailed message"
-msgstr ""
+msgstr "Detailní zpráva"
 
 #: ../glade/dialogs.glade:189
 msgid "Action"
@@ -308,7 +308,7 @@ msgstr "Akce"
 
 #: ../glade/dialogs.glade:326
 msgid "<b>title</b>"
-msgstr ""
+msgstr "<b>název</b>"
 
 #: ../glade/dialogs.glade:363
 msgid "Remember my choice"
@@ -347,15 +347,15 @@ msgstr ""
 
 #: ../glade/main.glade:36
 msgid "Import contacts..."
-msgstr ""
+msgstr "Importovat kontakty..."
 
 #: ../glade/main.glade:46
 msgid "Export contacts..."
-msgstr ""
+msgstr "Exportovat kontakty..."
 
 #: ../glade/main.glade:59
 msgid "_Quit"
-msgstr ""
+msgstr "_Ukončit"
 
 #: ../glade/main.glade:86
 msgid "_View"
@@ -364,7 +364,7 @@ msgstr "_Zobrazení"
 #: ../glade/main.glade:112 ../glade/main.glade:383
 #: ../glade/preferences.glade:957
 msgid "Usage"
-msgstr ""
+msgstr "Využití"
 
 #: ../glade/main.glade:130 ../glade/main.glade:401
 msgid "Support"
@@ -412,7 +412,7 @@ msgstr ""
 
 #: ../glade/main.glade:464
 msgid "Create new SMS"
-msgstr ""
+msgstr "Vytvořit novou SMS"
 
 #: ../glade/main.glade:482
 msgid "Reply to SMS"
@@ -428,7 +428,7 @@ msgstr ""
 
 #: ../glade/main.glade:536
 msgid "Delete SMS"
-msgstr ""
+msgstr "Smazat SMS"
 
 #: ../glade/main.glade:583
 msgid "Search contacts"
@@ -500,7 +500,7 @@ msgstr ""
 
 #: ../glade/main.glade:1655
 msgid "Support center"
-msgstr ""
+msgstr "Centrum podpory"
 
 #: ../glade/main.glade:1695
 msgid "Customer support"
@@ -1064,7 +1064,7 @@ msgstr ""
 
 #: ../../gui/views/main.py:420
 msgid "Authenticated"
-msgstr ""
+msgstr "Ověřeno"
 
 #: ../../gui/views/main.py:421
 msgid "Enabling"
@@ -1487,7 +1487,8 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Andrew Bird https://launchpad.net/~ajb-spheresystems"
+"  Andrew Bird https://launchpad.net/~ajb-spheresystems\n"
+"  Konki https://launchpad.net/~pavel-konkol"
 
 #: ../../gui/dialogs.py:134
 msgid "Warning"

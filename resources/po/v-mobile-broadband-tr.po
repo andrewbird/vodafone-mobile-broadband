@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-04 09:28+0100\n"
-"PO-Revision-Date: 2012-06-04 02:26+0000\n"
-"Last-Translator: Andrew Bird <Unknown>\n"
+"PO-Revision-Date: 2012-09-10 07:43+0000\n"
+"Last-Translator: İbrahim Ethem Göl <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-08-14 07:56+0000\n"
-"X-Generator: Launchpad (build 15791)\n"
+"X-Launchpad-Export-Date: 2012-09-10 16:32+0000\n"
+"X-Generator: Launchpad (build 15924)\n"
 "Language: tr\n"
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
-msgstr ""
+msgstr "APN seçimi"
 
 #: ../glade/apnsel.glade:69
 msgid ""
@@ -42,7 +42,7 @@ msgstr "Tamam"
 
 #: ../glade/apnsel.glade:228
 msgid "<b>APN Settings</b>"
-msgstr ""
+msgstr "APN Ayarları"
 
 #: ../glade/config.glade:8
 msgid "Device setup"
@@ -56,7 +56,7 @@ msgstr ""
 
 #: ../glade/config.glade:56
 msgid "Device model: "
-msgstr ""
+msgstr "Aygıt modeli: "
 
 #: ../glade/config.glade:63
 msgid "Connection:"
@@ -64,11 +64,11 @@ msgstr "Bağlantı:"
 
 #: ../glade/config.glade:153
 msgid "Bluetooth configuration"
-msgstr ""
+msgstr "Bluetooth yapılandırması"
 
 #: ../glade/config.glade:174
 msgid "Configure your <b>Bluetooth</b> device"
-msgstr ""
+msgstr "<b>Bluetooth</b> aygıtınızı yapılandırın"
 
 #: ../glade/config.glade:198
 msgid ""
@@ -113,7 +113,7 @@ msgstr ""
 
 #: ../glade/contacts.glade:9
 msgid "Contact search"
-msgstr ""
+msgstr "Kişi arama"
 
 #: ../glade/contacts.glade:32 ../glade/contacts.glade:181
 msgid "Name:"
@@ -121,11 +121,11 @@ msgstr "Ad:"
 
 #: ../glade/contacts.glade:96
 msgid "Contacts List"
-msgstr ""
+msgstr "Kişi Listesi"
 
 #: ../glade/contacts.glade:161 ../glade/main.glade:565
 msgid "Add a contact"
-msgstr ""
+msgstr "Kişi ekle"
 
 #: ../glade/contacts.glade:224
 msgid "Number:"
@@ -149,7 +149,7 @@ msgstr "Tanılar"
 
 #: ../glade/diagnostics.glade:43
 msgid "<b>Datacard details</b>"
-msgstr ""
+msgstr "<b>Datacard ayrıntıları</b>"
 
 #: ../glade/diagnostics.glade:81
 msgid "Manufacturer:"
@@ -169,11 +169,11 @@ msgstr "IMEI: "
 
 #: ../glade/diagnostics.glade:138
 msgid "Card manufacturer"
-msgstr ""
+msgstr "Kart üreticisi"
 
 #: ../glade/diagnostics.glade:149
 msgid "Card model"
-msgstr ""
+msgstr "Kart modeli"
 
 #: ../glade/diagnostics.glade:160
 msgid "Firmware"
@@ -205,7 +205,7 @@ msgstr "Ülke:"
 
 #: ../glade/diagnostics.glade:297
 msgid "Mobile Number:"
-msgstr ""
+msgstr "Mobil Numara"
 
 #: ../glade/diagnostics.glade:320
 msgid "IMSI"
@@ -230,7 +230,7 @@ msgstr "SIM"
 
 #: ../glade/diagnostics.glade:408
 msgid "<b>Device information</b>"
-msgstr ""
+msgstr "<b>Aygıt bilgisi</b>"
 
 #: ../glade/diagnostics.glade:445
 msgid "Operating System:"
@@ -250,7 +250,7 @@ msgstr "Aygıt"
 
 #: ../glade/diagnostics.glade:601
 msgid "Software Version:"
-msgstr ""
+msgstr "Yazılım Sürümü:"
 
 #: ../glade/diagnostics.glade:612
 msgid "Core Version:"
@@ -262,7 +262,7 @@ msgstr "Desteklenmiyor"
 
 #: ../glade/diagnostics.glade:672
 msgid "Modem Manager"
-msgstr ""
+msgstr "Modem Yöneticisi"
 
 #: ../glade/diagnostics.glade:688
 msgid "<b>USSD Test Message Diagnostics</b>"
@@ -274,7 +274,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:765
 msgid "USSD reply message:"
-msgstr ""
+msgstr "USSD  yanıt mesajı:"
 
 #: ../glade/diagnostics.glade:809 ../glade/payt.glade:289
 msgid "Send"
@@ -343,15 +343,15 @@ msgstr "Anahtarlık Kilidini Aç"
 
 #: ../glade/keyring.glade:157
 msgid "Please, enter your keyring password"
-msgstr ""
+msgstr "Lütfen, anahtarlık şifrenizi giriniz"
 
 #: ../glade/main.glade:36
 msgid "Import contacts..."
-msgstr ""
+msgstr "Kişileri al..."
 
 #: ../glade/main.glade:46
 msgid "Export contacts..."
-msgstr ""
+msgstr "Kişileri ver..."
 
 #: ../glade/main.glade:59
 msgid "_Quit"
@@ -384,7 +384,7 @@ msgstr "PIN'i değiştir"
 
 #: ../glade/main.glade:187
 msgid "Request PIN"
-msgstr ""
+msgstr "PIN isteği"
 
 #: ../glade/main.glade:226
 msgid "Profiles"
@@ -412,23 +412,23 @@ msgstr ""
 
 #: ../glade/main.glade:464
 msgid "Create new SMS"
-msgstr ""
+msgstr "Yeni SMS oluştur"
 
 #: ../glade/main.glade:482
 msgid "Reply to SMS"
-msgstr ""
+msgstr "Sms i yanıtla"
 
 #: ../glade/main.glade:500
 msgid "Reply to SMS quoting original message"
-msgstr ""
+msgstr "Orijinal mesajı alıntılayarak SMS e yanıt ver"
 
 #: ../glade/main.glade:517
 msgid "Forward SMS to another contact"
-msgstr ""
+msgstr "SMS i başka bir kişiye gönder"
 
 #: ../glade/main.glade:536
 msgid "Delete SMS"
-msgstr ""
+msgstr "Sms i sil"
 
 #: ../glade/main.glade:583
 msgid "Search contacts"
@@ -436,7 +436,7 @@ msgstr "Kişi ara"
 
 #: ../glade/main.glade:601
 msgid "Delete contacts"
-msgstr ""
+msgstr "Kişileri sil"
 
 #: ../glade/main.glade:652
 msgid "Inbox"
@@ -456,7 +456,7 @@ msgstr "Bağlantılar"
 
 #: ../glade/main.glade:852 ../glade/main.glade:1288
 msgid "<b>Month</b>"
-msgstr ""
+msgstr "<b>Ay</b>"
 
 #: ../glade/main.glade:910 ../glade/main.glade:1050 ../glade/main.glade:1398
 msgid "GPRS:"
@@ -472,15 +472,15 @@ msgstr "Toplam:"
 
 #: ../glade/main.glade:1008 ../glade/main.glade:1444
 msgid "<b>Transferred Data</b>"
-msgstr ""
+msgstr "<b>Aktarılan Veri</b>"
 
 #: ../glade/main.glade:1145
 msgid "<b>Current session</b>"
-msgstr ""
+msgstr "<b>Şimdiki oturum</b>"
 
 #: ../glade/main.glade:1189 ../glade/main.glade:1488
 msgid "Total Traffic"
-msgstr ""
+msgstr "Toplam Trafik"
 
 #: ../glade/main.glade:1251
 msgid "Current month"
@@ -496,11 +496,11 @@ msgstr ""
 
 #: ../glade/main.glade:1616
 msgid "Help menu"
-msgstr ""
+msgstr "Yardım menüsü"
 
 #: ../glade/main.glade:1655
 msgid "Support center"
-msgstr ""
+msgstr "Destek merkezi"
 
 #: ../glade/main.glade:1695
 msgid "Customer support"
@@ -516,11 +516,11 @@ msgstr ""
 
 #: ../glade/payt.glade:44
 msgid "<b>SIM Details</b>"
-msgstr ""
+msgstr "<b>SIM Ayrıntıları</b>"
 
 #: ../glade/payt.glade:83
 msgid "<b>Number</b>"
-msgstr ""
+msgstr "<b>Numara</b>"
 
 #: ../glade/payt.glade:94
 msgid "<b>Credit</b>"
@@ -548,23 +548,23 @@ msgstr ""
 
 #: ../glade/payt.glade:341
 msgid "<b>Credit Card</b>"
-msgstr ""
+msgstr "<b>Kredi Kartı</b>"
 
 #: ../glade/payt.glade:371
 msgid "Pay by credit card"
-msgstr ""
+msgstr "Kredi kartı ile ödeme"
 
 #: ../glade/pin.glade:8
 msgid "Insert your PIN code"
-msgstr ""
+msgstr "PIN kodunuzu girin"
 
 #: ../glade/pin.glade:23
 msgid "Insert PIN Window"
-msgstr ""
+msgstr "Pin Giriş Penceresi"
 
 #: ../glade/pin.glade:64
 msgid "Please insert your PIN code"
-msgstr ""
+msgstr "Lütfen PIN kodunuzu giriniz"
 
 #: ../glade/pin.glade:104
 msgid "Insert PIN Entry"
@@ -580,11 +580,11 @@ msgstr "<b>Gelişmiş ayarlar</b>"
 
 #: ../glade/pin.glade:257
 msgid "Modify PIN code"
-msgstr ""
+msgstr "PIN kodunu değiştir"
 
 #: ../glade/pin.glade:369 ../glade/pin.glade:758
 msgid "Confirm PIN code: "
-msgstr ""
+msgstr "PIN kodunu doğrulayın "
 
 #: ../glade/pin.glade:397 ../glade/pin.glade:733
 msgid "New PIN code: "
@@ -592,11 +592,11 @@ msgstr "Yeni PIN kodu: "
 
 #: ../glade/pin.glade:425
 msgid "Current PIN code: "
-msgstr ""
+msgstr "Şimdiki PIN kodu "
 
 #: ../glade/pin.glade:513
 msgid "Please enter PUK"
-msgstr ""
+msgstr "Lütfen PUK u giriniz"
 
 #: ../glade/pin.glade:650
 msgid "PUK:"
@@ -608,11 +608,11 @@ msgstr ""
 
 #: ../glade/preferences.glade:95
 msgid "<b>SMSC preferences</b>"
-msgstr ""
+msgstr "<b>SMSC tercihleri</b>"
 
 #: ../glade/preferences.glade:112
 msgid "Use an alternative SMS Service centre address"
-msgstr ""
+msgstr "Alternatif bir SMS servis merkezi adresi kullanın"
 
 #: ../glade/preferences.glade:117
 msgid ""
@@ -626,25 +626,26 @@ msgstr "Profil:"
 
 #: ../glade/preferences.glade:158
 msgid "SMSC number:"
-msgstr ""
+msgstr "SMSC numarası:"
 
 #: ../glade/preferences.glade:249
 msgid "<b>Message options</b>"
-msgstr ""
+msgstr "<b>Mesaj ayarları</b>"
 
 #: ../glade/preferences.glade:266
 msgid "Allow SMS confirmation"
-msgstr ""
+msgstr "SMS teyitine izin ver"
 
 #: ../glade/preferences.glade:270
 msgid ""
 "Allows SMS confirmation reports. This lets you see when someone has received "
 "your text message."
 msgstr ""
+"SMS teyit raporlarına izin ver. Bu, alıcının yazılı mesajı aldığını gösterir."
 
 #: ../glade/preferences.glade:301
 msgid "Validity:"
-msgstr ""
+msgstr "Geçerlilik:"
 
 #: ../glade/preferences.glade:362
 msgid "SMS Profile"
@@ -652,19 +653,19 @@ msgstr ""
 
 #: ../glade/preferences.glade:382
 msgid "<b>User options</b>"
-msgstr ""
+msgstr "<b>Kullanıcı Ayarları</b>"
 
 #: ../glade/preferences.glade:405
 msgid "Exit without confirmation"
-msgstr ""
+msgstr "Onaylamadan çık"
 
 #: ../glade/preferences.glade:421
 msgid "Show icon on tray"
-msgstr ""
+msgstr "Sistem tepsisinde simge göster"
 
 #: ../glade/preferences.glade:437
 msgid "Close window minimizes app to tray"
-msgstr ""
+msgstr "Pencereyi sistem çekmecesine kapat"
 
 #: ../glade/preferences.glade:453
 msgid "Manage my PIN through gnomekeyring"
@@ -680,7 +681,7 @@ msgstr ""
 
 #: ../glade/preferences.glade:509
 msgid "User Preferences"
-msgstr ""
+msgstr "Kullanıcı Seçenekleri"
 
 #: ../glade/preferences.glade:530
 msgid "<b>Web Browser</b>"
@@ -692,7 +693,7 @@ msgstr "Komut:"
 
 #: ../glade/preferences.glade:650
 msgid "<b>Email client</b>"
-msgstr ""
+msgstr "<b>E-mail alıcısı</b>"
 
 #: ../glade/preferences.glade:779
 msgid "Applications"
@@ -700,11 +701,11 @@ msgstr "Uygulamalar"
 
 #: ../glade/preferences.glade:800
 msgid "<b>Usage Options</b>"
-msgstr ""
+msgstr "<b>Kullanım Ayarları</b>"
 
 #: ../glade/preferences.glade:832
 msgid "Maximum traffic (MB):"
-msgstr ""
+msgstr "Maksimum trafik (MB):"
 
 #: ../glade/preferences.glade:869
 msgid "Notify when a given threshold is exceeded."
@@ -712,7 +713,7 @@ msgstr ""
 
 #: ../glade/preferences.glade:901
 msgid "Notification threshold (MB):"
-msgstr ""
+msgstr "Bildirim eşiği (MB):"
 
 #: ../glade/profiles.glade:9
 msgid "New Profile"
@@ -720,7 +721,7 @@ msgstr "Yeni Profil"
 
 #: ../glade/profiles.glade:23
 msgid "New Profile Window"
-msgstr ""
+msgstr "Yeni Profil Penceresi"
 
 #: ../glade/profiles.glade:64
 msgid ""
@@ -733,7 +734,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:115
 msgid "<b>Connection preferences</b>"
-msgstr ""
+msgstr "<b>Bağlantı tercihleri</b>"
 
 #: ../glade/profiles.glade:152
 msgid "Username:"
@@ -741,15 +742,15 @@ msgstr "Kullanıcı Adı:"
 
 #: ../glade/profiles.glade:202
 msgid "Authentication method:"
-msgstr ""
+msgstr "Kimlik doğrulama yöntemi:"
 
 #: ../glade/profiles.glade:227
 msgid "Preferred connection:"
-msgstr ""
+msgstr "Tercih edilen bağlantı:"
 
 #: ../glade/profiles.glade:252
 msgid "Preferred band:"
-msgstr ""
+msgstr "Tercih edilen bant:"
 
 #: ../glade/profiles.glade:277
 msgid "APN host:"
@@ -757,7 +758,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:447
 msgid "<b>DNS settings</b>"
-msgstr ""
+msgstr "<b>DNS ayarları</b>"
 
 #: ../glade/profiles.glade:485
 msgid "Use static DNS"
@@ -773,7 +774,7 @@ msgstr "İkincil DNS:"
 
 #: ../glade/profiles.glade:715
 msgid "<b>Profile settings</b>"
-msgstr ""
+msgstr "<b>Profil ayarları</b>"
 
 #: ../glade/profiles.glade:752
 msgid "Profile name:"
@@ -785,7 +786,7 @@ msgstr "Cihaz seçimi"
 
 #: ../glade/profiles.glade:877
 msgid "Device Selection Window"
-msgstr ""
+msgstr "Aygıt Seçim Penceresi"
 
 #: ../glade/profiles.glade:925
 msgid ""
@@ -801,7 +802,7 @@ msgstr "Bilinen aygıtlar"
 
 #: ../glade/profiles.glade:1032
 msgid "Known Devices Radio"
-msgstr ""
+msgstr "Bilinen Telsiz Cihazlar"
 
 #: ../glade/profiles.glade:1083
 msgid "Device type:"
@@ -825,7 +826,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:1254
 msgid "Speed connection:"
-msgstr ""
+msgstr "Bağlantı hızı:"
 
 #: ../glade/profiles.glade:1294
 msgid "Custom device settings"
@@ -837,7 +838,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:1369
 msgid "<b>Device Settings</b>"
-msgstr ""
+msgstr "<b>Aygıt Ayarları</b>"
 
 #: ../glade/sms.glade:50
 msgid "TO : "
@@ -845,7 +846,7 @@ msgstr ""
 
 #: ../glade/splash.glade:6
 msgid "3G Devices Manager"
-msgstr ""
+msgstr "3G Aygıt Yöneticisi"
 
 #: ../../gui/constx.py:47 ../../gui/constx.py:65 ../../gui/constx.py:84
 msgid "Any"
@@ -901,19 +902,19 @@ msgstr "WCDMA 1900"
 
 #: ../../gui/constx.py:66 ../../gui/signals.py:27
 msgid "2G preferred"
-msgstr ""
+msgstr "2G tercih edilen"
 
 #: ../../gui/constx.py:67 ../../gui/signals.py:28
 msgid "3G preferred"
-msgstr ""
+msgstr "3G tercih edilen"
 
 #: ../../gui/constx.py:68 ../../gui/signals.py:29
 msgid "2G only"
-msgstr ""
+msgstr "Sadece 2G"
 
 #: ../../gui/constx.py:69 ../../gui/signals.py:30
 msgid "3G only"
-msgstr ""
+msgstr "Sadece 3G"
 
 #: ../../gui/constx.py:85
 msgid "PAP"
@@ -949,6 +950,9 @@ msgid ""
 "In order to unlock your SIM, we need your\n"
 "PIN and PUK codes"
 msgstr ""
+"\n"
+"Sim kilidinizi açmak için PIN ve PUK\n"
+"kodlarınıza ihtiyacımız var"
 
 #: ../../gui/views/pin.py:100
 msgid ""
@@ -956,6 +960,9 @@ msgid ""
 "In order to unlock your SIM, we need your\n"
 "PIN and PUK2 codes"
 msgstr ""
+"\n"
+"Sim kilidinizi açmak için PIN ve PUK2\n"
+"kodlarınıza ihtiyacımız var"
 
 #: ../../gui/views/main.py:146
 #, python-format
@@ -1048,7 +1055,7 @@ msgstr "Bağlantıyı Kes"
 
 #: ../../gui/views/main.py:416
 msgid "Device found"
-msgstr ""
+msgstr "Aygıt bulundu"
 
 #: ../../gui/views/main.py:417
 msgid "Disabled"
@@ -1056,7 +1063,7 @@ msgstr "Devre dışı"
 
 #: ../../gui/views/main.py:418
 msgid "SIM locked"
-msgstr ""
+msgstr "SIM kilitli"
 
 #: ../../gui/views/main.py:419
 msgid "Authenticating"
@@ -1136,7 +1143,7 @@ msgstr ""
 
 #: ../../gui/signals.py:23
 msgid "No signal"
-msgstr ""
+msgstr "Sinyal yok"
 
 #: ../../gui/models/main.py:118 ../../gui/controllers/payt.py:176
 #: ../../gui/controllers/payt.py:208
@@ -1192,24 +1199,24 @@ msgstr ""
 
 #: ../../gui/controllers/sms.py:52
 msgid "You can send the SMS to several recipients separating them by commas"
-msgstr ""
+msgstr "Virgüllerle ayırarak birden fazla alıcıya SMS gönderebilirsiniz"
 
 #: ../../gui/controllers/sms.py:84 ../../gui/controllers/sms.py:259
 #, python-format
 msgid "Text message: 0/%d chars"
-msgstr ""
+msgstr "Yazılı mesaj: 0/%d karakter"
 
 #: ../../gui/controllers/sms.py:113
 msgid "Send empty message"
-msgstr ""
+msgstr "Boş mesaj gönder"
 
 #: ../../gui/controllers/sms.py:114
 msgid "Are you sure you want to send an empty message?"
-msgstr ""
+msgstr "Boş bir mesaj göndermek istediğinizden emin misiniz ?"
 
 #: ../../gui/controllers/sms.py:138
 msgid "Error while sending SMS"
-msgstr ""
+msgstr "Sms gönderilirken hata oluştu"
 
 #: ../../gui/controllers/sms.py:184
 msgid "No SMSC number"
@@ -1256,11 +1263,11 @@ msgstr "Çıkmak istediğinizden emin misiniz?"
 
 #: ../../gui/controllers/main.py:187
 msgid "Can not close application"
-msgstr ""
+msgstr "Uygulama kapatılamaz"
 
 #: ../../gui/controllers/main.py:188
 msgid "Can not close while a connection is active"
-msgstr ""
+msgstr "Bir bağlantı etkinken kapatılamaz"
 
 #: ../../gui/controllers/main.py:269
 #, python-format
@@ -1288,7 +1295,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:421
 msgid "SIM error"
-msgstr ""
+msgstr "SİM hatası"
 
 #: ../../gui/controllers/main.py:422
 msgid "Perhaps your SIM is not inserted correctly?"
@@ -1300,15 +1307,15 @@ msgstr "Bilinmeyen hata"
 
 #: ../../gui/controllers/main.py:430
 msgid "Error while registering to home network"
-msgstr ""
+msgstr "Ana şebekeye kayıt olurken hata oluştu"
 
 #: ../../gui/controllers/main.py:506
 msgid "Transfer limit exceeded"
-msgstr ""
+msgstr "Aktarım sınırı aşıldı"
 
 #: ../../gui/controllers/main.py:507
 msgid "You have exceeded your transfer limit"
-msgstr ""
+msgstr "Aktarım sınırınızı aştınız"
 
 #: ../../gui/controllers/main.py:588
 #, python-format
@@ -1318,11 +1325,11 @@ msgstr ""
 #: ../../gui/controllers/main.py:623
 #, python-format
 msgid "SMS received from %s"
-msgstr ""
+msgstr "%s 'den sms alındı"
 
 #: ../../gui/controllers/main.py:664 ../../gui/controllers/main.py:667
 msgid "Failed connection attempt"
-msgstr ""
+msgstr "Başarısız bağlantı girişimi"
 
 #: ../../gui/controllers/main.py:665
 msgid "Unable to connect"
@@ -1368,11 +1375,11 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:833
 msgid "You need to create a profile for connecting."
-msgstr ""
+msgstr "Bağlanmak için bir profil oluşturmanız gerekiyor"
 
 #: ../../gui/controllers/main.py:878
 msgid "Invalid Connection"
-msgstr ""
+msgstr "Geçersiz Bağlantı"
 
 #: ../../gui/controllers/main.py:879
 msgid ""
@@ -1398,7 +1405,7 @@ msgstr "Profil Sil"
 
 #: ../../gui/controllers/main.py:1068
 msgid "No mobile connection. Do you want to continue?"
-msgstr ""
+msgstr "Mobil bağlantı yok. Devam etmek istiyormusunuz?"
 
 #: ../../gui/controllers/main.py:1483
 msgid "Editor not available"
@@ -1419,7 +1426,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:1510
 msgid "Save to draft"
-msgstr ""
+msgstr "Taslağa kaydet"
 
 #: ../../gui/controllers/main.py:1521
 msgid "Delete"
@@ -1431,7 +1438,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:1570
 msgid "Only SIM based contacts supported"
-msgstr ""
+msgstr "Sadece SIM tabanlı kişiler desteklenmektedir"
 
 #: ../../gui/controllers/preferences.py:37
 msgid "Maximum time"
@@ -1452,7 +1459,7 @@ msgstr "1 gün"
 #: ../../gui/controllers/preferences.py:196
 #: ../../gui/controllers/preferences.py:215
 msgid "Missing dependency"
-msgstr ""
+msgstr "Eksik bağımlılık"
 
 #: ../../gui/controllers/preferences.py:216
 msgid ""
@@ -1463,7 +1470,7 @@ msgstr ""
 
 #: ../../gui/controllers/contacts.py:96
 msgid "No contact found"
-msgstr ""
+msgstr "Kişi bulunamadı"
 
 #: ../../gui/controllers/contacts.py:97
 #, python-format
@@ -1487,7 +1494,8 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Andrew Bird https://launchpad.net/~ajb-spheresystems"
+"  Andrew Bird https://launchpad.net/~ajb-spheresystems\n"
+"  İbrahim Ethem Göl https://launchpad.net/~ethem578"
 
 #: ../../gui/dialogs.py:134
 msgid "Warning"
@@ -1507,7 +1515,7 @@ msgstr ""
 
 #: ../../gui/dialogs.py:279
 msgid "Save as ..."
-msgstr ""
+msgstr "Farklı kaydet..."
 
 #: ../../gui/dialogs.py:287 ../../gui/dialogs.py:326
 msgid "Csv files"
@@ -1530,7 +1538,7 @@ msgstr ""
 
 #: ../../gui/dialogs.py:318
 msgid "Import contacts from..."
-msgstr ""
+msgstr "Kişileri şuradan içeri aktar..."
 
 #: ../../gui/keyring_dialogs.py:103
 msgid "Create default keyring"
