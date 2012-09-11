@@ -1,4 +1,4 @@
-# V Mobile Broadband translation to Bengali (India) (bn_IN)
+# V Mobile Broadband translation to Bengali
 # Copyright (C) 2012 Vodafone España S.A.
 # This file is distributed under the same license as the V Mobile Broadband package.
 #
@@ -8,14 +8,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-04 09:28+0100\n"
 "PO-Revision-Date: 2012-09-10 18:24+0000\n"
-"Last-Translator: Andrew Bird <Unknown>\n"
-"Language-Team: Bengali <bn_IN@li.org>\n"
+"Last-Translator: Unknown <Unknown>\n"
+"Language-Team: Bengali <bn@li.org>\n"
+"Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-11 14:16+0000\n"
-"X-Generator: Launchpad (build 15930)\n"
-"Language: bn_IN\n"
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
@@ -1485,8 +1483,6 @@ msgstr ""
 #: ../../gui/dialogs.py:66
 msgid "translator-credits"
 msgstr ""
-"Launchpad Contributions:\n"
-"  Andrew Bird https://launchpad.net/~ajb-spheresystems"
 
 #: ../../gui/dialogs.py:134
 msgid "Warning"
