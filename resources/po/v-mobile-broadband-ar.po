@@ -1,4 +1,4 @@
-# V Mobile Broadband translation to Arabic (Egypt) (ar_EG)
+# V Mobile Broadband translation to Arabic
 # Copyright (C) 2012 Vodafone España S.A.
 # This file is distributed under the same license as the V Mobile Broadband package.
 #
@@ -7,9 +7,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-04 09:28+0100\n"
-"PO-Revision-Date: 2012-09-10 18:24+0000\n"
-"Last-Translator: Andrew Bird <Unknown>\n"
-"Language-Team: Arabic <ar_EG@li.org>\n"
+"PO-Revision-Date: 2012-09-09 08:04\n"
+"Last-Translator: Unknown <Unknown>\n"
+"Language-Team: Arabic <ar@li.org>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,7 +33,7 @@ msgstr ""
 #: ../glade/apnsel.glade:193 ../glade/pin.glade:217 ../glade/pin.glade:222
 #: ../glade/pin.glade:862 ../glade/profiles.glade:1334
 msgid "Cancel"
-msgstr "الغِ"
+msgstr "إلغاء الأمر"
 
 #: ../glade/apnsel.glade:208 ../glade/pin.glade:239
 #: ../glade/profiles.glade:1349
@@ -45,7 +46,7 @@ msgstr ""
 
 #: ../glade/config.glade:8
 msgid "Device setup"
-msgstr ""
+msgstr "إعداد الجهاز"
 
 #: ../glade/config.glade:34
 msgid ""
@@ -55,11 +56,11 @@ msgstr ""
 
 #: ../glade/config.glade:56
 msgid "Device model: "
-msgstr ""
+msgstr "طراز الجهاز:"
 
 #: ../glade/config.glade:63
 msgid "Connection:"
-msgstr ""
+msgstr "الإتصال:"
 
 #: ../glade/config.glade:153
 msgid "Bluetooth configuration"
@@ -96,7 +97,7 @@ msgstr ""
 
 #: ../glade/config.glade:346
 msgid "Speed"
-msgstr ""
+msgstr "سرعة"
 
 #: ../glade/config.glade:440
 msgid "<b>Connection settings</b>"
@@ -116,7 +117,7 @@ msgstr ""
 
 #: ../glade/contacts.glade:32 ../glade/contacts.glade:181
 msgid "Name:"
-msgstr ""
+msgstr "الاسم:"
 
 #: ../glade/contacts.glade:96
 msgid "Contacts List"
@@ -136,15 +137,15 @@ msgstr ""
 
 #: ../glade/contacts.glade:303 ../../gui/contacts/contact_sim.py:170
 msgid "Mobile"
-msgstr ""
+msgstr "محمول"
 
 #: ../glade/contacts.glade:343
 msgid "Computer"
-msgstr ""
+msgstr "الحاسوب"
 
 #: ../glade/diagnostics.glade:7 ../glade/main.glade:201
 msgid "Diagnostics"
-msgstr ""
+msgstr "التشخيصات"
 
 #: ../glade/diagnostics.glade:43
 msgid "<b>Datacard details</b>"
@@ -152,15 +153,15 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:81
 msgid "Manufacturer:"
-msgstr ""
+msgstr "الصانع:"
 
 #: ../glade/diagnostics.glade:92
 msgid "Model:"
-msgstr ""
+msgstr "الطراز:"
 
 #: ../glade/diagnostics.glade:103
 msgid "Firmware: "
-msgstr ""
+msgstr "البرمجيات المضمّنة:"
 
 #: ../glade/diagnostics.glade:114
 msgid "IMEI: "
@@ -176,15 +177,15 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:160
 msgid "Firmware"
-msgstr ""
+msgstr "فيرموير"
 
 #: ../glade/diagnostics.glade:171
 msgid "IMEI"
-msgstr ""
+msgstr "IMEI"
 
 #: ../glade/diagnostics.glade:195
 msgid "Modem"
-msgstr ""
+msgstr "مودم"
 
 #: ../glade/diagnostics.glade:226
 msgid "<b>Network details from SIM</b>"
@@ -192,15 +193,15 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:264
 msgid "IMSI:"
-msgstr ""
+msgstr "IMSI:"
 
 #: ../glade/diagnostics.glade:275
 msgid "Network:"
-msgstr ""
+msgstr "الشبكة:"
 
 #: ../glade/diagnostics.glade:286
 msgid "Country:"
-msgstr ""
+msgstr "البلد:"
 
 #: ../glade/diagnostics.glade:297
 msgid "Mobile Number:"
@@ -208,7 +209,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:320
 msgid "IMSI"
-msgstr ""
+msgstr "IMSI"
 
 #: ../glade/diagnostics.glade:330 ../glade/diagnostics.glade:341
 #: ../glade/diagnostics.glade:351 ../glade/payt.glade:125
@@ -221,7 +222,7 @@ msgstr ""
 #: ../../gui/models/main.py:94 ../../gui/models/main.py:359
 #: ../../gui/controllers/main.py:259 ../../gui/controllers/main.py:587
 msgid "Unknown"
-msgstr ""
+msgstr "غير معرف"
 
 #: ../glade/diagnostics.glade:376
 msgid "SIM"
@@ -237,7 +238,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:456
 msgid "Version:"
-msgstr ""
+msgstr "النسخة:"
 
 #: ../glade/diagnostics.glade:467
 msgid "Uptime:"
@@ -245,7 +246,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:536
 msgid "Device"
-msgstr ""
+msgstr "جهاز"
 
 #: ../glade/diagnostics.glade:601
 msgid "Software Version:"
@@ -257,7 +258,7 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:634 ../glade/diagnostics.glade:644
 msgid "Not supported"
-msgstr ""
+msgstr "غير مدعوم"
 
 #: ../glade/diagnostics.glade:672
 msgid "Modem Manager"
@@ -277,11 +278,11 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:809 ../glade/payt.glade:289
 msgid "Send"
-msgstr ""
+msgstr "ارسل"
 
 #: ../glade/diagnostics.glade:842
 msgid "USSD"
-msgstr ""
+msgstr "USSD"
 
 #: ../glade/dialogs.glade:38 ../glade/dialogs.glade:239
 #: ../glade/dialogs.glade:451
@@ -303,7 +304,7 @@ msgstr ""
 
 #: ../glade/dialogs.glade:189
 msgid "Action"
-msgstr ""
+msgstr "إجراء"
 
 #: ../glade/dialogs.glade:326
 msgid "<b>title</b>"
@@ -315,7 +316,7 @@ msgstr ""
 
 #: ../glade/helpbrowser.glade:21 ../glade/main.glade:26
 msgid "_File"
-msgstr ""
+msgstr "م_لف"
 
 #: ../glade/keyring.glade:35
 msgid "<span size='large' weight='bold'>Creating a new keyring</span>"
@@ -330,7 +331,7 @@ msgstr ""
 #: ../glade/keyring.glade:81 ../glade/keyring.glade:191
 #: ../glade/profiles.glade:177
 msgid "Password:"
-msgstr ""
+msgstr "كلمة السر:"
 
 #: ../glade/keyring.glade:100
 msgid "Confirm password:"
@@ -338,7 +339,7 @@ msgstr ""
 
 #: ../glade/keyring.glade:131
 msgid "Unlock Keyring"
-msgstr ""
+msgstr "فك قفل حلقة المفاتيح"
 
 #: ../glade/keyring.glade:157
 msgid "Please, enter your keyring password"
@@ -354,28 +355,28 @@ msgstr ""
 
 #: ../glade/main.glade:59
 msgid "_Quit"
-msgstr ""
+msgstr "_خروج"
 
 #: ../glade/main.glade:86
 msgid "_View"
-msgstr ""
+msgstr "_عرض"
 
 #: ../glade/main.glade:112 ../glade/main.glade:383
 #: ../glade/preferences.glade:957
 msgid "Usage"
-msgstr ""
+msgstr "الإستخدام"
 
 #: ../glade/main.glade:130 ../glade/main.glade:401
 msgid "Support"
-msgstr ""
+msgstr "الدعم"
 
 #: ../glade/main.glade:156
 msgid "_Tools"
-msgstr ""
+msgstr "أد_وات"
 
 #: ../glade/main.glade:167 ../../gui/views/main.py:423
 msgid "Enabled"
-msgstr ""
+msgstr "مفعّل"
 
 #: ../glade/main.glade:177
 msgid "Change PIN"
@@ -387,23 +388,23 @@ msgstr ""
 
 #: ../glade/main.glade:226
 msgid "Profiles"
-msgstr ""
+msgstr "ملفات التعريف"
 
 #: ../glade/main.glade:249 ../glade/preferences.glade:8
 msgid "Preferences"
-msgstr "تفضيلات"
+msgstr "التفضيلات"
 
 #: ../glade/main.glade:275
 msgid "_Help"
-msgstr ""
+msgstr "م_ساعدة"
 
 #: ../glade/main.glade:282
 msgid "Help"
-msgstr ""
+msgstr "مساعدة"
 
 #: ../glade/main.glade:301
 msgid "_About"
-msgstr ""
+msgstr "حو_ل"
 
 #: ../glade/main.glade:429
 msgid "Topup"
@@ -431,7 +432,7 @@ msgstr ""
 
 #: ../glade/main.glade:583
 msgid "Search contacts"
-msgstr ""
+msgstr "ابحث عن المتراسلين"
 
 #: ../glade/main.glade:601
 msgid "Delete contacts"
@@ -439,19 +440,19 @@ msgstr ""
 
 #: ../glade/main.glade:652
 msgid "Inbox"
-msgstr ""
+msgstr "الوارد"
 
 #: ../glade/main.glade:684
 msgid "Draft"
-msgstr ""
+msgstr "مسوّدة"
 
 #: ../glade/main.glade:716
 msgid "Sent"
-msgstr ""
+msgstr "أرسل"
 
 #: ../glade/main.glade:747 ../glade/sms.glade:34
 msgid "Contacts"
-msgstr ""
+msgstr "مُراسلون"
 
 #: ../glade/main.glade:852 ../glade/main.glade:1288
 msgid "<b>Month</b>"
@@ -467,7 +468,7 @@ msgstr ""
 
 #: ../glade/main.glade:938 ../glade/main.glade:1078 ../glade/main.glade:1426
 msgid "Total:"
-msgstr ""
+msgstr "المجموع:"
 
 #: ../glade/main.glade:1008 ../glade/main.glade:1444
 msgid "<b>Transferred Data</b>"
@@ -483,7 +484,7 @@ msgstr ""
 
 #: ../glade/main.glade:1251
 msgid "Current month"
-msgstr ""
+msgstr "الشهر الحالي"
 
 #: ../glade/main.glade:1553
 msgid "Last month"
@@ -527,7 +528,7 @@ msgstr ""
 
 #: ../glade/payt.glade:105
 msgid "<b>Date</b>"
-msgstr ""
+msgstr "<b>التاريخ</b>"
 
 #: ../glade/payt.glade:167
 msgid "Recheck my credit:"
@@ -587,7 +588,7 @@ msgstr ""
 
 #: ../glade/pin.glade:397 ../glade/pin.glade:733
 msgid "New PIN code: "
-msgstr ""
+msgstr "رمز PIN جديد:"
 
 #: ../glade/pin.glade:425
 msgid "Current PIN code: "
@@ -599,7 +600,7 @@ msgstr ""
 
 #: ../glade/pin.glade:650
 msgid "PUK:"
-msgstr ""
+msgstr "PUK:"
 
 #: ../glade/preferences.glade:60
 msgid "<b>Change to global SMS settings </b>"
@@ -621,7 +622,7 @@ msgstr ""
 
 #: ../glade/preferences.glade:144
 msgid "Profile:"
-msgstr ""
+msgstr "ملف تعريف:"
 
 #: ../glade/preferences.glade:158
 msgid "SMSC number:"
@@ -687,7 +688,7 @@ msgstr ""
 
 #: ../glade/preferences.glade:599 ../glade/preferences.glade:716
 msgid "Command:"
-msgstr ""
+msgstr "الأمر:"
 
 #: ../glade/preferences.glade:650
 msgid "<b>Email client</b>"
@@ -695,7 +696,7 @@ msgstr ""
 
 #: ../glade/preferences.glade:779
 msgid "Applications"
-msgstr ""
+msgstr "التطبيقات"
 
 #: ../glade/preferences.glade:800
 msgid "<b>Usage Options</b>"
@@ -715,7 +716,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:9
 msgid "New Profile"
-msgstr ""
+msgstr "سيرة جديدة"
 
 #: ../glade/profiles.glade:23
 msgid "New Profile Window"
@@ -736,7 +737,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:152
 msgid "Username:"
-msgstr ""
+msgstr "اسم المستخدم:"
 
 #: ../glade/profiles.glade:202
 msgid "Authentication method:"
@@ -776,11 +777,11 @@ msgstr ""
 
 #: ../glade/profiles.glade:752
 msgid "Profile name:"
-msgstr ""
+msgstr "إسم الشاكلة"
 
 #: ../glade/profiles.glade:863
 msgid "Device selection"
-msgstr ""
+msgstr "اختيار الأجهزة"
 
 #: ../glade/profiles.glade:877
 msgid "Device Selection Window"
@@ -804,15 +805,15 @@ msgstr ""
 
 #: ../glade/profiles.glade:1083
 msgid "Device type:"
-msgstr ""
+msgstr "نوع الجهاز:"
 
 #: ../glade/profiles.glade:1108
 msgid "Serial"
-msgstr ""
+msgstr "Serial"
 
 #: ../glade/profiles.glade:1183
 msgid "115200"
-msgstr ""
+msgstr "115200"
 
 #: ../glade/profiles.glade:1198
 msgid "Data port device:"
@@ -848,55 +849,55 @@ msgstr ""
 
 #: ../../gui/constx.py:47 ../../gui/constx.py:65 ../../gui/constx.py:84
 msgid "Any"
-msgstr ""
+msgstr "اي"
 
 #: ../../gui/constx.py:48
 msgid "EGSM 900"
-msgstr ""
+msgstr "EGSM 900"
 
 #: ../../gui/constx.py:49
 msgid "GSM DCS"
-msgstr ""
+msgstr "GSM DCS"
 
 #: ../../gui/constx.py:50
 msgid "GSM PCS"
-msgstr ""
+msgstr "GSM PCS"
 
 #: ../../gui/constx.py:51
 msgid "GSM 850"
-msgstr ""
+msgstr "GSM 850"
 
 #: ../../gui/constx.py:52
 msgid "WCDMA 2100"
-msgstr ""
+msgstr "WCDMA 2100"
 
 #: ../../gui/constx.py:53
 msgid "WCDMA 1800"
-msgstr ""
+msgstr "WCDMA 1800"
 
 #: ../../gui/constx.py:54
 msgid "WCDMA 17IV"
-msgstr ""
+msgstr "WCDMA 17IV"
 
 #: ../../gui/constx.py:55
 msgid "WCDMA 800"
-msgstr ""
+msgstr "WCDMA 800"
 
 #: ../../gui/constx.py:56
 msgid "WCDMA 850"
-msgstr ""
+msgstr "WCDMA 850"
 
 #: ../../gui/constx.py:57
 msgid "WCDMA 900"
-msgstr ""
+msgstr "WCDMA 900"
 
 #: ../../gui/constx.py:58
 msgid "WCDMA 17IX"
-msgstr ""
+msgstr "WCDMA 17IX"
 
 #: ../../gui/constx.py:59
 msgid "WCDMA 1900"
-msgstr ""
+msgstr "WCDMA 1900"
 
 #: ../../gui/constx.py:66 ../../gui/signals.py:27
 msgid "2G preferred"
@@ -916,23 +917,23 @@ msgstr ""
 
 #: ../../gui/constx.py:85
 msgid "PAP"
-msgstr ""
+msgstr "PAP"
 
 #: ../../gui/constx.py:86
 msgid "EAP"
-msgstr ""
+msgstr "EAP"
 
 #: ../../gui/constx.py:87
 msgid "CHAP"
-msgstr ""
+msgstr "CHAP"
 
 #: ../../gui/constx.py:88
 msgid "MSCHAP"
-msgstr ""
+msgstr "MSCHAP"
 
 #: ../../gui/constx.py:89
 msgid "MSCHAPv2"
-msgstr ""
+msgstr "MSCHAPv2"
 
 #: ../../gui/messages.py:39
 msgid "WAP Push (Binary content)"
@@ -985,65 +986,65 @@ msgstr ""
 
 #: ../../gui/views/main.py:216 ../../gui/views/main.py:234
 msgid "N/A"
-msgstr ""
+msgstr "لا ينطبق"
 
 #: ../../gui/views/main.py:337
 msgid "GSM"
-msgstr ""
+msgstr "GSM"
 
 #: ../../gui/views/main.py:338
 msgid "GSM_COMPAT"
-msgstr ""
+msgstr "GSM_COMPAT"
 
 #: ../../gui/views/main.py:339 ../../gui/signals.py:24
 msgid "GPRS"
-msgstr ""
+msgstr "GPRS"
 
 #: ../../gui/views/main.py:340 ../../gui/signals.py:25
 msgid "EDGE"
-msgstr ""
+msgstr "EDGE"
 
 #: ../../gui/views/main.py:341 ../../gui/signals.py:26
 msgid "UMTS"
-msgstr ""
+msgstr "UMTS"
 
 #: ../../gui/views/main.py:342 ../../gui/signals.py:31
 msgid "HSDPA"
-msgstr ""
+msgstr "HSDPA"
 
 #: ../../gui/views/main.py:343 ../../gui/signals.py:32
 msgid "HSUPA"
-msgstr ""
+msgstr "HSUPA"
 
 #: ../../gui/views/main.py:344 ../../gui/signals.py:33
 msgid "HSPA"
-msgstr ""
+msgstr "HSPA"
 
 #: ../../gui/views/main.py:345
 msgid "HSPA+"
-msgstr ""
+msgstr "HSPA+"
 
 #: ../../gui/views/main.py:346
 msgid "LTE"
-msgstr ""
+msgstr "LTE"
 
 #: ../../gui/views/main.py:386 ../../gui/views/main.py:390
 #: ../../gui/controllers/main.py:704
 msgid "Connect"
-msgstr "اتصل"
+msgstr "إتصال"
 
 #: ../../gui/views/main.py:394 ../../gui/views/main.py:427
 msgid "Disconnecting"
-msgstr ""
+msgstr "يقطع الاتصال"
 
 #: ../../gui/views/main.py:398 ../../gui/views/main.py:426
 #: ../../gui/controllers/main.py:864
 msgid "Connecting"
-msgstr "يتصل"
+msgstr "يتم الإتصال"
 
 #: ../../gui/views/main.py:402 ../../gui/controllers/main.py:699
 msgid "Disconnect"
-msgstr ""
+msgstr "فصل"
 
 #: ../../gui/views/main.py:416
 msgid "Device found"
@@ -1051,7 +1052,7 @@ msgstr ""
 
 #: ../../gui/views/main.py:417
 msgid "Disabled"
-msgstr ""
+msgstr "معطل"
 
 #: ../../gui/views/main.py:418
 msgid "SIM locked"
@@ -1059,11 +1060,11 @@ msgstr ""
 
 #: ../../gui/views/main.py:419
 msgid "Authenticating"
-msgstr ""
+msgstr "يجري الاستيثاق"
 
 #: ../../gui/views/main.py:420
 msgid "Authenticated"
-msgstr ""
+msgstr "مواثَق"
 
 #: ../../gui/views/main.py:421
 msgid "Enabling"
@@ -1075,7 +1076,7 @@ msgstr ""
 
 #: ../../gui/views/main.py:424
 msgid "Searching"
-msgstr ""
+msgstr "بحث"
 
 #: ../../gui/views/main.py:425 ../../gui/controllers/main.py:1067
 msgid "Not connected"
@@ -1083,7 +1084,7 @@ msgstr "غير متصل"
 
 #: ../../gui/views/main.py:428
 msgid "Connected"
-msgstr ""
+msgstr "متصل"
 
 #: ../../gui/views/main.py:431
 msgid "No device"
@@ -1092,20 +1093,20 @@ msgstr ""
 #: ../../gui/views/main.py:490 ../../gui/views/main.py:526
 #: ../../gui/views/profile.py:143 ../../gui/controllers/contacts.py:145
 msgid "Type"
-msgstr ""
+msgstr "النوع"
 
 #: ../../gui/views/main.py:497 ../../gui/views/profile.py:133
 #: ../../gui/controllers/contacts.py:152
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 #: ../../gui/views/main.py:506 ../../gui/controllers/contacts.py:159
 msgid "Number"
-msgstr ""
+msgstr "العدد"
 
 #: ../../gui/views/main.py:537
 msgid "Text"
-msgstr ""
+msgstr "النص"
 
 #: ../../gui/views/main.py:547
 msgid "Recipient"
@@ -1113,15 +1114,15 @@ msgstr ""
 
 #: ../../gui/views/main.py:547
 msgid "Sender"
-msgstr ""
+msgstr "المرسِل"
 
 #: ../../gui/views/main.py:575
 msgid "Date"
-msgstr ""
+msgstr "التاريخ"
 
 #: ../../gui/views/profile.py:138
 msgid "Country"
-msgstr ""
+msgstr "كنتري"
 
 #: ../../gui/uptime.py:83
 #, python-format
@@ -1140,7 +1141,7 @@ msgstr ""
 #: ../../gui/models/main.py:118 ../../gui/controllers/payt.py:176
 #: ../../gui/controllers/payt.py:208
 msgid "Not available"
-msgstr ""
+msgstr "غير متوفّر"
 
 #: ../../gui/models/main.py:183
 msgid "Error while starting wader"
@@ -1155,7 +1156,7 @@ msgstr ""
 #: ../../gui/models/profile.py:162 ../../gui/controllers/preferences.py:144
 #: ../../gui/controllers/preferences.py:160
 msgid "Custom"
-msgstr ""
+msgstr "مخصّص"
 
 #: ../../gui/models/profile.py:377
 msgid "Trying to remove an unsaved profile"
@@ -1247,11 +1248,11 @@ msgstr ""
 #: ../../gui/controllers/main.py:174
 #, python-format
 msgid "Quit %s"
-msgstr ""
+msgstr "أغلق %s"
 
 #: ../../gui/controllers/main.py:175
 msgid "Are you sure you want to exit?"
-msgstr ""
+msgstr "أمتأكد من أنك تريد الخروج؟"
 
 #: ../../gui/controllers/main.py:187
 msgid "Can not close application"
@@ -1295,7 +1296,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:424
 msgid "Unknown error"
-msgstr ""
+msgstr "خطأ مجهول"
 
 #: ../../gui/controllers/main.py:430
 msgid "Error while registering to home network"
@@ -1325,23 +1326,23 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:665
 msgid "Unable to connect"
-msgstr ""
+msgstr "عاجز عن الاتصال"
 
 #: ../../gui/controllers/main.py:718 ../../gui/controllers/main.py:753
 msgid "Send SMS"
-msgstr ""
+msgstr "ارسال رسالة"
 
 #: ../../gui/controllers/main.py:731
 msgid "Quit"
-msgstr ""
+msgstr "اغلاق"
 
 #: ../../gui/controllers/main.py:764
 msgid "_Delete"
-msgstr ""
+msgstr "_حذف"
 
 #: ../../gui/controllers/main.py:775
 msgid "Edit"
-msgstr ""
+msgstr "تحرير"
 
 #: ../../gui/controllers/main.py:795
 msgid "Invalid CSV format"
@@ -1355,7 +1356,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:825
 msgid "No device found"
-msgstr ""
+msgstr "لم يُعثر على أي جهاز"
 
 #: ../../gui/controllers/main.py:826
 msgid "No device has been found. Insert one and try again."
@@ -1393,7 +1394,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:1036
 msgid "Delete Profile"
-msgstr ""
+msgstr "احذف الطور"
 
 #: ../../gui/controllers/main.py:1068
 msgid "No mobile connection. Do you want to continue?"
@@ -1422,7 +1423,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:1521
 msgid "Delete"
-msgstr ""
+msgstr "احذف"
 
 #: ../../gui/controllers/main.py:1569
 msgid "Can not handle DB contacts"
@@ -1438,15 +1439,15 @@ msgstr ""
 
 #: ../../gui/controllers/preferences.py:38
 msgid "1 week"
-msgstr ""
+msgstr "أسبوع واحد"
 
 #: ../../gui/controllers/preferences.py:39
 msgid "3 days"
-msgstr ""
+msgstr "3 أيام"
 
 #: ../../gui/controllers/preferences.py:40
 msgid "1 day"
-msgstr ""
+msgstr "يوم واحد"
 
 #: ../../gui/controllers/preferences.py:196
 #: ../../gui/controllers/preferences.py:215
@@ -1490,15 +1491,15 @@ msgstr ""
 
 #: ../../gui/dialogs.py:134
 msgid "Warning"
-msgstr ""
+msgstr "التحذيرات"
 
 #: ../../gui/dialogs.py:160
 msgid "Error"
-msgstr ""
+msgstr "خطأ"
 
 #: ../../gui/dialogs.py:244
 msgid "Password required"
-msgstr ""
+msgstr "كلمة السر مطلوبة"
 
 #: ../../gui/dialogs.py:245
 msgid "Please, insert the password of your connection"
@@ -1514,7 +1515,7 @@ msgstr ""
 
 #: ../../gui/dialogs.py:293 ../../gui/dialogs.py:331
 msgid "All files"
-msgstr ""
+msgstr "جميع الملفات"
 
 #: ../../gui/dialogs.py:304
 #, python-format
@@ -1554,11 +1555,11 @@ msgstr ""
 
 #: ../../gui/contacts/contact_evolution.py:136
 msgid "Evolution"
-msgstr ""
+msgstr "إيفُليوشن"
 
 #: ../../gui/contacts/contact_kdepim.py:133
 msgid "KDE PIM"
-msgstr ""
+msgstr "KDE PIM"
 
 #: ../../bin/v-mobile-broadband:68
 msgid "Do not run the application as root"
