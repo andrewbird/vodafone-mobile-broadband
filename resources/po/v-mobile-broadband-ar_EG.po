@@ -7,13 +7,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-04 09:28+0100\n"
-"PO-Revision-Date: 2012-09-09 08:04\n"
-"Last-Translator: Unknown <Unknown>\n"
+"PO-Revision-Date: 2012-09-10 18:24+0000\n"
+"Last-Translator: Andrew Bird <Unknown>\n"
 "Language-Team: Arabic <ar_EG@li.org>\n"
-"Language: ar_EG\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-09-11 14:16+0000\n"
+"X-Generator: Launchpad (build 15930)\n"
+"Language: ar_EG\n"
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
@@ -1483,6 +1485,8 @@ msgstr ""
 #: ../../gui/dialogs.py:66
 msgid "translator-credits"
 msgstr ""
+"Launchpad Contributions:\n"
+"  Andrew Bird https://launchpad.net/~ajb-spheresystems"
 
 #: ../../gui/dialogs.py:134
 msgid "Warning"
