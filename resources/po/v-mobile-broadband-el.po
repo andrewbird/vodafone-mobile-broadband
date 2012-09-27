@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-04 09:28+0100\n"
-"PO-Revision-Date: 2012-06-03 18:00+0000\n"
-"Last-Translator: Andrew Bird <Unknown>\n"
+"PO-Revision-Date: 2012-09-26 15:29+0000\n"
+"Last-Translator: Basilis Thomopoulos <kolxoz83@gmail.com>\n"
 "Language-Team: Greek <EL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-11 14:16+0000\n"
-"X-Generator: Launchpad (build 15930)\n"
+"X-Launchpad-Export-Date: 2012-09-27 12:44+0000\n"
+"X-Generator: Launchpad (build 16042)\n"
 "Language: el\n"
 
 #: ../glade/apnsel.glade:8
@@ -43,7 +43,7 @@ msgstr "OK"
 
 #: ../glade/apnsel.glade:228
 msgid "<b>APN Settings</b>"
-msgstr ""
+msgstr "<b>Ρυθμίσεις APN</b>"
 
 #: ../glade/config.glade:8
 msgid "Device setup"
@@ -178,7 +178,7 @@ msgstr "IMEI: "
 
 #: ../glade/diagnostics.glade:138
 msgid "Card manufacturer"
-msgstr ""
+msgstr "Κατασκευαστής κάρτας"
 
 #: ../glade/diagnostics.glade:149
 msgid "Card model"
@@ -214,7 +214,7 @@ msgstr "Χώρα"
 
 #: ../glade/diagnostics.glade:297
 msgid "Mobile Number:"
-msgstr ""
+msgstr "Αριθμός Κινητού:"
 
 #: ../glade/diagnostics.glade:320
 msgid "IMSI"
@@ -259,11 +259,11 @@ msgstr "Συσκευή"
 
 #: ../glade/diagnostics.glade:601
 msgid "Software Version:"
-msgstr ""
+msgstr "Έκδοση Λογισμικού:"
 
 #: ../glade/diagnostics.glade:612
 msgid "Core Version:"
-msgstr ""
+msgstr "Έκδοση Πυρήνα:"
 
 #: ../glade/diagnostics.glade:634 ../glade/diagnostics.glade:644
 msgid "Not supported"
@@ -287,7 +287,7 @@ msgstr "USSD μήνυμα απάντησης"
 
 #: ../glade/diagnostics.glade:809 ../glade/payt.glade:289
 msgid "Send"
-msgstr ""
+msgstr "Αποστολή"
 
 #: ../glade/diagnostics.glade:842
 msgid "USSD"
@@ -336,6 +336,8 @@ msgid ""
 "Please, insert a code to encrypt your sensitive\n"
 "information."
 msgstr ""
+"Παρακαλώ, εισάγετε έναν κωδικό για να κρυπτογραφήσετε τις ευαίσθητές σας\n"
+"πληροφορίες."
 
 #: ../glade/keyring.glade:81 ../glade/keyring.glade:191
 #: ../glade/profiles.glade:177
@@ -364,7 +366,7 @@ msgstr "Εξαγωγή επαφών..."
 
 #: ../glade/main.glade:59
 msgid "_Quit"
-msgstr ""
+msgstr "_Έξοδος"
 
 #: ../glade/main.glade:86
 msgid "_View"
@@ -421,11 +423,11 @@ msgstr ""
 
 #: ../glade/main.glade:464
 msgid "Create new SMS"
-msgstr ""
+msgstr "Δημιουργία νέου SMS"
 
 #: ../glade/main.glade:482
 msgid "Reply to SMS"
-msgstr ""
+msgstr "Απάντηση σε SMS"
 
 #: ../glade/main.glade:500
 msgid "Reply to SMS quoting original message"
@@ -437,7 +439,7 @@ msgstr "Προώθηση SMS σε άλλη επαφή"
 
 #: ../glade/main.glade:536
 msgid "Delete SMS"
-msgstr ""
+msgstr "Διαγραφή SMS"
 
 #: ../glade/main.glade:583
 msgid "Search contacts"
@@ -445,7 +447,7 @@ msgstr "Αναζήτηση επαφών"
 
 #: ../glade/main.glade:601
 msgid "Delete contacts"
-msgstr ""
+msgstr "Διαγραφή επαφών"
 
 #: ../glade/main.glade:652
 msgid "Inbox"
@@ -489,7 +491,7 @@ msgstr ""
 
 #: ../glade/main.glade:1189 ../glade/main.glade:1488
 msgid "Total Traffic"
-msgstr ""
+msgstr "Συνολική Κίνηση"
 
 #: ../glade/main.glade:1251
 msgid "Current month"
@@ -541,11 +543,11 @@ msgstr "<b>Ημερομηνία</b>"
 
 #: ../glade/payt.glade:167
 msgid "Recheck my credit:"
-msgstr ""
+msgstr "Επανέλεγχος υπολοίπου:"
 
 #: ../glade/payt.glade:182
 msgid "Check credit"
-msgstr ""
+msgstr "Έλεγχος υπολοίπου"
 
 #: ../glade/payt.glade:237
 msgid "<b>Voucher Code</b>"
@@ -553,7 +555,7 @@ msgstr ""
 
 #: ../glade/payt.glade:267
 msgid "Enter code:"
-msgstr ""
+msgstr "Εισαγωγή κωδικού:"
 
 #: ../glade/payt.glade:341
 msgid "<b>Credit Card</b>"
@@ -561,7 +563,7 @@ msgstr "<b>Πιστωτική κάρτα</b>"
 
 #: ../glade/payt.glade:371
 msgid "Pay by credit card"
-msgstr ""
+msgstr "Πληρωμή με πιστωτική κάρτα"
 
 #: ../glade/pin.glade:8
 msgid "Insert your PIN code"
@@ -659,7 +661,7 @@ msgstr "Εγκυρότητα:"
 
 #: ../glade/preferences.glade:362
 msgid "SMS Profile"
-msgstr ""
+msgstr "Προφίλ SMS"
 
 #: ../glade/preferences.glade:382
 msgid "<b>User options</b>"
@@ -703,7 +705,7 @@ msgstr "Εντολή:"
 
 #: ../glade/preferences.glade:650
 msgid "<b>Email client</b>"
-msgstr ""
+msgstr "<b>Πελάτης email</b>"
 
 #: ../glade/preferences.glade:779
 msgid "Applications"
@@ -711,11 +713,11 @@ msgstr "Εφαρμογές"
 
 #: ../glade/preferences.glade:800
 msgid "<b>Usage Options</b>"
-msgstr ""
+msgstr "<b>Επιλογές Χρήσης</b>"
 
 #: ../glade/preferences.glade:832
 msgid "Maximum traffic (MB):"
-msgstr ""
+msgstr "Μέγιστη κίνηση (ΜΒ):"
 
 #: ../glade/preferences.glade:869
 msgid "Notify when a given threshold is exceeded."
@@ -731,7 +733,7 @@ msgstr "Νέο προφίλ"
 
 #: ../glade/profiles.glade:23
 msgid "New Profile Window"
-msgstr ""
+msgstr "Παράθυρο Νέου Προφίλ"
 
 #: ../glade/profiles.glade:64
 msgid ""
@@ -792,7 +794,7 @@ msgstr "Όνομα κατατομής:"
 
 #: ../glade/profiles.glade:863
 msgid "Device selection"
-msgstr ""
+msgstr "Επιλογή συσκευής"
 
 #: ../glade/profiles.glade:877
 msgid "Device Selection Window"
@@ -808,7 +810,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:1024
 msgid "Known devices"
-msgstr ""
+msgstr "Γνωστές συσκευές"
 
 #: ../glade/profiles.glade:1032
 msgid "Known Devices Radio"
@@ -836,7 +838,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:1254
 msgid "Speed connection:"
-msgstr ""
+msgstr "Ταχύτητα σύνδεσης:"
 
 #: ../glade/profiles.glade:1294
 msgid "Custom device settings"
@@ -884,7 +886,7 @@ msgstr "WCDMA 2100"
 
 #: ../../gui/constx.py:53
 msgid "WCDMA 1800"
-msgstr ""
+msgstr "WCDMA 1800"
 
 #: ../../gui/constx.py:54
 msgid "WCDMA 17IV"
@@ -1074,12 +1076,12 @@ msgstr "Σύνδεση"
 
 #: ../../gui/views/main.py:394 ../../gui/views/main.py:427
 msgid "Disconnecting"
-msgstr ""
+msgstr "Γίνεται αποσύνδεση"
 
 #: ../../gui/views/main.py:398 ../../gui/views/main.py:426
 #: ../../gui/controllers/main.py:864
 msgid "Connecting"
-msgstr ""
+msgstr "Γίνεται σύνδεση"
 
 #: ../../gui/views/main.py:402 ../../gui/controllers/main.py:699
 msgid "Disconnect"
@@ -1087,7 +1089,7 @@ msgstr "Αποσύνδεση"
 
 #: ../../gui/views/main.py:416
 msgid "Device found"
-msgstr ""
+msgstr "Συσκευή βρέθηκε"
 
 #: ../../gui/views/main.py:417
 msgid "Disabled"
@@ -1099,19 +1101,19 @@ msgstr ""
 
 #: ../../gui/views/main.py:419
 msgid "Authenticating"
-msgstr ""
+msgstr "Ταυτοποίηση"
 
 #: ../../gui/views/main.py:420
 msgid "Authenticated"
-msgstr ""
+msgstr "Ταυτοποιήθηκε"
 
 #: ../../gui/views/main.py:421
 msgid "Enabling"
-msgstr ""
+msgstr "Ενεργοποίηση"
 
 #: ../../gui/views/main.py:422
 msgid "Disabling"
-msgstr ""
+msgstr "Απενεργοποίηση"
 
 #: ../../gui/views/main.py:424
 msgid "Searching"
@@ -1175,7 +1177,7 @@ msgstr "%(day)d ημέρα, %(msg)s"
 
 #: ../../gui/signals.py:23
 msgid "No signal"
-msgstr ""
+msgstr "Καθόλου σήμα"
 
 #: ../../gui/models/main.py:118 ../../gui/controllers/payt.py:176
 #: ../../gui/controllers/payt.py:208
@@ -1540,6 +1542,7 @@ msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Andrew Bird https://launchpad.net/~ajb-spheresystems\n"
+"  Basilis Thomopoulos https://launchpad.net/~kolxoz83\n"
 "  Christos Spyroglou https://launchpad.net/~cspyroglou\n"
 "  Dimitrios Psychogios https://launchpad.net/~jinxos"
 
