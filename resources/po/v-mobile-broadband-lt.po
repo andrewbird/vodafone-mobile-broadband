@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-04 09:28+0100\n"
-"PO-Revision-Date: 2012-06-06 09:33+0000\n"
-"Last-Translator: Andrew Bird <Unknown>\n"
+"PO-Revision-Date: 2012-10-16 09:48+0000\n"
+"Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-27 12:44+0000\n"
-"X-Generator: Launchpad (build 16042)\n"
+"X-Launchpad-Export-Date: 2012-10-16 10:04+0000\n"
+"X-Generator: Launchpad (build 16137)\n"
 "Language: lt\n"
 
 #: ../glade/apnsel.glade:8
@@ -33,7 +33,7 @@ msgstr ""
 #: ../glade/apnsel.glade:193 ../glade/pin.glade:217 ../glade/pin.glade:222
 #: ../glade/pin.glade:862 ../glade/profiles.glade:1334
 msgid "Cancel"
-msgstr "Atšaukti"
+msgstr "Atsisakyti"
 
 #: ../glade/apnsel.glade:208 ../glade/pin.glade:239
 #: ../glade/profiles.glade:1349
@@ -46,7 +46,7 @@ msgstr ""
 
 #: ../glade/config.glade:8
 msgid "Device setup"
-msgstr "Įrenginio sąranga"
+msgstr "Įrenginio konfigūravimas"
 
 #: ../glade/config.glade:34
 msgid ""
@@ -89,11 +89,11 @@ msgstr ""
 
 #: ../glade/config.glade:325
 msgid "Data port"
-msgstr ""
+msgstr "Duomenų jungtis"
 
 #: ../glade/config.glade:334
 msgid "Control port"
-msgstr ""
+msgstr "Kontrolės jungtis"
 
 #: ../glade/config.glade:346
 msgid "Speed"
@@ -117,15 +117,15 @@ msgstr ""
 
 #: ../glade/contacts.glade:32 ../glade/contacts.glade:181
 msgid "Name:"
-msgstr "Pavadinimas:"
+msgstr "Vardas:"
 
 #: ../glade/contacts.glade:96
 msgid "Contacts List"
-msgstr ""
+msgstr "Telefonų knygelė"
 
 #: ../glade/contacts.glade:161 ../glade/main.glade:565
 msgid "Add a contact"
-msgstr ""
+msgstr "Pridėti naują įrašą"
 
 #: ../glade/contacts.glade:224
 msgid "Number:"
@@ -169,11 +169,11 @@ msgstr "IMEI: "
 
 #: ../glade/diagnostics.glade:138
 msgid "Card manufacturer"
-msgstr ""
+msgstr "Kortelės gamintojas"
 
 #: ../glade/diagnostics.glade:149
 msgid "Card model"
-msgstr ""
+msgstr "Kortelės modelis"
 
 #: ../glade/diagnostics.glade:160
 msgid "Firmware"
@@ -230,11 +230,11 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:408
 msgid "<b>Device information</b>"
-msgstr ""
+msgstr "<b>Įrenginio informacija</b>"
 
 #: ../glade/diagnostics.glade:445
 msgid "Operating System:"
-msgstr ""
+msgstr "Operacinė sistema:"
 
 #: ../glade/diagnostics.glade:456
 msgid "Version:"
@@ -242,7 +242,7 @@ msgstr "Versija:"
 
 #: ../glade/diagnostics.glade:467
 msgid "Uptime:"
-msgstr ""
+msgstr "Veikimo laikas:"
 
 #: ../glade/diagnostics.glade:536
 msgid "Device"
@@ -250,7 +250,7 @@ msgstr "Įrenginys"
 
 #: ../glade/diagnostics.glade:601
 msgid "Software Version:"
-msgstr ""
+msgstr "Programos versija:"
 
 #: ../glade/diagnostics.glade:612
 msgid "Core Version:"
@@ -343,19 +343,19 @@ msgstr "Atrakinti raktinę"
 
 #: ../glade/keyring.glade:157
 msgid "Please, enter your keyring password"
-msgstr ""
+msgstr "Prašome įvesti savo raktinės slaptažodį"
 
 #: ../glade/main.glade:36
 msgid "Import contacts..."
-msgstr ""
+msgstr "Importuoti telefonų knygelę..."
 
 #: ../glade/main.glade:46
 msgid "Export contacts..."
-msgstr ""
+msgstr "Eksportuoti telefonų knygelę..."
 
 #: ../glade/main.glade:59
 msgid "_Quit"
-msgstr "_Išeiti"
+msgstr "_Baigti darbą"
 
 #: ../glade/main.glade:86
 msgid "_View"
@@ -368,7 +368,7 @@ msgstr "Naudojimas"
 
 #: ../glade/main.glade:130 ../glade/main.glade:401
 msgid "Support"
-msgstr "Palaikyti"
+msgstr "Palaikymas"
 
 #: ../glade/main.glade:156
 msgid "_Tools"
@@ -384,19 +384,19 @@ msgstr "Keisti PIN kodą"
 
 #: ../glade/main.glade:187
 msgid "Request PIN"
-msgstr ""
+msgstr "Reikalauti PIN kodo"
 
 #: ../glade/main.glade:226
 msgid "Profiles"
-msgstr "Aprašymai"
+msgstr "Profiliai"
 
 #: ../glade/main.glade:249 ../glade/preferences.glade:8
 msgid "Preferences"
-msgstr "Nuostatos"
+msgstr "Nustatymai"
 
 #: ../glade/main.glade:275
 msgid "_Help"
-msgstr "_Žinynas"
+msgstr "_Pagalba"
 
 #: ../glade/main.glade:282
 msgid "Help"
@@ -412,11 +412,11 @@ msgstr ""
 
 #: ../glade/main.glade:464
 msgid "Create new SMS"
-msgstr ""
+msgstr "Rašyti naują SMS žinutę"
 
 #: ../glade/main.glade:482
 msgid "Reply to SMS"
-msgstr ""
+msgstr "Atsakyti į šią žinutę"
 
 #: ../glade/main.glade:500
 msgid "Reply to SMS quoting original message"
@@ -424,15 +424,15 @@ msgstr ""
 
 #: ../glade/main.glade:517
 msgid "Forward SMS to another contact"
-msgstr ""
+msgstr "Persiųsti SMS žinutę kitam"
 
 #: ../glade/main.glade:536
 msgid "Delete SMS"
-msgstr ""
+msgstr "Ištrinti SMS žinutę"
 
 #: ../glade/main.glade:583
 msgid "Search contacts"
-msgstr "Ieškoti kontaktų"
+msgstr "Ieškoti kontaktuose"
 
 #: ../glade/main.glade:601
 msgid "Delete contacts"
@@ -444,7 +444,7 @@ msgstr "Gauta"
 
 #: ../glade/main.glade:684
 msgid "Draft"
-msgstr "Juodraštis"
+msgstr "Juodraščiai"
 
 #: ../glade/main.glade:716
 msgid "Sent"
@@ -472,11 +472,11 @@ msgstr "Viso:"
 
 #: ../glade/main.glade:1008 ../glade/main.glade:1444
 msgid "<b>Transferred Data</b>"
-msgstr ""
+msgstr "<b>Persiųsta duomenų</b>"
 
 #: ../glade/main.glade:1145
 msgid "<b>Current session</b>"
-msgstr ""
+msgstr "<b>Dabartinis seansas</b>"
 
 #: ../glade/main.glade:1189 ../glade/main.glade:1488
 msgid "Total Traffic"
@@ -500,7 +500,7 @@ msgstr ""
 
 #: ../glade/main.glade:1655
 msgid "Support center"
-msgstr ""
+msgstr "Pagalbos centras"
 
 #: ../glade/main.glade:1695
 msgid "Customer support"
@@ -520,7 +520,7 @@ msgstr ""
 
 #: ../glade/payt.glade:83
 msgid "<b>Number</b>"
-msgstr ""
+msgstr "<b>Numeris</b>"
 
 #: ../glade/payt.glade:94
 msgid "<b>Credit</b>"
@@ -544,11 +544,11 @@ msgstr ""
 
 #: ../glade/payt.glade:267
 msgid "Enter code:"
-msgstr ""
+msgstr "Įveskite kodą:"
 
 #: ../glade/payt.glade:341
 msgid "<b>Credit Card</b>"
-msgstr ""
+msgstr "<b>Kreditinė kortelė</b>"
 
 #: ../glade/payt.glade:371
 msgid "Pay by credit card"
@@ -556,7 +556,7 @@ msgstr ""
 
 #: ../glade/pin.glade:8
 msgid "Insert your PIN code"
-msgstr ""
+msgstr "Įrašykite savo PIN kodą"
 
 #: ../glade/pin.glade:23
 msgid "Insert PIN Window"
@@ -564,7 +564,7 @@ msgstr ""
 
 #: ../glade/pin.glade:64
 msgid "Please insert your PIN code"
-msgstr ""
+msgstr "Prašome įrašyti savo PIN kodą"
 
 #: ../glade/pin.glade:104
 msgid "Insert PIN Entry"
@@ -660,7 +660,7 @@ msgstr ""
 
 #: ../glade/preferences.glade:421
 msgid "Show icon on tray"
-msgstr ""
+msgstr "Rodyti piktogramą sistemos dėkle"
 
 #: ../glade/preferences.glade:437
 msgid "Close window minimizes app to tray"
@@ -692,7 +692,7 @@ msgstr "Komanda:"
 
 #: ../glade/preferences.glade:650
 msgid "<b>Email client</b>"
-msgstr ""
+msgstr "<b>El. pašto programa</b>"
 
 #: ../glade/preferences.glade:779
 msgid "Applications"
@@ -708,7 +708,7 @@ msgstr ""
 
 #: ../glade/preferences.glade:869
 msgid "Notify when a given threshold is exceeded."
-msgstr ""
+msgstr "Perspėti, kai bus pasiekta nurodyta riba."
 
 #: ../glade/preferences.glade:901
 msgid "Notification threshold (MB):"
@@ -733,7 +733,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:115
 msgid "<b>Connection preferences</b>"
-msgstr ""
+msgstr "<b>Prisijungimo nustatymai</b>"
 
 #: ../glade/profiles.glade:152
 msgid "Username:"
@@ -757,7 +757,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:447
 msgid "<b>DNS settings</b>"
-msgstr ""
+msgstr "<b>DNS nustatymai</b>"
 
 #: ../glade/profiles.glade:485
 msgid "Use static DNS"
@@ -837,7 +837,7 @@ msgstr ""
 
 #: ../glade/profiles.glade:1369
 msgid "<b>Device Settings</b>"
-msgstr ""
+msgstr "<b>Įrenginio nustatymai</b>"
 
 #: ../glade/sms.glade:50
 msgid "TO : "
@@ -1361,6 +1361,8 @@ msgstr "Įrenginių nerasta"
 #: ../../gui/controllers/main.py:826
 msgid "No device has been found. Insert one and try again."
 msgstr ""
+"Neaptiktas joks mobilaus ryšio įrenginys. Patikrinkite ar įkišote įrenginį "
+"ir bandykite vėl."
 
 #: ../../gui/controllers/main.py:832
 msgid "Profile needed"
@@ -1382,7 +1384,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:1017
 msgid "_New Profile"
-msgstr ""
+msgstr "_Naujas profilis"
 
 #: ../../gui/controllers/main.py:1026
 msgid "Load Profile"
@@ -1390,7 +1392,7 @@ msgstr "Įkelti profilį"
 
 #: ../../gui/controllers/main.py:1031
 msgid "Edit Profile"
-msgstr ""
+msgstr "Keisti profilį"
 
 #: ../../gui/controllers/main.py:1036
 msgid "Delete Profile"
@@ -1419,7 +1421,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:1510
 msgid "Save to draft"
-msgstr ""
+msgstr "Įrašyti į Juodraščius"
 
 #: ../../gui/controllers/main.py:1521
 msgid "Delete"
@@ -1487,7 +1489,8 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Andrew Bird https://launchpad.net/~ajb-spheresystems"
+"  Andrew Bird https://launchpad.net/~ajb-spheresystems\n"
+"  Mantas Kriaučiūnas https://launchpad.net/~mantas"
 
 #: ../../gui/dialogs.py:134
 msgid "Warning"
@@ -1511,7 +1514,7 @@ msgstr ""
 
 #: ../../gui/dialogs.py:287 ../../gui/dialogs.py:326
 msgid "Csv files"
-msgstr ""
+msgstr "CSV failai"
 
 #: ../../gui/dialogs.py:293 ../../gui/dialogs.py:331
 msgid "All files"
@@ -1530,11 +1533,11 @@ msgstr ""
 
 #: ../../gui/dialogs.py:318
 msgid "Import contacts from..."
-msgstr ""
+msgstr "Importuoti telefonų knygelę iš..."
 
 #: ../../gui/keyring_dialogs.py:103
 msgid "Create default keyring"
-msgstr ""
+msgstr "Sukurti numatytąją raktinę"
 
 #: ../../gui/keyring_dialogs.py:104
 #, python-format
@@ -1545,7 +1548,7 @@ msgstr ""
 
 #: ../../gui/keyring_dialogs.py:138
 msgid "Unlock keyring"
-msgstr ""
+msgstr "Atrakinti raktinę"
 
 #: ../../gui/keyring_dialogs.py:139
 #, python-format
