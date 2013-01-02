@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: v-mobile-broadband\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-04 09:28+0100\n"
-"PO-Revision-Date: 2012-09-10 19:29+0000\n"
+"PO-Revision-Date: 2012-12-05 16:58+0000\n"
 "Last-Translator: Konki <pavel.konkol@seznam.cz>\n"
 "Language-Team: LANGUAGE <CS@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-16 10:04+0000\n"
-"X-Generator: Launchpad (build 16137)\n"
+"X-Launchpad-Export-Date: 2013-01-02 12:16+0000\n"
+"X-Generator: Launchpad (build 16378)\n"
 "Language: \n"
 
 #: ../glade/apnsel.glade:8
@@ -53,6 +53,7 @@ msgid ""
 "Please select from the following options how do you want to connect to the "
 "Internet"
 msgstr ""
+"Zvolte si z následujících možností jak se chcete připojit k internetu."
 
 #: ../glade/config.glade:56
 msgid "Device model: "
@@ -85,7 +86,7 @@ msgstr ""
 
 #: ../glade/config.glade:301
 msgid "<b>Serial Port</b>"
-msgstr ""
+msgstr "<b>Sériový Port</b>"
 
 #: ../glade/config.glade:325
 msgid "Data port"
@@ -105,11 +106,11 @@ msgstr "<b>Nastavení připojení</b>"
 
 #: ../glade/config.glade:461
 msgid "Enable hardware flow control"
-msgstr ""
+msgstr "Zapnout hardwarové řízení toku"
 
 #: ../glade/config.glade:474
 msgid "Enable software flow control"
-msgstr ""
+msgstr "Zapnout softwarové řízení toku"
 
 #: ../glade/contacts.glade:9
 msgid "Contact search"
@@ -149,7 +150,7 @@ msgstr "Diagnostiky"
 
 #: ../glade/diagnostics.glade:43
 msgid "<b>Datacard details</b>"
-msgstr ""
+msgstr "<b>Detaily datové karty</b>"
 
 #: ../glade/diagnostics.glade:81
 msgid "Manufacturer:"
@@ -189,7 +190,7 @@ msgstr "Modem"
 
 #: ../glade/diagnostics.glade:226
 msgid "<b>Network details from SIM</b>"
-msgstr ""
+msgstr "<b>Detaily sítě ze SIM</b>"
 
 #: ../glade/diagnostics.glade:264
 msgid "IMSI:"
@@ -230,7 +231,7 @@ msgstr "SIM"
 
 #: ../glade/diagnostics.glade:408
 msgid "<b>Device information</b>"
-msgstr ""
+msgstr "<b>Informace o zařízení</b>"
 
 #: ../glade/diagnostics.glade:445
 msgid "Operating System:"
@@ -242,7 +243,7 @@ msgstr "Verze:"
 
 #: ../glade/diagnostics.glade:467
 msgid "Uptime:"
-msgstr ""
+msgstr "Doba běhu:"
 
 #: ../glade/diagnostics.glade:536
 msgid "Device"
@@ -343,7 +344,7 @@ msgstr "Odemknout klíčenku"
 
 #: ../glade/keyring.glade:157
 msgid "Please, enter your keyring password"
-msgstr ""
+msgstr "Prosím vložte své heslo klíčenky"
 
 #: ../glade/main.glade:36
 msgid "Import contacts..."
@@ -384,7 +385,7 @@ msgstr "Změnit kód PIN"
 
 #: ../glade/main.glade:187
 msgid "Request PIN"
-msgstr ""
+msgstr "Žádost o PIN"
 
 #: ../glade/main.glade:226
 msgid "Profiles"
@@ -420,7 +421,7 @@ msgstr ""
 
 #: ../glade/main.glade:500
 msgid "Reply to SMS quoting original message"
-msgstr ""
+msgstr "Odpovědět na SMS citací původní zprávy"
 
 #: ../glade/main.glade:517
 msgid "Forward SMS to another contact"
@@ -472,15 +473,15 @@ msgstr "Celkem:"
 
 #: ../glade/main.glade:1008 ../glade/main.glade:1444
 msgid "<b>Transferred Data</b>"
-msgstr ""
+msgstr "<b>Přenesená data/b>"
 
 #: ../glade/main.glade:1145
 msgid "<b>Current session</b>"
-msgstr ""
+msgstr "<b>Aktuální sezení</b>"
 
 #: ../glade/main.glade:1189 ../glade/main.glade:1488
 msgid "Total Traffic"
-msgstr ""
+msgstr "Celkový provoz"
 
 #: ../glade/main.glade:1251
 msgid "Current month"
@@ -496,7 +497,7 @@ msgstr ""
 
 #: ../glade/main.glade:1616
 msgid "Help menu"
-msgstr ""
+msgstr "Pomocné menu"
 
 #: ../glade/main.glade:1655
 msgid "Support center"
@@ -516,7 +517,7 @@ msgstr ""
 
 #: ../glade/payt.glade:44
 msgid "<b>SIM Details</b>"
-msgstr ""
+msgstr "<b>SIM detaily</b>"
 
 #: ../glade/payt.glade:83
 msgid "<b>Number</b>"
@@ -524,7 +525,7 @@ msgstr "<b>Číslo</b>"
 
 #: ../glade/payt.glade:94
 msgid "<b>Credit</b>"
-msgstr ""
+msgstr "<b>Kredit</b>"
 
 #: ../glade/payt.glade:105
 msgid "<b>Date</b>"
@@ -532,31 +533,31 @@ msgstr "<b>Datum</b>"
 
 #: ../glade/payt.glade:167
 msgid "Recheck my credit:"
-msgstr ""
+msgstr "Znovu zjistit kredit:"
 
 #: ../glade/payt.glade:182
 msgid "Check credit"
-msgstr ""
+msgstr "Zjistit kredit"
 
 #: ../glade/payt.glade:237
 msgid "<b>Voucher Code</b>"
-msgstr ""
+msgstr "<b>Kód poukazu</b>"
 
 #: ../glade/payt.glade:267
 msgid "Enter code:"
-msgstr ""
+msgstr "Vložit kód:"
 
 #: ../glade/payt.glade:341
 msgid "<b>Credit Card</b>"
-msgstr ""
+msgstr "<b>Kreditní karta</b>"
 
 #: ../glade/payt.glade:371
 msgid "Pay by credit card"
-msgstr ""
+msgstr "Platba kreditní kartou"
 
 #: ../glade/pin.glade:8
 msgid "Insert your PIN code"
-msgstr ""
+msgstr "Vložte svůj PIN kód"
 
 #: ../glade/pin.glade:23
 msgid "Insert PIN Window"
@@ -564,11 +565,11 @@ msgstr ""
 
 #: ../glade/pin.glade:64
 msgid "Please insert your PIN code"
-msgstr ""
+msgstr "Vložte svůj PIN kód"
 
 #: ../glade/pin.glade:104
 msgid "Insert PIN Entry"
-msgstr ""
+msgstr "Vložte položku PIN"
 
 #: ../glade/pin.glade:149
 msgid "Manage my PIN through gnome-keyring"
@@ -580,23 +581,23 @@ msgstr "<b>Pokročilá nastavení</b>"
 
 #: ../glade/pin.glade:257
 msgid "Modify PIN code"
-msgstr ""
+msgstr "Upravit PIN kód"
 
 #: ../glade/pin.glade:369 ../glade/pin.glade:758
 msgid "Confirm PIN code: "
-msgstr ""
+msgstr "Potvrdit PIN kód: "
 
 #: ../glade/pin.glade:397 ../glade/pin.glade:733
 msgid "New PIN code: "
-msgstr ""
+msgstr "Nový PIN kód: "
 
 #: ../glade/pin.glade:425
 msgid "Current PIN code: "
-msgstr ""
+msgstr "Aktuální PIN kód: "
 
 #: ../glade/pin.glade:513
 msgid "Please enter PUK"
-msgstr ""
+msgstr "Vložte prosím PUK"
 
 #: ../glade/pin.glade:650
 msgid "PUK:"
@@ -644,11 +645,11 @@ msgstr ""
 
 #: ../glade/preferences.glade:301
 msgid "Validity:"
-msgstr ""
+msgstr "Platnost:"
 
 #: ../glade/preferences.glade:362
 msgid "SMS Profile"
-msgstr ""
+msgstr "Profil SMS"
 
 #: ../glade/preferences.glade:382
 msgid "<b>User options</b>"
@@ -656,11 +657,11 @@ msgstr ""
 
 #: ../glade/preferences.glade:405
 msgid "Exit without confirmation"
-msgstr ""
+msgstr "Ukončit bez potvrzení"
 
 #: ../glade/preferences.glade:421
 msgid "Show icon on tray"
-msgstr ""
+msgstr "Zobrazit ikonu v liště"
 
 #: ../glade/preferences.glade:437
 msgid "Close window minimizes app to tray"
@@ -741,7 +742,7 @@ msgstr "Uživatelské jméno:"
 
 #: ../glade/profiles.glade:202
 msgid "Authentication method:"
-msgstr ""
+msgstr "Metoda ověřování:"
 
 #: ../glade/profiles.glade:227
 msgid "Preferred connection:"
@@ -749,7 +750,7 @@ msgstr "Upřednostňované připojení:"
 
 #: ../glade/profiles.glade:252
 msgid "Preferred band:"
-msgstr ""
+msgstr "Preferovaná skupina:"
 
 #: ../glade/profiles.glade:277
 msgid "APN host:"
@@ -757,7 +758,7 @@ msgstr "APN hostitel:"
 
 #: ../glade/profiles.glade:447
 msgid "<b>DNS settings</b>"
-msgstr ""
+msgstr "<b>DNS nastavení</b>"
 
 #: ../glade/profiles.glade:485
 msgid "Use static DNS"
@@ -785,7 +786,7 @@ msgstr "Výběr zařízení"
 
 #: ../glade/profiles.glade:877
 msgid "Device Selection Window"
-msgstr ""
+msgstr "Okno výběru zařízení"
 
 #: ../glade/profiles.glade:925
 msgid ""
@@ -817,15 +818,15 @@ msgstr "115200"
 
 #: ../glade/profiles.glade:1198
 msgid "Data port device:"
-msgstr ""
+msgstr "Datový port zařízení:"
 
 #: ../glade/profiles.glade:1226
 msgid "Control port device:"
-msgstr ""
+msgstr "Ovládací port zařízení:"
 
 #: ../glade/profiles.glade:1254
 msgid "Speed connection:"
-msgstr ""
+msgstr "Rychlost připojení:"
 
 #: ../glade/profiles.glade:1294
 msgid "Custom device settings"
@@ -845,7 +846,7 @@ msgstr ""
 
 #: ../glade/splash.glade:6
 msgid "3G Devices Manager"
-msgstr ""
+msgstr "3G správce zařízení"
 
 #: ../../gui/constx.py:47 ../../gui/constx.py:65 ../../gui/constx.py:84
 msgid "Any"
@@ -901,19 +902,19 @@ msgstr "WCDMA 1900"
 
 #: ../../gui/constx.py:66 ../../gui/signals.py:27
 msgid "2G preferred"
-msgstr ""
+msgstr "Preferováno 2G"
 
 #: ../../gui/constx.py:67 ../../gui/signals.py:28
 msgid "3G preferred"
-msgstr ""
+msgstr "Preferováno 3G"
 
 #: ../../gui/constx.py:68 ../../gui/signals.py:29
 msgid "2G only"
-msgstr ""
+msgstr "Jen 2G"
 
 #: ../../gui/constx.py:69 ../../gui/signals.py:30
 msgid "3G only"
-msgstr ""
+msgstr "Jen 3G"
 
 #: ../../gui/constx.py:85
 msgid "PAP"
@@ -1048,7 +1049,7 @@ msgstr "Odpojit"
 
 #: ../../gui/views/main.py:416
 msgid "Device found"
-msgstr ""
+msgstr "Nalezené zařízení"
 
 #: ../../gui/views/main.py:417
 msgid "Disabled"
@@ -1056,11 +1057,11 @@ msgstr "Zakázáno"
 
 #: ../../gui/views/main.py:418
 msgid "SIM locked"
-msgstr ""
+msgstr "SIM je zamknuta"
 
 #: ../../gui/views/main.py:419
 msgid "Authenticating"
-msgstr ""
+msgstr "Ověřování"
 
 #: ../../gui/views/main.py:420
 msgid "Authenticated"
@@ -1068,11 +1069,11 @@ msgstr "Ověřeno"
 
 #: ../../gui/views/main.py:421
 msgid "Enabling"
-msgstr ""
+msgstr "Zapíná se"
 
 #: ../../gui/views/main.py:422
 msgid "Disabling"
-msgstr ""
+msgstr "Vypínání"
 
 #: ../../gui/views/main.py:424
 msgid "Searching"
@@ -1136,7 +1137,7 @@ msgstr ""
 
 #: ../../gui/signals.py:23
 msgid "No signal"
-msgstr ""
+msgstr "Bez signálu"
 
 #: ../../gui/models/main.py:118 ../../gui/controllers/payt.py:176
 #: ../../gui/controllers/payt.py:208
@@ -1156,7 +1157,7 @@ msgstr ""
 #: ../../gui/models/profile.py:162 ../../gui/controllers/preferences.py:144
 #: ../../gui/controllers/preferences.py:160
 msgid "Custom"
-msgstr ""
+msgstr "Vlastní"
 
 #: ../../gui/models/profile.py:377
 msgid "Trying to remove an unsaved profile"
@@ -1288,7 +1289,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:421
 msgid "SIM error"
-msgstr ""
+msgstr "Chyba SIM"
 
 #: ../../gui/controllers/main.py:422
 msgid "Perhaps your SIM is not inserted correctly?"
@@ -1372,7 +1373,7 @@ msgstr "Musíte vytvořit profil pro připojení."
 
 #: ../../gui/controllers/main.py:878
 msgid "Invalid Connection"
-msgstr ""
+msgstr "Neplatné připojení"
 
 #: ../../gui/controllers/main.py:879
 msgid ""
@@ -1382,7 +1383,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:1017
 msgid "_New Profile"
-msgstr ""
+msgstr "_Nový profil"
 
 #: ../../gui/controllers/main.py:1026
 msgid "Load Profile"
@@ -1398,11 +1399,11 @@ msgstr "Smazat profil"
 
 #: ../../gui/controllers/main.py:1068
 msgid "No mobile connection. Do you want to continue?"
-msgstr ""
+msgstr "Bez mobilního připojení. Chcete pokračovat?"
 
 #: ../../gui/controllers/main.py:1483
 msgid "Editor not available"
-msgstr ""
+msgstr "Editor není dostupný"
 
 #: ../../gui/controllers/main.py:1484
 #, python-format
@@ -1411,7 +1412,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:1490
 msgid "_Add to contacts"
-msgstr ""
+msgstr "_Přidat do kontaktů"
 
 #: ../../gui/controllers/main.py:1501
 msgid "Migrate to DB"
@@ -1435,7 +1436,7 @@ msgstr ""
 
 #: ../../gui/controllers/preferences.py:37
 msgid "Maximum time"
-msgstr ""
+msgstr "Maximální čas"
 
 #: ../../gui/controllers/preferences.py:38
 msgid "1 week"
@@ -1463,12 +1464,12 @@ msgstr ""
 
 #: ../../gui/controllers/contacts.py:96
 msgid "No contact found"
-msgstr ""
+msgstr "Kontakt nebyl nalezen"
 
 #: ../../gui/controllers/contacts.py:97
 #, python-format
 msgid "No contact with the name %s found"
-msgstr ""
+msgstr "Kontakt s jménem nebyl %s nalezen"
 
 #: ../../gui/controllers/profile.py:69
 msgid "Error while getting connection password"
@@ -1531,7 +1532,7 @@ msgstr ""
 
 #: ../../gui/dialogs.py:318
 msgid "Import contacts from..."
-msgstr ""
+msgstr "Importovat kontakty z..."
 
 #: ../../gui/keyring_dialogs.py:103
 msgid "Create default keyring"

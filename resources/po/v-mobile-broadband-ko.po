@@ -7,19 +7,19 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-04 09:28+0100\n"
-"PO-Revision-Date: 2012-09-27 20:09+0000\n"
-"Last-Translator: Andrew Bird <Unknown>\n"
+"PO-Revision-Date: 2012-12-08 12:56+0000\n"
+"Last-Translator: MinSik CHO <Unknown>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-16 10:04+0000\n"
-"X-Generator: Launchpad (build 16137)\n"
+"X-Launchpad-Export-Date: 2013-01-02 12:16+0000\n"
+"X-Generator: Launchpad (build 16378)\n"
 "Language: ko\n"
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
-msgstr ""
+msgstr "APN 선택기"
 
 #: ../glade/apnsel.glade:69
 msgid ""
@@ -27,7 +27,7 @@ msgid ""
 "\n"
 "You can choose a preconfigured APN or cancel to enter the information needed "
 "to set up a custom one.\n"
-msgstr ""
+msgstr "<b>통신사에 따라 미리 정의된 APN 선택</b>\n"
 
 #: ../glade/apnsel.glade:193 ../glade/pin.glade:217 ../glade/pin.glade:222
 #: ../glade/pin.glade:862 ../glade/profiles.glade:1334
@@ -1486,7 +1486,8 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Andrew Bird https://launchpad.net/~ajb-spheresystems"
+"  Andrew Bird https://launchpad.net/~ajb-spheresystems\n"
+"  MinSik CHO https://launchpad.net/~mscho527"
 
 #: ../../gui/dialogs.py:134
 msgid "Warning"

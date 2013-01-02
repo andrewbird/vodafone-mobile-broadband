@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-04 09:28+0100\n"
-"PO-Revision-Date: 2012-06-04 02:24+0000\n"
-"Last-Translator: Andrew Bird <Unknown>\n"
+"PO-Revision-Date: 2012-12-06 22:14+0000\n"
+"Last-Translator: Łukasz Cieliński <lukasc@mp.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-16 10:04+0000\n"
-"X-Generator: Launchpad (build 16137)\n"
+"X-Launchpad-Export-Date: 2013-01-02 12:16+0000\n"
+"X-Generator: Launchpad (build 16378)\n"
 "Language: pl\n"
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
-msgstr ""
+msgstr "Konfiguracja punktu dostepoweho (APN):"
 
 #: ../glade/apnsel.glade:69
 msgid ""
@@ -29,6 +29,10 @@ msgid ""
 "You can choose a preconfigured APN or cancel to enter the information needed "
 "to set up a custom one.\n"
 msgstr ""
+"<b>Predefiniowany punkt dostępu (APN) Twojego Operatora.</b>\n"
+"\n"
+"Możesz wybrać jeden z predefiniowanych punktów dostępu lub anulować, a "
+"następnie ręcznie wprowadzić informacje potrzebne do skonfigurowania APN.\n"
 
 #: ../glade/apnsel.glade:193 ../glade/pin.glade:217 ../glade/pin.glade:222
 #: ../glade/pin.glade:862 ../glade/profiles.glade:1334
@@ -42,7 +46,7 @@ msgstr "OK"
 
 #: ../glade/apnsel.glade:228
 msgid "<b>APN Settings</b>"
-msgstr ""
+msgstr "Ustawienia punktu dostępowego (APN)"
 
 #: ../glade/config.glade:8
 msgid "Device setup"
@@ -56,7 +60,7 @@ msgstr ""
 
 #: ../glade/config.glade:56
 msgid "Device model: "
-msgstr ""
+msgstr "Model urządzenia: "
 
 #: ../glade/config.glade:63
 msgid "Connection:"
@@ -64,11 +68,11 @@ msgstr "Połączenie:"
 
 #: ../glade/config.glade:153
 msgid "Bluetooth configuration"
-msgstr ""
+msgstr "Ustawienia Bluetooth"
 
 #: ../glade/config.glade:174
 msgid "Configure your <b>Bluetooth</b> device"
-msgstr ""
+msgstr "Skonfiguruja swoje urządzenie <b>Bluetooth</b>"
 
 #: ../glade/config.glade:198
 msgid ""
@@ -81,7 +85,7 @@ msgstr ""
 
 #: ../glade/config.glade:250
 msgid "_Start discovery"
-msgstr ""
+msgstr "_Rozocznij wyszukiwanie"
 
 #: ../glade/config.glade:301
 msgid "<b>Serial Port</b>"
@@ -113,7 +117,7 @@ msgstr ""
 
 #: ../glade/contacts.glade:9
 msgid "Contact search"
-msgstr ""
+msgstr "Szukaj kontaktu"
 
 #: ../glade/contacts.glade:32 ../glade/contacts.glade:181
 msgid "Name:"
@@ -121,11 +125,11 @@ msgstr "Nazwa:"
 
 #: ../glade/contacts.glade:96
 msgid "Contacts List"
-msgstr ""
+msgstr "Lista kontaktów"
 
 #: ../glade/contacts.glade:161 ../glade/main.glade:565
 msgid "Add a contact"
-msgstr ""
+msgstr "Dodaj kontakt"
 
 #: ../glade/contacts.glade:224
 msgid "Number:"
@@ -133,7 +137,7 @@ msgstr "Numer:"
 
 #: ../glade/contacts.glade:260
 msgid "<b>Save in:</b>"
-msgstr ""
+msgstr "<b>Folder zapisu:</b>"
 
 #: ../glade/contacts.glade:303 ../../gui/contacts/contact_sim.py:170
 msgid "Mobile"
@@ -169,11 +173,11 @@ msgstr "IMEI: "
 
 #: ../glade/diagnostics.glade:138
 msgid "Card manufacturer"
-msgstr ""
+msgstr "Producent karty"
 
 #: ../glade/diagnostics.glade:149
 msgid "Card model"
-msgstr ""
+msgstr "Model karty"
 
 #: ../glade/diagnostics.glade:160
 msgid "Firmware"
@@ -270,11 +274,11 @@ msgstr ""
 
 #: ../glade/diagnostics.glade:717
 msgid "Add your USSD string:"
-msgstr ""
+msgstr "Wpisz kod USSD:"
 
 #: ../glade/diagnostics.glade:765
 msgid "USSD reply message:"
-msgstr ""
+msgstr "Odpowiedź USSD"
 
 #: ../glade/diagnostics.glade:809 ../glade/payt.glade:289
 msgid "Send"
@@ -347,11 +351,11 @@ msgstr ""
 
 #: ../glade/main.glade:36
 msgid "Import contacts..."
-msgstr ""
+msgstr "Imortuj kontakty..."
 
 #: ../glade/main.glade:46
 msgid "Export contacts..."
-msgstr ""
+msgstr "Eksportuj kontakty..."
 
 #: ../glade/main.glade:59
 msgid "_Quit"
@@ -412,15 +416,15 @@ msgstr ""
 
 #: ../glade/main.glade:464
 msgid "Create new SMS"
-msgstr ""
+msgstr "Utwórz nowy SMS"
 
 #: ../glade/main.glade:482
 msgid "Reply to SMS"
-msgstr ""
+msgstr "Odpowiedz na SMS"
 
 #: ../glade/main.glade:500
 msgid "Reply to SMS quoting original message"
-msgstr ""
+msgstr "Odpowiedz cytując otrzymany SMS"
 
 #: ../glade/main.glade:517
 msgid "Forward SMS to another contact"
@@ -456,7 +460,7 @@ msgstr "Kontakty"
 
 #: ../glade/main.glade:852 ../glade/main.glade:1288
 msgid "<b>Month</b>"
-msgstr ""
+msgstr "<b>MiesiącMonth</b>"
 
 #: ../glade/main.glade:910 ../glade/main.glade:1050 ../glade/main.glade:1398
 msgid "GPRS:"
@@ -476,7 +480,7 @@ msgstr ""
 
 #: ../glade/main.glade:1145
 msgid "<b>Current session</b>"
-msgstr ""
+msgstr "<b>Bieżąca sesja</b>"
 
 #: ../glade/main.glade:1189 ../glade/main.glade:1488
 msgid "Total Traffic"
@@ -544,7 +548,7 @@ msgstr ""
 
 #: ../glade/payt.glade:267
 msgid "Enter code:"
-msgstr ""
+msgstr "Wwpisz kod z kuponu"
 
 #: ../glade/payt.glade:341
 msgid "<b>Credit Card</b>"
@@ -552,7 +556,7 @@ msgstr ""
 
 #: ../glade/payt.glade:371
 msgid "Pay by credit card"
-msgstr ""
+msgstr "Zapłać kartą kredytową"
 
 #: ../glade/pin.glade:8
 msgid "Insert your PIN code"
@@ -580,7 +584,7 @@ msgstr "<b>Opcje zaawansowane</b>"
 
 #: ../glade/pin.glade:257
 msgid "Modify PIN code"
-msgstr ""
+msgstr "Zmień kod PIN"
 
 #: ../glade/pin.glade:369 ../glade/pin.glade:758
 msgid "Confirm PIN code: "
@@ -596,7 +600,7 @@ msgstr ""
 
 #: ../glade/pin.glade:513
 msgid "Please enter PUK"
-msgstr ""
+msgstr "Wprowadź kod PUK"
 
 #: ../glade/pin.glade:650
 msgid "PUK:"
@@ -1431,7 +1435,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:1570
 msgid "Only SIM based contacts supported"
-msgstr ""
+msgstr "Obslugiwane są wyłącznie kontakty zapisane na karcie SIM"
 
 #: ../../gui/controllers/preferences.py:37
 msgid "Maximum time"
@@ -1487,7 +1491,8 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Andrew Bird https://launchpad.net/~ajb-spheresystems"
+"  Andrew Bird https://launchpad.net/~ajb-spheresystems\n"
+"  Łukasz Cieliński https://launchpad.net/~lukasc-t"
 
 #: ../../gui/dialogs.py:134
 msgid "Warning"

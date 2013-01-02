@@ -6,18 +6,18 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-04 09:28+0100\n"
-"PO-Revision-Date: 2012-06-03 15:57+0000\n"
+"PO-Revision-Date: 2012-12-28 10:19+0000\n"
 "Last-Translator: Andrew Bird <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-16 10:04+0000\n"
-"X-Generator: Launchpad (build 16137)\n"
+"X-Launchpad-Export-Date: 2013-01-02 12:16+0000\n"
+"X-Generator: Launchpad (build 16378)\n"
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
-msgstr ""
+msgstr "selectie APN"
 
 #: ../glade/apnsel.glade:69
 msgid ""
@@ -26,6 +26,9 @@ msgid ""
 "You can choose a preconfigured APN or cancel to enter the information needed "
 "to set up a custom one.\n"
 msgstr ""
+"<b>APN preconfigurat pentru operador.</b>poti alege un APN preconfigurat sau "
+"sa anulezi pentru a introduce informatia necesara pentru a crea unul "
+"personalizat.\n"
 
 #: ../glade/apnsel.glade:193 ../glade/pin.glade:217 ../glade/pin.glade:222
 #: ../glade/pin.glade:862 ../glade/profiles.glade:1334
@@ -35,25 +38,26 @@ msgstr "Anulează"
 #: ../glade/apnsel.glade:208 ../glade/pin.glade:239
 #: ../glade/profiles.glade:1349
 msgid "OK"
-msgstr "OK"
+msgstr "Acceptare"
 
 #: ../glade/apnsel.glade:228
 msgid "<b>APN Settings</b>"
-msgstr ""
+msgstr "<b>Setari APN</b>"
 
 #: ../glade/config.glade:8
 msgid "Device setup"
-msgstr "Configurare dispozitiv"
+msgstr "Setari Dispozitiv"
 
 #: ../glade/config.glade:34
 msgid ""
 "Please select from the following options how do you want to connect to the "
 "Internet"
 msgstr ""
+"va rugam selectati din urmatoarele optiuni modul de conectare la internet"
 
 #: ../glade/config.glade:56
 msgid "Device model: "
-msgstr ""
+msgstr "Modelul dispozitivului "
 
 #: ../glade/config.glade:63
 msgid "Connection:"
@@ -61,11 +65,11 @@ msgstr "Conexiune:"
 
 #: ../glade/config.glade:153
 msgid "Bluetooth configuration"
-msgstr ""
+msgstr "configuratie Bluetooth"
 
 #: ../glade/config.glade:174
 msgid "Configure your <b>Bluetooth</b> device"
-msgstr ""
+msgstr "Configurati dispozitivul <b>Bluetooth</b>"
 
 #: ../glade/config.glade:198
 msgid ""
@@ -75,22 +79,27 @@ msgid ""
 "sports a recent version of libbluetooth2. Otherwise you will\n"
 "have to configure it yourself and fill the relevant entries"
 msgstr ""
+"asigurate ca telefonul are bluetooth activat si e vizibil.\n"
+"ai nevoie de un agent de parola instalat, de exemplu bluez-gnome.\n"
+"conexiunea ta poate sa fie configurata automatic daca sitemul\n"
+" are o versiune recenta de libbluetooth2. Daca nu trebuie sa il \n"
+"configurezi tu si sa introduci intrarile relevante."
 
 #: ../glade/config.glade:250
 msgid "_Start discovery"
-msgstr ""
+msgstr "_Start descoperire"
 
 #: ../glade/config.glade:301
 msgid "<b>Serial Port</b>"
-msgstr ""
+msgstr "<b>Serial de Port</b>"
 
 #: ../glade/config.glade:325
 msgid "Data port"
-msgstr ""
+msgstr "Port de date"
 
 #: ../glade/config.glade:334
 msgid "Control port"
-msgstr ""
+msgstr "Control de port"
 
 #: ../glade/config.glade:346
 msgid "Speed"
@@ -102,15 +111,15 @@ msgstr "<b>Setări conexiune</b>"
 
 #: ../glade/config.glade:461
 msgid "Enable hardware flow control"
-msgstr ""
+msgstr "Activeaza controlul de flux de hardware"
 
 #: ../glade/config.glade:474
 msgid "Enable software flow control"
-msgstr ""
+msgstr "Activeaza controlul de flux de  software"
 
 #: ../glade/contacts.glade:9
 msgid "Contact search"
-msgstr ""
+msgstr "Contactați căutare"
 
 #: ../glade/contacts.glade:32 ../glade/contacts.glade:181
 msgid "Name:"
@@ -118,7 +127,7 @@ msgstr "Nume:"
 
 #: ../glade/contacts.glade:96
 msgid "Contacts List"
-msgstr ""
+msgstr "lista de contacte"
 
 #: ../glade/contacts.glade:161 ../glade/main.glade:565
 msgid "Add a contact"
@@ -130,15 +139,15 @@ msgstr "Numar:"
 
 #: ../glade/contacts.glade:260
 msgid "<b>Save in:</b>"
-msgstr ""
+msgstr "<b>Salveaza in:</b>"
 
 #: ../glade/contacts.glade:303 ../../gui/contacts/contact_sim.py:170
 msgid "Mobile"
-msgstr "Mobile"
+msgstr "Mobil"
 
 #: ../glade/contacts.glade:343
 msgid "Computer"
-msgstr "Ordinator"
+msgstr "Calculator"
 
 #: ../glade/diagnostics.glade:7 ../glade/main.glade:201
 msgid "Diagnostics"
@@ -146,7 +155,7 @@ msgstr "Diagnostice"
 
 #: ../glade/diagnostics.glade:43
 msgid "<b>Datacard details</b>"
-msgstr ""
+msgstr "<b>Detalii Card de Date</b>"
 
 #: ../glade/diagnostics.glade:81
 msgid "Manufacturer:"
@@ -166,11 +175,11 @@ msgstr "IMEI: "
 
 #: ../glade/diagnostics.glade:138
 msgid "Card manufacturer"
-msgstr ""
+msgstr "producatorul Card"
 
 #: ../glade/diagnostics.glade:149
 msgid "Card model"
-msgstr ""
+msgstr "modelul de Card"
 
 #: ../glade/diagnostics.glade:160
 msgid "Firmware"
@@ -186,7 +195,7 @@ msgstr "Modem"
 
 #: ../glade/diagnostics.glade:226
 msgid "<b>Network details from SIM</b>"
-msgstr ""
+msgstr "<b>Detalii rețea de pe cartela SIM</b>"
 
 #: ../glade/diagnostics.glade:264
 msgid "IMSI:"
@@ -202,7 +211,7 @@ msgstr "Țară:"
 
 #: ../glade/diagnostics.glade:297
 msgid "Mobile Number:"
-msgstr ""
+msgstr "Numarul de Mobil"
 
 #: ../glade/diagnostics.glade:320
 msgid "IMSI"
@@ -219,7 +228,7 @@ msgstr "IMSI"
 #: ../../gui/models/main.py:94 ../../gui/models/main.py:359
 #: ../../gui/controllers/main.py:259 ../../gui/controllers/main.py:587
 msgid "Unknown"
-msgstr "Necunoscută"
+msgstr "Necunoscut(ă)"
 
 #: ../glade/diagnostics.glade:376
 msgid "SIM"
@@ -227,11 +236,11 @@ msgstr "SIM"
 
 #: ../glade/diagnostics.glade:408
 msgid "<b>Device information</b>"
-msgstr ""
+msgstr "<b>informatie de dispozitiv</b>"
 
 #: ../glade/diagnostics.glade:445
 msgid "Operating System:"
-msgstr ""
+msgstr "Sistem de operare"
 
 #: ../glade/diagnostics.glade:456
 msgid "Version:"
@@ -239,7 +248,7 @@ msgstr "Versiune:"
 
 #: ../glade/diagnostics.glade:467
 msgid "Uptime:"
-msgstr ""
+msgstr "Uptime:"
 
 #: ../glade/diagnostics.glade:536
 msgid "Device"
@@ -247,11 +256,11 @@ msgstr "Dispozitiv"
 
 #: ../glade/diagnostics.glade:601
 msgid "Software Version:"
-msgstr ""
+msgstr "Versiunea Software:"
 
 #: ../glade/diagnostics.glade:612
 msgid "Core Version:"
-msgstr ""
+msgstr "Versiunea Nucleu:"
 
 #: ../glade/diagnostics.glade:634 ../glade/diagnostics.glade:644
 msgid "Not supported"
@@ -259,19 +268,19 @@ msgstr "Nu este suportat"
 
 #: ../glade/diagnostics.glade:672
 msgid "Modem Manager"
-msgstr ""
+msgstr "Modem Manager"
 
 #: ../glade/diagnostics.glade:688
 msgid "<b>USSD Test Message Diagnostics</b>"
-msgstr ""
+msgstr "<b>USSD Mesaj test de diagnosticare</b>"
 
 #: ../glade/diagnostics.glade:717
 msgid "Add your USSD string:"
-msgstr ""
+msgstr "Adauga succesiunea USSD:"
 
 #: ../glade/diagnostics.glade:765
 msgid "USSD reply message:"
-msgstr ""
+msgstr "răspunsul mesaj USSD:"
 
 #: ../glade/diagnostics.glade:809 ../glade/payt.glade:289
 msgid "Send"
@@ -284,20 +293,20 @@ msgstr "USSD"
 #: ../glade/dialogs.glade:38 ../glade/dialogs.glade:239
 #: ../glade/dialogs.glade:451
 msgid "<big><b>Big title!</b></big>"
-msgstr ""
+msgstr "<big><b>Titlu Mare!</b></big>"
 
 #: ../glade/dialogs.glade:51 ../glade/dialogs.glade:252
 #: ../glade/dialogs.glade:348 ../glade/dialogs.glade:464
 msgid "A detailed message"
-msgstr ""
+msgstr "Un mesaj detaliat"
 
 #: ../glade/dialogs.glade:138
 msgid "<big><b>Question?</b></big>"
-msgstr ""
+msgstr "<big><b>Intrebare?</b></big>"
 
 #: ../glade/dialogs.glade:152
 msgid "Detailed message"
-msgstr ""
+msgstr "Mesaj Detaliat"
 
 #: ../glade/dialogs.glade:189
 msgid "Action"
@@ -305,11 +314,11 @@ msgstr "Actiune"
 
 #: ../glade/dialogs.glade:326
 msgid "<b>title</b>"
-msgstr ""
+msgstr "<b>titlul</b>"
 
 #: ../glade/dialogs.glade:363
 msgid "Remember my choice"
-msgstr "Se reține alegerea"
+msgstr "Amintiți-vă alegerea mea"
 
 #: ../glade/helpbrowser.glade:21 ../glade/main.glade:26
 msgid "_File"
@@ -317,13 +326,15 @@ msgstr "_Fișier"
 
 #: ../glade/keyring.glade:35
 msgid "<span size='large' weight='bold'>Creating a new keyring</span>"
-msgstr ""
+msgstr "<span size='large' weight='bold'>Creaza un nou keyring</span>"
 
 #: ../glade/keyring.glade:48
 msgid ""
 "Please, insert a code to encrypt your sensitive\n"
 "information."
 msgstr ""
+"Vă rugăm, introduceți un cod pentru a cripta \n"
+"informațiile dvs. sensibile."
 
 #: ../glade/keyring.glade:81 ../glade/keyring.glade:191
 #: ../glade/profiles.glade:177
@@ -336,23 +347,23 @@ msgstr "Confirmați parola:"
 
 #: ../glade/keyring.glade:131
 msgid "Unlock Keyring"
-msgstr "Deblochează inelul de chei"
+msgstr "Deblocare keyring"
 
 #: ../glade/keyring.glade:157
 msgid "Please, enter your keyring password"
-msgstr ""
+msgstr "Te rog, introduceți parola keyring"
 
 #: ../glade/main.glade:36
 msgid "Import contacts..."
-msgstr ""
+msgstr "Importati contacte..."
 
 #: ../glade/main.glade:46
 msgid "Export contacts..."
-msgstr ""
+msgstr "Exportati contacte..."
 
 #: ../glade/main.glade:59
 msgid "_Quit"
-msgstr "_Ieșire"
+msgstr "_Terminare"
 
 #: ../glade/main.glade:86
 msgid "_View"
@@ -381,7 +392,7 @@ msgstr "Schimbare PIN"
 
 #: ../glade/main.glade:187
 msgid "Request PIN"
-msgstr ""
+msgstr "Cerere PIN"
 
 #: ../glade/main.glade:226
 msgid "Profiles"
@@ -405,27 +416,27 @@ msgstr "_Despre"
 
 #: ../glade/main.glade:429
 msgid "Topup"
-msgstr ""
+msgstr "Reîncărcare"
 
 #: ../glade/main.glade:464
 msgid "Create new SMS"
-msgstr ""
+msgstr "Creaza SMS nou"
 
 #: ../glade/main.glade:482
 msgid "Reply to SMS"
-msgstr ""
+msgstr "Răspundeți la SMS"
 
 #: ../glade/main.glade:500
 msgid "Reply to SMS quoting original message"
-msgstr ""
+msgstr "Răspundeți la SMS citând mesajul original"
 
 #: ../glade/main.glade:517
 msgid "Forward SMS to another contact"
-msgstr ""
+msgstr "Redirecționa sms la alt contact"
 
 #: ../glade/main.glade:536
 msgid "Delete SMS"
-msgstr ""
+msgstr "Ștergere SMS"
 
 #: ../glade/main.glade:583
 msgid "Search contacts"
@@ -433,7 +444,7 @@ msgstr "Caută contacte"
 
 #: ../glade/main.glade:601
 msgid "Delete contacts"
-msgstr ""
+msgstr "ștergere contacte"
 
 #: ../glade/main.glade:652
 msgid "Inbox"
@@ -453,7 +464,7 @@ msgstr "Contacte"
 
 #: ../glade/main.glade:852 ../glade/main.glade:1288
 msgid "<b>Month</b>"
-msgstr ""
+msgstr "<b>Luna</b>"
 
 #: ../glade/main.glade:910 ../glade/main.glade:1050 ../glade/main.glade:1398
 msgid "GPRS:"
@@ -469,15 +480,15 @@ msgstr "Total:"
 
 #: ../glade/main.glade:1008 ../glade/main.glade:1444
 msgid "<b>Transferred Data</b>"
-msgstr ""
+msgstr "<b>Date Transferate</b>"
 
 #: ../glade/main.glade:1145
 msgid "<b>Current session</b>"
-msgstr ""
+msgstr "<b>sesiunea curentă</b>"
 
 #: ../glade/main.glade:1189 ../glade/main.glade:1488
 msgid "Total Traffic"
-msgstr ""
+msgstr "Total de Trafic"
 
 #: ../glade/main.glade:1251
 msgid "Current month"
@@ -490,14 +501,15 @@ msgstr "Luna trecută"
 #: ../glade/main.glade:1568
 msgid "<b>Usage</b> - Remember that this information is only indicative."
 msgstr ""
+"<b>Usage</b> - Amintiți-vă că această informație este doar orientativă."
 
 #: ../glade/main.glade:1616
 msgid "Help menu"
-msgstr ""
+msgstr "Meniul de ajutor"
 
 #: ../glade/main.glade:1655
 msgid "Support center"
-msgstr ""
+msgstr "Centru de suport"
 
 #: ../glade/main.glade:1695
 msgid "Customer support"
@@ -505,23 +517,23 @@ msgstr "Asistență pentru clienți"
 
 #: ../glade/misc.glade:54
 msgid "Wader log"
-msgstr ""
+msgstr "Jurnal Wader"
 
 #: ../glade/payt.glade:6
 msgid "Topup Credit"
-msgstr ""
+msgstr "Reincarcare Credit"
 
 #: ../glade/payt.glade:44
 msgid "<b>SIM Details</b>"
-msgstr ""
+msgstr "<b>Detalii de SIM</b>"
 
 #: ../glade/payt.glade:83
 msgid "<b>Number</b>"
-msgstr ""
+msgstr "<b>Numarul</b>"
 
 #: ../glade/payt.glade:94
 msgid "<b>Credit</b>"
-msgstr ""
+msgstr "<b>Credit</b>"
 
 #: ../glade/payt.glade:105
 msgid "<b>Date</b>"
@@ -529,47 +541,47 @@ msgstr "<b>Data</b>"
 
 #: ../glade/payt.glade:167
 msgid "Recheck my credit:"
-msgstr ""
+msgstr "Verificați credit meu:"
 
 #: ../glade/payt.glade:182
 msgid "Check credit"
-msgstr ""
+msgstr "Verificare Credit"
 
 #: ../glade/payt.glade:237
 msgid "<b>Voucher Code</b>"
-msgstr ""
+msgstr "<b>Cod de Reincarcare</b>"
 
 #: ../glade/payt.glade:267
 msgid "Enter code:"
-msgstr ""
+msgstr "Introduce codul:"
 
 #: ../glade/payt.glade:341
 msgid "<b>Credit Card</b>"
-msgstr ""
+msgstr "<b>Card de credit</b>"
 
 #: ../glade/payt.glade:371
 msgid "Pay by credit card"
-msgstr ""
+msgstr "Plătiți cu cardul de credit"
 
 #: ../glade/pin.glade:8
 msgid "Insert your PIN code"
-msgstr ""
+msgstr "introduce codul tau PIN"
 
 #: ../glade/pin.glade:23
 msgid "Insert PIN Window"
-msgstr ""
+msgstr "Fereastra de introducere PIN"
 
 #: ../glade/pin.glade:64
 msgid "Please insert your PIN code"
-msgstr ""
+msgstr "Va rugam introduceti codul PIN"
 
 #: ../glade/pin.glade:104
 msgid "Insert PIN Entry"
-msgstr ""
+msgstr "Intrare de introducere PIN"
 
 #: ../glade/pin.glade:149
 msgid "Manage my PIN through gnome-keyring"
-msgstr ""
+msgstr "Gestionați PIN-ul prin gnome-keyring"
 
 #: ../glade/pin.glade:178
 msgid "<b>Advanced Options</b>"
@@ -577,11 +589,11 @@ msgstr "<b>Opțiuni avansate</b>"
 
 #: ../glade/pin.glade:257
 msgid "Modify PIN code"
-msgstr ""
+msgstr "Modificare cod PIN"
 
 #: ../glade/pin.glade:369 ../glade/pin.glade:758
 msgid "Confirm PIN code: "
-msgstr ""
+msgstr "Confirmati codul PIN: "
 
 #: ../glade/pin.glade:397 ../glade/pin.glade:733
 msgid "New PIN code: "
@@ -589,11 +601,11 @@ msgstr "Cod PIN nou: "
 
 #: ../glade/pin.glade:425
 msgid "Current PIN code: "
-msgstr ""
+msgstr "Cod PIN acutal: "
 
 #: ../glade/pin.glade:513
 msgid "Please enter PUK"
-msgstr ""
+msgstr "Va rugam introduceti codul PUK"
 
 #: ../glade/pin.glade:650
 msgid "PUK:"
@@ -601,21 +613,23 @@ msgstr "PUK:"
 
 #: ../glade/preferences.glade:60
 msgid "<b>Change to global SMS settings </b>"
-msgstr ""
+msgstr "<b>Schimbate la  setările globale SMS</b>"
 
 #: ../glade/preferences.glade:95
 msgid "<b>SMSC preferences</b>"
-msgstr ""
+msgstr "<b>Preferințele SMSC</b>"
 
 #: ../glade/preferences.glade:112
 msgid "Use an alternative SMS Service centre address"
-msgstr ""
+msgstr "Utilizați o adresa alternativa SMS a centrului de service"
 
 #: ../glade/preferences.glade:117
 msgid ""
 "You may configure a different service centre address if you are not a "
 "Vodafone customer or the default one is incorrect."
 msgstr ""
+"Puteți configura o alta adresa a centrului de servicii, dacă nu sunteți un "
+"client Vodafone sau implicit este incorectă."
 
 #: ../glade/preferences.glade:144
 msgid "Profile:"
@@ -623,57 +637,59 @@ msgstr "Profil:"
 
 #: ../glade/preferences.glade:158
 msgid "SMSC number:"
-msgstr ""
+msgstr "Numar SMSC:"
 
 #: ../glade/preferences.glade:249
 msgid "<b>Message options</b>"
-msgstr ""
+msgstr "<b>Optiuni de Mesaje</b>"
 
 #: ../glade/preferences.glade:266
 msgid "Allow SMS confirmation"
-msgstr ""
+msgstr "Permiteti confirmare de SMS"
 
 #: ../glade/preferences.glade:270
 msgid ""
 "Allows SMS confirmation reports. This lets you see when someone has received "
 "your text message."
 msgstr ""
+"Permiteti Rapor de confirmare de SMS. Acest lucru vă permite să vedeți când "
+"cineva a primit mesajul dvs. text."
 
 #: ../glade/preferences.glade:301
 msgid "Validity:"
-msgstr ""
+msgstr "Valabilitate:"
 
 #: ../glade/preferences.glade:362
 msgid "SMS Profile"
-msgstr ""
+msgstr "Profil SMS"
 
 #: ../glade/preferences.glade:382
 msgid "<b>User options</b>"
-msgstr ""
+msgstr "<b>Optiuni de utilizator</b>"
 
 #: ../glade/preferences.glade:405
 msgid "Exit without confirmation"
-msgstr ""
+msgstr "Ieși fără confirmare"
 
 #: ../glade/preferences.glade:421
 msgid "Show icon on tray"
-msgstr ""
+msgstr "Afișați pictograma de pe bara"
 
 #: ../glade/preferences.glade:437
 msgid "Close window minimizes app to tray"
-msgstr ""
+msgstr "Închiderea ferestrei Minimizeaza  aplicația  pe bara"
 
 #: ../glade/preferences.glade:453
 msgid "Manage my PIN through gnomekeyring"
-msgstr ""
+msgstr "Gestionați codul PIN prin gnomekeyring"
 
 #: ../glade/preferences.glade:469
 msgid "Use global menu if available"
-msgstr ""
+msgstr "Utilizeaza meniul global daca este disponibil"
 
 #: ../glade/preferences.glade:474
 msgid "Change effective only after UI restart"
-msgstr ""
+msgstr "Modificarea efectivă numai după repornirea UI"
 
 #: ../glade/preferences.glade:509
 msgid "User Preferences"
@@ -689,7 +705,7 @@ msgstr "Comandă:"
 
 #: ../glade/preferences.glade:650
 msgid "<b>Email client</b>"
-msgstr ""
+msgstr "<b>clientul de Email</b>"
 
 #: ../glade/preferences.glade:779
 msgid "Applications"
@@ -697,19 +713,19 @@ msgstr "Aplicații"
 
 #: ../glade/preferences.glade:800
 msgid "<b>Usage Options</b>"
-msgstr ""
+msgstr "<b>Opțiuni de utilizare<b/>"
 
 #: ../glade/preferences.glade:832
 msgid "Maximum traffic (MB):"
-msgstr ""
+msgstr "Trafic Maxim (MB)"
 
 #: ../glade/preferences.glade:869
 msgid "Notify when a given threshold is exceeded."
-msgstr ""
+msgstr "Notifica atunci când un anumit prag este depășit."
 
 #: ../glade/preferences.glade:901
 msgid "Notification threshold (MB):"
-msgstr ""
+msgstr "Notificare de prag (MB):"
 
 #: ../glade/profiles.glade:9
 msgid "New Profile"
@@ -717,7 +733,7 @@ msgstr "Profil nou"
 
 #: ../glade/profiles.glade:23
 msgid "New Profile Window"
-msgstr ""
+msgstr "Fereastra de Profil nou"
 
 #: ../glade/profiles.glade:64
 msgid ""
@@ -727,10 +743,15 @@ msgid ""
 "support center and they should provide\n"
 "you with the relevant information."
 msgstr ""
+"<b>creaza un nou  profil pentru dispozitivul tau</b>\n"
+"\n"
+"Dacă nu sunteți sigur despre ceea ce ar trebui să vă completați, contactați "
+"centrul de asistență pentru clienți și ar trebui să va ofere cu informațiile "
+"relevante."
 
 #: ../glade/profiles.glade:115
 msgid "<b>Connection preferences</b>"
-msgstr ""
+msgstr "<b>Preferinte de Conexiune</b>"
 
 #: ../glade/profiles.glade:152
 msgid "Username:"
@@ -738,23 +759,23 @@ msgstr "Nume de utilizator:"
 
 #: ../glade/profiles.glade:202
 msgid "Authentication method:"
-msgstr ""
+msgstr "Metoda de autentificare:"
 
 #: ../glade/profiles.glade:227
 msgid "Preferred connection:"
-msgstr ""
+msgstr "Conexiune preferata:"
 
 #: ../glade/profiles.glade:252
 msgid "Preferred band:"
-msgstr ""
+msgstr "Frecventa Preferata:"
 
 #: ../glade/profiles.glade:277
 msgid "APN host:"
-msgstr ""
+msgstr "Gazda APN:"
 
 #: ../glade/profiles.glade:447
 msgid "<b>DNS settings</b>"
-msgstr ""
+msgstr "<b>setari DNS</b>"
 
 #: ../glade/profiles.glade:485
 msgid "Use static DNS"
@@ -770,7 +791,7 @@ msgstr "DNS secundar:"
 
 #: ../glade/profiles.glade:715
 msgid "<b>Profile settings</b>"
-msgstr ""
+msgstr "<b>configurari de Profil</b>"
 
 #: ../glade/profiles.glade:752
 msgid "Profile name:"
@@ -778,11 +799,11 @@ msgstr "Nume profil:"
 
 #: ../glade/profiles.glade:863
 msgid "Device selection"
-msgstr ""
+msgstr "Selectie de Dispozitiv"
 
 #: ../glade/profiles.glade:877
 msgid "Device Selection Window"
-msgstr ""
+msgstr "Fereastra de selectie de Dispozitiv"
 
 #: ../glade/profiles.glade:925
 msgid ""
@@ -791,6 +812,10 @@ msgid ""
 "You can choose a known device or insert the needed information to set up a "
 "custom one.\n"
 msgstr ""
+"<b>selecteaza un dispozitiv pentru conexiunea ta.</b>\n"
+"\n"
+"Puteți alege un dispozitiv cunoscut sau introduceți informațiile necesare "
+"pentru a configura unul personalizat.\n"
 
 #: ../glade/profiles.glade:1024
 msgid "Known devices"
@@ -798,7 +823,7 @@ msgstr "Dispozitive cunoscute"
 
 #: ../glade/profiles.glade:1032
 msgid "Known Devices Radio"
-msgstr ""
+msgstr "Dispozitv de radio cunoscut"
 
 #: ../glade/profiles.glade:1083
 msgid "Device type:"
@@ -814,35 +839,35 @@ msgstr "115200"
 
 #: ../glade/profiles.glade:1198
 msgid "Data port device:"
-msgstr ""
+msgstr "Dispozitiv port date"
 
 #: ../glade/profiles.glade:1226
 msgid "Control port device:"
-msgstr ""
+msgstr "dispozitiv port control:"
 
 #: ../glade/profiles.glade:1254
 msgid "Speed connection:"
-msgstr ""
+msgstr "Viteza conexiuni:"
 
 #: ../glade/profiles.glade:1294
 msgid "Custom device settings"
-msgstr ""
+msgstr "Setarile dispozitivului configurat"
 
 #: ../glade/profiles.glade:1303
 msgid "Custom Device Settings Radio"
-msgstr ""
+msgstr "Setari de radio al dispozitivului personalizat"
 
 #: ../glade/profiles.glade:1369
 msgid "<b>Device Settings</b>"
-msgstr ""
+msgstr "<b>Setari Dispozitiv</b>"
 
 #: ../glade/sms.glade:50
 msgid "TO : "
-msgstr ""
+msgstr "TO: "
 
 #: ../glade/splash.glade:6
 msgid "3G Devices Manager"
-msgstr ""
+msgstr "Manager de dispozitiv 3G"
 
 #: ../../gui/constx.py:47 ../../gui/constx.py:65 ../../gui/constx.py:84
 msgid "Any"
@@ -898,19 +923,19 @@ msgstr "WCDMA 1900"
 
 #: ../../gui/constx.py:66 ../../gui/signals.py:27
 msgid "2G preferred"
-msgstr ""
+msgstr "Preferabil 2G"
 
 #: ../../gui/constx.py:67 ../../gui/signals.py:28
 msgid "3G preferred"
-msgstr ""
+msgstr "Preferabil 3G"
 
 #: ../../gui/constx.py:68 ../../gui/signals.py:29
 msgid "2G only"
-msgstr ""
+msgstr "Doar 2G"
 
 #: ../../gui/constx.py:69 ../../gui/signals.py:30
 msgid "3G only"
-msgstr ""
+msgstr "Doar 3G"
 
 #: ../../gui/constx.py:85
 msgid "PAP"
@@ -934,11 +959,12 @@ msgstr "MSCHAPv2"
 
 #: ../../gui/messages.py:39
 msgid "WAP Push (Binary content)"
-msgstr ""
+msgstr "WAP Push (Binary content)"
 
 #: ../../gui/views/pin.py:77 ../../gui/controllers/preferences.py:198
 msgid "To use this feature you need the gnomekeyring module"
 msgstr ""
+"Pentru a utiliza această caracteristică aveți nevoie de modulul gnomekeyring"
 
 #: ../../gui/views/pin.py:93
 msgid ""
@@ -946,6 +972,9 @@ msgid ""
 "In order to unlock your SIM, we need your\n"
 "PIN and PUK codes"
 msgstr ""
+"\n"
+"În scopul de a debloca cartela SIM, avem nevoie de dvs.\n"
+" de codul PIN și PUK"
 
 #: ../../gui/views/pin.py:100
 msgid ""
@@ -953,6 +982,9 @@ msgid ""
 "In order to unlock your SIM, we need your\n"
 "PIN and PUK2 codes"
 msgstr ""
+"\n"
+"În scopul de a debloca cartela SIM, avem nevoie de dvs.\n"
+"de codul PIN și PUK2"
 
 #: ../../gui/views/main.py:146
 #, python-format
@@ -970,6 +1002,19 @@ msgid ""
 "system, you might need to ask your Systems Administrator any doubt that you "
 "might have."
 msgstr ""
+"În cele mai multe cazuri, puteți găsi răspunsul la întrebări despre programu "
+"în meniul de ajutor. Acest meniu poate fi accesat dacă faceți clic pe "
+"\"Ajutor\" eticheta de pe bara de meniu situat în partea de sus a ferestrei, "
+"și selectând \"Ajutor subiecte\" opțiune.\n"
+"\n"
+"Puteți găsi, de asemenea, ajutor, actualizări și sfaturi în %(name)s web-"
+"lui:\n"
+"\n"
+"%(url)s.\n"
+"\n"
+"Dacă utilizați butoanele de e-mail și browser-ul pentru a accesa alte "
+"programe din sistemul dvs., poate fi necesar să solicitați ajutorul  "
+"Administratorului Systemului de orice îndoială ce ați putea avea."
 
 #: ../../gui/views/main.py:161
 msgid ""
@@ -980,10 +1025,16 @@ msgid ""
 "If your company does not have a support center, you will have to contact "
 "your company's System Administrator."
 msgstr ""
+"Dacă utilizați acest program într-un mediu corporativ, compania "
+"dumneavoastră are, probabil, un centru de sprijin pentru a rezolva "
+"problemele pe care le-ar putea avea despre programul.\n"
+"\n"
+"Dacă firma dvs. nu are un centru de suport, va trebui să contactați  "
+"administratorul Systemului firmei."
 
 #: ../../gui/views/main.py:216 ../../gui/views/main.py:234
 msgid "N/A"
-msgstr "N/A"
+msgstr "Indisponibil"
 
 #: ../../gui/views/main.py:337
 msgid "GSM"
@@ -1045,7 +1096,7 @@ msgstr "Deconectează"
 
 #: ../../gui/views/main.py:416
 msgid "Device found"
-msgstr ""
+msgstr "Dispozitiv gasit"
 
 #: ../../gui/views/main.py:417
 msgid "Disabled"
@@ -1053,7 +1104,7 @@ msgstr "Dezactivat"
 
 #: ../../gui/views/main.py:418
 msgid "SIM locked"
-msgstr ""
+msgstr "SIM Blocat"
 
 #: ../../gui/views/main.py:419
 msgid "Authenticating"
@@ -1065,11 +1116,11 @@ msgstr "Autentificată"
 
 #: ../../gui/views/main.py:421
 msgid "Enabling"
-msgstr ""
+msgstr "Activare"
 
 #: ../../gui/views/main.py:422
 msgid "Disabling"
-msgstr ""
+msgstr "Se dezactivează"
 
 #: ../../gui/views/main.py:424
 msgid "Searching"
@@ -1115,7 +1166,7 @@ msgstr "Expeditor"
 
 #: ../../gui/views/main.py:575
 msgid "Date"
-msgstr "Comentariu"
+msgstr "Dată"
 
 #: ../../gui/views/profile.py:138
 msgid "Country"
@@ -1124,16 +1175,16 @@ msgstr "Tara"
 #: ../../gui/uptime.py:83
 #, python-format
 msgid "%(day)d days, %(msg)s"
-msgstr ""
+msgstr "%(day)d zile, %(msg)s"
 
 #: ../../gui/uptime.py:85
 #, python-format
 msgid "%(day)d day, %(msg)s"
-msgstr ""
+msgstr "%(day)d zi, %(msg)s"
 
 #: ../../gui/signals.py:23
 msgid "No signal"
-msgstr ""
+msgstr "Fara semnal"
 
 #: ../../gui/models/main.py:118 ../../gui/controllers/payt.py:176
 #: ../../gui/controllers/payt.py:208
@@ -1142,13 +1193,13 @@ msgstr "Nu este disponibil"
 
 #: ../../gui/models/main.py:183
 msgid "Error while starting wader"
-msgstr ""
+msgstr "Eroare în timp ce începând cu wader"
 
 #: ../../gui/models/main.py:184
 #, python-format
 msgid ""
 "Check that your installation is correct and your  OS/distro is supported: %s"
-msgstr ""
+msgstr "Controleaza daca instalarea e corecta sau OS/distro il suporta:%s"
 
 #: ../../gui/models/profile.py:162 ../../gui/controllers/preferences.py:144
 #: ../../gui/controllers/preferences.py:160
@@ -1157,16 +1208,16 @@ msgstr "Personalizat"
 
 #: ../../gui/models/profile.py:377
 msgid "Trying to remove an unsaved profile"
-msgstr ""
+msgstr "Încercarea de a elimina un profil nesalvat"
 
 #: ../../gui/controllers/payt.py:98 ../../gui/controllers/payt.py:114
 #: ../../gui/controllers/payt.py:124
 msgid "PAYT submit voucher"
-msgstr ""
+msgstr "executa reincarcare PAYT"
 
 #: ../../gui/controllers/payt.py:99 ../../gui/controllers/payt.py:160
 msgid "SIM is not on a PAYT plan"
-msgstr ""
+msgstr "SIM-ul nu este intr-un plan PAYT"
 
 #: ../../gui/controllers/payt.py:115
 #, python-format
@@ -1174,43 +1225,47 @@ msgid ""
 "PAYT submit voucher failed\n"
 "'%s'"
 msgstr ""
+"executare reincarcari PAYT a eșuat\n"
+"'%s'"
 
 #: ../../gui/controllers/payt.py:125
 msgid "No PAYT submit voucher method available"
-msgstr ""
+msgstr "nu e disponibil executarea reincarcari PAYT"
 
 #: ../../gui/controllers/payt.py:159 ../../gui/controllers/payt.py:194
 msgid "PAYT credit check"
-msgstr ""
+msgstr "Verificare Credit PAYT"
 
 #: ../../gui/controllers/payt.py:195
 msgid "No PAYT credit check method available"
-msgstr ""
+msgstr "Nici o forma de verficare credit PAYT"
 
 #: ../../gui/controllers/sms.py:52
 msgid "You can send the SMS to several recipients separating them by commas"
 msgstr ""
+"Aveți posibilitatea să trimiteți SMS la mai mulți destinatari care le separă "
+"prin virgule"
 
 #: ../../gui/controllers/sms.py:84 ../../gui/controllers/sms.py:259
 #, python-format
 msgid "Text message: 0/%d chars"
-msgstr ""
+msgstr "Text Mesaj: 0/%d chars"
 
 #: ../../gui/controllers/sms.py:113
 msgid "Send empty message"
-msgstr ""
+msgstr "Trimite mesaj gol"
 
 #: ../../gui/controllers/sms.py:114
 msgid "Are you sure you want to send an empty message?"
-msgstr ""
+msgstr "Esti sigur ca vrei sa trimiti un mesaj gol"
 
 #: ../../gui/controllers/sms.py:138
 msgid "Error while sending SMS"
-msgstr ""
+msgstr "Eroare in trimiterea SMS"
 
 #: ../../gui/controllers/sms.py:184
 msgid "No SMSC number"
-msgstr ""
+msgstr "Nu ai numar SMSC"
 
 #: ../../gui/controllers/sms.py:185
 #, python-format
@@ -1218,16 +1273,18 @@ msgid ""
 "In order to send a SMS, %s needs to know the number of your provider's SMSC. "
 "If you do not know the SMSC number, contact your customer service."
 msgstr ""
+"Sa trimiti un SMS %s trebuie sa stii numarul de SMSC al furnizorului.Daca nu "
+"cunosti numarul SMSC al furnizorului contacteaza cu Serviciul Clienti."
 
 #: ../../gui/controllers/sms.py:267
 #, python-format
 msgid "Text message: %(num)d/%(total)d chars"
-msgstr ""
+msgstr "Text mesaj: %(num)d/%(total)d chars"
 
 #: ../../gui/controllers/sms.py:272
 #, python-format
 msgid "Text message: %(num)d/%(total)d chars (%(msgs)d SMS)"
-msgstr ""
+msgstr "Text mesaj: %(num)d/%(total)d chars (%(msgs)d SMS)"
 
 #: ../../gui/controllers/pin.py:107 ../../gui/controllers/pin.py:186
 msgid "Incorrect PIN"
@@ -1241,6 +1298,11 @@ msgid ""
 "three failed PINs you'll be asked\n"
 "for the PUK code</small>\n"
 msgstr ""
+"\n"
+"<small>PIN care ati introdus este\n"
+"incorect.Țineți cont de faptul că, după\n"
+"trei coduri PIN eșuate vi se va solicita\n"
+"codul PUK</small>\n"
 
 #: ../../gui/controllers/main.py:174
 #, python-format
@@ -1253,11 +1315,11 @@ msgstr "Sigur doriți să ieșiți?"
 
 #: ../../gui/controllers/main.py:187
 msgid "Can not close application"
-msgstr ""
+msgstr "Aplicatia nu poate fi inchisa"
 
 #: ../../gui/controllers/main.py:188
 msgid "Can not close while a connection is active"
-msgstr ""
+msgstr "Nu se poate închide în timp ce o conexiune este activă"
 
 #: ../../gui/controllers/main.py:269
 #, python-format
@@ -1274,6 +1336,17 @@ msgid ""
 "\n"
 "%(international)s if you are calling from other network."
 msgstr ""
+"Puteți găsi cu ușurință răspunsuri la cele mai frecvente întrebări în meniul "
+"de ajutor, în centrul companiei de sprijin și în zona de suport la:\n"
+"\n"
+"%(url)s.\n"
+"\n"
+"Dacă aveți în continuare dificultăți puteți apela la Centrul de asistență "
+"pentru clienți Vodafone, numerele sunt:\n"
+"\n"
+"%(shortcode)s, if you are using Vodafone's network, or\n"
+"\n"
+"%(international)s daca suni din alta retea."
 
 #: ../../gui/controllers/main.py:379
 msgid "Invalid password"
@@ -1281,15 +1354,15 @@ msgstr "Parolă invalidă"
 
 #: ../../gui/controllers/main.py:380
 msgid "The supplied password is incorrect"
-msgstr ""
+msgstr "Parola furnizată este incorectă"
 
 #: ../../gui/controllers/main.py:421
 msgid "SIM error"
-msgstr ""
+msgstr "Eroare de SIM"
 
 #: ../../gui/controllers/main.py:422
 msgid "Perhaps your SIM is not inserted correctly?"
-msgstr ""
+msgstr "Poate că cartela SIM nu este introdusă corect?"
 
 #: ../../gui/controllers/main.py:424
 msgid "Unknown error"
@@ -1297,29 +1370,29 @@ msgstr "Eroare necunoscută"
 
 #: ../../gui/controllers/main.py:430
 msgid "Error while registering to home network"
-msgstr ""
+msgstr "Eroare de inregistrare in reteau furnizorului"
 
 #: ../../gui/controllers/main.py:506
 msgid "Transfer limit exceeded"
-msgstr ""
+msgstr "Depășită limita de transfer"
 
 #: ../../gui/controllers/main.py:507
 msgid "You have exceeded your transfer limit"
-msgstr ""
+msgstr "Ați depășit limita de transfer"
 
 #: ../../gui/controllers/main.py:588
 #, python-format
 msgid "SMS receipt received for %s"
-msgstr ""
+msgstr "SMS a ajuns la %s"
 
 #: ../../gui/controllers/main.py:623
 #, python-format
 msgid "SMS received from %s"
-msgstr ""
+msgstr "SMS primt de la %s"
 
 #: ../../gui/controllers/main.py:664 ../../gui/controllers/main.py:667
 msgid "Failed connection attempt"
-msgstr ""
+msgstr "Incercare de conexiune esuata"
 
 #: ../../gui/controllers/main.py:665
 msgid "Unable to connect"
@@ -1343,13 +1416,15 @@ msgstr "Editeazã"
 
 #: ../../gui/controllers/main.py:795
 msgid "Invalid CSV format"
-msgstr ""
+msgstr "Format CSV invalid"
 
 #: ../../gui/controllers/main.py:796
 msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
 msgstr ""
+"\n"
+"Fisierul Csv pe care ați încercat să importați are un format nevalid"
 
 #: ../../gui/controllers/main.py:825
 msgid "No device found"
@@ -1358,28 +1433,31 @@ msgstr "Nu s-a găsit niciun dispozitiv"
 #: ../../gui/controllers/main.py:826
 msgid "No device has been found. Insert one and try again."
 msgstr ""
+"Nici un dispozitiv a fost găsit. Introduceți unul și încercați din nou."
 
 #: ../../gui/controllers/main.py:832
 msgid "Profile needed"
-msgstr ""
+msgstr "Profilul este necesar"
 
 #: ../../gui/controllers/main.py:833
 msgid "You need to create a profile for connecting."
-msgstr ""
+msgstr "Ai nevoie de un profil pentru a putea conecta"
 
 #: ../../gui/controllers/main.py:878
 msgid "Invalid Connection"
-msgstr ""
+msgstr "Conexiune nevalida"
 
 #: ../../gui/controllers/main.py:879
 msgid ""
 "It's likely that this connection was made by the Network Manager Applet, "
 "please use that to deactivate"
 msgstr ""
+"Este probabil ca această conexiune a fost făcută de către \r\n"
+"Network Manager Applet, va rugam sa o folositi pentru a dezactiva"
 
 #: ../../gui/controllers/main.py:1017
 msgid "_New Profile"
-msgstr ""
+msgstr "_Profil nou"
 
 #: ../../gui/controllers/main.py:1026
 msgid "Load Profile"
@@ -1395,28 +1473,28 @@ msgstr "Ștergere profil"
 
 #: ../../gui/controllers/main.py:1068
 msgid "No mobile connection. Do you want to continue?"
-msgstr ""
+msgstr "Fara conexiune telefonica.Vrei sa continui?"
 
 #: ../../gui/controllers/main.py:1483
 msgid "Editor not available"
-msgstr ""
+msgstr "Editorul nu este disponibil"
 
 #: ../../gui/controllers/main.py:1484
 #, python-format
 msgid "Can not start external contact editor \"%s\""
-msgstr ""
+msgstr "Nu se poate porni editorul de contact extern \"%s\""
 
 #: ../../gui/controllers/main.py:1490
 msgid "_Add to contacts"
-msgstr ""
+msgstr "_Adauga la contacte"
 
 #: ../../gui/controllers/main.py:1501
 msgid "Migrate to DB"
-msgstr ""
+msgstr "Schimba la DB"
 
 #: ../../gui/controllers/main.py:1510
 msgid "Save to draft"
-msgstr ""
+msgstr "Salveaza in ciornă"
 
 #: ../../gui/controllers/main.py:1521
 msgid "Delete"
@@ -1424,15 +1502,15 @@ msgstr "Sterge"
 
 #: ../../gui/controllers/main.py:1569
 msgid "Can not handle DB contacts"
-msgstr ""
+msgstr "Nu poate manipula date de contact DB"
 
 #: ../../gui/controllers/main.py:1570
 msgid "Only SIM based contacts supported"
-msgstr ""
+msgstr "Suporta doar contactele salvate in SIM"
 
 #: ../../gui/controllers/preferences.py:37
 msgid "Maximum time"
-msgstr ""
+msgstr "Timp Maxim"
 
 #: ../../gui/controllers/preferences.py:38
 msgid "1 week"
@@ -1449,7 +1527,7 @@ msgstr "1 zi"
 #: ../../gui/controllers/preferences.py:196
 #: ../../gui/controllers/preferences.py:215
 msgid "Missing dependency"
-msgstr ""
+msgstr "Lipseste dependenta"
 
 #: ../../gui/controllers/preferences.py:216
 msgid ""
@@ -1457,34 +1535,40 @@ msgid ""
 "To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
 "module\n"
 msgstr ""
+"\n"
+"Pentru a utiliza această caracteristică aveți nevoie fie de PyGtk> = 2.10 "
+"sau modulul egg.trayicon\n"
 
 #: ../../gui/controllers/contacts.py:96
 msgid "No contact found"
-msgstr ""
+msgstr "Nici un contact găsit"
 
 #: ../../gui/controllers/contacts.py:97
 #, python-format
 msgid "No contact with the name %s found"
-msgstr ""
+msgstr "Nici un contac gasit cu numele %s"
 
 #: ../../gui/controllers/profile.py:69
 msgid "Error while getting connection password"
-msgstr ""
+msgstr "Eroare în timpul obțineri parolei de conexiune"
 
 #: ../../gui/controllers/profile.py:70
 msgid ""
 "NoMatchError: No password was retrieved from connection, please set one again"
 msgstr ""
+"NoMatchError: Nu parola nu a fost prelevata de la conexiune, vă rugăm să "
+"stabiliți una noua"
 
 #: ../../gui/controllers/profile.py:119
 msgid "Error creating profile"
-msgstr ""
+msgstr "Eroare la crearea profilului"
 
 #: ../../gui/dialogs.py:66
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Andrew Bird https://launchpad.net/~ajb-spheresystems"
+"  Andrew Bird https://launchpad.net/~ajb-spheresystems\n"
+"  Rumanix https://launchpad.net/~a238363"
 
 #: ../../gui/dialogs.py:134
 msgid "Warning"
@@ -1500,15 +1584,15 @@ msgstr "Parolă obligatorie"
 
 #: ../../gui/dialogs.py:245
 msgid "Please, insert the password of your connection"
-msgstr ""
+msgstr "Va rugam introduceti parola dvs. de conectare"
 
 #: ../../gui/dialogs.py:279
 msgid "Save as ..."
-msgstr ""
+msgstr "Salveaza ca..."
 
 #: ../../gui/dialogs.py:287 ../../gui/dialogs.py:326
 msgid "Csv files"
-msgstr ""
+msgstr "fisier Csv"
 
 #: ../../gui/dialogs.py:293 ../../gui/dialogs.py:331
 msgid "All files"
@@ -1517,21 +1601,23 @@ msgstr "Toate fişierele"
 #: ../../gui/dialogs.py:304
 #, python-format
 msgid "Overwrite \"%s\"?"
-msgstr ""
+msgstr "suprascriere \"%s\"?"
 
 #: ../../gui/dialogs.py:305
 msgid ""
 "A file with this name already exists.\n"
 "If you choose to overwrite this file, the contents will be lost."
 msgstr ""
+"Un fișier cu acest nume există deja.\n"
+"Dacă alegeți să suprascrie acest fișier, conținutul va fi pierdut."
 
 #: ../../gui/dialogs.py:318
 msgid "Import contacts from..."
-msgstr ""
+msgstr "Importa contacte din..."
 
 #: ../../gui/keyring_dialogs.py:103
 msgid "Create default keyring"
-msgstr ""
+msgstr "Creați keyring implicit"
 
 #: ../../gui/keyring_dialogs.py:104
 #, python-format
@@ -1539,16 +1625,19 @@ msgid ""
 "The application '%s' wants to store a password, but there is no default "
 "keyring. To create one, you need to choose a password you wish to use for it."
 msgstr ""
+"Aplicatia '% s' vrea să stocheze o parolă, dar nu există nici keyring "
+"implicit. Pentru a crea unul, va trebui să alegeți o parolă pe care doriți "
+"să o utilizați pentru ea."
 
 #: ../../gui/keyring_dialogs.py:138
 msgid "Unlock keyring"
-msgstr ""
+msgstr "Deblocare keyring"
 
 #: ../../gui/keyring_dialogs.py:139
 #, python-format
 msgid ""
 "The application '%s' wants access to the default keyring, but is locked."
-msgstr ""
+msgstr "Aplicatia '% s' dorește acces la keyring implicit, dar este blocat."
 
 #: ../../gui/contacts/contact_evolution.py:136
 msgid "Evolution"
@@ -1560,8 +1649,10 @@ msgstr "KDE PIM"
 
 #: ../../bin/v-mobile-broadband:68
 msgid "Do not run the application as root"
-msgstr ""
+msgstr "Nu rulați aplicația ca root"
 
 #: ../../bin/v-mobile-broadband:69
 msgid "Otherwise some features, like profiles, might behave unpredictably."
 msgstr ""
+"În caz contrar, anumite caracteristici, cum ar fi profiluri, s-ar putea să "
+"se comporte imprevizibil."

@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-04 09:28+0100\n"
-"PO-Revision-Date: 2012-06-24 02:17+0000\n"
-"Last-Translator: Andrew Bird <Unknown>\n"
+"PO-Revision-Date: 2012-11-19 16:48+0000\n"
+"Last-Translator: Vicente Hernando <Unknown>\n"
 "Language-Team: British English <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-16 10:04+0000\n"
-"X-Generator: Launchpad (build 16137)\n"
+"X-Launchpad-Export-Date: 2013-01-02 12:16+0000\n"
+"X-Generator: Launchpad (build 16378)\n"
 "Language: es\n"
 
 #: ../glade/apnsel.glade:8
@@ -431,11 +431,11 @@ msgstr "Crear un nuevo SMS"
 
 #: ../glade/main.glade:482
 msgid "Reply to SMS"
-msgstr ""
+msgstr "Responder al SMS"
 
 #: ../glade/main.glade:500
 msgid "Reply to SMS quoting original message"
-msgstr ""
+msgstr "Responder al SMS citando el mensaje original"
 
 #: ../glade/main.glade:517
 msgid "Forward SMS to another contact"
@@ -691,11 +691,12 @@ msgstr "Gestionar PIN a través de gnomekeyring"
 
 #: ../glade/preferences.glade:469
 msgid "Use global menu if available"
-msgstr ""
+msgstr "Use el menú global si está disponible"
 
 #: ../glade/preferences.glade:474
 msgid "Change effective only after UI restart"
 msgstr ""
+"El cambio se hará efectivo sólo después de reiniciar la interfaz gráfica."
 
 #: ../glade/preferences.glade:509
 msgid "User Preferences"
