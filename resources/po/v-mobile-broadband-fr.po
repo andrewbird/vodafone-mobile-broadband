@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-04 09:28+0100\n"
-"PO-Revision-Date: 2012-11-27 08:14+0000\n"
+"PO-Revision-Date: 2013-02-26 18:05+0000\n"
 "Last-Translator: Eliovir <Unknown>\n"
 "Language-Team: bullteam.net <sissie@bullteam.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-01-02 12:16+0000\n"
-"X-Generator: Launchpad (build 16378)\n"
+"X-Launchpad-Export-Date: 2013-02-27 22:20+0000\n"
+"X-Generator: Launchpad (build 16506)\n"
 "X-Poedit-Country: FRANCE\n"
 "Language: fr\n"
 "X-Poedit-Language: French\n"
@@ -168,19 +168,19 @@ msgstr "<b>Datacard détails</b>"
 
 #: ../glade/diagnostics.glade:81
 msgid "Manufacturer:"
-msgstr "Fabricant:"
+msgstr "Fabricant :"
 
 #: ../glade/diagnostics.glade:92
 msgid "Model:"
-msgstr "Modèle:"
+msgstr "Modèle :"
 
 #: ../glade/diagnostics.glade:103
 msgid "Firmware: "
-msgstr "Progiciel: "
+msgstr "Microcode : "
 
 #: ../glade/diagnostics.glade:114
 msgid "IMEI: "
-msgstr "IMEI: "
+msgstr "IMEI : "
 
 #: ../glade/diagnostics.glade:138
 msgid "Card manufacturer"

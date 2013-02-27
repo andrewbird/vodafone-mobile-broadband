@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: v-mobile-broadband\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-04 09:28+0100\n"
-"PO-Revision-Date: 2012-12-05 16:58+0000\n"
+"PO-Revision-Date: 2013-02-27 14:24+0000\n"
 "Last-Translator: Konki <pavel.konkol@seznam.cz>\n"
 "Language-Team: LANGUAGE <CS@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-01-02 12:16+0000\n"
-"X-Generator: Launchpad (build 16378)\n"
+"X-Launchpad-Export-Date: 2013-02-27 22:20+0000\n"
+"X-Generator: Launchpad (build 16506)\n"
 "Language: \n"
 
 #: ../glade/apnsel.glade:8
@@ -29,6 +29,10 @@ msgid ""
 "You can choose a preconfigured APN or cancel to enter the information needed "
 "to set up a custom one.\n"
 msgstr ""
+"<b>Předkonfigurované APN pro vašeho operátora.</b>\n"
+"\n"
+"Můžete zvolit předkonfigurované APN, nebo zrušit zadané informace potřebné "
+"pro nastavení vlastního.\n"
 
 #: ../glade/apnsel.glade:193 ../glade/pin.glade:217 ../glade/pin.glade:222
 #: ../glade/pin.glade:862 ../glade/profiles.glade:1334
@@ -79,10 +83,15 @@ msgid ""
 "sports a recent version of libbluetooth2. Otherwise you will\n"
 "have to configure it yourself and fill the relevant entries"
 msgstr ""
+"Ujistěte se, že váš mobil má zapnuté bluetooth a je viditelný.\n"
+"Budete potřebovat mít nainstalovaný správce hesla, jako bluez-gnome. \n"
+"Vaše připojení může být automaticky nakonfigurováno, pokud\n"
+"vaše distribuce obsahuje aktuální verzi libbluetooth2. Jinak\n"
+"to budete muset zkonfigurovat sám a vyplnit relevantní položky"
 
 #: ../glade/config.glade:250
 msgid "_Start discovery"
-msgstr ""
+msgstr "_Start prohledávání"
 
 #: ../glade/config.glade:301
 msgid "<b>Serial Port</b>"
@@ -267,15 +276,15 @@ msgstr "Správce modemu"
 
 #: ../glade/diagnostics.glade:688
 msgid "<b>USSD Test Message Diagnostics</b>"
-msgstr ""
+msgstr "<b>USSD Testovací diagnostická zpráva</b>"
 
 #: ../glade/diagnostics.glade:717
 msgid "Add your USSD string:"
-msgstr ""
+msgstr "Přidejte svůj USSD řetězec:"
 
 #: ../glade/diagnostics.glade:765
 msgid "USSD reply message:"
-msgstr ""
+msgstr "USSD odpověď :"
 
 #: ../glade/diagnostics.glade:809 ../glade/payt.glade:289
 msgid "Send"
@@ -288,7 +297,7 @@ msgstr "USSD"
 #: ../glade/dialogs.glade:38 ../glade/dialogs.glade:239
 #: ../glade/dialogs.glade:451
 msgid "<big><b>Big title!</b></big>"
-msgstr ""
+msgstr "<big><b>Velký titulek!</b></big>"
 
 #: ../glade/dialogs.glade:51 ../glade/dialogs.glade:252
 #: ../glade/dialogs.glade:348 ../glade/dialogs.glade:464
@@ -297,7 +306,7 @@ msgstr "Detailní zpráva"
 
 #: ../glade/dialogs.glade:138
 msgid "<big><b>Question?</b></big>"
-msgstr ""
+msgstr "<big><b>Otázka?</b></big>"
 
 #: ../glade/dialogs.glade:152
 msgid "Detailed message"
@@ -321,13 +330,15 @@ msgstr "_Soubor"
 
 #: ../glade/keyring.glade:35
 msgid "<span size='large' weight='bold'>Creating a new keyring</span>"
-msgstr ""
+msgstr "<span size='large' weight='bold'>Vytváří se nová klíčenka</span>"
 
 #: ../glade/keyring.glade:48
 msgid ""
 "Please, insert a code to encrypt your sensitive\n"
 "information."
 msgstr ""
+"Vložte kód pro dešifrování vašich citlivých\n"
+"informací."
 
 #: ../glade/keyring.glade:81 ../glade/keyring.glade:191
 #: ../glade/profiles.glade:177
@@ -409,7 +420,7 @@ msgstr "O _aplikaci"
 
 #: ../glade/main.glade:429
 msgid "Topup"
-msgstr ""
+msgstr "Dobíjení"
 
 #: ../glade/main.glade:464
 msgid "Create new SMS"
@@ -417,7 +428,7 @@ msgstr "Vytvořit novou SMS"
 
 #: ../glade/main.glade:482
 msgid "Reply to SMS"
-msgstr ""
+msgstr "Odpovědět na SMS"
 
 #: ../glade/main.glade:500
 msgid "Reply to SMS quoting original message"
@@ -425,7 +436,7 @@ msgstr "Odpovědět na SMS citací původní zprávy"
 
 #: ../glade/main.glade:517
 msgid "Forward SMS to another contact"
-msgstr ""
+msgstr "Přeposlat SMS dalšímu kontaktu"
 
 #: ../glade/main.glade:536
 msgid "Delete SMS"
@@ -493,7 +504,7 @@ msgstr "Poslední měsíc"
 
 #: ../glade/main.glade:1568
 msgid "<b>Usage</b> - Remember that this information is only indicative."
-msgstr ""
+msgstr "<b>Usage</b> - Pamatujte si, že tato informace je pouze orientační."
 
 #: ../glade/main.glade:1616
 msgid "Help menu"
@@ -513,7 +524,7 @@ msgstr "Záznam Wader"
 
 #: ../glade/payt.glade:6
 msgid "Topup Credit"
-msgstr ""
+msgstr "Dobít kredit"
 
 #: ../glade/payt.glade:44
 msgid "<b>SIM Details</b>"
@@ -561,7 +572,7 @@ msgstr "Vložte svůj PIN kód"
 
 #: ../glade/pin.glade:23
 msgid "Insert PIN Window"
-msgstr ""
+msgstr "Vložit PIN okno"
 
 #: ../glade/pin.glade:64
 msgid "Please insert your PIN code"
@@ -573,7 +584,7 @@ msgstr "Vložte položku PIN"
 
 #: ../glade/pin.glade:149
 msgid "Manage my PIN through gnome-keyring"
-msgstr ""
+msgstr "Spravovat moje PIN přes klíčenku"
 
 #: ../glade/pin.glade:178
 msgid "<b>Advanced Options</b>"
@@ -605,21 +616,23 @@ msgstr "PUK:"
 
 #: ../glade/preferences.glade:60
 msgid "<b>Change to global SMS settings </b>"
-msgstr ""
+msgstr "<b>Změnit na globální nastavení SMS </b>"
 
 #: ../glade/preferences.glade:95
 msgid "<b>SMSC preferences</b>"
-msgstr ""
+msgstr "<b>SMSC nastavení</b>"
 
 #: ../glade/preferences.glade:112
 msgid "Use an alternative SMS Service centre address"
-msgstr ""
+msgstr "Použít alternativní adresu centra služby SMS"
 
 #: ../glade/preferences.glade:117
 msgid ""
 "You may configure a different service centre address if you are not a "
 "Vodafone customer or the default one is incorrect."
 msgstr ""
+"Můžete nastavit jinou adresu servisního střediska , pokud nejste zákazník "
+"Vodafonu , nebo implicitní je nesprávná."
 
 #: ../glade/preferences.glade:144
 msgid "Profile:"
@@ -627,21 +640,23 @@ msgstr "Profil:"
 
 #: ../glade/preferences.glade:158
 msgid "SMSC number:"
-msgstr ""
+msgstr "SMSC číslo:"
 
 #: ../glade/preferences.glade:249
 msgid "<b>Message options</b>"
-msgstr ""
+msgstr "<b>Možnosti zprávy</b>"
 
 #: ../glade/preferences.glade:266
 msgid "Allow SMS confirmation"
-msgstr ""
+msgstr "Povolit potvrzení SMS"
 
 #: ../glade/preferences.glade:270
 msgid ""
 "Allows SMS confirmation reports. This lets you see when someone has received "
 "your text message."
 msgstr ""
+"Umožňuje potvrzení SMS zprávy . To vám umožní vidět , když někdo obdrží "
+"textovou zprávu ."
 
 #: ../glade/preferences.glade:301
 msgid "Validity:"
@@ -653,7 +668,7 @@ msgstr "Profil SMS"
 
 #: ../glade/preferences.glade:382
 msgid "<b>User options</b>"
-msgstr ""
+msgstr "<b>Možnosti uživatele</b>"
 
 #: ../glade/preferences.glade:405
 msgid "Exit without confirmation"
@@ -665,19 +680,19 @@ msgstr "Zobrazit ikonu v liště"
 
 #: ../glade/preferences.glade:437
 msgid "Close window minimizes app to tray"
-msgstr ""
+msgstr "Zavření okna minimalizuje aplikaci do lišty"
 
 #: ../glade/preferences.glade:453
 msgid "Manage my PIN through gnomekeyring"
-msgstr ""
+msgstr "Spravovat můj PIN přes klíčenku"
 
 #: ../glade/preferences.glade:469
 msgid "Use global menu if available"
-msgstr ""
+msgstr "Použít obecné menu, pokud je dostupné."
 
 #: ../glade/preferences.glade:474
 msgid "Change effective only after UI restart"
-msgstr ""
+msgstr "Změna se projeví až po restartu UI"
 
 #: ../glade/preferences.glade:509
 msgid "User Preferences"
@@ -693,7 +708,7 @@ msgstr "Příkaz:"
 
 #: ../glade/preferences.glade:650
 msgid "<b>Email client</b>"
-msgstr ""
+msgstr "<b>Emailový klient</b>"
 
 #: ../glade/preferences.glade:779
 msgid "Applications"
@@ -701,19 +716,19 @@ msgstr "Aplikace"
 
 #: ../glade/preferences.glade:800
 msgid "<b>Usage Options</b>"
-msgstr ""
+msgstr "<b>Možnosti použití</b>"
 
 #: ../glade/preferences.glade:832
 msgid "Maximum traffic (MB):"
-msgstr ""
+msgstr "Maximální provoz (MB):"
 
 #: ../glade/preferences.glade:869
 msgid "Notify when a given threshold is exceeded."
-msgstr ""
+msgstr "Oznámit, pokud byl překročen limit."
 
 #: ../glade/preferences.glade:901
 msgid "Notification threshold (MB):"
-msgstr ""
+msgstr "Upozornění limitu (MB):"
 
 #: ../glade/profiles.glade:9
 msgid "New Profile"
@@ -721,7 +736,7 @@ msgstr "Nový profil"
 
 #: ../glade/profiles.glade:23
 msgid "New Profile Window"
-msgstr ""
+msgstr "Okno nového profilu"
 
 #: ../glade/profiles.glade:64
 msgid ""
@@ -731,6 +746,11 @@ msgid ""
 "support center and they should provide\n"
 "you with the relevant information."
 msgstr ""
+"<b> vytvořit nový profil pro vaše zařízení. </b>\n"
+"\n"
+"Pokud si nejste jisti tím, co byste měli vyplnit, obraťte se na středisko "
+"zákaznické podpory. To by Vám\n"
+"mělo poskytnout potřebné informace."
 
 #: ../glade/profiles.glade:115
 msgid "<b>Connection preferences</b>"
@@ -795,6 +815,10 @@ msgid ""
 "You can choose a known device or insert the needed information to set up a "
 "custom one.\n"
 msgstr ""
+"<b>vyberte zařízení pro vaše připojení.</b>\n"
+"\n"
+"Můžete zvolit známé zařízení, nebo vložit potřebnou informaci k nastavení "
+"vlastního.\n"
 
 #: ../glade/profiles.glade:1024
 msgid "Known devices"
@@ -802,7 +826,7 @@ msgstr "Známá zařízení"
 
 #: ../glade/profiles.glade:1032
 msgid "Known Devices Radio"
-msgstr ""
+msgstr "Známý rádius zařízení"
 
 #: ../glade/profiles.glade:1083
 msgid "Device type:"
@@ -830,19 +854,19 @@ msgstr "Rychlost připojení:"
 
 #: ../glade/profiles.glade:1294
 msgid "Custom device settings"
-msgstr ""
+msgstr "Nastavení vlastního zařízení"
 
 #: ../glade/profiles.glade:1303
 msgid "Custom Device Settings Radio"
-msgstr ""
+msgstr "Vlastní nastavení rádiusu zařízení"
 
 #: ../glade/profiles.glade:1369
 msgid "<b>Device Settings</b>"
-msgstr ""
+msgstr "<b>Nastavení zařízení</b>"
 
 #: ../glade/sms.glade:50
 msgid "TO : "
-msgstr ""
+msgstr "DO : "
 
 #: ../glade/splash.glade:6
 msgid "3G Devices Manager"
@@ -938,11 +962,11 @@ msgstr "MSCHAPv2"
 
 #: ../../gui/messages.py:39
 msgid "WAP Push (Binary content)"
-msgstr ""
+msgstr "WAP Push (binární obsah)"
 
 #: ../../gui/views/pin.py:77 ../../gui/controllers/preferences.py:198
 msgid "To use this feature you need the gnomekeyring module"
-msgstr ""
+msgstr "Chcete-li použít tuto funkci, potřebujete gnomekeyring modul"
 
 #: ../../gui/views/pin.py:93
 msgid ""
@@ -950,6 +974,9 @@ msgid ""
 "In order to unlock your SIM, we need your\n"
 "PIN and PUK codes"
 msgstr ""
+"\n"
+"Aby bylo možné odemkout vaši SIM, potřebujeme\n"
+"váš PIN a PUK kód"
 
 #: ../../gui/views/pin.py:100
 msgid ""
@@ -957,6 +984,9 @@ msgid ""
 "In order to unlock your SIM, we need your\n"
 "PIN and PUK2 codes"
 msgstr ""
+"\n"
+"Aby bylo možné odemknout vaší SIM, potřebujeme\n"
+"kódy PIN a PUK2"
 
 #: ../../gui/views/main.py:146
 #, python-format
@@ -984,10 +1014,12 @@ msgid ""
 "If your company does not have a support center, you will have to contact "
 "your company's System Administrator."
 msgstr ""
+"Pokud používáte tento program v podnikovém prostředí, vaše společnost má "
+"pravděpodobně centrum podpory na řešení otázek, které můžete mít o programu."
 
 #: ../../gui/views/main.py:216 ../../gui/views/main.py:234
 msgid "N/A"
-msgstr ""
+msgstr "Neznámé"
 
 #: ../../gui/views/main.py:337
 msgid "GSM"
@@ -1128,12 +1160,12 @@ msgstr "Stát"
 #: ../../gui/uptime.py:83
 #, python-format
 msgid "%(day)d days, %(msg)s"
-msgstr ""
+msgstr "%(day)d dnů, %(msg)s"
 
 #: ../../gui/uptime.py:85
 #, python-format
 msgid "%(day)d day, %(msg)s"
-msgstr ""
+msgstr "%(day)d den, %(msg)s"
 
 #: ../../gui/signals.py:23
 msgid "No signal"
@@ -1146,13 +1178,14 @@ msgstr "Není k dispozici"
 
 #: ../../gui/models/main.py:183
 msgid "Error while starting wader"
-msgstr ""
+msgstr "Chyba během spouštění waderu"
 
 #: ../../gui/models/main.py:184
 #, python-format
 msgid ""
 "Check that your installation is correct and your  OS/distro is supported: %s"
 msgstr ""
+"Zkontrolujte, zda je instalace správná a váš OS / distro je podporován: %s"
 
 #: ../../gui/models/profile.py:162 ../../gui/controllers/preferences.py:144
 #: ../../gui/controllers/preferences.py:160
@@ -1161,16 +1194,16 @@ msgstr "Vlastní"
 
 #: ../../gui/models/profile.py:377
 msgid "Trying to remove an unsaved profile"
-msgstr ""
+msgstr "Zkouší se odstranit neuložený profil"
 
 #: ../../gui/controllers/payt.py:98 ../../gui/controllers/payt.py:114
 #: ../../gui/controllers/payt.py:124
 msgid "PAYT submit voucher"
-msgstr ""
+msgstr "PAYT poslat poukázku"
 
 #: ../../gui/controllers/payt.py:99 ../../gui/controllers/payt.py:160
 msgid "SIM is not on a PAYT plan"
-msgstr ""
+msgstr "SIM není na PAYT plánu"
 
 #: ../../gui/controllers/payt.py:115
 #, python-format
@@ -1178,43 +1211,45 @@ msgid ""
 "PAYT submit voucher failed\n"
 "'%s'"
 msgstr ""
+"PAYT posílání poukázky selhalo\n"
+"'%s'"
 
 #: ../../gui/controllers/payt.py:125
 msgid "No PAYT submit voucher method available"
-msgstr ""
+msgstr "Metoda poslání poukázky PAYT není dostupná"
 
 #: ../../gui/controllers/payt.py:159 ../../gui/controllers/payt.py:194
 msgid "PAYT credit check"
-msgstr ""
+msgstr "PAYT kontrola kreditu"
 
 #: ../../gui/controllers/payt.py:195
 msgid "No PAYT credit check method available"
-msgstr ""
+msgstr "Kontrola kreditu PAYT není dostupná"
 
 #: ../../gui/controllers/sms.py:52
 msgid "You can send the SMS to several recipients separating them by commas"
-msgstr ""
+msgstr "Můžete odeslat SMS více příjemcům, oddělte je čárkou"
 
 #: ../../gui/controllers/sms.py:84 ../../gui/controllers/sms.py:259
 #, python-format
 msgid "Text message: 0/%d chars"
-msgstr ""
+msgstr "Textová zpráva: 0/%d chars"
 
 #: ../../gui/controllers/sms.py:113
 msgid "Send empty message"
-msgstr ""
+msgstr "Poslat prázdnou zprávu"
 
 #: ../../gui/controllers/sms.py:114
 msgid "Are you sure you want to send an empty message?"
-msgstr ""
+msgstr "Opravdu chcete odeslat prázdnou zprávu?"
 
 #: ../../gui/controllers/sms.py:138
 msgid "Error while sending SMS"
-msgstr ""
+msgstr "Chyba při odesílání SMS"
 
 #: ../../gui/controllers/sms.py:184
 msgid "No SMSC number"
-msgstr ""
+msgstr "Není SMSC číslo"
 
 #: ../../gui/controllers/sms.py:185
 #, python-format
@@ -1222,16 +1257,18 @@ msgid ""
 "In order to send a SMS, %s needs to know the number of your provider's SMSC. "
 "If you do not know the SMSC number, contact your customer service."
 msgstr ""
+"Pokud chcete odeslat SMS,%s potřebuje znát číslo vašeho poskytovatele SMSC. "
+"Pokud neznáte číslo SMSC, obraťte se na zákaznický servis."
 
 #: ../../gui/controllers/sms.py:267
 #, python-format
 msgid "Text message: %(num)d/%(total)d chars"
-msgstr ""
+msgstr "Textová zpráva: %(num)d/%(total)d chars"
 
 #: ../../gui/controllers/sms.py:272
 #, python-format
 msgid "Text message: %(num)d/%(total)d chars (%(msgs)d SMS)"
-msgstr ""
+msgstr "Textová zpráva: %(num)d/%(total)d chars (%(msgs)d SMS)"
 
 #: ../../gui/controllers/pin.py:107 ../../gui/controllers/pin.py:186
 msgid "Incorrect PIN"
@@ -1245,6 +1282,11 @@ msgid ""
 "three failed PINs you'll be asked\n"
 "for the PUK code</small>\n"
 msgstr ""
+"\n"
+"<small>PIN, který jste vložil je\n"
+"neplatný.Mějte na paměti, že\n"
+"po třech špatných PINech budete\n"
+"požádáni o PUK kód</small>\n"
 
 #: ../../gui/controllers/main.py:174
 #, python-format
@@ -1261,7 +1303,7 @@ msgstr "Nemohu zavřít aplikaci"
 
 #: ../../gui/controllers/main.py:188
 msgid "Can not close while a connection is active"
-msgstr ""
+msgstr "Nelze zavřít, když je připojení aktivní"
 
 #: ../../gui/controllers/main.py:269
 #, python-format
@@ -1285,7 +1327,7 @@ msgstr "Neplatné heslo"
 
 #: ../../gui/controllers/main.py:380
 msgid "The supplied password is incorrect"
-msgstr ""
+msgstr "Zadané heslo je nesprávné"
 
 #: ../../gui/controllers/main.py:421
 msgid "SIM error"
@@ -1293,7 +1335,7 @@ msgstr "Chyba SIM"
 
 #: ../../gui/controllers/main.py:422
 msgid "Perhaps your SIM is not inserted correctly?"
-msgstr ""
+msgstr "Možná, že vaše SIM není vložena správně?"
 
 #: ../../gui/controllers/main.py:424
 msgid "Unknown error"
@@ -1309,21 +1351,21 @@ msgstr "Transfér překročil limit"
 
 #: ../../gui/controllers/main.py:507
 msgid "You have exceeded your transfer limit"
-msgstr ""
+msgstr "Překročili jste přenosový limit"
 
 #: ../../gui/controllers/main.py:588
 #, python-format
 msgid "SMS receipt received for %s"
-msgstr ""
+msgstr "SMS doručenka pro %s"
 
 #: ../../gui/controllers/main.py:623
 #, python-format
 msgid "SMS received from %s"
-msgstr ""
+msgstr "SMS obdržená od %s"
 
 #: ../../gui/controllers/main.py:664 ../../gui/controllers/main.py:667
 msgid "Failed connection attempt"
-msgstr ""
+msgstr "Pokus o připojení se nezdařil"
 
 #: ../../gui/controllers/main.py:665
 msgid "Unable to connect"
@@ -1347,13 +1389,15 @@ msgstr "Úpravy"
 
 #: ../../gui/controllers/main.py:795
 msgid "Invalid CSV format"
-msgstr ""
+msgstr "Neplatný CSV formát"
 
 #: ../../gui/controllers/main.py:796
 msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
 msgstr ""
+"\n"
+"CSV soubor, který se snažíte importovat má neplatný formát."
 
 #: ../../gui/controllers/main.py:825
 msgid "No device found"
@@ -1361,7 +1405,7 @@ msgstr "Nebylo nalezeno žádné zařízení"
 
 #: ../../gui/controllers/main.py:826
 msgid "No device has been found. Insert one and try again."
-msgstr ""
+msgstr "Nebylo nalezeno žádné zařízení. Nějaké vložte a zkuste to znovu."
 
 #: ../../gui/controllers/main.py:832
 msgid "Profile needed"
@@ -1380,6 +1424,8 @@ msgid ""
 "It's likely that this connection was made by the Network Manager Applet, "
 "please use that to deactivate"
 msgstr ""
+"Je pravděpodobné, že toto připojení bylo vytvořeno Network Managerem, "
+"použijte ho k deaktivaci"
 
 #: ../../gui/controllers/main.py:1017
 msgid "_New Profile"
@@ -1408,7 +1454,7 @@ msgstr "Editor není dostupný"
 #: ../../gui/controllers/main.py:1484
 #, python-format
 msgid "Can not start external contact editor \"%s\""
-msgstr ""
+msgstr "Nelze spustit externí editor kontaktů \"%s\""
 
 #: ../../gui/controllers/main.py:1490
 msgid "_Add to contacts"
@@ -1416,11 +1462,11 @@ msgstr "_Přidat do kontaktů"
 
 #: ../../gui/controllers/main.py:1501
 msgid "Migrate to DB"
-msgstr ""
+msgstr "Migrovat na DB"
 
 #: ../../gui/controllers/main.py:1510
 msgid "Save to draft"
-msgstr ""
+msgstr "Uložit do návrhu"
 
 #: ../../gui/controllers/main.py:1521
 msgid "Delete"
@@ -1428,11 +1474,11 @@ msgstr "Smazat"
 
 #: ../../gui/controllers/main.py:1569
 msgid "Can not handle DB contacts"
-msgstr ""
+msgstr "Nelze zpracovat DB kontakty"
 
 #: ../../gui/controllers/main.py:1570
 msgid "Only SIM based contacts supported"
-msgstr ""
+msgstr "Jsou podporované jen SIM kontakty"
 
 #: ../../gui/controllers/preferences.py:37
 msgid "Maximum time"
@@ -1453,7 +1499,7 @@ msgstr "1 den"
 #: ../../gui/controllers/preferences.py:196
 #: ../../gui/controllers/preferences.py:215
 msgid "Missing dependency"
-msgstr ""
+msgstr "Chybějící závislost"
 
 #: ../../gui/controllers/preferences.py:216
 msgid ""
@@ -1461,6 +1507,9 @@ msgid ""
 "To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
 "module\n"
 msgstr ""
+"\n"
+"Chcete-li použít tuto funkci potřebujete pygtk >= 2.10 nebo egg.trayicon "
+"modul\n"
 
 #: ../../gui/controllers/contacts.py:96
 msgid "No contact found"
@@ -1473,16 +1522,16 @@ msgstr "Kontakt s jménem nebyl %s nalezen"
 
 #: ../../gui/controllers/profile.py:69
 msgid "Error while getting connection password"
-msgstr ""
+msgstr "Chyba při získávání hesla připojení"
 
 #: ../../gui/controllers/profile.py:70
 msgid ""
 "NoMatchError: No password was retrieved from connection, please set one again"
-msgstr ""
+msgstr "NoMatchError: Heslo nebylo ze spojení získáno, nastavte jej znovu"
 
 #: ../../gui/controllers/profile.py:119
 msgid "Error creating profile"
-msgstr ""
+msgstr "Chyba při vytváření profilu"
 
 #: ../../gui/dialogs.py:66
 msgid "translator-credits"
@@ -1505,15 +1554,15 @@ msgstr "Požadováno heslo"
 
 #: ../../gui/dialogs.py:245
 msgid "Please, insert the password of your connection"
-msgstr ""
+msgstr "Vložte heslo pro vaše připojení"
 
 #: ../../gui/dialogs.py:279
 msgid "Save as ..."
-msgstr ""
+msgstr "Uložit jako ..."
 
 #: ../../gui/dialogs.py:287 ../../gui/dialogs.py:326
 msgid "Csv files"
-msgstr ""
+msgstr "Csv soubory"
 
 #: ../../gui/dialogs.py:293 ../../gui/dialogs.py:331
 msgid "All files"
@@ -1522,13 +1571,15 @@ msgstr "Všechny soubory"
 #: ../../gui/dialogs.py:304
 #, python-format
 msgid "Overwrite \"%s\"?"
-msgstr ""
+msgstr "Přepsat \"%s\"?"
 
 #: ../../gui/dialogs.py:305
 msgid ""
 "A file with this name already exists.\n"
 "If you choose to overwrite this file, the contents will be lost."
 msgstr ""
+"Soubor s tímto názvem již existuje.\n"
+"Pokud zvolíte přepsání tohoto souboru, obsah bude ztracen."
 
 #: ../../gui/dialogs.py:318
 msgid "Import contacts from..."
@@ -1536,7 +1587,7 @@ msgstr "Importovat kontakty z..."
 
 #: ../../gui/keyring_dialogs.py:103
 msgid "Create default keyring"
-msgstr ""
+msgstr "Vytvořit výchozí klíčenku"
 
 #: ../../gui/keyring_dialogs.py:104
 #, python-format
@@ -1544,16 +1595,18 @@ msgid ""
 "The application '%s' wants to store a password, but there is no default "
 "keyring. To create one, you need to choose a password you wish to use for it."
 msgstr ""
+"Aplikace '% s' chce uložit heslo, ale neexistuje výchozí klíčenka. Chcete-li "
+"ji vytvořit, musíte zvolit heslo, které pro ni chcete použít ."
 
 #: ../../gui/keyring_dialogs.py:138
 msgid "Unlock keyring"
-msgstr ""
+msgstr "Odemknout klíčenku"
 
 #: ../../gui/keyring_dialogs.py:139
 #, python-format
 msgid ""
 "The application '%s' wants access to the default keyring, but is locked."
-msgstr ""
+msgstr "Aplikace '% s' chce přístup k výchozí klíčence, ale je uzamčena."
 
 #: ../../gui/contacts/contact_evolution.py:136
 msgid "Evolution"
@@ -1565,8 +1618,8 @@ msgstr "KDE PIM"
 
 #: ../../bin/v-mobile-broadband:68
 msgid "Do not run the application as root"
-msgstr ""
+msgstr "Nespouspouštějte aplikaci jako správce"
 
 #: ../../bin/v-mobile-broadband:69
 msgid "Otherwise some features, like profiles, might behave unpredictably."
-msgstr ""
+msgstr "Některé funkce, jako profily, se mohou chovat nepředvídatelně."
