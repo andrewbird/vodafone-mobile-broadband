@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-04 09:28+0100\n"
-"PO-Revision-Date: 2013-02-12 16:26+0000\n"
-"Last-Translator: Dennis Baudys <Unknown>\n"
+"PO-Revision-Date: 2013-04-12 13:01+0000\n"
+"Last-Translator: Phillip Sz <Unknown>\n"
 "Language-Team: <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-02-27 22:20+0000\n"
-"X-Generator: Launchpad (build 16506)\n"
+"X-Launchpad-Export-Date: 2013-05-19 08:44+0000\n"
+"X-Generator: Launchpad (build 16626)\n"
 "Language: de\n"
 
 #: ../glade/apnsel.glade:8
@@ -544,7 +544,7 @@ msgstr "<b>Guthaben</b>"
 
 #: ../glade/payt.glade:105
 msgid "<b>Date</b>"
-msgstr "<b>Date</b>"
+msgstr "<b>Datum</b>"
 
 #: ../glade/payt.glade:167
 msgid "Recheck my credit:"
@@ -1579,7 +1579,8 @@ msgstr ""
 "  Daniel Winzen https://launchpad.net/~q-d\n"
 "  Dennis Baudys https://launchpad.net/~thecondordb\n"
 "  Ghenrik https://launchpad.net/~ghenrik-deactivatedaccount\n"
-"  Henry Wünsche https://launchpad.net/~cr4ct-1"
+"  Henry Wünsche https://launchpad.net/~cr4ct-1\n"
+"  Phillip Sz https://launchpad.net/~phillip-sz"
 
 #: ../../gui/dialogs.py:134
 msgid "Warning"
