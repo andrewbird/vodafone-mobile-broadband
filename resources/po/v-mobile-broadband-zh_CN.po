@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
-msgstr ""
+msgstr "选择 APN"
 
 #: ../glade/apnsel.glade:69
 msgid ""
@@ -28,6 +28,10 @@ msgid ""
 "You can choose a preconfigured APN or cancel to enter the information needed "
 "to set up a custom one.\n"
 msgstr ""
+"<b>预置的APN.</b>\n"
+"\n"
+"你可以选择一个预置的APN或者取消并输入信息"
+"来设置一个自定义APN。\n"
 
 #: ../glade/apnsel.glade:193 ../glade/pin.glade:217 ../glade/pin.glade:222
 #: ../glade/pin.glade:862 ../glade/profiles.glade:1334
@@ -52,10 +56,11 @@ msgid ""
 "Please select from the following options how do you want to connect to the "
 "Internet"
 msgstr ""
+"请从下列联网选项中选择"
 
 #: ../glade/config.glade:56
 msgid "Device model: "
-msgstr ""
+msgstr "设备型号："
 
 #: ../glade/config.glade:63
 msgid "Connection:"
@@ -63,11 +68,11 @@ msgstr "连接："
 
 #: ../glade/config.glade:153
 msgid "Bluetooth configuration"
-msgstr ""
+msgstr "蓝牙配置"
 
 #: ../glade/config.glade:174
 msgid "Configure your <b>Bluetooth</b> device"
-msgstr ""
+msgstr "配置你的<b蓝牙</b>设备"
 
 #: ../glade/config.glade:198
 msgid ""
@@ -77,22 +82,26 @@ msgid ""
 "sports a recent version of libbluetooth2. Otherwise you will\n"
 "have to configure it yourself and fill the relevant entries"
 msgstr ""
+"确认你的手机已经开启蓝牙并已设置为可见。\n"
+"You'll need a pass-key agent installed like bluez-gnome. \n"
+"如果你的发行版使用最新版本的libbluetooth2，你的\n"
+"连接会自动配置，否则你需要输入相应参数手动配置\n"
 
 #: ../glade/config.glade:250
 msgid "_Start discovery"
-msgstr ""
+msgstr "开始搜索(_S)"
 
 #: ../glade/config.glade:301
 msgid "<b>Serial Port</b>"
-msgstr ""
+msgstr "<b>串口</b>"
 
 #: ../glade/config.glade:325
 msgid "Data port"
-msgstr ""
+msgstr "数据端口"
 
 #: ../glade/config.glade:334
 msgid "Control port"
-msgstr ""
+msgstr "控制端口"
 
 #: ../glade/config.glade:346
 msgid "Speed"
@@ -104,23 +113,23 @@ msgstr "<b>连接设置</b>"
 
 #: ../glade/config.glade:461
 msgid "Enable hardware flow control"
-msgstr ""
+msgstr "开启硬件流控制"
 
 #: ../glade/config.glade:474
 msgid "Enable software flow control"
-msgstr ""
+msgstr "开启软件流控制"
 
 #: ../glade/contacts.glade:9
 msgid "Contact search"
-msgstr ""
+msgstr "搜索联系人"
 
 #: ../glade/contacts.glade:32 ../glade/contacts.glade:181
 msgid "Name:"
-msgstr "名称："
+msgstr "姓名："
 
 #: ../glade/contacts.glade:96
 msgid "Contacts List"
-msgstr ""
+msgstr "联系人列表"
 
 #: ../glade/contacts.glade:161 ../glade/main.glade:565
 msgid "Add a contact"
@@ -132,7 +141,7 @@ msgstr "号码："
 
 #: ../glade/contacts.glade:260
 msgid "<b>Save in:</b>"
-msgstr ""
+msgstr "<b>保存到：</b>"
 
 #: ../glade/contacts.glade:303 ../../gui/contacts/contact_sim.py:170
 msgid "Mobile"
@@ -148,7 +157,7 @@ msgstr "诊断调试"
 
 #: ../glade/diagnostics.glade:43
 msgid "<b>Datacard details</b>"
-msgstr ""
+msgstr "<b数据卡详情</b>"
 
 #: ../glade/diagnostics.glade:81
 msgid "Manufacturer:"
@@ -160,7 +169,7 @@ msgstr "型号："
 
 #: ../glade/diagnostics.glade:103
 msgid "Firmware: "
-msgstr ""
+msgstr "固件"
 
 #: ../glade/diagnostics.glade:114
 msgid "IMEI: "
@@ -168,11 +177,11 @@ msgstr "IMEI： "
 
 #: ../glade/diagnostics.glade:138
 msgid "Card manufacturer"
-msgstr ""
+msgstr "数据卡厂商"
 
 #: ../glade/diagnostics.glade:149
 msgid "Card model"
-msgstr ""
+msgstr "数据卡型号"
 
 #: ../glade/diagnostics.glade:160
 msgid "Firmware"
@@ -188,7 +197,7 @@ msgstr "调制解调器"
 
 #: ../glade/diagnostics.glade:226
 msgid "<b>Network details from SIM</b>"
-msgstr ""
+msgstr "<b>SIM 卡网络详情</b>"
 
 #: ../glade/diagnostics.glade:264
 msgid "IMSI:"
@@ -204,7 +213,7 @@ msgstr "国家："
 
 #: ../glade/diagnostics.glade:297
 msgid "Mobile Number:"
-msgstr ""
+msgstr "手机号码"
 
 #: ../glade/diagnostics.glade:320
 msgid "IMSI"
@@ -221,7 +230,7 @@ msgstr "IMSI"
 #: ../../gui/models/main.py:94 ../../gui/models/main.py:359
 #: ../../gui/controllers/main.py:259 ../../gui/controllers/main.py:587
 msgid "Unknown"
-msgstr "未知"
+msgstr "不明"
 
 #: ../glade/diagnostics.glade:376
 msgid "SIM"
@@ -229,7 +238,7 @@ msgstr "SIM"
 
 #: ../glade/diagnostics.glade:408
 msgid "<b>Device information</b>"
-msgstr ""
+msgstr "<b>设备信息</b>"
 
 #: ../glade/diagnostics.glade:445
 msgid "Operating System:"
@@ -249,11 +258,11 @@ msgstr "设备"
 
 #: ../glade/diagnostics.glade:601
 msgid "Software Version:"
-msgstr ""
+msgstr "软件版本："
 
 #: ../glade/diagnostics.glade:612
 msgid "Core Version:"
-msgstr ""
+msgstr "核心版本"
 
 #: ../glade/diagnostics.glade:634 ../glade/diagnostics.glade:644
 msgid "Not supported"
@@ -261,19 +270,19 @@ msgstr "不支持"
 
 #: ../glade/diagnostics.glade:672
 msgid "Modem Manager"
-msgstr ""
+msgstr "调制解调器管理"
 
 #: ../glade/diagnostics.glade:688
 msgid "<b>USSD Test Message Diagnostics</b>"
-msgstr ""
+msgstr "USSD调试信息诊断"
 
 #: ../glade/diagnostics.glade:717
 msgid "Add your USSD string:"
-msgstr ""
+msgstr "添加你的USSD指令："
 
 #: ../glade/diagnostics.glade:765
 msgid "USSD reply message:"
-msgstr ""
+msgstr "USSD回复信息："
 
 #: ../glade/diagnostics.glade:809 ../glade/payt.glade:289
 msgid "Send"
@@ -286,20 +295,20 @@ msgstr "USSD"
 #: ../glade/dialogs.glade:38 ../glade/dialogs.glade:239
 #: ../glade/dialogs.glade:451
 msgid "<big><b>Big title!</b></big>"
-msgstr ""
+msgstr "<big><b>大标题！</b></big>"
 
 #: ../glade/dialogs.glade:51 ../glade/dialogs.glade:252
 #: ../glade/dialogs.glade:348 ../glade/dialogs.glade:464
 msgid "A detailed message"
-msgstr ""
+msgstr "一条已删除的信息"
 
 #: ../glade/dialogs.glade:138
 msgid "<big><b>Question?</b></big>"
-msgstr ""
+msgstr "<big><b>问题？</b></big>"
 
 #: ../glade/dialogs.glade:152
 msgid "Detailed message"
-msgstr ""
+msgstr "已删除信息"
 
 #: ../glade/dialogs.glade:189
 msgid "Action"
@@ -307,7 +316,7 @@ msgstr "动作"
 
 #: ../glade/dialogs.glade:326
 msgid "<b>title</b>"
-msgstr ""
+msgstr "<b>标题</b>"
 
 #: ../glade/dialogs.glade:363
 msgid "Remember my choice"
@@ -319,13 +328,14 @@ msgstr "文件(_F)"
 
 #: ../glade/keyring.glade:35
 msgid "<span size='large' weight='bold'>Creating a new keyring</span>"
-msgstr ""
+msgstr "<span size='large' weight='bold'>创建一个新的密钥环</span>"
 
 #: ../glade/keyring.glade:48
 msgid ""
 "Please, insert a code to encrypt your sensitive\n"
 "information."
 msgstr ""
+"请输密码来加密你的敏感信息。"
 
 #: ../glade/keyring.glade:81 ../glade/keyring.glade:191
 #: ../glade/profiles.glade:177
@@ -342,15 +352,15 @@ msgstr "解锁密钥环"
 
 #: ../glade/keyring.glade:157
 msgid "Please, enter your keyring password"
-msgstr ""
+msgstr "请输入你的密钥环密码"
 
 #: ../glade/main.glade:36
 msgid "Import contacts..."
-msgstr ""
+msgstr "导入联系人..."
 
 #: ../glade/main.glade:46
 msgid "Export contacts..."
-msgstr ""
+msgstr "导出联系人..."
 
 #: ../glade/main.glade:59
 msgid "_Quit"
@@ -358,12 +368,12 @@ msgstr "退出(_Q)"
 
 #: ../glade/main.glade:86
 msgid "_View"
-msgstr "检视(_V)"
+msgstr "查看(_V)"
 
 #: ../glade/main.glade:112 ../glade/main.glade:383
 #: ../glade/preferences.glade:957
 msgid "Usage"
-msgstr "用法"
+msgstr "使用量"
 
 #: ../glade/main.glade:130 ../glade/main.glade:401
 msgid "Support"
@@ -383,7 +393,7 @@ msgstr "更改 PIN"
 
 #: ../glade/main.glade:187
 msgid "Request PIN"
-msgstr ""
+msgstr "请求 PIN"
 
 #: ../glade/main.glade:226
 msgid "Profiles"
@@ -395,7 +405,7 @@ msgstr "首选项"
 
 #: ../glade/main.glade:275
 msgid "_Help"
-msgstr "求助(_H)"
+msgstr "帮助(_H)"
 
 #: ../glade/main.glade:282
 msgid "Help"
@@ -407,27 +417,27 @@ msgstr "关于(_A)"
 
 #: ../glade/main.glade:429
 msgid "Topup"
-msgstr ""
+msgstr "充值"
 
 #: ../glade/main.glade:464
 msgid "Create new SMS"
-msgstr ""
+msgstr "创建新信息"
 
 #: ../glade/main.glade:482
 msgid "Reply to SMS"
-msgstr ""
+msgstr "回复信息"
 
 #: ../glade/main.glade:500
 msgid "Reply to SMS quoting original message"
-msgstr ""
+msgstr "回复并引用原信息"
 
 #: ../glade/main.glade:517
 msgid "Forward SMS to another contact"
-msgstr ""
+msgstr "转发信息给另一个联系人"
 
 #: ../glade/main.glade:536
 msgid "Delete SMS"
-msgstr "删除短消息"
+msgstr "删除信息"
 
 #: ../glade/main.glade:583
 msgid "Search contacts"
@@ -435,7 +445,7 @@ msgstr "搜索联系人"
 
 #: ../glade/main.glade:601
 msgid "Delete contacts"
-msgstr ""
+msgstr "删除联系人"
 
 #: ../glade/main.glade:652
 msgid "Inbox"
@@ -447,7 +457,7 @@ msgstr "草稿"
 
 #: ../glade/main.glade:716
 msgid "Sent"
-msgstr "发送时间"
+msgstr "已发送"
 
 #: ../glade/main.glade:747 ../glade/sms.glade:34
 msgid "Contacts"
@@ -455,7 +465,7 @@ msgstr "联系人"
 
 #: ../glade/main.glade:852 ../glade/main.glade:1288
 msgid "<b>Month</b>"
-msgstr ""
+msgstr "<b>月</b>"
 
 #: ../glade/main.glade:910 ../glade/main.glade:1050 ../glade/main.glade:1398
 msgid "GPRS:"
@@ -467,19 +477,19 @@ msgstr "3G:"
 
 #: ../glade/main.glade:938 ../glade/main.glade:1078 ../glade/main.glade:1426
 msgid "Total:"
-msgstr "总共:"
+msgstr "总计:"
 
 #: ../glade/main.glade:1008 ../glade/main.glade:1444
 msgid "<b>Transferred Data</b>"
-msgstr ""
+msgstr "<b>已传输的数据</b>"
 
 #: ../glade/main.glade:1145
 msgid "<b>Current session</b>"
-msgstr ""
+msgstr "<b>当前连接</b>"
 
 #: ../glade/main.glade:1189 ../glade/main.glade:1488
 msgid "Total Traffic"
-msgstr ""
+msgstr "总流量"
 
 #: ../glade/main.glade:1251
 msgid "Current month"
@@ -491,7 +501,7 @@ msgstr "上月"
 
 #: ../glade/main.glade:1568
 msgid "<b>Usage</b> - Remember that this information is only indicative."
-msgstr ""
+msgstr "<b>使用量</b> - 注意此信息仅作参考"
 
 #: ../glade/main.glade:1616
 msgid "Help menu"
@@ -499,7 +509,7 @@ msgstr "帮助菜单"
 
 #: ../glade/main.glade:1655
 msgid "Support center"
-msgstr ""
+msgstr "支持中心"
 
 #: ../glade/main.glade:1695
 msgid "Customer support"
@@ -507,23 +517,23 @@ msgstr "客户支持"
 
 #: ../glade/misc.glade:54
 msgid "Wader log"
-msgstr ""
+msgstr "Wader 日志"
 
 #: ../glade/payt.glade:6
 msgid "Topup Credit"
-msgstr ""
+msgstr "信用卡充值"
 
 #: ../glade/payt.glade:44
 msgid "<b>SIM Details</b>"
-msgstr ""
+msgstr "<b>SIM 卡详情</b>"
 
 #: ../glade/payt.glade:83
 msgid "<b>Number</b>"
-msgstr ""
+msgstr "<b>号码</b>"
 
 #: ../glade/payt.glade:94
 msgid "<b>Credit</b>"
-msgstr ""
+msgstr "<b>信用卡</b>"
 
 #: ../glade/payt.glade:105
 msgid "<b>Date</b>"
@@ -531,47 +541,47 @@ msgstr "<b>日期</b>"
 
 #: ../glade/payt.glade:167
 msgid "Recheck my credit:"
-msgstr ""
+msgstr "重新检查我的信用卡："
 
 #: ../glade/payt.glade:182
 msgid "Check credit"
-msgstr ""
+msgstr "检查信用卡"
 
 #: ../glade/payt.glade:237
 msgid "<b>Voucher Code</b>"
-msgstr ""
+msgstr "<b>优惠码</b>"
 
 #: ../glade/payt.glade:267
 msgid "Enter code:"
-msgstr ""
+msgstr "输入代码："
 
 #: ../glade/payt.glade:341
 msgid "<b>Credit Card</b>"
-msgstr ""
+msgstr "<b>信用卡</b>"
 
 #: ../glade/payt.glade:371
 msgid "Pay by credit card"
-msgstr ""
+msgstr "使用信用卡支付"
 
 #: ../glade/pin.glade:8
 msgid "Insert your PIN code"
-msgstr ""
+msgstr "输入你的 PIN 码"
 
 #: ../glade/pin.glade:23
 msgid "Insert PIN Window"
-msgstr ""
+msgstr "PIN 码输入窗口"
 
 #: ../glade/pin.glade:64
 msgid "Please insert your PIN code"
-msgstr ""
+msgstr "请输入你的 PIN 码"
 
 #: ../glade/pin.glade:104
 msgid "Insert PIN Entry"
-msgstr ""
+msgstr "输入 PIN 码"
 
 #: ../glade/pin.glade:149
 msgid "Manage my PIN through gnome-keyring"
-msgstr ""
+msgstr "使用 gnome-keyring 管理我的 PIN 码"
 
 #: ../glade/pin.glade:178
 msgid "<b>Advanced Options</b>"
@@ -579,11 +589,11 @@ msgstr "<b>高级选项</b>"
 
 #: ../glade/pin.glade:257
 msgid "Modify PIN code"
-msgstr ""
+msgstr "修改 PIN 码"
 
 #: ../glade/pin.glade:369 ../glade/pin.glade:758
 msgid "Confirm PIN code: "
-msgstr ""
+msgstr "确认 PIN 码："
 
 #: ../glade/pin.glade:397 ../glade/pin.glade:733
 msgid "New PIN code: "
@@ -591,11 +601,11 @@ msgstr "新的 PIN 码： "
 
 #: ../glade/pin.glade:425
 msgid "Current PIN code: "
-msgstr ""
+msgstr "当前 PIN 码："
 
 #: ../glade/pin.glade:513
 msgid "Please enter PUK"
-msgstr ""
+msgstr "请输入 PUK 码"
 
 #: ../glade/pin.glade:650
 msgid "PUK:"
