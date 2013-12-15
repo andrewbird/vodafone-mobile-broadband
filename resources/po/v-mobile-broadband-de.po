@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-04 09:28+0100\n"
-"PO-Revision-Date: 2013-05-19 20:21+0000\n"
-"Last-Translator: Andrew Bird <Unknown>\n"
+"PO-Revision-Date: 2013-12-04 15:42+0000\n"
+"Last-Translator: Tobias Bannert <Unknown>\n"
 "Language-Team: <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-09-22 11:41+0000\n"
-"X-Generator: Launchpad (build 16765)\n"
+"X-Launchpad-Export-Date: 2013-12-15 13:24+0000\n"
+"X-Generator: Launchpad (build 16869)\n"
 "Language: de\n"
 
 #: ../glade/apnsel.glade:8
@@ -790,11 +790,11 @@ msgstr "Statischen DNS benutzen"
 
 #: ../glade/profiles.glade:518
 msgid "Primary DNS:"
-msgstr "Primärer DNS"
+msgstr "Primärer DNS:"
 
 #: ../glade/profiles.glade:543
 msgid "Secondary DNS:"
-msgstr "Sekundärer DNS"
+msgstr "Sekundärer DNS:"
 
 #: ../glade/profiles.glade:715
 msgid "<b>Profile settings</b>"
@@ -826,15 +826,15 @@ msgstr ""
 
 #: ../glade/profiles.glade:1024
 msgid "Known devices"
-msgstr "bekanntes Gerät"
+msgstr "Bekannte Geräte"
 
 #: ../glade/profiles.glade:1032
 msgid "Known Devices Radio"
-msgstr "Funkeinstellungen des bekannten Gerätes"
+msgstr "Funkeinstellungen der bekannten Geräte"
 
 #: ../glade/profiles.glade:1083
 msgid "Device type:"
-msgstr "Gerätetyp"
+msgstr "Gerätetyp:"
 
 #: ../glade/profiles.glade:1108
 msgid "Serial"
@@ -1580,7 +1580,8 @@ msgstr ""
 "  Dennis Baudys https://launchpad.net/~thecondordb\n"
 "  Ghenrik https://launchpad.net/~ghenrik-deactivatedaccount\n"
 "  Henry Wünsche https://launchpad.net/~cr4ct-1\n"
-"  Phillip Sz https://launchpad.net/~phillip-sz"
+"  Phillip Sz https://launchpad.net/~phillip-sz\n"
+"  Tobias Bannert https://launchpad.net/~toba"
 
 #: ../../gui/dialogs.py:134
 msgid "Warning"
