@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-04 09:28+0100\n"
-"PO-Revision-Date: 2013-02-26 18:05+0000\n"
-"Last-Translator: Eliovir <Unknown>\n"
+"PO-Revision-Date: 2015-12-19 19:51+0000\n"
+"Last-Translator: Jean-Marc <Unknown>\n"
 "Language-Team: bullteam.net <sissie@bullteam.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-11-10 14:41+0000\n"
-"X-Generator: Launchpad (build 17241)\n"
+"X-Launchpad-Export-Date: 2016-02-15 09:32+0000\n"
+"X-Generator: Launchpad (build 17925)\n"
 "X-Poedit-Country: FRANCE\n"
 "Language: fr\n"
 "X-Poedit-Language: French\n"
@@ -44,7 +44,7 @@ msgstr "Annuler"
 #: ../glade/apnsel.glade:208 ../glade/pin.glade:239
 #: ../glade/profiles.glade:1349
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../glade/apnsel.glade:228
 msgid "<b>APN Settings</b>"
@@ -277,7 +277,7 @@ msgstr "Non supporté"
 
 #: ../glade/diagnostics.glade:672
 msgid "Modem Manager"
-msgstr ""
+msgstr "Modem Manager"
 
 #: ../glade/diagnostics.glade:688
 msgid "<b>USSD Test Message Diagnostics</b>"
@@ -391,7 +391,7 @@ msgstr "_Outils"
 
 #: ../glade/main.glade:167 ../../gui/views/main.py:423
 msgid "Enabled"
-msgstr ""
+msgstr "Activé"
 
 #: ../glade/main.glade:177
 msgid "Change PIN"
@@ -431,7 +431,7 @@ msgstr "Créer un nouveau SMS"
 
 #: ../glade/main.glade:482
 msgid "Reply to SMS"
-msgstr ""
+msgstr "Répondre au SMS"
 
 #: ../glade/main.glade:500
 msgid "Reply to SMS quoting original message"
@@ -443,7 +443,7 @@ msgstr "Transférer le SMS"
 
 #: ../glade/main.glade:536
 msgid "Delete SMS"
-msgstr ""
+msgstr "Supprimer le SMS"
 
 #: ../glade/main.glade:583
 msgid "Search contacts"
@@ -1101,7 +1101,7 @@ msgstr "Déconnecter"
 
 #: ../../gui/views/main.py:416
 msgid "Device found"
-msgstr ""
+msgstr "Périphérique trouvé"
 
 #: ../../gui/views/main.py:417
 msgid "Disabled"
@@ -1109,11 +1109,11 @@ msgstr "Désactivé"
 
 #: ../../gui/views/main.py:418
 msgid "SIM locked"
-msgstr ""
+msgstr "SIM verrouillée"
 
 #: ../../gui/views/main.py:419
 msgid "Authenticating"
-msgstr ""
+msgstr "Authentification"
 
 #: ../../gui/views/main.py:420
 msgid "Authenticated"
@@ -1121,11 +1121,11 @@ msgstr "Authentifié"
 
 #: ../../gui/views/main.py:421
 msgid "Enabling"
-msgstr ""
+msgstr "Activation"
 
 #: ../../gui/views/main.py:422
 msgid "Disabling"
-msgstr ""
+msgstr "Désactivation"
 
 #: ../../gui/views/main.py:424
 msgid "Searching"
@@ -1189,7 +1189,7 @@ msgstr "%(day)d jour, %(msg)s"
 
 #: ../../gui/signals.py:23
 msgid "No signal"
-msgstr ""
+msgstr "Pas de signal"
 
 #: ../../gui/models/main.py:118 ../../gui/controllers/payt.py:176
 #: ../../gui/controllers/payt.py:208
@@ -1321,7 +1321,7 @@ msgstr "Êtes-vous sûr de vouloir quitter ?"
 
 #: ../../gui/controllers/main.py:187
 msgid "Can not close application"
-msgstr ""
+msgstr "Impossible de fermer l'application"
 
 #: ../../gui/controllers/main.py:188
 msgid "Can not close while a connection is active"
@@ -1361,11 +1361,11 @@ msgstr "Mot de passe invalide"
 
 #: ../../gui/controllers/main.py:380
 msgid "The supplied password is incorrect"
-msgstr ""
+msgstr "Le mot de passe fourni est incorrect"
 
 #: ../../gui/controllers/main.py:421
 msgid "SIM error"
-msgstr ""
+msgstr "Erreur SIM"
 
 #: ../../gui/controllers/main.py:422
 msgid "Perhaps your SIM is not inserted correctly?"
@@ -1407,7 +1407,7 @@ msgstr "Connexion impossible"
 
 #: ../../gui/controllers/main.py:718 ../../gui/controllers/main.py:753
 msgid "Send SMS"
-msgstr "Envoi de SMS"
+msgstr "Envoyer un SMS"
 
 #: ../../gui/controllers/main.py:731
 msgid "Quit"
@@ -1435,7 +1435,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:825
 msgid "No device found"
-msgstr ""
+msgstr "Aucun périphérique détecté"
 
 #: ../../gui/controllers/main.py:826
 msgid "No device has been found. Insert one and try again."
@@ -1451,7 +1451,7 @@ msgstr ""
 
 #: ../../gui/controllers/main.py:878
 msgid "Invalid Connection"
-msgstr ""
+msgstr "Connexion non valide"
 
 #: ../../gui/controllers/main.py:879
 msgid ""
@@ -1563,7 +1563,7 @@ msgstr ""
 
 #: ../../gui/controllers/profile.py:119
 msgid "Error creating profile"
-msgstr ""
+msgstr "Erreur de création de profil"
 
 #: ../../gui/dialogs.py:66
 msgid "translator-credits"
@@ -1571,6 +1571,7 @@ msgstr ""
 "Launchpad Contributions:\n"
 "  Andrew Bird https://launchpad.net/~ajb-spheresystems\n"
 "  Eliovir https://launchpad.net/~eliovir\n"
+"  Jean-Marc https://launchpad.net/~m-balthazar\n"
 "  sissie https://launchpad.net/~sissie"
 
 #: ../../gui/dialogs.py:134
